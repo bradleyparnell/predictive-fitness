@@ -45,13 +45,16 @@
     </table>
   </div>
 
-  <!-- Hero -->
-  <img class="hero-img" src="assets/rundot-lifestyle.png" alt="Runner with RunDot app" />
+  <!-- Hero (gradient banner) -->
+  <div style="background:linear-gradient(135deg,#0d1321 0%,#042e14 55%,#003d1a 100%);padding:56px 44px 52px;text-align:center;">
+    <div style="display:inline-block;background:#00c853;color:#ffffff;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 16px;border-radius:50px;margin-bottom:22px;">Day 2</div>
+    <h2 style="margin:0 0 14px;font-size:34px;font-weight:900;color:#ffffff;line-height:1.2;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">Your training calendar<br>is live.</h2>
+    <p style="margin:0;font-size:17px;color:rgba(255,255,255,0.6);line-height:1.6;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">Every run has a pace, a purpose, and a reason.</p>
+  </div>
 
   <!-- Body -->
   <div class="body-section">
-    <div class="badge">Day 2</div>
-    <h1>Your training calendar is live, {{ contact.firstname }}. Here's what it's telling you.</h1>
+    <h1>Here's what your calendar is telling you, {{ contact.firstname }}.</h1>
     <p>Every run on your RunDot calendar has a purpose. It's not just a distance. It's a pace zone, a duration, and a reason — all calibrated to where you are right now and where you're heading.</p>
 
     <div class="callout">
