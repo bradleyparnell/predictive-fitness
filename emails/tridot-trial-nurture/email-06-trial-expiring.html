@@ -271,5 +271,22 @@
 })();
 </script>
 
+
+<script>
+// When embedded as iframe on index page: hide toolbar and remove padding gap
+(function(){
+  if (window.self !== window.top) {
+    document.documentElement.style.cssText += ';padding-top:0!important;';
+    function hideBar() {
+      var tb = document.getElementById('hs-toolbar');
+      if (tb) tb.style.display = 'none';
+      document.body.style.paddingTop = '0';
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', hideBar);
+    } else { hideBar(); }
+  }
+})();
+</script>
 </body>
 </html>
