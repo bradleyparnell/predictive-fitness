@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A question about your training, {{ contact.firstname }} — RunDot</title>
+<style>
+  body { margin:0; padding:0; background:#f4f4f4; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; }
+  .email-wrapper { background:#f4f4f4; padding:32px 16px; }
+  .email-card { max-width:600px; margin:0 auto; background:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.10); }
+  .header { background:#0d1321; padding:28px 40px 24px; text-align:center; }
+  .fitlogic { display:block; margin:16px auto 0; opacity:0.75; }
+  .hero-img { width:100%; display:block; }
+  .badge { display:inline-block; background:#00c853; color:#ffffff; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 16px; border-radius:50px; margin-bottom:16px; }
+  .body-section { padding:36px 44px; background:#ffffff; }
+  .body-section h1 { margin:0 0 16px; font-size:28px; font-weight:800; color:#0d1321; line-height:1.25; }
+  .body-section p { margin:0 0 16px; font-size:16px; color:#444; line-height:1.7; }
+  .cta-wrap { text-align:center; padding:8px 44px 36px; background:#ffffff; }
+  .cta-btn { display:inline-block; background:#00c853; color:#ffffff; font-size:16px; font-weight:700; text-decoration:none; padding:16px 36px; border-radius:6px; letter-spacing:0.3px; }
+  .chat-preview { background:#f8f9fa; border-radius:10px; padding:20px 24px; margin:24px 0; }
+  .chat-bubble { margin-bottom:14px; }
+  .chat-bubble .label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:5px; }
+  .chat-bubble.coach .label { color:#00c853; }
+  .chat-bubble.athlete .label { color:#888; text-align:right; }
+  .chat-bubble .bubble { display:inline-block; padding:12px 16px; border-radius:12px; font-size:14px; line-height:1.5; max-width:85%; }
+  .chat-bubble.coach .bubble { background:#0d1321; color:#fff; border-bottom-left-radius:2px; }
+  .chat-bubble.athlete { text-align:right; }
+  .chat-bubble.athlete .bubble { background:#00c853; color:#fff; border-bottom-right-radius:2px; }
+  .callout { background:#f0fdf4; border-left:4px solid #00c853; border-radius:4px; padding:20px 24px; margin:24px 0; }
+  .callout p { margin:0; font-size:15px; color:#0d1321; line-height:1.6; }
+  .divider { height:1px; background:#ebebeb; margin:0; }
+  .footer { background:#0d1321; padding:28px 40px; text-align:center; }
+  .footer p { margin:8px 0; font-size:12px; color:rgba(255,255,255,0.45); line-height:1.6; }
+  .footer a { color:rgba(255,255,255,0.45); text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="email-wrapper">
+<div class="email-card">
+
+  <!-- Header -->
+  <div class="header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr><td style="text-align:center; padding-bottom:4px;">
+        <img src="https://go.tridot.com/hs-fs/hubfs/assets-rundot/images/rundot-logo-white.png" alt="RunDot" width="130" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+        <span style="display:none;font-size:26px;font-weight:900;color:#00c853;letter-spacing:-0.5px;">Run<span style="color:#ffffff;">Dot</span></span>
+      </td></tr>
+    </table>
+    <img class="fitlogic" src="https://go.tridot.com/hs-fs/hubfs/assets-rundot/images/powered-by-fitlogic-white.png?width=1200" alt="Powered by FitLogic" width="140" />
+  </div>
+
+  <!-- Hero -->
+  <img class="hero-img" src="assets/app-chat.png" alt="RunDot coach chat" />
+
+  <!-- Body -->
+  <div class="body-section">
+    <div class="badge">Day 8</div>
+    <h1>You're 8 days in, {{ contact.firstname }}. How's the training feeling?</h1>
+    <p>Eight days is exactly when runners start to notice a difference — or start to wonder if they're doing it right. Either way, we want to know.</p>
+    <p>Your RunDot coach is built into the app and ready for any question: pacing, scheduling, race strategy, recovery. No ticket system. No wait time. Real answers, fast.</p>
+
+    <div class="chat-preview">
+      <div class="chat-bubble coach">
+        <div class="label">RunDot Coach</div>
+        <div class="bubble">Your aerobic base has improved 4 points this week. Stick with the easy paces — you're building exactly the foundation we need before we add speed work.</div>
+      </div>
+      <div class="chat-bubble athlete">
+        <div class="label">You</div>
+        <div class="bubble">Got it. Should I do Tuesday's run even if I'm a little sore?</div>
+      </div>
+      <div class="chat-bubble coach">
+        <div class="label">RunDot Coach</div>
+        <div class="bubble">Yes, but keep it at the low end of Zone 2. Soreness at this stage is normal — it means the adaptation is happening.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p><strong>One thing to do today:</strong> open the chat tab in RunDot and ask your coach anything about your training. That conversation will shape every workout going forward.</p>
+    </div>
+
+    <p>The runners who get the most out of RunDot are the ones who use the coach early and often. Don't wait until something feels wrong. Ask now, while everything's going right.</p>
+  </div>
+
+  <div class="cta-wrap">
+    <a href="https://app.rundot.com" class="cta-btn">Chat with My RunDot Coach &rarr;</a>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <img src="https://go.tridot.com/hs-fs/hubfs/assets-rundot/images/powered-by-fitlogic-white.png?width=1200" alt="Powered by FitLogic" width="120" style="opacity:0.5; margin-bottom:12px; display:block; margin-left:auto; margin-right:auto;" />
+    <p>You received this because you started a RunDot trial.</p>
+    <p><a href="{{ unsubscribe_link }}">Unsubscribe</a> &nbsp;|&nbsp; <a href="{{ manage_preferences_link }}">Manage Preferences</a></p>
+    <p>&copy; 2026 Predictive Fitness, Inc. All rights reserved.</p>
+  </div>
+
+</div>
+</div>
+</body>
+</html>
