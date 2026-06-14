@@ -3,351 +3,525 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TriDot Trial Nurture — Email Redesigns</title>
+  <title>TriDot — Trial Nurture Email Redesign Review</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #0f1117;
-      color: #e5e7eb;
-      min-height: 100vh;
+      background: #0d1117;
+      color: #e6edf3;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
-    header {
-      background: #1a1d27;
-      border-bottom: 1px solid #2d2f3e;
-      padding: 28px 40px;
+
+    /* ── TOP NAV ── */
+    .topnav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 0 24px;
+      height: 56px;
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .brand-logo {
+      background: #e8002d;
+      color: #fff;
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .brand-sub {
+      font-size: 13px;
+      color: #8b949e;
+      font-weight: 500;
+    }
+    .topnav-badge {
+      margin-left: auto;
+      background: #1f2d3d;
+      border: 1px solid #30363d;
+      color: #79c0ff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    .layout {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 260px;
+      flex-shrink: 0;
+      background: #161b22;
+      border-right: 1px solid #30363d;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar-header {
+      padding: 16px 16px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #8b949e;
+    }
+    .email-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 12px 16px;
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      transition: all 0.15s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .email-item:hover { background: #1c2128; }
+    .email-item.active {
+      background: #1c2128;
+      border-left-color: #e8002d;
+    }
+    .email-item-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 8px;
     }
-    header .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    header .brand img {
-      height: 36px;
-    }
-    header .brand span {
-      font-size: 13px;
-      color: #9ca3af;
-      border-left: 1px solid #374151;
-      padding-left: 14px;
-      margin-left: 2px;
-    }
-    header .badge {
-      background: #1e3a2f;
-      color: #34d399;
-      font-size: 12px;
+    .email-step {
+      font-size: 10px;
+      color: #8b949e;
       font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 20px;
-      border: 1px solid #34d39940;
-      letter-spacing: 0.04em;
       text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
-    .hero {
-      padding: 56px 40px 40px;
-      max-width: 960px;
-      margin: 0 auto;
+    .email-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #e6edf3;
+      margin: 2px 0;
     }
-    .hero h1 {
-      font-size: 32px;
-      font-weight: 700;
-      color: #f9fafb;
-      line-height: 1.2;
-      margin-bottom: 12px;
+    .email-subject {
+      font-size: 11px;
+      color: #8b949e;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-style: italic;
     }
-    .hero p {
-      font-size: 16px;
-      color: #9ca3af;
-      line-height: 1.6;
-      max-width: 620px;
-    }
-    .stats-row {
+    .email-stats {
       display: flex;
-      gap: 24px;
-      margin-top: 32px;
-      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
     }
     .stat {
-      background: #1a1d27;
-      border: 1px solid #2d2f3e;
-      border-radius: 10px;
-      padding: 16px 20px;
-      min-width: 140px;
-    }
-    .stat .label { font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
-    .stat .value { font-size: 24px; font-weight: 700; color: #f9fafb; }
-    .grid {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 40px 60px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: #1a1d27;
-      border: 1px solid #2d2f3e;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: border-color 0.2s, transform 0.2s;
-      text-decoration: none;
-      display: block;
-    }
-    .card:hover {
-      border-color: #4f6ef7;
-      transform: translateY(-2px);
-    }
-    .card-header {
-      padding: 18px 20px 14px;
-      border-bottom: 1px solid #2d2f3e;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .card-step {
       font-size: 11px;
-      font-weight: 700;
-      color: #6b7280;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 4px;
     }
-    .card-name {
-      font-size: 16px;
-      font-weight: 600;
-      color: #f9fafb;
-      line-height: 1.3;
-    }
-    .priority {
-      font-size: 11px;
+    .stat-label { color: #8b949e; }
+    .stat-val { font-weight: 700; }
+    .stat-val.good { color: #3fb950; }
+    .stat-val.ok { color: #d29922; }
+    .stat-val.bad { color: #f85149; }
+    .stat-val.na { color: #8b949e; }
+
+    .badge {
+      font-size: 10px;
       font-weight: 700;
-      padding: 3px 9px;
+      padding: 2px 7px;
       border-radius: 20px;
       white-space: nowrap;
       flex-shrink: 0;
-      margin-top: 2px;
     }
-    .priority.rebuild { background: #3d1515; color: #f87171; border: 1px solid #f8717130; }
-    .priority.improve { background: #2d2a10; color: #fbbf24; border: 1px solid #fbbf2430; }
-    .priority.refine  { background: #1e3a2f; color: #34d399; border: 1px solid #34d39930; }
-    .card-body { padding: 16px 20px; }
-    .card-subject {
-      font-size: 13px;
-      color: #d1d5db;
-      font-style: italic;
-      margin-bottom: 10px;
-      line-height: 1.4;
-    }
-    .card-subject::before { content: '"'; }
-    .card-subject::after  { content: '"'; }
-    .card-metrics {
+    .badge-rebuild { background: #3d1a1a; color: #f85149; }
+    .badge-improve { background: #2d2208; color: #d29922; }
+    .badge-refine  { background: #0d2a1a; color: #3fb950; }
+
+    /* ── COMPARISON AREA ── */
+    .comparison {
+      flex: 1;
       display: flex;
-      gap: 16px;
-      margin-bottom: 14px;
+      flex-direction: column;
+      overflow: hidden;
     }
-    .metric { font-size: 12px; color: #6b7280; }
-    .metric strong { color: #e5e7eb; font-weight: 600; }
-    .metric.red strong { color: #f87171; }
-    .metric.green strong { color: #34d399; }
-    .card-note {
-      font-size: 12px;
-      color: #6b7280;
-      line-height: 1.5;
-      border-top: 1px solid #2d2f3e;
-      padding-top: 12px;
-    }
-    .card-footer {
-      padding: 12px 20px;
-      background: #141720;
+
+    .comp-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 12px 20px;
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+      flex-shrink: 0;
     }
-    .card-footer span {
+    .comp-title {
+      font-size: 15px;
+      font-weight: 700;
+    }
+    .comp-subtitle {
       font-size: 12px;
-      color: #4f6ef7;
-      font-weight: 500;
+      color: #8b949e;
+      margin-top: 2px;
     }
-    .card-footer svg { color: #4f6ef7; }
-    footer {
-      text-align: center;
-      padding: 32px;
+    .comp-tabs {
+      display: flex;
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .comp-tab {
+      padding: 7px 18px;
       font-size: 12px;
-      color: #4b5563;
-      border-top: 1px solid #1f2231;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+      color: #8b949e;
+      border: none;
+      background: none;
+      letter-spacing: 0.3px;
     }
+    .comp-tab.active {
+      background: #30363d;
+      color: #e6edf3;
+    }
+
+    .comp-panels {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .panel + .panel {
+      border-left: 3px solid #e8002d;
+    }
+    .panel-label {
+      padding: 8px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #8b949e;
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .panel-label-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .before-dot { background: #8b949e; }
+    .after-dot  { background: #e8002d; }
+
+    .panel-scroll {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      padding: 24px 0;
+    }
+    .panel-scroll img {
+      width: 100%;
+      max-width: 640px;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .panel-scroll iframe {
+      width: 640px;
+      max-width: 100%;
+      min-height: 100%;
+      height: 4000px;
+      border: none;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      background: #fff;
+    }
+
+    /* Single view mode */
+    .comp-panels.single-before .panel.after-panel,
+    .comp-panels.single-after .panel.before-panel {
+      display: none;
+    }
+    .comp-panels.single-before .panel.before-panel,
+    .comp-panels.single-after .panel.after-panel {
+      border-left: none;
+    }
+
+    /* ── BOTTOM NOTES ── */
+    .notes-bar {
+      padding: 10px 20px;
+      background: #161b22;
+      border-top: 1px solid #30363d;
+      font-size: 12px;
+      color: #8b949e;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .notes-bar strong { color: #e6edf3; }
+
+    /* scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
   </style>
 </head>
 <body>
 
-<header>
+<!-- TOP NAV -->
+<nav class="topnav">
   <div class="brand">
-    <img src="https://hs-243181353.f.hubspotsites.com/hubfs/TriDot%20Email%20Images/TriDot%20Horizontal%20Logo%20White.png" alt="TriDot" />
-    <span>Trial Nurture — Email Redesigns</span>
+    <span class="brand-logo">TriDot</span>
+    <span class="brand-sub">Trial Nurture — Email Redesign Review</span>
   </div>
-  <div class="badge">Redesign Draft</div>
-</header>
+  <span class="topnav-badge">Redesign Draft · June 2026</span>
+</nav>
 
-<div class="hero">
-  <h1>Trial Nurture Sequence</h1>
-  <p>All 6 emails redesigned for higher conversion — improved copy, stronger CTAs, better visual hierarchy, and fixed broken personalization tokens.</p>
-  <div class="stats-row">
-    <div class="stat">
-      <div class="label">Emails</div>
-      <div class="value">6</div>
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">6 Emails · Trial Nurture</div>
+
+    <a class="email-item active" onclick="selectEmail(0); return false;" href="#">
+      <div class="email-item-top">
+        <span class="email-step">Step 1 · Day 0</span>
+        <span class="badge badge-refine">Refine</span>
+      </div>
+      <div class="email-name">Day 1 Welcome</div>
+      <div class="email-subject">"Better training starts now!!!"</div>
+      <div class="email-stats">
+        <span class="stat"><span class="stat-label">Open </span><span class="stat-val good">22.2%</span></span>
+        <span class="stat"><span class="stat-label">CTR </span><span class="stat-val good">3.48%</span></span>
+      </div>
+    </a>
+
+    <a class="email-item" onclick="selectEmail(1); return false;" href="#">
+      <div class="email-item-top">
+        <span class="email-step">Step 2 · Day 2</span>
+        <span class="badge badge-refine">Refine</span>
+      </div>
+      <div class="email-name">Onboard Started #1</div>
+      <div class="email-subject">"You were almost there, [first name]"</div>
+      <div class="email-stats">
+        <span class="stat"><span class="stat-label">Open </span><span class="stat-val good">20.5%</span></span>
+        <span class="stat"><span class="stat-label">CTR </span><span class="stat-val good">2.66%</span></span>
+      </div>
+    </a>
+
+    <a class="email-item" onclick="selectEmail(2); return false;" href="#">
+      <div class="email-item-top">
+        <span class="email-step">Step 3 · Day 4</span>
+        <span class="badge badge-improve">Improve</span>
+      </div>
+      <div class="email-name">Founder Message</div>
+      <div class="email-subject">"A quick note from the founder 📝"</div>
+      <div class="email-stats">
+        <span class="stat"><span class="stat-label">Open </span><span class="stat-val ok">14.3%</span></span>
+        <span class="stat"><span class="stat-label">CTR </span><span class="stat-val ok">0.75%</span></span>
+      </div>
+    </a>
+
+    <a class="email-item" onclick="selectEmail(3); return false;" href="#">
+      <div class="email-item-top">
+        <span class="email-step">Step 4 · Day 7</span>
+        <span class="badge badge-rebuild">Rebuild</span>
+      </div>
+      <div class="email-name">Social Proof</div>
+      <div class="email-subject">"This is why triathletes love TriDot"</div>
+      <div class="email-stats">
+        <span class="stat"><span class="stat-label">Open </span><span class="stat-val ok">12.1%</span></span>
+        <span class="stat"><span class="stat-label">CTR </span><span class="stat-val bad">0.21%</span></span>
+      </div>
+    </a>
+
+    <a class="email-item" onclick="selectEmail(4); return false;" href="#">
+      <div class="email-item-top">
+        <span class="email-step">Step 5 · Day 10</span>
+        <span class="badge badge-improve">Improve</span>
+      </div>
+      <div class="email-name">Onboard Started #2</div>
+      <div class="email-subject">"How can I help, [First Name]"</div>
+      <div class="email-stats">
+        <span class="stat"><span class="stat-label">Open </span><span class="stat-val na">—</span></span>
+        <span class="stat"><span class="stat-label">CTR </span><span class="stat-val na">—</span></span>
+      </div>
+    </a>
+
+    <a class="email-item" onclick="selectEmail(5); return false;" href="#">
+      <div class="email-item-top">
+        <span class="email-step">Step 6 · Day 13</span>
+        <span class="badge badge-rebuild">Rebuild</span>
+      </div>
+      <div class="email-name">Trial Expiring</div>
+      <div class="email-subject">"Your trial ends in 3 days 🚨"</div>
+      <div class="email-stats">
+        <span class="stat"><span class="stat-label">Open </span><span class="stat-val na">—</span></span>
+        <span class="stat"><span class="stat-label">CTR </span><span class="stat-val na">—</span></span>
+      </div>
+    </a>
+  </aside>
+
+  <!-- COMPARISON -->
+  <div class="comparison">
+    <div class="comp-header">
+      <div>
+        <div class="comp-title" id="comp-title">Day 1 Welcome</div>
+        <div class="comp-subtitle" id="comp-subtitle">Step 1 · Day 0 · Subject: "Better training starts now!!!"</div>
+      </div>
+      <div class="comp-tabs">
+        <button class="comp-tab active" onclick="setView('split')">Side by Side</button>
+        <button class="comp-tab" onclick="setView('before')">Before</button>
+        <button class="comp-tab" onclick="setView('after')">After</button>
+      </div>
     </div>
-    <div class="stat">
-      <div class="label">Best Open Rate</div>
-      <div class="value">22.2%</div>
+
+    <div class="comp-panels" id="comp-panels">
+      <div class="panel before-panel">
+        <div class="panel-label">
+          <span class="panel-label-dot before-dot"></span>
+          Before — Current Live Version
+        </div>
+        <div class="panel-scroll" id="before-scroll">
+          <img id="before-img" src="./screenshots/email-01-day1.png" alt="Current email" />
+        </div>
+      </div>
+      <div class="panel after-panel">
+        <div class="panel-label">
+          <span class="panel-label-dot after-dot"></span>
+          After — Redesigned
+        </div>
+        <div class="panel-scroll" id="after-scroll">
+          <iframe id="after-frame" src="./email-01-day1-welcome.html" title="Redesigned email"></iframe>
+        </div>
+      </div>
     </div>
-    <div class="stat">
-      <div class="label">Best CTR</div>
-      <div class="value">3.48%</div>
-    </div>
-    <div class="stat">
-      <div class="label">Lowest CTR</div>
-      <div class="value">0.21%</div>
+
+    <div class="notes-bar" id="notes-bar">
+      <strong>Note:</strong> Top performer — light touch. Cleaner layout, numbered onboarding steps, stronger first CTA. Voice preserved.
     </div>
   </div>
-</div>
-
-<div class="grid">
-
-  <a class="card" href="email-01-day1-welcome.html">
-    <div class="card-header">
-      <div>
-        <div class="card-step">Step 1 · Day 0</div>
-        <div class="card-name">Day 1 Welcome</div>
-      </div>
-      <div class="priority refine">Refine</div>
-    </div>
-    <div class="card-body">
-      <div class="card-subject">Better training starts now!!!</div>
-      <div class="card-metrics">
-        <div class="metric green"><strong>22.2%</strong> Open</div>
-        <div class="metric green"><strong>3.48%</strong> CTR</div>
-      </div>
-      <div class="card-note">Top performer. Light redesign — cleaner layout, numbered onboarding steps, stronger first CTA.</div>
-    </div>
-    <div class="card-footer">
-      <span>View redesign →</span>
-    </div>
-  </a>
-
-  <a class="card" href="email-02-onboard1.html">
-    <div class="card-header">
-      <div>
-        <div class="card-step">Step 2 · Day 2</div>
-        <div class="card-name">Onboard Started #1</div>
-      </div>
-      <div class="priority refine">Refine</div>
-    </div>
-    <div class="card-body">
-      <div class="card-subject">You were almost there, [first name]‼️</div>
-      <div class="card-metrics">
-        <div class="metric green"><strong>20.5%</strong> Open</div>
-        <div class="metric green"><strong>2.66%</strong> CTR</div>
-      </div>
-      <div class="card-note">Strong performer. Added benefits checklist of what completing setup unlocks.</div>
-    </div>
-    <div class="card-footer">
-      <span>View redesign →</span>
-    </div>
-  </a>
-
-  <a class="card" href="email-03-founder.html">
-    <div class="card-header">
-      <div>
-        <div class="card-step">Step 3 · Day 4</div>
-        <div class="card-name">Founder Message</div>
-      </div>
-      <div class="priority improve">Improve</div>
-    </div>
-    <div class="card-body">
-      <div class="card-subject">A quick note from the founder 📝</div>
-      <div class="card-metrics">
-        <div class="metric"><strong>14.3%</strong> Open</div>
-        <div class="metric red"><strong>0.75%</strong> CTR</div>
-      </div>
-      <div class="card-note">Had no CTA. Added app CTA after Jeff's personal story while keeping the conversational tone.</div>
-    </div>
-    <div class="card-footer">
-      <span>View redesign →</span>
-    </div>
-  </a>
-
-  <a class="card" href="email-04-social-proof.html">
-    <div class="card-header">
-      <div>
-        <div class="card-step">Step 4 · Day 7</div>
-        <div class="card-name">Social Proof</div>
-      </div>
-      <div class="priority rebuild">Rebuild</div>
-    </div>
-    <div class="card-body">
-      <div class="card-subject">This is why triathletes love TriDot ➡️</div>
-      <div class="card-metrics">
-        <div class="metric"><strong>12.1%</strong> Open</div>
-        <div class="metric red"><strong>0.21%</strong> CTR</div>
-      </div>
-      <div class="card-note">Lowest CTR. Full rebuild — outcome-focused reviews, stats bar, stronger conversion headline.</div>
-    </div>
-    <div class="card-footer">
-      <span>View redesign →</span>
-    </div>
-  </a>
-
-  <a class="card" href="email-05-onboard2.html">
-    <div class="card-header">
-      <div>
-        <div class="card-step">Step 5 · Day 10</div>
-        <div class="card-name">Onboard Started #2</div>
-      </div>
-      <div class="priority improve">Improve</div>
-    </div>
-    <div class="card-body">
-      <div class="card-subject">How can I help, [First Name]</div>
-      <div class="card-metrics">
-        <div class="metric"><strong>—</strong> Open</div>
-        <div class="metric"><strong>—</strong> CTR</div>
-      </div>
-      <div class="card-note">Very sparse. Expanded with top 3 setup tips, warmer personal tone, clearer CTA.</div>
-    </div>
-    <div class="card-footer">
-      <span>View redesign →</span>
-    </div>
-  </a>
-
-  <a class="card" href="email-06-trial-expiring.html">
-    <div class="card-header">
-      <div>
-        <div class="card-step">Step 6 · Day 13</div>
-        <div class="card-name">Trial Expiring</div>
-      </div>
-      <div class="priority rebuild">Rebuild</div>
-    </div>
-    <div class="card-body">
-      <div class="card-subject">Your trial ends in 3 days, [First Name] 🚨</div>
-      <div class="card-metrics">
-        <div class="metric"><strong>—</strong> Open</div>
-        <div class="metric"><strong>—</strong> CTR</div>
-      </div>
-      <div class="card-note">All 4 merge tags broken in live version (showing null). Fixed + added urgency badge and "what you'll lose" checklist.</div>
-    </div>
-    <div class="card-footer">
-      <span>View redesign →</span>
-    </div>
-  </a>
 
 </div>
 
-<footer>
-  Prepared by Predictive Fitness · TriDot Email Redesign Project · Trial Nurture Sequence
-</footer>
+<script>
+  const emails = [
+    {
+      name: 'Day 1 Welcome',
+      subtitle: 'Step 1 · Day 0 · Subject: "Better training starts now!!!"',
+      screenshot: './screenshots/email-01-day1.png',
+      redesign: './email-01-day1-welcome.html',
+      note: '<strong>Note:</strong> Top performer — light touch. Cleaner layout, numbered onboarding steps, stronger first CTA. Voice preserved.'
+    },
+    {
+      name: 'Onboard Started #1',
+      subtitle: 'Step 2 · Day 2 · Subject: "You were almost there, [first name]‼️"',
+      screenshot: './screenshots/email-02-onboard1.png',
+      redesign: './email-02-onboard1.html',
+      note: '<strong>Note:</strong> Strong performer — added benefits checklist showing what completing setup unlocks. Keeps urgency tone.'
+    },
+    {
+      name: 'Founder Message',
+      subtitle: 'Step 3 · Day 4 · Subject: "A quick note from the founder 📝"',
+      screenshot: './screenshots/email-03-founder.png',
+      redesign: './email-03-founder.html',
+      note: '<strong>Note:</strong> Had no CTA at all. Added app CTA after Jeff\'s personal story. Conversational tone preserved.'
+    },
+    {
+      name: 'Social Proof',
+      subtitle: 'Step 4 · Day 7 · Subject: "This is why triathletes love TriDot ➡️"',
+      screenshot: './screenshots/email-04-social-proof.png',
+      redesign: './email-04-social-proof.html',
+      note: '<strong>🚨 Lowest CTR (0.21%):</strong> Full rebuild. Outcome-focused reviews ("PR\'d by 18 min"), stats bar, outcome-first headline.'
+    },
+    {
+      name: 'Onboard Started #2',
+      subtitle: 'Step 5 · Day 10 · Subject: "How can I help, [First Name]"',
+      screenshot: './screenshots/email-05-onboard2.png',
+      redesign: './email-05-onboard2.html',
+      note: '<strong>Note:</strong> Was extremely sparse. Expanded with top 3 setup tips, warmer personal tone from Ben, better CTA copy.'
+    },
+    {
+      name: 'Trial Expiring',
+      subtitle: 'Step 6 · Day 13 · Subject: "Your trial ends in 3 days, [First Name] 🚨"',
+      screenshot: './screenshots/email-06-trial-expiring.png',
+      redesign: './email-06-trial-expiring.html',
+      note: '<strong>🚨 Broken merge tags in live version:</strong> Fixed all 4 null tokens. Added urgency badge, "what you\'ll lose" checklist, countdown framing.'
+    }
+  ];
+
+  let currentEmail = 0;
+  let currentView = 'split';
+
+  function selectEmail(idx) {
+    currentEmail = idx;
+    const e = emails[idx];
+
+    // Update sidebar active
+    document.querySelectorAll('.email-item').forEach((el, i) => {
+      el.classList.toggle('active', i === idx);
+    });
+
+    // Update header
+    document.getElementById('comp-title').textContent = e.name;
+    document.getElementById('comp-subtitle').textContent = e.subtitle;
+
+    // Update panels
+    document.getElementById('before-img').src = e.screenshot;
+    document.getElementById('after-frame').src = e.redesign;
+
+    // Update notes
+    document.getElementById('notes-bar').innerHTML = e.note;
+  }
+
+  function setView(view) {
+    currentView = view;
+    const panels = document.getElementById('comp-panels');
+    panels.className = 'comp-panels';
+    if (view === 'before') panels.classList.add('single-before');
+    if (view === 'after') panels.classList.add('single-after');
+
+    document.querySelectorAll('.comp-tab').forEach((tab, i) => {
+      tab.classList.toggle('active', ['split','before','after'][i] === view);
+    });
+  }
+</script>
 
 </body>
 </html>
