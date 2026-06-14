@@ -6,7 +6,7 @@
 <title>RunDot™ | Purpose-Built Run Training Intelligence</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   
@@ -25,7 +25,7 @@
     --white: #ffffff;
     --off-white: #f9fafb;
     --font-body: 'DM Sans', sans-serif;
-    --font-display: 'Barlow Condensed', sans-serif;
+    --font-display: 'Playfair Display', Georgia, serif;
   }
 
   html { scroll-behavior: smooth; }
@@ -88,14 +88,14 @@
   .hero-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green-light); }
   .hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(48px, 5vw, 76px);
-    font-weight: 700;
+    font-size: clamp(52px, 5.5vw, 84px);
+    font-weight: 800;
     font-style: normal;
     line-height: 1.05;
     margin-bottom: 24px;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
-  .hero h1 em { font-style: italic; font-weight: 700; color: var(--green-light); }
+  .hero h1 em { font-style: italic; font-weight: 800; color: var(--green-light); }
   .hero-sub {
     font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.72);
     line-height: 1.65; max-width: 480px; margin-bottom: 44px;
@@ -531,6 +531,25 @@
     font-size: 14px; color: rgba(255,255,255,0.58); line-height: 1.6;
   }
 
+
+  /* Hero social proof */
+  .hero-social-proof {
+    display: flex; align-items: center; gap: 14px; margin-top: 36px;
+  }
+  .hero-avatars { display: flex; }
+  .avatar {
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; color: #fff;
+    margin-left: -8px; font-family: var(--font-body);
+    letter-spacing: 0;
+  }
+  .hero-avatars .avatar:first-child { margin-left: 0; }
+  .avatar-more { background: var(--green); border-color: var(--green); font-size: 14px; }
+  .hero-proof-text { font-size: 14px; color: rgba(255,255,255,0.72); font-family: var(--font-body); }
+  .hero-proof-text strong { color: #fff; font-weight: 600; }
+
 </style>
 </head>
 <body>
@@ -556,21 +575,21 @@
   <div class="hero-content">
     <div class="hero-left">
       <div class="hero-eyebrow">Purpose-Built Training Intelligence</div>
-      <h1>Better results.<br><em>Less time.</em><br>Fewer injuries.</h1>
+      <h1>Your next PR<br><em>is already</em><br>planned.</h1>
       <p class="hero-sub">RunDot™ is purpose-built training intelligence — not a repurposed AI app. Built on 20+ years of real athlete data to deliver better results in less time, with fewer injuries.</p>
       <div class="hero-actions">
         <a href="#" class="btn-primary">Start Your Free Trial</a>
         <a href="#" class="btn-ghost">See How It Works</a>
       </div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-num">30<span>%</span></div>
-          <div class="stat-label">Less Training Time</div>
+      <div class="hero-social-proof">
+        <div class="hero-avatars">
+          <div class="avatar" style="background:#4a7c59;">JM</div>
+          <div class="avatar" style="background:#2d6a4f;">SR</div>
+          <div class="avatar" style="background:#1b4332;">TK</div>
+          <div class="avatar" style="background:#53b956;">AB</div>
+          <div class="avatar avatar-more">+</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">20<span>+</span></div>
-          <div class="stat-label">Years of Real Training Data</div>
-        </div>
+        <div class="hero-proof-text"><strong>50,000+ runners</strong> already training smarter</div>
       </div>
     </div>
     <div class="hero-right">
