@@ -511,6 +511,22 @@
       border-color: #2e3550;
     }
 
+
+    .approve-btn {
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 12px; padding: 10px 18px;
+      background: #f1f5f9; border: 2px solid #cbd5e1;
+      border-radius: 8px; cursor: pointer; font-size: 14px;
+      font-weight: 600; color: #475569; transition: all 0.2s;
+      width: 100%;
+    }
+    .approve-btn:hover { background: #dcfce7; border-color: #86efac; color: #15803d; }
+    .approve-btn.approved {
+      background: #dcfce7; border-color: #22c55e; color: #15803d;
+    }
+    .approve-btn .approve-icon { font-size: 18px; }
+    .approve-btn .approve-label { flex: 1; text-align: left; }
+    .approve-btn .approve-date { font-size: 11px; font-weight: 400; color: #6b7280; }
   </style>
 </head>
 <body>
@@ -605,6 +621,11 @@
       <input class="feedback-name-input" type="text" placeholder="Your name" />
       <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
       <button class="feedback-submit">Post</button>
+      <button class="approve-btn" onclick="toggleApproval(this)">
+        <span class="approve-icon">⬜</span>
+        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
+        <span class="approve-date"></span>
+      </button>
     </div>
   </div>
 
@@ -659,6 +680,11 @@
       <input class="feedback-name-input" type="text" placeholder="Your name" />
       <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
       <button class="feedback-submit">Post</button>
+      <button class="approve-btn" onclick="toggleApproval(this)">
+        <span class="approve-icon">⬜</span>
+        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
+        <span class="approve-date"></span>
+      </button>
     </div>
   </div>
 
@@ -714,6 +740,11 @@
       <input class="feedback-name-input" type="text" placeholder="Your name" />
       <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
       <button class="feedback-submit">Post</button>
+      <button class="approve-btn" onclick="toggleApproval(this)">
+        <span class="approve-icon">⬜</span>
+        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
+        <span class="approve-date"></span>
+      </button>
     </div>
   </div>
 
@@ -769,6 +800,11 @@
       <input class="feedback-name-input" type="text" placeholder="Your name" />
       <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
       <button class="feedback-submit">Post</button>
+      <button class="approve-btn" onclick="toggleApproval(this)">
+        <span class="approve-icon">⬜</span>
+        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
+        <span class="approve-date"></span>
+      </button>
     </div>
   </div>
 
@@ -824,6 +860,11 @@
       <input class="feedback-name-input" type="text" placeholder="Your name" />
       <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
       <button class="feedback-submit">Post</button>
+      <button class="approve-btn" onclick="toggleApproval(this)">
+        <span class="approve-icon">⬜</span>
+        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
+        <span class="approve-date"></span>
+      </button>
     </div>
   </div>
 
@@ -875,6 +916,11 @@
       <input class="feedback-name-input" type="text" placeholder="Your name" />
       <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
       <button class="feedback-submit">Post</button>
+      <button class="approve-btn" onclick="toggleApproval(this)">
+        <span class="approve-icon">⬜</span>
+        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
+        <span class="approve-date"></span>
+      </button>
     </div>
   </div>
 
@@ -953,6 +999,11 @@
       <input class="feedback-name-input" type="text" placeholder="Your name" />
       <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
       <button class="feedback-submit">Post</button>
+      <button class="approve-btn" onclick="toggleApproval(this)">
+        <span class="approve-icon">⬜</span>
+        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
+        <span class="approve-date"></span>
+      </button>
     </div>
   </div>
 
@@ -1006,6 +1057,11 @@
       <input class="feedback-name-input" type="text" placeholder="Your name" />
       <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
       <button class="feedback-submit">Post</button>
+      <button class="approve-btn" onclick="toggleApproval(this)">
+        <span class="approve-icon">⬜</span>
+        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
+        <span class="approve-date"></span>
+      </button>
     </div>
   </div>
 
@@ -1059,6 +1115,11 @@
       <input class="feedback-name-input" type="text" placeholder="Your name" />
       <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
       <button class="feedback-submit">Post</button>
+      <button class="approve-btn" onclick="toggleApproval(this)">
+        <span class="approve-icon">⬜</span>
+        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
+        <span class="approve-date"></span>
+      </button>
     </div>
   </div>
 
@@ -1112,6 +1173,11 @@
       <input class="feedback-name-input" type="text" placeholder="Your name" />
       <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
       <button class="feedback-submit">Post</button>
+      <button class="approve-btn" onclick="toggleApproval(this)">
+        <span class="approve-icon">⬜</span>
+        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
+        <span class="approve-date"></span>
+      </button>
     </div>
   </div>
 
@@ -1165,6 +1231,11 @@
       <input class="feedback-name-input" type="text" placeholder="Your name" />
       <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
       <button class="feedback-submit">Post</button>
+      <button class="approve-btn" onclick="toggleApproval(this)">
+        <span class="approve-icon">⬜</span>
+        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
+        <span class="approve-date"></span>
+      </button>
     </div>
   </div>
 
@@ -1218,6 +1289,11 @@
       <input class="feedback-name-input" type="text" placeholder="Your name" />
       <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
       <button class="feedback-submit">Post</button>
+      <button class="approve-btn" onclick="toggleApproval(this)">
+        <span class="approve-icon">⬜</span>
+        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
+        <span class="approve-date"></span>
+      </button>
     </div>
   </div>
 
@@ -1271,6 +1347,11 @@
       <input class="feedback-name-input" type="text" placeholder="Your name" />
       <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
       <button class="feedback-submit">Post</button>
+      <button class="approve-btn" onclick="toggleApproval(this)">
+        <span class="approve-icon">⬜</span>
+        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
+        <span class="approve-date"></span>
+      </button>
     </div>
   </div>
 
@@ -1324,6 +1405,11 @@
       <input class="feedback-name-input" type="text" placeholder="Your name" />
       <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
       <button class="feedback-submit">Post</button>
+      <button class="approve-btn" onclick="toggleApproval(this)">
+        <span class="approve-icon">⬜</span>
+        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
+        <span class="approve-date"></span>
+      </button>
     </div>
   </div>
 
@@ -1377,6 +1463,11 @@
       <input class="feedback-name-input" type="text" placeholder="Your name" />
       <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
       <button class="feedback-submit">Post</button>
+      <button class="approve-btn" onclick="toggleApproval(this)">
+        <span class="approve-icon">⬜</span>
+        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
+        <span class="approve-date"></span>
+      </button>
     </div>
   </div>
 
@@ -1495,33 +1586,75 @@
       if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { e.preventDefault(); post(); }
     });
     render();
+
+    // Restore approval state
+    const approveBtn = box.querySelector('.approve-btn');
+    if (approveBtn) {
+      const approvedData = localStorage.getItem('approved_' + id);
+      if (approvedData) {
+        const d = JSON.parse(approvedData);
+        approveBtn.classList.add('approved');
+        approveBtn.querySelector('.approve-icon').textContent = '✅';
+        approveBtn.querySelector('.approve-label').textContent = 'CEO Approved — Ready for HubSpot';
+        approveBtn.querySelector('.approve-date').textContent = 'Approved ' + d.date;
+      }
+    }
   }
 
   document.querySelectorAll('.feedback-box').forEach(initFeedback);
 
+  // Toggle approval
+  window.toggleApproval = function(btn) {
+    const box = btn.closest('.feedback-box');
+    const id = box.dataset.emailId;
+    const KEY = 'approved_' + id;
+    if (btn.classList.contains('approved')) {
+      // Un-approve
+      btn.classList.remove('approved');
+      btn.querySelector('.approve-icon').textContent = '⬜';
+      btn.querySelector('.approve-label').textContent = 'Mark as CEO Approved — Ready for HubSpot';
+      btn.querySelector('.approve-date').textContent = '';
+      localStorage.removeItem(KEY);
+    } else {
+      // Approve
+      const dateStr = new Date().toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
+      btn.classList.add('approved');
+      btn.querySelector('.approve-icon').textContent = '✅';
+      btn.querySelector('.approve-label').textContent = 'CEO Approved — Ready for HubSpot';
+      btn.querySelector('.approve-date').textContent = 'Approved ' + dateStr;
+      localStorage.setItem(KEY, JSON.stringify({ date: dateStr }));
+    }
+  };
+
   // Export all feedback — called by the floating right-side tab
   window.exportFeedback = function() {
-    let out = 'TriDot / RunDot Email Redesign — Internal Feedback\n';
-    out += 'Exported: ' + new Date().toLocaleString() + '\n';
-    out += '='.repeat(60) + '\n\n';
-    let hasAny = false;
+    const lines = [];
+    lines.push('TriDot / RunDot Email Redesign — Internal Feedback');
+    lines.push('Exported: ' + new Date().toLocaleString());
+    lines.push('Email ID,Email Title,Approved,Approved Date,Reviewer,Comment,Timestamp');
     document.querySelectorAll('.feedback-box').forEach(box => {
+      const id = box.dataset.emailId;
       const title = box.dataset.emailTitle;
-      const KEY = 'fb_' + box.dataset.emailId;
+      const approvedData = localStorage.getItem('approved_' + id);
+      const approved = approvedData ? 'YES' : 'NO';
+      const approvedDate = approvedData ? JSON.parse(approvedData).date : '';
+      const KEY = 'fb_' + id;
       let arr = [];
       try { arr = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e) {}
       if (arr.length) {
-        hasAny = true;
-        out += '## ' + title + '\n';
-        arr.forEach(c => out += '  [' + c.time + '] ' + c.name + ': ' + c.text + '\n');
-        out += '\n';
+        arr.forEach(c => {
+          const esc = v => '"' + String(v).replace(/"/g, '\'\''') + '"';
+          lines.push([esc(id), esc(title), approved, esc(approvedDate), esc(c.name), esc(c.text), esc(c.time)].join(','));
+        });
+      } else {
+        const esc = v => '"' + String(v).replace(/"/g, '\'\''') + '"';
+        lines.push([esc(id), esc(title), approved, esc(approvedDate), '', '', ''].join(','));
       }
     });
-    if (!hasAny) { out += '(No feedback recorded yet.)\n'; }
-    const blob = new Blob([out], { type: 'text/plain' });
+    const blob = new Blob([lines.join('\n')], { type: 'text/csv' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = 'email-feedback-' + new Date().toISOString().slice(0,10) + '.txt';
+    a.download = 'email-feedback-' + new Date().toISOString().slice(0,10) + '.csv';
     a.click();
   };
 
