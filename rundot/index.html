@@ -687,22 +687,22 @@
   <div class="trust-strip">
     <div class="trust-inner">
       <div class="trust-stat">
-        <span class="trust-num">20<span class="trust-plus">+</span></span>
+        <span class="trust-num" data-target="20" data-suffix="+">0<span class="trust-plus">+</span></span>
         <span class="trust-label">Years of Real Training Data</span>
       </div>
       <div class="trust-divider"></div>
       <div class="trust-stat">
-        <span class="trust-num">100<span class="trust-plus">%</span></span>
+        <span class="trust-num" data-target="100" data-suffix="%">0<span class="trust-plus">%</span></span>
         <span class="trust-label">Science-Backed Prescriptions</span>
       </div>
       <div class="trust-divider"></div>
       <div class="trust-stat">
-        <span class="trust-num">4</span>
+        <span class="trust-num" data-target="4" data-suffix="">0</span>
         <span class="trust-label">Training Phases, One Platform</span>
       </div>
       <div class="trust-divider"></div>
       <div class="trust-stat">
-        <span class="trust-num">30<span class="trust-plus">%</span></span>
+        <span class="trust-num" data-target="30" data-suffix="%">0<span class="trust-plus">%</span></span>
         <span class="trust-label">Less Training, More Results</span>
       </div>
     </div>
@@ -1134,6 +1134,45 @@
   }
 
   // Meb proof stats: "20+ Years" and "Up to 30%"
+  // ── TRUST STRIP COUNTERS ──
+  (function () {
+    var strip = document.querySelector('.trust-strip');
+    if (!strip) return;
+    var nums = strip.querySelectorAll('.trust-num[data-target]');
+    var fired = false;
+    var obs = new IntersectionObserver(function (entries) {
+      if (fired) return;
+      if (!entries[0].isIntersecting) return;
+      fired = true;
+      nums.forEach(function (el) {
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        var suffix = el.getAttribute('data-suffix') || '';
+        var plus = el.querySelector('.trust-plus');
+        var duration = target >= 100 ? 1800 : 1200;
+        var start = null;
+        function ease(t) { return t < 0.5 ? 2*t*t : -1+(4-2*t)*t; }
+        function step(ts) {
+          if (!start) start = ts;
+          var progress = Math.min((ts - start) / duration, 1);
+          var val = Math.round(ease(progress) * target);
+          if (plus) {
+            el.childNodes[0].textContent = val;
+          } else {
+            el.textContent = val + suffix;
+          }
+          if (progress < 1) requestAnimationFrame(step);
+          else {
+            if (plus) el.childNodes[0].textContent = target;
+            else el.textContent = target + suffix;
+          }
+        }
+        requestAnimationFrame(step);
+      });
+      obs.disconnect();
+    }, { threshold: 0.5 });
+    obs.observe(strip);
+  })();
+
   document.querySelectorAll('.meb-proof-val').forEach(function (el) {
     var text = el.textContent.trim();
     var cfg = null;
