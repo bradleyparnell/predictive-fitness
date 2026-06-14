@@ -480,6 +480,37 @@
     }
     .feedback-submit:hover { background: #f59e0b; }
 
+    /* ── Floating feedback export tab ── */
+    #feedback-float-tab {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      rotate: 180deg;
+      background: #161b27;
+      border: 1px solid #252a3a;
+      border-right: none;
+      color: #444;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 18px 10px;
+      cursor: pointer;
+      border-radius: 6px 0 0 6px;
+      z-index: 200;
+      user-select: none;
+      transition: color 0.2s, background 0.2s, border-color 0.2s;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    #feedback-float-tab:hover {
+      color: #888;
+      background: #1e2436;
+      border-color: #2e3550;
+    }
+
   </style>
 </head>
 <body>
@@ -490,9 +521,13 @@
     <img class="nav-logo" src="https://cdn.prod.website-files.com/64cd80d6bbd5c717a4bfd6ed/650c3eea596e4fa83835e9d6_45ca19156e10067839499c729f42fd83_PredictiveFitness_logo_Horizontal_2color_darkBG-768-c-100.png" alt="Predictive Fitness" />
     <span class="nav-title">Email Redesigns</span>
   </div>
-  <button class="export-btn" id="export-feedback-btn">📋 Export Feedback</button>
   <span class="nav-badge">Redesign Draft</span>
 </nav>
+
+<!-- Floating feedback export tab -->
+<div id="feedback-float-tab" onclick="exportFeedback()" title="Export all feedback as text">
+  <span>Export Feedback</span>
+</div>
 
 
 <!-- Tab Bar -->
@@ -1464,31 +1499,31 @@
 
   document.querySelectorAll('.feedback-box').forEach(initFeedback);
 
-  // Export all feedback
-  const exportBtn = document.getElementById('exportBtn');
-  if (exportBtn) {
-    exportBtn.addEventListener('click', () => {
-      let out = 'TriDot / RunDot Email Redesign — CEO Feedback\n';
-      out += 'Exported: ' + new Date().toLocaleString() + '\n';
-      out += '='.repeat(60) + '\n\n';
-      document.querySelectorAll('.feedback-box').forEach(box => {
-        const title = box.dataset.emailTitle;
-        const KEY = 'fb_' + box.dataset.emailId;
-        let arr = [];
-        try { arr = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e) {}
-        if (arr.length) {
-          out += '## ' + title + '\n';
-          arr.forEach(c => out += '  [' + c.time + '] ' + c.name + ': ' + c.text + '\n');
-          out += '\n';
-        }
-      });
-      const blob = new Blob([out], { type: 'text/plain' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'email-feedback-' + new Date().toISOString().slice(0,10) + '.txt';
-      a.click();
+  // Export all feedback — called by the floating right-side tab
+  window.exportFeedback = function() {
+    let out = 'TriDot / RunDot Email Redesign — CEO Feedback\n';
+    out += 'Exported: ' + new Date().toLocaleString() + '\n';
+    out += '='.repeat(60) + '\n\n';
+    let hasAny = false;
+    document.querySelectorAll('.feedback-box').forEach(box => {
+      const title = box.dataset.emailTitle;
+      const KEY = 'fb_' + box.dataset.emailId;
+      let arr = [];
+      try { arr = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e) {}
+      if (arr.length) {
+        hasAny = true;
+        out += '## ' + title + '\n';
+        arr.forEach(c => out += '  [' + c.time + '] ' + c.name + ': ' + c.text + '\n');
+        out += '\n';
+      }
     });
-  }
+    if (!hasAny) { out += '(No feedback recorded yet.)\n'; }
+    const blob = new Blob([out], { type: 'text/plain' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'email-feedback-' + new Date().toISOString().slice(0,10) + '.txt';
+    a.click();
+  };
 
 </script>
 
