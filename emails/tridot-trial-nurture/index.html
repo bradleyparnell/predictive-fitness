@@ -339,34 +339,43 @@
       padding: 20px 32px 0;
     }
     .tab-btn {
-      padding: 12px 32px;
-      font-size: 14px;
-      font-weight: 700;
+      padding: 14px 28px;
       border: none;
       cursor: pointer;
       border-radius: 8px 8px 0 0;
-      letter-spacing: 0.02em;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.2s, border-color 0.2s;
       background: #161b27;
-      color: #555;
       border: 1px solid #1e2436;
       border-bottom: none;
       margin-right: 4px;
       outline: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .tab-btn.active-tridot {
       background: #1a0508;
-      color: #ea0029;
       border-color: #ea0029;
     }
     .tab-btn.active-rundot {
       background: #061a0e;
-      color: #00c853;
       border-color: #00c853;
     }
     .tab-btn:not(.active-tridot):not(.active-rundot):hover {
       background: #1e2333;
-      color: #aaa;
+    }
+    .tab-logo {
+      height: 26px;
+      display: block;
+      opacity: 0.35;
+      transition: opacity 0.2s;
+    }
+    .tab-btn.active-tridot .tab-logo,
+    .tab-btn.active-rundot .tab-logo {
+      opacity: 1;
+    }
+    .tab-btn:hover .tab-logo {
+      opacity: 0.65;
     }
     .tab-bar-line {
       max-width: 1264px;
@@ -414,10 +423,10 @@
 <!-- Tab Bar -->
 <div class="tab-bar">
   <button class="tab-btn active-tridot" id="btn-tridot" onclick="switchTab('tridot')">
-    &#9632; TriDot
+    <img class="tab-logo" src="https://www.tridot.com/hubfs/tridot-logo.svg" alt="TriDot" />
   </button>
   <button class="tab-btn" id="btn-rundot" onclick="switchTab('rundot')">
-    &#9632; RunDot
+    <img class="tab-logo" src="rundot/assets/rundot-logo.svg" alt="RunDot" />
   </button>
 </div>
 <div class="tab-bar-line"><hr /></div>
@@ -872,7 +881,7 @@
     <span class="subject-label">Subject</span>
     <span class="subject-current">"Why RunDot works when other plans don't"</span>
     <span class="subject-arrow">&#8594;</span>
-    <span class="subject-verdict test">&#128161; Test — low CTR</span>
+    <span class="subject-verdict test">&#128161; Test: "The science behind your RunDot plan, {{ contact.firstname }}"</span>
   </div>
   <div class="compare">
     <div class="panel">
@@ -958,7 +967,7 @@
     <span class="subject-label">Subject</span>
     <span class="subject-current">"A question about your training, {{ contact.firstname }}"</span>
     <span class="subject-arrow">&#8594;</span>
-    <span class="subject-verdict test">&#128161; Test — room to grow</span>
+    <span class="subject-verdict test">&#128161; Test: "Your RunDot plan is one step away, {{ contact.firstname }}"</span>
   </div>
   <div class="compare">
     <div class="panel">
