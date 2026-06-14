@@ -406,6 +406,89 @@
     .before-placeholder .ph-icon { font-size: 40px; }
     .before-placeholder .ph-text { font-size: 13px; color: #444; text-align: center; line-height: 1.5; }
 
+
+    /* ── Feedback / CEO comments ── */
+    .feedback-box {
+      margin: 20px 0 0;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #111;
+    }
+    .feedback-toggle {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 18px;
+      background: none; border: none; width: 100%; text-align: left;
+      cursor: pointer; color: #888; font-size: 13px; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      transition: color 0.15s;
+    }
+    .feedback-toggle:hover { color: #ccc; }
+    .feedback-toggle .fb-icon { font-size: 16px; }
+    .feedback-toggle .fb-count {
+      margin-left: auto;
+      background: #ea0029; color: #fff;
+      font-size: 11px; font-weight: 700;
+      padding: 2px 7px; border-radius: 20px;
+      display: none;
+    }
+    .feedback-toggle .fb-count.visible { display: inline-block; }
+    .feedback-body {
+      display: none;
+      padding: 0 16px 16px;
+    }
+    .feedback-body.open { display: block; }
+    .feedback-comments { margin-bottom: 12px; }
+    .feedback-comment {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0; border-bottom: 1px solid #1e1e1e;
+    }
+    .feedback-comment:last-child { border-bottom: none; }
+    .fc-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: #ea0029; color: #fff;
+      font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .fc-content { flex: 1; }
+    .fc-name { font-size: 12px; font-weight: 700; color: #ccc; margin-bottom: 3px; }
+    .fc-date { font-size: 11px; color: #555; margin-left: 6px; font-weight: 400; }
+    .fc-text { font-size: 13px; color: #aaa; line-height: 1.5; }
+    .fc-delete {
+      background: none; border: none; color: #444; cursor: pointer;
+      font-size: 16px; padding: 0; line-height: 1; margin-top: 2px;
+    }
+    .fc-delete:hover { color: #ea0029; }
+    .feedback-input-row { display: flex; gap: 10px; align-items: flex-end; }
+    .feedback-name-input {
+      width: 130px; padding: 9px 12px;
+      background: #1a1a1a; border: 1px solid #2e2e2e; border-radius: 8px;
+      color: #ddd; font-size: 13px; resize: none; outline: none;
+    }
+    .feedback-textarea {
+      flex: 1; padding: 9px 12px; min-height: 60px;
+      background: #1a1a1a; border: 1px solid #2e2e2e; border-radius: 8px;
+      color: #ddd; font-size: 13px; resize: vertical; outline: none;
+      font-family: inherit; line-height: 1.5;
+    }
+    .feedback-textarea:focus, .feedback-name-input:focus {
+      border-color: #444;
+    }
+    .feedback-submit {
+      padding: 9px 18px; background: #ea0029; color: #fff;
+      border: none; border-radius: 8px; font-size: 13px; font-weight: 700;
+      cursor: pointer; white-space: nowrap; transition: opacity 0.15s;
+    }
+    .feedback-submit:hover { opacity: 0.85; }
+    /* Export button in nav */
+    .export-btn {
+      background: #1e1e1e; border: 1px solid #333; color: #aaa;
+      font-size: 12px; font-weight: 600; padding: 6px 14px;
+      border-radius: 6px; cursor: pointer; transition: all 0.15s;
+      letter-spacing: 0.03em;
+    }
+    .export-btn:hover { background: #2a2a2a; color: #fff; }
   </style>
 </head>
 <body>
@@ -416,6 +499,7 @@
     <img class="nav-logo" src="https://cdn.prod.website-files.com/64cd80d6bbd5c717a4bfd6ed/650c3eea596e4fa83835e9d6_45ca19156e10067839499c729f42fd83_PredictiveFitness_logo_Horizontal_2color_darkBG-768-c-100.png" alt="Predictive Fitness" />
     <span class="nav-title">Email Redesigns</span>
   </div>
+  <button class="export-btn" id="export-feedback-btn">📋 Export Feedback</button>
   <span class="nav-badge">Redesign Draft</span>
 </nav>
 
@@ -490,6 +574,22 @@
   </div>
 </div>
 
+  <div class="feedback-box" data-email-id="tridot-1" data-email-title="TriDot · Day 1 Welcome">
+    <button class="feedback-toggle">
+      <span class="fb-icon">💬</span> CEO Feedback
+      <span class="fb-arrow">▸</span>
+      <span class="fb-count"></span>
+    </button>
+    <div class="feedback-body">
+      <div class="feedback-comments"></div>
+      <div class="feedback-input-row">
+        <input class="feedback-name-input" type="text" placeholder="Your name" />
+        <textarea class="feedback-textarea" placeholder="Add your feedback… (Cmd+Enter to submit)"></textarea>
+        <button class="feedback-submit">Post</button>
+      </div>
+    </div>
+  </div>
+
 <!-- ─── EMAIL 2 ─── -->
 <div class="email-block" style="max-width:1264px;">
   <div class="email-header">
@@ -533,6 +633,22 @@
     <div class="change-text"><strong>Strong performer — refined.</strong> Added a benefits checklist showing what completing setup unlocks. Made the urgency clearer without changing the warm tone.</div>
   </div>
 </div>
+
+  <div class="feedback-box" data-email-id="tridot-2" data-email-title="TriDot · Onboard Started #1">
+    <button class="feedback-toggle">
+      <span class="fb-icon">💬</span> CEO Feedback
+      <span class="fb-arrow">▸</span>
+      <span class="fb-count"></span>
+    </button>
+    <div class="feedback-body">
+      <div class="feedback-comments"></div>
+      <div class="feedback-input-row">
+        <input class="feedback-name-input" type="text" placeholder="Your name" />
+        <textarea class="feedback-textarea" placeholder="Add your feedback… (Cmd+Enter to submit)"></textarea>
+        <button class="feedback-submit">Post</button>
+      </div>
+    </div>
+  </div>
 
 <!-- ─── EMAIL 3 ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -579,6 +695,22 @@
   </div>
 </div>
 
+  <div class="feedback-box" data-email-id="tridot-3" data-email-title="TriDot · Founder Message">
+    <button class="feedback-toggle">
+      <span class="fb-icon">💬</span> CEO Feedback
+      <span class="fb-arrow">▸</span>
+      <span class="fb-count"></span>
+    </button>
+    <div class="feedback-body">
+      <div class="feedback-comments"></div>
+      <div class="feedback-input-row">
+        <input class="feedback-name-input" type="text" placeholder="Your name" />
+        <textarea class="feedback-textarea" placeholder="Add your feedback… (Cmd+Enter to submit)"></textarea>
+        <button class="feedback-submit">Post</button>
+      </div>
+    </div>
+  </div>
+
 <!-- ─── EMAIL 4 ─── -->
 <div class="email-block" style="max-width:1264px;">
   <div class="email-header">
@@ -624,6 +756,22 @@
   </div>
 </div>
 
+  <div class="feedback-box" data-email-id="tridot-4" data-email-title="TriDot · Social Proof">
+    <button class="feedback-toggle">
+      <span class="fb-icon">💬</span> CEO Feedback
+      <span class="fb-arrow">▸</span>
+      <span class="fb-count"></span>
+    </button>
+    <div class="feedback-body">
+      <div class="feedback-comments"></div>
+      <div class="feedback-input-row">
+        <input class="feedback-name-input" type="text" placeholder="Your name" />
+        <textarea class="feedback-textarea" placeholder="Add your feedback… (Cmd+Enter to submit)"></textarea>
+        <button class="feedback-submit">Post</button>
+      </div>
+    </div>
+  </div>
+
 <!-- ─── EMAIL 5 ─── -->
 <div class="email-block" style="max-width:1264px;">
   <div class="email-header">
@@ -668,6 +816,22 @@
     <div class="change-text"><strong>Very sparse original — improved.</strong> Expanded with top 3 setup tips, warmer personal tone from a coach's perspective, and a clearer CTA. Kept the one-on-one feel.</div>
   </div>
 </div>
+
+  <div class="feedback-box" data-email-id="tridot-5" data-email-title="TriDot · Onboard Started #2">
+    <button class="feedback-toggle">
+      <span class="fb-icon">💬</span> CEO Feedback
+      <span class="fb-arrow">▸</span>
+      <span class="fb-count"></span>
+    </button>
+    <div class="feedback-body">
+      <div class="feedback-comments"></div>
+      <div class="feedback-input-row">
+        <input class="feedback-name-input" type="text" placeholder="Your name" />
+        <textarea class="feedback-textarea" placeholder="Add your feedback… (Cmd+Enter to submit)"></textarea>
+        <button class="feedback-submit">Post</button>
+      </div>
+    </div>
+  </div>
 
 <!-- ─── EMAIL 6 ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -778,6 +942,22 @@
   </div>
 </div>
 
+  <div class="feedback-box" data-email-id="tridot-6" data-email-title="TriDot · Trial Expiring">
+    <button class="feedback-toggle">
+      <span class="fb-icon">💬</span> CEO Feedback
+      <span class="fb-arrow">▸</span>
+      <span class="fb-count"></span>
+    </button>
+    <div class="feedback-body">
+      <div class="feedback-comments"></div>
+      <div class="feedback-input-row">
+        <input class="feedback-name-input" type="text" placeholder="Your name" />
+        <textarea class="feedback-textarea" placeholder="Add your feedback… (Cmd+Enter to submit)"></textarea>
+        <button class="feedback-submit">Post</button>
+      </div>
+    </div>
+  </div>
+
 <!-- ─── RD EMAIL 2: Day 2 ─── -->
 <div class="email-block" style="max-width:1264px;">
   <div class="email-header">
@@ -820,6 +1000,22 @@
     </div>
   </div>
 </div>
+
+  <div class="feedback-box" data-email-id="rundot-1" data-email-title="RunDot · Day 1 Welcome">
+    <button class="feedback-toggle">
+      <span class="fb-icon">💬</span> CEO Feedback
+      <span class="fb-arrow">▸</span>
+      <span class="fb-count"></span>
+    </button>
+    <div class="feedback-body">
+      <div class="feedback-comments"></div>
+      <div class="feedback-input-row">
+        <input class="feedback-name-input" type="text" placeholder="Your name" />
+        <textarea class="feedback-textarea" placeholder="Add your feedback… (Cmd+Enter to submit)"></textarea>
+        <button class="feedback-submit">Post</button>
+      </div>
+    </div>
+  </div>
 
 <!-- ─── RD EMAIL 3: Onboard Started #1 ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -864,6 +1060,22 @@
   </div>
 </div>
 
+  <div class="feedback-box" data-email-id="rundot-2" data-email-title="RunDot · Day 2">
+    <button class="feedback-toggle">
+      <span class="fb-icon">💬</span> CEO Feedback
+      <span class="fb-arrow">▸</span>
+      <span class="fb-count"></span>
+    </button>
+    <div class="feedback-body">
+      <div class="feedback-comments"></div>
+      <div class="feedback-input-row">
+        <input class="feedback-name-input" type="text" placeholder="Your name" />
+        <textarea class="feedback-textarea" placeholder="Add your feedback… (Cmd+Enter to submit)"></textarea>
+        <button class="feedback-submit">Post</button>
+      </div>
+    </div>
+  </div>
+
 <!-- ─── RD EMAIL 4: Day 4 ─── -->
 <div class="email-block" style="max-width:1264px;">
   <div class="email-header">
@@ -906,6 +1118,22 @@
     </div>
   </div>
 </div>
+
+  <div class="feedback-box" data-email-id="rundot-3" data-email-title="RunDot · Onboard Started #1">
+    <button class="feedback-toggle">
+      <span class="fb-icon">💬</span> CEO Feedback
+      <span class="fb-arrow">▸</span>
+      <span class="fb-count"></span>
+    </button>
+    <div class="feedback-body">
+      <div class="feedback-comments"></div>
+      <div class="feedback-input-row">
+        <input class="feedback-name-input" type="text" placeholder="Your name" />
+        <textarea class="feedback-textarea" placeholder="Add your feedback… (Cmd+Enter to submit)"></textarea>
+        <button class="feedback-submit">Post</button>
+      </div>
+    </div>
+  </div>
 
 <!-- ─── RD EMAIL 5: Onboard Started #2 ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -950,6 +1178,22 @@
   </div>
 </div>
 
+  <div class="feedback-box" data-email-id="rundot-4" data-email-title="RunDot · Day 4">
+    <button class="feedback-toggle">
+      <span class="fb-icon">💬</span> CEO Feedback
+      <span class="fb-arrow">▸</span>
+      <span class="fb-count"></span>
+    </button>
+    <div class="feedback-body">
+      <div class="feedback-comments"></div>
+      <div class="feedback-input-row">
+        <input class="feedback-name-input" type="text" placeholder="Your name" />
+        <textarea class="feedback-textarea" placeholder="Add your feedback… (Cmd+Enter to submit)"></textarea>
+        <button class="feedback-submit">Post</button>
+      </div>
+    </div>
+  </div>
+
 <!-- ─── RD EMAIL 6: Day 8 ─── -->
 <div class="email-block" style="max-width:1264px;">
   <div class="email-header">
@@ -992,6 +1236,22 @@
     </div>
   </div>
 </div>
+
+  <div class="feedback-box" data-email-id="rundot-5" data-email-title="RunDot · Onboard Started #2">
+    <button class="feedback-toggle">
+      <span class="fb-icon">💬</span> CEO Feedback
+      <span class="fb-arrow">▸</span>
+      <span class="fb-count"></span>
+    </button>
+    <div class="feedback-body">
+      <div class="feedback-comments"></div>
+      <div class="feedback-input-row">
+        <input class="feedback-name-input" type="text" placeholder="Your name" />
+        <textarea class="feedback-textarea" placeholder="Add your feedback… (Cmd+Enter to submit)"></textarea>
+        <button class="feedback-submit">Post</button>
+      </div>
+    </div>
+  </div>
 
 <!-- ─── RD EMAIL 7: Founder Message ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -1036,6 +1296,22 @@
   </div>
 </div>
 
+  <div class="feedback-box" data-email-id="rundot-6" data-email-title="RunDot · Day 8">
+    <button class="feedback-toggle">
+      <span class="fb-icon">💬</span> CEO Feedback
+      <span class="fb-arrow">▸</span>
+      <span class="fb-count"></span>
+    </button>
+    <div class="feedback-body">
+      <div class="feedback-comments"></div>
+      <div class="feedback-input-row">
+        <input class="feedback-name-input" type="text" placeholder="Your name" />
+        <textarea class="feedback-textarea" placeholder="Add your feedback… (Cmd+Enter to submit)"></textarea>
+        <button class="feedback-submit">Post</button>
+      </div>
+    </div>
+  </div>
+
 <!-- ─── RD EMAIL 8: Social Proof ─── -->
 <div class="email-block" style="max-width:1264px;">
   <div class="email-header">
@@ -1079,6 +1355,22 @@
   </div>
 </div>
 
+  <div class="feedback-box" data-email-id="rundot-7" data-email-title="RunDot · Founder Message">
+    <button class="feedback-toggle">
+      <span class="fb-icon">💬</span> CEO Feedback
+      <span class="fb-arrow">▸</span>
+      <span class="fb-count"></span>
+    </button>
+    <div class="feedback-body">
+      <div class="feedback-comments"></div>
+      <div class="feedback-input-row">
+        <input class="feedback-name-input" type="text" placeholder="Your name" />
+        <textarea class="feedback-textarea" placeholder="Add your feedback… (Cmd+Enter to submit)"></textarea>
+        <button class="feedback-submit">Post</button>
+      </div>
+    </div>
+  </div>
+
 <!-- ─── RD EMAIL 9: Trial Expiring ─── -->
 <div class="email-block" style="max-width:1264px;">
   <div class="email-header">
@@ -1121,6 +1413,38 @@
     </div>
   </div>
 </div>
+
+  <div class="feedback-box" data-email-id="rundot-9" data-email-title="RunDot · Trial Expiring">
+    <button class="feedback-toggle">
+      <span class="fb-icon">💬</span> CEO Feedback
+      <span class="fb-arrow">▸</span>
+      <span class="fb-count"></span>
+    </button>
+    <div class="feedback-body">
+      <div class="feedback-comments"></div>
+      <div class="feedback-input-row">
+        <input class="feedback-name-input" type="text" placeholder="Your name" />
+        <textarea class="feedback-textarea" placeholder="Add your feedback… (Cmd+Enter to submit)"></textarea>
+        <button class="feedback-submit">Post</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="feedback-box" data-email-id="rundot-8" data-email-title="RunDot · Runners Love RunDot">
+    <button class="feedback-toggle">
+      <span class="fb-icon">💬</span> CEO Feedback
+      <span class="fb-arrow">▸</span>
+      <span class="fb-count"></span>
+    </button>
+    <div class="feedback-body">
+      <div class="feedback-comments"></div>
+      <div class="feedback-input-row">
+        <input class="feedback-name-input" type="text" placeholder="Your name" />
+        <textarea class="feedback-textarea" placeholder="Add your feedback… (Cmd+Enter to submit)"></textarea>
+        <button class="feedback-submit">Post</button>
+      </div>
+    </div>
+  </div>
 
 </div><!-- /tab-rundot -->
 
@@ -1183,5 +1507,124 @@ function autoH(el){
   } catch(e) {}
 }
 </script>
+
+<script>
+(function() {
+  // Load all comments from localStorage
+  function getComments(emailId) {
+    try { return JSON.parse(localStorage.getItem('fb_' + emailId) || '[]'); } catch(e) { return []; }
+  }
+  function saveComments(emailId, arr) {
+    localStorage.setItem('fb_' + emailId, JSON.stringify(arr));
+  }
+  function initials(name) {
+    return name.trim().split(' ').map(w => w[0]).join('').toUpperCase().slice(0,2) || '?';
+  }
+  function fmtDate(ts) {
+    return new Date(ts).toLocaleDateString('en-US', {month:'short', day:'numeric', hour:'2-digit', minute:'2-digit'});
+  }
+
+  function renderComments(emailId) {
+    const box = document.querySelector('[data-email-id="' + emailId + '"]');
+    if (!box) return;
+    const list = box.querySelector('.feedback-comments');
+    const countEl = box.querySelector('.fb-count');
+    const comments = getComments(emailId);
+    list.innerHTML = '';
+    comments.forEach(function(c, i) {
+      const div = document.createElement('div');
+      div.className = 'feedback-comment';
+      div.innerHTML =
+        '<div class="fc-avatar">' + initials(c.name) + '</div>' +
+        '<div class="fc-content">' +
+          '<div class="fc-name">' + escHtml(c.name) + '<span class="fc-date">' + fmtDate(c.ts) + '</span></div>' +
+          '<div class="fc-text">' + escHtml(c.text).replace(/\n/g,'<br>') + '</div>' +
+        '</div>' +
+        '<button class="fc-delete" data-idx="' + i + '" title="Delete">×</button>';
+      list.appendChild(div);
+    });
+    // Delete handlers
+    list.querySelectorAll('.fc-delete').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const arr = getComments(emailId);
+        arr.splice(+btn.dataset.idx, 1);
+        saveComments(emailId, arr);
+        renderComments(emailId);
+      });
+    });
+    // Count badge
+    if (comments.length > 0) {
+      countEl.textContent = comments.length;
+      countEl.classList.add('visible');
+    } else {
+      countEl.classList.remove('visible');
+    }
+  }
+
+  function escHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function initFeedbackBox(box) {
+    const emailId = box.dataset.emailId;
+    const toggle = box.querySelector('.feedback-toggle');
+    const body = box.querySelector('.feedback-body');
+    const submit = box.querySelector('.feedback-submit');
+    const textarea = box.querySelector('.feedback-textarea');
+    const nameInput = box.querySelector('.feedback-name-input');
+
+    // Restore saved reviewer name
+    const savedName = localStorage.getItem('fb_reviewer_name') || '';
+    if (savedName) nameInput.value = savedName;
+
+    toggle.addEventListener('click', function() {
+      body.classList.toggle('open');
+      toggle.querySelector('.fb-arrow').textContent = body.classList.contains('open') ? '▾' : '▸';
+    });
+
+    submit.addEventListener('click', function() {
+      const text = textarea.value.trim();
+      const name = nameInput.value.trim() || 'Reviewer';
+      if (!text) return;
+      localStorage.setItem('fb_reviewer_name', name);
+      const arr = getComments(emailId);
+      arr.push({ name: name, text: text, ts: Date.now() });
+      saveComments(emailId, arr);
+      textarea.value = '';
+      renderComments(emailId);
+    });
+
+    textarea.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) submit.click();
+    });
+
+    renderComments(emailId);
+  }
+
+  document.querySelectorAll('.feedback-box').forEach(initFeedbackBox);
+
+  // Export all feedback
+  document.getElementById('export-feedback-btn').addEventListener('click', function() {
+    const lines = ['PREDICTIVE FITNESS — EMAIL FEEDBACK REPORT', new Date().toLocaleString(), '═'.repeat(60)];
+    document.querySelectorAll('.feedback-box').forEach(function(box) {
+      const emailId = box.dataset.emailId;
+      const title = box.dataset.emailTitle;
+      const comments = getComments(emailId);
+      if (comments.length === 0) return;
+      lines.push('\n── ' + title + ' ──');
+      comments.forEach(function(c) {
+        lines.push('[' + c.name + '  ' + fmtDate(c.ts) + ']');
+        lines.push(c.text);
+      });
+    });
+    if (lines.length === 3) { alert('No feedback yet — add comments on the cards first!'); return; }
+    const blob = new Blob([lines.join('\n')], {type:'text/plain'});
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+    a.download = 'email-feedback-' + new Date().toISOString().slice(0,10) + '.txt';
+    a.click();
+  });
+})();
+</script>
+
 </body>
 </html>
