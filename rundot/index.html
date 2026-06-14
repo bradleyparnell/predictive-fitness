@@ -607,6 +607,37 @@
     border-radius: 50%; pointer-events: none; z-index: 0;
   }
   .hero-right img { position: relative; z-index: 1; }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes rdFadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes rdFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* Hero cascade — staggered on page load */
+  .hero-eyebrow      { opacity: 0; animation: rdFadeUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.15s forwards; }
+  .hero h1           { opacity: 0; animation: rdFadeUp 0.72s cubic-bezier(0.22,1,0.36,1) 0.30s forwards; }
+  .hero-sub          { opacity: 0; animation: rdFadeUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.50s forwards; }
+  .hero-actions      { opacity: 0; animation: rdFadeUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.66s forwards; }
+  .hero-social-proof { opacity: 0; animation: rdFadeUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.82s forwards; }
+
+  /* Scroll-reveal base state (applied by JS) */
+  .rd-reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.62s cubic-bezier(0.22,1,0.36,1),
+                transform 0.62s cubic-bezier(0.22,1,0.36,1);
+    will-change: opacity, transform;
+  }
+  .rd-reveal.rd-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 </style>
 </head>
 <body>
@@ -1037,6 +1068,92 @@
     </div>
   </div>
 </footer>
+
+
+<script>
+(function () {
+  // ── SCROLL REVEAL ────────────────────────────────────────────────────────
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var el = entry.target;
+        var delay = parseInt(el.dataset.rdDelay || '0', 10);
+        setTimeout(function () { el.classList.add('rd-in'); }, delay);
+        obs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.10, rootMargin: '0px 0px -40px 0px' });
+
+  function addReveal(sel, stagger) {
+    var els = document.querySelectorAll(sel);
+    // Group by parent so stagger resets per section
+    var parents = new Map();
+    els.forEach(function (el) {
+      if (el.closest('.hero')) return; // hero has its own CSS cascade
+      var p = el.parentElement;
+      if (!parents.has(p)) parents.set(p, []);
+      parents.get(p).push(el);
+    });
+    parents.forEach(function (group) {
+      group.forEach(function (el, i) {
+        el.classList.add('rd-reveal');
+        el.dataset.rdDelay = stagger ? i * 80 : 0;
+        obs.observe(el);
+      });
+    });
+  }
+
+  // Single-reveal elements
+  ['.section-eyebrow', '.section-title', '.section-sub',
+   '.lifestyle-panel', '.meb-content', '.cta-text', '.cta-app-image',
+   '.diff-section .rd-diff-intro'].forEach(function (s) { addReveal(s, false); });
+
+  // Staggered groups
+  ['.feature-card', '.metric-card', '.notif-card',
+   '.meb-proof-item', '.partner-logos img', '.phase-card',
+   '.diff-row'].forEach(function (s) { addReveal(s, true); });
+
+  // ── NUMBER COUNTERS ───────────────────────────────────────────────────────
+  function countUp(el, prefix, target, suffix, duration) {
+    var start = performance.now();
+    function run(now) {
+      var p = Math.min((now - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+      el.textContent = prefix + Math.floor(eased * target).toLocaleString() + suffix;
+      if (p < 1) { requestAnimationFrame(run); }
+      else { el.textContent = prefix + target.toLocaleString() + suffix; }
+    }
+    requestAnimationFrame(run);
+  }
+
+  // Hero: "50,000+ runners" — fires after hero animation finishes
+  var heroStrong = document.querySelector('.hero-proof-text strong');
+  if (heroStrong) {
+    heroStrong.textContent = '0+ runners';
+    setTimeout(function () { countUp(heroStrong, '', 50000, '+ runners', 2200); }, 1600);
+  }
+
+  // Meb proof stats: "20+ Years" and "Up to 30%"
+  document.querySelectorAll('.meb-proof-val').forEach(function (el) {
+    var text = el.textContent.trim();
+    var cfg = null;
+    if (text === '20+ Years')  cfg = { prefix: '',       target: 20, suffix: '+ Years' };
+    if (text === 'Up to 30%') cfg = { prefix: 'Up to ', target: 30, suffix: '%' };
+    if (!cfg) return;
+    el.textContent = cfg.prefix + '0' + cfg.suffix;
+    var fired = false;
+    var valObs = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting && !fired) {
+        fired = true;
+        countUp(el, cfg.prefix, cfg.target, cfg.suffix, 1600);
+        valObs.disconnect();
+      }
+    }, { threshold: 0.4 });
+    valObs.observe(el);
+  });
+
+})();
+</script>
 
 </body>
 </html>
