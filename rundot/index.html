@@ -53,16 +53,9 @@
     display: flex; align-items: center;
     overflow: hidden;
   }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background-image: url('./assets/RunDot-Next-Photo-6.jpg');
-    background-size: cover; background-position: center 25%;
-    filter: brightness(0.32);
+  .hero-bg { position: absolute; inset: 0; background: #080b10; }
   }
-  .hero-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(105deg, rgba(6,10,15,0.88) 42%, rgba(6,10,15,0.25) 100%);
-  }
+  .hero-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse 55% 75% at 78% 50%, rgba(83,185,86,0.10) 0%, transparent 70%); }
   .hero-content {
     position: relative; z-index: 2;
     max-width: 1340px; margin: 0 auto; padding: 160px 80px 120px;
@@ -70,11 +63,11 @@
     display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
   }
   .hero-left {}
-  .hero-right { display: flex; align-items: center; justify-content: center; }
+  .hero-right { position: relative; display: flex; align-items: center; justify-content: center; }
   .hero-app-image {
     width: 100%; max-width: 580px;
-    border-radius: 16px;
-    filter: drop-shadow(0 40px 80px rgba(0,0,0,0.7));
+    border-radius: 0;
+    filter: drop-shadow(0 30px 80px rgba(0,0,0,0.55)) drop-shadow(0 0 100px rgba(83,185,86,0.14));
   }
   .hero-eyebrow {
     display: inline-flex; align-items: center; gap: 10px;
@@ -273,7 +266,16 @@
     transition: border-color 0.2s, transform 0.2s;
   }
   .notif-card:hover { border-color: var(--green-border); transform: translateX(4px); }
-  .notif-card img { width: 44px; height: 44px; object-fit: contain; border-radius: 10px; flex-shrink: 0; }
+
+  /* Notif icons */
+  .notif-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(83,185,86,0.12); border: 1px solid rgba(83,185,86,0.25);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .notif-icon svg { width: 24px; height: 24px; }
+
   .notif-card-body h5 { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
   .notif-card-body p { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.4; }
 
@@ -305,11 +307,11 @@
     position: absolute; inset: 0;
     background-image: url('./assets/RunDot-Next-Photo-5.jpg');
     background-size: cover; background-position: center 30%;
-    filter: brightness(0.22);
+    filter: brightness(0.38);
   }
   .meb-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(90deg, rgba(6,10,15,0.96) 42%, rgba(6,10,15,0.3) 100%);
+    background: linear-gradient(90deg, rgba(6,10,15,0.82) 42%, rgba(6,10,15,0.15) 100%);
   }
   .meb-content {
     position: relative; z-index: 2;
@@ -550,6 +552,24 @@
   .hero-proof-text { font-size: 14px; color: rgba(255,255,255,0.72); font-family: var(--font-body); }
   .hero-proof-text strong { color: #fff; font-weight: 600; }
 
+
+
+  /* Feature card icon area */
+  .feat-card-icon {
+    width: 100%; padding: 36px 32px 24px;
+    display: flex; align-items: center; justify-content: flex-start;
+    background: linear-gradient(135deg, rgba(83,185,86,0.06) 0%, rgba(83,185,86,0.02) 100%);
+    border-bottom: 1px solid rgba(83,185,86,0.08);
+  }
+  .feat-card-icon svg { width: 52px; height: 52px; }
+
+  /* Hero glow */
+  .hero-glow {
+    position: absolute; width: 540px; height: 540px;
+    background: radial-gradient(circle, rgba(83,185,86,0.11) 0%, transparent 68%);
+    border-radius: 50%; pointer-events: none; z-index: 0;
+  }
+  .hero-right img { position: relative; z-index: 1; }
 </style>
 </head>
 <body>
@@ -593,6 +613,7 @@
       </div>
     </div>
     <div class="hero-right">
+      <div class="hero-glow"></div>
       <img src="./assets/Screen Group 1.png" alt="RunDot App" class="hero-app-image">
     </div>
   </div>
@@ -693,7 +714,7 @@
 <div class="app-section">
   <div class="app-inner">
     <div class="app-screens-wrap">
-      <img src="./assets/Screen Group 1.png" alt="RunDot App Screens" class="app-screens-img">
+      <img src="./assets/RunDot Lifestyle with App Image.png" alt="RunDot in action" class="app-screens-img" style="border-radius:16px; object-fit:cover;">
     </div>
     <div class="app-text">
       <div class="section-eyebrow">The App</div>
@@ -701,9 +722,13 @@
       <p class="section-sub">A clean, intuitive training experience designed for runners who are serious about results.</p>
       <div class="feature-cards">
         <div class="feat-card">
-          <div class="feat-card-img">
-            <img src="./assets/Dot Scores.png" alt="Dot Score™">
-          </div>
+          <div class="feat-card-icon"><svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="26" cy="26" r="20" stroke="rgba(83,185,86,0.2)" stroke-width="2"/>
+  <path d="M13 33 A16 16 0 1 1 39 33" stroke="#53b956" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="26" cy="33" r="3" fill="#53b956"/>
+  <line x1="26" y1="30" x2="18" y2="22" stroke="#53b956" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="26" cy="14" r="2" fill="rgba(83,185,86,0.4)"/>
+</svg></div>
           <div class="feat-card-body">
             <span class="feat-eyebrow">Dot Score™</span>
             <h4>Know Your True Ability</h4>
@@ -711,9 +736,13 @@
           </div>
         </div>
         <div class="feat-card">
-          <div class="feat-card-img">
-            <img src="./assets/Weekly Schedule (Drag &amp; Drop).png" alt="Adaptive Training">
-          </div>
+          <div class="feat-card-icon"><svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="8" y="12" width="36" height="30" rx="4" stroke="#53b956" stroke-width="2.5"/>
+  <line x1="8" y1="20" x2="44" y2="20" stroke="#53b956" stroke-width="2"/>
+  <line x1="18" y1="8" x2="18" y2="16" stroke="#53b956" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="34" y1="8" x2="34" y2="16" stroke="#53b956" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M17 31 l4 4 8-8" stroke="#53b956" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div>
           <div class="feat-card-body">
             <span class="feat-eyebrow">Adaptive Plans</span>
             <h4>Training That Moves With You</h4>
@@ -721,9 +750,11 @@
           </div>
         </div>
         <div class="feat-card">
-          <div class="feat-card-img">
-            <img src="./assets/TrainX-1.png" alt="TrainX®">
-          </div>
+          <div class="feat-card-icon"><svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <polyline points="6,32 14,32 19,16 26,38 31,24 36,28 46,28" stroke="#53b956" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="26" cy="38" r="3" fill="#53b956"/>
+  <circle cx="19" cy="16" r="3" fill="rgba(83,185,86,0.4)"/>
+</svg></div>
           <div class="feat-card-body">
             <span class="feat-eyebrow">TrainX®</span>
             <h4>Real-Time Intelligence</h4>
@@ -731,9 +762,13 @@
           </div>
         </div>
         <div class="feat-card">
-          <div class="feat-card-img">
-            <img src="./assets/notification-zones-chart-1.png" alt="Stress & Zones">
-          </div>
+          <div class="feat-card-icon"><svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="8" y="10" width="36" height="7" rx="3.5" fill="rgba(83,185,86,0.15)" stroke="#53b956" stroke-width="1.5"/>
+  <rect x="8" y="22" width="28" height="7" rx="3.5" fill="rgba(83,185,86,0.25)" stroke="#53b956" stroke-width="1.5"/>
+  <rect x="8" y="34" width="20" height="7" rx="3.5" fill="rgba(83,185,86,0.5)" stroke="#53b956" stroke-width="1.5"/>
+  <circle cx="40" cy="38" r="5" fill="#53b956"/>
+  <path d="M37 38l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div>
           <div class="feat-card-body">
             <span class="feat-eyebrow">Stress &amp; Zones</span>
             <h4>See Inside Every Run</h4>
@@ -762,12 +797,6 @@
       <div class="metric-card"><img src="./assets/UI-Load-1.png" alt="Load"></div>
       <div class="metric-card"><img src="./assets/UI-Fatigue-1.png" alt="Fatigue"></div>
       <div class="metric-card"><img src="./assets/UI-RHR-1.png" alt="Resting HR"></div>
-      <div class="metric-card"><img src="./assets/UI-Duration-1.png" alt="Duration"></div>
-      <div class="metric-card"><img src="./assets/UI-Zones-1.png" alt="Zones"></div>
-      <div class="metric-card"><img src="./assets/UI-XP-1.png" alt="XP"></div>
-      <div class="metric-card"><img src="./assets/UI-Session-1.png" alt="Session"></div>
-      <div class="metric-card"><img src="./assets/UI-Gap-Pace-1.png" alt="GAP Pace"></div>
-      <div class="metric-card"><img src="./assets/UI-Stress-2.png" alt="Stress 2"></div>
     </div>
   </div>
 </section>
@@ -783,35 +812,35 @@
     </div>
     <div class="notif-stack">
       <div class="notif-card">
-        <img src="./assets/notification-dot-score-increased-1.png" alt="Dot Score Notification">
+        <div class="notif-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#53b956" stroke-width="2"/><path d="M12 16V8M9 11l3-3 3 3" stroke="#53b956" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="notif-card-body">
           <h5>Dot Score™ Increased</h5>
           <p>Your performance ability score increased — FitLogic™ has updated your training prescription accordingly.</p>
         </div>
       </div>
       <div class="notif-card">
-        <img src="./assets/notification-start-workout-1.png" alt="Start Workout">
+        <div class="notif-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5l11 7-11 7V5z" fill="#53b956" stroke="#53b956" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
         <div class="notif-card-body">
           <h5>Today's Workout Ready</h5>
           <p>45 min · Threshold &amp; Hold · Low Stress window. Let's go.</p>
         </div>
       </div>
       <div class="notif-card">
-        <img src="./assets/notification-training-goal-1.png" alt="Training Goal">
+        <div class="notif-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#53b956" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#53b956" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="notif-card-body">
           <h5>Weekly Goal Hit Early</h5>
           <p>FitLogic™ tracks weekly training execution so you always know where you stand against your plan.</p>
         </div>
       </div>
       <div class="notif-card">
-        <img src="./assets/notification-training-device-connected-1.png" alt="Device Connected">
+        <div class="notif-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 7c-2.8 2.8-2.8 7.2 0 10M17 7c2.8 2.8 2.8 7.2 0 10M9.5 9.5a4 4 0 0 0 0 5M14.5 9.5a4 4 0 0 1 0 5M12 12h.01" stroke="#53b956" stroke-width="2" stroke-linecap="round"/></svg></div>
         <div class="notif-card-body">
           <h5>Garmin Connected</h5>
           <p>Live zone guidance and heart rate data synced and ready.</p>
         </div>
       </div>
       <div class="notif-card">
-        <img src="./assets/notification-pods-1.png" alt="Pods Connected">
+        <div class="notif-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" fill="#53b956"/><path d="M5.6 5.6a9 9 0 0 0 0 12.8M18.4 5.6a9 9 0 0 1 0 12.8M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7" stroke="#53b956" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <div class="notif-card-body">
           <h5>Running Pods Active</h5>
           <p>Cadence, ground contact, and stride length now tracking.</p>
