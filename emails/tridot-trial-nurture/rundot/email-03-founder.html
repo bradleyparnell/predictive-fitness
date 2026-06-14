@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A note from the founder — RunDot</title>
+<style>
+  body { margin:0; padding:0; background:#f4f4f4; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; }
+  .email-wrapper { background:#f4f4f4; padding:32px 16px; }
+  .email-card { max-width:600px; margin:0 auto; background:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.10); }
+  .header { background:#0d1321; padding:28px 40px 24px; text-align:center; }
+  .hero-img { width:100%; display:block; }
+  .body-section { padding:36px 44px; background:#ffffff; }
+  .body-section h1 { margin:0 0 16px; font-size:26px; font-weight:800; color:#0d1321; line-height:1.3; }
+  .body-section p { margin:0 0 16px; font-size:16px; color:#444; line-height:1.75; }
+  .pullquote { border-left:4px solid #00c853; padding:14px 20px; margin:24px 0; background:#f0faf4; border-radius:0 8px 8px 0; font-size:17px; color:#0d1321; font-style:italic; line-height:1.6; }
+  .sig-block { display:flex; align-items:center; margin-top:28px; padding-top:24px; border-top:1px solid #ebebeb; }
+  .sig-photo { width:64px; height:64px; border-radius:50%; object-fit:cover; margin-right:16px; flex-shrink:0; }
+  .sig-name { font-size:16px; font-weight:700; color:#0d1321; margin:0 0 2px; }
+  .sig-title { font-size:13px; color:#888; margin:0; }
+  .cta-wrap { text-align:center; padding:8px 44px 36px; background:#ffffff; }
+  .cta-btn { display:inline-block; background:#00c853; color:#ffffff; font-size:16px; font-weight:700; text-decoration:none; padding:16px 36px; border-radius:6px; }
+  .divider { height:1px; background:#ebebeb; }
+  .footer { background:#0d1321; padding:28px 40px; text-align:center; }
+  .footer p { margin:8px 0; font-size:12px; color:rgba(255,255,255,0.45); line-height:1.6; }
+  .footer a { color:rgba(255,255,255,0.45); text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="email-wrapper">
+<div class="email-card">
+
+  <!-- Header -->
+  <div class="header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr><td style="text-align:center;">
+        <img src="https://go.tridot.com/hs-fs/hubfs/assets-rundot/images/rundot-logo-white.png" alt="RunDot" width="130" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+        <span style="display:none;font-size:26px;font-weight:900;color:#00c853;letter-spacing:-0.5px;">Run<span style="color:#ffffff;">Dot</span></span>
+      </td></tr>
+    </table>
+  </div>
+
+  <!-- Hero -->
+  <img class="hero-img" src="assets/run-mountain.jpg" alt="Runner in the mountains at sunrise" />
+
+  <!-- Body -->
+  <div class="body-section">
+    <h1>Why I built RunDot.</h1>
+    <p>{{ contact.firstname }}, I want to tell you something that most companies don't say out loud:</p>
+    <p>Most running plans are wrong for most runners.</p>
+    <p>Not because the coaches who wrote them are bad — but because they were written for someone else. Someone with a different body, different history, different goals. When you follow a generic plan, you're borrowing someone else's preparation. And borrowed preparation rarely produces your best race.</p>
+
+    <div class="pullquote">"Every runner is an experiment of one. Your plan should reflect that."</div>
+
+    <p>RunDot exists to fix that. It uses FitLogic AI to build a plan that belongs to you — calculated from your current fitness, your goal race, and how your body responds to training stress.</p>
+    <p>I built this because I've seen what happens when runners train right. PRs. Consistency. Confidence on race day. No guessing, no injuries from overtraining, no wasted miles.</p>
+    <p>That's what I want for you.</p>
+
+    <div class="sig-block">
+      <img class="sig-photo" src="https://bradleyparnell.github.io/predictive-fitness/emails/tridot-trial-nurture/assets/jeff-booher-headshot.png" alt="Jeff Booher" />
+      <div>
+        <p class="sig-name">Jeff Booher</p>
+        <p class="sig-title">Founder, RunDot &amp; TriDot</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-wrap">
+    <a href="https://app.rundot.com" class="cta-btn">Open RunDot &rarr;</a>
+  </div>
+
+  <div class="divider"></div>
+  <div class="footer">
+    <img src="https://go.tridot.com/hs-fs/hubfs/assets-rundot/images/powered-by-fitlogic-white.png?width=1200" alt="Powered by FitLogic" width="120" style="opacity:0.5; margin-bottom:12px; display:block; margin-left:auto; margin-right:auto;" />
+    <p>You received this because you started a RunDot trial.</p>
+    <p><a href="{{ unsubscribe_link }}">Unsubscribe</a> &nbsp;|&nbsp; <a href="{{ manage_preferences_link }}">Manage Preferences</a></p>
+    <p>&copy; 2026 Predictive Fitness, Inc. All rights reserved.</p>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

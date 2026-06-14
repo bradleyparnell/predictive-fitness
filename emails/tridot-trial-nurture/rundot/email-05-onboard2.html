@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How can I help, [First Name] — RunDot</title>
+<style>
+  body { margin:0; padding:0; background:#f4f4f4; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; }
+  .email-wrapper { background:#f4f4f4; padding:32px 16px; }
+  .email-card { max-width:600px; margin:0 auto; background:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.10); }
+  .header { background:#0d1321; padding:28px 40px 24px; text-align:center; }
+  .hero-img { width:100%; display:block; }
+  .body-section { padding:36px 44px 24px; background:#ffffff; }
+  .body-section h1 { margin:0 0 16px; font-size:26px; font-weight:800; color:#0d1321; line-height:1.3; }
+  .body-section p { margin:0 0 16px; font-size:16px; color:#444; line-height:1.75; }
+  .tip-box { background:#f0faf4; border-radius:10px; padding:24px 28px; margin:16px 0 24px; }
+  .tip-box h3 { margin:0 0 14px; font-size:15px; font-weight:700; color:#0d1321; }
+  .tip-item { display:flex; margin-bottom:12px; }
+  .tip-num { min-width:26px; height:26px; background:#00c853; color:#fff; font-size:12px; font-weight:800; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:12px; flex-shrink:0; margin-top:1px; }
+  .tip-text { font-size:15px; color:#444; line-height:1.5; }
+  .tip-text strong { color:#0d1321; }
+  .sig-block { display:flex; align-items:center; margin-top:24px; padding-top:20px; border-top:1px solid #ebebeb; }
+  .sig-photo { width:58px; height:58px; border-radius:50%; object-fit:cover; margin-right:14px; flex-shrink:0; }
+  .sig-name { font-size:15px; font-weight:700; color:#0d1321; margin:0 0 2px; }
+  .sig-title { font-size:13px; color:#888; margin:0; }
+  .reply-line { font-size:14px; color:#888; margin-top:12px; font-style:italic; }
+  .cta-wrap { text-align:center; padding:8px 44px 36px; }
+  .cta-btn { display:inline-block; background:#00c853; color:#ffffff; font-size:16px; font-weight:700; text-decoration:none; padding:16px 36px; border-radius:6px; }
+  .divider { height:1px; background:#ebebeb; }
+  .footer { background:#0d1321; padding:28px 40px; text-align:center; }
+  .footer p { margin:8px 0; font-size:12px; color:rgba(255,255,255,0.45); line-height:1.6; }
+  .footer a { color:rgba(255,255,255,0.45); text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="email-wrapper">
+<div class="email-card">
+
+  <!-- Header -->
+  <div class="header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr><td style="text-align:center;">
+        <img src="https://go.tridot.com/hs-fs/hubfs/assets-rundot/images/rundot-logo-white.png" alt="RunDot" width="130" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+        <span style="display:none;font-size:26px;font-weight:900;color:#00c853;letter-spacing:-0.5px;">Run<span style="color:#ffffff;">Dot</span></span>
+      </td></tr>
+    </table>
+  </div>
+
+  <!-- Hero -->
+  <img class="hero-img" src="assets/run-hills.jpg" alt="Runner in the hills, motion blur" />
+
+  <!-- Body -->
+  <div class="body-section">
+    <h1>How can I help, {{ contact.firstname }}?</h1>
+    <p>I noticed you haven't finished setting up your RunDot plan yet. That's okay — I just want to make sure you're not stuck.</p>
+    <p>Here are the three things that make the biggest difference in your first week:</p>
+
+    <div class="tip-box">
+      <h3>Top 3 setup tips from our coaches:</h3>
+      <div class="tip-item">
+        <div class="tip-num">1</div>
+        <div class="tip-text"><strong>Don't skip the assessment.</strong> It only takes 5 minutes and it's what personalizes every workout to your actual fitness level.</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-num">2</div>
+        <div class="tip-text"><strong>Connect your GPS watch.</strong> RunDot uses real workout data to keep refining your plan as you train. The more it knows, the better it gets.</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-num">3</div>
+        <div class="tip-text"><strong>Trust the easy days.</strong> Most runners overtrain. RunDot builds recovery in on purpose. Easy means easy — it's science, not laziness.</div>
+      </div>
+    </div>
+
+    <div class="sig-block">
+      <img class="sig-photo" src="https://bradleyparnell.github.io/predictive-fitness/emails/tridot-trial-nurture/assets/jeff-booher-headshot.png" alt="Jeff Booher" />
+      <div>
+        <p class="sig-name">Jeff Booher</p>
+        <p class="sig-title">Founder, RunDot</p>
+      </div>
+    </div>
+    <p class="reply-line">Or just reply to this email — I read every one personally.</p>
+  </div>
+
+  <div class="cta-wrap">
+    <a href="https://app.rundot.com" class="cta-btn">Open the RunDot App &rarr;</a>
+  </div>
+
+  <div class="divider"></div>
+  <div class="footer">
+    <img src="https://go.tridot.com/hs-fs/hubfs/assets-rundot/images/powered-by-fitlogic-white.png?width=1200" alt="Powered by FitLogic" width="120" style="opacity:0.5; margin-bottom:12px; display:block; margin-left:auto; margin-right:auto;" />
+    <p>You received this because you started a RunDot trial.</p>
+    <p><a href="{{ unsubscribe_link }}">Unsubscribe</a> &nbsp;|&nbsp; <a href="{{ manage_preferences_link }}">Manage Preferences</a></p>
+    <p>&copy; 2026 Predictive Fitness, Inc. All rights reserved.</p>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

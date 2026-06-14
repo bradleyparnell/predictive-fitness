@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Better running starts now — RunDot</title>
+<style>
+  body { margin:0; padding:0; background:#f4f4f4; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; }
+  .email-wrapper { background:#f4f4f4; padding:32px 16px; }
+  .email-card { max-width:600px; margin:0 auto; background:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.10); }
+  .header { background:#0d1321; padding:28px 40px 24px; text-align:center; }
+  .header-logo { display:block; margin:0 auto 16px; }
+  .fitlogic { display:block; margin:16px auto 0; opacity:0.75; }
+  .hero-img { width:100%; display:block; }
+  .badge { display:inline-block; background:#00c853; color:#ffffff; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 16px; border-radius:50px; margin-bottom:16px; }
+  .body-section { padding:36px 44px; background:#ffffff; }
+  .body-section h1 { margin:0 0 16px; font-size:28px; font-weight:800; color:#0d1321; line-height:1.25; }
+  .body-section p { margin:0 0 16px; font-size:16px; color:#444; line-height:1.7; }
+  .cta-wrap { text-align:center; padding:8px 44px 36px; background:#ffffff; }
+  .cta-btn { display:inline-block; background:#00c853; color:#ffffff; font-size:16px; font-weight:700; text-decoration:none; padding:16px 36px; border-radius:6px; letter-spacing:0.3px; }
+  .steps-section { background:#f8f9fa; padding:32px 44px; }
+  .steps-section h2 { margin:0 0 20px; font-size:18px; font-weight:700; color:#0d1321; }
+  .step { display:flex; align-items:flex-start; margin-bottom:16px; }
+  .step-num { min-width:30px; height:30px; background:#00c853; color:#fff; font-size:13px; font-weight:800; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:14px; flex-shrink:0; }
+  .step-text { font-size:15px; color:#444; line-height:1.5; padding-top:4px; }
+  .step-text strong { color:#0d1321; }
+  .divider { height:1px; background:#ebebeb; margin:0; }
+  .footer { background:#0d1321; padding:28px 40px; text-align:center; }
+  .footer p { margin:8px 0; font-size:12px; color:rgba(255,255,255,0.45); line-height:1.6; }
+  .footer a { color:rgba(255,255,255,0.45); text-decoration:underline; }
+</style>
+</head>
+<body>
+<div class="email-wrapper">
+<div class="email-card">
+
+  <!-- Header -->
+  <div class="header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr><td style="text-align:center; padding-bottom:4px;">
+        <img class="header-logo" src="https://go.tridot.com/hs-fs/hubfs/assets-rundot/images/rundot-logo-white.png" alt="RunDot" width="130" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+        <span style="display:none;font-size:26px;font-weight:900;color:#00c853;letter-spacing:-0.5px;">Run<span style="color:#ffffff;">Dot</span></span>
+      </td></tr>
+    </table>
+    <img class="fitlogic" src="https://go.tridot.com/hs-fs/hubfs/assets-rundot/images/powered-by-fitlogic-white.png?width=1200" alt="Powered by FitLogic" width="140" />
+  </div>
+
+  <!-- Hero -->
+  <img class="hero-img" src="assets/run-duo.jpg" alt="Runners training together" />
+
+  <!-- Body -->
+  <div class="body-section">
+    <div class="badge">Day 1</div>
+    <h1>Your smarter training plan is live, {{ contact.firstname }}.</h1>
+    <p>You just joined more than 30,000 runners who stopped guessing and started training with precision. RunDot builds a plan around you — your fitness, your goals, your schedule.</p>
+    <p>No cookie-cutter mileage. No generic paces. Every run, every week, calibrated to make you faster without breaking you down.</p>
+  </div>
+  <div class="cta-wrap">
+    <a href="https://app.rundot.com" class="cta-btn">Open RunDot &rarr;</a>
+  </div>
+
+  <!-- Steps -->
+  <div class="steps-section">
+    <h2>3 things to do right now:</h2>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text"><strong>Complete your assessment.</strong> This is where your RunDot Score gets calculated and your plan takes shape.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text"><strong>Connect your device.</strong> Garmin, Apple Watch, Stryd — whatever you use. RunDot pulls it all in automatically.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text"><strong>Start your first workout.</strong> Open your calendar, tap today's run, and go. It really is that simple.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <img src="https://go.tridot.com/hs-fs/hubfs/assets-rundot/images/powered-by-fitlogic-white.png?width=1200" alt="Powered by FitLogic" width="120" style="opacity:0.5; margin-bottom:12px; display:block; margin-left:auto; margin-right:auto;" />
+    <p>You received this because you started a RunDot trial.</p>
+    <p><a href="{{ unsubscribe_link }}">Unsubscribe</a> &nbsp;|&nbsp; <a href="{{ manage_preferences_link }}">Manage Preferences</a></p>
+    <p>&copy; 2026 Predictive Fitness, Inc. All rights reserved.</p>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

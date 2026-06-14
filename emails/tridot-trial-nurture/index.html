@@ -302,6 +302,74 @@
       border-top: 1px solid #1a1f2e;
       margin-top: 40px;
     }
+
+    /* ── Tab bar ── */
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      max-width: 1264px;
+      margin: 0 auto;
+      padding: 20px 32px 0;
+    }
+    .tab-btn {
+      padding: 12px 32px;
+      font-size: 14px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px 8px 0 0;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, color 0.2s;
+      background: #161b27;
+      color: #555;
+      border: 1px solid #1e2436;
+      border-bottom: none;
+      margin-right: 4px;
+      outline: none;
+    }
+    .tab-btn.active-tridot {
+      background: #1a0508;
+      color: #ea0029;
+      border-color: #ea0029;
+    }
+    .tab-btn.active-rundot {
+      background: #061a0e;
+      color: #00c853;
+      border-color: #00c853;
+    }
+    .tab-btn:not(.active-tridot):not(.active-rundot):hover {
+      background: #1e2333;
+      color: #aaa;
+    }
+    .tab-bar-line {
+      max-width: 1264px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .tab-bar-line hr {
+      border: none;
+      border-top: 1px solid #1e2436;
+      margin: 0;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* RunDot metric colors */
+    .metric-val.rd-green { color: #00c853; }
+    .panel-label.rd-before { color: #888; }
+    .before-placeholder {
+      background: #0d1321;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+      gap: 12px;
+    }
+    .before-placeholder .ph-icon { font-size: 40px; }
+    .before-placeholder .ph-text { font-size: 13px; color: #444; text-align: center; line-height: 1.5; }
+
   </style>
 </head>
 <body>
@@ -310,14 +378,28 @@
 <nav class="nav">
   <div class="nav-left">
     <img class="nav-logo" src="https://tridot.com/hubfs/assets-tridot/tridot-logo.svg" alt="TriDot" />
-    <span class="nav-title">Trial Nurture — Email Redesigns</span>
+    <span class="nav-title">Trial Nurture Sequence — Email Redesigns</span>
   </div>
   <span class="nav-badge">Redesign Draft</span>
 </nav>
 
+
+<!-- Tab Bar -->
+<div class="tab-bar">
+  <button class="tab-btn active-tridot" id="btn-tridot" onclick="switchTab('tridot')">
+    &#9632; TriDot
+  </button>
+  <button class="tab-btn" id="btn-rundot" onclick="switchTab('rundot')">
+    &#9632; RunDot
+  </button>
+</div>
+<div class="tab-bar-line"><hr /></div>
+
+<!-- TriDot Tab -->
+<div id="tab-tridot" class="tab-content active">
 <!-- Hero -->
 <div class="hero" style="max-width:1264px;margin:0 auto;padding:52px 32px 32px;">
-  <h1>Trial Nurture Sequence</h1>
+  <h1>TriDot Trial Nurture Sequence</h1>
   <p>All 6 emails redesigned for higher conversion — improved copy, stronger CTAs, better visual hierarchy, and fixed broken personalization tokens. Scroll to compare every email before and after.</p>
 </div>
 
@@ -617,10 +699,336 @@
 </footer>
 
 
+
+</div><!-- /tab-tridot -->
+
+</div><!-- /tab-tridot -->
+
+<!-- RunDot Tab -->
+<div id="tab-rundot" class="tab-content">
+
+<div class="hero" style="max-width:1264px;margin:0 auto;padding:52px 32px 32px;">
+  <h1 style="color:#00c853;">RunDot Trial Nurture Sequence</h1>
+  <p>All 6 RunDot trial nurture emails redesigned from scratch — running-specific copy, FitLogic AI story, green brand identity, StoryBrand framework. Tap any email to preview the full design.</p>
+</div>
+
+<div class="stats" style="max-width:1264px;margin:0 auto 0;padding:0 32px;">
+  <div class="stat"><div class="stat-label">Emails</div><div class="stat-value">6</div></div>
+  <div class="stat"><div class="stat-label">Workflow</div><div class="stat-value" style="font-size:16px;padding-top:6px;">Trial Nurture</div></div>
+  <div class="stat"><div class="stat-label">Total Enrolled</div><div class="stat-value">3,898</div></div>
+  <div class="stat"><div class="stat-label">Status</div><div class="stat-value" style="color:#00c853;font-size:16px;padding-top:6px;">Active</div></div>
+</div>
+
+<!-- ─── RD EMAIL 1 ─── -->
+<div class="section-label" style="max-width:1264px;padding:0 32px;">
+  <span>Step 1 · Day 0</span>
+</div>
+<div class="email-block" style="max-width:1264px;">
+  <div class="email-header">
+    <div class="email-meta">
+      <div class="email-step">Step 1 · Day 0</div>
+      <div class="email-title">Day 1 Welcome</div>
+    </div>
+    <div class="email-right">
+      <span class="badge badge-rebuild" style="background:#061a0e;color:#00c853;">New Design</span>
+    </div>
+  </div>
+  <div class="subject-row">
+    <span class="subject-label">Subject</span>
+    <span class="subject-current">"Better running starts now 🏃"</span>
+    <span class="subject-arrow">&#8594;</span>
+    <span class="subject-verdict keep">New</span>
+  </div>
+  <div class="compare">
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-label rd-before">BEFORE</span>
+        <span style="font-size:11px;color:#444;">Original HubSpot</span>
+      </div>
+      <div class="panel-body">
+        <div class="before-placeholder">
+          <div class="ph-icon">&#128444;</div>
+          <div class="ph-text">Original HubSpot email<br />capture pending</div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-label after">AFTER</span>
+        <a class="panel-link" href="rundot/email-01-day1-welcome.html" target="_blank">Open full email &#8599;</a>
+      </div>
+      <div class="panel-body">
+        <div class="iframe-wrap">
+          <iframe src="rundot/email-01-day1-welcome.html" title="RunDot Day 1 Welcome" scrolling="no"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── RD EMAIL 2 ─── -->
+<div class="section-label" style="max-width:1264px;padding:0 32px;">
+  <span>Step 2 · Day 2</span>
+</div>
+<div class="email-block" style="max-width:1264px;">
+  <div class="email-header">
+    <div class="email-meta">
+      <div class="email-step">Step 2 · Day 2</div>
+      <div class="email-title">Onboard Started #1</div>
+    </div>
+    <div class="email-right">
+      <span class="badge badge-rebuild" style="background:#061a0e;color:#00c853;">New Design</span>
+    </div>
+  </div>
+  <div class="subject-row">
+    <span class="subject-label">Subject</span>
+    <span class="subject-current">"You were almost there, [First Name]"</span>
+    <span class="subject-arrow">&#8594;</span>
+    <span class="subject-verdict keep">New</span>
+  </div>
+  <div class="compare">
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-label rd-before">BEFORE</span>
+        <span style="font-size:11px;color:#444;">Original HubSpot</span>
+      </div>
+      <div class="panel-body">
+        <div class="before-placeholder">
+          <div class="ph-icon">&#128444;</div>
+          <div class="ph-text">Original HubSpot email<br />capture pending</div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-label after">AFTER</span>
+        <a class="panel-link" href="rundot/email-02-onboard1.html" target="_blank">Open full email &#8599;</a>
+      </div>
+      <div class="panel-body">
+        <div class="iframe-wrap">
+          <iframe src="rundot/email-02-onboard1.html" title="RunDot Onboard #1" scrolling="no"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── RD EMAIL 3 ─── -->
+<div class="section-label" style="max-width:1264px;padding:0 32px;">
+  <span>Step 3 · Day 4</span>
+</div>
+<div class="email-block" style="max-width:1264px;">
+  <div class="email-header">
+    <div class="email-meta">
+      <div class="email-step">Step 3 · Day 4</div>
+      <div class="email-title">Founder Message</div>
+    </div>
+    <div class="email-right">
+      <span class="badge badge-rebuild" style="background:#061a0e;color:#00c853;">New Design</span>
+    </div>
+  </div>
+  <div class="subject-row">
+    <span class="subject-label">Subject</span>
+    <span class="subject-current">"Why I built RunDot — a note from Jeff"</span>
+    <span class="subject-arrow">&#8594;</span>
+    <span class="subject-verdict test">Test vs. Original</span>
+  </div>
+  <div class="compare">
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-label rd-before">BEFORE</span>
+        <span style="font-size:11px;color:#444;">Original HubSpot</span>
+      </div>
+      <div class="panel-body">
+        <div class="before-placeholder">
+          <div class="ph-icon">&#128444;</div>
+          <div class="ph-text">Original HubSpot email<br />capture pending</div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-label after">AFTER</span>
+        <a class="panel-link" href="rundot/email-03-founder.html" target="_blank">Open full email &#8599;</a>
+      </div>
+      <div class="panel-body">
+        <div class="iframe-wrap">
+          <iframe src="rundot/email-03-founder.html" title="RunDot Founder Message" scrolling="no"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── RD EMAIL 4 ─── -->
+<div class="section-label" style="max-width:1264px;padding:0 32px;">
+  <span>Step 4 · Day 6</span>
+</div>
+<div class="email-block" style="max-width:1264px;">
+  <div class="email-header">
+    <div class="email-meta">
+      <div class="email-step">Step 4 · Day 6</div>
+      <div class="email-title">Social Proof</div>
+    </div>
+    <div class="email-right">
+      <span class="badge badge-rebuild" style="background:#061a0e;color:#00c853;">New Design</span>
+    </div>
+  </div>
+  <div class="subject-row">
+    <span class="subject-label">Subject</span>
+    <span class="subject-current">"Real runners. Real results. [First Name]"</span>
+    <span class="subject-arrow">&#8594;</span>
+    <span class="subject-verdict test">Test vs. Original</span>
+  </div>
+  <div class="compare">
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-label rd-before">BEFORE</span>
+        <span style="font-size:11px;color:#444;">Original HubSpot</span>
+      </div>
+      <div class="panel-body">
+        <div class="before-placeholder">
+          <div class="ph-icon">&#128444;</div>
+          <div class="ph-text">Original HubSpot email<br />capture pending</div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-label after">AFTER</span>
+        <a class="panel-link" href="rundot/email-04-social-proof.html" target="_blank">Open full email &#8599;</a>
+      </div>
+      <div class="panel-body">
+        <div class="iframe-wrap">
+          <iframe src="rundot/email-04-social-proof.html" title="RunDot Social Proof" scrolling="no"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── RD EMAIL 5 ─── -->
+<div class="section-label" style="max-width:1264px;padding:0 32px;">
+  <span>Step 5 · Day 9</span>
+</div>
+<div class="email-block" style="max-width:1264px;">
+  <div class="email-header">
+    <div class="email-meta">
+      <div class="email-step">Step 5 · Day 9</div>
+      <div class="email-title">Onboard Started #2</div>
+    </div>
+    <div class="email-right">
+      <span class="badge badge-rebuild" style="background:#061a0e;color:#00c853;">New Design</span>
+    </div>
+  </div>
+  <div class="subject-row">
+    <span class="subject-label">Subject</span>
+    <span class="subject-current">"How can I help, [First Name]?"</span>
+    <span class="subject-arrow">&#8594;</span>
+    <span class="subject-verdict keep">New</span>
+  </div>
+  <div class="compare">
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-label rd-before">BEFORE</span>
+        <span style="font-size:11px;color:#444;">Original HubSpot</span>
+      </div>
+      <div class="panel-body">
+        <div class="before-placeholder">
+          <div class="ph-icon">&#128444;</div>
+          <div class="ph-text">Original HubSpot email<br />capture pending</div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-label after">AFTER</span>
+        <a class="panel-link" href="rundot/email-05-onboard2.html" target="_blank">Open full email &#8599;</a>
+      </div>
+      <div class="panel-body">
+        <div class="iframe-wrap">
+          <iframe src="rundot/email-05-onboard2.html" title="RunDot Onboard #2" scrolling="no"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── RD EMAIL 6 ─── -->
+<div class="section-label" style="max-width:1264px;padding:0 32px;">
+  <span>Step 6 · Day 12</span>
+</div>
+<div class="email-block" style="max-width:1264px;">
+  <div class="email-header">
+    <div class="email-meta">
+      <div class="email-step">Step 6 · Day 12</div>
+      <div class="email-title">Trial Expiring</div>
+    </div>
+    <div class="email-right">
+      <span class="badge badge-rebuild" style="background:#061a0e;color:#00c853;">New Design</span>
+    </div>
+  </div>
+  <div class="subject-row">
+    <span class="subject-label">Subject</span>
+    <span class="subject-current">"Your trial ends in 3 days, [First Name] 🚨"</span>
+    <span class="subject-arrow">&#8594;</span>
+    <span class="subject-verdict keep">New</span>
+  </div>
+  <div class="compare">
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-label rd-before">BEFORE</span>
+        <span style="font-size:11px;color:#444;">Original HubSpot</span>
+      </div>
+      <div class="panel-body">
+        <div class="before-placeholder">
+          <div class="ph-icon">&#128444;</div>
+          <div class="ph-text">Original HubSpot email<br />capture pending</div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header">
+        <span class="panel-label after">AFTER</span>
+        <a class="panel-link" href="rundot/email-06-trial-expiring.html" target="_blank">Open full email &#8599;</a>
+      </div>
+      <div class="panel-body">
+        <div class="iframe-wrap">
+          <iframe src="rundot/email-06-trial-expiring.html" title="RunDot Trial Expiring" scrolling="no"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer style="text-align:center;padding:48px 32px;font-size:12px;color:#444;border-top:1px solid #1a1f2e;margin-top:40px;">
+  Predictive Fitness &mdash; TriDot &amp; RunDot Email Redesign Project
+</footer>
+
+</div><!-- /tab-rundot -->
+
+
 <script>
+  // Tab switching
+  function switchTab(tab) {
+    document.getElementById('tab-tridot').classList.remove('active');
+    document.getElementById('tab-rundot').classList.remove('active');
+    document.getElementById('btn-tridot').className = 'tab-btn';
+    document.getElementById('btn-rundot').className = 'tab-btn';
+
+    document.getElementById('tab-' + tab).classList.add('active');
+    if (tab === 'tridot') {
+      document.getElementById('btn-tridot').className = 'tab-btn active-tridot';
+    } else {
+      document.getElementById('btn-rundot').className = 'tab-btn active-rundot';
+    }
+    // Reinit iframes in new tab
+    setTimeout(initIframes, 100);
+  }
+
   // Auto-resize iframes to full content height, then scale to fit panel width
   function initIframes() {
-    var iframes = document.querySelectorAll('iframe');
+    var iframes = document.querySelectorAll('.tab-content.active iframe');
     iframes.forEach(function(iframe) {
       function resize() {
         try {
@@ -628,7 +1036,6 @@
           var h = doc.documentElement.scrollHeight || doc.body.scrollHeight;
           if (h > 100) {
             iframe.style.height = h + 'px';
-            // Scale to fit the panel (panel is ~50% of 1200px - 32px gap = ~572px)
             var panelW = iframe.parentElement.offsetWidth || 572;
             var scale = panelW / 600;
             iframe.style.transform = 'scale(' + scale + ')';
@@ -639,11 +1046,13 @@
         } catch(e) {}
       }
       iframe.addEventListener('load', function() {
-        // Wait a tick for images to affect layout
         setTimeout(resize, 300);
       });
-      // Also try on window load in case already loaded
       window.addEventListener('load', function() { setTimeout(resize, 500); });
+      // Trigger if already loaded
+      if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+        setTimeout(resize, 100);
+      }
     });
   }
   document.addEventListener('DOMContentLoaded', initIframes);
