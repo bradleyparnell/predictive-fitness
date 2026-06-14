@@ -136,9 +136,48 @@
       margin-bottom: 6px;
     }
     .email-subject {
-      font-size: 13px;
-      color: #777;
+      font-size: 16px;
+      color: #bbb;
       font-style: italic;
+      margin-top: 4px;
+    }
+    .subject-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 14px 24px;
+      background: #12151f;
+      border-top: 1px solid #1e2235;
+      font-size: 13px;
+    }
+    .subject-label {
+      color: #555;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 11px;
+    }
+    .subject-current {
+      color: #888;
+      font-style: italic;
+    }
+    .subject-arrow {
+      color: #444;
+    }
+    .subject-verdict {
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+    .subject-verdict.keep {
+      background: rgba(74,222,128,0.15);
+      color: #4ade80;
+    }
+    .subject-verdict.test {
+      background: rgba(251,191,36,0.15);
+      color: #fbbf24;
     }
 
     .email-right {
@@ -326,6 +365,11 @@
       </div>
     </div>
   </div>
+  <div class="subject-row">
+    <span class="subject-label">Subject line</span>
+    <span class="subject-current">"Better training starts now!!!"</span>
+    <span class="subject-verdict keep">✓ Keep — 3.48% CTR top performer</span>
+  </div>
   <div class="change-notes">
     <div class="change-icon">✅</div>
     <div class="change-text"><strong>Top performer — light touch.</strong> Cleaned up layout, added numbered onboarding steps, strengthened first CTA. Subject line and tone preserved — this one works.</div>
@@ -367,6 +411,11 @@
       <div class="panel-body"><div class="iframe-wrap"><iframe src="email-02-onboard1.html" title="Onboard Started #1 redesign"></iframe></div>
       </div>
     </div>
+  </div>
+  <div class="subject-row">
+    <span class="subject-label">Subject line</span>
+    <span class="subject-current">"You were almost there, [first name]&#8203;‼️"</span>
+    <span class="subject-verdict keep">✓ Keep — 2.66% CTR strong performer</span>
   </div>
   <div class="change-notes">
     <div class="change-icon">✅</div>
@@ -410,6 +459,12 @@
       </div>
     </div>
   </div>
+  <div class="subject-row">
+    <span class="subject-label">Subject line</span>
+    <span class="subject-current">"A quick note from the founder 📝"</span>
+    <span class="subject-arrow">→</span>
+    <span class="subject-verdict test">💡 Test: "Why I built TriDot (a note from Jeff)"</span>
+  </div>
   <div class="change-notes">
     <div class="change-icon">⚠️</div>
     <div class="change-text"><strong>Had no CTA — fixed.</strong> Added an app CTA after Jeff's personal story while keeping the conversational founder tone. The original read like a dead end.</div>
@@ -451,6 +506,12 @@
       <div class="panel-body"><div class="iframe-wrap"><iframe src="email-04-social-proof.html" title="Social Proof redesign"></iframe></div>
       </div>
     </div>
+  </div>
+  <div class="subject-row">
+    <span class="subject-label">Subject line</span>
+    <span class="subject-current">"This is why triathletes love TriDot ➡️"</span>
+    <span class="subject-arrow">→</span>
+    <span class="subject-verdict test">💡 Test: "Real triathletes. Real results. [First Name]"</span>
   </div>
   <div class="change-notes">
     <div class="change-icon">🚨</div>
@@ -494,6 +555,12 @@
       </div>
     </div>
   </div>
+  <div class="subject-row">
+    <span class="subject-label">Subject line</span>
+    <span class="subject-current">"How can I help, [First Name]"</span>
+    <span class="subject-arrow">→</span>
+    <span class="subject-verdict test">💡 Test: "Your training plan is one step away, [First Name]"</span>
+  </div>
   <div class="change-notes">
     <div class="change-icon">🔧</div>
     <div class="change-text"><strong>Very sparse original — improved.</strong> Expanded with top 3 setup tips, warmer personal tone from a coach's perspective, and a clearer CTA. Kept the one-on-one feel.</div>
@@ -535,6 +602,11 @@
       <div class="panel-body"><div class="iframe-wrap"><iframe src="email-06-trial-expiring.html" title="Trial Expiring redesign"></iframe></div>
       </div>
     </div>
+  </div>
+  <div class="subject-row">
+    <span class="subject-label">Subject line</span>
+    <span class="subject-current">"Your trial ends in 3 days, [First Name] 🚨"</span>
+    <span class="subject-verdict keep">✓ Keep — urgency + personalization works</span>
   </div>
   <div class="change-notes">
     <div class="change-icon">🚨</div>
