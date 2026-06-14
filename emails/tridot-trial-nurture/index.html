@@ -935,8 +935,6 @@
 
 </div><!-- /tab-tridot -->
 
-</div><!-- /tab-tridot -->
-
 <!-- RunDot Tab -->
 <div id="tab-rundot" class="tab-content">
 
@@ -1643,11 +1641,11 @@
       try { arr = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e) {}
       if (arr.length) {
         arr.forEach(c => {
-          const esc = v => '"' + String(v).replace(/"/g, '\'\''') + '"';
+          const esc = v => '"' + String(v).replace(/"/g, '\"') + '"';
           lines.push([esc(id), esc(title), approved, esc(approvedDate), esc(c.name), esc(c.text), esc(c.time)].join(','));
         });
       } else {
-        const esc = v => '"' + String(v).replace(/"/g, '\'\''') + '"';
+        const esc = v => '"' + String(v).replace(/"/g, '\"') + '"';
         lines.push([esc(id), esc(title), approved, esc(approvedDate), '', '', ''].join(','));
       }
     });
