@@ -143,5 +143,67 @@
   </table>
 </td></tr>
 </table>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HUBSPOT COPY TOOL — not part of email HTML
+     ══════════════════════════════════════════════════════════= -->
+<div id="hs-copy-ui" style="position:fixed;top:16px;right:16px;z-index:9999;font-family:Arial,sans-serif;display:flex;align-items:center;gap:10px;">
+  <button onclick="copyForHubSpot()" id="hs-copy-btn"
+    style="background:#ea0029;color:#fff;border:none;padding:11px 20px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.25);letter-spacing:0.3px;display:flex;align-items:center;gap:7px;">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+    Copy HTML for HubSpot
+  </button>
+  <span id="hs-copy-msg" style="display:none;background:#16a34a;color:#fff;padding:8px 14px;border-radius:8px;font-size:13px;font-weight:700;">✓ Copied to clipboard!</span>
+</div>
+<script>
+(function() {
+  var ASSET_BASE = '';
+  window.copyForHubSpot = function() {
+    var clone = document.documentElement.cloneNode(true);
+    // Remove this copy UI
+    var ui = clone.querySelector('#hs-copy-ui');
+    if (ui) ui.parentNode.removeChild(ui);
+    // Remove the script block itself
+    var scripts = clone.querySelectorAll('script');
+    scripts.forEach(function(s) { if (s.textContent.indexOf('copyForHubSpot') > -1) s.parentNode.removeChild(s); });
+    // Also remove the comment
+    // Absolutize relative asset paths for HubSpot hosting
+    if (ASSET_BASE) {
+      var html = clone.outerHTML;
+      html = html.replace(/src="assets\//g, 'src="' + ASSET_BASE);
+      html = html.replace(/href="assets\//g, 'href="' + ASSET_BASE);
+      html = html.replace(/url\(assets\//g, 'url(' + ASSET_BASE);
+      var final = '<!DOCTYPE html>\n' + html;
+      navigator.clipboard.writeText(final).then(showCopied, fallbackCopy.bind(null, final));
+    } else {
+      var final = '<!DOCTYPE html>\n' + clone.outerHTML;
+      navigator.clipboard.writeText(final).then(showCopied, fallbackCopy.bind(null, final));
+    }
+  };
+  function showCopied() {
+    var btn = document.getElementById('hs-copy-btn');
+    var msg = document.getElementById('hs-copy-msg');
+    btn.innerHTML = '✓ Copied!';
+    btn.style.background = '#16a34a';
+    msg.style.display = 'inline-flex';
+    setTimeout(function() {
+      btn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy HTML for HubSpot';
+      btn.style.background = '#ea0029';
+      msg.style.display = 'none';
+    }, 3000);
+  }
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;top:-9999px;left:-9999px;';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showCopied();
+  }
+})();
+</script>
+
 </body>
 </html>
