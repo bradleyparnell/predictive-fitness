@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- cache:1781448207 -->
+<!-- cache:1781451000 -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>You were almost there — RunDot</title>
+<title>The more you run with RunDot, the better it gets</title>
 <style>
   body { margin:0; padding:0; background:#f4f4f4; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; }
   .email-wrapper { background:#f4f4f4; padding:32px 16px; }
   .email-card { max-width:600px; margin:0 auto; background:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.10); }
   .header { background:#0d1321; padding:28px 40px 24px; text-align:center; }
   .hero-img { width:100%; display:block; }
-  .badge-warn { display:inline-block; background:#ff8c00; color:#ffffff; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 16px; border-radius:50px; margin-bottom:16px; }
   .body-section { padding:36px 44px; background:#ffffff; }
   .body-section h1 { margin:0 0 16px; font-size:28px; font-weight:800; color:#0d1321; line-height:1.25; }
   .body-section p { margin:0 0 16px; font-size:16px; color:#444; line-height:1.7; }
-  .checklist { background:#f0faf4; border-radius:10px; padding:24px 28px; margin:8px 0 24px; }
-  .checklist h3 { margin:0 0 14px; font-size:15px; font-weight:700; color:#0d1321; }
-  .check-item { display:flex; align-items:center; margin-bottom:10px; font-size:15px; color:#444; }
-  .check-item .icon { margin-right:10px; font-size:18px; }
-  .check-item.done { color:#00c853; font-weight:600; }
-  .check-item.todo { color:#999; }
+  .unlock-list { background:#f0faf4; border-radius:10px; padding:24px 28px; margin:8px 0 24px; }
+  .unlock-list h3 { margin:0 0 14px; font-size:15px; font-weight:700; color:#0d1321; }
+  .unlock-item { display:flex; align-items:flex-start; margin-bottom:14px; font-size:15px; color:#333; line-height:1.6; }
+  .unlock-icon { margin-right:12px; font-size:18px; color:#00c853; flex-shrink:0; margin-top:2px; }
   .cta-wrap { text-align:center; padding:8px 44px 36px; background:#ffffff; }
   .cta-btn { display:inline-block; background:#00c853; color:#ffffff; font-size:16px; font-weight:700; text-decoration:none; padding:16px 36px; border-radius:6px; }
   .divider { height:1px; background:#ebebeb; }
@@ -44,28 +41,34 @@
   </div>
 
   <!-- Hero -->
-  <img class="hero-img" src="assets/rundot-lifestyle.png" alt="RunDot athlete with app" />
+  <img class="hero-img" src="assets/run-2.jpg" alt="Runner on the trail" />
 
   <!-- Body -->
   <div class="body-section">
-    <div class="badge-warn">Setup Incomplete</div>
-    <h1>You were almost there, {{ contact.firstname }}.</h1>
-    <p>Your RunDot plan is ready — but your setup isn't finished yet. You're one step away from running smarter every single day.</p>
-    <p>Here's where you left off:</p>
+    <h1>The more you run with RunDot, the smarter it gets, {{ contact.firstname }}.</h1>
+    <p>Most training apps hand you a generic plan and wish you luck. RunDot is different. It learns from every workout and keeps adjusting your plan to match your actual fitness.</p>
+    <p>Here are three things that unlock the full RunDot experience:</p>
 
-    <div class="checklist">
-      <h3>Your setup progress:</h3>
-      <div class="check-item done"><span class="icon">&#10003;</span> Account created</div>
-      <div class="check-item done"><span class="icon">&#10003;</span> Goal race selected</div>
-      <div class="check-item todo"><span class="icon">&#9679;</span> Assessment completed</div>
-      <div class="check-item todo"><span class="icon">&#9679;</span> Device connected</div>
-      <div class="check-item todo"><span class="icon">&#9679;</span> First workout started</div>
+    <div class="unlock-list">
+      <h3>Get more from every run:</h3>
+      <div class="unlock-item">
+        <span class="unlock-icon">&#9654;</span>
+        <div><strong>Complete the 5-minute assessment.</strong> It's what personalizes every workout to your body specifically, not a template built for someone else.</div>
+      </div>
+      <div class="unlock-item">
+        <span class="unlock-icon">&#9654;</span>
+        <div><strong>Connect your GPS watch.</strong> RunDot uses real workout data to keep refining your plan as you train. The more it knows, the better it gets.</div>
+      </div>
+      <div class="unlock-item">
+        <span class="unlock-icon">&#9654;</span>
+        <div><strong>Trust your easy days.</strong> Recovery is built in on purpose. Easy means easy, and it's where the gains actually happen.</div>
+      </div>
     </div>
 
-    <p>Completing your assessment takes about 5 minutes and is what makes RunDot actually work. Skip it, and you get a generic plan. Finish it, and you get a plan that knows your body.</p>
+    <p>Athletes who do all three are consistently the ones hitting their race goals in weeks, not months.</p>
   </div>
   <div class="cta-wrap">
-    <a href="https://app.rundot.com" class="cta-btn">Finish My Setup &rarr;</a>
+    <a href="https://app.rundot.com" class="cta-btn">Open My RunDot Plan &rarr;</a>
   </div>
 
   <div class="divider"></div>
