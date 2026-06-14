@@ -198,6 +198,28 @@
     .metric-val.bad { color: #f87171; }
     .metric-val.neutral { color: #888; }
     .metric-label { font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 0.06em; }
+    .perf-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-width: 48px;
+    }
+    .perf-val {
+      font-size: 22px;
+      font-weight: 700;
+      color: #00c853;
+      line-height: 1.1;
+    }
+    .perf-val.rd-low { color: #f87171; }
+    .perf-label {
+      font-size: 10px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 2px;
+    }
+
 
     .badge {
       font-size: 11px;
@@ -253,8 +275,7 @@
     }
     .before-scroll {
       width: 100%;
-      height: 680px;
-      overflow-y: auto;
+      overflow-y: visible;
       overflow-x: hidden;
       background: #ffffff;
       display: block;
@@ -277,9 +298,7 @@
       background: #fff;
       width: 100%;
       max-width: 100%;
-      height: 680px;
-      overflow-y: auto;
-      overflow-x: hidden;
+      overflow: visible;
     }
 
     /* ── Change notes ── */
@@ -412,8 +431,7 @@
 </div>
 
 <!-- Stats -->
-<div class="stats" style="max-width:1264px;margin:0 auto 0;padding:0 32px;">
-  <div class="stat"><div class="stat-label">Emails</div><div class="stat-value">6</div></div>
+<div class="stats" style="max-width:1264px;margin:0 auto 48px;padding:0 32px;">
   <div class="stat"><div class="stat-label">Best Open Rate</div><div class="stat-value">22.2%</div></div>
   <div class="stat"><div class="stat-label">Best CTR</div><div class="stat-value">3.48%</div></div>
   <div class="stat"><div class="stat-label">Lowest CTR</div><div class="stat-value" style="color:#f87171;">0.21%</div></div>
@@ -453,7 +471,7 @@
         <span class="panel-label after">After</span>
         <a class="panel-link" href="email-01-day1-welcome.html" target="_blank">Open full screen ↗</a>
       </div>
-      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-01-day1-welcome.html" title="Day 1 Welcome redesign"></iframe></div>
+      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-01-day1-welcome.html" title="Day 1 Welcome redesign" onload="autoH(this)"></iframe></div>
       </div>
     </div>
   </div>
@@ -497,7 +515,7 @@
         <span class="panel-label after">After</span>
         <a class="panel-link" href="email-02-onboard1.html" target="_blank">Open full screen ↗</a>
       </div>
-      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-02-onboard1.html" title="Onboard Started #1 redesign"></iframe></div>
+      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-02-onboard1.html" title="Onboard Started #1 redesign" onload="autoH(this)"></iframe></div>
       </div>
     </div>
   </div>
@@ -542,7 +560,7 @@
         <span class="panel-label after">After</span>
         <a class="panel-link" href="email-03-founder.html" target="_blank">Open full screen ↗</a>
       </div>
-      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-03-founder.html" title="Founder Message redesign"></iframe></div>
+      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-03-founder.html" title="Founder Message redesign" onload="autoH(this)"></iframe></div>
       </div>
     </div>
   </div>
@@ -587,7 +605,7 @@
         <span class="panel-label after">After</span>
         <a class="panel-link" href="email-04-social-proof.html" target="_blank">Open full screen ↗</a>
       </div>
-      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-04-social-proof.html" title="Social Proof redesign"></iframe></div>
+      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-04-social-proof.html" title="Social Proof redesign" onload="autoH(this)"></iframe></div>
       </div>
     </div>
   </div>
@@ -632,7 +650,7 @@
         <span class="panel-label after">After</span>
         <a class="panel-link" href="email-05-onboard2.html" target="_blank">Open full screen ↗</a>
       </div>
-      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-05-onboard2.html" title="Onboard Started #2 redesign"></iframe></div>
+      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-05-onboard2.html" title="Onboard Started #2 redesign" onload="autoH(this)"></iframe></div>
       </div>
     </div>
   </div>
@@ -676,7 +694,7 @@
         <span class="panel-label after">After</span>
         <a class="panel-link" href="email-06-trial-expiring.html" target="_blank">Open full screen ↗</a>
       </div>
-      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-06-trial-expiring.html" title="Trial Expiring redesign"></iframe></div>
+      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-06-trial-expiring.html" title="Trial Expiring redesign" onload="autoH(this)"></iframe></div>
       </div>
     </div>
   </div>
@@ -702,8 +720,7 @@
   <p>All 9 RunDot trial nurture emails redesigned from scratch — running-specific copy, FitLogic AI story, green brand identity, StoryBrand framework. Tap any email to preview the full design.</p>
 </div>
 
-<div class="stats" style="max-width:1264px;margin:0 auto 0;padding:0 32px;">
-  <div class="stat"><div class="stat-label">Emails</div><div class="stat-value">9</div></div>
+<div class="stats" style="max-width:1264px;margin:0 auto 48px;padding:0 32px;">
   <div class="stat"><div class="stat-label">Best Open Rate</div><div class="stat-value">24.42%</div></div>
   <div class="stat"><div class="stat-label">Best CTR</div><div class="stat-value">3.92%</div></div>
   <div class="stat"><div class="stat-label">Lowest CTR</div><div class="stat-value" style="color:#f87171;">0.00%</div></div>
@@ -745,7 +762,7 @@
       </div>
       <div class="panel-body">
         <div class="iframe-wrap">
-          <iframe src="rundot/email-01-day1-welcome.html" title="RunDot Day 1 Welcome"></iframe>
+          <iframe src="rundot/email-01-day1-welcome.html" title="RunDot Day 1 Welcome" onload="autoH(this)"></iframe>
         </div>
       </div>
     </div>
@@ -788,7 +805,7 @@
       </div>
       <div class="panel-body">
         <div class="iframe-wrap">
-          <iframe src="rundot/email-07-day2.html" title="RunDot Day 2"></iframe>
+          <iframe src="rundot/email-07-day2.html" title="RunDot Day 2" onload="autoH(this)"></iframe>
         </div>
       </div>
     </div>
@@ -831,7 +848,7 @@
       </div>
       <div class="panel-body">
         <div class="iframe-wrap">
-          <iframe src="rundot/email-02-onboard1.html" title="RunDot Onboard #1"></iframe>
+          <iframe src="rundot/email-02-onboard1.html" title="RunDot Onboard #1" onload="autoH(this)"></iframe>
         </div>
       </div>
     </div>
@@ -874,7 +891,7 @@
       </div>
       <div class="panel-body">
         <div class="iframe-wrap">
-          <iframe src="rundot/email-08-day4.html" title="RunDot Day 4"></iframe>
+          <iframe src="rundot/email-08-day4.html" title="RunDot Day 4" onload="autoH(this)"></iframe>
         </div>
       </div>
     </div>
@@ -917,7 +934,7 @@
       </div>
       <div class="panel-body">
         <div class="iframe-wrap">
-          <iframe src="rundot/email-05-onboard2.html" title="RunDot Onboard #2"></iframe>
+          <iframe src="rundot/email-05-onboard2.html" title="RunDot Onboard #2" onload="autoH(this)"></iframe>
         </div>
       </div>
     </div>
@@ -960,7 +977,7 @@
       </div>
       <div class="panel-body">
         <div class="iframe-wrap">
-          <iframe src="rundot/email-09-day8.html" title="RunDot Day 8"></iframe>
+          <iframe src="rundot/email-09-day8.html" title="RunDot Day 8" onload="autoH(this)"></iframe>
         </div>
       </div>
     </div>
@@ -1003,7 +1020,7 @@
       </div>
       <div class="panel-body">
         <div class="iframe-wrap">
-          <iframe src="rundot/email-03-founder.html" title="RunDot Founder Message"></iframe>
+          <iframe src="rundot/email-03-founder.html" title="RunDot Founder Message" onload="autoH(this)"></iframe>
         </div>
       </div>
     </div>
@@ -1046,7 +1063,7 @@
       </div>
       <div class="panel-body">
         <div class="iframe-wrap">
-          <iframe src="rundot/email-04-social-proof.html" title="RunDot Social Proof"></iframe>
+          <iframe src="rundot/email-04-social-proof.html" title="RunDot Social Proof" onload="autoH(this)"></iframe>
         </div>
       </div>
     </div>
@@ -1089,7 +1106,7 @@
       </div>
       <div class="panel-body">
         <div class="iframe-wrap">
-          <iframe src="rundot/email-06-trial-expiring.html" title="RunDot Trial Expiring"></iframe>
+          <iframe src="rundot/email-06-trial-expiring.html" title="RunDot Trial Expiring" onload="autoH(this)"></iframe>
         </div>
       </div>
     </div>
@@ -1149,5 +1166,13 @@
   document.addEventListener('DOMContentLoaded', initIframes);
 </script>
 
+<script>
+function autoH(el){
+  try {
+    var h = el.contentWindow.document.documentElement.scrollHeight;
+    if(h > 100) el.style.height = h + 'px';
+  } catch(e) {}
+}
+</script>
 </body>
 </html>
