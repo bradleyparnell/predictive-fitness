@@ -218,10 +218,16 @@
       display: block;
     }
     .panel-body iframe {
-      width: 100%;
-      height: 600px;
+      width: 600px;
+      height: 800px;
       border: none;
       display: block;
+      background: #fff;
+      transform-origin: top left;
+      /* JS will set height after load; transform scales to panel width */
+    }
+    .iframe-wrap {
+      overflow: hidden;
       background: #fff;
     }
 
@@ -312,8 +318,7 @@
         <span class="panel-label after">After</span>
         <a class="panel-link" href="email-01-day1-welcome.html" target="_blank">Open full screen ↗</a>
       </div>
-      <div class="panel-body">
-        <iframe src="email-01-day1-welcome.html" title="Day 1 Welcome redesign"></iframe>
+      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-01-day1-welcome.html" title="Day 1 Welcome redesign"></iframe></div>
       </div>
     </div>
   </div>
@@ -355,8 +360,7 @@
         <span class="panel-label after">After</span>
         <a class="panel-link" href="email-02-onboard1.html" target="_blank">Open full screen ↗</a>
       </div>
-      <div class="panel-body">
-        <iframe src="email-02-onboard1.html" title="Onboard Started #1 redesign"></iframe>
+      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-02-onboard1.html" title="Onboard Started #1 redesign"></iframe></div>
       </div>
     </div>
   </div>
@@ -398,8 +402,7 @@
         <span class="panel-label after">After</span>
         <a class="panel-link" href="email-03-founder.html" target="_blank">Open full screen ↗</a>
       </div>
-      <div class="panel-body">
-        <iframe src="email-03-founder.html" title="Founder Message redesign"></iframe>
+      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-03-founder.html" title="Founder Message redesign"></iframe></div>
       </div>
     </div>
   </div>
@@ -441,8 +444,7 @@
         <span class="panel-label after">After</span>
         <a class="panel-link" href="email-04-social-proof.html" target="_blank">Open full screen ↗</a>
       </div>
-      <div class="panel-body">
-        <iframe src="email-04-social-proof.html" title="Social Proof redesign"></iframe>
+      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-04-social-proof.html" title="Social Proof redesign"></iframe></div>
       </div>
     </div>
   </div>
@@ -484,8 +486,7 @@
         <span class="panel-label after">After</span>
         <a class="panel-link" href="email-05-onboard2.html" target="_blank">Open full screen ↗</a>
       </div>
-      <div class="panel-body">
-        <iframe src="email-05-onboard2.html" title="Onboard Started #2 redesign"></iframe>
+      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-05-onboard2.html" title="Onboard Started #2 redesign"></iframe></div>
       </div>
     </div>
   </div>
@@ -527,8 +528,7 @@
         <span class="panel-label after">After</span>
         <a class="panel-link" href="email-06-trial-expiring.html" target="_blank">Open full screen ↗</a>
       </div>
-      <div class="panel-body">
-        <iframe src="email-06-trial-expiring.html" title="Trial Expiring redesign"></iframe>
+      <div class="panel-body"><div class="iframe-wrap"><iframe src="email-06-trial-expiring.html" title="Trial Expiring redesign"></iframe></div>
       </div>
     </div>
   </div>
@@ -542,6 +542,39 @@
 <footer>
   Prepared by Predictive Fitness · TriDot Email Redesign Project · Trial Nurture Sequence
 </footer>
+
+
+<script>
+  // Auto-resize iframes to full content height, then scale to fit panel width
+  function initIframes() {
+    var iframes = document.querySelectorAll('iframe');
+    iframes.forEach(function(iframe) {
+      function resize() {
+        try {
+          var doc = iframe.contentDocument || iframe.contentWindow.document;
+          var h = doc.documentElement.scrollHeight || doc.body.scrollHeight;
+          if (h > 100) {
+            iframe.style.height = h + 'px';
+            // Scale to fit the panel (panel is ~50% of 1200px - 32px gap = ~572px)
+            var panelW = iframe.parentElement.offsetWidth || 572;
+            var scale = panelW / 600;
+            iframe.style.transform = 'scale(' + scale + ')';
+            iframe.style.transformOrigin = 'top left';
+            iframe.style.width = '600px';
+            iframe.parentElement.style.height = Math.round(h * scale) + 'px';
+          }
+        } catch(e) {}
+      }
+      iframe.addEventListener('load', function() {
+        // Wait a tick for images to affect layout
+        setTimeout(resize, 300);
+      });
+      // Also try on window load in case already loaded
+      window.addEventListener('load', function() { setTimeout(resize, 500); });
+    });
+  }
+  document.addEventListener('DOMContentLoaded', initIframes);
+</script>
 
 </body>
 </html>
