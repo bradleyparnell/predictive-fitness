@@ -252,14 +252,18 @@
       background: #f5f5f5;
       overflow: hidden;
     }
-    .before-zoom {
+    .before-scroll {
       width: 100%;
       height: 680px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: #ffffff;
       display: block;
-      background-size: 100% auto;
-      background-position: top center;
-      background-repeat: no-repeat;
-      background-color: #ffffff;
+    }
+    .before-img {
+      width: 200%;
+      margin-left: -50%;
+      display: block;
     }
     .panel-body iframe {
       width: 600px;
@@ -443,7 +447,7 @@
         <span style="font-size:11px;color:#555;">Live in HubSpot</span>
       </div>
       <div class="panel-body">
-        <div class="before-zoom" style="background-image:url('screenshots/email-01-day1.png')"></div>
+        <div class="before-scroll"><img class="before-img" src="screenshots/email-01-day1.png" alt="Original email" /></div>
       </div>
     </div>
     <div class="panel">
@@ -490,7 +494,7 @@
         <span style="font-size:11px;color:#555;">Live in HubSpot</span>
       </div>
       <div class="panel-body">
-        <div class="before-zoom" style="background-image:url('screenshots/email-02-onboard1.png')"></div>
+        <div class="before-scroll"><img class="before-img" src="screenshots/email-02-onboard1.png" alt="Original email" /></div>
       </div>
     </div>
     <div class="panel">
@@ -538,7 +542,7 @@
         <span style="font-size:11px;color:#555;">Live in HubSpot</span>
       </div>
       <div class="panel-body">
-        <div class="before-zoom" style="background-image:url('screenshots/email-03-founder.png')"></div>
+        <div class="before-scroll"><img class="before-img" src="screenshots/email-03-founder.png" alt="Original email" /></div>
       </div>
     </div>
     <div class="panel">
@@ -586,7 +590,7 @@
         <span style="font-size:11px;color:#555;">Live in HubSpot</span>
       </div>
       <div class="panel-body">
-        <div class="before-zoom" style="background-image:url('screenshots/email-04-social-proof.png')"></div>
+        <div class="before-scroll"><img class="before-img" src="screenshots/email-04-social-proof.png" alt="Original email" /></div>
       </div>
     </div>
     <div class="panel">
@@ -634,7 +638,7 @@
         <span style="font-size:11px;color:#555;">Live in HubSpot</span>
       </div>
       <div class="panel-body">
-        <div class="before-zoom" style="background-image:url('screenshots/email-05-onboard2.png')"></div>
+        <div class="before-scroll"><img class="before-img" src="screenshots/email-05-onboard2.png" alt="Original email" /></div>
       </div>
     </div>
     <div class="panel">
@@ -681,7 +685,7 @@
         <span style="font-size:11px;color:#555;">Live in HubSpot</span>
       </div>
       <div class="panel-body">
-        <div class="before-zoom" style="background-image:url('screenshots/email-06-trial-expiring.png')"></div>
+        <div class="before-scroll"><img class="before-img" src="screenshots/email-06-trial-expiring.png" alt="Original email" /></div>
       </div>
     </div>
     <div class="panel">
@@ -749,7 +753,7 @@
         <span style="font-size:11px;color:#444;">Original HubSpot</span>
       </div>
       <div class="panel-body">
-        <div class="before-zoom" style="background-image:url('rundot/assets/before-01-day1.png')"></div>
+        <div class="before-scroll"><img class="before-img" src="rundot/assets/before-01-day1.png" alt="Original email" /></div>
       </div>
     </div>
     <div class="panel">
@@ -793,7 +797,7 @@
         <span style="font-size:11px;color:#444;">Original HubSpot</span>
       </div>
       <div class="panel-body">
-        <div class="before-zoom" style="background-image:url('rundot/assets/before-02-day2.png')"></div>
+        <div class="before-scroll"><img class="before-img" src="rundot/assets/before-02-day2.png" alt="Original email" /></div>
       </div>
     </div>
     <div class="panel">
@@ -837,7 +841,7 @@
         <span style="font-size:11px;color:#444;">Original HubSpot</span>
       </div>
       <div class="panel-body">
-        <div class="before-zoom" style="background-image:url('rundot/assets/before-03-onboard1.png')"></div>
+        <div class="before-scroll"><img class="before-img" src="rundot/assets/before-03-onboard1.png" alt="Original email" /></div>
       </div>
     </div>
     <div class="panel">
@@ -881,7 +885,7 @@
         <span style="font-size:11px;color:#444;">Original HubSpot</span>
       </div>
       <div class="panel-body">
-        <div class="before-zoom" style="background-image:url('rundot/assets/before-04-day4.png')"></div>
+        <div class="before-scroll"><img class="before-img" src="rundot/assets/before-04-day4.png" alt="Original email" /></div>
       </div>
     </div>
     <div class="panel">
@@ -925,7 +929,7 @@
         <span style="font-size:11px;color:#444;">Original HubSpot</span>
       </div>
       <div class="panel-body">
-        <div class="before-zoom" style="background-image:url('rundot/assets/before-05-onboard2.png')"></div>
+        <div class="before-scroll"><img class="before-img" src="rundot/assets/before-05-onboard2.png" alt="Original email" /></div>
       </div>
     </div>
     <div class="panel">
@@ -969,7 +973,7 @@
         <span style="font-size:11px;color:#444;">Original HubSpot</span>
       </div>
       <div class="panel-body">
-        <div class="before-zoom" style="background-image:url('rundot/assets/before-06-day8.png')"></div>
+        <div class="before-scroll"><img class="before-img" src="rundot/assets/before-06-day8.png" alt="Original email" /></div>
       </div>
     </div>
     <div class="panel">
@@ -1013,7 +1017,7 @@
         <span style="font-size:11px;color:#444;">Original HubSpot</span>
       </div>
       <div class="panel-body">
-        <div class="before-zoom" style="background-image:url('rundot/assets/before-07-founder.png')"></div>
+        <div class="before-scroll"><img class="before-img" src="rundot/assets/before-07-founder.png" alt="Original email" /></div>
       </div>
     </div>
     <div class="panel">
@@ -1057,7 +1061,7 @@
         <span style="font-size:11px;color:#444;">Original HubSpot</span>
       </div>
       <div class="panel-body">
-        <div class="before-zoom" style="background-image:url('rundot/assets/before-08-runners.png')"></div>
+        <div class="before-scroll"><img class="before-img" src="rundot/assets/before-08-runners.png" alt="Original email" /></div>
       </div>
     </div>
     <div class="panel">
@@ -1101,7 +1105,7 @@
         <span style="font-size:11px;color:#444;">Original HubSpot</span>
       </div>
       <div class="panel-body">
-        <div class="before-zoom" style="background-image:url('rundot/assets/before-09-day14.png')"></div>
+        <div class="before-scroll"><img class="before-img" src="rundot/assets/before-09-day14.png" alt="Original email" /></div>
       </div>
     </div>
     <div class="panel">
