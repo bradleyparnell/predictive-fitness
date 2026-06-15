@@ -90,7 +90,7 @@
   .hero-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green-light); }
   .hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(52px, 6vw, 84px);
+    font-size: clamp(36px, 4.2vw, 62px);
     font-weight: 800;
     font-style: normal;
     line-height: 1.0;
@@ -623,7 +623,7 @@
   .hero h1           { opacity: 0; animation: rdFadeUp 0.72s cubic-bezier(0.22,1,0.36,1) 0.30s forwards; }
   .hero-sub          { opacity: 0; animation: rdFadeUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.50s forwards; }
   .hero-actions      { opacity: 0; animation: rdFadeUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.66s forwards; }
-  .hero-social-proof { opacity: 0; animation: rdFadeUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.82s forwards; }
+  .hero-social-proof { opacity: 1; }
 
   /* Scroll-reveal base state (applied by JS) */
   .rd-reveal {
@@ -668,7 +668,16 @@
       <a href="#" class="btn-primary">Start Your Free Trial</a>
       <a href="#" class="btn-ghost">See How It Works</a>
     </div>
-
+    <div class="hero-social-proof">
+      <div class="hero-avatars">
+        <div class="avatar" style="background:#4a7c59;">JM</div>
+        <div class="avatar" style="background:#2d6a4f;">SR</div>
+        <div class="avatar" style="background:#1b4332;">TK</div>
+        <div class="avatar" style="background:#53b956;">AB</div>
+        <div class="avatar avatar-more">+</div>
+      </div>
+      <div class="hero-proof-text"><strong>50,000+ runners</strong> already training smarter</div>
+    </div>
   </div>
 </section>
 
@@ -1115,13 +1124,6 @@
       else { el.textContent = prefix + target.toLocaleString() + suffix; }
     }
     requestAnimationFrame(run);
-  }
-
-  // Hero: "50,000+ runners" — fires after hero animation finishes
-  var heroStrong = document.querySelector('.hero-proof-text strong');
-  if (heroStrong) {
-    heroStrong.textContent = '0+ runners';
-    setTimeout(function () { countUp(heroStrong, '', 50000, '+ runners', 2200); }, 1600);
   }
 
   // Meb proof stats: "20+ Years" and "Up to 30%"
