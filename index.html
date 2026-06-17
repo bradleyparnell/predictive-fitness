@@ -3,299 +3,47 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>LevelField Email Preview</title>
+<title>Predictive Fitness — Email Previews</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --navy: #0C1B33;
-    --accent: #2563EB;
-    --accent-light: #3B82F6;
-    --bg: #F1F5F9;
-    --sidebar-w: 260px;
-    --header-h: 56px;
-    --panel-w: 340px;
-  }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: #1E293B; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
-
-  /* Header */
-  header { height: var(--header-h); background: var(--navy); display: flex; align-items: center; padding: 0 20px; gap: 12px; flex-shrink: 0; }
-  header img { height: 28px; filter: brightness(0) invert(1); }
-  header span { color: #94A3B8; font-size: 13px; margin-left: 8px; }
-  header .badge { margin-left: auto; background: #1E3A5F; color: #60A5FA; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
-
-  /* Main layout */
-  .layout { display: flex; flex: 1; overflow: hidden; }
-
-  /* Sidebar */
-  aside { width: var(--sidebar-w); background: white; border-right: 1px solid #E2E8F0; display: flex; flex-direction: column; flex-shrink: 0; overflow-y: auto; }
-  .sidebar-label { padding: 14px 16px 8px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; color: #94A3B8; text-transform: uppercase; }
-  .email-item { display: flex; align-items: flex-start; gap: 10px; padding: 12px 16px; cursor: pointer; border-left: 3px solid transparent; transition: all 0.15s; text-decoration: none; color: inherit; }
-  .email-item:hover { background: #F8FAFC; }
-  .email-item.active { background: #EFF6FF; border-left-color: var(--accent); }
-  .email-item .num { width: 22px; height: 22px; border-radius: 50%; background: #E2E8F0; color: #64748B; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
-  .email-item.active .num { background: var(--accent); color: white; }
-  .email-item .info { flex: 1; min-width: 0; }
-  .email-item .info .day { font-size: 10px; color: #94A3B8; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-  .email-item .info .subject { font-size: 13px; font-weight: 500; color: #1E293B; line-height: 1.3; margin-top: 2px; }
-  .email-item .comment-count { font-size: 10px; color: #94A3B8; margin-top: 4px; display: flex; align-items: center; gap: 3px; }
-  .email-item .comment-count svg { width: 11px; height: 11px; }
-  .sidebar-footer { margin-top: auto; padding: 16px; border-top: 1px solid #E2E8F0; }
-  .sidebar-footer a { display: block; text-align: center; font-size: 12px; color: #64748B; text-decoration: none; padding: 8px; border-radius: 6px; border: 1px solid #E2E8F0; transition: all 0.15s; }
-  .sidebar-footer a:hover { background: #F8FAFC; color: var(--accent); border-color: var(--accent-light); }
-
-  /* Preview area */
-  .preview { flex: 1; display: flex; flex-direction: column; overflow: hidden; background: #E2E8F0; }
-  .preview-toolbar { background: white; border-bottom: 1px solid #E2E8F0; padding: 10px 16px; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-  .preview-toolbar .email-title { font-size: 14px; font-weight: 600; color: #1E293B; flex: 1; }
-  .preview-toolbar .day-pill { font-size: 11px; font-weight: 600; color: #64748B; background: #F1F5F9; padding: 3px 10px; border-radius: 12px; }
-  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 7px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; transition: all 0.15s; text-decoration: none; }
-  .btn-primary { background: var(--accent); color: white; }
-  .btn-primary:hover { background: #1D4ED8; }
-  .btn-outline { background: white; color: #374151; border: 1px solid #D1D5DB; }
-  .btn-outline:hover { background: #F9FAFB; }
-  .preview iframe { flex: 1; border: none; background: white; }
-  .preview-frame { flex: 1; display: flex; justify-content: center; overflow-y: auto; padding: 24px; }
-  .preview-frame iframe { width: 640px; max-width: 100%; border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,0.12); border: none; background: white; height: 100%; min-height: 600px; }
-
-  /* Feedback panel */
-  .feedback-panel { width: var(--panel-w); background: white; border-left: 1px solid #E2E8F0; display: flex; flex-direction: column; flex-shrink: 0; }
-  .panel-header { padding: 16px; border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; justify-content: space-between; }
-  .panel-header h3 { font-size: 14px; font-weight: 700; }
-  .panel-header .count { background: #EFF6FF; color: var(--accent); font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 12px; }
-  .comments-list { flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
-  .comment-card { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; }
-  .comment-card .meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
-  .comment-card .author { font-size: 12px; font-weight: 700; color: #1E293B; }
-  .comment-card .ts { font-size: 11px; color: #94A3B8; }
-  .comment-card .text { font-size: 13px; color: #374151; line-height: 1.5; }
-  .comment-card .tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 10px; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
-  .tag-copy { background: #FEF3C7; color: #92400E; }
-  .tag-design { background: #EDE9FE; color: #5B21B6; }
-  .tag-approve { background: #DCFCE7; color: #166534; }
-  .tag-question { background: #DBEAFE; color: #1E40AF; }
-  .empty-state { text-align: center; padding: 40px 20px; color: #94A3B8; }
-  .empty-state svg { width: 40px; height: 40px; margin: 0 auto 12px; display: block; opacity: 0.4; }
-  .empty-state p { font-size: 13px; }
-  .add-comment { padding: 12px; border-top: 1px solid #E2E8F0; display: flex; flex-direction: column; gap: 8px; }
-  .add-comment textarea { width: 100%; border: 1px solid #D1D5DB; border-radius: 6px; padding: 8px 10px; font-size: 13px; font-family: inherit; resize: none; outline: none; }
-  .add-comment textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
-  .add-comment .row { display: flex; gap: 6px; }
-  .add-comment select { flex: 1; border: 1px solid #D1D5DB; border-radius: 6px; padding: 6px 8px; font-size: 12px; font-family: inherit; outline: none; color: #374151; }
-  .add-comment .submit { background: var(--accent); color: white; border: none; border-radius: 6px; padding: 7px 14px; font-size: 12px; font-weight: 700; cursor: pointer; }
-  .add-comment .submit:hover { background: #1D4ED8; }
-  .add-comment .gh-link { display: block; text-align: center; font-size: 11px; color: #94A3B8; text-decoration: none; padding: 4px; }
-  .add-comment .gh-link:hover { color: var(--accent); }
-
-  /* Responsive collapse feedback panel */
-  @media (max-width: 1100px) {
-    .feedback-panel { display: none; }
-  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0C1B33; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; }
+  .logo { margin-bottom: 12px; }
+  .logo img { height: 36px; filter: brightness(0) invert(1); }
+  h1 { color: white; font-size: 22px; font-weight: 700; margin-bottom: 8px; text-align: center; }
+  p { color: #94A3B8; font-size: 14px; margin-bottom: 40px; text-align: center; }
+  .grid { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .card { background: white; border-radius: 12px; padding: 28px 32px; width: 260px; text-align: center; text-decoration: none; color: inherit; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+  .card .icon { font-size: 36px; margin-bottom: 12px; }
+  .card h2 { font-size: 18px; font-weight: 700; color: #0C1B33; margin-bottom: 6px; }
+  .card p { font-size: 13px; color: #64748B; margin-bottom: 16px; }
+  .card .badge { display: inline-block; background: #EFF6FF; color: #2563EB; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.04em; }
+  .footer { margin-top: 48px; color: #475569; font-size: 12px; text-align: center; }
+  .footer a { color: #60A5FA; text-decoration: none; }
 </style>
 </head>
 <body>
-
-<header>
-  <img src="https://www.levelfieldresults.com/levelfield-logo.png" alt="LevelField"/>
-  <span>Email Sequence Preview</span>
-  <span class="badge">5 Emails · Draft</span>
-</header>
-
-<div class="layout">
-
-  <!-- Sidebar -->
-  <aside>
-    <div class="sidebar-label">Email Sequence</div>
-
-    <a class="email-item active" href="#" data-email="0" onclick="selectEmail(0);return false;">
-      <div class="num">1</div>
-      <div class="info">
-        <div class="day">Day 0 · Immediate</div>
-        <div class="subject">Welcome to LevelField</div>
-      </div>
-    </a>
-    <a class="email-item" href="#" data-email="1" onclick="selectEmail(1);return false;">
-      <div class="num">2</div>
-      <div class="info">
-        <div class="day">Day 2</div>
-        <div class="subject">Explore Your LevelField Results</div>
-      </div>
-    </a>
-    <a class="email-item" href="#" data-email="2" onclick="selectEmail(2);return false;">
-      <div class="num">3</div>
-      <div class="info">
-        <div class="day">Day 5</div>
-        <div class="subject">The Science Behind LevelField</div>
-      </div>
-    </a>
-    <a class="email-item" href="#" data-email="3" onclick="selectEmail(3);return false;">
-      <div class="num">4</div>
-      <div class="info">
-        <div class="day">Day 8</div>
-        <div class="subject">Ready to Move Up the Leaderboard?</div>
-      </div>
-    </a>
-    <a class="email-item" href="#" data-email="4" onclick="selectEmail(4);return false;">
-      <div class="num">5</div>
-      <div class="info">
-        <div class="day">Day 14</div>
-        <div class="subject">Better Results at Your Next Race</div>
-      </div>
-    </a>
-
-    <div class="sidebar-footer">
-      <a href="https://github.com/bradleyparnell/predictive-fitness/pull/2" target="_blank">
-        View PR #2 on GitHub →
-      </a>
-    </div>
-  </aside>
-
-  <!-- Preview -->
-  <div class="preview">
-    <div class="preview-toolbar">
-      <div class="day-pill" id="toolbar-day">Day 0 · Immediate</div>
-      <div class="email-title" id="toolbar-title">Welcome to LevelField</div>
-      <a class="btn btn-outline" id="gh-file-link" href="https://github.com/bradleyparnell/predictive-fitness/blob/levelfield-email-sequence/emails/levelfield/email-01-welcome.html" target="_blank">
-        <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-        View on GitHub
-      </a>
-      <button class="btn btn-primary" onclick="openFeedbackIssue()">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        Add Feedback
-      </button>
-    </div>
-    <div class="preview-frame">
-      <iframe id="email-frame" src="email-01-welcome.html" title="Email Preview"></iframe>
-    </div>
+  <div class="logo">
+    <img src="https://www.levelfieldresults.com/levelfield-logo.png" alt="LevelField"/>
   </div>
-
-  <!-- Feedback Panel -->
-  <div class="feedback-panel">
-    <div class="panel-header">
-      <h3>Feedback</h3>
-      <span class="count" id="comment-count">0 comments</span>
-    </div>
-    <div class="comments-list" id="comments-list">
-      <div class="empty-state">
-        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
-        <p>No feedback yet for this email.<br/>Be the first to leave a note!</p>
-      </div>
-    </div>
-    <div class="add-comment">
-      <textarea id="comment-text" rows="3" placeholder="Write your feedback…"></textarea>
-      <div class="row">
-        <select id="comment-tag">
-          <option value="copy">Copy</option>
-          <option value="design">Design</option>
-          <option value="approve">Approve</option>
-          <option value="question">Question</option>
-        </select>
-        <button class="submit" onclick="addComment()">Post</button>
-      </div>
-      <a class="gh-link" href="#" id="gh-issue-link" target="_blank">Or open as GitHub Issue →</a>
-    </div>
+  <h1>Email Sequence Previews</h1>
+  <p>Click a sequence below to open the full preview with feedback tools.</p>
+  <div class="grid">
+    <a class="card" href="levelfield/">
+      <div class="icon">⚡</div>
+      <h2>LevelField</h2>
+      <p>5-email onboarding sequence for race result claimers</p>
+      <span class="badge">5 Emails · Draft</span>
+    </a>
+    <a class="card" href="rundot/">
+      <div class="icon">🏃</div>
+      <h2>Rundot</h2>
+      <p>Email sequence preview</p>
+      <span class="badge">Preview</span>
+    </a>
   </div>
-
-</div>
-
-<script>
-const emails = [
-  { file: 'email-01-welcome.html',        title: 'Welcome to LevelField',             day: 'Day 0 · Immediate', gh: 'email-01-welcome.html' },
-  { file: 'email-02-explore.html',         title: 'Explore Your LevelField Results',   day: 'Day 2',             gh: 'email-02-explore.html' },
-  { file: 'email-03-fitlogic-bridge.html', title: 'The Science Behind LevelField',     day: 'Day 5',             gh: 'email-03-fitlogic-bridge.html' },
-  { file: 'email-04-tridot-intro.html',    title: 'Ready to Move Up the Leaderboard?', day: 'Day 8',            gh: 'email-04-tridot-intro.html' },
-  { file: 'email-05-tridot-final.html',    title: 'Better Results at Your Next Race',  day: 'Day 14',            gh: 'email-05-tridot-final.html' },
-];
-
-const GH_BASE = 'https://github.com/bradleyparnell/predictive-fitness';
-const BRANCH  = 'levelfield-email-sequence';
-
-let current = 0;
-
-function getComments(idx) {
-  try { return JSON.parse(localStorage.getItem('lf_comments_' + idx) || '[]'); } catch(e) { return []; }
-}
-function saveComments(idx, arr) {
-  localStorage.setItem('lf_comments_' + idx, JSON.stringify(arr));
-}
-
-function tagClass(tag) {
-  return { copy: 'tag-copy', design: 'tag-design', approve: 'tag-approve', question: 'tag-question' }[tag] || 'tag-copy';
-}
-
-function renderComments(idx) {
-  const comments = getComments(idx);
-  const list = document.getElementById('comments-list');
-  const countEl = document.getElementById('comment-count');
-  countEl.textContent = comments.length + (comments.length === 1 ? ' comment' : ' comments');
-  if (comments.length === 0) {
-    list.innerHTML = `<div class="empty-state"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg><p>No feedback yet for this email.<br/>Be the first to leave a note!</p></div>`;
-    return;
-  }
-  list.innerHTML = comments.map(c => `
-    <div class="comment-card">
-      <span class="tag ${tagClass(c.tag)}">${c.tag}</span>
-      <div class="meta"><span class="author">${c.author}</span><span class="ts">${c.ts}</span></div>
-      <div class="text">${c.text}</div>
-    </div>`).join('');
-}
-
-function addComment() {
-  const text = document.getElementById('comment-text').value.trim();
-  if (!text) return;
-  const tag  = document.getElementById('comment-tag').value;
-  const now  = new Date();
-  const ts   = now.toLocaleDateString('en-US', { month:'short', day:'numeric' }) + ' ' + now.toLocaleTimeString('en-US', { hour:'numeric', minute:'2-digit' });
-  const comments = getComments(current);
-  comments.push({ author: 'Brad', text, tag, ts });
-  saveComments(current, comments);
-  document.getElementById('comment-text').value = '';
-  renderComments(current);
-  // update sidebar count
-  updateSidebarCounts();
-}
-
-function updateSidebarCounts() {
-  document.querySelectorAll('.email-item').forEach((el, i) => {
-    const comments = getComments(i);
-    let countEl = el.querySelector('.comment-count');
-    if (comments.length > 0) {
-      if (!countEl) {
-        countEl = document.createElement('div');
-        countEl.className = 'comment-count';
-        el.querySelector('.info').appendChild(countEl);
-      }
-      countEl.innerHTML = `<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg> ${comments.length}`;
-    }
-  });
-}
-
-function selectEmail(idx) {
-  current = idx;
-  const e = emails[idx];
-  document.getElementById('email-frame').src = e.file;
-  document.getElementById('toolbar-title').textContent = e.title;
-  document.getElementById('toolbar-day').textContent   = e.day;
-  document.getElementById('gh-file-link').href = `${GH_BASE}/blob/${BRANCH}/emails/levelfield/${e.gh}`;
-  document.getElementById('gh-issue-link').href = ghIssueUrl(idx);
-  document.querySelectorAll('.email-item').forEach((el, i) => el.classList.toggle('active', i === idx));
-  renderComments(idx);
-}
-
-function ghIssueUrl(idx) {
-  const e = emails[idx];
-  const title = encodeURIComponent(`Feedback: ${e.title} (${e.day})`);
-  const body  = encodeURIComponent(`**Email:** ${e.title}\n**Send timing:** ${e.day}\n**File:** \`emails/levelfield/${e.gh}\`\n\n---\n\n**Feedback:**\n\n`);
-  return `${GH_BASE}/issues/new?title=${title}&body=${body}&labels=email-feedback`;
-}
-
-function openFeedbackIssue() {
-  window.open(ghIssueUrl(current), '_blank');
-}
-
-// Init
-updateSidebarCounts();
-renderComments(0);
-document.getElementById('gh-issue-link').href = ghIssueUrl(0);
-</script>
+  <div class="footer">
+    <a href="https://github.com/bradleyparnell/predictive-fitness" target="_blank">github.com/bradleyparnell/predictive-fitness</a>
+  </div>
 </body>
 </html>
