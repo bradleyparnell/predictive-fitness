@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Welcome to LevelField</title>
+<style>
+  body { margin: 0; padding: 0; background-color: #F0F4F8; font-family: 'Open Sans', Arial, sans-serif; }
+  .wrapper { max-width: 620px; margin: 0 auto; background: #ffffff; }
+  .header { background-color: #0C1B33; padding: 32px 40px 28px; text-align: center; }
+  .header img { max-width: 180px; height: auto; }
+  .header-wordmark { color: #ffffff; font-size: 22px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+  .hero { background-color: #0C1B33; padding: 40px 40px 48px; text-align: center; border-bottom: 4px solid #1DB954; }
+  .hero-eyebrow { color: #1DB954; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin: 0 0 14px; }
+  .hero h1 { color: #ffffff; font-size: 30px; font-weight: 700; line-height: 1.25; margin: 0 0 16px; }
+  .hero p { color: #B0C0D8; font-size: 16px; line-height: 1.6; margin: 0; }
+  .content { padding: 44px 40px 36px; }
+  .greeting { font-size: 17px; color: #1A2744; font-weight: 600; margin: 0 0 16px; }
+  .body-copy { font-size: 15px; color: #444F5E; line-height: 1.7; margin: 0 0 24px; }
+  .callout-box { background: #F0F7FF; border-left: 4px solid #1DB954; padding: 20px 24px; margin: 28px 0; border-radius: 4px; }
+  .callout-box .label { font-size: 11px; font-weight: 700; color: #1DB954; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 8px; }
+  .callout-box p { font-size: 15px; color: #1A2744; line-height: 1.6; margin: 0; }
+  .result-compare { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 24px; margin: 28px 0; }
+  .result-compare-title { font-size: 13px; color: #64748B; text-align: center; margin: 0 0 16px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
+  .result-row { display: table; width: 100%; }
+  .result-col { display: table-cell; width: 50%; vertical-align: top; padding: 0 10px; text-align: center; }
+  .result-col-label { font-size: 11px; font-weight: 700; color: #94A3B8; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 6px; }
+  .result-col-time { font-size: 28px; font-weight: 700; color: #1A2744; margin: 0 0 4px; }
+  .result-col-rank { font-size: 13px; color: #64748B; line-height: 1.5; }
+  .result-col.leveled .result-col-time { color: #1DB954; }
+  .result-col.leveled .result-col-rank { color: #0C1B33; font-weight: 600; }
+  .divider-col { display: table-cell; width: 2px; background: #E2E8F0; vertical-align: middle; }
+  .arrow-cell { display: table-cell; width: 40px; text-align: center; vertical-align: middle; }
+  .arrow-cell span { color: #1DB954; font-size: 20px; }
+  .cta-wrap { text-align: center; margin: 32px 0; }
+  .cta-btn { display: inline-block; background-color: #1DB954; color: #ffffff; font-size: 15px; font-weight: 700; text-decoration: none; padding: 16px 36px; border-radius: 6px; letter-spacing: 0.5px; }
+  .cta-subtext { font-size: 13px; color: #94A3B8; margin: 10px 0 0; }
+  .section-divider { border: none; border-top: 1px solid #E2E8F0; margin: 32px 0; }
+  .feature-row { margin: 20px 0; }
+  .feature-icon { font-size: 22px; margin: 0 0 6px; }
+  .feature-title { font-size: 15px; font-weight: 700; color: #1A2744; margin: 0 0 4px; }
+  .feature-text { font-size: 14px; color: #64748B; line-height: 1.6; margin: 0; }
+  .footer { background: #0C1B33; padding: 28px 40px; text-align: center; }
+  .footer p { color: #64748B; font-size: 12px; line-height: 1.6; margin: 0 0 6px; }
+  .footer a { color: #94A3B8; text-decoration: none; }
+  .footer-brand { color: #B0C0D8; font-size: 13px; font-weight: 600; margin: 0 0 10px; letter-spacing: 1px; }
+  .top-badge { background: #0C1B33; padding: 10px 40px; text-align: center; }
+  .top-badge p { color: #B0C0D8; font-size: 12px; margin: 0; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Top bar -->
+  <div class="top-badge">
+    <p>View this email in your browser</p>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <img src="https://www.levelfieldresults.com/levelfield-logo.png" alt="LevelField" style="max-width:180px;height:auto;display:block;margin:0 auto;" />
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+  <img src="https://raw.githubusercontent.com/bradleyparnell/predictive-fitness/main/emails/images/hero-bike.jpg" alt="Athlete on the course" style="width:100%;max-width:620px;display:block;height:220px;object-fit:cover;" />
+    <p class="hero-eyebrow">Welcome</p>
+    <h1>You just answered the question every athlete asks.</h1>
+    <p>"How did I actually do?"<br>Now you know.</p>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <p class="greeting">Welcome to LevelField!</p>
+    <p class="body-copy">
+      You finished the race. You crossed the line, checked the clock, and saw your time. But the clock can only tell you how long it took - not how well you actually performed. That's the question LevelField was built to answer.
+    </p>
+    <p class="body-copy">
+      Your LevelField Time levels your finish for age, gender, and the day's conditions - giving you a result that's genuinely comparable to every other athlete on the course and beyond.
+    </p>
+
+    <!-- Callout box -->
+    <div class="callout-box">
+      <p class="label">What is LevelField Time?</p>
+      <p>Clock Time tells you how fast you finished. LevelField Time puts that finish in context - leveled for age and gender, calibrated to the day's conditions, and ranked against the entire field.</p>
+    </div>
+
+    <!-- Result comparison example -->
+    <div class="result-compare">
+      <p class="result-compare-title">Same Race &nbsp;·&nbsp; Same Finish &nbsp;·&nbsp; A More Honest Answer</p>
+      <div class="result-row">
+        <div class="result-col">
+          <p class="result-col-label">Clock Time</p>
+          <p class="result-col-time">4:12:33</p>
+          <p class="result-col-rank">Overall: 1,886 of 8,500<br>All Women: 478 of 3,400</p>
+        </div>
+        <div class="arrow-cell"><span>→</span></div>
+        <div class="result-col leveled">
+          <p class="result-col-label">LevelField Time</p>
+          <p class="result-col-time">3:36:14</p>
+          <p class="result-col-rank">Overall: Top 2%<br>All Women: <strong>Top 1%</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <p class="body-copy">
+      Same race. Same finish. But the leaderboard looks a lot different when it's actually fair.
+    </p>
+
+    <div class="cta-wrap">
+      <a href="https://www.levelfieldresults.com/results" class="cta-btn">View My LevelField Results</a>
+      <p class="cta-subtext">Free to claim &nbsp;·&nbsp; Takes about a minute</p>
+    </div>
+
+    <hr class="section-divider" />
+
+    <p class="body-copy" style="font-size:14px; color:#64748B;">
+      Over the next few days we'll show you everything LevelField can do - from comparing results across different races and years, to competing with your crew, to some exciting ways to take your training to the next level. Stay tuned.
+    </p>
+    <p class="body-copy" style="font-size:14px; color:#1A2744; font-weight: 600; margin: 0;">
+      Welcome to the field. The level one.
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <!-- Lifestyle photo strip -->
+  <div style="background:#0C1B33;text-align:center;font-size:0;line-height:0;">
+    <img src="https://raw.githubusercontent.com/bradleyparnell/predictive-fitness/main/emails/images/footer-run.jpg" alt="Athletes racing" style="width:100%;max-width:620px;display:block;height:160px;object-fit:cover;opacity:0.7;" />
+  </div>
+  <div class="footer">
+        <p class="footer-brand" style="margin:0 0 12px;">Powered by</p>
+    <a href="https://fitlogic.tech" style="display:inline-block;"><img src="https://fitlogic.tech/hubfs/fitlogic-logo-dark-1.svg" alt="FitLogic" style="max-width:140px;height:auto;display:block;margin:0 auto;" /></a>
+    <p>© 2025 LevelField. All rights reserved.</p>
+    <p><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="https://www.levelfieldresults.com">levelfieldresults.com</a></p>
+  </div>
+
+</div>
+</body>
+</html>
