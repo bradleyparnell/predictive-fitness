@@ -3,42 +3,37 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Better Results at Your Next Race - TriDot Makes It Possible</title>
+<title>What If Your Training Was as Smart as Your Results?</title>
 <style>
   body { margin: 0; padding: 0; background-color: #F0F4F8; font-family: 'Open Sans', Arial, sans-serif; }
   .wrapper { max-width: 620px; margin: 0 auto; background: #ffffff; }
   .header { background-color: #0C1B33; padding: 32px 40px 28px; text-align: center; }
-  .header-wordmark { color: #ffffff; font-size: 22px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
-  .tridot-badge { color: #94A3B8; font-size: 12px; margin: 6px 0 0; letter-spacing: 1px; }
-  .hero { background: linear-gradient(150deg, #0C1B33 0%, #0a3060 100%); padding: 44px 40px 52px; text-align: center; border-bottom: 4px solid #00C4FF; }
-  .hero-eyebrow { color: #00C4FF; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin: 0 0 14px; }
-  .hero h1 { color: #ffffff; font-size: 30px; font-weight: 700; line-height: 1.25; margin: 0 0 16px; }
-  .hero-sub { color: #B0C0D8; font-size: 16px; line-height: 1.6; margin: 0 0 28px; }
-  .hero .cta-btn { display: inline-block; background-color: #00C4FF; color: #0C1B33; font-size: 15px; font-weight: 700; text-decoration: none; padding: 16px 36px; border-radius: 6px; letter-spacing: 0.5px; }
-  .hero .cta-subtext { color: #94A3B8; font-size: 13px; margin: 12px 0 0; }
+  .hero { background-color: #0C1B33; padding: 40px 40px 48px; text-align: center; border-bottom: 4px solid #1DB954; }
+  .hero-eyebrow { color: #1DB954; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin: 0 0 14px; }
+  .hero h1 { color: #ffffff; font-size: 28px; font-weight: 700; line-height: 1.3; margin: 0 0 16px; }
+  .hero p { color: #B0C0D8; font-size: 16px; line-height: 1.6; margin: 0; }
   .content { padding: 44px 40px 36px; }
   .body-copy { font-size: 15px; color: #444F5E; line-height: 1.7; margin: 0 0 24px; }
-  .testimonial-card { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 26px 28px; margin: 28px 0; }
-  .testimonial-text { font-size: 15px; color: #0C1B33; font-style: italic; line-height: 1.7; margin: 0 0 14px; }
-  .testimonial-text::before { content: '"'; font-size: 40px; color: #00C4FF; line-height: 0; vertical-align: -14px; margin-right: 4px; }
-  .testimonial-attr { font-size: 13px; color: #64748B; font-weight: 600; }
-  .four-phases { margin: 28px 0; }
-  .phase-row { display: table; width: 100%; margin: 0 0 12px; background: #F8FAFC; border-radius: 6px; overflow: hidden; }
-  .phase-num { display: table-cell; width: 80px; background: #0C1B33; text-align: center; vertical-align: middle; padding: 16px 0; }
-  .phase-num-label { color: #00C4FF; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; display: block; }
-  .phase-num-name { color: #ffffff; font-size: 14px; font-weight: 700; display: block; margin-top: 3px; }
-  .phase-body { display: table-cell; vertical-align: middle; padding: 14px 18px; }
-  .phase-title { font-size: 14px; font-weight: 700; color: #0C1B33; margin: 0 0 3px; }
-  .phase-text { font-size: 13px; color: #64748B; line-height: 1.5; margin: 0; }
-  .final-cta-box { background: #0C1B33; border-radius: 10px; padding: 36px; margin: 32px 0; text-align: center; }
-  .final-cta-box .eyebrow { color: #00C4FF; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 10px; }
-  .final-cta-box h2 { color: #ffffff; font-size: 22px; font-weight: 700; line-height: 1.35; margin: 0 0 14px; }
-  .final-cta-box p { color: #B0C0D8; font-size: 14px; line-height: 1.65; margin: 0 0 24px; }
-  .final-cta-box .cta-btn { display: inline-block; background-color: #00C4FF; color: #0C1B33; font-size: 15px; font-weight: 700; text-decoration: none; padding: 16px 36px; border-radius: 6px; }
-  .final-cta-box .cta-subtext { color: #64748B; font-size: 12px; margin: 12px 0 0; }
-  .pill-list { margin: 0 0 24px; padding: 0; list-style: none; }
-  .pill-list li { font-size: 14px; color: #444F5E; line-height: 1.6; padding: 6px 0 6px 28px; position: relative; }
-  .pill-list li::before { content: '✓'; position: absolute; left: 0; color: #1DB954; font-weight: 700; }
+  .recap-row { display: table; width: 100%; border-spacing: 0; margin: 28px 0; }
+  .recap-cell { display: table-cell; width: 33.33%; text-align: center; padding: 20px 12px; background: #F8FAFC; border: 1px solid #E2E8F0; vertical-align: top; }
+  .recap-cell:first-child { border-radius: 8px 0 0 8px; }
+  .recap-cell:last-child { border-radius: 0 8px 8px 0; border-left: none; }
+  .recap-cell:nth-child(2) { border-left: none; }
+  .recap-icon { font-size: 24px; display: block; margin: 0 0 8px; }
+  .recap-label { font-size: 12px; font-weight: 700; color: #1DB954; letter-spacing: 1px; text-transform: uppercase; display: block; margin: 0 0 4px; }
+  .recap-text { font-size: 12px; color: #64748B; line-height: 1.5; }
+  .bridge-question { font-size: 20px; color: #0C1B33; font-weight: 700; text-align: center; margin: 32px 0; line-height: 1.35; padding: 0 12px; }
+  .tridot-intro { background: linear-gradient(135deg, #0C1B33 0%, #0a2d5e 100%); border-radius: 10px; padding: 32px; margin: 32px 0; }
+  .tridot-intro .eyebrow { color: #1DB954; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 10px; }
+  .tridot-intro h2 { color: #ffffff; font-size: 22px; font-weight: 700; line-height: 1.3; margin: 0 0 14px; }
+  .tridot-intro p { color: #B0C0D8; font-size: 14px; line-height: 1.65; margin: 0 0 14px; }
+  .tridot-intro p:last-child { margin: 0; }
+  .screenshot-placeholder { background: #F0F4F8; border: 2px dashed #CBD5E1; border-radius: 8px; padding: 52px 24px; text-align: center; margin: 28px 0; }
+  .screenshot-placeholder p { color: #94A3B8; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin: 0 0 6px; }
+  .screenshot-placeholder span { color: #CBD5E1; font-size: 12px; }
+  .cta-wrap { text-align: center; margin: 32px 0; }
+  .cta-btn { display: inline-block; background-color: #1DB954; color: #ffffff; font-size: 15px; font-weight: 700; text-decoration: none; padding: 16px 36px; border-radius: 6px; letter-spacing: 0.5px; }
+  .cta-subtext { font-size: 13px; color: #94A3B8; margin: 10px 0 0; }
   .section-divider { border: none; border-top: 1px solid #E2E8F0; margin: 32px 0; }
   .footer { background: #0C1B33; padding: 28px 40px; text-align: center; }
   .footer p { color: #64748B; font-size: 12px; line-height: 1.6; margin: 0 0 6px; }
@@ -59,7 +54,6 @@
   <!-- Header -->
   <div class="header">
     <img src="https://www.levelfieldresults.com/levelfield-logo.png" alt="LevelField" style="max-width:180px;height:auto;display:block;margin:0 auto;filter:brightness(0) invert(1);" />
-    <p class="tridot-badge">Powered by FitLogic™ - the intelligence behind TriDot®</p>
   </div>
 
   <!-- Hero Photo -->
@@ -67,110 +61,87 @@
     <img src="https://bradleyparnell.github.io/predictive-fitness/assets/runner-race-bib.jpg" width="620" alt="" style="display:block;width:100%;max-width:620px;height:auto;" />
   </div>
 
-  <!-- Hero CTA -->
+  <!-- Hero -->
   <div class="hero">
-    <p class="hero-eyebrow">Your Next Race</p>
-    <h1>Better results are possible.<br>TriDot makes them inevitable.</h1>
-    <p class="hero-sub">Train smarter. Race faster. Leave nothing on the course.</p>
-    <a href="https://tridot.com" class="cta-btn">Start Training with TriDot →</a>
-    <p class="cta-subtext">Subscription plans for every level · Cancel anytime</p>
+    <p class="hero-eyebrow">What's Next</p>
+    <h1>What if your training was as smart as your results?</h1>
+    <p>Two weeks ago you claimed your LevelField Time. Here's what that's been building toward.</p>
   </div>
 
   <!-- Content -->
   <div class="content">
     <p class="body-copy">
-      You've seen your LevelField results. You know the science behind how they're produced. You know the same FitLogic intelligence engine that levels your results is the one powering TriDot.
+      Over the past two weeks, you've seen what FitLogic can do with your results. You've seen a leveled, honest picture of your performance - one that accounts for age, gender, environment, and physics. Not shortcuts. Not factors. A model.
     </p>
+
+    <!-- Recap row -->
+    <div class="recap-row">
+      <div class="recap-cell">
+        <span class="recap-icon">⚖️</span>
+        <span class="recap-label">Leveled</span>
+        <span class="recap-text">Your result, normalized for age, gender, and conditions</span>
+      </div>
+      <div class="recap-cell">
+        <span class="recap-icon">🧬</span>
+        <span class="recap-label">Modeled</span>
+        <span class="recap-text">Physics and physiology, not formulas and factors</span>
+      </div>
+      <div class="recap-cell">
+        <span class="recap-icon">📈</span>
+        <span class="recap-label">Tracked</span>
+        <span class="recap-text">Your performance over time, honestly measured</span>
+      </div>
+    </div>
+
     <p class="body-copy">
-      So here's the final, simple truth: the athletes at the top of the LevelField leaderboard aren't just genetically gifted - they train smarter. And TriDot is how they do it.
+      That's what FitLogic knows about where you've been. The natural question - the one every athlete eventually asks after they've seen their real results - is this:
     </p>
 
-    <!-- Testimonial -->
-    <div class="testimonial-card">
-      <p class="testimonial-text">TriDot doesn't just guess - it knows. It evaluates what truly drives performance and adapts training based on real-world outcomes. I trained less, recovered better, and posted a PR I didn't think was possible.</p>
-      <p class="testimonial-attr">- TriDot Athlete</p>
+    <p class="bridge-question">"If FitLogic can measure my performance this precisely... can it help me improve it?"</p>
+
+    <p class="body-copy">
+      Yes. And that's actually what FitLogic was originally built to do.
+    </p>
+
+    <p class="body-copy">
+      LevelField came from applying 20+ years of performance intelligence to race results. TriDot&reg; applies that same intelligence to training - prescribing the right workout, at the right intensity, at the right time. Not a generic plan. Not a philosophy. The same engine, now pointed at making you faster.
+    </p>
+
+    <!-- TriDot intro box -->
+    <div class="tridot-intro">
+      <p class="eyebrow">Meet TriDot&reg;</p>
+      <h2>The training platform built on the same engine as LevelField.</h2>
+      <p>TriDot uses FitLogic to assess your true performance ability across swim, bike, and run - then prescribes exactly the right training for your physiology, your fitness level, and your race goals. It adjusts for your environment, your fatigue, and your progress in real time.</p>
+      <p>Same model. Now applied to your training.</p>
     </div>
 
-    <!-- Benefits checklist -->
-    <p class="body-copy" style="font-weight: 600; color: #0C1B33;">Here's what you get with TriDot:</p>
-    <ul class="pill-list">
-      <li>Up to 30% less training time - and better performance at the finish line</li>
-      <li>AI built on 20+ years of athlete data, not repurposed general-purpose models</li>
-      <li>Training personalized to your physiology, not a philosophy-based template</li>
-      <li>Intensities automatically adjusted for your training environment (heat, altitude, humidity)</li>
-      <li>RaceX® race day predictions: optimal splits and pacing for your specific course</li>
-      <li>Fewer injuries - avoid the overtraining that sidelines most athletes</li>
-      <li>Works with or without a coach</li>
-      <li>Subscription levels for any budget</li>
-    </ul>
-
-    <!-- Four phases -->
-    <p class="body-copy" style="font-weight: 600; color: #0C1B33;">TriDot redefines all four phases of training:</p>
-    <div class="four-phases">
-      <div class="phase-row">
-        <div class="phase-num">
-          <span class="phase-num-label">Phase 1</span>
-          <span class="phase-num-name">Assess</span>
-        </div>
-        <div class="phase-body">
-          <p class="phase-title">Know your true ability</p>
-          <p class="phase-text">DOT Scores™ give you an accurate baseline and measure progress with precision - normalized for age, gender, and environment.</p>
-        </div>
-      </div>
-      <div class="phase-row">
-        <div class="phase-num">
-          <span class="phase-num-label">Phase 2</span>
-          <span class="phase-num-name">Prescribe</span>
-        </div>
-        <div class="phase-body">
-          <p class="phase-title">The right training, at the right time</p>
-          <p class="phase-text">Normalized Training Stress® prescribes exactly the right type and amount of training stress - proactively, not reactively.</p>
-        </div>
-      </div>
-      <div class="phase-row">
-        <div class="phase-num">
-          <span class="phase-num-label">Phase 3</span>
-          <span class="phase-num-name">Evaluate</span>
-        </div>
-        <div class="phase-body">
-          <p class="phase-title">Measure execution, not just effort</p>
-          <p class="phase-text">TrainX® Score replaces vanity metrics with real insight. Did you execute the session? Are you improving? TriDot tells you.</p>
-        </div>
-      </div>
-      <div class="phase-row">
-        <div class="phase-num">
-          <span class="phase-num-label">Phase 4</span>
-          <span class="phase-num-name">Predict</span>
-        </div>
-        <div class="phase-body">
-          <p class="phase-title">Race day. No surprises.</p>
-          <p class="phase-text">RaceX® delivers optimized target paces and bike power plans built for your specific race course, terrain, and conditions.</p>
-        </div>
-      </div>
+    <!-- Screenshot placeholder -->
+    <div class="screenshot-placeholder">
+      <p>Screenshot Placeholder</p>
+      <span>TriDot training dashboard or sample training plan</span>
     </div>
 
-    <!-- Final CTA box -->
-    <div class="final-cta-box">
-      <p class="eyebrow">Your Next LevelField Result Starts Now</p>
-      <h2>The athletes moving up the leaderboard aren't working harder - they're training smarter.</h2>
-      <p>TriDot is the Official Training Platform of IRONMAN. It's built on the same FitLogic intelligence that powers your LevelField results - now applied to making you faster. There's no better training platform. And there's no better time to start.</p>
-      <a href="https://tridot.com/" class="cta-btn">Start Training with TriDot</a>
-      <p class="cta-subtext">Plans for every level &amp; budget &nbsp;·&nbsp; Cancel anytime</p>
+    <p class="body-copy">
+      You don't have to chase a faster time. But if you've ever wanted to know what your best is actually capable of, FitLogic already has a head start on the answer. TriDot is where that answer gets built.
+    </p>
+
+    <div class="cta-wrap">
+      <a href="https://tridot.com/" class="cta-btn">See How FitLogic Powers Training</a>
+      <p class="cta-subtext">Subscription plans for every level &nbsp;·&nbsp; Cancel anytime</p>
     </div>
 
     <hr class="section-divider" />
 
     <p class="body-copy" style="font-size:14px; color:#64748B; text-align:center;">
-      Questions? Visit <a href="https://www.tridot.com" style="color:#00C4FF;">tridot.com</a> or reach us at <a href="mailto:support@tridot.com" style="color:#00C4FF;">support@tridot.com</a>.<br>
-      We'd love to help you get started.
+      Questions about LevelField? Reach us at <a href="mailto:support@levelfieldresults.com" style="color:#1DB954;">support@levelfieldresults.com</a>.<br>
+      We'd love to hear how your race went.
     </p>
+
   </div>
 
   <!-- Footer -->
-  <!-- Lifestyle photo strip -->
-  
   <div class="footer">
-        <p class="footer-brand" style="margin:0 0 12px;">Powered by</p>
+    <p class="footer-brand" style="margin:0 0 12px;">Powered by</p>
     <a href="https://fitlogic.tech" style="display:inline-block;"><img src="https://bradleyparnell.github.io/predictive-fitness/assets/fitlogic-logo-white.png" alt="FitLogic" style="max-width:140px;height:auto;display:block;margin:0 auto;" /></a>
     <p>© 2026 Predictive Fitness. All rights reserved.</p>
     <p><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="https://www.levelfieldresults.com">levelfieldresults.com</a></p>
