@@ -193,23 +193,20 @@
     .hero-bg {
       position: absolute; inset: 0;
       background-image: url('assets/tridot-photo-hero.jpg');
-      background-size: cover; background-position: center 30%;
+      background-size: cover; background-position: right center;
       transform: scale(1.04);
     }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(15,23,42,0.45) 0%,
-        rgba(15,23,42,0.62) 50%,
-        rgba(15,23,42,0.92) 100%
-      );
+      background:
+        linear-gradient(to right, rgba(15,23,42,0.96) 0%, rgba(15,23,42,0.78) 45%, rgba(15,23,42,0.25) 100%),
+        linear-gradient(180deg, rgba(15,23,42,0.2) 0%, rgba(15,23,42,0.85) 100%);
     }
     .hero-content {
       position: relative; z-index: 2;
       padding: calc(var(--nav-h) + 40px) 0 80px;
       display: flex; flex-direction: column;
-      max-width: 820px;
+      max-width: 620px;
     }
     .hero-sports {
       display: flex; gap: 10px; flex-wrap: wrap;
