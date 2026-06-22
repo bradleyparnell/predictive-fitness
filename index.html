@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Predictive Fitness — Email Previews</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0C1B33; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; }
+  .logo { margin-bottom: 12px; }
+  .logo img { height: 36px; filter: brightness(0) invert(1); }
+  h1 { color: white; font-size: 22px; font-weight: 700; margin-bottom: 8px; text-align: center; }
+  p { color: #94A3B8; font-size: 14px; margin-bottom: 40px; text-align: center; }
+  .grid { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .card { background: white; border-radius: 12px; padding: 28px 32px; width: 260px; text-align: center; text-decoration: none; color: inherit; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+  .card .icon { font-size: 36px; margin-bottom: 12px; }
+  .card h2 { font-size: 18px; font-weight: 700; color: #0C1B33; margin-bottom: 6px; }
+  .card p { font-size: 13px; color: #64748B; margin-bottom: 16px; }
+  .card .badge { display: inline-block; background: #EFF6FF; color: #2563EB; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.04em; }
+  .footer { margin-top: 48px; color: #475569; font-size: 12px; text-align: center; }
+  .footer a { color: #60A5FA; text-decoration: none; }
+</style>
+</head>
+<body>
+  <div class="logo">
+    <img src="https://www.levelfieldresults.com/levelfield-logo.png" alt="LevelField"/>
+  </div>
+  <h1>Email Sequence Previews</h1>
+  <p>Click a sequence below to open the full preview with feedback tools.</p>
+  <div class="grid">
+    <a class="card" href="levelfield/">
+      <div class="icon">⚡</div>
+      <h2>LevelField</h2>
+      <p>5-email onboarding sequence for race result claimers</p>
+      <span class="badge">5 Emails · Draft</span>
+    </a>
+    <a class="card" href="rundot/">
+      <div class="icon">🏃</div>
+      <h2>Rundot</h2>
+      <p>Email sequence preview</p>
+      <span class="badge">Preview</span>
+    </a>
+  </div>
+  <div class="footer">
+    <a href="https://github.com/bradleyparnell/predictive-fitness" target="_blank">github.com/bradleyparnell/predictive-fitness</a>
+  </div>
+</body>
+</html>
