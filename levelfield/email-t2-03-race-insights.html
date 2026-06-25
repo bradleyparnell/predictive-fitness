@@ -3,138 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Prediction Isn't Just a Time</title>
+  <title>Track 2 · Email 3 — Pick Your Next Race Smarter</title>
   <style>
-    body { margin:0; padding:0; background:#F3F5F7; font-family:'Helvetica Neue',Arial,sans-serif; }
-    .wrapper { max-width:600px; margin:0 auto; background:#ffffff; }
-    .top-badge { background:#0C1B33; padding:10px 40px; text-align:center; }
-    .top-badge p { color:#B0C0D8; font-size:12px; margin:0; }
-    .header { background:#0C1B33; padding:24px 40px; text-align:center; }
-    .content { padding:32px 40px; }
-    .body-copy { font-size:16px; line-height:1.7; color:#1A2744; margin:0 0 20px; }
-    .cta-wrap { text-align:center; margin:32px 0; }
-    .cta-btn { display:inline-block; background:#1DB954; color:#ffffff !important; font-weight:700; font-size:16px; padding:14px 36px; border-radius:6px; text-decoration:none; }
-    .section-divider { border:none; border-top:1px solid #E2E8F0; margin:32px 0; }
-    .teaser-box { background:#EFF6FF; border:1px solid #BFDBFE; border-radius:8px; padding:24px 28px; margin:24px 0; }
-    .teaser-box .eyebrow { font-size:11px; font-weight:700; color:#2563EB; letter-spacing:2px; text-transform:uppercase; margin:0 0 8px; }
-    .teaser-box h2 { font-size:18px; font-weight:700; color:#1A2744; margin:0 0 10px; }
-    .teaser-box p { font-size:15px; color:#1A2744; line-height:1.6; margin:0 0 10px; }
-    .teaser-box p:last-child { margin:0; }
-    .feature-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:24px 0; }
-    @media(max-width:480px){.feature-grid{grid-template-columns:1fr;}}
-    .feature-card { border:1px solid #E2E8F0; border-radius:8px; padding:18px 20px; }
-    .feature-card-header { display:flex; align-items:center; gap:10px; margin:0 0 8px; }
-    .feature-card-icon { font-size:20px; }
-    .feature-card-title { font-weight:700; font-size:15px; color:#1A2744; }
-    .feature-card p { font-size:14px; color:#475569; line-height:1.6; margin:0; }
-    .highlight-box { background:#0C1B33; border-radius:8px; padding:28px 32px; margin:28px 0; }
-    .highlight-box .eyebrow { font-size:11px; font-weight:700; color:#1DB954; letter-spacing:2px; text-transform:uppercase; margin:0 0 8px; }
-    .highlight-box h2 { font-size:20px; font-weight:700; color:#ffffff; margin:0 0 12px; }
-    .highlight-box p { font-size:15px; color:#A8BFCF; line-height:1.6; margin:0 0 10px; }
-    .highlight-box p:last-child { margin:0; }
-    .eyebrow { font-size:11px; font-weight:700; color:#1DB954; letter-spacing:2px; text-transform:uppercase; margin:0 0 8px; }
-    .footer { background:#0C1B33; padding:32px 40px; text-align:center; }
-    .footer p { color:#B0C0D8; font-size:13px; margin:0 0 8px; line-height:1.5; }
-    .footer a { color:#1DB954 !important; text-decoration:none; }
-    .footer-brand { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#1DB954 !important; font-weight:700; }
+    body { margin: 0; padding: 0; background: #f4f4f4; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    .wrapper { max-width: 600px; margin: 0 auto; background: #ffffff; }
+    .logo-bar { background: #0A1628; text-align: center; padding: 20px 0; }
+    .logo-bar img { height: 36px; }
+    .hero img { width: 100%; display: block; }
+    .hero-text { background: #0A1628; padding: 28px 32px 32px; text-align: center; }
+    .hero-text .eyebrow { color: #60A5FA; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin: 0 0 12px; }
+    .hero-text h1 { color: #ffffff; font-size: 28px; font-weight: 800; line-height: 1.25; margin: 0 0 10px; }
+    .hero-text p { color: #CBD5E1; font-size: 15px; line-height: 1.5; margin: 0; }
+    .body-wrap { padding: 36px 32px; }
+    .body-wrap p { color: #374151; font-size: 15px; line-height: 1.7; margin: 0 0 18px; }
+    .checklist { list-style: none; padding: 0; margin: 0 0 24px; }
+    .checklist li { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid #F1F5F9; color: #374151; font-size: 15px; line-height: 1.6; }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist li .check { color: #1D4ED8; font-weight: 800; font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+    .highlight-box { background: #F0FDF4; border-left: 4px solid #16A34A; border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 24px 0; }
+    .highlight-box p { color: #14532D; font-size: 15px; line-height: 1.65; margin: 0; }
+    .cta-wrap { text-align: center; padding: 8px 32px 36px; }
+    .cta-btn { display: inline-block; background: #1D4ED8; color: #ffffff; font-size: 15px; font-weight: 700; text-decoration: none; padding: 14px 36px; border-radius: 8px; }
+    .divider { height: 1px; background: #E5E7EB; margin: 0 32px; }
+    .footer { background: #0A1628; padding: 28px 32px; text-align: center; }
+    .footer p { color: #94A3B8; font-size: 12px; line-height: 1.6; margin: 0 0 6px; }
+    .footer a { color: #60A5FA; text-decoration: none; }
+    .footer .fitlogic-logo { margin-top: 16px; }
+    .footer .fitlogic-logo img { height: 24px; opacity: 0.8; }
   </style>
 </head>
 <body>
 <div class="wrapper">
-  <!-- Top bar -->
-  <div class="top-badge">
-    <p>View this email in your browser</p>
-  </div>
-  <!-- Header -->
-  <div class="header">
-    <img src="https://www.levelfieldresults.com/levelfield-logo.png" alt="LevelField" style="max-width:180px;height:auto;display:block;margin:0 auto;filter:brightness(0) invert(1);" />
-  </div>
-  <!-- Hero Photo -->
-  <div style="font-size:0; line-height:0;">
-    <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=620&h=300&fit=crop&auto=format&q=80" width="600" style="width:100%; display:block; height:300px; object-fit:cover;" alt="Race course finish line" />
-  </div>
-  <!-- Hero Text -->
-  <div style="background:#0C1B33; padding:36px 40px 28px; text-align:center; border-bottom:4px solid #1DB954;">
-    <p style="color:#1DB954; font-size:12px; font-weight:700; letter-spacing:3px; text-transform:uppercase; margin:0 0 14px;">Race Insights</p>
-    <h1 style="color:#ffffff; font-size:28px; font-weight:700; line-height:1.3; margin:0 0 16px; font-family:'Helvetica Neue',Arial,sans-serif;">Your prediction isn't just a time. It's a picture of your race.</h1>
-    <p style="color:#A8BFCF; font-size:16px; line-height:1.6; margin:0;">See your estimated finish, where your biggest gains are hiding, and what the leaderboard could look like for you.</p>
-  </div>
-  <!-- Content -->
-  <div class="content">
-    <p class="body-copy">
-      A finish time is useful. But a finish time with context is something else entirely. LevelField's race prediction breaks down your expected result by discipline and ranks it against the field before you ever reach the start line.
-    </p>
-    <p class="body-copy">
-      Here's a look at what a high-confidence prediction unlocks in your account:
-    </p>
 
-    <!-- Feature grid -->
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-card-header">
-          <div class="feature-card-icon">🎯</div>
-          <div class="feature-card-title">Predicted Finish Time</div>
-        </div>
-        <p>A confidence-scored estimate of how you could finish, leveled for age and gender so you know exactly what it means against the full field.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-header">
-          <div class="feature-card-icon">⚡</div>
-          <div class="feature-card-title">Discipline Breakdown</div>
-        </div>
-        <p>Where are you likely to gain the most time? Where could you lose it? Your prediction shows split-level estimates across each discipline.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-header">
-          <div class="feature-card-icon">📊</div>
-          <div class="feature-card-title">Predicted Field Ranking</div>
-        </div>
-        <p>Your predicted result ranked against the rest of the field on a level playing field. Know your starting position before the race begins.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-header">
-          <div class="feature-card-icon">📈</div>
-          <div class="feature-card-title">Performance Potential</div>
-        </div>
-        <p>Based on your performance profile, LevelField surfaces where your current fitness puts you and what your trajectory looks like over time.</p>
-      </div>
-    </div>
+  <!-- Logo -->
+  <div class="logo-bar">
+    <img src="https://www.levelfieldresults.com/levelfield-logo.png" alt="LevelField" />
+  </div>
 
-    <!-- Highlight box -->
+  <!-- Hero image -->
+  <div class="hero">
+    <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=1200&q=80" alt="Runner crossing finish line" />
+  </div>
+
+  <!-- Hero text block -->
+  <div class="hero-text">
+    <p class="eyebrow">Next Race Planning</p>
+    <h1>The best next race isn't random.<br>It's the right fit for your goal.</h1>
+    <p>Your history helps you pick smarter, not just sooner.</p>
+  </div>
+
+  <!-- Body -->
+  <div class="body-wrap">
+    <p>Picking a race is usually part inspiration, part calendar, part "my friend is doing it." That's fine. But if you have a specific result in mind — a PR, a podium, a personal milestone — the race itself matters more than most people realize.</p>
+    <p>Course profile, field size, average finish time distribution, historical conditions — all of it plays into what's actually possible on a given day. Here's what to think about before you register:</p>
+
+    <ul class="checklist">
+      <li><span class="check">✓</span><span><strong>Course profile vs. your strengths.</strong> A flat run course rewards run speed. A hilly bike rewards power-to-weight. Match the course to where your data says you're strong.</span></li>
+      <li><span class="check">✓</span><span><strong>Field depth in your age group.</strong> A podium at one race is a top-20 at another. Know the field before you set a rank-based goal.</span></li>
+      <li><span class="check">✓</span><span><strong>Time of year and conditions.</strong> Your last race has a weather and heat baseline. Factor that in before picking a summer race in a different climate.</span></li>
+      <li><span class="check">✓</span><span><strong>Enough lead time to train.</strong> The sweet spot is 3 to 4 months out — long enough to build, short enough to stay motivated.</span></li>
+    </ul>
+
     <div class="highlight-box">
-      <p class="eyebrow">After Your Race</p>
-      <h2>Your prediction becomes a baseline.</h2>
-      <p>Once you finish, LevelField posts your actual leveled result. You'll be able to see exactly how your real performance compared to your prediction - and what that means for your next race.</p>
-      <p>One race is a starting point. Every race after that tells you whether you're actually getting faster.</p>
+      <p>Your LevelField profile holds your race history. Pull it up before you commit to the next one. A few minutes of comparison can save months of training pointed at the wrong target.</p>
     </div>
-
-    <p class="body-copy">
-      The best time to look at your prediction is before you race. Head into your account and see what LevelField has for you.
-    </p>
-
-    <div class="cta-wrap">
-      <a href="https://www.levelfieldresults.com" class="cta-btn">View My Race Prediction</a>
-    </div>
-
-    <!-- Teaser -->
-    <div class="teaser-box">
-      <p class="eyebrow">Coming Up Next</p>
-      <h2>Race week. Everything LevelField has for you.</h2>
-      <p>Your prediction is locked. Your baseline is set. One more email before the start line.</p>
-    </div>
-
-    <hr class="section-divider" />
-    <p class="body-copy" style="font-size:14px; color:#64748B;">
-      Questions? Reach us at <a href="mailto:support@levelfieldresults.com" style="color:#1DB954;">support@levelfieldresults.com</a>.
-    </p>
   </div>
+
+  <!-- CTA -->
+  <div class="cta-wrap">
+    <a href="https://www.levelfieldresults.com" class="cta-btn">View My Race History</a>
+  </div>
+
+  <div class="divider"></div>
+
   <!-- Footer -->
   <div class="footer">
-    <p class="footer-brand" style="margin:0 0 12px;">Powered by</p>
-    <a href="https://fitlogic.tech" style="display:inline-block;"><img src="https://bradleyparnell.github.io/predictive-fitness/assets/fitlogic-logo-white.png" alt="FitLogic" style="max-width:140px;height:auto;display:block;margin:0 auto;" /></a>
+    <p>You're receiving this because you have a LevelField account.<br><a href="#">Unsubscribe</a> · <a href="#">Privacy Policy</a></p>
     <p>© 2026 Predictive Fitness. All rights reserved.</p>
-    <p><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="https://www.levelfieldresults.com">levelfieldresults.com</a></p>
+    <div class="fitlogic-logo">
+      <img src="https://bradleyparnell.github.io/predictive-fitness/assets/fitlogic-logo-white.png" alt="FitLogic" />
+    </div>
   </div>
+
 </div>
 </body>
 </html>
