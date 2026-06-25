@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LevelField Email Preview</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0C1B33;
+    --accent: #2563EB;
+    --accent-light: #3B82F6;
+    --bg: #F1F5F9;
+    --sidebar-w: 260px;
+    --header-h: 56px;
+    --panel-w: 340px;
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: #1E293B; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+  /* Header */
+  header { height: var(--header-h); background: var(--navy); display: flex; align-items: center; padding: 0 20px; gap: 12px; flex-shrink: 0; }
+  header img { height: 28px; filter: brightness(0) invert(1); }
+  header span { color: #94A3B8; font-size: 13px; margin-left: 8px; }
+  header .badge { margin-left: auto; background: #1E3A5F; color: #60A5FA; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.05em; text-transform: uppercase; }
+
+  /* Main layout */
+  .layout { display: flex; flex: 1; overflow: hidden; }
+
+  /* Sidebar */
+  aside { width: var(--sidebar-w); background: white; border-right: 1px solid #E2E8F0; display: flex; flex-direction: column; flex-shrink: 0; overflow-y: auto; }
+  .sidebar-label { padding: 14px 16px 8px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; color: #94A3B8; text-transform: uppercase; }
+  .email-item { display: flex; align-items: flex-start; gap: 10px; padding: 12px 16px; cursor: pointer; border-left: 3px solid transparent; transition: all 0.15s; text-decoration: none; color: inherit; }
+  .email-item:hover { background: #F8FAFC; }
+  .email-item.active { background: #EFF6FF; border-left-color: var(--accent); }
+  .email-item .num { width: 22px; height: 22px; border-radius: 50%; background: #E2E8F0; color: #64748B; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .email-item.active .num { background: var(--accent); color: white; }
+  .email-item .info { flex: 1; min-width: 0; }
+  .email-item .info .day { font-size: 10px; color: #94A3B8; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+  .email-item .info .subject { font-size: 13px; font-weight: 500; color: #1E293B; line-height: 1.3; margin-top: 2px; }
+  .email-item .comment-count { font-size: 10px; color: #94A3B8; margin-top: 4px; display: flex; align-items: center; gap: 3px; }
+  .email-item .comment-count svg { width: 11px; height: 11px; }
+  .sidebar-footer { margin-top: auto; padding: 16px; border-top: 1px solid #E2E8F0; }
+  .sidebar-footer a { display: block; text-align: center; font-size: 12px; color: #64748B; text-decoration: none; padding: 8px; border-radius: 6px; border: 1px solid #E2E8F0; transition: all 0.15s; }
+  .sidebar-footer a:hover { background: #F8FAFC; color: var(--accent); border-color: var(--accent-light); }
+
+  /* Preview area */
+  .preview { flex: 1; display: flex; flex-direction: column; overflow: hidden; background: #E2E8F0; }
+  .preview-toolbar { background: white; border-bottom: 1px solid #E2E8F0; padding: 10px 16px; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .preview-toolbar .email-title { font-size: 14px; font-weight: 600; color: #1E293B; flex: 1; }
+  .preview-toolbar .day-pill { font-size: 11px; font-weight: 600; color: #64748B; background: #F1F5F9; padding: 3px 10px; border-radius: 12px; }
+  .preview iframe { flex: 1; border: none; background: white; }
+  .preview-frame { flex: 1; display: flex; justify-content: center; overflow-y: auto; padding: 24px; }
+  .preview-frame iframe { width: 640px; max-width: 100%; border-radius: 8px; box-shadow: 0 4px 24px rgba(0,0,0,0.12); border: none; background: white; height: 100%; min-height: 600px; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="https://www.levelfieldresults.com/levelfield-logo.png" alt="LevelField"/>
+  <span>Email Sequence Preview</span>
+  <span class="badge">9 Emails · Draft</span>
+</header>
+
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside>
+    <div class="sidebar-label">Email Sequence</div>
+
+    <a class="email-item active" href="#" data-email="0" onclick="selectEmail(0);return false;">
+      <div class="num">1</div>
+      <div class="info">
+        <div class="day">Day 0 · Immediate</div>
+        <div class="subject">Welcome to LevelField</div>
+      </div>
+    </a>
+    <a class="email-item" href="#" data-email="1" onclick="selectEmail(1);return false;">
+      <div class="num">2</div>
+      <div class="info">
+        <div class="day">Day 2</div>
+        <div class="subject">Explore Your LevelField Results</div>
+      </div>
+    </a>
+    <a class="email-item" href="#" data-email="2" onclick="selectEmail(2);return false;">
+      <div class="num">3</div>
+      <div class="info">
+        <div class="day">Day 5</div>
+        <div class="subject">The Science Behind LevelField</div>
+      </div>
+    </a>
+    <a class="email-item" href="#" data-email="3" onclick="selectEmail(3);return false;">
+      <div class="num">4</div>
+      <div class="info">
+        <div class="day">Day 8</div>
+        <div class="subject">Ready to Move Up the Leaderboard?</div>
+      </div>
+    </a>
+    <a class="email-item" href="#" data-email="4" onclick="selectEmail(4);return false;">
+      <div class="num">5</div>
+      <div class="info">
+        <div class="day">Day 14</div>
+        <div class="subject">Better Results at Your Next Race</div>
+      </div>
+    </a>
+
+    <div class="sidebar-label" style="margin-top:8px;">Track 2 · Future Registrants</div>
+
+    <a class="email-item" href="#" data-email="5" onclick="selectEmail(5);return false;">
+      <div class="num">1</div>
+      <div class="info">
+        <div class="day">Day 0 · Race Signup</div>
+        <div class="subject">You're Registered. Let's See What You Can Do.</div>
+      </div>
+    </a>
+    <a class="email-item" href="#" data-email="6" onclick="selectEmail(6);return false;">
+      <div class="num">2</div>
+      <div class="info">
+        <div class="day">Day 3</div>
+        <div class="subject">Your Confidence Score Is Climbing</div>
+      </div>
+    </a>
+    <a class="email-item" href="#" data-email="7" onclick="selectEmail(7);return false;">
+      <div class="num">3</div>
+      <div class="info">
+        <div class="day">Day 7</div>
+        <div class="subject">Your Prediction Isn't Just a Time</div>
+      </div>
+    </a>
+    <a class="email-item" href="#" data-email="8" onclick="selectEmail(8);return false;">
+      <div class="num">4</div>
+      <div class="info">
+        <div class="day">T-7 Days · Race Week</div>
+        <div class="subject">Your Prediction Is Ready. So Are You.</div>
+      </div>
+    </a>
+
+  </aside>
+
+  <!-- Preview -->
+  <div class="preview">
+    <div class="preview-toolbar">
+      <div class="day-pill" id="toolbar-day">Day 0 · Immediate</div>
+      <div class="email-title" id="toolbar-title">Welcome to LevelField</div>
+    </div>
+    <div class="preview-frame">
+      <iframe id="email-frame" src="email-01-welcome.html" title="Email Preview"></iframe>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const emails = [
+  { file: 'email-01-welcome.html',        title: 'Welcome to LevelField',             day: 'Day 0 · Immediate' },
+  { file: 'email-02-explore.html',         title: 'Explore Your LevelField Results',   day: 'Day 2' },
+  { file: 'email-03-fitlogic-bridge.html', title: 'The Science Behind LevelField',     day: 'Day 5' },
+  { file: 'email-04-tridot-intro.html',    title: 'Ready to Move Up the Leaderboard?', day: 'Day 8' },
+  { file: 'email-05-tridot-final.html',         title: 'Better Results at Your Next Race',          day: 'Day 14' },
+  { file: 'email-t2-01-prediction-welcome.html', title: "You're Registered. Let's See What You Can Do.", day: 'Day 0 · Race Signup' },
+  { file: 'email-t2-02-confidence-building.html', title: 'Your Confidence Score Is Climbing',          day: 'Day 3' },
+  { file: 'email-t2-03-race-insights.html',       title: "Your Prediction Isn't Just a Time",         day: 'Day 7' },
+  { file: 'email-t2-04-race-week.html',           title: 'Your Prediction Is Ready. So Are You.',     day: 'T-7 Days · Race Week' },
+];
+
+let current = 0;
+
+function selectEmail(idx) {
+  current = idx;
+  const e = emails[idx];
+  document.getElementById('email-frame').src = e.file;
+  document.getElementById('toolbar-title').textContent = e.title;
+  document.getElementById('toolbar-day').textContent   = e.day;
+  document.querySelectorAll('.email-item').forEach((el, i) => el.classList.toggle('active', i === idx));
+}
+</script>
+</body>
+</html>

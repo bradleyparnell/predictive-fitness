@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're Registered. Let's See What You Can Do.</title>
+  <style>
+    body { margin:0; padding:0; background:#F3F5F7; font-family:'Helvetica Neue',Arial,sans-serif; }
+    .wrapper { max-width:600px; margin:0 auto; background:#ffffff; }
+    .top-badge { background:#0C1B33; padding:10px 40px; text-align:center; }
+    .top-badge p { color:#B0C0D8; font-size:12px; margin:0; }
+    .header { background:#0C1B33; padding:24px 40px; text-align:center; }
+    .content { padding:32px 40px; }
+    .body-copy { font-size:16px; line-height:1.7; color:#1A2744; margin:0 0 20px; }
+    .cta-wrap { text-align:center; margin:32px 0; }
+    .cta-btn { display:inline-block; background:#1DB954; color:#ffffff !important; font-weight:700; font-size:16px; padding:14px 36px; border-radius:6px; text-decoration:none; }
+    .cta-secondary { display:inline-block; margin-top:14px; font-size:14px; color:#1DB954 !important; text-decoration:underline; }
+    .callout-box { background:#F1F5F9; border-left:4px solid #1DB954; border-radius:6px; padding:20px 24px; margin:24px 0; }
+    .callout-box .label { font-size:11px; font-weight:700; color:#64748B; letter-spacing:2px; text-transform:uppercase; margin:0 0 8px; }
+    .callout-box p { font-size:15px; color:#1A2744; line-height:1.6; margin:0; }
+    .section-divider { border:none; border-top:1px solid #E2E8F0; margin:32px 0; }
+    .teaser-box { background:#EFF6FF; border:1px solid #BFDBFE; border-radius:8px; padding:24px 28px; margin:24px 0; }
+    .teaser-box .eyebrow { font-size:11px; font-weight:700; color:#2563EB; letter-spacing:2px; text-transform:uppercase; margin:0 0 8px; }
+    .teaser-box h2 { font-size:18px; font-weight:700; color:#1A2744; margin:0 0 10px; }
+    .teaser-box p { font-size:15px; color:#1A2744; line-height:1.6; margin:0 0 10px; }
+    .teaser-box p:last-child { margin:0; }
+    .steps-list { margin:24px 0; }
+    .step { display:flex; gap:16px; margin:0 0 20px; align-items:flex-start; }
+    .step-num { flex-shrink:0; }
+    .step-num-inner { width:32px; height:32px; background:#1DB954; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; color:#fff; text-align:center; line-height:32px; }
+    .step-body { flex:1; }
+    .step-title { font-size:16px; font-weight:700; color:#1A2744; margin:0 0 6px; }
+    .step-text { font-size:15px; color:#475569; line-height:1.6; margin:0; }
+    .confidence-bar-wrap { margin:28px 0; background:#F1F5F9; border-radius:10px; padding:24px 28px; }
+    .confidence-label { font-size:11px; font-weight:700; color:#64748B; letter-spacing:2px; text-transform:uppercase; margin:0 0 14px; }
+    .confidence-track { background:#E2E8F0; border-radius:999px; height:12px; position:relative; overflow:hidden; margin:0 0 8px; }
+    .confidence-fill { height:100%; background:linear-gradient(to right,#F59E0B,#1DB954); border-radius:999px; width:30%; }
+    .confidence-hint { font-size:12px; color:#64748B; }
+    .eyebrow { font-size:11px; font-weight:700; color:#1DB954; letter-spacing:2px; text-transform:uppercase; margin:0 0 8px; }
+    .footer { background:#0C1B33; padding:32px 40px; text-align:center; }
+    .footer p { color:#B0C0D8; font-size:13px; margin:0 0 8px; line-height:1.5; }
+    .footer a { color:#1DB954 !important; text-decoration:none; }
+    .footer-brand { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#1DB954 !important; font-weight:700; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <!-- Top bar -->
+  <div class="top-badge">
+    <p>View this email in your browser</p>
+  </div>
+  <!-- Header -->
+  <div class="header">
+    <img src="https://www.levelfieldresults.com/levelfield-logo.png" alt="LevelField" style="max-width:180px;height:auto;display:block;margin:0 auto;filter:brightness(0) invert(1);" />
+  </div>
+  <!-- Hero Photo -->
+  <div style="font-size:0; line-height:0;">
+    <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=620&h=300&fit=crop&auto=format&q=80" width="600" style="width:100%; display:block; height:300px; object-fit:cover;" alt="Athletes at race starting line" />
+  </div>
+  <!-- Hero Text -->
+  <div style="background:#0C1B33; padding:36px 40px 28px; text-align:center; border-bottom:4px solid #1DB954;">
+    <p style="color:#1DB954; font-size:12px; font-weight:700; letter-spacing:3px; text-transform:uppercase; margin:0 0 14px;">Your Upcoming Race</p>
+    <h1 style="color:#ffffff; font-size:28px; font-weight:700; line-height:1.3; margin:0 0 16px; font-family:'Helvetica Neue',Arial,sans-serif;">You're registered. Let's see what you can do.</h1>
+    <p style="color:#A8BFCF; font-size:16px; line-height:1.6; margin:0;">LevelField can give you a confidence-scored prediction of your finish time before you toe the line.</p>
+  </div>
+  <!-- Content -->
+  <div class="content">
+    <p class="body-copy">
+      You have a race on the calendar. Most athletes go into race day with a vague goal. LevelField can be more specific than that.
+    </p>
+    <p class="body-copy">
+      Using your age, gender, and athletic background, LevelField builds a confidence-scored prediction of how you could finish. The more you share, the sharper and more reliable that prediction becomes.
+    </p>
+
+    <!-- Confidence bar -->
+    <div class="confidence-bar-wrap">
+      <p class="confidence-label">Prediction Confidence</p>
+      <div class="confidence-track"><div class="confidence-fill"></div></div>
+      <p class="confidence-hint">You're just getting started. Answer a few questions to push this higher.</p>
+    </div>
+
+    <p class="body-copy">
+      The prediction starts low-confidence because LevelField doesn't guess. It builds from real data. A few questions about your training and background are all it takes to get started.
+    </p>
+
+    <!-- Steps -->
+    <div class="steps-list">
+      <div class="step">
+        <div class="step-num"><div class="step-num-inner">1</div></div>
+        <div class="step-body">
+          <p class="step-title">Answer a few quick questions</p>
+          <p class="step-text">Age, gender, recent performance history. LevelField collects this through a short conversation - no forms, no spreadsheets.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"><div class="step-num-inner">2</div></div>
+        <div class="step-body">
+          <p class="step-title">Watch your confidence score climb</p>
+          <p class="step-text">The more context you give LevelField, the more accurate your prediction becomes. Low confidence is just the starting point.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"><div class="step-num-inner">3</div></div>
+        <div class="step-body">
+          <p class="step-title">Get your predicted finish time</p>
+          <p class="step-text">A leveled, confidence-scored estimate of how you could perform on race day - before you ever stand on the start line.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="https://www.levelfieldresults.com" class="cta-btn">Start My Race Prediction</a>
+    </div>
+
+    <!-- Teaser -->
+    <div class="teaser-box">
+      <p class="eyebrow">Coming Up Next</p>
+      <h2>How does the confidence score actually work?</h2>
+      <p>In our next email, we'll walk through what drives your prediction score and what you can do to push it toward high confidence before race day.</p>
+    </div>
+
+    <hr class="section-divider" />
+    <p class="body-copy" style="font-size:14px; color:#64748B;">
+      Questions about your prediction or your account? Reach us at <a href="mailto:support@levelfieldresults.com" style="color:#1DB954;">support@levelfieldresults.com</a>.
+    </p>
+  </div>
+  <!-- Footer -->
+  <div class="footer">
+    <p class="footer-brand" style="margin:0 0 12px;">Powered by</p>
+    <a href="https://fitlogic.tech" style="display:inline-block;"><img src="https://bradleyparnell.github.io/predictive-fitness/assets/fitlogic-logo-white.png" alt="FitLogic" style="max-width:140px;height:auto;display:block;margin:0 auto;" /></a>
+    <p>© 2026 Predictive Fitness. All rights reserved.</p>
+    <p><a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="https://www.levelfieldresults.com">levelfieldresults.com</a></p>
+  </div>
+</div>
+</body>
+</html>
