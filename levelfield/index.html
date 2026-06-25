@@ -58,7 +58,7 @@
 <header>
   <img src="https://www.levelfieldresults.com/levelfield-logo.png" alt="LevelField"/>
   <span>Email Sequence Preview</span>
-  <span class="badge">5 Emails · Draft</span>
+  <span class="badge">9 Emails · Draft</span>
 </header>
 
 <div class="layout">
@@ -103,6 +103,37 @@
       </div>
     </a>
 
+    <div class="sidebar-label" style="margin-top:8px;">Track 2 · Future Registrants</div>
+
+    <a class="email-item" href="#" data-email="5" onclick="selectEmail(5);return false;">
+      <div class="num">1</div>
+      <div class="info">
+        <div class="day">Day 0 · Race Signup</div>
+        <div class="subject">You're Registered. Let's See What You Can Do.</div>
+      </div>
+    </a>
+    <a class="email-item" href="#" data-email="6" onclick="selectEmail(6);return false;">
+      <div class="num">2</div>
+      <div class="info">
+        <div class="day">Day 3</div>
+        <div class="subject">Your Confidence Score Is Climbing</div>
+      </div>
+    </a>
+    <a class="email-item" href="#" data-email="7" onclick="selectEmail(7);return false;">
+      <div class="num">3</div>
+      <div class="info">
+        <div class="day">Day 7</div>
+        <div class="subject">Your Prediction Isn't Just a Time</div>
+      </div>
+    </a>
+    <a class="email-item" href="#" data-email="8" onclick="selectEmail(8);return false;">
+      <div class="num">4</div>
+      <div class="info">
+        <div class="day">T-7 Days · Race Week</div>
+        <div class="subject">Your Prediction Is Ready. So Are You.</div>
+      </div>
+    </a>
+
   </aside>
 
   <!-- Preview -->
@@ -124,7 +155,11 @@ const emails = [
   { file: 'email-02-explore.html',         title: 'Explore Your LevelField Results',   day: 'Day 2' },
   { file: 'email-03-fitlogic-bridge.html', title: 'The Science Behind LevelField',     day: 'Day 5' },
   { file: 'email-04-tridot-intro.html',    title: 'Ready to Move Up the Leaderboard?', day: 'Day 8' },
-  { file: 'email-05-tridot-final.html',    title: 'Better Results at Your Next Race',  day: '' },
+  { file: 'email-05-tridot-final.html',         title: 'Better Results at Your Next Race',          day: 'Day 14' },
+  { file: 'email-t2-01-prediction-welcome.html', title: "You're Registered. Let's See What You Can Do.", day: 'Day 0 · Race Signup' },
+  { file: 'email-t2-02-confidence-building.html', title: 'Your Confidence Score Is Climbing',          day: 'Day 3' },
+  { file: 'email-t2-03-race-insights.html',       title: "Your Prediction Isn't Just a Time",         day: 'Day 7' },
+  { file: 'email-t2-04-race-week.html',           title: 'Your Prediction Is Ready. So Are You.',     day: 'T-7 Days · Race Week' },
 ];
 
 let current = 0;
