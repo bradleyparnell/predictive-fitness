@@ -40,6 +40,20 @@ body { font-family: var(--font-body); background: var(--dark); color: var(--whit
 .fade-up-delay-3 { transition-delay: 0.36s; }
 .fade-up-delay-4 { transition-delay: 0.48s; }
 
+/* ─── INLINE LOGO ─── */
+.rd-logo-inline {
+  height: 1em;
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  top: -1px;
+}
+h1 .rd-logo-inline { height: 0.85em; }
+h2 .rd-logo-inline { height: 0.85em; }
+.hero-eyebrow .rd-logo-inline { height: 1em; }
+.hero-app-label .rd-logo-inline { height: 0.9em; }
+
 /* ─── PROMO BANNER ─── */
 .promo-banner {
   background: var(--green);
@@ -73,7 +87,7 @@ nav {
 .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
 .nav-logo-img { height: 26px; width: auto; }
 .nav-separator { width: 1px; height: 22px; background: rgba(255,255,255,0.2); }
-.nav-partner-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+.nav-partner-label { font-size: 15px; font-weight: 800; letter-spacing: 0.05em; color: rgba(255,255,255,0.9); }
 .nav-right { display: flex; align-items: center; gap: 20px; }
 .nav-link { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
 .nav-link:hover { color: var(--white); }
@@ -665,7 +679,8 @@ footer {
   .promo-banner { font-size: 13px; padding: 10px 20px; }
   .promo-link-text { display: none; }
   nav { padding: 14px 20px; }
-  .nav-partner-label, .nav-separator { display: none; }
+  .nav-separator { display: none; }
+  .nav-partner-label { font-size: 13px; }
   .nav-link { display: none; }
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .hero-left { padding: 48px 24px 44px; }
@@ -721,13 +736,15 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow fade-up">RunDot™ + Your Coach</div>
+    <div class="hero-eyebrow fade-up">
+      <img class="rd-logo-inline" src="https://www.rundot.com/hubfs/assets-rundot/images/logos/logo.svg" alt="RunDot™"> + Your Coach
+    </div>
     <h1 class="fade-up fade-up-delay-1">
-      RunDot™ pairs perfectly<br>
+      <img class="rd-logo-inline" src="https://www.rundot.com/hubfs/assets-rundot/images/logos/logo.svg" alt="RunDot™"> pairs perfectly<br>
       <em>with a coach.</em>
     </h1>
     <p class="hero-sub fade-up fade-up-delay-2">
-      AI-powered training meets human expertise. Add a certified running coach to your RunDot™ plan and unlock results neither can deliver alone.
+      AI-powered training meets human expertise. Add a certified running coach to your <img class="rd-logo-inline" src="https://www.rundot.com/hubfs/assets-rundot/images/logos/logo.svg" alt="RunDot™"> plan and unlock results neither can deliver alone.
     </p>
     <div class="hero-actions fade-up fade-up-delay-3">
       <a href="#get-matched" class="btn-primary-lg">Get Matched with a Coach</a>
@@ -739,7 +756,7 @@ footer {
       <img
         src="https://www.rundot.com/hs-fs/hubfs/assets-rundot/images/snapshots/simplified-hero-banner-image.png?width=524&height=259"
         alt="RunDot training dashboard">
-      <p class="hero-app-label">RunDot™ Training Intelligence</p>
+      <p class="hero-app-label"><img class="rd-logo-inline" src="https://www.rundot.com/hubfs/assets-rundot/images/logos/logo.svg" alt="RunDot™"> Training Intelligence</p>
     </div>
   </div>
 </section>
@@ -747,7 +764,7 @@ footer {
 <!-- HOW DO YOU WANT TO CONNECT -->
 <section class="connect-section">
   <h2 class="fade-up">How do you want to connect with a coach?</h2>
-  <p class="section-sub fade-up fade-up-delay-1">All RunDot coaches are certified by the Endurance Sports Coaching Institute and trained to use RunDot™'s AI alongside their own expertise.</p>
+  <p class="section-sub fade-up fade-up-delay-1">All <img class="rd-logo-inline" src="https://www.rundot.com/hubfs/assets-rundot/images/logos/logo.svg" alt="RunDot™"> coaches are certified by the Endurance Sports Coaching Institute and trained to use <img class="rd-logo-inline" src="https://www.rundot.com/hubfs/assets-rundot/images/logos/logo.svg" alt="RunDot™">'s AI alongside their own expertise.</p>
   <div class="connect-grid">
 
     <div class="connect-card fade-up fade-up-delay-1" id="get-matched">
@@ -847,7 +864,7 @@ footer {
   </div>
   <div class="meb-content fade-up">
     <p class="meb-eyebrow">Used by one of the world's greatest runners</p>
-    <h2>Meb Keflezighi coaches with RunDot™</h2>
+    <h2>Meb Keflezighi coaches with <img class="rd-logo-inline" src="https://www.rundot.com/hubfs/assets-rundot/images/logos/logo.svg" alt="RunDot™"></h2>
     <p>The only man in history to win the New York City Marathon, the Boston Marathon, and an Olympic marathon medal — Meb uses RunDot™ for his coaching business, embracing hyper-individualized AI to help his runners achieve their best results.</p>
     <blockquote class="meb-quote">
       <p>"RunDot's technology is so far ahead of anything else I've seen, and I want the absolute best for my athletes."</p>
@@ -874,7 +891,7 @@ footer {
       </div>
       <div class="tcard">
         <div class="tcard-stars">★★★★★</div>
-        <p>"RunDot™ has been amazing for me! At 63, I'm running pain-free, injury-free, and faster than ever."</p>
+        <p>"<img class="rd-logo-inline" src="https://www.rundot.com/hubfs/assets-rundot/images/logos/logo.svg" alt="RunDot™"> has been amazing for me! At 63, I'm running pain-free, injury-free, and faster than ever."</p>
         <span class="tcard-attr">— Kathy</span>
       </div>
       <div class="tcard">
@@ -905,7 +922,7 @@ footer {
       </div>
       <div class="tcard">
         <div class="tcard-stars">★★★★★</div>
-        <p>"RunDot™ has been amazing for me! At 63, I'm running pain-free, injury-free, and faster than ever."</p>
+        <p>"<img class="rd-logo-inline" src="https://www.rundot.com/hubfs/assets-rundot/images/logos/logo.svg" alt="RunDot™"> has been amazing for me! At 63, I'm running pain-free, injury-free, and faster than ever."</p>
         <span class="tcard-attr">— Kathy</span>
       </div>
       <div class="tcard">
@@ -962,7 +979,7 @@ footer {
       </div>
       <div class="fl-note">
         <div class="fl-note-label">FitLogic™ Difference</div>
-        <p>RunDot™ doesn't bolt AI onto a generic training template. FitLogic™ is the foundation — every workout, every adjustment, every prediction is generated by AI trained on real endurance athletes.</p>
+        <p><img class="rd-logo-inline" src="https://www.rundot.com/hubfs/assets-rundot/images/logos/logo.svg" alt="RunDot™"> doesn't bolt AI onto a generic training template. FitLogic™ is the foundation — every workout, every adjustment, every prediction is generated by AI trained on real endurance athletes.</p>
       </div>
     </div>
   </div>
