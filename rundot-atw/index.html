@@ -44,8 +44,12 @@ body { font-family: var(--font-body); background: var(--dark); color: var(--whit
   position: relative;
   z-index: 101;
 }
-.promo-banner a {
+.promo-banner {
+  text-decoration: none;
+  display: block;
   color: var(--dark);
+}
+.promo-banner .promo-link-text {
   text-decoration: underline;
   text-underline-offset: 3px;
   font-weight: 800;
@@ -603,13 +607,14 @@ footer {
 
 @media (max-width: 768px) {
   .promo-banner { font-size: 13px; padding: 10px 20px; }
+  .promo-link-text { display: none; }
   nav { padding: 14px 20px; }
   .nav-partner-label { display: none; }
   .nav-separator { display: none; }
-  .hero-left { padding: 80px 20px 36px; }
+  .hero-left { padding: 48px 20px 44px; }
   .hero-right { padding: 0 20px 64px; }
   .hero h1 { font-size: clamp(40px, 10vw, 62px); }
-  .hero-sub { font-size: 16px; }
+  .hero-sub { font-size: 16px; max-width: 100%; }
   .hero-free-badge { flex-direction: column; align-items: flex-start; gap: 8px; }
   .intel-section, .features-section, .grows-section, .problem-section,
   .distance-section, .myths-section, .fitlogic-section, .final-cta-section,
@@ -643,12 +648,13 @@ footer {
   nav { padding: 12px 16px; }
   .nav-logo-img { height: 22px; }
   .btn-primary { font-size: 13px; padding: 10px 18px; }
-  .hero-left { padding: 72px 16px 32px; }
-  .hero-right { padding: 0 16px 56px; }
-  .hero h1 { font-size: clamp(36px, 11vw, 54px); line-height: 1.05; }
-  .hero-sub { font-size: 15px; margin-bottom: 28px; }
-  .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; margin-bottom: 32px; }
-  .hero-free-badge { padding: 12px 14px; }
+  .hero-left { padding: 40px 16px 48px; }
+  .hero-right { display: none; }
+  .hero h1 { font-size: clamp(38px, 10.5vw, 54px); line-height: 1.0; }
+  .hero-sub { font-size: 15px; margin-bottom: 28px; max-width: 100%; }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; margin-bottom: 28px; }
+  .hero-free-badge { padding: 12px 14px; margin-bottom: 20px; }
+  .hero-partner { margin-top: 4px; }
   .intel-section, .features-section, .grows-section, .problem-section,
   .distance-section, .myths-section, .fitlogic-section, .final-cta-section,
   footer { padding: 56px 16px; }
@@ -668,9 +674,9 @@ footer {
 <body>
 
 <!-- PROMO BANNER -->
-<div class="promo-banner">
-  🏃 ATW Race Registrants get <strong>2 Months Free Training</strong> — <a href="https://rundot.com/trial">Start your free trial at RunDot.com</a>
-</div>
+<a href="https://rundot.com/trial" class="promo-banner">
+  🏃 ATW Race Registrants get <strong>2 Months Free Training</strong><span class="promo-link-text"> — Start your free trial at RunDot.com</span>
+</a>
 
 <!-- NAV -->
 <nav>
@@ -693,7 +699,7 @@ footer {
   <div class="hero-left">
     <div class="hero-eyebrow fade-up">ATW Official Training Partner</div>
     <h1 class="fade-up fade-up-delay-1">
-      For runners who want<br>
+      For runners who want
       <em>more than miles.</em>
     </h1>
     <p class="hero-sub fade-up fade-up-delay-2">
