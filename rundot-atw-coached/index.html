@@ -385,6 +385,67 @@ nav {
 }
 .esci-stat strong { color: var(--green-light); font-weight: 800; }
 
+/* ─── LEGENDS SECTION ─── */
+.legends-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+  overflow: hidden;
+  background: var(--dark);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.legends-photo {
+  position: relative;
+  overflow: hidden;
+}
+.legends-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.legends-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 50%, var(--dark) 100%);
+}
+.legends-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 64px 80px 48px;
+  gap: 20px;
+}
+.legends-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.legends-content h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  line-height: 1.05;
+  color: #fff;
+  margin: 0;
+}
+.legends-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.72);
+  max-width: 460px;
+}
+.legends-names {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+}
+
 /* ─── MEB SECTION ─── */
 .meb-section {
   background: var(--dark-2);
@@ -668,6 +729,7 @@ footer {
   .hero-right { padding: 40px 40px; }
   .connect-section { padding: 80px 40px; }
   .why-section { padding: 80px 40px; }
+  .legends-content { padding: 60px 48px 60px 40px; }
   .meb-content { padding: 60px 48px 60px 40px; }
   .fitlogic-section { padding: 80px 40px; }
   .fitlogic-inner { gap: 48px; }
@@ -694,6 +756,10 @@ footer {
   .why-grid { grid-template-columns: 1fr; gap: 16px; }
   .esci-bar { padding: 24px 20px; gap: 12px; flex-direction: column; text-align: center; }
   .esci-divider { display: none; }
+  .legends-section { grid-template-columns: 1fr; min-height: auto; }
+  .legends-photo { height: 300px; }
+  .legends-photo-overlay { background: linear-gradient(0deg, var(--dark) 0%, transparent 60%); }
+  .legends-content { padding: 40px 24px 60px; }
   .meb-section { grid-template-columns: 1fr; min-height: auto; }
   .meb-photo { height: 320px; }
   .meb-photo-overlay { background: linear-gradient(0deg, var(--dark-2) 0%, transparent 60%); }
@@ -769,7 +835,7 @@ footer {
 
     <div class="connect-card fade-up fade-up-delay-1" id="get-matched">
       <div class="connect-card-photo">
-        <img src="https://www.rundot.com/hs-fs/hubfs/assets-rundot/images/Left.jpg?width=720&height=480" alt="RunDot coach matching">
+        <img src="assets/coaches-team.jpg" alt="RunDot coaches and athletes">
       </div>
       <div class="connect-card-body">
         <span class="connect-card-tag">Recommended</span>
@@ -786,7 +852,7 @@ footer {
 
     <div class="connect-card fade-up fade-up-delay-2" id="find-coach">
       <div class="connect-card-photo">
-        <img src="https://www.rundot.com/hs-fs/hubfs/assets-rundot/images/Right-1.jpg?width=720&height=480" alt="Search RunDot coaches">
+        <img src="assets/coaches-team.jpg" alt="Search RunDot coaches" style="object-position: right center;">
       </div>
       <div class="connect-card-body">
         <div class="connect-card-icon">
@@ -796,7 +862,7 @@ footer {
         </div>
         <h3>Search for a coach.</h3>
         <p>Search for a coach based on your own criteria. All coaches are Endurance Sports Coaching Institute certified and experienced with RunDot™'s training platform.</p>
-        <a href="#" class="btn-outline-green">Search coaches →</a>
+        <a href="https://www.tridot.com/coaches/find-a-coach?hsLang=en" class="btn-outline-green" target="_blank" rel="noopener">Search coaches →</a>
       </div>
     </div>
 
@@ -855,6 +921,23 @@ footer {
 </section>
 
 <!-- MEB SECTION -->
+<!-- LEGENDS -->
+<section class="legends-section">
+  <div class="legends-photo">
+    <img src="assets/legends.jpg" alt="World-class endurance coaches who use RunDot's AI">
+    <div class="legends-photo-overlay"></div>
+  </div>
+  <div class="legends-content fade-up">
+    <p class="legends-eyebrow">Trusted by the greatest in the sport</p>
+    <h2>When the world's best endurance coaches trust the AI, you can too.</h2>
+    <p>Mark Allen. Mirinda Carfrae. Craig Alexander. Michellie Jones. Tim O'Donnell. Legends who have stood at the top of endurance sport — and who rely on the same FitLogic™ AI that powers every RunDot™ training plan.</p>
+    <p class="legends-names">
+      Mark Allen · Mirinda Carfrae · Craig Alexander<br>
+      Michellie Jones · Tim O'Donnell
+    </p>
+  </div>
+</section>
+
 <section class="meb-section">
   <div class="meb-photo">
     <img
