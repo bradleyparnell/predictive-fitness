@@ -2,80 +2,287 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ATW Email Banners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #0a0a0a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 40px 24px; }
-  h1 { color: #fff; font-size: 22px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.3px; }
-  p.sub { color: #666; font-size: 13px; margin-bottom: 40px; }
-  .section { margin-bottom: 48px; }
-  .section-label { color: #444; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
-  .banner-card { margin-bottom: 20px; }
-  .banner-card img { width: 600px; max-width: 100%; display: block; border-radius: 4px; }
-  .banner-name { color: #555; font-size: 12px; margin-top: 8px; }
-  a.dl { display: inline-block; margin-top: 6px; color: #53b956; font-size: 12px; text-decoration: none; }
-  a.dl:hover { text-decoration: underline; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #111; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+
+.banner {
+  width: 600px;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  flex-shrink: 0;
+}
+
+.accent-bar {
+  width: 4px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 4;
+}
+
+/* Left column: headline at top, then partner pill, then badge/tagline */
+.col-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 14px 20px 14px 20px;
+  position: relative;
+  z-index: 4;
+  gap: 6px;
+}
+
+/* Right column: logo at top, CTA underneath */
+.col-right {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 14px 24px;
+  position: relative;
+  z-index: 4;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+/* Partner pill — RunDot */
+.rd-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(83,185,86,0.15);
+  border: 1px solid rgba(83,185,86,0.4);
+  border-radius: 100px;
+  padding: 3px 10px 3px 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6dd070;
+  width: fit-content;
+  white-space: nowrap;
+}
+.rd-pill::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #6dd070;
+  flex-shrink: 0;
+}
+
+/* Partner label — TriDot */
+.td-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #EA0029;
+}
+
+/* Offer badge — RunDot */
+.rd-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(83,185,86,0.12);
+  border: 1px solid rgba(83,185,86,0.38);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #6dd070;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+/* Offer badge — TriDot */
+.td-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(234,0,41,0.12);
+  border: 1px solid rgba(234,0,41,0.38);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ff4060;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+/* Taglines */
+.rd-tagline {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.3;
+}
+.td-tagline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.3;
+}
+
+/* CTA */
+.rd-cta {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #6dd070;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.td-cta {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ff4060;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
 </style>
 </head>
 <body>
-  <h1>ATW Email Banners</h1>
-  <p class="sub">600 × 150 px · PNG · Modern redesign</p>
 
-  <div class="section">
-    <div class="section-label">RunDot — ATW Sponsor</div>
-    <div class="banner-card">
-      <img src="ATW_RunDot_no_offer.png" alt="ATW RunDot No Offer">
-      <div class="banner-name">ATW_RunDot_no_offer.png</div>
-      <a class="dl" href="ATW_RunDot_no_offer.png" download>↓ Download</a>
-    </div>
-    <div class="banner-card">
-      <img src="ATW_RunDot_with_offer.png" alt="ATW RunDot With Offer">
-      <div class="banner-name">ATW_RunDot_with_offer.png</div>
-      <a class="dl" href="ATW_RunDot_with_offer.png" download>↓ Download</a>
-    </div>
+<!-- B2 · ATW × RunDot — With Offer -->
+<div class="banner" id="b2" style="background:#060a0f;">
+  <div style="position:absolute;inset:0;z-index:0;">
+    <img src="assets/RunDot-Next-Photo-5.jpg"
+         style="width:100%;height:100%;object-fit:cover;object-position:60% 20%;filter:brightness(0.22);">
+    <div style="position:absolute;inset:0;
+         background:linear-gradient(105deg,rgba(6,10,15,0.97) 0%,rgba(6,10,15,0.85) 50%,rgba(6,10,15,0.25) 100%);"></div>
   </div>
+  <div class="accent-bar" style="background:#53b956;"></div>
+  <div class="col-left" style="width:64%;">
+    <div style="line-height:0.92;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:900;
+                  text-transform:uppercase;color:#fff;letter-spacing:-0.01em;">TRAIN LESS.</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:900;
+                  text-transform:uppercase;font-style:italic;color:#6dd070;letter-spacing:-0.01em;">RACE FASTER.</div>
+    </div>
+    <div class="rd-pill">Official Training Partner of ATW</div>
+    <div class="rd-badge">★ ATW Registrants — 2 Months Free</div>
+  </div>
+  <div class="col-right">
+    <img src="assets/rundot-logo-full.svg" style="height:34px; opacity:0.9; display:block;">
+    <div class="rd-cta">Get Started for Free →</div>
+  </div>
+</div>
 
-  <div class="section">
-    <div class="section-label">TriDot — ATW Sponsor</div>
-    <div class="banner-card">
-      <img src="ATW_TriDot_no_offer.png" alt="ATW TriDot No Offer">
-      <div class="banner-name">ATW_TriDot_no_offer.png</div>
-      <a class="dl" href="ATW_TriDot_no_offer.png" download>↓ Download</a>
-    </div>
-    <div class="banner-card">
-      <img src="ATW_TriDot_with_offer.png" alt="ATW TriDot With Offer">
-      <div class="banner-name">ATW_TriDot_with_offer.png</div>
-      <a class="dl" href="ATW_TriDot_with_offer.png" download>↓ Download</a>
-    </div>
-  </div>
 
-  <div class="section">
-    <div class="section-label">RunDot Standalone</div>
-    <div class="banner-card">
-      <img src="RunDot_Advanced.png" alt="RunDot Advanced">
-      <div class="banner-name">RunDot_Advanced.png</div>
-      <a class="dl" href="RunDot_Advanced.png" download>↓ Download</a>
-    </div>
-    <div class="banner-card">
-      <img src="RunDot_One_Size.png" alt="RunDot One Size">
-      <div class="banner-name">RunDot_One_Size.png</div>
-      <a class="dl" href="RunDot_One_Size.png" download>↓ Download</a>
-    </div>
+<!-- B4 · ATW × TriDot — With Offer -->
+<div class="banner" id="b4" style="background:#0f172a;">
+  <div style="position:absolute;inset:0;z-index:0;">
+    <img src="assets/tridot-photo-hero.jpg"
+         style="width:100%;height:100%;object-fit:cover;object-position:70% center;filter:brightness(0.22);">
+    <div style="position:absolute;inset:0;
+         background:linear-gradient(105deg,rgba(15,23,42,0.97) 0%,rgba(15,23,42,0.85) 50%,rgba(15,23,42,0.25) 100%);"></div>
   </div>
+  <div class="accent-bar" style="background:#EA0029;"></div>
+  <div class="col-left" style="width:64%;">
+    <div style="line-height:0.96;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:34px;font-weight:900;
+                  color:#fff;letter-spacing:-0.02em;">You deserve</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:34px;font-weight:900;
+                  font-style:italic;color:#EA0029;letter-spacing:-0.02em;">better training.</div>
+    </div>
+    <div class="td-label">Official Training Partner of ATW</div>
+    <div class="td-badge">🏊 ATW Registrants — 2 Months Free</div>
+  </div>
+  <div class="col-right">
+    <img src="assets/tridot-logo-full.svg" style="height:34px; opacity:0.9; display:block;">
+    <div class="td-cta">Get Started for Free →</div>
+  </div>
+</div>
 
-  <div class="section">
-    <div class="section-label">TriDot Standalone</div>
-    <div class="banner-card">
-      <img src="TriDot_Advanced.png" alt="TriDot Advanced">
-      <div class="banner-name">TriDot_Advanced.png</div>
-      <a class="dl" href="TriDot_Advanced.png" download>↓ Download</a>
-    </div>
-    <div class="banner-card">
-      <img src="TriDot_One_Size.png" alt="TriDot One Size">
-      <div class="banner-name">TriDot_One_Size.png</div>
-      <a class="dl" href="TriDot_One_Size.png" download>↓ Download</a>
-    </div>
+
+<!-- B5 · RunDot Advanced -->
+<div class="banner" id="b5" style="background:#060a0f;">
+  <div style="position:absolute;inset:0;z-index:0;">
+    <img src="assets/RunDot-Next-Photo-4.jpg"
+         style="width:100%;height:100%;object-fit:cover;object-position:60% 30%;filter:brightness(0.2);">
+    <div style="position:absolute;inset:0;
+         background:linear-gradient(105deg,rgba(6,10,15,0.97) 0%,rgba(6,10,15,0.78) 55%,rgba(6,10,15,0.2) 100%);"></div>
   </div>
+  <div class="accent-bar" style="background:#53b956;"></div>
+  <div class="col-left" style="width:64%;">
+    <div style="line-height:0.9;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:900;
+                  text-transform:uppercase;color:#fff;letter-spacing:-0.01em;">FOR RUNNERS WHO</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:900;
+                  text-transform:uppercase;font-style:italic;color:#6dd070;letter-spacing:-0.01em;">WANT MORE.</div>
+    </div>
+    <div class="rd-pill">Official Training Partner of ATW</div>
+    <div class="rd-tagline">Train less. Perform more. RunDot™ adapts to you.</div>
+  </div>
+  <div class="col-right">
+    <img src="assets/rundot-logo-full.svg" style="height:34px; opacity:0.9; display:block;">
+    <div class="rd-cta">Get Started for Free →</div>
+  </div>
+</div>
+
+
+<!-- B6 · RunDot One Size — logo+CTA right, headline+partner left -->
+<div class="banner" id="b6" style="background:#060a0f;">
+  <div style="position:absolute;inset:0;z-index:0;">
+    <img src="assets/RunDot-Next-Photo-3.jpg"
+         style="width:100%;height:100%;object-fit:cover;object-position:70% top;filter:brightness(0.3);">
+    <div style="position:absolute;inset:0;
+         background:linear-gradient(95deg,#060a0f 38%,rgba(6,10,15,0.72) 62%,rgba(6,10,15,0.1) 100%);"></div>
+  </div>
+  <div class="accent-bar" style="background:#53b956;"></div>
+  <div class="col-left" style="width:64%;">
+    <div style="line-height:0.9;">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;
+                  text-transform:uppercase;color:#fff;letter-spacing:-0.01em;">ONE SIZE</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;
+                  text-transform:uppercase;font-style:italic;color:#6dd070;letter-spacing:-0.01em;">FITS NO ONE.</div>
+    </div>
+    <div class="rd-pill">Official Training Partner of ATW</div>
+  </div>
+  <div class="col-right">
+    <img src="assets/rundot-logo-full.svg" style="height:34px; opacity:0.9; display:block;">
+    <div class="rd-cta">Get Started for Free →</div>
+  </div>
+</div>
+
+
+<!-- B7 · TriDot Advanced -->
+<div class="banner" id="b7" style="background:#0f172a;">
+  <div style="position:absolute;inset:0;z-index:0;">
+    <img src="assets/tridot-photo-hero.jpg"
+         style="width:100%;height:100%;object-fit:cover;object-position:70% 30%;filter:brightness(0.2);">
+    <div style="position:absolute;inset:0;
+         background:linear-gradient(105deg,rgba(15,23,42,0.97) 0%,rgba(15,23,42,0.78) 55%,rgba(15,23,42,0.2) 100%);"></div>
+  </div>
+  <div class="accent-bar" style="background:#EA0029;"></div>
+  <div class="col-left" style="width:64%;">
+    <div style="line-height:0.96;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:34px;font-weight:900;
+                  color:#fff;letter-spacing:-0.02em;">You deserve</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:34px;font-weight:900;
+                  font-style:italic;color:#EA0029;letter-spacing:-0.02em;">better training.</div>
+    </div>
+    <div class="td-label">Official Training Partner of ATW</div>
+    <div class="td-tagline">Swim. Bike. Run. TriDot® adapts to you — every session.</div>
+  </div>
+  <div class="col-right">
+    <img src="assets/tridot-logo-full.svg" style="height:34px; opacity:0.9; display:block;">
+    <div class="td-cta">Get Started for Free →</div>
+  </div>
+</div>
+
+
 </body>
 </html>
