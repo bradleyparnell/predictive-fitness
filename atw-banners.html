@@ -25,7 +25,6 @@ body { background: #111; padding: 12px; display: flex; flex-direction: column; g
   z-index: 4;
 }
 
-/* Left column: headline at top, then partner pill, then badge/tagline */
 .col-left {
   display: flex;
   flex-direction: column;
@@ -36,7 +35,6 @@ body { background: #111; padding: 12px; display: flex; flex-direction: column; g
   gap: 6px;
 }
 
-/* Right column: logo at top, CTA underneath */
 .col-right {
   margin-left: auto;
   display: flex;
@@ -50,43 +48,28 @@ body { background: #111; padding: 12px; display: flex; flex-direction: column; g
   gap: 10px;
 }
 
-/* Partner pill — RunDot */
-.rd-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(83,185,86,0.15);
-  border: 1px solid rgba(83,185,86,0.4);
-  border-radius: 100px;
-  padding: 3px 10px 3px 8px;
+/* Partner label — plain text, no border/pill */
+.rd-partner {
   font-family: 'DM Sans', sans-serif;
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: #6dd070;
-  width: fit-content;
+  color: rgba(109,208,112,0.7);
   white-space: nowrap;
 }
-.rd-pill::before {
-  content: '';
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: #6dd070;
-  flex-shrink: 0;
-}
 
-/* Partner label — TriDot */
-.td-label {
+.td-partner {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #EA0029;
+  color: rgba(234,0,41,0.8);
+  white-space: nowrap;
 }
 
-/* Offer badge — RunDot */
+/* Offer badge — RunDot (keeps the outline) */
 .rd-badge {
   display: inline-flex;
   align-items: center;
@@ -102,7 +85,7 @@ body { background: #111; padding: 12px; display: flex; flex-direction: column; g
   width: fit-content;
 }
 
-/* Offer badge — TriDot */
+/* Offer badge — TriDot (keeps the outline) */
 .td-badge {
   display: inline-flex;
   align-items: center;
@@ -171,7 +154,7 @@ body { background: #111; padding: 12px; display: flex; flex-direction: column; g
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:900;
                   text-transform:uppercase;font-style:italic;color:#6dd070;letter-spacing:-0.01em;">RACE FASTER.</div>
     </div>
-    <div class="rd-pill">Official Training Partner of ATW</div>
+    <div class="rd-partner">Official Training Partner of ATW</div>
     <div class="rd-badge">★ ATW Registrants — 2 Months Free</div>
   </div>
   <div class="col-right">
@@ -197,7 +180,7 @@ body { background: #111; padding: 12px; display: flex; flex-direction: column; g
       <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:34px;font-weight:900;
                   font-style:italic;color:#EA0029;letter-spacing:-0.02em;">better training.</div>
     </div>
-    <div class="td-label">Official Training Partner of ATW</div>
+    <div class="td-partner">Official Training Partner of ATW</div>
     <div class="td-badge">🏊 ATW Registrants — 2 Months Free</div>
   </div>
   <div class="col-right">
@@ -223,7 +206,7 @@ body { background: #111; padding: 12px; display: flex; flex-direction: column; g
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:900;
                   text-transform:uppercase;font-style:italic;color:#6dd070;letter-spacing:-0.01em;">WANT MORE.</div>
     </div>
-    <div class="rd-pill">Official Training Partner of ATW</div>
+    <div class="rd-partner">Official Training Partner of ATW</div>
     <div class="rd-tagline">Train less. Perform more. RunDot™ adapts to you.</div>
   </div>
   <div class="col-right">
@@ -233,7 +216,7 @@ body { background: #111; padding: 12px; display: flex; flex-direction: column; g
 </div>
 
 
-<!-- B6 · RunDot One Size — logo+CTA right, headline+partner left -->
+<!-- B6 · RunDot One Size -->
 <div class="banner" id="b6" style="background:#060a0f;">
   <div style="position:absolute;inset:0;z-index:0;">
     <img src="assets/RunDot-Next-Photo-3.jpg"
@@ -249,7 +232,7 @@ body { background: #111; padding: 12px; display: flex; flex-direction: column; g
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;
                   text-transform:uppercase;font-style:italic;color:#6dd070;letter-spacing:-0.01em;">FITS NO ONE.</div>
     </div>
-    <div class="rd-pill">Official Training Partner of ATW</div>
+    <div class="rd-partner">Official Training Partner of ATW</div>
   </div>
   <div class="col-right">
     <img src="assets/rundot-logo-full.svg" style="height:34px; opacity:0.9; display:block;">
@@ -274,7 +257,7 @@ body { background: #111; padding: 12px; display: flex; flex-direction: column; g
       <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:34px;font-weight:900;
                   font-style:italic;color:#EA0029;letter-spacing:-0.02em;">better training.</div>
     </div>
-    <div class="td-label">Official Training Partner of ATW</div>
+    <div class="td-partner">Official Training Partner of ATW</div>
     <div class="td-tagline">Swim. Bike. Run. TriDot® adapts to you — every session.</div>
   </div>
   <div class="col-right">
