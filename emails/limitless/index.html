@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LIMITLESS — Featuring Laura Picard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0d0d0d;
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      padding: 40px 16px 80px;
+    }
+
+    /* ── Email shell ── */
+    .email {
+      width: 100%;
+      max-width: 600px;
+      background: #111;
+      overflow: hidden;
+    }
+
+    /* ── Pre-header ── */
+    .preheader {
+      background: #000;
+      text-align: center;
+      padding: 10px 24px;
+      font-size: 11px;
+      color: #888;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Logo bar ── */
+    .logo-bar {
+      background: #111;
+      text-align: center;
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid #222;
+    }
+    .logo-bar .brand {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      color: #fff;
+      text-transform: uppercase;
+    }
+    .logo-bar .tagline {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: #c00;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.6) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #ff3333;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .hero-headline {
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      line-height: 1.05;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+      margin-top: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* ── Event bar ── */
+    .event-bar {
+      background: #cc0000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 14px 24px;
+      flex-wrap: wrap;
+    }
+    .event-item {
+      text-align: center;
+    }
+    .event-item .label {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .event-item .value {
+      font-size: 14px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.05em;
+    }
+    .event-divider {
+      width: 1px;
+      height: 28px;
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* ── Intro text ── */
+    .intro {
+      padding: 36px 32px 24px;
+      background: #111;
+    }
+    .intro h2 {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+    .intro h2 span { color: #ff3333; }
+    .intro p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #bbb;
+    }
+
+    /* ── Stats band ── */
+    .stats {
+      background: #000;
+      display: flex;
+      border-top: 2px solid #cc0000;
+      border-bottom: 2px solid #cc0000;
+    }
+    .stat {
+      flex: 1;
+      text-align: center;
+      padding: 20px 12px;
+      border-right: 1px solid #1e1e1e;
+    }
+    .stat:last-child { border-right: none; }
+    .stat .num {
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.02em;
+      display: block;
+    }
+    .stat .desc {
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #cc0000;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ── CTA primary ── */
+    .cta-block {
+      background: #111;
+      text-align: center;
+      padding: 28px 32px;
+    }
+    .cta-block p {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+    .btn-main {
+      display: inline-block;
+      background: #cc0000;
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 16px 44px;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .btn-main:hover { background: #e50000; }
+
+    /* ── Photo grid ── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      background: #000;
+    }
+    .photo-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Feature strip ── */
+    .feature-strip {
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-strip img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      filter: brightness(0.55);
+    }
+    .feature-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    .feature-text h3 {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .feature-text h3 em {
+      font-style: normal;
+      color: #ff3333;
+    }
+
+    /* ── Topics list ── */
+    .topics {
+      background: #111;
+      padding: 32px 32px;
+    }
+    .topics h3 {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #cc0000;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+    .topic-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #1e1e1e;
+    }
+    .topic-item:last-child { border-bottom: none; }
+    .topic-dot {
+      width: 6px;
+      height: 6px;
+      background: #cc0000;
+      border-radius: 50%;
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+    .topic-item span {
+      font-size: 14px;
+      color: #ddd;
+      line-height: 1.5;
+    }
+    .topic-item strong { color: #fff; }
+
+    /* ── Quote block ── */
+    .quote-block {
+      background: #0a0a0a;
+      padding: 32px;
+      text-align: center;
+      border-top: 1px solid #1e1e1e;
+      border-bottom: 1px solid #1e1e1e;
+    }
+    .quote-block blockquote {
+      font-size: 20px;
+      font-weight: 700;
+      font-style: italic;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .quote-block cite {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #cc0000;
+      font-style: normal;
+    }
+
+    /* ── Bottom CTA ── */
+    .bottom-cta {
+      background: #000;
+      text-align: center;
+      padding: 44px 32px;
+    }
+    .bottom-cta h2 {
+      font-size: 28px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #fff;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .bottom-cta h2 span { color: #cc0000; }
+    .bottom-cta p {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+    .btn-outline {
+      display: inline-block;
+      border: 2px solid #cc0000;
+      color: #cc0000;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 14px 40px;
+      border-radius: 2px;
+      margin-top: 6px;
+    }
+    .btn-outline:hover { background: #cc0000; color: #fff; }
+
+    /* ── Footer ── */
+    .footer {
+      background: #000;
+      border-top: 1px solid #1a1a1a;
+      padding: 24px 32px;
+      text-align: center;
+    }
+    .footer p {
+      font-size: 11px;
+      color: #444;
+      line-height: 1.8;
+    }
+    .footer a { color: #666; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="email">
+
+    <!-- Pre-header -->
+    <div class="preheader">The story behind 8 hours of limitless suffering. She did it anyway. →</div>
+
+    <!-- Logo -->
+    <div class="logo-bar">
+      <div class="brand">Limitless</div>
+      <div class="tagline">Presented by Predictive Fitness</div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+      <img src="./assets/hero.jpg" alt="Laura Picard — LIMITLESS" />
+      <div class="hero-overlay">
+        <div class="hero-eyebrow">Featuring World Champion</div>
+        <div class="hero-headline">Laura<br/>Picard</div>
+        <div class="hero-sub">XTERRA World Champion · Ultraman Champion</div>
+      </div>
+    </div>
+
+    <!-- Event bar -->
+    <div class="event-bar">
+      <div class="event-item">
+        <span class="label">Date</span>
+        <span class="value">Thursday, July 17</span>
+      </div>
+      <div class="event-divider"></div>
+      <div class="event-item">
+        <span class="label">Time</span>
+        <span class="value">6:30 PM CT</span>
+      </div>
+      <div class="event-divider"></div>
+      <div class="event-item">
+        <span class="label">Format</span>
+        <span class="value">Live Q&amp;A</span>
+      </div>
+      <div class="event-divider"></div>
+      <div class="event-item">
+        <span class="label">Cost</span>
+        <span class="value">Free</span>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <div class="intro">
+      <h2>She raced <span>318 miles</span> in 3 days.<br/>Here's everything she learned.</h2>
+      <p>
+        Laura Picard isn't your average endurance athlete — she's a two-time XTERRA World Champion and Ultraman Hawaii champion who has redefined what's possible in multi-sport. In our next LIMITLESS event, she goes deep on the training, mindset, and recovery that took her from great to unstoppable.
+      </p>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat">
+        <span class="num">8:03:27</span>
+        <span class="desc">XTERRA World Record</span>
+      </div>
+      <div class="stat">
+        <span class="num">2:38:27</span>
+        <span class="desc">Ultraman Marathon Split</span>
+      </div>
+      <div class="stat">
+        <span class="num">#1</span>
+        <span class="desc">World Ranking</span>
+      </div>
+    </div>
+
+    <!-- CTA #1 -->
+    <div class="cta-block">
+      <p>Spots are limited. Reserve yours before they're gone.</p>
+      <a href="#" class="btn-main">Reserve My Spot — Free</a>
+    </div>
+
+    <!-- Photo grid -->
+    <div class="photo-grid">
+      <img src="./assets/cycling.jpg" alt="Laura cycling" />
+      <img src="./assets/running.jpg" alt="Laura running" />
+    </div>
+
+    <!-- Feature strip -->
+    <div class="feature-strip">
+      <img src="./assets/intense.jpg" alt="Laura intense effort" />
+      <div class="feature-text">
+        <h3>The Mindset Behind<br/><em>Limitless</em> Performance</h3>
+      </div>
+    </div>
+
+    <!-- Topics -->
+    <div class="topics">
+      <h3>What Laura will cover</h3>
+      <div class="topic-item">
+        <div class="topic-dot"></div>
+        <span><strong>Periodization secrets</strong> — how she structures her training year to peak at the right moment</span>
+      </div>
+      <div class="topic-item">
+        <div class="topic-dot"></div>
+        <span><strong>Race-day nutrition</strong> — fueling an 8-hour effort without blowing up</span>
+      </div>
+      <div class="topic-item">
+        <div class="topic-dot"></div>
+        <span><strong>Mental frameworks</strong> — the self-talk that keeps her moving when the body says stop</span>
+      </div>
+      <div class="topic-item">
+        <div class="topic-dot"></div>
+        <span><strong>Recovery non-negotiables</strong> — what she does in the 48 hours after a World Championship effort</span>
+      </div>
+      <div class="topic-item">
+        <div class="topic-dot"></div>
+        <span><strong>Live Q&amp;A</strong> — bring your hardest questions, she won't hold back</span>
+      </div>
+    </div>
+
+    <!-- Quote -->
+    <div class="quote-block">
+      <blockquote>"I don't train to finish. I train to find out what's on the other side of my limit."</blockquote>
+      <cite>— Laura Picard</cite>
+    </div>
+
+    <!-- Kitchen/lifestyle photo -->
+    <div class="feature-strip">
+      <img src="./assets/kitchen.jpg" alt="Laura lifestyle" style="object-position: center 40%;" />
+      <div class="feature-text">
+        <h3>Beyond the Podium.<br/><em>Real life.</em> Real habits.</h3>
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="bottom-cta">
+      <h2>Don't miss <span>LIMITLESS</span><br/>with Laura Picard</h2>
+      <p>July 17 · 6:30 PM CT · Free · Live</p>
+      <a href="#" class="btn-main">Sign Up Now — It's Free</a><br/>
+      <a href="#" class="btn-outline">Add to Calendar</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>
+        You're receiving this because you signed up for LIMITLESS events.<br/>
+        <a href="#">Unsubscribe</a> · <a href="#">View in browser</a> · <a href="#">Privacy Policy</a><br/>
+        © 2025 Predictive Fitness · All rights reserved.
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
