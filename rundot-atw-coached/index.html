@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Coached | TriDot® + RunDot™ × ATW</title>
+<meta name="description" content="Connect with an ESCI-certified coach for your TriDot® or RunDot™ training plan. AI-powered intelligence meets human expertise — built for ATW athletes who want to race their best.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,600;0,700;0,800;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --crimson: #EA0029;
+  --crimson-light: #ff1f40;
+  --crimson-dim: rgba(234,0,41,0.15);
+  --crimson-border: rgba(234,0,41,0.35);
+  --dark: #060a0f;
+  --dark-2: #0d1117;
+  --dark-3: #111827;
+  --dark-4: #1a2332;
+  --gray: #374151;
+  --gray-mid: #6b7280;
+  --gray-light: #9ca3af;
+  --white: #ffffff;
+  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Barlow', sans-serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--dark); color: var(--white); overflow-x: hidden; }
+
+/* ─── ANIMATIONS ─── */
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up-delay-1 { transition-delay: 0.12s; }
+.fade-up-delay-2 { transition-delay: 0.24s; }
+.fade-up-delay-3 { transition-delay: 0.36s; }
+.fade-up-delay-4 { transition-delay: 0.48s; }
+
+/* ─── INLINE LOGO ─── */
+.rd-logo-inline {
+  height: 1em;
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  top: -1px;
+}
+h1 .rd-logo-inline { height: 0.85em; }
+h2 .rd-logo-inline { height: 0.85em; }
+.hero-eyebrow .rd-logo-inline { height: 1em; }
+.hero-app-label .rd-logo-inline { height: 0.9em; }
+
+/* ─── PROMO BANNER ─── */
+.promo-banner {
+  background: var(--crimson);
+  padding: 12px 24px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: 0.02em;
+  position: relative;
+  z-index: 101;
+  text-decoration: none;
+  display: block;
+}
+.promo-banner .promo-link-text {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 800;
+}
+.promo-banner strong { font-weight: 900; }
+
+/* ─── NAV ─── */
+nav {
+  position: sticky; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 60px;
+  background: rgba(6,10,15,0.92);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.nav-logo-img { height: 26px; width: auto; }
+.nav-separator { width: 1px; height: 22px; background: rgba(255,255,255,0.2); }
+.nav-partner-label { font-size: 15px; font-weight: 800; letter-spacing: 0.05em; color: rgba(255,255,255,0.9); }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-link { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+.nav-link:hover { color: var(--white); }
+
+.btn-primary {
+  background: var(--crimson); color: var(--white);
+  padding: 12px 26px; border-radius: 8px;
+  font-size: 15px; font-weight: 700; text-decoration: none;
+  transition: all 0.2s; display: inline-block;
+}
+.btn-primary:hover { background: var(--crimson-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(234,0,41,0.35); }
+.btn-primary-lg {
+  background: var(--crimson); color: var(--white);
+  padding: 18px 40px; border-radius: 10px;
+  font-size: 18px; font-weight: 700; text-decoration: none;
+  transition: all 0.2s; display: inline-block;
+  letter-spacing: 0.01em;
+}
+.btn-primary-lg:hover { background: var(--crimson-light); transform: translateY(-2px); box-shadow: 0 16px 48px rgba(234,0,41,0.4); }
+.btn-ghost-lg {
+  color: var(--white); padding: 18px 36px; border-radius: 10px;
+  font-size: 18px; font-weight: 600; text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.25); transition: all 0.2s; display: inline-block;
+}
+.btn-ghost-lg:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
+.btn-outline-crimson {
+  color: var(--crimson-light); padding: 14px 32px; border-radius: 8px;
+  font-size: 16px; font-weight: 700; text-decoration: none;
+  border: 1.5px solid var(--crimson-border); transition: all 0.2s; display: inline-block;
+}
+.btn-outline-crimson:hover { background: var(--crimson-dim); border-color: var(--crimson); transform: translateY(-1px); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 80vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--dark);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('assets/tridot-photo-hero.jpg') center/cover no-repeat;
+  opacity: 0.08;
+  z-index: 0;
+}
+.hero-left {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 60px 80px 80px;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--crimson-light);
+  background: var(--crimson-dim); border: 1px solid var(--crimson-border);
+  padding: 6px 14px; border-radius: 100px;
+  margin-bottom: 24px; width: fit-content;
+}
+.hero h1 {
+  font-family: var(--font-condensed);
+  font-size: clamp(48px, 5.5vw, 76px);
+  font-weight: 900;
+  line-height: 1.0;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--crimson);
+  display: block;
+}
+.hero-sub {
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.7);
+  max-width: 480px;
+  margin-bottom: 36px;
+}
+.hero-actions {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+
+.hero-right {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  padding: 60px 60px 60px 20px;
+}
+.hero-app-wrap {
+  position: relative;
+  background: linear-gradient(135deg, rgba(234,0,41,0.1) 0%, rgba(234,0,41,0.03) 100%);
+  border: 1px solid rgba(234,0,41,0.2);
+  border-radius: 20px;
+  padding: 32px;
+  max-width: 440px;
+  width: 100%;
+}
+.hero-app-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+.hero-app-label {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ─── CONNECT SECTION ─── */
+.connect-section {
+  background: var(--dark-2);
+  padding: 100px 80px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.connect-section > h2 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 16px;
+  color: var(--white);
+}
+.connect-section > .section-sub {
+  text-align: center;
+  font-size: 17px;
+  color: rgba(255,255,255,0.6);
+  max-width: 560px;
+  margin: 0 auto 60px;
+  line-height: 1.65;
+}
+.connect-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.connect-card {
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.connect-card:hover {
+  border-color: var(--crimson-border);
+  transform: translateY(-4px);
+}
+.connect-card-photo {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+.connect-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.connect-card:hover .connect-card-photo img {
+  transform: scale(1.04);
+}
+.connect-card-body {
+  padding: 32px;
+}
+.connect-card-icon {
+  width: 48px; height: 48px;
+  background: var(--crimson-dim);
+  border: 1px solid var(--crimson-border);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.connect-card-body h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--white);
+}
+.connect-card-body p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 24px;
+}
+.connect-card-tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--crimson-light);
+  background: var(--crimson-dim);
+  border: 1px solid var(--crimson-border);
+  padding: 4px 12px; border-radius: 100px;
+  margin-bottom: 12px;
+}
+
+/* ─── WHY SECTION ─── */
+.why-section {
+  background: var(--dark);
+  padding: 100px 80px;
+}
+.why-heading {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.2vw, 40px);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 16px;
+  max-width: 700px;
+  margin-left: auto; margin-right: auto;
+}
+.why-sub {
+  text-align: center;
+  font-size: 17px;
+  color: rgba(255,255,255,0.6);
+  max-width: 560px;
+  margin: 0 auto 64px;
+  line-height: 1.65;
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.why-card {
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px;
+  padding: 36px 32px;
+  transition: border-color 0.3s;
+}
+.why-card:hover { border-color: var(--crimson-border); }
+.why-icon {
+  width: 52px; height: 52px;
+  background: var(--crimson-dim);
+  border: 1px solid var(--crimson-border);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+.why-icon svg { width: 26px; height: 26px; color: var(--crimson); }
+.why-card h3 {
+  font-family: var(--font-display);
+  font-size: 20px; font-weight: 800;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.why-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.62);
+}
+
+/* ─── ESCI TRUST BAR ─── */
+.esci-bar {
+  background: var(--dark-2);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 32px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.esci-label {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.esci-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.12); }
+.esci-badge {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; font-weight: 700;
+  color: rgba(255,255,255,0.85);
+}
+.esci-badge-dot {
+  width: 8px; height: 8px;
+  background: var(--crimson);
+  border-radius: 50%;
+}
+.esci-stat {
+  font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 500;
+}
+.esci-stat strong { color: var(--crimson-light); font-weight: 800; }
+
+/* ─── LEGENDS SECTION ─── */
+.legends-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+  overflow: hidden;
+  background: var(--dark);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.legends-photo {
+  position: relative;
+  overflow: hidden;
+}
+.legends-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.legends-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 50%, var(--dark) 100%);
+}
+.legends-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 64px 80px 48px;
+  gap: 20px;
+}
+.legends-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--crimson);
+}
+.legends-content h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  line-height: 1.05;
+  color: #fff;
+  margin: 0;
+}
+.legends-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.72);
+  max-width: 460px;
+}
+.legends-names {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+}
+
+/* ─── MEB SECTION ─── */
+.meb-section {
+  background: var(--dark-2);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 560px;
+  overflow: hidden;
+}
+.meb-photo {
+  position: relative;
+  overflow: hidden;
+}
+.meb-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.meb-photo-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 60%, var(--dark-2) 100%);
+}
+.meb-content {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 80px 80px 60px;
+}
+.meb-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--crimson-light);
+  margin-bottom: 16px;
+}
+.meb-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 2.8vw, 36px);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.meb-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 24px;
+}
+.meb-quote {
+  border-left: 3px solid var(--crimson);
+  padding-left: 20px;
+  margin: 0 0 12px;
+}
+.meb-quote p {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--white) !important;
+  margin-bottom: 0 !important;
+  line-height: 1.5;
+}
+.meb-attribution {
+  font-size: 13px !important;
+  color: rgba(255,255,255,0.45) !important;
+  font-weight: 600 !important;
+  margin-bottom: 0 !important;
+}
+
+/* ─── TESTIMONIAL MARQUEE ─── */
+.testimonials {
+  background: var(--dark);
+  padding: 80px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+.testimonials-label {
+  text-align: center;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 40px;
+}
+.marquee-track {
+  display: flex;
+  gap: 24px;
+  animation: marquee 40s linear infinite;
+  width: max-content;
+}
+.marquee-track:hover { animation-play-state: paused; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.tcard {
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 24px 28px;
+  width: 320px; flex-shrink: 0;
+}
+.tcard-stars {
+  color: #f59e0b;
+  font-size: 14px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+.tcard p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 14px;
+}
+.tcard-attr {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ─── FITLOGIC ─── */
+.fitlogic-section {
+  background: var(--dark-3);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 100px 80px;
+}
+.fitlogic-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.fitlogic-logo-wrap {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 28px;
+}
+.fitlogic-powered-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.fitlogic-logo { height: 28px; width: auto; }
+.fitlogic-section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.fitlogic-section h2 em { font-style: normal; color: var(--crimson); }
+.fitlogic-section p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.62);
+  margin-bottom: 16px;
+}
+.fitlogic-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 15px; font-weight: 700;
+  color: var(--crimson-light); text-decoration: none;
+  border-bottom: 1px solid var(--crimson-border);
+  padding-bottom: 2px;
+}
+.fl-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.fl-stat {
+  background: var(--dark-2);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+.fl-stat:hover { border-color: var(--crimson-border); }
+.fl-stat-val {
+  font-family: var(--font-condensed);
+  font-size: 36px; font-weight: 900;
+  color: var(--crimson-light);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.fl-stat-lbl {
+  font-size: 12px; font-weight: 600;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.fl-note {
+  grid-column: 1 / -1;
+  background: var(--dark-2);
+  border: 1px solid rgba(234,0,41,0.2);
+  border-radius: 14px;
+  padding: 20px 24px;
+}
+.fl-note-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--crimson-light); font-weight: 700; margin-bottom: 8px;
+}
+.fl-note p {
+  font-size: 13px !important;
+  color: rgba(255,255,255,0.55) !important;
+  margin-bottom: 0 !important;
+  line-height: 1.6 !important;
+}
+
+/* ─── FINAL CTA ─── */
+.final-cta-section {
+  position: relative;
+  overflow: hidden;
+  padding: 120px 80px;
+  text-align: center;
+  background: var(--dark);
+}
+.final-cta-bg {
+  position: absolute; inset: 0;
+  background: url('assets/tridot-photo-hero.jpg') center 30%/cover no-repeat;
+  opacity: 0.06;
+}
+.final-cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+.final-cta-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--crimson-light);
+  background: var(--crimson-dim); border: 1px solid var(--crimson-border);
+  padding: 6px 16px; border-radius: 100px;
+  margin-bottom: 28px;
+}
+.final-cta-title {
+  font-family: var(--font-condensed);
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.95;
+  color: var(--white);
+  margin-bottom: 28px;
+  letter-spacing: -0.02em;
+}
+.final-cta-title em { font-style: normal; color: var(--crimson); }
+.final-cta-sub {
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.65);
+  max-width: 560px;
+  margin: 0 auto 48px;
+}
+.final-cta-actions { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--dark-2);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 60px 80px;
+  text-align: center;
+}
+.footer-inner { max-width: 900px; margin: 0 auto; }
+.footer-logo { height: 28px; width: auto; margin-bottom: 28px; }
+.footer-links {
+  display: flex; align-items: center; justify-content: center;
+  gap: 32px; flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.footer-links a {
+  font-size: 13px; font-weight: 600;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none; transition: color 0.2s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.85); }
+.footer-copy {
+  font-size: 12px;
+  color: rgba(255,255,255,0.28);
+  line-height: 1.7;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  nav { padding: 16px 32px; }
+  .hero-left { padding: 60px 40px; }
+  .hero-right { padding: 40px 40px; }
+  .connect-section { padding: 80px 40px; }
+  .why-section { padding: 80px 40px; }
+  .legends-content { padding: 60px 48px 60px 40px; }
+  .meb-content { padding: 60px 48px 60px 40px; }
+  .fitlogic-section { padding: 80px 40px; }
+  .fitlogic-inner { gap: 48px; }
+  .final-cta-section { padding: 100px 40px; }
+  footer { padding: 56px 40px; }
+  .esci-bar { padding: 32px 40px; }
+}
+@media (max-width: 768px) {
+  .promo-banner { font-size: 13px; padding: 10px 20px; }
+  .promo-link-text { display: none; }
+  nav { padding: 14px 20px; }
+  .nav-separator { display: none; }
+  .nav-partner-label { font-size: 13px; }
+  .nav-link { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 48px 24px 44px; }
+  .hero-right { display: none; }
+  .hero h1 { font-size: clamp(38px, 10.5vw, 58px); }
+  .hero-sub { font-size: 16px; max-width: 100%; }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: 12px; }
+  .connect-section { padding: 64px 24px; }
+  .connect-grid { grid-template-columns: 1fr; gap: 20px; }
+  .why-section { padding: 64px 24px; }
+  .why-grid { grid-template-columns: 1fr; gap: 16px; }
+  .esci-bar { padding: 24px 20px; gap: 12px; flex-direction: column; text-align: center; }
+  .esci-divider { display: none; }
+  .legends-section { grid-template-columns: 1fr; min-height: auto; }
+  .legends-photo { height: 300px; }
+  .legends-photo-overlay { background: linear-gradient(0deg, var(--dark) 0%, transparent 60%); }
+  .legends-content { padding: 40px 24px 60px; }
+  .meb-section { grid-template-columns: 1fr; min-height: auto; }
+  .meb-photo { height: 320px; }
+  .meb-photo-overlay { background: linear-gradient(0deg, var(--dark-2) 0%, transparent 60%); }
+  .meb-content { padding: 40px 24px 60px; }
+  .fitlogic-section { padding: 64px 24px; }
+  .fitlogic-inner { grid-template-columns: 1fr; gap: 40px; }
+  .final-cta-section { padding: 80px 24px; }
+  footer { padding: 48px 24px; }
+  .footer-links { gap: 20px; }
+}
+@media (max-width: 480px) {
+  .connect-card-photo { height: 200px; }
+  .final-cta-title { font-size: clamp(44px, 12vw, 64px); }
+}
+</style>
+</head>
+<body>
+
+
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="../tridot/">
+    <svg width="87" height="24" viewBox="0 0 87 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.4559 6.48182C22.0863 7.49775 21.3674 8.34613 20.43 8.87266C19.4926 9.3992 18.399 9.56891 17.348 9.35093C17.0342 9.28579 16.7279 9.18752 16.4344 9.05773L15.4534 9.98967C15.7171 10.5612 15.8183 11.1954 15.7455 11.8216C15.6728 12.4478 15.4291 13.0412 15.0415 13.5358C14.6539 14.0304 14.1378 14.4067 13.5506 14.6228C12.9633 14.8388 12.3282 14.8861 11.7159 14.7593C11.3931 14.6919 11.0818 14.5772 10.7919 14.419L9.91464 15.2567C10.2048 15.7501 10.3177 16.3292 10.2344 16.8967C10.151 17.4642 9.87648 17.9854 9.45694 18.3728C9.0374 18.7602 8.49843 18.9901 7.93063 19.0238C7.36282 19.0575 6.80082 18.8931 6.33908 18.5581C5.87735 18.2231 5.54405 17.7379 5.39522 17.1842C5.24638 16.6306 5.29108 16.0421 5.5218 15.5177C5.75253 14.9933 6.15521 14.5651 6.66214 14.3049C7.16908 14.0448 7.74937 13.9686 8.30545 14.0891C8.49479 14.124 8.67829 14.1857 8.8505 14.2724L9.60318 13.309C9.22992 12.7471 9.03086 12.0859 9.03133 11.4095C9.03179 10.7332 9.23177 10.0722 9.6058 9.51086C9.97983 8.94947 10.511 8.51302 11.1317 8.25705C11.7524 8.00108 12.4346 7.93717 13.0915 8.07344C13.2676 8.11028 13.4411 8.15926 13.6106 8.22004L14.4204 7.17292C14.11 6.63939 13.9119 6.04715 13.8382 5.43306C13.7646 4.81896 13.8171 4.19615 13.9923 3.60339C14.1676 3.01062 14.462 2.46059 14.8571 1.98751C15.2523 1.51443 15.7397 1.12844 16.2891 0.853546C15.6398 0.593133 14.9694 0.38993 14.2854 0.246216C11.6391 -0.303257 8.88615 0.0712791 6.47874 1.30831C4.07134 2.54535 2.15259 4.57133 1.0376 7.05354C-0.0773788 9.53574 -0.322302 12.3266 0.343059 14.9677C1.00842 17.6089 2.54451 19.9433 4.69905 21.5876C6.85359 23.2319 9.49848 24.0884 12.1994 24.0163C14.9002 23.9442 17.4965 22.9478 19.5618 21.1909C21.6271 19.4339 23.0386 17.0208 23.5645 14.3479C24.0905 11.6749 23.6995 8.90107 22.4559 6.48182Z" fill="#EA0029"/><path d="M32.4018 19.8953H29.0952L33.0974 7.95285H29.5261L30.502 5.03662H40.9721L39.9962 7.95285H36.404L32.4018 19.8953Z" fill="white"/><path d="M36.3833 19.8952L40.1052 8.79051H43.0848L42.6799 9.9947C42.9333 9.61659 43.2765 9.30836 43.6781 9.09806C44.0797 8.88775 44.527 8.78203 44.9795 8.79051H48.1771L47.2894 11.445H42.872C42.6846 11.4174 42.4939 11.4642 42.34 11.5755C42.186 11.6868 42.0809 11.854 42.0466 12.0418L39.4511 19.8952H36.3833Z" fill="white"/><path d="M50.9438 19.8953L54.5775 9.05241H57.8426L55.1796 16.9843H59.8152C60.5523 16.9843 61.1492 16.4974 61.4659 15.555L63.5422 9.36655C63.8589 8.4189 63.6045 7.93723 62.8415 7.93723H54.9409L55.922 5.021H64.4299C67.0254 5.021 67.8611 6.33513 67.0253 8.81681L64.5908 16.0838C63.7603 18.5603 62.0369 19.8796 59.4466 19.8796L50.9438 19.8953Z" fill="white"/><path d="M66.6983 19.8952C65.141 19.8952 64.8607 19.2146 65.359 17.7225L67.6222 10.9633C68.1413 9.46592 68.8525 8.79053 70.4202 8.79053H77.9055C79.5147 8.79053 79.769 9.46592 79.2655 10.9633L77.0022 17.7225C76.4832 19.2146 75.798 19.8952 74.1836 19.8952H66.6983ZM75.8499 12.0418C76.016 11.5602 75.9277 11.4293 75.3827 11.4293H71.0742C70.6174 11.4293 70.4669 11.5602 70.3008 12.0418L68.7902 16.5654C68.6397 17.0052 68.6968 17.157 69.1536 17.157H73.462C73.9811 17.157 74.1888 17.0052 74.3393 16.5654L75.8499 12.0418Z" fill="white"/><path d="M79.6445 19.8953C78.0873 19.8953 77.807 19.2147 78.3053 17.7225L82.3386 5.68066H85.3857L84.3475 8.78014H87.0001L86.1955 11.1938H83.5377L81.6327 16.8744C81.4717 17.3613 81.5652 17.4712 82.0012 17.4712H84.0049L83.1951 19.8953H79.6445Z" fill="white"/><path d="M53.8403 5.07324H50.7828L50.0613 7.25649H53.1187L53.8403 5.07324Z" fill="white"/><path d="M49.5423 8.81152L45.8723 19.8796H48.909L52.5738 8.81152H49.5423Z" fill="white"/></svg>
+    <div class="nav-separator"></div>
+    <span class="nav-partner-label">× ATW</span>
+  </a>
+  <div class="nav-right">
+    <a class="nav-link" href="../tridot/">Home</a>
+    <a class="btn-primary" href="#get-matched">Find a Coach</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow fade-up">TriDot® &amp; RunDot™ × ATW &nbsp;·&nbsp; Get Coached</div>
+    <h1 class="fade-up fade-up-delay-1">The right coach<br><em>changes everything.</em></h1>
+    <p class="hero-sub fade-up fade-up-delay-2">Whether you train for triathlon with TriDot® or running with RunDot™ — connect with an ESCI-certified coach who works <em>with</em> your AI training plan, not instead of it.</p>
+    <div class="hero-actions fade-up fade-up-delay-3">
+      <a href="#get-matched" class="btn-primary-lg">Get Matched with a Coach</a>
+      <a href="#find-coach" class="btn-ghost-lg">Browse Coaches</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-app-wrap fade-up fade-up-delay-2">
+      <img
+        src="https://tridot.com/hs-fs/hubfs/assets-rundot/images/snapshots/simplified-hero-banner-image.png?width=524&height=259"
+        alt="TriDot training dashboard">
+      <p class="hero-app-label">FitLogic™ Training Intelligence</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW DO YOU WANT TO CONNECT -->
+<section class="connect-section">
+  <h2 class="fade-up">How do you want to connect with a coach?</h2>
+  <p class="section-sub fade-up fade-up-delay-1">All coaches are trained in ESCI methodology and experienced working with FitLogic™-powered training plans — whether you're training for triathlon with TriDot® or racing roads with RunDot™.</p>
+  <div class="connect-grid">
+
+    <div class="connect-card fade-up fade-up-delay-1" id="get-matched">
+      <div class="connect-card-photo">
+        <img src="assets/coaches-team.jpg" alt="TriDot coaches and athletes">
+      </div>
+      <div class="connect-card-body">
+        <span class="connect-card-tag">Recommended</span>
+        <div class="connect-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;color:var(--crimson)">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3>Get matched.</h3>
+        <p>Let us connect you with the best running coach for you. If you're not 100% satisfied, there's no obligation and no payment required.</p>
+        <a href="#" class="btn-primary">Introduce yourself →</a>
+      </div>
+    </div>
+
+    <div class="connect-card fade-up fade-up-delay-2" id="find-coach">
+      <div class="connect-card-photo">
+        <img src="assets/coach-search.jpg" alt="Athletes cycling with a coach" loading="lazy">
+      </div>
+      <div class="connect-card-body">
+        <div class="connect-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;color:var(--crimson)">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
+        <h3>Search for a coach.</h3>
+        <p>Search for a coach based on your own criteria. All coaches are Endurance Sports Coaching Institute certified and experienced with TriDot®'s training platform.</p>
+        <a href="https://www.tridot.com/coaches/find-a-coach?hsLang=en" class="btn-outline-crimson" target="_blank" rel="noopener">Search coaches →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ESCI TRUST BAR -->
+<div class="esci-bar">
+  <span class="esci-label">Coach Certification</span>
+  <div class="esci-divider"></div>
+  <div class="esci-badge">
+    <div class="esci-badge-dot"></div>
+    Endurance Sports Coaching Institute (ESCI) Certified
+  </div>
+  <div class="esci-divider"></div>
+  <!-- TODO: Barb to confirm scope before publishing — softened from "All coaches pass" -->
+  <span class="esci-stat">TriDot® coaches are trained in <strong>ESCI</strong> methodology</span>
+</div>
+
+<!-- WHY RUNDOT + COACH -->
+<section class="why-section">
+  <h2 class="why-heading fade-up">AI doesn't replace coaches.<br>It <span style="color:var(--crimson)">empowers</span> them.</h2>
+  <p class="why-sub fade-up fade-up-delay-1">Coaches working with FitLogic™-powered athletes deliver next-level results — helping athletes achieve more while training less, in any discipline.</p>
+  <div class="why-grid">
+
+    <div class="why-card fade-up fade-up-delay-1">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+        </svg>
+      </div>
+      <h3>AI Never Sleeps</h3>
+      <p>TriDot® constantly monitors your training data, adjusts workouts, and tracks every metric — so your coach walks into every session armed with real insights, not assumptions.</p>
+    </div>
+
+    <div class="why-card fade-up fade-up-delay-2">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+      </div>
+      <h3>Your Coach Does What AI Can't</h3>
+      <p>Strategy, mindset, accountability, race-day confidence — the human elements that make or break performance. Your coach handles all of it. TriDot handles the rest.</p>
+    </div>
+
+    <div class="why-card fade-up fade-up-delay-3">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+        </svg>
+      </div>
+      <h3>Together, You Win</h3>
+      <p>TriDot® athletes coached by ESCI-certified coaches see dramatically better outcomes than training solo — with AI or a coach alone. The combination is the advantage.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- MEB SECTION -->
+<!-- LEGENDS -->
+<section class="legends-section">
+  <div class="legends-photo">
+    <img src="assets/legends.jpg" alt="World-class endurance coaches who use TriDot's AI">
+    <div class="legends-photo-overlay"></div>
+  </div>
+  <div class="legends-content fade-up">
+    <p class="legends-eyebrow">Trusted by the greatest in the sport</p>
+    <h2>When the world's best endurance coaches trust the AI, you can too.</h2>
+    <p>Mark Allen. Mirinda Carfrae. Craig Alexander. Michellie Jones. Tim O'Donnell. Legends who have stood at the top of endurance sport — and who rely on the same FitLogic™ AI that powers every TriDot® training plan.</p>
+    <p class="legends-names">
+      Mark Allen · Mirinda Carfrae · Craig Alexander<br>
+      Michellie Jones · Tim O'Donnell
+    </p>
+  </div>
+</section>
+
+<section class="meb-section">
+  <div class="meb-photo">
+    <img
+      src="https://www.tridot.com/hs-fs/hubfs/assets-rundot/images/meb%20keflezighi%20running.jpg?width=720&height=900"
+      alt="Meb Keflezighi">
+    <div class="meb-photo-overlay"></div>
+  </div>
+  <div class="meb-content fade-up">
+    <p class="meb-eyebrow">Used by one of the world's greatest runners</p>
+    <h2>Meb Keflezighi coaches with <svg class="rd-logo-inline" viewBox="0 0 87 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.4559 6.48182C22.0863 7.49775 21.3674 8.34613 20.43 8.87266C19.4926 9.3992 18.399 9.56891 17.348 9.35093C17.0342 9.28579 16.7279 9.18752 16.4344 9.05773L15.4534 9.98967C15.7171 10.5612 15.8183 11.1954 15.7455 11.8216C15.6728 12.4478 15.4291 13.0412 15.0415 13.5358C14.6539 14.0304 14.1378 14.4067 13.5506 14.6228C12.9633 14.8388 12.3282 14.8861 11.7159 14.7593C11.3931 14.6919 11.0818 14.5772 10.7919 14.419L9.91464 15.2567C10.2048 15.7501 10.3177 16.3292 10.2344 16.8967C10.151 17.4642 9.87648 17.9854 9.45694 18.3728C9.0374 18.7602 8.49843 18.9901 7.93063 19.0238C7.36282 19.0575 6.80082 18.8931 6.33908 18.5581C5.87735 18.2231 5.54405 17.7379 5.39522 17.1842C5.24638 16.6306 5.29108 16.0421 5.5218 15.5177C5.75253 14.9933 6.15521 14.5651 6.66214 14.3049C7.16908 14.0448 7.74937 13.9686 8.30545 14.0891C8.49479 14.124 8.67829 14.1857 8.8505 14.2724L9.60318 13.309C9.22992 12.7471 9.03086 12.0859 9.03133 11.4095C9.03179 10.7332 9.23177 10.0722 9.6058 9.51086C9.97983 8.94947 10.511 8.51302 11.1317 8.25705C11.7524 8.00108 12.4346 7.93717 13.0915 8.07344C13.2676 8.11028 13.4411 8.15926 13.6106 8.22004L14.4204 7.17292C14.11 6.63939 13.9119 6.04715 13.8382 5.43306C13.7646 4.81896 13.8171 4.19615 13.9923 3.60339C14.1676 3.01062 14.462 2.46059 14.8571 1.98751C15.2523 1.51443 15.7397 1.12844 16.2891 0.853546C15.6398 0.593133 14.9694 0.38993 14.2854 0.246216C11.6391 -0.303257 8.88615 0.0712791 6.47874 1.30831C4.07134 2.54535 2.15259 4.57133 1.0376 7.05354C-0.0773788 9.53574 -0.322302 12.3266 0.343059 14.9677C1.00842 17.6089 2.54451 19.9433 4.69905 21.5876C6.85359 23.2319 9.49848 24.0884 12.1994 24.0163C14.9002 23.9442 17.4965 22.9478 19.5618 21.1909C21.6271 19.4339 23.0386 17.0208 23.5645 14.3479C24.0905 11.6749 23.6995 8.90107 22.4559 6.48182Z" fill="#EA0029"/><path d="M32.4018 19.8953H29.0952L33.0974 7.95285H29.5261L30.502 5.03662H40.9721L39.9962 7.95285H36.404L32.4018 19.8953Z" fill="white"/><path d="M36.3833 19.8952L40.1052 8.79051H43.0848L42.6799 9.9947C42.9333 9.61659 43.2765 9.30836 43.6781 9.09806C44.0797 8.88775 44.527 8.78203 44.9795 8.79051H48.1771L47.2894 11.445H42.872C42.6846 11.4174 42.4939 11.4642 42.34 11.5755C42.186 11.6868 42.0809 11.854 42.0466 12.0418L39.4511 19.8952H36.3833Z" fill="white"/><path d="M50.9438 19.8953L54.5775 9.05241H57.8426L55.1796 16.9843H59.8152C60.5523 16.9843 61.1492 16.4974 61.4659 15.555L63.5422 9.36655C63.8589 8.4189 63.6045 7.93723 62.8415 7.93723H54.9409L55.922 5.021H64.4299C67.0254 5.021 67.8611 6.33513 67.0253 8.81681L64.5908 16.0838C63.7603 18.5603 62.0369 19.8796 59.4466 19.8796L50.9438 19.8953Z" fill="white"/><path d="M66.6983 19.8952C65.141 19.8952 64.8607 19.2146 65.359 17.7225L67.6222 10.9633C68.1413 9.46592 68.8525 8.79053 70.4202 8.79053H77.9055C79.5147 8.79053 79.769 9.46592 79.2655 10.9633L77.0022 17.7225C76.4832 19.2146 75.798 19.8952 74.1836 19.8952H66.6983ZM75.8499 12.0418C76.016 11.5602 75.9277 11.4293 75.3827 11.4293H71.0742C70.6174 11.4293 70.4669 11.5602 70.3008 12.0418L68.7902 16.5654C68.6397 17.0052 68.6968 17.157 69.1536 17.157H73.462C73.9811 17.157 74.1888 17.0052 74.3393 16.5654L75.8499 12.0418Z" fill="white"/><path d="M79.6445 19.8953C78.0873 19.8953 77.807 19.2147 78.3053 17.7225L82.3386 5.68066H85.3857L84.3475 8.78014H87.0001L86.1955 11.1938H83.5377L81.6327 16.8744C81.4717 17.3613 81.5652 17.4712 82.0012 17.4712H84.0049L83.1951 19.8953H79.6445Z" fill="white"/><path d="M53.8403 5.07324H50.7828L50.0613 7.25649H53.1187L53.8403 5.07324Z" fill="white"/><path d="M49.5423 8.81152L45.8723 19.8796H48.909L52.5738 8.81152H49.5423Z" fill="white"/></svg></h2>
+    <p>The only man in history to win the New York City Marathon, the Boston Marathon, and an Olympic marathon medal — Meb uses TriDot® for his coaching business, embracing hyper-individualized AI to help his runners achieve their best results.</p>
+    <blockquote class="meb-quote">
+      <p>"TriDot's technology is so far ahead of anything else I've seen, and I want the absolute best for my athletes."</p>
+    </blockquote>
+    <p class="meb-attribution">— Meb Keflezighi, Olympic Medalist &amp; Marathon Champion</p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <p class="testimonials-label">Runners love TriDot®</p>
+  <div style="overflow:hidden;">
+    <div class="marquee-track">
+      <!-- First set -->
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <p>"An 11-minute personal best! Running slow to gain speed really works — TriDot® proved it."</p>
+        <span class="tcard-attr">— J. Richards</span>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <p>"I felt so prepared for my race and finished almost exactly as TriDot® predicted. Impressive!"</p>
+        <span class="tcard-attr">— A.L.</span>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <p>"<svg class="rd-logo-inline" viewBox="0 0 87 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.4559 6.48182C22.0863 7.49775 21.3674 8.34613 20.43 8.87266C19.4926 9.3992 18.399 9.56891 17.348 9.35093C17.0342 9.28579 16.7279 9.18752 16.4344 9.05773L15.4534 9.98967C15.7171 10.5612 15.8183 11.1954 15.7455 11.8216C15.6728 12.4478 15.4291 13.0412 15.0415 13.5358C14.6539 14.0304 14.1378 14.4067 13.5506 14.6228C12.9633 14.8388 12.3282 14.8861 11.7159 14.7593C11.3931 14.6919 11.0818 14.5772 10.7919 14.419L9.91464 15.2567C10.2048 15.7501 10.3177 16.3292 10.2344 16.8967C10.151 17.4642 9.87648 17.9854 9.45694 18.3728C9.0374 18.7602 8.49843 18.9901 7.93063 19.0238C7.36282 19.0575 6.80082 18.8931 6.33908 18.5581C5.87735 18.2231 5.54405 17.7379 5.39522 17.1842C5.24638 16.6306 5.29108 16.0421 5.5218 15.5177C5.75253 14.9933 6.15521 14.5651 6.66214 14.3049C7.16908 14.0448 7.74937 13.9686 8.30545 14.0891C8.49479 14.124 8.67829 14.1857 8.8505 14.2724L9.60318 13.309C9.22992 12.7471 9.03086 12.0859 9.03133 11.4095C9.03179 10.7332 9.23177 10.0722 9.6058 9.51086C9.97983 8.94947 10.511 8.51302 11.1317 8.25705C11.7524 8.00108 12.4346 7.93717 13.0915 8.07344C13.2676 8.11028 13.4411 8.15926 13.6106 8.22004L14.4204 7.17292C14.11 6.63939 13.9119 6.04715 13.8382 5.43306C13.7646 4.81896 13.8171 4.19615 13.9923 3.60339C14.1676 3.01062 14.462 2.46059 14.8571 1.98751C15.2523 1.51443 15.7397 1.12844 16.2891 0.853546C15.6398 0.593133 14.9694 0.38993 14.2854 0.246216C11.6391 -0.303257 8.88615 0.0712791 6.47874 1.30831C4.07134 2.54535 2.15259 4.57133 1.0376 7.05354C-0.0773788 9.53574 -0.322302 12.3266 0.343059 14.9677C1.00842 17.6089 2.54451 19.9433 4.69905 21.5876C6.85359 23.2319 9.49848 24.0884 12.1994 24.0163C14.9002 23.9442 17.4965 22.9478 19.5618 21.1909C21.6271 19.4339 23.0386 17.0208 23.5645 14.3479C24.0905 11.6749 23.6995 8.90107 22.4559 6.48182Z" fill="#EA0029"/><path d="M32.4018 19.8953H29.0952L33.0974 7.95285H29.5261L30.502 5.03662H40.9721L39.9962 7.95285H36.404L32.4018 19.8953Z" fill="white"/><path d="M36.3833 19.8952L40.1052 8.79051H43.0848L42.6799 9.9947C42.9333 9.61659 43.2765 9.30836 43.6781 9.09806C44.0797 8.88775 44.527 8.78203 44.9795 8.79051H48.1771L47.2894 11.445H42.872C42.6846 11.4174 42.4939 11.4642 42.34 11.5755C42.186 11.6868 42.0809 11.854 42.0466 12.0418L39.4511 19.8952H36.3833Z" fill="white"/><path d="M50.9438 19.8953L54.5775 9.05241H57.8426L55.1796 16.9843H59.8152C60.5523 16.9843 61.1492 16.4974 61.4659 15.555L63.5422 9.36655C63.8589 8.4189 63.6045 7.93723 62.8415 7.93723H54.9409L55.922 5.021H64.4299C67.0254 5.021 67.8611 6.33513 67.0253 8.81681L64.5908 16.0838C63.7603 18.5603 62.0369 19.8796 59.4466 19.8796L50.9438 19.8953Z" fill="white"/><path d="M66.6983 19.8952C65.141 19.8952 64.8607 19.2146 65.359 17.7225L67.6222 10.9633C68.1413 9.46592 68.8525 8.79053 70.4202 8.79053H77.9055C79.5147 8.79053 79.769 9.46592 79.2655 10.9633L77.0022 17.7225C76.4832 19.2146 75.798 19.8952 74.1836 19.8952H66.6983ZM75.8499 12.0418C76.016 11.5602 75.9277 11.4293 75.3827 11.4293H71.0742C70.6174 11.4293 70.4669 11.5602 70.3008 12.0418L68.7902 16.5654C68.6397 17.0052 68.6968 17.157 69.1536 17.157H73.462C73.9811 17.157 74.1888 17.0052 74.3393 16.5654L75.8499 12.0418Z" fill="white"/><path d="M79.6445 19.8953C78.0873 19.8953 77.807 19.2147 78.3053 17.7225L82.3386 5.68066H85.3857L84.3475 8.78014H87.0001L86.1955 11.1938H83.5377L81.6327 16.8744C81.4717 17.3613 81.5652 17.4712 82.0012 17.4712H84.0049L83.1951 19.8953H79.6445Z" fill="white"/><path d="M53.8403 5.07324H50.7828L50.0613 7.25649H53.1187L53.8403 5.07324Z" fill="white"/><path d="M49.5423 8.81152L45.8723 19.8796H48.909L52.5738 8.81152H49.5423Z" fill="white"/></svg> has been amazing for me! At 63, I'm running pain-free, injury-free, and faster than ever."</p>
+        <span class="tcard-attr">— Kathy</span>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <p>"After 30 years of running, I finally understand heart rate zones and base building — thanks to TriDot®!"</p>
+        <span class="tcard-attr">— Vanessa Coronado</span>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <p>"I'd been sidelined with overuse injuries twice. TriDot® helped me stay healthy and consistent for the first time in years."</p>
+        <span class="tcard-attr">— Eric Z.</span>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <p>"I trained less and still crushed my goal — all without missing dinners with my kids."</p>
+        <span class="tcard-attr">— E.</span>
+      </div>
+      <!-- Duplicate for seamless loop -->
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <p>"An 11-minute personal best! Running slow to gain speed really works — TriDot® proved it."</p>
+        <span class="tcard-attr">— J. Richards</span>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <p>"I felt so prepared for my race and finished almost exactly as TriDot® predicted. Impressive!"</p>
+        <span class="tcard-attr">— A.L.</span>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <p>"<svg class="rd-logo-inline" viewBox="0 0 87 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.4559 6.48182C22.0863 7.49775 21.3674 8.34613 20.43 8.87266C19.4926 9.3992 18.399 9.56891 17.348 9.35093C17.0342 9.28579 16.7279 9.18752 16.4344 9.05773L15.4534 9.98967C15.7171 10.5612 15.8183 11.1954 15.7455 11.8216C15.6728 12.4478 15.4291 13.0412 15.0415 13.5358C14.6539 14.0304 14.1378 14.4067 13.5506 14.6228C12.9633 14.8388 12.3282 14.8861 11.7159 14.7593C11.3931 14.6919 11.0818 14.5772 10.7919 14.419L9.91464 15.2567C10.2048 15.7501 10.3177 16.3292 10.2344 16.8967C10.151 17.4642 9.87648 17.9854 9.45694 18.3728C9.0374 18.7602 8.49843 18.9901 7.93063 19.0238C7.36282 19.0575 6.80082 18.8931 6.33908 18.5581C5.87735 18.2231 5.54405 17.7379 5.39522 17.1842C5.24638 16.6306 5.29108 16.0421 5.5218 15.5177C5.75253 14.9933 6.15521 14.5651 6.66214 14.3049C7.16908 14.0448 7.74937 13.9686 8.30545 14.0891C8.49479 14.124 8.67829 14.1857 8.8505 14.2724L9.60318 13.309C9.22992 12.7471 9.03086 12.0859 9.03133 11.4095C9.03179 10.7332 9.23177 10.0722 9.6058 9.51086C9.97983 8.94947 10.511 8.51302 11.1317 8.25705C11.7524 8.00108 12.4346 7.93717 13.0915 8.07344C13.2676 8.11028 13.4411 8.15926 13.6106 8.22004L14.4204 7.17292C14.11 6.63939 13.9119 6.04715 13.8382 5.43306C13.7646 4.81896 13.8171 4.19615 13.9923 3.60339C14.1676 3.01062 14.462 2.46059 14.8571 1.98751C15.2523 1.51443 15.7397 1.12844 16.2891 0.853546C15.6398 0.593133 14.9694 0.38993 14.2854 0.246216C11.6391 -0.303257 8.88615 0.0712791 6.47874 1.30831C4.07134 2.54535 2.15259 4.57133 1.0376 7.05354C-0.0773788 9.53574 -0.322302 12.3266 0.343059 14.9677C1.00842 17.6089 2.54451 19.9433 4.69905 21.5876C6.85359 23.2319 9.49848 24.0884 12.1994 24.0163C14.9002 23.9442 17.4965 22.9478 19.5618 21.1909C21.6271 19.4339 23.0386 17.0208 23.5645 14.3479C24.0905 11.6749 23.6995 8.90107 22.4559 6.48182Z" fill="#EA0029"/><path d="M32.4018 19.8953H29.0952L33.0974 7.95285H29.5261L30.502 5.03662H40.9721L39.9962 7.95285H36.404L32.4018 19.8953Z" fill="white"/><path d="M36.3833 19.8952L40.1052 8.79051H43.0848L42.6799 9.9947C42.9333 9.61659 43.2765 9.30836 43.6781 9.09806C44.0797 8.88775 44.527 8.78203 44.9795 8.79051H48.1771L47.2894 11.445H42.872C42.6846 11.4174 42.4939 11.4642 42.34 11.5755C42.186 11.6868 42.0809 11.854 42.0466 12.0418L39.4511 19.8952H36.3833Z" fill="white"/><path d="M50.9438 19.8953L54.5775 9.05241H57.8426L55.1796 16.9843H59.8152C60.5523 16.9843 61.1492 16.4974 61.4659 15.555L63.5422 9.36655C63.8589 8.4189 63.6045 7.93723 62.8415 7.93723H54.9409L55.922 5.021H64.4299C67.0254 5.021 67.8611 6.33513 67.0253 8.81681L64.5908 16.0838C63.7603 18.5603 62.0369 19.8796 59.4466 19.8796L50.9438 19.8953Z" fill="white"/><path d="M66.6983 19.8952C65.141 19.8952 64.8607 19.2146 65.359 17.7225L67.6222 10.9633C68.1413 9.46592 68.8525 8.79053 70.4202 8.79053H77.9055C79.5147 8.79053 79.769 9.46592 79.2655 10.9633L77.0022 17.7225C76.4832 19.2146 75.798 19.8952 74.1836 19.8952H66.6983ZM75.8499 12.0418C76.016 11.5602 75.9277 11.4293 75.3827 11.4293H71.0742C70.6174 11.4293 70.4669 11.5602 70.3008 12.0418L68.7902 16.5654C68.6397 17.0052 68.6968 17.157 69.1536 17.157H73.462C73.9811 17.157 74.1888 17.0052 74.3393 16.5654L75.8499 12.0418Z" fill="white"/><path d="M79.6445 19.8953C78.0873 19.8953 77.807 19.2147 78.3053 17.7225L82.3386 5.68066H85.3857L84.3475 8.78014H87.0001L86.1955 11.1938H83.5377L81.6327 16.8744C81.4717 17.3613 81.5652 17.4712 82.0012 17.4712H84.0049L83.1951 19.8953H79.6445Z" fill="white"/><path d="M53.8403 5.07324H50.7828L50.0613 7.25649H53.1187L53.8403 5.07324Z" fill="white"/><path d="M49.5423 8.81152L45.8723 19.8796H48.909L52.5738 8.81152H49.5423Z" fill="white"/></svg> has been amazing for me! At 63, I'm running pain-free, injury-free, and faster than ever."</p>
+        <span class="tcard-attr">— Kathy</span>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <p>"After 30 years of running, I finally understand heart rate zones and base building — thanks to TriDot®!"</p>
+        <span class="tcard-attr">— Vanessa Coronado</span>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <p>"I'd been sidelined with overuse injuries twice. TriDot® helped me stay healthy and consistent for the first time in years."</p>
+        <span class="tcard-attr">— Eric Z.</span>
+      </div>
+      <div class="tcard">
+        <div class="tcard-stars">★★★★★</div>
+        <p>"I trained less and still crushed my goal — all without missing dinners with my kids."</p>
+        <span class="tcard-attr">— E.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FITLOGIC -->
+<section class="fitlogic-section">
+  <div class="fitlogic-inner">
+    <div class="fade-up">
+      <div class="fitlogic-logo-wrap">
+        <span class="fitlogic-powered-label">Powered by</span>
+        <img class="fitlogic-logo"
+          src="https://go.tridot.com/hs-fs/hubfs/assets-rundot/images/logos/FitLogic%20Logo.png?width=500"
+          alt="FitLogic™"
+          style="max-width:200px;width:100%;height:auto;object-fit:contain;">
+      </div>
+      <h2>Real science for <em>every endurance athlete.</em></h2>
+      <p>FitLogic™ is the world's first and only AI-native platform developed specifically for endurance athletes — trained on 20+ years of real training and race data.</p>
+      <p>Unlike superficial "AI-powered" apps that automate templates or repurpose language models, FitLogic™ transforms raw training data into meaningful intelligence. It doesn't just <em>use</em> AI — it <em>is</em> AI.</p>
+      <a href="https://fitlogic.tech" class="fitlogic-link">Explore the science at FitLogic.tech →</a>
+    </div>
+    <div class="fl-stats fade-up fade-up-delay-1">
+      <div class="fl-stat">
+        <div class="fl-stat-val">20+</div>
+        <div class="fl-stat-lbl">Years of Data</div>
+      </div>
+      <div class="fl-stat">
+        <div class="fl-stat-val">AI</div>
+        <div class="fl-stat-lbl">Native Platform</div>
+      </div>
+      <div class="fl-stat">
+        <div class="fl-stat-val">Real</div>
+        <div class="fl-stat-lbl">Athlete Data</div>
+      </div>
+      <div class="fl-stat">
+        <div class="fl-stat-val">0</div>
+        <div class="fl-stat-lbl">Generic Plans</div>
+      </div>
+      <div class="fl-note">
+        <div class="fl-note-label">FitLogic™ Difference</div>
+        <p><svg class="rd-logo-inline" viewBox="0 0 87 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.4559 6.48182C22.0863 7.49775 21.3674 8.34613 20.43 8.87266C19.4926 9.3992 18.399 9.56891 17.348 9.35093C17.0342 9.28579 16.7279 9.18752 16.4344 9.05773L15.4534 9.98967C15.7171 10.5612 15.8183 11.1954 15.7455 11.8216C15.6728 12.4478 15.4291 13.0412 15.0415 13.5358C14.6539 14.0304 14.1378 14.4067 13.5506 14.6228C12.9633 14.8388 12.3282 14.8861 11.7159 14.7593C11.3931 14.6919 11.0818 14.5772 10.7919 14.419L9.91464 15.2567C10.2048 15.7501 10.3177 16.3292 10.2344 16.8967C10.151 17.4642 9.87648 17.9854 9.45694 18.3728C9.0374 18.7602 8.49843 18.9901 7.93063 19.0238C7.36282 19.0575 6.80082 18.8931 6.33908 18.5581C5.87735 18.2231 5.54405 17.7379 5.39522 17.1842C5.24638 16.6306 5.29108 16.0421 5.5218 15.5177C5.75253 14.9933 6.15521 14.5651 6.66214 14.3049C7.16908 14.0448 7.74937 13.9686 8.30545 14.0891C8.49479 14.124 8.67829 14.1857 8.8505 14.2724L9.60318 13.309C9.22992 12.7471 9.03086 12.0859 9.03133 11.4095C9.03179 10.7332 9.23177 10.0722 9.6058 9.51086C9.97983 8.94947 10.511 8.51302 11.1317 8.25705C11.7524 8.00108 12.4346 7.93717 13.0915 8.07344C13.2676 8.11028 13.4411 8.15926 13.6106 8.22004L14.4204 7.17292C14.11 6.63939 13.9119 6.04715 13.8382 5.43306C13.7646 4.81896 13.8171 4.19615 13.9923 3.60339C14.1676 3.01062 14.462 2.46059 14.8571 1.98751C15.2523 1.51443 15.7397 1.12844 16.2891 0.853546C15.6398 0.593133 14.9694 0.38993 14.2854 0.246216C11.6391 -0.303257 8.88615 0.0712791 6.47874 1.30831C4.07134 2.54535 2.15259 4.57133 1.0376 7.05354C-0.0773788 9.53574 -0.322302 12.3266 0.343059 14.9677C1.00842 17.6089 2.54451 19.9433 4.69905 21.5876C6.85359 23.2319 9.49848 24.0884 12.1994 24.0163C14.9002 23.9442 17.4965 22.9478 19.5618 21.1909C21.6271 19.4339 23.0386 17.0208 23.5645 14.3479C24.0905 11.6749 23.6995 8.90107 22.4559 6.48182Z" fill="#EA0029"/><path d="M32.4018 19.8953H29.0952L33.0974 7.95285H29.5261L30.502 5.03662H40.9721L39.9962 7.95285H36.404L32.4018 19.8953Z" fill="white"/><path d="M36.3833 19.8952L40.1052 8.79051H43.0848L42.6799 9.9947C42.9333 9.61659 43.2765 9.30836 43.6781 9.09806C44.0797 8.88775 44.527 8.78203 44.9795 8.79051H48.1771L47.2894 11.445H42.872C42.6846 11.4174 42.4939 11.4642 42.34 11.5755C42.186 11.6868 42.0809 11.854 42.0466 12.0418L39.4511 19.8952H36.3833Z" fill="white"/><path d="M50.9438 19.8953L54.5775 9.05241H57.8426L55.1796 16.9843H59.8152C60.5523 16.9843 61.1492 16.4974 61.4659 15.555L63.5422 9.36655C63.8589 8.4189 63.6045 7.93723 62.8415 7.93723H54.9409L55.922 5.021H64.4299C67.0254 5.021 67.8611 6.33513 67.0253 8.81681L64.5908 16.0838C63.7603 18.5603 62.0369 19.8796 59.4466 19.8796L50.9438 19.8953Z" fill="white"/><path d="M66.6983 19.8952C65.141 19.8952 64.8607 19.2146 65.359 17.7225L67.6222 10.9633C68.1413 9.46592 68.8525 8.79053 70.4202 8.79053H77.9055C79.5147 8.79053 79.769 9.46592 79.2655 10.9633L77.0022 17.7225C76.4832 19.2146 75.798 19.8952 74.1836 19.8952H66.6983ZM75.8499 12.0418C76.016 11.5602 75.9277 11.4293 75.3827 11.4293H71.0742C70.6174 11.4293 70.4669 11.5602 70.3008 12.0418L68.7902 16.5654C68.6397 17.0052 68.6968 17.157 69.1536 17.157H73.462C73.9811 17.157 74.1888 17.0052 74.3393 16.5654L75.8499 12.0418Z" fill="white"/><path d="M79.6445 19.8953C78.0873 19.8953 77.807 19.2147 78.3053 17.7225L82.3386 5.68066H85.3857L84.3475 8.78014H87.0001L86.1955 11.1938H83.5377L81.6327 16.8744C81.4717 17.3613 81.5652 17.4712 82.0012 17.4712H84.0049L83.1951 19.8953H79.6445Z" fill="white"/><path d="M53.8403 5.07324H50.7828L50.0613 7.25649H53.1187L53.8403 5.07324Z" fill="white"/><path d="M49.5423 8.81152L45.8723 19.8796H48.909L52.5738 8.81152H49.5423Z" fill="white"/></svg> doesn't bolt AI onto a generic training template. FitLogic™ is the foundation — every workout, every adjustment, every prediction is generated by AI trained on real endurance athletes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta-section">
+  <div class="final-cta-bg"></div>
+  <div class="final-cta-inner fade-up">
+    <div class="final-cta-eyebrow">ATW Athletes</div>
+    <h2 class="final-cta-title">
+      Find your coach.<br>Race <em>your best.</em>
+    </h2>
+    <p class="final-cta-sub">
+      Whether you're a triathlete or a runner, an ESCI-certified coach who understands FitLogic™ AI is your edge. Tell us about your goals and get matched — or browse and choose your own.
+    </p>
+    <div class="final-cta-actions">
+      <a href="#get-matched" class="btn-primary-lg">Get Matched with a Coach</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <svg class="footer-logo" width="87" height="24" viewBox="0 0 87 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.4559 6.48182C22.0863 7.49775 21.3674 8.34613 20.43 8.87266C19.4926 9.3992 18.399 9.56891 17.348 9.35093C17.0342 9.28579 16.7279 9.18752 16.4344 9.05773L15.4534 9.98967C15.7171 10.5612 15.8183 11.1954 15.7455 11.8216C15.6728 12.4478 15.4291 13.0412 15.0415 13.5358C14.6539 14.0304 14.1378 14.4067 13.5506 14.6228C12.9633 14.8388 12.3282 14.8861 11.7159 14.7593C11.3931 14.6919 11.0818 14.5772 10.7919 14.419L9.91464 15.2567C10.2048 15.7501 10.3177 16.3292 10.2344 16.8967C10.151 17.4642 9.87648 17.9854 9.45694 18.3728C9.0374 18.7602 8.49843 18.9901 7.93063 19.0238C7.36282 19.0575 6.80082 18.8931 6.33908 18.5581C5.87735 18.2231 5.54405 17.7379 5.39522 17.1842C5.24638 16.6306 5.29108 16.0421 5.5218 15.5177C5.75253 14.9933 6.15521 14.5651 6.66214 14.3049C7.16908 14.0448 7.74937 13.9686 8.30545 14.0891C8.49479 14.124 8.67829 14.1857 8.8505 14.2724L9.60318 13.309C9.22992 12.7471 9.03086 12.0859 9.03133 11.4095C9.03179 10.7332 9.23177 10.0722 9.6058 9.51086C9.97983 8.94947 10.511 8.51302 11.1317 8.25705C11.7524 8.00108 12.4346 7.93717 13.0915 8.07344C13.2676 8.11028 13.4411 8.15926 13.6106 8.22004L14.4204 7.17292C14.11 6.63939 13.9119 6.04715 13.8382 5.43306C13.7646 4.81896 13.8171 4.19615 13.9923 3.60339C14.1676 3.01062 14.462 2.46059 14.8571 1.98751C15.2523 1.51443 15.7397 1.12844 16.2891 0.853546C15.6398 0.593133 14.9694 0.38993 14.2854 0.246216C11.6391 -0.303257 8.88615 0.0712791 6.47874 1.30831C4.07134 2.54535 2.15259 4.57133 1.0376 7.05354C-0.0773788 9.53574 -0.322302 12.3266 0.343059 14.9677C1.00842 17.6089 2.54451 19.9433 4.69905 21.5876C6.85359 23.2319 9.49848 24.0884 12.1994 24.0163C14.9002 23.9442 17.4965 22.9478 19.5618 21.1909C21.6271 19.4339 23.0386 17.0208 23.5645 14.3479C24.0905 11.6749 23.6995 8.90107 22.4559 6.48182Z" fill="#EA0029"/><path d="M32.4018 19.8953H29.0952L33.0974 7.95285H29.5261L30.502 5.03662H40.9721L39.9962 7.95285H36.404L32.4018 19.8953Z" fill="white"/><path d="M36.3833 19.8952L40.1052 8.79051H43.0848L42.6799 9.9947C42.9333 9.61659 43.2765 9.30836 43.6781 9.09806C44.0797 8.88775 44.527 8.78203 44.9795 8.79051H48.1771L47.2894 11.445H42.872C42.6846 11.4174 42.4939 11.4642 42.34 11.5755C42.186 11.6868 42.0809 11.854 42.0466 12.0418L39.4511 19.8952H36.3833Z" fill="white"/><path d="M50.9438 19.8953L54.5775 9.05241H57.8426L55.1796 16.9843H59.8152C60.5523 16.9843 61.1492 16.4974 61.4659 15.555L63.5422 9.36655C63.8589 8.4189 63.6045 7.93723 62.8415 7.93723H54.9409L55.922 5.021H64.4299C67.0254 5.021 67.8611 6.33513 67.0253 8.81681L64.5908 16.0838C63.7603 18.5603 62.0369 19.8796 59.4466 19.8796L50.9438 19.8953Z" fill="white"/><path d="M66.6983 19.8952C65.141 19.8952 64.8607 19.2146 65.359 17.7225L67.6222 10.9633C68.1413 9.46592 68.8525 8.79053 70.4202 8.79053H77.9055C79.5147 8.79053 79.769 9.46592 79.2655 10.9633L77.0022 17.7225C76.4832 19.2146 75.798 19.8952 74.1836 19.8952H66.6983ZM75.8499 12.0418C76.016 11.5602 75.9277 11.4293 75.3827 11.4293H71.0742C70.6174 11.4293 70.4669 11.5602 70.3008 12.0418L68.7902 16.5654C68.6397 17.0052 68.6968 17.157 69.1536 17.157H73.462C73.9811 17.157 74.1888 17.0052 74.3393 16.5654L75.8499 12.0418Z" fill="white"/><path d="M79.6445 19.8953C78.0873 19.8953 77.807 19.2147 78.3053 17.7225L82.3386 5.68066H85.3857L84.3475 8.78014H87.0001L86.1955 11.1938H83.5377L81.6327 16.8744C81.4717 17.3613 81.5652 17.4712 82.0012 17.4712H84.0049L83.1951 19.8953H79.6445Z" fill="white"/><path d="M53.8403 5.07324H50.7828L50.0613 7.25649H53.1187L53.8403 5.07324Z" fill="white"/><path d="M49.5423 8.81152L45.8723 19.8796H48.909L52.5738 8.81152H49.5423Z" fill="white"/></svg>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="https://tridot.com">TriDot.com</a>
+      <a href="https://fitlogic.tech">FitLogic.tech</a>
+      <a href="../tridot/">ATW Home</a>
+    </div>
+    <p class="footer-copy">© <span id="yr"></span> Predictive Fitness, Inc. TriDot®, TrainX®, Dot Score™, and FitLogic™ are trademarks of Predictive Fitness, Inc. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.10 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
