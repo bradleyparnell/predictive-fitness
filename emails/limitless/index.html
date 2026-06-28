@@ -3,68 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LIMITLESS — Featuring Laura Picard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <title>LIMITLESS — Laura Philipp | Predictive Fitness x TriDot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: #0d0d0d;
-      font-family: 'Inter', sans-serif;
-      color: #fff;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #f0f0f0; font-family: 'Barlow', Arial, sans-serif; }
+
+    .email-wrapper { max-width: 620px; margin: 30px auto; background: #ffffff; }
+
+    /* ── HEADER ── */
+    .header {
+      background: #111;
+      padding: 14px 24px;
       display: flex;
-      justify-content: center;
-      padding: 40px 16px 80px;
+      align-items: center;
+      justify-content: space-between;
     }
-
-    /* ── Email shell ── */
-    .email {
-      width: 100%;
-      max-width: 600px;
-      background: #111;
-      overflow: hidden;
-    }
-
-    /* ── Pre-header ── */
-    .preheader {
-      background: #000;
-      text-align: center;
-      padding: 10px 24px;
-      font-size: 11px;
-      color: #888;
-      letter-spacing: 0.05em;
-    }
-
-    /* ── Logo bar ── */
-    .logo-bar {
-      background: #111;
-      text-align: center;
-      padding: 20px 24px 16px;
-      border-bottom: 1px solid #222;
-    }
-    .logo-bar .brand {
-      font-size: 28px;
+    .limitless-logo {
+      font-family: 'Barlow Condensed', Impact, sans-serif;
       font-weight: 900;
-      letter-spacing: 0.18em;
-      color: #fff;
-      text-transform: uppercase;
+      font-size: 32px;
+      letter-spacing: -1px;
+      line-height: 1;
     }
-    .logo-bar .tagline {
+    .limitless-logo .limit { color: #E8001D; }
+    .limitless-logo .less  { color: #ffffff; }
+    .logo-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
       font-size: 10px;
-      letter-spacing: 0.3em;
-      color: #c00;
+      letter-spacing: 3px;
+      color: #ffffff;
       text-transform: uppercase;
-      margin-top: 2px;
+      margin-top: 3px;
+    }
+    .presented-by-top {
+      text-align: right;
+    }
+    .presented-by-top .pb-label {
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: #888;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .tridot-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tridot-icon {
+      width: 26px;
+      height: 26px;
+      background: #E8001D;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tridot-icon svg { width: 16px; height: 16px; }
+    .tridot-wordmark {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: #ffffff;
+      letter-spacing: -0.5px;
     }
 
-    /* ── Hero ── */
+    /* ── HERO ── */
     .hero {
       position: relative;
-      width: 100%;
+      height: 480px;
       overflow: hidden;
     }
     .hero img {
       width: 100%;
-      height: 420px;
+      height: 100%;
       object-fit: cover;
       object-position: center 20%;
       display: block;
@@ -72,457 +87,504 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.6) 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 32px 24px;
-      text-align: center;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
     }
-    .hero-eyebrow {
-      font-size: 10px;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: #ff3333;
-      font-weight: 700;
-      margin-bottom: 10px;
+    .hero-content {
+      position: absolute;
+      bottom: 32px;
+      left: 32px;
+      right: 32px;
     }
-    .hero-headline {
-      font-size: 38px;
+    .hero-name {
+      font-family: 'Barlow Condensed', sans-serif;
       font-weight: 900;
-      letter-spacing: -0.01em;
-      line-height: 1.05;
-      text-transform: uppercase;
+      font-size: 52px;
       color: #fff;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.8);
-    }
-    .hero-sub {
-      font-size: 14px;
-      color: rgba(255,255,255,0.85);
-      margin-top: 10px;
-      letter-spacing: 0.08em;
+      letter-spacing: 1px;
+      line-height: 1;
       text-transform: uppercase;
-      font-weight: 500;
+    }
+    .hero-subtitle {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 6px;
     }
 
-    /* ── Event bar ── */
+    /* ── EVENT BAR ── */
     .event-bar {
-      background: #cc0000;
+      background: #E8001D;
+      padding: 14px 24px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
-      padding: 14px 24px;
-      flex-wrap: wrap;
+      gap: 16px;
     }
-    .event-item {
-      text-align: center;
-    }
-    .event-item .label {
-      font-size: 9px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-      display: block;
-      margin-bottom: 2px;
-    }
-    .event-item .value {
-      font-size: 14px;
-      font-weight: 800;
+    .event-bar-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
       color: #fff;
-      letter-spacing: 0.05em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
-    .event-divider {
-      width: 1px;
-      height: 28px;
-      background: rgba(255,255,255,0.3);
+    .event-bar-dot {
+      width: 5px;
+      height: 5px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 50%;
     }
 
-    /* ── Intro text ── */
+    /* ── INTRO TEXT ── */
     .intro {
-      padding: 36px 32px 24px;
-      background: #111;
+      padding: 36px 36px 28px;
+      background: #fff;
     }
     .intro h2 {
-      font-size: 22px;
-      font-weight: 800;
-      line-height: 1.25;
-      color: #fff;
-      margin-bottom: 14px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      color: #111;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
     }
-    .intro h2 span { color: #ff3333; }
     .intro p {
       font-size: 15px;
       line-height: 1.7;
-      color: #bbb;
+      color: #333;
+      margin-bottom: 14px;
     }
 
-    /* ── Stats band ── */
-    .stats {
-      background: #000;
-      display: flex;
-      border-top: 2px solid #cc0000;
-      border-bottom: 2px solid #cc0000;
-    }
-    .stat {
-      flex: 1;
-      text-align: center;
-      padding: 20px 12px;
-      border-right: 1px solid #1e1e1e;
-    }
-    .stat:last-child { border-right: none; }
-    .stat .num {
-      font-size: 22px;
-      font-weight: 900;
-      color: #fff;
-      letter-spacing: -0.02em;
-      display: block;
-    }
-    .stat .desc {
-      font-size: 9px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: #cc0000;
-      margin-top: 4px;
-      display: block;
-    }
-
-    /* ── CTA primary ── */
-    .cta-block {
+    /* ── STATS BAND ── */
+    .stats-band {
       background: #111;
-      text-align: center;
-      padding: 28px 32px;
+      padding: 24px 36px;
+      display: flex;
+      justify-content: space-around;
+      gap: 8px;
     }
-    .cta-block p {
-      font-size: 14px;
-      color: #999;
-      margin-bottom: 18px;
-      line-height: 1.6;
+    .stat { text-align: center; }
+    .stat-number {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 30px;
+      color: #E8001D;
+      line-height: 1;
     }
-    .btn-main {
-      display: inline-block;
-      background: #cc0000;
-      color: #fff;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.2em;
+    .stat-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      color: #aaa;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      padding: 16px 44px;
-      border-radius: 2px;
-      transition: background 0.2s;
+      margin-top: 4px;
     }
-    .btn-main:hover { background: #e50000; }
 
-    /* ── Photo grid ── */
+    /* ── PHOTO GRID ── */
     .photo-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
       gap: 3px;
-      background: #000;
     }
     .photo-grid img {
-      width: 100%;
-      height: 220px;
+      width: 50%;
+      height: 260px;
       object-fit: cover;
       display: block;
     }
 
-    /* ── Feature strip ── */
-    .feature-strip {
+    /* ── WHAT SHE'LL COVER ── */
+    .cover-section {
+      padding: 32px 36px;
+      background: #fafafa;
+    }
+    .cover-section h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 22px;
+      color: #111;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+    .cover-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .cover-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.5;
+    }
+    .cover-list li::before {
+      content: '';
+      flex-shrink: 0;
+      margin-top: 6px;
+      width: 8px;
+      height: 8px;
+      background: #E8001D;
+      border-radius: 50%;
+    }
+
+    /* ── CTA MID ── */
+    .cta-mid {
+      padding: 28px 36px;
+      background: #fff;
+      text-align: center;
+    }
+    .cta-mid p {
+      font-size: 15px;
+      color: #333;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .btn-red {
+      display: inline-block;
+      background: #E8001D;
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 40px;
+      border-radius: 40px;
+    }
+
+    /* ── LIMITLESS BRAND BANNER ── */
+    .limitless-banner {
+      background: #0a0a0a;
+      padding: 40px 36px;
+      text-align: center;
       position: relative;
       overflow: hidden;
     }
-    .feature-strip img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      object-position: center 30%;
-      display: block;
-      filter: brightness(0.55);
-    }
-    .feature-text {
+    .limitless-banner::before {
+      content: '';
       position: absolute;
       inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(232,0,29,0.15) 0%, transparent 65%);
+    }
+    .banner-limitless-logo {
+      font-family: 'Barlow Condensed', Impact, sans-serif;
+      font-weight: 900;
+      font-size: 72px;
+      letter-spacing: -2px;
+      line-height: 1;
+      position: relative;
+    }
+    .banner-limitless-logo .limit { color: #E8001D; }
+    .banner-limitless-logo .less  { color: #ffffff; }
+    .banner-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 5px;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      margin-top: 8px;
+      position: relative;
+    }
+    .banner-tagline {
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      color: rgba(255,255,255,0.75);
+      margin: 20px auto 28px;
+      max-width: 380px;
+      line-height: 1.6;
+      position: relative;
+    }
+    .banner-cta {
+      position: relative;
+      display: inline-block;
+      background: #E8001D;
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 44px;
+      border-radius: 40px;
+    }
+
+    /* ── BOTTOM PHOTO ── */
+    .bottom-photo {
+      height: 340px;
+      overflow: hidden;
+    }
+    .bottom-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+    }
+
+    /* ── SIGN-OFF ── */
+    .signoff {
+      padding: 28px 36px 20px;
+      background: #fff;
+      font-size: 15px;
+      color: #333;
+      line-height: 1.7;
+    }
+    .signoff .name {
+      font-weight: 600;
+      margin-top: 12px;
+    }
+    .signoff .title {
+      color: #888;
+      font-size: 13px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #0a0a0a;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .footer-social {
       display: flex;
-      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .footer-social a {
+      display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
-      text-align: center;
-    }
-    .feature-text h3 {
-      font-size: 24px;
-      font-weight: 900;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #fff;
-      line-height: 1.2;
-      margin-bottom: 12px;
-    }
-    .feature-text h3 em {
-      font-style: normal;
-      color: #ff3333;
-    }
-
-    /* ── Topics list ── */
-    .topics {
-      background: #111;
-      padding: 32px 32px;
-    }
-    .topics h3 {
-      font-size: 11px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: #cc0000;
-      margin-bottom: 18px;
-      font-weight: 700;
-    }
-    .topic-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px solid #1e1e1e;
-    }
-    .topic-item:last-child { border-bottom: none; }
-    .topic-dot {
-      width: 6px;
-      height: 6px;
-      background: #cc0000;
+      width: 36px;
+      height: 36px;
+      border: 1px solid #444;
       border-radius: 50%;
-      margin-top: 7px;
-      flex-shrink: 0;
     }
-    .topic-item span {
-      font-size: 14px;
-      color: #ddd;
-      line-height: 1.5;
+    .footer-social svg { width: 16px; height: 16px; fill: #aaa; }
+    .footer-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 18px;
     }
-    .topic-item strong { color: #fff; }
-
-    /* ── Quote block ── */
-    .quote-block {
-      background: #0a0a0a;
-      padding: 32px;
-      text-align: center;
-      border-top: 1px solid #1e1e1e;
-      border-bottom: 1px solid #1e1e1e;
+    .footer-divider-line {
+      height: 1px;
+      width: 60px;
+      background: linear-gradient(to right, #b044d4, #e8001d);
     }
-    .quote-block blockquote {
-      font-size: 20px;
+    .footer-presented {
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: #666;
+      text-transform: uppercase;
+    }
+    .footer-tridot {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .footer-tridot-icon {
+      width: 28px;
+      height: 28px;
+      background: #E8001D;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-tridot-icon svg { width: 17px; height: 17px; }
+    .footer-tridot-wordmark {
+      font-family: 'Barlow Condensed', sans-serif;
       font-weight: 700;
-      font-style: italic;
-      color: #fff;
-      line-height: 1.4;
-      margin-bottom: 12px;
+      font-size: 22px;
+      color: #ffffff;
+      letter-spacing: -0.5px;
     }
-    .quote-block cite {
+    .footer-tridot-wordmark span { color: #E8001D; }
+    .footer-address {
       font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #cc0000;
-      font-style: normal;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 14px;
     }
-
-    /* ── Bottom CTA ── */
-    .bottom-cta {
-      background: #000;
-      text-align: center;
-      padding: 44px 32px;
+    .footer-links {
+      font-size: 11px;
     }
-    .bottom-cta h2 {
-      font-size: 28px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #fff;
-      margin-bottom: 10px;
-      line-height: 1.2;
-    }
-    .bottom-cta h2 span { color: #cc0000; }
-    .bottom-cta p {
-      font-size: 14px;
+    .footer-links a {
       color: #888;
-      margin-bottom: 28px;
-      line-height: 1.6;
+      text-decoration: underline;
+      margin: 0 6px;
     }
-    .btn-outline {
-      display: inline-block;
-      border: 2px solid #cc0000;
-      color: #cc0000;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      padding: 14px 40px;
-      border-radius: 2px;
-      margin-top: 6px;
-    }
-    .btn-outline:hover { background: #cc0000; color: #fff; }
-
-    /* ── Footer ── */
-    .footer {
-      background: #000;
-      border-top: 1px solid #1a1a1a;
-      padding: 24px 32px;
-      text-align: center;
-    }
-    .footer p {
-      font-size: 11px;
-      color: #444;
-      line-height: 1.8;
-    }
-    .footer a { color: #666; text-decoration: underline; }
   </style>
 </head>
 <body>
-  <div class="email">
 
-    <!-- Pre-header -->
-    <div class="preheader">The story behind 8 hours of limitless suffering. She did it anyway. →</div>
+<div class="email-wrapper">
 
-    <!-- Logo -->
-    <div class="logo-bar">
-      <div class="brand">Limitless</div>
-      <div class="tagline">Presented by Predictive Fitness</div>
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="limitless-logo">
+        <span class="limit">LIMIT</span><span class="less">LESS</span>
+      </div>
+      <div class="logo-sub">Women in Triathlon</div>
     </div>
-
-    <!-- Hero -->
-    <div class="hero">
-      <img src="./assets/hero.jpg" alt="Laura Picard — LIMITLESS" />
-      <div class="hero-overlay">
-        <div class="hero-eyebrow">Featuring World Champion</div>
-        <div class="hero-headline">Laura<br/>Picard</div>
-        <div class="hero-sub">XTERRA World Champion · Ultraman Champion</div>
-      </div>
-    </div>
-
-    <!-- Event bar -->
-    <div class="event-bar">
-      <div class="event-item">
-        <span class="label">Date</span>
-        <span class="value">Thursday, July 17</span>
-      </div>
-      <div class="event-divider"></div>
-      <div class="event-item">
-        <span class="label">Time</span>
-        <span class="value">6:30 PM CT</span>
-      </div>
-      <div class="event-divider"></div>
-      <div class="event-item">
-        <span class="label">Format</span>
-        <span class="value">Live Q&amp;A</span>
-      </div>
-      <div class="event-divider"></div>
-      <div class="event-item">
-        <span class="label">Cost</span>
-        <span class="value">Free</span>
+    <div class="presented-by-top">
+      <span class="pb-label">Presented by</span>
+      <div class="tridot-badge">
+        <div class="tridot-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L8 12H16L12 4Z" fill="white"/>
+            <path d="M7 14L4 20H20L17 14H7Z" fill="white" opacity="0.7"/>
+          </svg>
+        </div>
+        <span class="tridot-wordmark">TriDot</span>
       </div>
     </div>
-
-    <!-- Intro -->
-    <div class="intro">
-      <h2>She raced <span>318 miles</span> in 3 days.<br/>Here's everything she learned.</h2>
-      <p>
-        Laura Picard isn't your average endurance athlete — she's a two-time XTERRA World Champion and Ultraman Hawaii champion who has redefined what's possible in multi-sport. In our next LIMITLESS event, she goes deep on the training, mindset, and recovery that took her from great to unstoppable.
-      </p>
-    </div>
-
-    <!-- Stats -->
-    <div class="stats">
-      <div class="stat">
-        <span class="num">8:03:27</span>
-        <span class="desc">XTERRA World Record</span>
-      </div>
-      <div class="stat">
-        <span class="num">2:38:27</span>
-        <span class="desc">Ultraman Marathon Split</span>
-      </div>
-      <div class="stat">
-        <span class="num">#1</span>
-        <span class="desc">World Ranking</span>
-      </div>
-    </div>
-
-    <!-- CTA #1 -->
-    <div class="cta-block">
-      <p>Spots are limited. Reserve yours before they're gone.</p>
-      <a href="#" class="btn-main">Reserve My Spot — Free</a>
-    </div>
-
-    <!-- Photo grid -->
-    <div class="photo-grid">
-      <img src="./assets/cycling.jpg" alt="Laura cycling" />
-      <img src="./assets/running.jpg" alt="Laura running" />
-    </div>
-
-    <!-- Feature strip -->
-    <div class="feature-strip">
-      <img src="./assets/intense.jpg" alt="Laura intense effort" />
-      <div class="feature-text">
-        <h3>The Mindset Behind<br/><em>Limitless</em> Performance</h3>
-      </div>
-    </div>
-
-    <!-- Topics -->
-    <div class="topics">
-      <h3>What Laura will cover</h3>
-      <div class="topic-item">
-        <div class="topic-dot"></div>
-        <span><strong>Periodization secrets</strong> — how she structures her training year to peak at the right moment</span>
-      </div>
-      <div class="topic-item">
-        <div class="topic-dot"></div>
-        <span><strong>Race-day nutrition</strong> — fueling an 8-hour effort without blowing up</span>
-      </div>
-      <div class="topic-item">
-        <div class="topic-dot"></div>
-        <span><strong>Mental frameworks</strong> — the self-talk that keeps her moving when the body says stop</span>
-      </div>
-      <div class="topic-item">
-        <div class="topic-dot"></div>
-        <span><strong>Recovery non-negotiables</strong> — what she does in the 48 hours after a World Championship effort</span>
-      </div>
-      <div class="topic-item">
-        <div class="topic-dot"></div>
-        <span><strong>Live Q&amp;A</strong> — bring your hardest questions, she won't hold back</span>
-      </div>
-    </div>
-
-    <!-- Quote -->
-    <div class="quote-block">
-      <blockquote>"I don't train to finish. I train to find out what's on the other side of my limit."</blockquote>
-      <cite>— Laura Picard</cite>
-    </div>
-
-    <!-- Kitchen/lifestyle photo -->
-    <div class="feature-strip">
-      <img src="./assets/kitchen.jpg" alt="Laura lifestyle" style="object-position: center 40%;" />
-      <div class="feature-text">
-        <h3>Beyond the Podium.<br/><em>Real life.</em> Real habits.</h3>
-      </div>
-    </div>
-
-    <!-- Bottom CTA -->
-    <div class="bottom-cta">
-      <h2>Don't miss <span>LIMITLESS</span><br/>with Laura Picard</h2>
-      <p>July 17 · 6:30 PM CT · Free · Live</p>
-      <a href="#" class="btn-main">Sign Up Now — It's Free</a><br/>
-      <a href="#" class="btn-outline">Add to Calendar</a>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-      <p>
-        You're receiving this because you signed up for LIMITLESS events.<br/>
-        <a href="#">Unsubscribe</a> · <a href="#">View in browser</a> · <a href="#">Privacy Policy</a><br/>
-        © 2025 Predictive Fitness · All rights reserved.
-      </p>
-    </div>
-
   </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="./assets/hero.jpg" alt="Laura Philipp" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-name">Laura Philipp</div>
+      <div class="hero-subtitle">IRONMAN World Champion · World Record Holder</div>
+    </div>
+  </div>
+
+  <!-- EVENT BAR -->
+  <div class="event-bar">
+    <span class="event-bar-text">Wednesday, July 9</span>
+    <div class="event-bar-dot"></div>
+    <span class="event-bar-text">1:00 PM CT</span>
+    <div class="event-bar-dot"></div>
+    <span class="event-bar-text">Live Conversation</span>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <h2>What Changed Everything</h2>
+    <p>Hi there,</p>
+    <p>Laura Philipp isn't just one of the fastest women in triathlon history. She's one of the first to train in a way that actually works with a woman's physiology — not against it.</p>
+    <p>Her numbers are extraordinary: a world-best IRONMAN time of 8:03:27, a women's fastest-ever marathon split of 2:38:27, and the IRONMAN World Championship title on one of the sport's most demanding courses in Nice, France.</p>
+    <p>But the <em>why</em> behind those results matters more than the results themselves. Guided by the research of Dr. Stacy Sims, Laura rethought everything about how she trained across the course of a month. What followed wasn't incremental improvement — it was record-breaking performance.</p>
+    <p>We want you to hear it from her directly.</p>
+  </div>
+
+  <!-- STATS BAND -->
+  <div class="stats-band">
+    <div class="stat">
+      <div class="stat-number">8:03:27</div>
+      <div class="stat-label">IRONMAN World Best</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">2:38:27</div>
+      <div class="stat-label">Women's Marathon Split</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">#1</div>
+      <div class="stat-label">World Champion</div>
+    </div>
+  </div>
+
+  <!-- PHOTO GRID -->
+  <div class="photo-grid">
+    <img src="./assets/grid1.jpg" alt="Laura training" />
+    <img src="./assets/grid2.jpg" alt="Laura racing" />
+  </div>
+
+  <!-- WHAT SHE'LL COVER -->
+  <div class="cover-section">
+    <h3>What Laura Will Cover</h3>
+    <ul class="cover-list">
+      <li>How aligning her training with her menstrual cycle unlocked her world-record performance</li>
+      <li>The Dr. Stacy Sims research that changed everything she thought she knew</li>
+      <li>What women-specific training actually looks like day to day</li>
+      <li>Her mindset on the course in Nice — and what carried her through the toughest moments</li>
+      <li>Practical advice for women at every level of triathlon</li>
+    </ul>
+  </div>
+
+  <!-- CTA MID -->
+  <div class="cta-mid">
+    <p>Join us <strong>Wednesday, July 9 at 1PM CT</strong> for a live LIMITLESS conversation with Laura Philipp — free to attend, impossible to forget.</p>
+    <a href="#" class="btn-red">Register Today to Secure Your Spot</a>
+  </div>
+
+  <!-- LIMITLESS BRAND BANNER -->
+  <div class="limitless-banner">
+    <div class="banner-limitless-logo">
+      <span class="limit">LIMIT</span><span class="less">LESS</span>
+    </div>
+    <div class="banner-sub">Women in Triathlon</div>
+    <p class="banner-tagline">A live conversation series featuring the women pushing the boundaries of what's possible in endurance sport.</p>
+    <a href="#" class="banner-cta">Reserve Your Free Spot</a>
+  </div>
+
+  <!-- BOTTOM PHOTO -->
+  <div class="bottom-photo">
+    <img src="./assets/bottom.jpg" alt="Laura Philipp" />
+  </div>
+
+  <!-- SIGN-OFF -->
+  <div class="signoff">
+    <p>Hope to see you there!</p>
+    <p class="name">Barb</p>
+    <p class="title">LIMITLESS Program Lead</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-social">
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </a>
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </a>
+    </div>
+    <div class="footer-divider">
+      <div class="footer-divider-line"></div>
+      <span class="footer-presented">Presented by</span>
+      <div class="footer-divider-line" style="background: linear-gradient(to left, #b044d4, #e8001d);"></div>
+    </div>
+    <div class="footer-tridot">
+      <div class="footer-tridot-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 4L8 12H16L12 4Z" fill="white"/>
+          <path d="M7 14L4 20H20L17 14H7Z" fill="white" opacity="0.7"/>
+        </svg>
+      </div>
+      <span class="footer-tridot-wordmark">Tri<span>Dot</span>.</span>
+    </div>
+    <div class="footer-address">
+      Predictive Fitness, 2600 E. Southlake Blvd., Suite 120 #140<br />
+      Southlake, TX 76092, United States
+    </div>
+    <div class="footer-links">
+      <a href="#">Unsubscribe</a>
+      <a href="#">Manage Preferences</a>
+    </div>
+  </div>
+
+</div>
 </body>
 </html>
