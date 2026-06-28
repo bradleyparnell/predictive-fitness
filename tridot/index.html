@@ -7,7 +7,7 @@
   <meta name="description" content="TriDot® is the Official Training Platform of IRONMAN. Powered by 20+ years of athlete data and FitLogic™ AI. Train less, race faster, and stay injury-free.">
   <!-- OG / Social -->
   <meta property="og:title" content="TriDot® | Better Results in Less Time with Fewer Injuries">
-  <meta property="og:description" content="The Official Training Platform of IRONMAN. Adaptive triathlon training powered by AI for swim, bike, and run.">
+  <meta property="og:description" content="AI-powered triathlon and endurance training for swim, bike, and run. Backed by 20+ years of athlete data and FitLogic™ AI.">
   <meta property="og:image" content="assets/tridot-hero-clean.jpg">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -260,30 +260,22 @@
     }
     .trust-inner {
       display: flex; align-items: center; justify-content: center;
-      flex-wrap: wrap; gap: 24px 40px;
+      flex-wrap: wrap; gap: 24px 48px;
     }
-    .trust-official {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--white-75);
-      padding-right: 32px;
-      border-right: 1px solid rgba(255,255,255,0.12);
-    }
-    .trust-official .badge {
-      background: var(--red); color: #fff;
-      padding: 4px 10px; border-radius: 4px;
-      font-size: 0.68rem; letter-spacing: 0.1em;
-      white-space: nowrap;
+    .trust-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--white-40);
+      width: 100%; text-align: center; margin-bottom: 4px;
     }
     .trust-logos {
-      display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+      display: flex; align-items: center; gap: 48px; flex-wrap: wrap;
       justify-content: center;
     }
     .trust-logos img {
-      height: 22px; width: auto; opacity: 0.55;
+      height: 38px; width: auto; opacity: 0.8;
       transition: opacity 0.2s; filter: brightness(0) invert(1);
     }
-    .trust-logos img:hover { opacity: 0.85; }
+    .trust-logos img:hover { opacity: 1; }
 
     /* ═══════════════════════════════════════
        STATS BAR
@@ -812,7 +804,8 @@
       .legends-grid { grid-template-columns: repeat(2, 1fr); }
       .pricing-grid { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .trust-official { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
+      .trust-logos { gap: 28px; }
+      .trust-logos img { height: 30px; }
       .trust-inner { flex-direction: column; }
       .screen-far { display: none; }
       .fitlogic-stat-grid { grid-template-columns: 1fr 1fr; }
@@ -900,10 +893,7 @@
   <div class="trust-bar">
     <div class="container">
       <div class="trust-inner">
-        <div class="trust-official">
-          <span class="badge">OFFICIAL</span>
-          <span>Training Platform of&nbsp;IRONMAN</span>
-        </div>
+        <p class="trust-label">Trusted by top events &amp; organizations worldwide</p>
         <div class="trust-logos">
           <img src="assets/logo-supertri.png" alt="Supertri">
           <img src="assets/logo-elite-energy.png" alt="Elite Energy">
