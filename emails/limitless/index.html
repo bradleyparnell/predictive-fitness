@@ -119,10 +119,10 @@
     .event-bar {
       background: #E8001D;
       padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
+    }
+    .event-bar table {
+      margin: 0 auto;
+      border-collapse: collapse;
     }
     .event-bar-text {
       font-family: 'Barlow Condensed', sans-serif;
@@ -131,12 +131,17 @@
       color: #fff;
       letter-spacing: 2px;
       text-transform: uppercase;
+      white-space: nowrap;
+      padding: 0 12px;
+      vertical-align: middle;
     }
     .event-bar-dot {
       width: 5px;
       height: 5px;
       background: rgba(255,255,255,0.5);
       border-radius: 50%;
+      padding: 0 4px;
+      vertical-align: middle;
     }
 
     /* ── INTRO TEXT ── */
@@ -466,11 +471,15 @@
 
   <!-- EVENT BAR -->
   <div class="event-bar">
-    <span class="event-bar-text">Thursday, July 9</span>
-    <div class="event-bar-dot"></div>
-    <span class="event-bar-text">11:00 AM CT</span>
-    <div class="event-bar-dot"></div>
-    <span class="event-bar-text">Live Conversation</span>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td class="event-bar-text" align="center">Thursday, July 9</td>
+        <td class="event-bar-dot" align="center">&#9679;</td>
+        <td class="event-bar-text" align="center">11:00 AM CT</td>
+        <td class="event-bar-dot" align="center">&#9679;</td>
+        <td class="event-bar-text" align="center">Live Conversation</td>
+      </tr>
+    </table>
   </div>
 
   <!-- CTA TOP -->
