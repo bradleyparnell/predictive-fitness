@@ -187,27 +187,21 @@
       margin-bottom: 18px;
     }
     .cover-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      border-collapse: collapse;
+      width: 100%;
     }
-    .cover-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
+    .cover-list td {
+      padding: 5px 0;
       font-size: 14px;
       color: #333;
       line-height: 1.5;
+      vertical-align: top;
     }
-    .cover-list li::before {
-      content: '';
-      flex-shrink: 0;
-      margin-top: 6px;
-      width: 8px;
-      height: 8px;
-      background: #E8001D;
-      border-radius: 50%;
+    .cover-list td.bullet {
+      width: 20px;
+      padding-top: 7px;
+      font-size: 10px;
+      color: #E8001D;
     }
 
     /* ── CTA MID ── */
@@ -436,7 +430,7 @@
 
       /* Cover section */
       .cover-section { padding: 24px 20px; }
-      .cover-list li { font-size: 14px; }
+      .cover-list td { font-size: 14px; }
 
       /* Banner */
       .limitless-banner { padding: 32px 20px; }
@@ -525,13 +519,13 @@
   <!-- WHAT SHE'LL COVER -->
   <div class="cover-section">
     <h3>What Laura Will Cover</h3>
-    <ul class="cover-list">
-      <li>How aligning her training with her menstrual cycle unlocked her world-record performance</li>
-      <li>The Dr. Stacy Sims research that changed everything she thought she knew</li>
-      <li>What women-specific training actually looks like day to day</li>
-      <li>Her mindset on the course in Nice — and what carried her through the toughest moments</li>
-      <li>Practical advice for women at every level of triathlon</li>
-    </ul>
+    <table class="cover-list" cellpadding="0" cellspacing="0" border="0">
+      <tr><td class="bullet">&#9679;</td><td>How aligning her training with her menstrual cycle unlocked her world-record performance</td></tr>
+      <tr><td class="bullet">&#9679;</td><td>The Dr. Stacy Sims research that changed everything she thought she knew</td></tr>
+      <tr><td class="bullet">&#9679;</td><td>What women-specific training actually looks like day to day</td></tr>
+      <tr><td class="bullet">&#9679;</td><td>Her mindset on the course in Nice — and what carried her through the toughest moments</td></tr>
+      <tr><td class="bullet">&#9679;</td><td>Practical advice for women at every level of triathlon</td></tr>
+    </table>
   </div>
 
   <!-- LIMITLESS BRAND BANNER -->
