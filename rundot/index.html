@@ -920,6 +920,55 @@
     border-color: rgba(83,185,86,0.25);
   }
 
+
+  /* ═══ PULSING ORB ═══ */
+  .evolves-orb-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  .orb-rings {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .orb-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px solid rgba(83,185,86,0.15);
+    animation: orbPulse 3s ease-out infinite;
+  }
+  .orb-ring-1 {
+    width: 120px; height: 120px;
+    animation-delay: 0s;
+  }
+  .orb-ring-2 {
+    width: 150px; height: 150px;
+    animation-delay: 0.6s;
+  }
+  .orb-ring-3 {
+    width: 180px; height: 180px;
+    animation-delay: 1.2s;
+  }
+  @keyframes orbPulse {
+    0% { transform: scale(0.85); opacity: 0.6; border-color: rgba(83,185,86,0.35); }
+    50% { opacity: 0.2; }
+    100% { transform: scale(1.15); opacity: 0; border-color: rgba(83,185,86,0.05); }
+  }
+  .orb-core {
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 20px rgba(83,185,86,0.35));
+    animation: orbGlow 3s ease-in-out infinite;
+  }
+  @keyframes orbGlow {
+    0%, 100% { filter: drop-shadow(0 0 20px rgba(83,185,86,0.25)); }
+    50% { filter: drop-shadow(0 0 35px rgba(83,185,86,0.5)); }
+  }
+
 </style>
 </head>
 <body>
@@ -1066,8 +1115,26 @@
     </div>
     <div class="app-text">
       <div class="section-eyebrow">The App</div>
-      <h2 class="section-title">Everything you need.<br><em>Nothing you don't.</em></h2>
-      <p class="section-sub">A clean, intuitive training experience designed for runners who are serious about results.</p>
+      <div class="evolves-orb-wrap">
+        <div class="orb-rings">
+          <div class="orb-ring orb-ring-1"></div>
+          <div class="orb-ring orb-ring-2"></div>
+          <div class="orb-ring orb-ring-3"></div>
+          <div class="orb-core">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+              <circle cx="40" cy="40" r="38" fill="#1a1f2e" stroke="#53b956" stroke-width="3"/>
+              <circle cx="40" cy="40" r="28" fill="#53b956"/>
+              <circle cx="32" cy="34" r="6" fill="#1a1f2e"/>
+              <circle cx="48" cy="34" r="4" fill="#1a1f2e"/>
+              <circle cx="40" cy="48" r="5" fill="#1a1f2e"/>
+              <line x1="32" y1="34" x2="48" y2="34" stroke="#1a1f2e" stroke-width="3"/>
+              <line x1="40" y1="48" x2="32" y2="34" stroke="#1a1f2e" stroke-width="3"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <h2 class="section-title" style="font-size:clamp(2.4rem,5vw,3.6rem);margin-top:32px;">It evolves with you.</h2>
+      <p class="section-sub">Whether you're targeting your first 5K, your fifth marathon, or just want to run stronger — your training adapts as your goals and abilities change.</p>
       <div class="feature-cards">
         <div class="feat-card">
           <div class="feat-card-icon"><svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
