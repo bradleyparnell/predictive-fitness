@@ -208,6 +208,49 @@
   }
 
   /* APP SHOWCASE */
+
+  /* Phone Showcase */
+  .phone-showcase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px 0;
+    perspective: 1000px;
+  }
+  .phone-frame {
+    width: 160px;
+    flex-shrink: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(83,185,86,0.08);
+    border: 2px solid rgba(255,255,255,0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    opacity: 0.85;
+  }
+  .phone-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .phone-frame.phone-featured {
+    width: 180px;
+    opacity: 1;
+    transform: scale(1.08);
+    box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 60px rgba(83,185,86,0.15);
+    border-color: rgba(83,185,86,0.25);
+  }
+  .phone-frame:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 50px rgba(83,185,86,0.15);
+    opacity: 1;
+  }
+  .phone-frame.phone-featured:hover {
+    transform: translateY(-8px) scale(1.12);
+  }
+  .phone-frame.phone-back {
+    opacity: 0.7;
+  }
   .app-section {
     background: var(--dark-2);
     padding: 100px 80px;
@@ -767,7 +810,50 @@
     .lifestyle-panel { aspect-ratio: 4/3; }
 
     /* APP SHOWCASE */
-    .app-section { padding: 64px 24px; }
+  
+  /* Phone Showcase */
+  .phone-showcase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px 0;
+    perspective: 1000px;
+  }
+  .phone-frame {
+    width: 160px;
+    flex-shrink: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(83,185,86,0.08);
+    border: 2px solid rgba(255,255,255,0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    opacity: 0.85;
+  }
+  .phone-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .phone-frame.phone-featured {
+    width: 180px;
+    opacity: 1;
+    transform: scale(1.08);
+    box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 60px rgba(83,185,86,0.15);
+    border-color: rgba(83,185,86,0.25);
+  }
+  .phone-frame:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 50px rgba(83,185,86,0.15);
+    opacity: 1;
+  }
+  .phone-frame.phone-featured:hover {
+    transform: translateY(-8px) scale(1.12);
+  }
+  .phone-frame.phone-back {
+    opacity: 0.7;
+  }
+  .app-section { padding: 64px 24px; }
     .app-inner {
       grid-template-columns: 1fr;
       gap: 40px;
@@ -925,12 +1011,12 @@
   .evolves-orb-wrap {
     display: flex;
     justify-content: center;
-    margin-bottom: 8px;
+    margin-bottom: 0;
   }
   .orb-rings {
     position: relative;
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -942,15 +1028,15 @@
     animation: orbPulse 3s ease-out infinite;
   }
   .orb-ring-1 {
-    width: 120px; height: 120px;
+    width: 110px; height: 110px;
     animation-delay: 0s;
   }
   .orb-ring-2 {
-    width: 150px; height: 150px;
+    width: 135px; height: 135px;
     animation-delay: 0.6s;
   }
   .orb-ring-3 {
-    width: 180px; height: 180px;
+    width: 160px; height: 160px;
     animation-delay: 1.2s;
   }
   @keyframes orbPulse {
@@ -1110,8 +1196,19 @@
 <!-- APP SHOWCASE -->
 <div class="app-section">
   <div class="app-inner">
-    <div class="app-screens-wrap">
-      <img src="./assets/RunDot Lifestyle with App Image.png" alt="RunDot in action" class="app-screens-img" style="border-radius:16px; object-fit:cover;">
+    <div class="phone-showcase">
+      <div class="phone-frame">
+        <img src="./assets/app-schedule-weekly.png" alt="Weekly training schedule" loading="lazy">
+      </div>
+      <div class="phone-frame phone-featured">
+        <img src="./assets/app-home-completed.png" alt="Completed workout" loading="lazy">
+      </div>
+      <div class="phone-frame">
+        <img src="./assets/app-group.png" alt="Running group" loading="lazy">
+      </div>
+      <div class="phone-frame phone-back">
+        <img src="./assets/app-profile.png" alt="Athlete profile" loading="lazy">
+      </div>
     </div>
     <div class="app-text">
       <div class="section-eyebrow">The App</div>
@@ -1121,19 +1218,13 @@
           <div class="orb-ring orb-ring-2"></div>
           <div class="orb-ring orb-ring-3"></div>
           <div class="orb-core">
-            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
-              <circle cx="40" cy="40" r="38" fill="#1a1f2e" stroke="#53b956" stroke-width="3"/>
-              <circle cx="40" cy="40" r="28" fill="#53b956"/>
-              <circle cx="32" cy="34" r="6" fill="#1a1f2e"/>
-              <circle cx="48" cy="34" r="4" fill="#1a1f2e"/>
-              <circle cx="40" cy="48" r="5" fill="#1a1f2e"/>
-              <line x1="32" y1="34" x2="48" y2="34" stroke="#1a1f2e" stroke-width="3"/>
-              <line x1="40" y1="48" x2="32" y2="34" stroke="#1a1f2e" stroke-width="3"/>
+            <svg viewBox="-2 -2 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+              <path d="M22.5646 6.49157C21.7935 8.54549 19.6422 9.79997 17.4369 9.34702C17.1189 9.29484 16.7988 9.1863 16.5078 9.05271L15.5247 9.98574C15.8177 10.6265 15.9237 11.3467 15.7637 12.0939C15.3916 13.9349 13.5854 15.1352 11.7521 14.7344C11.4341 14.6822 11.114 14.5737 10.8501 14.415L9.97293 15.2416C10.266 15.7488 10.3969 16.3896 10.266 17.0033C9.99995 18.3642 8.67177 19.218 7.3436 18.9508C5.9884 18.6836 5.13828 17.3498 5.40434 16.016C5.67039 14.6551 6.99856 13.8014 8.32674 14.0685C8.5138 14.1207 8.69879 14.175 8.88586 14.2564L9.62997 13.2962C9.15191 12.5761 8.9399 11.641 9.12489 10.7351C9.49695 8.89407 11.3032 7.721 13.1364 8.09463C13.2965 8.12177 13.4815 8.17395 13.6415 8.22822L14.4646 7.18665C13.9325 6.25361 13.7205 5.13272 13.9325 4.01183C14.2256 2.57158 15.1547 1.45069 16.3769 0.864155C15.7387 0.596978 15.0757 0.411207 14.3565 0.250483C7.89856 -1.08749 1.5757 3.10176 0.247523 9.58498C-1.08065 16.0682 3.09094 22.4178 9.54683 23.7516C16.0297 25.0854 22.3256 20.8962 23.6538 14.4129C24.2129 11.6118 23.7598 8.83772 22.5646 6.48948V6.49157Z" fill="#53b956"/>
             </svg>
           </div>
         </div>
       </div>
-      <h2 class="section-title" style="font-size:clamp(2.4rem,5vw,3.6rem);margin-top:32px;">It evolves with you.</h2>
+      <h2 class="section-title" style="font-size:clamp(2.4rem,5vw,3.6rem);margin-top:24px;text-align:center;">It evolves with you.</h2>
       <p class="section-sub">Whether you're targeting your first 5K, your fifth marathon, or just want to run stronger — your training adapts as your goals and abilities change.</p>
       <div class="feature-cards">
         <div class="feat-card">
@@ -1381,7 +1472,7 @@
       <img src="assets/meb-keflezighi.jpg" alt="Meb Keflezighi running" loading="lazy">
     </div>
     <div class="meb-content">
-      <h2 class="section-title" style="color:var(--green);">Used by one of the world's<br><em>greatest runners</em></h2>
+      <h2 class="section-title" style="color:var(--green);">Used by one of the world's<br><span style="color:var(--text-primary);">greatest runners</span></h2>
       <p class="meb-bio">Mebrahtom "Meb" Keflezighi is the only man in history to win the New York City Marathon, the Boston Marathon, and an Olympic marathon medal - it's no wonder he's considered one of the greatest all-time runners.</p>
       <p class="meb-bio">Meb uses RunDot for his coaching business, embracing the hyper-individualized AI to help his runners achieve their best results.</p>
       <blockquote class="meb-quote">"RunDot's technology is so far ahead of anything else I've seen, and I want the absolute best for my athletes."</blockquote>
