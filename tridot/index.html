@@ -685,10 +685,7 @@
       text-transform: uppercase; color: var(--white-50);
       margin-bottom: 20px;
     }
-    .fitlogic-logo {
-      height: 28px; margin-bottom: 32px;
-      filter: brightness(0) invert(1);
-    }
+    .fitlogic-logo { margin-bottom: 16px; }
     .fitlogic-content h2 { margin-bottom: 20px; }
     .fitlogic-content p { color: var(--white-75); margin-bottom: 20px; font-size: 1.05rem; line-height: 1.7; }
     .fitlogic-link {
@@ -824,7 +821,49 @@
       .screen-main, .screen-side { width: 180px; }
       .fitlogic-stat-grid { grid-template-columns: 1fr; }
     }
-  </style>
+  
+  /* ═══ POLISH ═══ */
+  .btn-crimson {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-crimson::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  .btn-crimson:hover::after {
+    transform: translateX(100%);
+  }
+  .feature-card {
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;
+  }
+  .feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(234,0,41,0.08);
+  }
+  .fitlogic-stat-num {
+    background: linear-gradient(135deg, var(--sky), #7dd3fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .fitlogic-stat-num .accent {
+    -webkit-text-fill-color: var(--sky);
+  }
+  .section-label::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--crimson);
+    border-radius: 2px;
+    margin-top: 8px;
+  }
+
+</style>
 </head>
 <body>
 
@@ -1336,7 +1375,7 @@
       <div class="fitlogic-inner">
         <div class="fitlogic-content">
           <p class="fitlogic-powered fade-up">Powered by</p>
-          <img src="assets/fitlogic-logo-v2.png" alt="FitLogic" class="fitlogic-logo fade-up delay-1">
+          <div class="fitlogic-logo fade-up delay-1" style="font-size:42px;font-weight:800;letter-spacing:0.04em;color:var(--white);font-family:var(--font-primary);">FitLogic™</div>
           <h2 class="display-lg fade-up delay-2">The science behind TriDot® is unlike anything else in endurance sports.</h2>
           <p class="fade-up delay-3">FitLogic™ is the world's first AI platform built specifically for endurance athletes, trained on 20+ years of real training and race data from athletes across every level and discipline.</p>
           <p class="fade-up delay-3">Other apps automate templates or repurpose general AI. FitLogic™ transforms your raw training data into genuine intelligence. It doesn't just use AI, it <em>is</em> AI, and it's working for you on every session.</p>
@@ -1435,7 +1474,7 @@
         </nav>
         <div class="footer-powered">
           <span>Powered by</span>
-          <img src="assets/fitlogic-logo-v2.png" alt="FitLogic">
+          <span style="font-size:22px;font-weight:800;letter-spacing:0.04em;color:var(--white);">FitLogic™</span>
         </div>
         <p class="footer-copy">© <span id="footer-year"></span> Predictive Fitness, Inc. All rights reserved.</p>
       </div>

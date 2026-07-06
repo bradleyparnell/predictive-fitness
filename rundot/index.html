@@ -863,6 +863,63 @@
     .meb-quote { font-size: clamp(16px, 5vw, 22px); }
   }
 
+
+  /* ═══ POLISH ═══ */
+  .btn-primary {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  .btn-primary:hover::after {
+    transform: translateX(100%);
+  }
+  .hero h1 {
+    text-shadow: 0 2px 40px rgba(83,185,86,0.15);
+  }
+  .feature-card, .accordion-item, .step-card {
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;
+  }
+  .feature-card:hover, .step-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(83,185,86,0.08);
+  }
+  .stat-num, .trust-num {
+    background: linear-gradient(135deg, var(--green-light), #7dd87f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .trust-num .trust-plus {
+    -webkit-text-fill-color: var(--green-light);
+  }
+  .section-eyebrow {
+    position: relative;
+    display: inline-block;
+  }
+  .section-eyebrow::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--green);
+    border-radius: 2px;
+  }
+  .meb-section {
+    border: 1px solid rgba(83,185,86,0.1);
+    transition: border-color 0.4s;
+  }
+  .meb-section:hover {
+    border-color: rgba(83,185,86,0.25);
+  }
+
 </style>
 </head>
 <body>
@@ -1345,7 +1402,7 @@
       <a href="#">Terms</a>
     </div>
     <div class="footer-fitlogic">
-      <img src="assets/powered-by-fitlogic-white.png" alt="Powered By FitLogic" style="height:80px!important;opacity:0.9!important;">
+      <div style="text-align:center;"><span style="font-size:13px;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.45);display:block;margin-bottom:6px;">Powered by</span><span style="font-size:28px;font-weight:800;letter-spacing:0.04em;color:rgba(255,255,255,0.85);font-family:var(--font-display);">FitLogic™</span></div>
     </div>
     <div class="footer-legal">
       <p>Predictive Fitness and the Predictive Fitness logo are trademarks or registered trademarks of Predictive Fitness, Inc. in the US and other countries. Other trademarks include TriDot, RunDot, TrainX, RaceX, Optimized Training and Optimized Race Execution. Additional Predictive Fitness trademarks can be found at <a href="https://www.predictive.fit/trademark-list" target="_blank" style="color:var(--gray-mid);text-decoration:underline;">www.predictive.fit/trademark-list</a></p>
