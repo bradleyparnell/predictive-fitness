@@ -1,2 +1,78 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RunDot × LA Marathon Series — Email Comps</title><style>body{margin:0;background:#080a0c;color:#fff;font-family:Arial,Helvetica,sans-serif}.wrap{max-width:980px;margin:auto;padding:48px 24px}img{max-width:160px}h1{font-size:clamp(38px,6vw,68px);letter-spacing:-3px;line-height:.95;margin:36px 0 18px}.accent{color:#03ff22;font-weight:bold;letter-spacing:1.5px;font-size:12px}.sub{font-size:19px;line-height:1.5;color:#c7d0dc;max-width:660px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:42px}.card{background:#111b2d;padding:28px;text-decoration:none;color:#fff;border:1px solid #263448}.card:hover{border-color:#03ff22}.num{color:#03ff22;font-size:13px;font-weight:bold;letter-spacing:1px}.card h2{margin:16px 0 10px;font-size:28px;line-height:1}.card p{margin:0;color:#c7d0dc;line-height:1.4}.open{display:inline-block;margin-top:28px;color:#03ff22;font-size:13px;font-weight:bold;letter-spacing:.8px}.note{color:#8d99a8;margin-top:45px;font-size:13px;line-height:1.5}</style></head><body><main class="wrap"><img src="assets/rundot-logo.svg" alt="RunDot"><div class="accent">RUN DOT × LA MARATHON SERIES</div><h1>Registration email comps.</h1><p class="sub">Three responsive, RunDot-branded registration email concepts. Each page includes all image and logo files locally so previews remain reliable.</p><section class="grid"><a class="card" href="santa-monica-classic.html"><div class="num">01 / 03</div><h2>Santa Monica Classic</h2><p>5K &amp; 10K registration confirmation</p><span class="open">OPEN COMP →</span></a><a class="card" href="rose-bowl-half.html"><div class="num">02 / 03</div><h2>Rose Bowl Half</h2><p>Half Marathon &amp; 5K registration confirmation</p><span class="open">OPEN COMP →</span></a><a class="card" href="asics-la-marathon.html"><div class="num">03 / 03</div><h2>ASICS LA Marathon</h2><p>Marathon registration confirmation</p><span class="open">OPEN COMP →</span></a></section><p class="note">Built as web previews. For an email platform send, replace local image URLs with the final hosted URLs from this GitHub Pages folder.</p></main></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RunDot × LA Marathon Series — Email Comps</title>
+  <style>
+    :root { --green:#03ff22; --ink:#080a0c; --panel:#111b2d; --line:#2a374b; --muted:#b7c1ce; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--ink); color:#fff; font-family:Arial,Helvetica,sans-serif; }
+    .wrap { max-width:1180px; margin:auto; padding:42px 24px 56px; }
+    .brand { width:150px; height:auto; display:block; }
+    .eyebrow { margin-top:30px; color:var(--green); font-size:12px; font-weight:700; letter-spacing:1.5px; }
+    h1 { margin:13px 0 10px; font-size:clamp(36px,5vw,58px); letter-spacing:-2.6px; line-height:.98; }
+    .sub { max-width:670px; margin:0; color:var(--muted); font-size:17px; line-height:1.5; }
+    .tabs { display:flex; gap:8px; margin-top:34px; padding-bottom:14px; border-bottom:1px solid var(--line); overflow-x:auto; }
+    .tab { flex:1 0 205px; min-height:66px; padding:13px 17px; background:transparent; color:#ccd5df; border:1px solid transparent; border-radius:4px; cursor:pointer; text-align:left; font:inherit; transition:.18s ease; }
+    .tab:hover { background:#101827; color:#fff; }
+    .tab[aria-selected="true"] { color:#fff; background:var(--panel); border-color:var(--green); box-shadow:inset 3px 0 0 var(--green); }
+    .tab-num { display:block; color:var(--green); font-size:11px; font-weight:bold; letter-spacing:1px; margin-bottom:5px; }
+    .tab-title { display:block; font-size:14px; font-weight:bold; white-space:nowrap; }
+    .viewer-head { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:22px 0 13px; }
+    .viewer-label { margin:0; font-size:15px; color:#e8edf2; }
+    .open { color:var(--green); font-size:12px; font-weight:bold; text-decoration:none; letter-spacing:.7px; white-space:nowrap; }
+    .frame-shell { overflow:hidden; background:#e9edf2; border:1px solid var(--line); border-radius:5px; box-shadow:0 16px 50px rgba(0,0,0,.35); }
+    iframe { display:block; width:100%; height:1650px; border:0; background:#fff; }
+    .note { margin:18px 0 0; color:#8995a5; font-size:12px; line-height:1.5; }
+    @media (max-width:640px) { .wrap { padding:28px 14px 40px; } .viewer-head { align-items:flex-start; } iframe { height:1780px; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <img class="brand" src="assets/rundot-logo.svg" alt="RunDot">
+    <div class="eyebrow">RUN DOT × LA MARATHON SERIES</div>
+    <h1>Registration email comps.</h1>
+    <p class="sub">Browse the three responsive, RunDot-branded registration email concepts below.</p>
+
+    <div class="tabs" role="tablist" aria-label="Email concepts">
+      <button class="tab" id="tab-santa" role="tab" aria-controls="email-frame" aria-selected="true" data-file="santa-monica-classic.html" data-title="Santa Monica Classic 5K &amp; 10K"><span class="tab-num">01 / 03</span><span class="tab-title">Santa Monica Classic</span></button>
+      <button class="tab" id="tab-rose" role="tab" aria-controls="email-frame" aria-selected="false" data-file="rose-bowl-half.html" data-title="Rose Bowl Half Marathon &amp; 5K"><span class="tab-num">02 / 03</span><span class="tab-title">Rose Bowl Half</span></button>
+      <button class="tab" id="tab-marathon" role="tab" aria-controls="email-frame" aria-selected="false" data-file="asics-la-marathon.html" data-title="ASICS LA Marathon"><span class="tab-num">03 / 03</span><span class="tab-title">ASICS LA Marathon</span></button>
+    </div>
+
+    <section role="tabpanel" aria-labelledby="tab-santa">
+      <div class="viewer-head">
+        <p class="viewer-label" id="viewer-title">Santa Monica Classic 5K &amp; 10K</p>
+        <a class="open" id="open-link" href="santa-monica-classic.html" target="_blank" rel="noopener">OPEN FULL EMAIL ↗</a>
+      </div>
+      <div class="frame-shell"><iframe id="email-frame" title="Santa Monica Classic 5K and 10K email preview" src="santa-monica-classic.html"></iframe></div>
+      <p class="note">Preview uses embedded email layouts; select a tab to switch concepts.</p>
+    </section>
+  </main>
+  <script>
+    const tabs = [...document.querySelectorAll('.tab')];
+    const frame = document.getElementById('email-frame');
+    const title = document.getElementById('viewer-title');
+    const link = document.getElementById('open-link');
+    const panel = document.querySelector('[role="tabpanel"]');
+    function select(tab) {
+      tabs.forEach(t => t.setAttribute('aria-selected', t === tab));
+      frame.src = tab.dataset.file;
+      frame.title = tab.dataset.title + ' email preview';
+      title.textContent = tab.dataset.title;
+      link.href = tab.dataset.file;
+      panel.setAttribute('aria-labelledby', tab.id);
+    }
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => select(tab));
+      tab.addEventListener('keydown', e => {
+        if (!['ArrowRight','ArrowLeft'].includes(e.key)) return;
+        e.preventDefault();
+        const next = (i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length;
+        tabs[next].focus(); select(tabs[next]);
+      });
+    });
+  </script>
+</body>
+</html>
