@@ -9,7 +9,7 @@ Three responsive, table-based HTML embeds prepared for the event registration-co
 ## Confirmed against the supplied brief
 
 - [First Name] is the only personalization field used.
-- Each CTA uses its specified attribution URL: `RUNLAM3` for Santa Monica Classic and ASICS LA Marathon; `RUNRBH` for Rose Bowl.
+- Each CTA uses its specified attribution URL: `RUNLAM3` for all three event emails, as specified in the supplied brief.
 - Event-specific CTA copy, race dates, free-plan language, offer details, closing copy, and image alt text follow the brief.
 - Every email contains visible RunDot and event branding plus **Official Digital Training Platform of the LA Marathon Race Series**.
 - All images and marks are local files in `assets/`, with relative paths validated before publishing.
