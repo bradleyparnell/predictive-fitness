@@ -255,12 +255,12 @@
   }
   .app-section {
     background: var(--dark-2);
-    padding: 72px 80px;
+    padding: 48px 80px 72px;
   }
   .app-inner {
-    max-width: 1340px; margin: 0 auto;
-    display: grid; grid-template-columns: 1.1fr 1fr;
-    gap: 80px; align-items: center;
+    max-width: 1100px; margin: 0 auto;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center;
   }
   .app-screens-wrap {
     position: relative;
@@ -634,6 +634,24 @@
   }
 
 
+  
+  /* Stacked app section layout */
+  .app-section .section-eyebrow { margin-bottom: 4px; }
+  .app-section .section-title { margin-bottom: 8px; }
+  .app-section .section-sub { max-width: 600px; margin: 0 auto 40px; text-align: center; }
+  .app-section .phone-showcase { margin-bottom: 48px; order: 0; }
+  .app-section .app-text { order: -1; margin-bottom: 0; }
+  .app-section .feature-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: left;
+    width: 100%;
+    margin-top: 0;
+  }
+  .app-section .feat-card-body { padding: 20px 24px 24px; }
+  .app-section .feat-card-icon { padding: 24px 24px 16px; }
+
   /* Hero social proof */
   .hero-social-proof {
     display: flex; align-items: center; gap: 14px; margin-top: 36px;
@@ -857,10 +875,10 @@
   .phone-frame.phone-back {
     opacity: 0.7;
   }
-  .app-section { padding: 64px 24px; }
-    .app-inner {
-      grid-template-columns: 1fr;
-      gap: 40px;
+  .app-section { padding: 48px 24px; }
+    .app-section .feature-cards {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 16px;
     }
     .app-screens-wrap { max-width: 480px; margin: 0 auto; }
 
@@ -1014,15 +1032,14 @@
   /* ═══ PULSING ORB ═══ */
   .evolves-orb-wrap {
     margin-bottom: 0;
-    margin-top: 8px;
+    margin-top: 12px;
     display: flex;
     justify-content: center;
-    margin-bottom: 0;
   }
   .orb-rings {
     position: relative;
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1034,15 +1051,15 @@
     animation: orbPulse 3s ease-out infinite;
   }
   .orb-ring-1 {
-    width: 110px; height: 110px;
+    width: 80px; height: 80px;
     animation-delay: 0s;
   }
   .orb-ring-2 {
-    width: 135px; height: 135px;
+    width: 100px; height: 100px;
     animation-delay: 0.6s;
   }
   .orb-ring-3 {
-    width: 160px; height: 160px;
+    width: 120px; height: 120px;
     animation-delay: 1.2s;
   }
   @keyframes orbPulse {
@@ -1260,7 +1277,7 @@
           <div class="orb-ring orb-ring-2"></div>
           <div class="orb-ring orb-ring-3"></div>
           <div class="orb-core">
-            <svg viewBox="-2 -2 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+            <svg viewBox="-2 -2 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" width="56" height="56">
               <path d="M22.5646 6.49157C21.7935 8.54549 19.6422 9.79997 17.4369 9.34702C17.1189 9.29484 16.7988 9.1863 16.5078 9.05271L15.5247 9.98574C15.8177 10.6265 15.9237 11.3467 15.7637 12.0939C15.3916 13.9349 13.5854 15.1352 11.7521 14.7344C11.4341 14.6822 11.114 14.5737 10.8501 14.415L9.97293 15.2416C10.266 15.7488 10.3969 16.3896 10.266 17.0033C9.99995 18.3642 8.67177 19.218 7.3436 18.9508C5.9884 18.6836 5.13828 17.3498 5.40434 16.016C5.67039 14.6551 6.99856 13.8014 8.32674 14.0685C8.5138 14.1207 8.69879 14.175 8.88586 14.2564L9.62997 13.2962C9.15191 12.5761 8.9399 11.641 9.12489 10.7351C9.49695 8.89407 11.3032 7.721 13.1364 8.09463C13.2965 8.12177 13.4815 8.17395 13.6415 8.22822L14.4646 7.18665C13.9325 6.25361 13.7205 5.13272 13.9325 4.01183C14.2256 2.57158 15.1547 1.45069 16.3769 0.864155C15.7387 0.596978 15.0757 0.411207 14.3565 0.250483C7.89856 -1.08749 1.5757 3.10176 0.247523 9.58498C-1.08065 16.0682 3.09094 22.4178 9.54683 23.7516C16.0297 25.0854 22.3256 20.8962 23.6538 14.4129C24.2129 11.6118 23.7598 8.83772 22.5646 6.48948V6.49157Z" fill="#53b956"/>
             </svg>
           </div>
@@ -1268,7 +1285,9 @@
       </div>
       <h2 class="section-title" style="font-size:clamp(2.4rem,5vw,3.6rem);margin-top:12px;text-align:center;">It evolves with you.</h2>
       <p class="section-sub">Whether you're targeting your first 5K, your fifth marathon, or just want to run stronger — your training adapts as your goals and abilities change.</p>
-      <div class="feature-cards">
+      
+    </div>
+  <div class="feature-cards">
         <div class="feat-card">
           <div class="feat-card-icon"><svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
   <circle cx="26" cy="26" r="20" stroke="rgba(83,185,86,0.2)" stroke-width="2"/>
@@ -1324,7 +1343,6 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
 </div>
 
