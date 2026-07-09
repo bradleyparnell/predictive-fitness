@@ -275,8 +275,9 @@
       justify-content: center;
     }
     .trust-logos img {
-      height: 38px; width: auto; opacity: 0.8;
+      height: 45px; width: auto; opacity: 0.8;
       transition: opacity 0.2s; filter: brightness(0) invert(1);
+      object-fit: contain;
     }
     .trust-logos img:hover { opacity: 1; }
 
@@ -939,11 +940,11 @@
       <div class="trust-inner">
         <p class="trust-label">Trusted by top events &amp; organizations worldwide</p>
         <div class="trust-logos">
-          <img src="assets/logo-supertri.png" alt="Supertri">
-          <img src="assets/logo-elite-energy.png" alt="Elite Energy">
-          <img src="assets/logo-atw.png" alt="ATW">
-          <img src="assets/logo-danish-fed.png" alt="Danish Triathlon Federation">
-          <img src="assets/logo-wildflower.png" alt="Wildflower Experience">
+          <img src="assets/logo-supertri-fresh.png" alt="Supertri" style="height:32px;">
+          <img src="assets/logo-elite-energy-fresh.png" alt="Elite Energy" style="height:50px;">
+          <img src="assets/logo-atw-fresh.png" alt="ATW" style="height:50px;">
+          <img src="assets/logo-danish-fed-fresh.png" alt="Danish Triathlon Federation" style="height:45px;">
+          <img src="assets/logo-wildflower-fresh.png" alt="Wildflower Experience" style="height:45px;">
         </div>
       </div>
     </div>
@@ -1424,8 +1425,55 @@
           <a href="https://tridot.com/for-coaches" target="_blank" class="btn btn-primary fade-up delay-4" style="margin-top: 8px;">Learn About Coaching</a>
         </div>
         <div class="problem-image fade-up delay-1">
-          <img src="assets/tridot-photo-thresholds.jpg" alt="TriDot coaching">
+          <img src="assets/training-intelligence.jpg" alt="TriDot coaching platform">
           <div class="problem-image-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ MYTHS ═══ -->
+  <section style="padding: 120px 0; background: linear-gradient(180deg, var(--navy) 0%, #0a0f1a 100%); position: relative;">
+    <div class="container" style="max-width: 900px;">
+      <div style="text-align: center;">
+        <p class="section-label fade-up">The Truth About Training</p>
+        <h2 class="display-lg fade-up delay-1" style="margin-bottom: 48px;">You've been told the wrong things about&nbsp;training.</h2>
+        <div class="fade-up delay-2" style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px;">
+          <div style="background: rgba(234,0,41,0.08); border: 1px solid rgba(234,0,41,0.2); border-radius: 16px; padding: 28px 36px; flex: 1; min-width: 260px; max-width: 380px;">
+            <p style="font-size: 1.5rem; font-style: italic; color: rgba(234,0,41,0.7); font-weight: 600; margin: 0;">"No pain, no gain."</p>
+          </div>
+          <div style="background: rgba(234,0,41,0.08); border: 1px solid rgba(234,0,41,0.2); border-radius: 16px; padding: 28px 36px; flex: 1; min-width: 260px; max-width: 380px;">
+            <p style="font-size: 1.5rem; font-style: italic; color: rgba(234,0,41,0.7); font-weight: 600; margin: 0;">"More volume means better results."</p>
+          </div>
+        </div>
+        <p class="body-lg fade-up delay-3" style="color: var(--white-75); max-width: 700px; margin: 0 auto 32px;">
+          These ideas have injured athletes, burned out athletes, and driven people out of the sport they love. And none of them are true.
+        </p>
+        <p class="body-md fade-up delay-4" style="color: var(--white-75); max-width: 700px; margin: 0 auto;">
+          Backed by 20+ years of athlete training and race data, TriDot® proves that <strong style="color:#fff;">smarter training outperforms harder training</strong> every time. You'll train less, reduce your injury risk, and have more energy for the life you're training to enjoy.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DOWNLOAD ═══ -->
+  <section style="padding: 100px 0; background: var(--slate); position: relative;">
+    <div class="container" style="max-width: 800px; text-align: center;">
+      <p class="section-label fade-up">Download</p>
+      <h2 class="display-lg fade-up delay-1" style="margin-bottom: 16px;">Get the TriDot® App</h2>
+      <p class="body-lg fade-up delay-2" style="color: var(--white-75); margin-bottom: 40px;">Scan to download or find us on the App Store and Google Play.</p>
+      <div class="fade-up delay-3" style="display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap;">
+        <div style="background: #fff; border-radius: 16px; padding: 20px;">
+          <img src="assets/tridot-qr-code.png" alt="TriDot QR Code" style="width: 180px; height: 180px;">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <a href="https://apps.apple.com/app/tridot/id1083498498" target="_blank" style="display:inline-block;">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" style="height: 48px;">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.tridot.app" target="_blank" style="display:inline-block;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" style="height: 48px;">
+          </a>
         </div>
       </div>
     </div>
@@ -1474,9 +1522,11 @@
         </nav>
         <div class="footer-powered">
           <span>Powered by</span>
-          <span style="font-size:22px;font-weight:800;letter-spacing:0.04em;color:var(--white);">FitLogic™</span>
+          <img src="assets/fitlogic-logo-white.png" alt="FitLogic" style="height:20px; opacity:0.7; filter: brightness(0) invert(1);">
         </div>
         <p class="footer-copy">© <span id="footer-year"></span> Predictive Fitness, Inc. All rights reserved.</p>
+        <p class="footer-legal">TriDot® and the TriDot logo are trademarks or registered trademarks of Predictive Fitness, Inc. in the US and other countries. Additional Predictive Fitness trademarks can be found <a href="https://www.predictive.fit/trademark-list" target="_blank" style="color:var(--white-50);text-decoration:underline;">here</a>.</p>
+        <p class="footer-address">2600 E. Southlake Blvd. Suite 120-140, Southlake, Texas 76092</p>
       </div>
     </div>
   </footer>
