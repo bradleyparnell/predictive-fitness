@@ -57,6 +57,8 @@
   .nav-links { display: flex; gap: 36px; align-items: center; }
   .nav-links a { text-decoration: none; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; letter-spacing: 0.02em; transition: color 0.2s; }
   .nav-links a:hover { color: var(--white); }
+  .nav-login { border: 1px solid rgba(255,255,255,0.2); padding: 8px 18px; border-radius: 6px; font-weight: 600 !important; transition: border-color 0.2s, color 0.2s !important; }
+  .nav-login:hover { border-color: rgba(255,255,255,0.5) !important; color: var(--white) !important; }
   .nav-cta { background: var(--green); color: var(--white) !important; padding: 10px 22px; border-radius: 6px; font-weight: 600 !important; transition: background 0.2s !important; }
   .nav-cta:hover { background: var(--green-light) !important; color: var(--white) !important; }
 
@@ -253,7 +255,7 @@
   }
   .app-section {
     background: var(--dark-2);
-    padding: 100px 80px;
+    padding: 72px 80px;
   }
   .app-inner {
     max-width: 1340px; margin: 0 auto;
@@ -746,7 +748,9 @@
       font-size: 16px;
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
-    .nav-cta {
+    .nav-login { border: 1px solid rgba(255,255,255,0.2); padding: 8px 18px; border-radius: 6px; font-weight: 600 !important; transition: border-color 0.2s, color 0.2s !important; }
+  .nav-login:hover { border-color: rgba(255,255,255,0.5) !important; color: var(--white) !important; }
+  .nav-cta {
       margin: 16px 28px 0 !important;
       text-align: center;
       border-radius: 8px;
@@ -1009,6 +1013,8 @@
 
   /* ═══ PULSING ORB ═══ */
   .evolves-orb-wrap {
+    margin-bottom: 0;
+    margin-top: 8px;
     display: flex;
     justify-content: center;
     margin-bottom: 0;
@@ -1055,6 +1061,40 @@
     50% { filter: drop-shadow(0 0 35px rgba(83,185,86,0.5)); }
   }
 
+
+  /* APP DOWNLOAD MODAL */
+  .app-modal-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.65); backdrop-filter: blur(8px);
+    display: none; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.25s ease;
+  }
+  .app-modal-overlay.active { display: flex; opacity: 1; }
+  .app-modal {
+    background: #fff; border-radius: 20px; padding: 48px 40px;
+    max-width: 420px; width: 90%; text-align: center;
+    position: relative; box-shadow: 0 32px 80px rgba(0,0,0,0.4);
+    animation: modalSlideUp 0.3s ease;
+  }
+  @keyframes modalSlideUp {
+    from { transform: translateY(24px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .app-modal-close {
+    position: absolute; top: 16px; right: 20px;
+    background: none; border: none; font-size: 28px;
+    color: #374151; cursor: pointer; line-height: 1;
+    width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; transition: background 0.2s;
+  }
+  .app-modal-close:hover { background: rgba(0,0,0,0.06); }
+  .app-modal-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: #111; margin-bottom: 24px; }
+  .app-modal-qr { margin-bottom: 20px; }
+  .app-modal-qr img { border-radius: 12px; }
+  .app-modal-or { font-size: 14px; color: #6b7280; margin-bottom: 20px; }
+  .app-modal-stores { display: flex; gap: 12px; justify-content: center; align-items: center; }
+  .app-modal-stores a { display: flex; transition: transform 0.2s; }
+  .app-modal-stores a:hover { transform: scale(1.05); }
 </style>
 </head>
 <body>
@@ -1071,8 +1111,10 @@
     <a href="#training">Training</a>
     <a href="#science">Science</a>
     <a href="#athletes">Athletes</a>
-    <a href="#how-it-works">How It Works</a>
-    <a href="#" class="nav-cta">Start Free Trial</a>
+    <a href="./pricing/">Pricing</a>
+    <a href="./resources/">Resources</a>
+    <a href="https://app.rundot.com/login" class="nav-login">Log In</a>
+    <a href="#" class="nav-cta" onclick="openAppModal(event)">Get the App</a>
   </div>
 </nav>
 
@@ -1085,7 +1127,7 @@
     <h1>Train less. Race&nbsp;faster.</h1>
     <p class="hero-sub">RunDot™ gives you a training plan as individual as your fingerprint. Built by science, refined by real AI, proven on race&nbsp;day.</p>
     <div class="hero-actions">
-      <a href="#" class="btn-primary">Start Your Free Trial</a>
+      <a href="#" class="btn-primary" onclick="openAppModal(event)">Start Your Free Trial</a>
       <a href="#how-it-works" class="btn-ghost">See How It Works</a>
     </div>
     <div class="hero-social-proof">
@@ -1224,7 +1266,7 @@
           </div>
         </div>
       </div>
-      <h2 class="section-title" style="font-size:clamp(2.4rem,5vw,3.6rem);margin-top:24px;text-align:center;">It evolves with you.</h2>
+      <h2 class="section-title" style="font-size:clamp(2.4rem,5vw,3.6rem);margin-top:12px;text-align:center;">It evolves with you.</h2>
       <p class="section-sub">Whether you're targeting your first 5K, your fifth marathon, or just want to run stronger — your training adapts as your goals and abilities change.</p>
       <div class="feature-cards">
         <div class="feat-card">
@@ -1535,8 +1577,8 @@
       <h2 class="section-title">Your best race<br><em>starts today.</em></h2>
       <p class="section-sub">Stop guessing. Start knowing. RunDot™ delivers better results in less time, with fewer injuries. Built on 20+ years of real training data. Free trial, no credit card required.</p>
       <div class="cta-actions">
-        <a href="#" class="btn-primary">Start Free Trial</a>
-        <a href="#" class="btn-ghost">Download the App</a>
+        <a href="#" class="btn-primary" onclick="openAppModal(event)">Start Free Trial</a>
+        <a href="#" class="btn-ghost" onclick="openAppModal(event)">Download the App</a>
       </div>
     </div>
     <div class="cta-visual">
@@ -1554,7 +1596,7 @@
     <div class="footer-links">
       <a href="#how-it-works">How It Works</a>
       <a href="#training">Training Plans</a>
-      <a href="#">Pricing</a>
+      <a href="./pricing/">Pricing</a>
       <a href="#science">Science</a>
       <a href="#">Privacy</a>
       <a href="#">Terms</a>
@@ -1725,6 +1767,46 @@
       }
     });
   });
+</script>
+
+<!-- APP DOWNLOAD MODAL -->
+<div class="app-modal-overlay" id="appModal" onclick="closeAppModal(event)">
+  <div class="app-modal" onclick="event.stopPropagation()">
+    <button class="app-modal-close" onclick="closeAppModal(event)" aria-label="Close">&times;</button>
+    <h3 class="app-modal-title">Scan to get the app</h3>
+    <div class="app-modal-qr">
+      <img src="./assets/app-qr-code.png" alt="QR Code to download RunDot" width="200" height="200">
+    </div>
+    <p class="app-modal-or">Or download on your mobile device.</p>
+    <div class="app-modal-stores">
+      <a href="https://apps.apple.com/app/rundot/id6471074498" target="_blank" rel="noopener">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="44">
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.predictivefitness.rundot" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" height="44">
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+function openAppModal(e) {
+  if (e) e.preventDefault();
+  var m = document.getElementById('appModal');
+  m.style.display = 'flex';
+  requestAnimationFrame(function(){ m.classList.add('active'); });
+  document.body.style.overflow = 'hidden';
+}
+function closeAppModal(e) {
+  if (e) e.preventDefault();
+  var m = document.getElementById('appModal');
+  m.classList.remove('active');
+  setTimeout(function(){ m.style.display = 'none'; }, 250);
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeAppModal();
+});
 </script>
 </body>
 </html>
