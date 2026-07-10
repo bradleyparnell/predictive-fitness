@@ -1523,20 +1523,111 @@
     });
   }
   document.addEventListener('DOMContentLoaded', initIframes);
-  // ── Feedback sticky notes ─────────────────────────────
+// ── Supabase shared feedback ──────────────────────────
+  const SB_URL = 'https://wuvxqxnqkwkzmazagffi.supabase.co';
+  const SB_KEY = 'sb_publishable_f6R1spqW5zMCzyCEN7_inA_VVKMWpzP';
+  const SB_HEADERS = {
+    'apikey': SB_KEY,
+    'Authorization': 'Bearer ' + SB_KEY,
+    'Content-Type': 'application/json',
+    'Prefer': 'return=representation'
+  };
   const REVIEWER_KEY = 'fb_reviewer';
+
+  // Cache for all feedback data (keyed by email_id)
+  let fbCache = {};
+  let fbLoaded = false;
 
   function escHtml(s) {
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
-  function initFeedback(box) {
+  // Fetch ALL feedback from Supabase
+  async function fetchAllFeedback() {
+    try {
+      const res = await fetch(SB_URL + '/rest/v1/feedback?select=*&order=created_at.asc', {
+        headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY }
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const rows = await res.json();
+      fbCache = {};
+      rows.forEach(r => {
+        if (!fbCache[r.email_id]) fbCache[r.email_id] = [];
+        fbCache[r.email_id].push(r);
+      });
+      fbLoaded = true;
+      return true;
+    } catch(e) {
+      console.error('Supabase fetch error:', e);
+      return false;
+    }
+  }
+
+  function getComments(emailId) {
+    return (fbCache[emailId] || []).filter(r => r.comment !== '__APPROVAL__');
+  }
+
+  function getApproval(emailId) {
+    return (fbCache[emailId] || []).find(r => r.comment === '__APPROVAL__' && r.approved);
+  }
+
+  function renderFeedbackBox(box) {
     const id = box.dataset.emailId;
     const commentsEl = box.querySelector('.feedback-comments');
+    const comments = getComments(id);
+
+    commentsEl.innerHTML = '';
+    comments.forEach(c => {
+      const d = document.createElement('div');
+      d.className = 'feedback-comment';
+      const timeStr = new Date(c.created_at).toLocaleString();
+      d.innerHTML = '<span class="fc-name">' + escHtml(c.reviewer) + '</span>'
+        + escHtml(c.comment)
+        + '<span class="fc-time">\u2014 ' + escHtml(timeStr) + '</span>'
+        + '<button class="fc-del" data-id="' + c.id + '" title="Delete">\u00d7</button>';
+      commentsEl.appendChild(d);
+    });
+
+    // Wire delete buttons
+    commentsEl.querySelectorAll('.fc-del').forEach(b => {
+      b.addEventListener('click', async () => {
+        b.disabled = true;
+        try {
+          await fetch(SB_URL + '/rest/v1/feedback?id=eq.' + b.dataset.id, {
+            method: 'DELETE',
+            headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY }
+          });
+          // Remove from cache
+          fbCache[id] = (fbCache[id] || []).filter(r => r.id !== b.dataset.id);
+          renderFeedbackBox(box);
+        } catch(e) { console.error(e); b.disabled = false; }
+      });
+    });
+
+    // Update approval button state
+    const approveBtn = box.querySelector('.approve-btn');
+    if (approveBtn) {
+      const approval = getApproval(id);
+      if (approval) {
+        approveBtn.classList.add('approved');
+        approveBtn.querySelector('.approve-icon').textContent = '\u2705';
+        approveBtn.querySelector('.approve-label').textContent = 'CEO Approved \u2014 Ready for HubSpot';
+        const dateStr = new Date(approval.approved_at || approval.created_at).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
+        approveBtn.querySelector('.approve-date').textContent = 'Approved ' + dateStr + ' by ' + approval.reviewer;
+      } else {
+        approveBtn.classList.remove('approved');
+        approveBtn.querySelector('.approve-icon').textContent = '\u2b1c';
+        approveBtn.querySelector('.approve-label').textContent = 'Mark as CEO Approved \u2014 Ready for HubSpot';
+        approveBtn.querySelector('.approve-date').textContent = '';
+      }
+    }
+  }
+
+  function initFeedback(box) {
+    const id = box.dataset.emailId;
     const nameIn = box.querySelector('.feedback-name-input');
     const textIn = box.querySelector('.feedback-textarea');
     const btn = box.querySelector('.feedback-submit');
-    const KEY = 'fb_' + id;
 
     nameIn.value = localStorage.getItem(REVIEWER_KEY) || '';
     nameIn.addEventListener('change', () => {
@@ -1544,109 +1635,101 @@
       document.querySelectorAll('.feedback-name-input').forEach(i => { i.value = nameIn.value; });
     });
 
-    function loadComments() {
-      try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e) { return []; }
-    }
-    function saveComments(arr) { localStorage.setItem(KEY, JSON.stringify(arr)); }
-
-    function render() {
-      const arr = loadComments();
-      commentsEl.innerHTML = '';
-      arr.forEach((c, i) => {
-        const d = document.createElement('div');
-        d.className = 'feedback-comment';
-        d.innerHTML = '<span class="fc-name">' + escHtml(c.name) + '</span>'
-          + escHtml(c.text)
-          + '<span class="fc-time">— ' + escHtml(c.time) + '</span>'
-          + '<button class="fc-del" data-i="' + i + '" title="Delete">×</button>';
-        commentsEl.appendChild(d);
-      });
-      commentsEl.querySelectorAll('.fc-del').forEach(b => {
-        b.addEventListener('click', () => {
-          const arr2 = loadComments(); arr2.splice(+b.dataset.i, 1);
-          saveComments(arr2); render();
-        });
-      });
-    }
-
-    function post() {
+    async function post() {
       const name = (nameIn.value.trim() || 'Anonymous');
       const text = textIn.value.trim();
       if (!text) return;
       localStorage.setItem(REVIEWER_KEY, name);
-      const arr = loadComments();
-      arr.push({ name, text, time: new Date().toLocaleString() });
-      saveComments(arr); textIn.value = ''; render();
+      btn.disabled = true;
+      btn.textContent = 'Posting...';
+      try {
+        const res = await fetch(SB_URL + '/rest/v1/feedback', {
+          method: 'POST',
+          headers: SB_HEADERS,
+          body: JSON.stringify({ email_id: id, reviewer: name, comment: text })
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const rows = await res.json();
+        if (!fbCache[id]) fbCache[id] = [];
+        fbCache[id].push(rows[0]);
+        textIn.value = '';
+        renderFeedbackBox(box);
+      } catch(e) {
+        console.error(e);
+        alert('Failed to post feedback. Please try again.');
+      }
+      btn.disabled = false;
+      btn.textContent = 'Post';
     }
 
     btn.addEventListener('click', post);
     textIn.addEventListener('keydown', e => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { e.preventDefault(); post(); }
     });
-    render();
 
-    // Restore approval state
-    const approveBtn = box.querySelector('.approve-btn');
-    if (approveBtn) {
-      const approvedData = localStorage.getItem('approved_' + id);
-      if (approvedData) {
-        const d = JSON.parse(approvedData);
-        approveBtn.classList.add('approved');
-        approveBtn.querySelector('.approve-icon').textContent = '✅';
-        approveBtn.querySelector('.approve-label').textContent = 'CEO Approved — Ready for HubSpot';
-        approveBtn.querySelector('.approve-date').textContent = 'Approved ' + d.date;
-      }
-    }
+    renderFeedbackBox(box);
   }
 
-  document.querySelectorAll('.feedback-box').forEach(initFeedback);
-
-  // Toggle approval
-  window.toggleApproval = function(btn) {
+  // Toggle approval (called from onclick)
+  window.toggleApproval = async function(btn) {
     const box = btn.closest('.feedback-box');
     const id = box.dataset.emailId;
-    const KEY = 'approved_' + id;
+    const reviewer = localStorage.getItem(REVIEWER_KEY) || 'Anonymous';
+
     if (btn.classList.contains('approved')) {
-      // Un-approve
-      btn.classList.remove('approved');
-      btn.querySelector('.approve-icon').textContent = '⬜';
-      btn.querySelector('.approve-label').textContent = 'Mark as CEO Approved — Ready for HubSpot';
-      btn.querySelector('.approve-date').textContent = '';
-      localStorage.removeItem(KEY);
+      // Un-approve: delete the approval row
+      const approval = getApproval(id);
+      if (approval) {
+        await fetch(SB_URL + '/rest/v1/feedback?id=eq.' + approval.id, {
+          method: 'DELETE',
+          headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY }
+        });
+        fbCache[id] = (fbCache[id] || []).filter(r => r.id !== approval.id);
+      }
     } else {
-      // Approve
-      const dateStr = new Date().toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
-      btn.classList.add('approved');
-      btn.querySelector('.approve-icon').textContent = '✅';
-      btn.querySelector('.approve-label').textContent = 'CEO Approved — Ready for HubSpot';
-      btn.querySelector('.approve-date').textContent = 'Approved ' + dateStr;
-      localStorage.setItem(KEY, JSON.stringify({ date: dateStr }));
+      // Approve: insert approval row
+      const res = await fetch(SB_URL + '/rest/v1/feedback', {
+        method: 'POST',
+        headers: SB_HEADERS,
+        body: JSON.stringify({
+          email_id: id,
+          reviewer: reviewer,
+          comment: '__APPROVAL__',
+          approved: true,
+          approved_at: new Date().toISOString()
+        })
+      });
+      if (res.ok) {
+        const rows = await res.json();
+        if (!fbCache[id]) fbCache[id] = [];
+        fbCache[id].push(rows[0]);
+      }
     }
+    renderFeedbackBox(box);
   };
 
-  // Export all feedback — called by the floating right-side tab
+  // Export all feedback as CSV
   window.exportFeedback = function() {
     const lines = [];
-    lines.push('TriDot / RunDot Email Redesign — Internal Feedback');
+    lines.push('TriDot / RunDot Email Redesign - Internal Feedback');
     lines.push('Exported: ' + new Date().toLocaleString());
-    lines.push('Email ID,Email Title,Approved,Approved Date,Reviewer,Comment,Timestamp');
+    lines.push('Email ID,Email Title,Approved,Approved Date,Approved By,Reviewer,Comment,Timestamp');
     document.querySelectorAll('.feedback-box').forEach(box => {
       const id = box.dataset.emailId;
       const title = box.dataset.emailTitle;
-      const approvedData = localStorage.getItem('approved_' + id);
-      const approved = approvedData ? 'YES' : 'NO';
-      const approvedDate = approvedData ? JSON.parse(approvedData).date : '';
-      const KEY = 'fb_' + id;
-      let arr = [];
-      try { arr = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch(e) {}
-      if (arr.length) {
-        arr.forEach(c => {
-          const esc = v => '"' + String(v).replace(/"/g, '\"') + '"';
-          lines.push([esc(id), esc(title), approved, esc(approvedDate), esc(c.name), esc(c.text), esc(c.time)].join(','));
+      const approval = getApproval(id);
+      const approved = approval ? 'YES' : 'NO';
+      const approvedDate = approval ? new Date(approval.approved_at || approval.created_at).toLocaleDateString() : '';
+      const approvedBy = approval ? approval.reviewer : '';
+      const comments = getComments(id);
+      const esc = v => '"' + String(v).replace(/"/g, '""') + '"';
+      if (comments.length) {
+        comments.forEach(c => {
+          const ts = new Date(c.created_at).toLocaleString();
+          lines.push([esc(id), esc(title), approved, esc(approvedDate), esc(approvedBy), esc(c.reviewer), esc(c.comment), esc(ts)].join(','));
         });
       } else {
-        const esc = v => '"' + String(v).replace(/"/g, '\"') + '"';
-        lines.push([esc(id), esc(title), approved, esc(approvedDate), '', '', ''].join(','));
+        lines.push([esc(id), esc(title), approved, esc(approvedDate), esc(approvedBy), '', '', ''].join(','));
       }
     });
     const blob = new Blob([lines.join('\n')], { type: 'text/csv' });
@@ -1656,7 +1739,19 @@
     a.click();
   };
 
-</script>
+  // Initialize: fetch from Supabase, then init all boxes
+  (async function() {
+    await fetchAllFeedback();
+    document.querySelectorAll('.feedback-box').forEach(initFeedback);
+
+    // Poll for updates every 15 seconds
+    setInterval(async () => {
+      const ok = await fetchAllFeedback();
+      if (ok) {
+        document.querySelectorAll('.feedback-box').forEach(renderFeedbackBox);
+      }
+    }, 15000);
+  })();</script>
 
 <script>
 function autoH(el){
