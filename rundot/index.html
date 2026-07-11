@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -38,7 +38,6 @@
     --border-light: #f0f0f0;
     --font-body: 'DM Sans', sans-serif;
     --font-display: 'Plus Jakarta Sans', sans-serif;
-    --font-serif: 'Playfair Display', Georgia, serif;
   }
 
   html { scroll-behavior: smooth; }
@@ -62,135 +61,127 @@
   .nav-cta { background: var(--green); color: var(--white) !important; padding: 10px 22px; border-radius: 6px; font-weight: 600 !important; transition: background 0.2s !important; border: none; }
   .nav-cta:hover { background: var(--green-light) !important; }
 
-  /* HERO */
+  /* HERO — VIDEO */
   .hero {
     position: relative; min-height: 100vh;
     display: flex; align-items: center; justify-content: center;
     overflow: hidden;
   }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background-image: url('./assets/hero-bright-runner.jpg');
-    background-size: cover; background-position: center 35%;
-    filter: brightness(0.4);
+  .hero-video {
+    position: absolute; inset: 0; z-index: 0;
+  }
+  .hero-video video {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: brightness(0.45);
   }
   .hero-overlay {
-    position: absolute; inset: 0;
+    position: absolute; inset: 0; z-index: 1;
     background: linear-gradient(180deg,
-      rgba(0,0,0,0.25) 0%,
-      rgba(0,0,0,0.1) 40%,
-      rgba(0,0,0,0.5) 100%);
+      rgba(0,0,0,0.2) 0%,
+      rgba(0,0,0,0.05) 40%,
+      rgba(0,0,0,0.55) 100%);
   }
   .hero-content {
     position: relative; z-index: 2;
     max-width: 820px; margin: 0 auto; padding: 160px 40px 120px;
     text-align: center;
   }
+  .hero-content { padding: 140px 24px 80px; }
   .hero h1 {
-    font-family: var(--font-serif);
-    font-size: clamp(56px, 8vw, 104px);
-    font-weight: 700;
-    line-height: 1.0;
-    margin-bottom: 36px;
-    letter-spacing: -0.02em;
+    font-family: var(--font-display);
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 32px;
+    letter-spacing: -0.03em;
     color: var(--white);
   }
   .hero h1 em { font-style: italic; color: var(--green-light); }
   .hero-sub {
     font-size: 20px; font-weight: 400; color: rgba(255,255,255,0.85);
-    line-height: 1.7; max-width: 520px; margin: 0 auto 48px;
+    max-width: 540px; margin: 0 auto 40px; line-height: 1.7;
+    letter-spacing: 0.01em;
   }
-  .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-  .btn-primary-hero {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--green); color: var(--white); padding: 16px 36px;
-    border-radius: 8px; font-size: 16px; font-weight: 700; text-decoration: none;
-    transition: all 0.3s; border: none; cursor: pointer;
-  }
-  .btn-primary-hero:hover { background: var(--green-light); transform: translateY(-1px); }
-  .btn-ghost-hero {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: transparent; color: var(--white); padding: 16px 36px;
-    border-radius: 8px; font-size: 16px; font-weight: 600; text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.35); transition: all 0.3s; cursor: pointer;
-  }
-  .btn-ghost-hero:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.08); }
-
-  /* BUTTONS */
+  .hero-cta-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
   .btn-primary {
     display: inline-flex; align-items: center; gap: 8px;
-    background: var(--green); color: var(--white); padding: 16px 36px;
-    border-radius: 8px; font-size: 16px; font-weight: 700; text-decoration: none;
-    transition: all 0.3s; border: none; cursor: pointer;
+    padding: 16px 36px; border-radius: 8px;
+    background: var(--green); color: var(--white);
+    font-family: var(--font-display); font-weight: 700; font-size: 16px;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: all 0.25s ease;
   }
-  .btn-primary:hover { background: var(--green-light); transform: translateY(-1px); }
+  .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(83,185,86,0.3); }
   .btn-outline {
     display: inline-flex; align-items: center; gap: 8px;
-    background: transparent; color: var(--text); padding: 16px 36px;
-    border-radius: 8px; font-size: 16px; font-weight: 600; text-decoration: none;
-    border: 1px solid var(--border); transition: all 0.3s; cursor: pointer;
+    padding: 16px 36px; border-radius: 8px;
+    background: transparent; color: var(--white);
+    font-family: var(--font-display); font-weight: 700; font-size: 16px;
+    text-decoration: none; cursor: pointer;
+    border: 2px solid rgba(255,255,255,0.35);
+    transition: all 0.25s ease;
   }
-  .btn-outline:hover { border-color: var(--text-muted); background: var(--off-white); }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.65); background: rgba(255,255,255,0.08); }
 
   /* TRUST STRIP */
   .trust-strip {
-    padding: 48px 40px;
-    background: var(--white);
+    padding: 28px 40px;
+    background: var(--off-white);
     border-bottom: 1px solid var(--border-light);
   }
-  .trust-inner {
-    max-width: 900px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: center; gap: 48px;
-    flex-wrap: wrap;
-  }
-  .trust-stat { text-align: center; }
-  .trust-number { font-family: var(--font-display); font-size: 32px; font-weight: 800; color: var(--green); }
-  .trust-label { font-size: 13px; color: var(--text-muted); margin-top: 4px; letter-spacing: 0.04em; }
-  .trust-divider { width: 1px; height: 48px; background: var(--border); }
-  .trust-rating { display: flex; align-items: center; gap: 8px; }
-  .trust-stars { color: #f59e0b; font-size: 18px; letter-spacing: 2px; }
-
-  /* SECTION SHARED */
-  .section { padding: 120px 40px; }
-  .section-inner { max-width: 1100px; margin: 0 auto; }
-  .section-eyebrow {
-    font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--green); margin-bottom: 16px;
-  }
-  .section-title {
-    font-family: var(--font-serif);
-    font-size: clamp(32px, 3.5vw, 52px);
-    font-weight: 700; line-height: 1.15;
-    margin-bottom: 20px; letter-spacing: -0.01em;
-    color: var(--text);
-  }
-  .section-title em { font-style: italic; color: var(--green); }
-  .section-sub {
-    font-size: 18px; color: var(--text-secondary); line-height: 1.7;
-    max-width: 580px;
-  }
-
-  /* PROBLEM SECTION */
-  .problem { background: var(--white); }
-  .problem-header { text-align: center; margin-bottom: 64px; }
-  .problem-header .section-sub { margin: 0 auto; }
-  .problem-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  .trust-row {
+    display: flex; justify-content: center; gap: 56px; flex-wrap: wrap;
     max-width: 800px; margin: 0 auto;
   }
-  .problem-card {
-    background: var(--off-white); border: 1px solid var(--border-light);
-    border-radius: 16px; padding: 36px 32px;
-    transition: all 0.3s;
+  .trust-item { text-align: center; }
+  .trust-num {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 20px; color: var(--text);
+    letter-spacing: -0.02em;
   }
-  .problem-card:hover { border-color: var(--green-border); }
-  .problem-card .doubt {
-    font-family: var(--font-serif); font-size: 22px; font-weight: 600;
-    font-style: italic; color: var(--text); line-height: 1.35;
-    margin-bottom: 12px;
+  .trust-num .green { color: var(--green); }
+  .trust-label { font-size: 13px; color: var(--text-muted); margin-top: 2px; font-weight: 500; }
+
+  /* SECTION BASE */
+  .section { padding: 100px 40px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-header { text-align: center; margin-bottom: 64px; }
+  .section-eyebrow {
+    font-family: var(--font-display); font-size: 12px; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--green); margin-bottom: 14px;
   }
-  .problem-card .relief {
-    font-size: 15px; color: var(--text-secondary); line-height: 1.6;
+  .section-title {
+    font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800; color: var(--text);
+    line-height: 1.15; letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 18px; color: var(--text-secondary);
+    max-width: 600px; line-height: 1.7;
+  }
+  .section-header .section-sub { margin: 0 auto; }
+
+  /* SOUND FAMILIAR — problem section */
+  .familiar { background: var(--white); }
+  .familiar-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 20px; max-width: 720px; margin: 0 auto;
+  }
+  .familiar-card {
+    background: var(--off-white); border: 1px solid var(--border);
+    border-radius: 12px; padding: 32px 28px;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .familiar-card:hover { border-color: var(--green-border); transform: translateY(-3px); }
+  .familiar-card p {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 18px; color: var(--text);
+    line-height: 1.5;
+    font-style: italic;
   }
 
   /* PROMISE SECTION */
@@ -198,330 +189,290 @@
   .promise-header { text-align: center; margin-bottom: 64px; }
   .promise-header .section-sub { margin: 0 auto; }
   .promise-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; max-width: 960px; margin: 0 auto;
   }
   .promise-card {
-    background: var(--white); border: 1px solid var(--border-light);
-    border-radius: 20px; padding: 48px 36px; text-align: center;
-    transition: all 0.3s;
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 14px; padding: 40px 28px;
+    text-align: center; transition: all 0.25s;
   }
   .promise-card:hover { border-color: var(--green-border); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
   .promise-icon {
-    width: 64px; height: 64px; border-radius: 16px;
+    width: 56px; height: 56px; border-radius: 14px;
     background: var(--green-soft); border: 1px solid var(--green-border);
     display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 24px;
+    margin: 0 auto 20px;
   }
   .promise-icon svg { width: 28px; height: 28px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .promise-title {
-    font-family: var(--font-display); font-size: 22px; font-weight: 700;
-    margin-bottom: 12px; color: var(--text);
+  .promise-card h3 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 20px; color: var(--text); margin-bottom: 10px;
   }
-  .promise-desc { font-size: 15px; color: var(--text-secondary); line-height: 1.65; }
+  .promise-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.65; }
 
   /* HOW IT WORKS */
-  .how-it-works { background: var(--white); }
-  .how-header { text-align: center; margin-bottom: 72px; }
-  .how-header .section-sub { margin: 0 auto; }
+  .how { background: var(--white); }
   .how-steps {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px;
-    max-width: 960px; margin: 0 auto;
-    position: relative;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 40px; max-width: 900px; margin: 0 auto;
   }
-  .how-steps::before {
-    content: ''; position: absolute;
-    top: 32px; left: 16%; right: 16%;
-    height: 2px; background: linear-gradient(90deg, var(--border), var(--green-border), var(--border));
+  .how-step { text-align: center; }
+  .how-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--green); color: var(--white);
+    font-family: var(--font-display); font-weight: 800; font-size: 22px;
+    margin-bottom: 20px;
   }
-  .how-step { text-align: center; position: relative; }
-  .step-number {
-    width: 64px; height: 64px; border-radius: 50%;
-    background: var(--white); border: 2px solid var(--green);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-display); font-size: 24px; font-weight: 800;
-    color: var(--green); margin: 0 auto 24px;
-    position: relative; z-index: 1;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  .how-step h3 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 20px; color: var(--text); margin-bottom: 8px;
   }
-  .step-title {
-    font-family: var(--font-display); font-size: 20px; font-weight: 700;
-    margin-bottom: 12px; color: var(--text);
-  }
-  .step-desc { font-size: 15px; color: var(--text-secondary); line-height: 1.65; max-width: 260px; margin: 0 auto; }
+  .how-step p { font-size: 15px; color: var(--text-secondary); line-height: 1.65; }
 
-  /* MEB SECTION */
-  .meb-section {
-    background: var(--off-white);
-    border-top: 1px solid var(--border-light);
-    border-bottom: 1px solid var(--border-light);
+  /* PHOTO FEATURE SECTION (TrainingPeaks-style) */
+  .feature-photo {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; min-height: 500px;
   }
-  .meb-inner {
-    max-width: 1000px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px;
-    align-items: center;
+  .feature-photo-img {
+    background-size: cover; background-position: center;
+    min-height: 400px;
   }
-  .meb-photo { border-radius: 20px; overflow: hidden; }
-  .meb-photo img { width: 100%; display: block; }
-  .meb-quote {
-    font-family: var(--font-serif); font-size: clamp(24px, 2.5vw, 32px);
-    font-style: italic; font-weight: 500; line-height: 1.45;
-    color: var(--text); margin-bottom: 32px;
+  .feature-photo-content {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 64px 72px;
   }
-  .meb-quote::before { content: '\201C'; color: var(--green); font-size: 48px; line-height: 0; vertical-align: -12px; margin-right: 4px; }
-  .meb-name { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-  .meb-title { font-size: 14px; color: var(--text-muted); }
+  .feature-photo-content .section-eyebrow { text-align: left; }
+  .feature-photo-content .section-title { text-align: left; font-size: clamp(28px, 3vw, 40px); }
+  .feature-photo-content .section-sub { text-align: left; }
+  .feature-photo-content .btn-primary { align-self: flex-start; margin-top: 28px; }
+  .feature-photo.reverse { direction: rtl; }
+  .feature-photo.reverse > * { direction: ltr; }
 
-  /* TESTIMONIALS */
-  .testimonials { background: var(--white); }
-  .testimonials-header { text-align: center; margin-bottom: 64px; }
-  .testimonials-header .section-sub { margin: 0 auto; }
-  .testimonials-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-    max-width: 1000px; margin: 0 auto;
-  }
-  .testimonial-card {
-    background: var(--off-white); border: 1px solid var(--border-light);
-    border-radius: 16px; padding: 36px;
-    transition: border-color 0.3s;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  }
-  .testimonial-card:hover { border-color: var(--green-border); }
-  .testimonial-stars { color: #f59e0b; font-size: 16px; letter-spacing: 3px; margin-bottom: 20px; }
-  .testimonial-text {
-    font-size: 15px; color: var(--text-secondary); line-height: 1.7;
-    margin-bottom: 24px; font-style: italic;
-  }
-  .testimonial-author { display: flex; align-items: center; gap: 12px; }
-  .testimonial-avatar {
-    width: 40px; height: 40px; border-radius: 50%;
-    background: var(--green-soft); border: 1px solid var(--green-border);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--green);
-  }
-  .testimonial-name { font-size: 14px; font-weight: 600; color: var(--text); }
-  .testimonial-detail { font-size: 12px; color: var(--text-muted); }
-
-  /* APP SHOWCASE */
-  .app-showcase { background: var(--off-white); text-align: center; overflow: hidden; }
-  .app-header { margin-bottom: 48px; }
-  .app-header .section-sub { margin: 0 auto; }
-  .app-highlights {
-    display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
-    max-width: 700px; margin: 0 auto 56px;
-  }
-  .app-highlight {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 15px; color: var(--text-secondary);
-  }
-  .app-highlight svg { width: 20px; height: 20px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .phone-row {
-    display: flex; justify-content: center; gap: 20px;
+  /* MEB / SOCIAL PROOF */
+  .meb-section { background: var(--dark); color: var(--white); }
+  .meb-grid {
+    display: grid; grid-template-columns: 280px 1fr;
+    gap: 56px; align-items: center;
     max-width: 900px; margin: 0 auto;
   }
-  .phone-frame {
-    width: 200px; flex-shrink: 0;
-    border-radius: 24px; overflow: hidden;
-    border: 2px solid var(--border);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-    transition: all 0.3s;
+  .meb-photo {
+    width: 280px; height: 280px; border-radius: 50%;
+    object-fit: cover; border: 4px solid rgba(83,185,86,0.3);
   }
-  .phone-frame img { width: 100%; display: block; }
-  .phone-frame:hover { border-color: var(--green-border); box-shadow: 0 20px 60px rgba(83,185,86,0.08); }
+  .meb-text blockquote {
+    font-family: var(--font-display); font-size: 24px;
+    font-weight: 500; line-height: 1.6;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 20px; font-style: italic;
+  }
+  .meb-text cite {
+    font-style: normal; font-size: 14px; color: var(--text-light);
+    font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+  }
 
-  /* SCIENCE SECTION */
-  .science { background: var(--white); }
-  .science-inner {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-    align-items: center;
+  /* TESTIMONIALS */
+  .testimonials { background: var(--off-white); }
+  .testimonial-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; max-width: 960px; margin: 0 auto;
   }
-  .science-text .section-sub { margin-bottom: 32px; }
-  .science-points { display: flex; flex-direction: column; gap: 24px; }
-  .science-point { display: flex; gap: 16px; align-items: flex-start; }
+  .testimonial-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 14px; padding: 32px 28px;
+  }
+  .testimonial-card .stars { color: #f59e0b; font-size: 16px; margin-bottom: 14px; letter-spacing: 2px; }
+  .testimonial-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 16px; font-style: italic; }
+  .testimonial-card cite { font-style: normal; font-size: 13px; color: var(--text-muted); font-weight: 600; }
+
+  /* APP SECTION */
+  .app-section { background: var(--white); }
+  .app-content {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: center;
+    max-width: 1000px; margin: 0 auto;
+  }
+  .app-text .section-eyebrow { text-align: left; }
+  .app-text .section-title { text-align: left; font-size: clamp(28px, 3vw, 40px); }
+  .app-text .section-sub { text-align: left; }
+  .app-highlights { margin-top: 28px; display: flex; flex-direction: column; gap: 16px; }
+  .app-highlight {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 15px; color: var(--text-secondary); line-height: 1.5;
+  }
+  .app-highlight svg { width: 20px; height: 20px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 2px; }
+  .app-phones {
+    display: flex; gap: 16px; justify-content: center; align-items: flex-end;
+  }
+  .app-phones img {
+    width: 180px; border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  }
+  .app-phones img:nth-child(2) { transform: translateY(-12px); }
+
+  /* SCIENCE/CREDIBILITY */
+  .science { background: var(--off-white); }
+  .science-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; max-width: 960px; margin: 0 auto;
+  }
+  .science-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 14px; padding: 36px 28px;
+    text-align: center;
+  }
   .science-icon {
-    flex-shrink: 0; width: 48px; height: 48px; border-radius: 12px;
+    width: 52px; height: 52px; border-radius: 14px;
     background: var(--green-soft); border: 1px solid var(--green-border);
     display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 18px;
   }
   .science-icon svg { width: 22px; height: 22px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .science-point-text h4 { font-family: var(--font-display); font-size: 16px; font-weight: 700; margin-bottom: 4px; color: var(--text); }
-  .science-point-text p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
-  .science-visual { position: relative; }
-  .science-visual img {
-    width: 100%; border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+  .science-card h3 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 18px; color: var(--text); margin-bottom: 8px;
   }
+  .science-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
   .science-badge {
-    position: absolute; bottom: -20px; right: -10px;
-    background: var(--white); border-radius: 16px; padding: 20px 24px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-    display: flex; align-items: center; gap: 12px;
+    display: flex; align-items: center; gap: 8px;
+    justify-content: center; margin-top: 40px;
+    font-size: 13px; color: var(--text-muted); font-weight: 500;
   }
   .science-badge-dot {
-    width: 40px; height: 40px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--green), var(--green-light));
-    display: flex; align-items: center; justify-content: center;
-    animation: pulse-soft 3s ease-in-out infinite;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--green); display: flex; align-items: center; justify-content: center;
   }
   .science-badge-dot svg { width: 18px; height: 18px; stroke: white; fill: none; stroke-width: 2; }
-  .science-badge-text { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.3; }
-  .science-badge-text span { display: block; font-size: 11px; color: var(--text-muted); font-weight: 400; }
 
-  @keyframes pulse-soft {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(83,185,86,0.3); }
-    50% { box-shadow: 0 0 0 10px rgba(83,185,86,0); }
-  }
-
-  /* MOMENTS GRID */
-  .moments { background: var(--off-white); }
-  .moments-header { text-align: center; margin-bottom: 64px; }
-  .moments-header .section-sub { margin: 0 auto; }
+  /* MOMENTS / PHOTO GRID */
+  .moments { background: var(--white); }
   .moments-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 16px; max-width: 1100px; margin: 0 auto;
   }
   .moment-card {
-    position: relative; border-radius: 16px; overflow: hidden;
-    aspect-ratio: 4/5; cursor: default;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    position: relative; border-radius: 12px; overflow: hidden;
+    aspect-ratio: 3/4; cursor: default;
   }
-  .moment-card img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.6s ease;
-  }
-  .moment-card:hover img { transform: scale(1.03); }
+  .moment-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+  .moment-card:hover img { transform: scale(1.04); }
   .moment-overlay {
     position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 32px 24px 24px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    padding: 24px 18px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.65));
+    color: var(--white);
   }
-  .moment-quote {
-    font-family: var(--font-serif); font-size: 20px; font-weight: 500;
-    font-style: italic; line-height: 1.4; color: var(--white);
+  .moment-overlay p { font-size: 14px; font-style: italic; line-height: 1.5; opacity: 0.9; }
+
+  /* CTA */
+  .cta-section {
+    background: var(--dark); color: var(--white);
+    padding: 100px 40px; text-align: center;
   }
-  .moment-caption {
-    font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 8px;
-    font-weight: 500; letter-spacing: 0.03em;
-  }
+  .cta-section .section-title { color: var(--white); margin-bottom: 16px; }
+  .cta-section .section-sub { color: rgba(255,255,255,0.7); margin: 0 auto 40px; }
+  .cta-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
 
   /* PARTNERS */
-  .partners {
-    padding: 60px 40px;
-    background: var(--white);
-    border-top: 1px solid var(--border-light);
-  }
+  .partners { padding: 56px 40px; background: var(--white); border-top: 1px solid var(--border-light); }
   .partners-inner { max-width: 900px; margin: 0 auto; text-align: center; }
-  .partners-label {
-    font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--text-muted); margin-bottom: 32px;
-  }
+  .partners-label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 28px; }
   .partners-logos {
-    display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap;
-    opacity: 0.4;
+    display: flex; justify-content: center; align-items: center;
+    gap: 40px; flex-wrap: wrap;
   }
-  .partners-logos img { height: 40px; width: auto; filter: grayscale(1); }
+  .partners-logos img { height: 40px; width: auto; filter: grayscale(1); opacity: 0.5; transition: all 0.3s; }
+  .partners-logos img:hover { filter: grayscale(0); opacity: 1; }
   .partners-logos img.sf-marathon { height: 35px; }
-
-  /* CTA SECTION */
-  .cta-section {
-    position: relative; padding: 120px 40px; overflow: hidden;
-    text-align: center; background: var(--dark); color: var(--white);
-  }
-  .cta-section::after {
-    content: ''; position: absolute;
-    top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 600px; height: 600px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(83,185,86,0.08) 0%, transparent 70%);
-  }
-  .cta-content { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; }
-  .cta-content .section-title { color: var(--white); margin-bottom: 24px; }
-  .cta-content .section-title em { color: var(--green-light); }
-  .cta-content .section-sub { margin: 0 auto 40px; text-align: center; color: rgba(255,255,255,0.7); }
-  .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-  .btn-ghost-dark {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: transparent; color: var(--white); padding: 16px 36px;
-    border-radius: 8px; font-size: 16px; font-weight: 600; text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.25); transition: all 0.3s; cursor: pointer;
-  }
-  .btn-ghost-dark:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); }
 
   /* FOOTER */
   footer {
-    padding: 60px 40px 40px;
-    background: var(--dark);
-    border-top: 1px solid rgba(255,255,255,0.06);
+    background: var(--dark); color: rgba(255,255,255,0.5);
+    padding: 60px 40px 40px; font-size: 13px; line-height: 1.7;
   }
-  .footer-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
   .footer-logo { margin-bottom: 28px; }
   .footer-logo img { height: 24px; width: auto; opacity: 0.7; }
-  .footer-links { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin-bottom: 32px; }
-  .footer-links a { color: rgba(255,255,255,0.5); font-size: 13px; text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--white); }
-  .footer-fitlogic { margin-bottom: 32px; }
-  .footer-legal { max-width: 800px; margin: 0 auto 16px; font-size: 11px; color: rgba(255,255,255,0.25); line-height: 1.6; }
-  .footer-legal a { color: rgba(255,255,255,0.4); text-decoration: underline; }
-  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
-  .footer-address { font-size: 11px; color: rgba(255,255,255,0.25); }
+  .footer-desc { max-width: 280px; line-height: 1.7; }
+  .footer-col h4 { font-family: var(--font-display); font-weight: 700; font-size: 13px; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+  .footer-col a { display: block; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 8px; transition: color 0.2s; font-size: 13px; }
+  .footer-col a:hover { color: var(--green-light); }
+  .footer-fitlogic { margin-top: 24px; }
+  .footer-fitlogic img { height: 18px; width: auto; opacity: 0.5; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-legal { max-width: 700px; font-size: 11px; line-height: 1.8; color: rgba(255,255,255,0.35); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--green-light); }
 
   /* QR MODAL */
-  .app-modal-backdrop {
-    display: none; position: fixed; inset: 0; z-index: 9999;
-    background: rgba(0,0,0,0.5); backdrop-filter: blur(8px);
-    align-items: center; justify-content: center;
+  .modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(6px);
+    z-index: 200; align-items: center; justify-content: center;
   }
-  .app-modal-backdrop.active { display: flex; }
-  .app-modal {
-    background: var(--white); border-radius: 20px; padding: 48px;
-    max-width: 400px; width: 90%; text-align: center;
-    position: relative; box-shadow: 0 32px 80px rgba(0,0,0,0.25);
+  .modal-overlay.active { display: flex; }
+  .modal-box {
+    background: var(--white); border-radius: 16px; padding: 40px;
+    max-width: 400px; width: 90%; text-align: center; position: relative;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.2);
   }
-  .app-modal-close {
-    position: absolute; top: 16px; right: 16px;
-    background: none; border: none; font-size: 24px; cursor: pointer;
-    color: var(--text-muted); transition: color 0.2s;
+  .modal-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; font-size: 20px;
+    color: var(--text-muted); cursor: pointer;
   }
-  .app-modal-close:hover { color: var(--text); }
-  .app-modal h3 { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
-  .app-modal p { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
-  .app-modal-qr { width: 180px; height: 180px; margin: 0 auto 24px; }
-  .app-modal-qr img { width: 100%; height: 100%; }
-  .app-modal-stores { display: flex; gap: 12px; justify-content: center; }
-  .app-modal-stores img { height: 40px; width: auto; }
+  .modal-box h3 { font-family: var(--font-display); font-weight: 700; font-size: 20px; margin-bottom: 8px; }
+  .modal-box p { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+  .qr-code {
+    width: 200px; height: 200px; margin: 0 auto 20px;
+    background: var(--off-white); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+  .store-badges { display: flex; justify-content: center; gap: 12px; }
+  .store-badges a { display: inline-block; }
+  .store-badges img { height: 40px; width: auto; }
 
   /* ANIMATIONS */
-  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
 
   /* RESPONSIVE */
-  @media (max-width: 900px) {
-    nav { padding: 16px 24px; }
-    .nav-links { gap: 20px; }
-    .hero-content { padding: 140px 24px 80px; }
-    .section { padding: 80px 24px; }
-    .problem-grid { grid-template-columns: 1fr; max-width: 480px; }
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .hero-content { padding: 120px 20px 80px; }
+    .hero h1 { font-size: 44px; }
+    .hero-sub { font-size: 17px; }
+    .trust-row { gap: 32px; }
+    .section { padding: 64px 20px; }
+    .familiar-grid { grid-template-columns: 1fr; }
     .promise-grid { grid-template-columns: 1fr; max-width: 400px; }
-    .science-inner { grid-template-columns: 1fr; gap: 48px; }
-    .science-visual { order: -1; }
-    .how-steps { grid-template-columns: 1fr; gap: 40px; }
-    .how-steps::before { display: none; }
-    .meb-inner { grid-template-columns: 1fr; text-align: center; }
-    .meb-photo { max-width: 300px; margin: 0 auto; }
-    .testimonials-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
-    .moments-grid { grid-template-columns: 1fr 1fr; }
-    .moment-card:nth-child(3) { grid-column: 1 / -1; aspect-ratio: 16/9; }
-    .phone-row { gap: 12px; }
-    .phone-frame { width: 150px; }
+    .how-steps { grid-template-columns: 1fr; gap: 32px; max-width: 400px; margin: 0 auto; }
+    .feature-photo { grid-template-columns: 1fr; }
+    .feature-photo-img { min-height: 280px; }
+    .feature-photo-content { padding: 40px 24px; }
+    .feature-photo.reverse { direction: ltr; }
+    .meb-grid { grid-template-columns: 1fr; text-align: center; }
+    .meb-photo { width: 200px; height: 200px; margin: 0 auto; }
+    .testimonial-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    .app-content { grid-template-columns: 1fr; text-align: center; }
+    .app-text .section-eyebrow, .app-text .section-title, .app-text .section-sub { text-align: center; }
+    .app-highlights { align-items: center; }
+    .app-phones img { width: 140px; }
+    .science-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    .moments-grid { grid-template-columns: repeat(2, 1fr); }
     .partners-logos { gap: 32px; }
-    .app-highlights { gap: 24px; }
-  }
-  @media (max-width: 640px) {
-    nav { padding: 14px 16px; }
-    .nav-links a:not(.nav-login):not(.nav-cta) { display: none; }
-    .moments-grid { grid-template-columns: 1fr; }
-    .moment-card, .moment-card:nth-child(3) { aspect-ratio: 4/5; grid-column: auto; }
-    .phone-row { flex-wrap: wrap; }
-    .phone-frame { width: 140px; }
-    .science-badge { position: static; margin-top: 16px; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
   }
 </style>
 </head>
@@ -529,322 +480,297 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="./"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTE3IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTE3IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzk3Nl8yNTY2MSkiPgo8cGF0aCBkPSJNMjIuNTY0NiA2LjQ5MTU3QzIxLjc5MzUgOC41NDU0OSAxOS42NDIyIDkuNzk5OTcgMTcuNDM2OSA5LjM0NzAyQzE3LjExODkgOS4yOTQ4NCAxNi43OTg4IDkuMTg2MyAxNi41MDc4IDkuMDUyNzFMMTUuNTI0NyA5Ljk4NTc0QzE1LjgxNzcgMTAuNjI2NSAxNS45MjM3IDExLjM0NjcgMTUuNzYzNyAxMi4wOTM5QzE1LjM5MTYgMTMuOTM0OSAxMy41ODU0IDE1LjEzNTIgMTEuNzUyMSAxNC43MzQ0QzExLjQzNDEgMTQuNjgyMiAxMS4xMTQgMTQuNTczNyAxMC44NTAxIDE0LjQxNUw5Ljk3MjkzIDE1LjI0MTZDMTAuMjY2IDE1Ljc0ODggMTAuMzk2OSAxNi4zODk2IDEwLjI2NiAxNy4wMDMzQzkuOTk5OTUgMTguMzY0MiA4LjY3MTc3IDE5LjIxOCA3LjM0MzYgMTguOTUwOEM1Ljk4ODQgMTguNjgzNiA1LjEzODI4IDE3LjM0OTggNS40MDQzNCAxNi4wMTZDNS42NzAzOSAxNC42NTUxIDYuOTk4NTYgMTMuODAxNCA4LjMyNjc0IDE0LjA2ODVDOC41MTM4IDE0LjEyMDcgOC42OTg3OSAxNC4xNzUgOC44ODU4NiAxNC4yNTY0TDkuNjI5OTcgMTMuMjk2MkM5LjE1MTkxIDEyLjU3NjEgOC45Mzk5IDExLjY0MSA5LjEyNDg5IDEwLjczNTFDOS40OTY5NSA4Ljg5NDA3IDExLjMwMzIgNy43MjEgMTMuMTM2NCA4LjA5NDYzQzEzLjI5NjUgOC4xMjE3NyAxMy40ODE1IDguMTczOTUgMTMuNjQxNSA4LjIyODIyTDE0LjQ2NDYgNy4xODY2NUMxMy45MzI1IDYuMjUzNjEgMTMuNzIwNSA1LjEzMjcyIDEzLjkzMjUgNC4wMTE4M0MxNC4yMjU2IDIuNTcxNTggMTUuMTU0NyAxLjQ1MDY5IDE2LjM3NjkgMC44NjQxNTVDMTUuNzM4NyAwLjU5Njk3OCAxNS4wNzU3IDAuNDExMjA3IDE0LjM1NjUgMC4yNTA0ODNDNy44OTg1NiAtMS4wODc0OSAxLjU3NTcgMy4xMDE3NiAwLjI0NzUyMyA5LjU4NDk4Qy0xLjA4MDY1IDE2LjA2ODIgMy4wOTA5NCAyMi40MTc4IDkuNTQ2ODMgMjMuNzUxNkMxNi4wMjk3IDI1LjA4NTQgMjIuMzI1NiAyMC44OTYyIDIzLjY1MzggMTQuNDEyOUMyNC4yMTI5IDExLjYxMTggMjMuNzU5OCA4LjgzNzcyIDIyLjU2NDYgNi40ODk0OFY2LjQ5MTU3WiIgZmlsbD0iIzE2QTM0QSIvPgo8cGF0aCBkPSJNMzcuNzE2NyAyMS4zMjQxTDM5LjIwNDkgMTUuNTkwMkMzOS4yMjU3IDE1LjUwNDYgMzkuMjQyMyAxNS40Mjk1IDM5LjI1NDggMTUuMzY4OUMzOS4yNjcyIDE1LjMwODQgMzkuMjczNSAxNS4yNTIgMzkuMjc1NSAxNS4xOTk5QzM5LjI5MDEgMTQuOTI0MyAzOS4wNTUyIDE0Ljc4NDUgMzguNTczIDE0Ljc4NDVIMzIuOTE1M0wzMS4yMDQ2IDIxLjMyNDFIMjcuMjc4M0wzMC42NjIyIDguNDgwNzhIMzQuNTg4NUwzMy42ODg1IDExLjg3ODlIMzkuMDYzNUwzOS44MjA4IDguNDgwNzhINDMuNzQ3MUw0MC4zNjMxIDIxLjMyNDFIMzcuNzE2N1oiIGZpbGw9IiMxNkEzNEEiLz4KPHBhdGggZD0iTTU3LjAyMjcgMjEuMzI0MUw1NC4yMTcxIDE3Ljg2NjFINTEuNjk2N0w1MC41NTg0IDIxLjMyNDFINDYuNjMyMUw1MC4wMTYgOC40ODA3OEg1Ni4xNDg2QzU4Ljg0MjUgOC40ODA3OCA2MC40NjgyIDEwLjI5OTcgNTkuOTcxOSAxMi42MjgyQzU5LjYyNzIgMTQuMjI0NSA1OC40NTUgMTUuNjMxOSA1Ni45ODA5IDE2LjIwNjJMNjAuMzQ0MiAyMS4zMjQxSDU3LjAyMjdaTTU1LjIzNDggMTQuODk5Nkw1NS42NjUgMTQuODk5NkM1Ni42NzQ5IDE0Ljg5OTYgNTcuNTYzNiAxNC4zNjM5IDU3Ljc2NSAxMy4zNzQ3QzU3Ljk0MDIgMTIuNTQyMyA1Ny40NDIgMTEuODkxNyA1Ni40MzIxIDExLjg5MTdINTUuOTI5MUw1NS4yMzQ4IDE0Ljg5OTZaIiBmaWxsPSIjMTZBMzRBIi8+CjxwYXRoIGQ9Ik02OC43NDE5IDIxLjMyNDFMNzAuMTc0NiAxNS41NjI3QzcwLjI4NSAxNS4wOTQ3IDcwLjMwNDUgMTQuNzcwNCA3MC4zMTYxIDE0LjU5NzFDNzAuMzM3IDE0LjMxMSA3MC4xMjI5IDE0LjE2NDcgNjkuNjQwNiAxNC4xNjQ3SDY4LjEyNTFMNjYuMzQ3MSAyMS4zMjQxSDYyLjQzMTlMNjUuODE1OCA4LjQ4MDc4SDc1LjcxMDdDNzguMzMxOCA4LjQ4MDc4IDc5LjE3MSAxMC4xODk0IDc4LjcwMjUgMTIuMzg5NEw3Ni45NjkyIDIxLjMyNDFINzMuMDQzOUw3NC41NTc1IDE1LjI1NzJDNzQuNjI4NCAxNC45MDM2IDc0LjY1NTEgMTQuNjkxNyA3NC42Njc5IDE0LjU1OEM3NC42OTA2IDE0LjI3MjQgNzQuNTAyNyAxNC4xMjU4IDc0LjAxMiAxNC4xMjU4SDcyLjQ3MDRMNzAuNjU4NCAyMS4zMjQxSDY4Ljc0MTlaIiBmaWxsPSIjMTZBMzRBIi8+CjxwYXRoIGQ9Ik04NC44NjcxIDIxLjMyNDFMODYuNTQzMiAxMy43MDE5QzgzLjk1NzMgMTUuMTA5MyA4My4yNDgyIDE1LjkzMTcgODIuNjc4NyAxOC4zOTU0TDgxLjk0NzQgMjEuMzI0MUg3OC4wMjIyTDgxLjQwNjEgOC40ODA3OEg4NS4zMzI0TDgzLjcwMTQgMTUuNTQxNkw5MC4wMzkyIDguNDgwNzhIOTMuMjE0N0w4NC44NjcxIDIxLjMyNDFaIiBmaWxsPSIjMTZBMzRBIi8+CjxwYXRoIGQ9Ik05Ny4wMjQ3IDIxLjYxNDVDOTMuMjU5NCAyMS42MTQ1IDkxLjYyMjcgMTguNjc3MiA5Mi40ODkyIDE0LjkxOEM5My4zNTU2IDExLjE1ODkgOTYuMTM0MSA4LjE5MDkyIDk5LjkzNjMgOC4xOTA5MkMxMDMuNzQyIDguMTkwOTIgMTA1LjMzOSAxMS4xNTg5IDEwNC40NzMgMTQuOTE4QzEwMy42MDYgMTguNjc3MiAxMDAuNzkzIDIxLjYxNDUgOTcuMDI0NyAyMS42MTQ1Wk05Ny4xMDg5IDE4LjYzNDdDOTkuMTM0MyAxOC42MzQ3IDEwMC4yODkgMTYuNTYxMyAxMDAuNzEzIDE0LjY5NTJDMTAxLjEzOSAxMi44MTczIDEwMC42ODggMTEuMTcwNCA5OC44MDQ0IDExLjE3MDRDOTYuOTIwNyAxMS4xNzA0IDk1LjYxNjcgMTMuMTA1NCA5NS4xOTU3IDE0Ljk0NDZDOTQuNjk0MiAxNy4xMjEgOTUuMDcyIDE4LjYzNDcgOTcuMTA4OSAxOC42MzQ3WiIgZmlsbD0iIzE2QTM0QSIvPgo8cGF0aCBkPSJNMTA1LjAxNyA4LjQ4MDc4SDExMy44OEwxMTMuMDI3IDExLjM0MjlIMTA4LjA2NUwxMDcuNTI1IDEzLjY0NjRIMTExLjc2OEwxMTEuMDE1IDE2LjIxNjVIMTA2LjczNUwxMDUuODExIDE5LjIxNjJIMTEwLjc0NEwxMDkuOTg4IDIxLjMyNDFIMTAxLjA5MUwxMDUuMDE3IDguNDgwNzhaIiBmaWxsPSIjMTZBMzRBIi8+CjxwYXRoIGQ9Ik0xMTIuMjkzIDguNDgwNzhIMTE2LjcyM0wxMTQuMDQ3IDE3LjQwMjVDMTE0LjAxMSAxNy41Nzk3IDExMy45OTUgMTcuNzQ1NCAxMTQuMDE2IDE3Ljc3MjVDMTE0LjAzNyAxNy43OTk2IDExNC4xMDQgMTcuODE0MSAxMTQuMTk4IDE3LjgxNDFIMTE1LjE3OUwxMTQuNDIzIDIxLjMyNDFIMTEyLjMxM0MxMTAuNDY2IDIxLjMyNDEgMTA5LjgxIDIwLjIzIDExMC4xODIgMTguNDkzNUwxMTIuMjkzIDguNDgwNzhaIiBmaWxsPSIjMTZBMzRBIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMzk3Nl8yNTY2MSI+CjxyZWN0IHdpZHRoPSIxMTciIGhlaWdodD0iMjQiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==" alt="RunDot"></a>
+  <a class="nav-logo" href="./"><img src="./assets/rundot-logo-dark.svg" alt="RunDot"></a>
   <div class="nav-links">
-    <a href="#why-rundot">Why RunDot</a>
-    <a href="#how-it-works">How It Works</a>
     <a href="./pricing/">Pricing</a>
     <a href="./resources/">Resources</a>
-    <a href="https://app.rundot.com/login" class="nav-login" target="_blank">Log In</a>
-    <a href="#" class="nav-cta" onclick="openAppModal(event)">Start Free Trial</a>
+    <a href="#" class="nav-login">Log In</a>
+    <a href="#" class="nav-cta" onclick="openQR()">Start Free</a>
   </div>
 </nav>
 
-<!-- 1. HERO -->
+<!-- 1. HERO — VIDEO -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-video">
+    <video autoplay muted loop playsinline poster="./assets/hero-bright-runner.jpg">
+      <source src="./assets/hero-video.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1 class="fade-up">Trust<br><em>the run.</em></h1>
-    <p class="hero-sub fade-up">Intelligent training that adapts to your body, your life, and the road ahead — so every run feels like the right one.</p>
-    <div class="hero-actions fade-up">
-      <a href="#" class="btn-primary-hero" onclick="openAppModal(event)">Start Your Free Trial</a>
-      <a href="#how-it-works" class="btn-ghost-hero">See How It Works</a>
+    <h1>Trust the <em>run.</em></h1>
+    <p class="hero-sub">You shouldn't have to wonder if today's workout is right. RunDot™ removes the guesswork — so you can focus on the thing you love most.</p>
+    <div class="hero-cta-row">
+      <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Start Free Trial</a>
+      <a href="#how" class="btn-outline">See How It Works</a>
     </div>
   </div>
 </section>
 
 <!-- 2. TRUST STRIP -->
 <div class="trust-strip">
-  <div class="trust-inner fade-up">
-    <div class="trust-stat">
-      <div class="trust-number">20+</div>
-      <div class="trust-label">Years of Training Data</div>
+  <div class="trust-row">
+    <div class="trust-item">
+      <div class="trust-num">20+ <span class="green">years</span></div>
+      <div class="trust-label">of real athlete data</div>
     </div>
-    <div class="trust-divider"></div>
-    <div class="trust-stat">
-      <div class="trust-rating">
-        <span class="trust-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-      </div>
-      <div class="trust-label">App Store Rating</div>
+    <div class="trust-item">
+      <div class="trust-num">★★★★★</div>
+      <div class="trust-label">top-rated training app</div>
     </div>
-    <div class="trust-divider"></div>
-    <div class="trust-stat">
-      <div class="trust-number">30%</div>
-      <div class="trust-label">Less Training Time</div>
+    <div class="trust-item">
+      <div class="trust-num">30% <span class="green">less</span></div>
+      <div class="trust-label">training time, better results</div>
     </div>
   </div>
 </div>
 
-<!-- 3. THE PROBLEM -->
-<section class="section problem" id="why-rundot">
-  <div class="section-inner">
-    <div class="problem-header">
-      <div class="section-eyebrow fade-up">Sound Familiar?</div>
-      <h2 class="section-title fade-up">Every runner carries<br><em>the same doubt.</em></h2>
-      <p class="section-sub fade-up">You love running. But somewhere between the training plans, the advice, and the apps — the doubt crept in. You started spending more time thinking about running than actually running.</p>
+<!-- 3. SOUND FAMILIAR? — Problem -->
+<section class="section familiar">
+  <div class="section-inner fade-up">
+    <div class="section-header">
+      <div class="section-eyebrow">Sound familiar?</div>
+      <h2 class="section-title">Every runner has asked these questions.</h2>
+      <p class="section-sub">The biggest thing standing between you and your best running isn't fitness. It's uncertainty.</p>
     </div>
-    <div class="problem-grid">
-      <div class="problem-card fade-up">
-        <div class="doubt">"Am I training enough?"</div>
-        <div class="relief">The fear that you'll show up to the start line and your body won't be ready. You're always doing the math, and it never quite adds up.</div>
-      </div>
-      <div class="problem-card fade-up">
-        <div class="doubt">"Am I doing too much?"</div>
-        <div class="relief">That nagging worry after every hard week. The tight hamstring you're trying to ignore. The guilt when you take a rest day.</div>
-      </div>
-      <div class="problem-card fade-up">
-        <div class="doubt">"Should I run today or rest?"</div>
-        <div class="relief">You've read the articles. You've asked the forums. You still don't know. So you go out and run — and wonder if you shouldn't have.</div>
-      </div>
-      <div class="problem-card fade-up">
-        <div class="doubt">"Will I actually be ready?"</div>
-        <div class="relief">Race day is coming. Your plan says you're on track. But you don't feel on track. And no one can tell you if you are.</div>
-      </div>
+    <div class="familiar-grid">
+      <div class="familiar-card"><p>"Am I training enough?"</p></div>
+      <div class="familiar-card"><p>"Am I doing too much?"</p></div>
+      <div class="familiar-card"><p>"Should I run today or rest?"</p></div>
+      <div class="familiar-card"><p>"Will I actually be ready?"</p></div>
     </div>
   </div>
 </section>
 
-<!-- 4. THE PROMISE -->
+<!-- 4. PROMISE — What if you never had to wonder? -->
 <section class="section promise">
-  <div class="section-inner">
+  <div class="section-inner fade-up">
     <div class="promise-header">
-      <div class="section-eyebrow fade-up">What If You Never Had to Wonder?</div>
-      <h2 class="section-title fade-up">Your plan adapts.<br><em>Your confidence grows.</em></h2>
-      <p class="section-sub fade-up">RunDot&#8482; removes the guesswork from training — so you can focus on what running was always supposed to be about.</p>
+      <div class="section-eyebrow">The RunDot™ promise</div>
+      <h2 class="section-title">What if you never had to wonder?</h2>
+      <p class="section-sub">RunDot™ replaces uncertainty with confidence. Every day, you know exactly what to do.</p>
     </div>
     <div class="promise-grid">
-      <div class="promise-card fade-up">
+      <div class="promise-card">
         <div class="promise-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         </div>
-        <div class="promise-title">Your plan adapts daily</div>
-        <div class="promise-desc">Every workout is prescribed for your body today — not a template from a spreadsheet. Had a rough night? It adjusts. Feeling strong? It challenges you.</div>
+        <h3>Your plan adapts daily</h3>
+        <p>Not a static plan that ignores your life. RunDot™ adjusts every workout based on how your body is actually responding.</p>
       </div>
-      <div class="promise-card fade-up">
+      <div class="promise-card">
         <div class="promise-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <div class="promise-title">You train less and improve more</div>
-        <div class="promise-desc">Intelligent training cuts the wasted miles — so you have time for everything else. Better results. More life. Less wear on your body.</div>
+        <h3>Train less, improve more</h3>
+        <p>Runners using RunDot™ train 30% less volume while seeing faster improvement. Quality over quantity, every session.</p>
       </div>
-      <div class="promise-card fade-up">
+      <div class="promise-card">
         <div class="promise-icon">
           <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
-        <div class="promise-title">You show up ready</div>
-        <div class="promise-desc">Race day confidence isn't a feeling you hope for. It's the result of thousands of data points working in your favor — every single day.</div>
+        <h3>Show up ready</h3>
+        <p>Whether it's your first 5K or your next marathon, you'll arrive at the start line with confidence — not anxiety.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- 5. HOW IT WORKS -->
-<section class="section how-it-works" id="how-it-works">
-  <div class="section-inner">
-    <div class="how-header">
-      <div class="section-eyebrow fade-up">How It Works</div>
-      <h2 class="section-title fade-up">Three steps.<br><em>That's it.</em></h2>
-      <p class="section-sub fade-up">No setup headaches. No learning curve. No certification required. Just you and the road.</p>
+<section class="section how" id="how">
+  <div class="section-inner fade-up">
+    <div class="section-header">
+      <div class="section-eyebrow">How it works</div>
+      <h2 class="section-title">Three steps. That's it.</h2>
+      <p class="section-sub">No complicated setup. No data science degree required.</p>
     </div>
     <div class="how-steps">
-      <div class="how-step fade-up">
-        <div class="step-number">1</div>
-        <div class="step-title">Tell us about you</div>
-        <div class="step-desc">Your goals, your experience, your schedule, your fitness level. A few minutes and we know what you need.</div>
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <h3>Tell us about you</h3>
+        <p>Your fitness, your goals, your schedule. RunDot™ starts learning from day one.</p>
       </div>
-      <div class="how-step fade-up">
-        <div class="step-number">2</div>
-        <div class="step-title">Get your daily workout</div>
-        <div class="step-desc">Prescribed fresh every day — adapted to your body, your recovery, and the conditions outside. Not a plan. A prediction.</div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <h3>Get your daily workout</h3>
+        <p>Open the app. Your workout is already there — paces adjusted for today's weather, your recent training, and your body's readiness.</p>
       </div>
-      <div class="how-step fade-up">
-        <div class="step-number">3</div>
-        <div class="step-title">Run</div>
-        <div class="step-desc">That's it. We handle the science. You handle the road. Open the app, see today's run, go.</div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <h3>Run</h3>
+        <p>That's the whole point, isn't it? Stop planning. Start running. Trust the process.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- 5.5 FEATURE PHOTO — TrainingPeaks-style alternating -->
+<section class="feature-photo fade-up">
+  <div class="feature-photo-img" style="background-image: url('./assets/runner-trail-woman.jpg');"></div>
+  <div class="feature-photo-content" style="background: var(--off-white);">
+    <div class="section-eyebrow">Confidence in every step</div>
+    <h2 class="section-title">Your training. Built around your life.</h2>
+    <p class="section-sub">Travel, sick days, tough weeks — life happens. RunDot™ recalibrates your plan in real time so you never fall behind. No guilt, no catch-up workouts.</p>
+    <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Try it free</a>
+  </div>
+</section>
+
+<section class="feature-photo reverse fade-up">
+  <div class="feature-photo-img" style="background-image: url('./assets/runner-woman-road.jpg');"></div>
+  <div class="feature-photo-content" style="background: var(--white);">
+    <div class="section-eyebrow">Less is more</div>
+    <h2 class="section-title">Better running without the burnout.</h2>
+    <p class="section-sub">RunDot™ athletes train 30% less volume and still see faster improvement. Because the right workout at the right time beats more miles every time.</p>
+    <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Start free trial</a>
   </div>
 </section>
 
 <!-- 6. SOCIAL PROOF — Meb -->
 <section class="section meb-section">
   <div class="section-inner">
-    <div class="meb-inner">
-      <div class="meb-photo fade-up">
-        <img src="./assets/meb-keflezighi-running.jpg" alt="Meb Keflezighi">
-      </div>
-      <div class="meb-text fade-up">
-        <div class="section-eyebrow">Trusted by the Best</div>
-        <div class="meb-quote">RunDot's technology is so far ahead of anything else I've seen, and I want the absolute best for my athletes.</div>
-        <div class="meb-name">Meb Keflezighi</div>
-        <div class="meb-title">Olympic Silver Medalist &#183; Boston &amp; NYC Marathon Champion</div>
+    <div class="meb-grid fade-up">
+      <img src="./assets/meb-keflezighi-running.jpg" alt="Meb Keflezighi" class="meb-photo" loading="lazy">
+      <div class="meb-text">
+        <blockquote>"RunDot's technology is so far ahead of anything else I've seen, and I want the absolute best for my athletes."</blockquote>
+        <cite>Meb Keflezighi — Olympic Marathon Medalist &amp; Boston Marathon Champion</cite>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 6b. SOCIAL PROOF — Testimonials -->
+<!-- 7. TESTIMONIALS -->
 <section class="section testimonials">
-  <div class="section-inner">
-    <div class="testimonials-header">
-      <div class="section-eyebrow fade-up">Runner Stories</div>
-      <h2 class="section-title fade-up">Real runners.<br><em>Real confidence.</em></h2>
-      <p class="section-sub fade-up">They stopped wondering. They started trusting. Here's what happened next.</p>
+  <div class="section-inner fade-up">
+    <div class="section-header">
+      <div class="section-eyebrow">Real runners. Real results.</div>
+      <h2 class="section-title">They stopped wondering. They started trusting.</h2>
     </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card fade-up">
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testimonial-text">"An 11-minute personal best! Running slow to gain speed really works — RunDot proved it."</div>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">J</div>
-          <div>
-            <div class="testimonial-name">J. Richards</div>
-            <div class="testimonial-detail">11-min PR</div>
-          </div>
-        </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"I stopped planning and started running. I just open the app and go. It's changed how I feel about training."</p>
+        <cite>— Verified Athlete</cite>
       </div>
-      <div class="testimonial-card fade-up">
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testimonial-text">"RunDot has been amazing for me! At 63, I'm running pain-free, injury-free, and faster than ever. Highly recommend!"</div>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">K</div>
-          <div>
-            <div class="testimonial-name">Kathy</div>
-            <div class="testimonial-detail">Running strong at 63</div>
-          </div>
-        </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"I trusted the process. Then I PR'd. Training less, running faster — I didn't think it was possible."</p>
+        <cite>— Verified Athlete</cite>
       </div>
-      <div class="testimonial-card fade-up">
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testimonial-text">"I felt so prepared for my race and finished almost exactly as RunDot predicted. I trust the process completely."</div>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">A</div>
-          <div>
-            <div class="testimonial-name">A.L.</div>
-            <div class="testimonial-detail">Race prediction nailed</div>
-          </div>
-        </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"I never wonder what I should do anymore. That peace of mind is worth everything."</p>
+        <cite>— Verified Athlete</cite>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 7. THE APP -->
-<section class="section app-showcase" id="app">
+<!-- 8. APP -->
+<section class="section app-section">
   <div class="section-inner">
-    <div class="app-header">
-      <div class="section-eyebrow fade-up">The App</div>
-      <h2 class="section-title fade-up">Open. Run.<br><em>Repeat.</em></h2>
-      <p class="section-sub fade-up">No complicated dashboards. No data overload. Just open the app, see today's run, and go.</p>
-    </div>
-    <div class="app-highlights fade-up">
-      <div class="app-highlight">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        <span>Paces adjust for weather</span>
-      </div>
-      <div class="app-highlight">
-        <svg viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
-        <span>Track your progress</span>
-      </div>
-      <div class="app-highlight">
-        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        <span>Run with friends</span>
-      </div>
-    </div>
-    <div class="phone-row fade-up">
-      <div class="phone-frame"><img src="./assets/app-screenshot-schedule.png" alt="Training schedule"></div>
-      <div class="phone-frame"><img src="./assets/app-screenshot-workout.png" alt="Workout details"></div>
-      <div class="phone-frame"><img src="./assets/app-screenshot-group.png" alt="Community"></div>
-      <div class="phone-frame"><img src="./assets/app-screenshot-profile.png" alt="Your profile"></div>
-    </div>
-  </div>
-</section>
-
-<!-- 8. THE SCIENCE -->
-<section class="section science" id="science">
-  <div class="section-inner">
-    <div class="science-inner">
-      <div class="science-text fade-up">
-        <div class="section-eyebrow">Why It Works</div>
-        <h2 class="section-title">Built on 20 years of<br><em>real training data.</em></h2>
-        <p class="section-sub">Behind the simplest training app you'll ever use is a purpose-built intelligence engine that has analyzed millions of real workouts to understand what actually drives improvement — not theories, not recycled coaching philosophies, not generic plans.</p>
-        <div class="science-points">
-          <div class="science-point">
-            <div class="science-icon">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-            </div>
-            <div class="science-point-text">
-              <h4>It learns how your body responds</h4>
-              <p>Every runner is different. RunDot&#8482; measures your unique training response and adjusts — not based on averages, but on you.</p>
-            </div>
+    <div class="app-content fade-up">
+      <div class="app-text">
+        <div class="section-eyebrow">The app</div>
+        <h2 class="section-title">Open. Run. Repeat.</h2>
+        <p class="section-sub">Your daily workout is always there. Paces adjusted for weather, training load, and recovery. No decisions required.</p>
+        <div class="app-highlights">
+          <div class="app-highlight">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <span>Weather-adjusted paces — every workout adapts to conditions</span>
           </div>
-          <div class="science-point">
-            <div class="science-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
-            </div>
-            <div class="science-point-text">
-              <h4>It predicts what comes next</h4>
-              <p>Unlike apps that automate generic templates, RunDot&#8482; forecasts how today's training affects your readiness days in advance.</p>
-            </div>
+          <div class="app-highlight">
+            <svg viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+            <span>Progress tracking — watch your Dot Score™ improve over time</span>
           </div>
-          <div class="science-point">
-            <div class="science-icon">
-              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </div>
-            <div class="science-point-text">
-              <h4>It keeps you healthy</h4>
-              <p>Constantly monitoring your training stress to keep you on the right side of injury — so you stay running, not recovering.</p>
-            </div>
+          <div class="app-highlight">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Run with friends — share workouts, compare progress, stay accountable</span>
           </div>
         </div>
       </div>
-      <div class="science-visual fade-up">
-        <img src="./assets/runner-woman-road.jpg" alt="Woman running on road">
-        <div class="science-badge">
-          <div class="science-badge-dot">
-            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <div class="science-badge-text">
-            Purpose-built intelligence
-            <span>Powered by FitLogic&#8482;</span>
-          </div>
-        </div>
+      <div class="app-phones">
+        <img src="./assets/app-screenshot-schedule.png" alt="RunDot schedule" loading="lazy">
+        <img src="./assets/app-screenshot-workout.png" alt="RunDot workout" loading="lazy">
       </div>
     </div>
   </div>
 </section>
 
-<!-- 9. MOMENTS -->
-<section class="section moments" id="moments">
-  <div class="section-inner">
-    <div class="moments-header">
-      <div class="section-eyebrow fade-up">This Is Why You Run</div>
-      <h2 class="section-title fade-up">More miles.<br><em>More moments.</em></h2>
-      <p class="section-sub fade-up">Running isn't about workouts. It's the sunrise that takes your breath away, the trail that clears your mind, the finish line that changes how you see yourself. We handle the training so you can live for the moments.</p>
+<!-- 9. SCIENCE — Why it works (tech credibility, Section 8 role) -->
+<section class="section science">
+  <div class="section-inner fade-up">
+    <div class="section-header">
+      <div class="section-eyebrow">Why it works</div>
+      <h2 class="section-title">Built on 20 years of real training data.</h2>
+      <p class="section-sub">RunDot™ is powered by FitLogic™ — an intelligent training engine that learns how your body responds to training, rest, and race conditions.</p>
+    </div>
+    <div class="science-grid">
+      <div class="science-card">
+        <div class="science-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </div>
+        <h3>Adapts every day</h3>
+        <p>Your plan isn't static. It recalculates after every workout, rest day, and life event — optimizing your path forward.</p>
+      </div>
+      <div class="science-card">
+        <div class="science-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+        </div>
+        <h3>Learns your body</h3>
+        <p>FitLogic™ builds a unique performance model for every athlete — how you respond to speed, volume, and recovery.</p>
+      </div>
+      <div class="science-card">
+        <div class="science-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Millions of data points</h3>
+        <p>Two decades of training, racing, and recovery data from real athletes — not theories, not formulas, not guesswork.</p>
+      </div>
+    </div>
+    <div class="science-badge">
+      <div class="science-badge-dot">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <span>Powered by FitLogic™ — the intelligent training engine behind every RunDot™ workout</span>
+    </div>
+  </div>
+</section>
+
+<!-- 10. MOMENTS — Photo grid -->
+<section class="section moments">
+  <div class="section-inner fade-up">
+    <div class="section-header">
+      <div class="section-eyebrow">Running is more than workouts</div>
+      <h2 class="section-title">It's the moments that matter.</h2>
     </div>
     <div class="moments-grid">
-      <div class="moment-card fade-up">
-        <img src="./assets/runner-trail-flat.jpg" alt="Runner on a trail at golden hour">
-        <div class="moment-overlay">
-          <div class="moment-quote">"I stopped planning and started running."</div>
-          <div class="moment-caption">The trail. The sunrise. The freedom.</div>
-        </div>
+      <div class="moment-card">
+        <img src="./assets/runner-trail-woman.jpg" alt="Trail runner" loading="lazy">
+        <div class="moment-overlay"><p>"I stopped planning and started running."</p></div>
       </div>
-      <div class="moment-card fade-up">
-        <img src="./assets/runner-tattooed-road.jpg" alt="Runner pushing on the road">
-        <div class="moment-overlay">
-          <div class="moment-quote">"I trusted the process. Then I PR'd."</div>
-          <div class="moment-caption">Less doubt. More road.</div>
-        </div>
+      <div class="moment-card">
+        <img src="./assets/runner-tattoos-road.jpg" alt="Road runner" loading="lazy">
+        <div class="moment-overlay"><p>"I trusted the process. Then I PR'd."</p></div>
       </div>
-      <div class="moment-card fade-up">
-        <img src="./assets/runner-road-serious.jpg" alt="Focused runner in training">
-        <div class="moment-overlay">
-          <div class="moment-quote">"I never wonder what I should do anymore."</div>
-          <div class="moment-caption">Confident. Ready. Running.</div>
-        </div>
+      <div class="moment-card">
+        <img src="./assets/runner-road-serious.jpg" alt="Focused runner" loading="lazy">
+        <div class="moment-overlay"><p>"I never wonder what I should do anymore."</p></div>
       </div>
+      <div class="moment-card">
+        <img src="./assets/runner-woman-road.jpg" alt="Woman running" loading="lazy">
+        <div class="moment-overlay"><p>"I'm becoming the runner I always hoped I could be."</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="fade-up">
+    <h2 class="section-title">Your next run is already planned.</h2>
+    <p class="section-sub">Start your free trial today. No credit card required.</p>
+    <div class="cta-row">
+      <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Start Free Trial</a>
     </div>
   </div>
 </section>
@@ -852,83 +778,91 @@
 <!-- PARTNERS -->
 <div class="partners">
   <div class="partners-inner">
-    <div class="partners-label fade-up">Trusted Partners</div>
-    <div class="partners-logos fade-up">
-      <img src="./assets/sf-marathon-logo.png" alt="SF Marathon" class="sf-marathon">
-      <img src="./assets/elite-energy-logo.png" alt="Elite Energy Events">
-      <img src="./assets/rose-bowl-logo.png" alt="Rose Bowl Half Marathon">
-      <img src="./assets/la-marathon-logo.png" alt="LA Marathon">
-      <img src="./assets/wildflower-logo.png" alt="Wildflower">
+    <div class="partners-label">Trusted by race partners &amp; elite coaches</div>
+    <div class="partners-logos">
+      <img class="sf-marathon" src="./assets/sf-marathon-logo.png" alt="San Francisco Marathon" loading="lazy">
+      <img src="./assets/elite-energy-logo.png" alt="Elite Energy" loading="lazy">
+      <img src="./assets/rose-bowl-logo.png" alt="Rose Bowl Half Marathon" loading="lazy">
+      <img src="./assets/la-marathon-logo.png" alt="LA Marathon" loading="lazy">
+      <img src="./assets/wildflower-logo.png" alt="Wildflower" loading="lazy">
     </div>
   </div>
 </div>
 
-<!-- 10. FINAL CTA -->
-<section class="cta-section">
-  <div class="cta-content">
-    <div class="section-eyebrow fade-up">Ready?</div>
-    <h2 class="section-title fade-up">Your next run is<br><em>already planned.</em></h2>
-    <p class="section-sub fade-up">Start your free trial today. No credit card required. Just better running.</p>
-    <div class="cta-actions fade-up">
-      <a href="#" class="btn-primary" onclick="openAppModal(event)">Start Your Free Trial</a>
-      <a href="./pricing/" class="btn-ghost-dark">View Pricing</a>
-    </div>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">
-      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTE3IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTE3IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzk3Nl8yNTY2MSkiPgo8cGF0aCBkPSJNMjIuNTY0NiA2LjQ5MTU3QzIxLjc5MzUgOC41NDU0OSAxOS42NDIyIDkuNzk5OTcgMTcuNDM2OSA5LjM0NzAyQzE3LjExODkgOS4yOTQ4NCAxNi43OTg4IDkuMTg2MyAxNi41MDc4IDkuMDUyNzFMMTUuNTI0NyA5Ljk4NTc0QzE1LjgxNzcgMTAuNjI2NSAxNS45MjM3IDExLjM0NjcgMTUuNzYzNyAxMi4wOTM5QzE1LjM5MTYgMTMuOTM0OSAxMy41ODU0IDE1LjEzNTIgMTEuNzUyMSAxNC43MzQ0QzExLjQzNDEgMTQuNjgyMiAxMS4xMTQgMTQuNTczNyAxMC44NTAxIDE0LjQxNUw5Ljk3MjkzIDE1LjI0MTZDMTAuMjY2IDE1Ljc0ODggMTAuMzk2OSAxNi4zODk2IDEwLjI2NiAxNy4wMDMzQzkuOTk5OTUgMTguMzY0MiA4LjY3MTc3IDE5LjIxOCA3LjM0MzYgMTguOTUwOEM1Ljk4ODQgMTguNjgzNiA1LjEzODI4IDE3LjM0OTggNS40MDQzNCAxNi4wMTZDNS42NzAzOSAxNC42NTUxIDYuOTk4NTYgMTMuODAxNCA4LjMyNjc0IDE0LjA2ODVDOC41MTM4IDE0LjEyMDcgOC42OTg3OSAxNC4xNzUgOC44ODU4NiAxNC4yNTY0TDkuNjI5OTcgMTMuMjk2MkM5LjE1MTkxIDEyLjU3NjEgOC45Mzk5IDExLjY0MSA5LjEyNDg5IDEwLjczNTFDOS40OTY5NSA4Ljg5NDA3IDExLjMwMzIgNy43MjEgMTMuMTM2NCA4LjA5NDYzQzEzLjI5NjUgOC4xMjE3NyAxMy40ODE1IDguMTczOTUgMTMuNjQxNSA4LjIyODIyTDE0LjQ2NDYgNy4xODY2NUMxMy45MzI1IDYuMjUzNjEgMTMuNzIwNSA1LjEzMjcyIDEzLjkzMjUgNC4wMTE4M0MxNC4yMjU2IDIuNTcxNTggMTUuMTU0NyAxLjQ1MDY5IDE2LjM3NjkgMC44NjQxNTVDMTUuNzM4NyAwLjU5Njk3OCAxNS4wNzU3IDAuNDExMjA3IDE0LjM1NjUgMC4yNTA0ODNDNy44OTg1NiAtMS4wODc0OSAxLjU3NTcgMy4xMDE3NiAwLjI0NzUyMyA5LjU4NDk4Qy0xLjA4MDY1IDE2LjA2ODIgMy4wOTA5NCAyMi40MTc4IDkuNTQ2ODMgMjMuNzUxNkMxNi4wMjk3IDI1LjA4NTQgMjIuMzI1NiAyMC44OTYyIDIzLjY1MzggMTQuNDEyOUMyNC4yMTI5IDExLjYxMTggMjMuNzU5OCA4LjgzNzcyIDIyLjU2NDYgNi40ODk0OFY2LjQ5MTU3WiIgZmlsbD0iIzE2QTM0QSIvPgo8cGF0aCBkPSJNMzcuNzE2NyAyMS4zMjQxTDM5LjIwNDkgMTUuNTkwMkMzOS4yMjU3IDE1LjUwNDYgMzkuMjQyMyAxNS40Mjk1IDM5LjI1NDggMTUuMzY4OUMzOS4yNjcyIDE1LjMwODQgMzkuMjczNSAxNS4yNTIgMzkuMjc1NSAxNS4xOTk5QzM5LjI5MDEgMTQuOTI0MyAzOS4wNTUyIDE0Ljc4NDUgMzguNTczIDE0Ljc4NDVIMzIuOTE1M0wzMS4yMDQ2IDIxLjMyNDFIMjcuMjc4M0wzMC42NjIyIDguNDgwNzhIMzQuNTg4NUwzMy42ODg1IDExLjg3ODlIMzkuMDYzNUwzOS44MjA4IDguNDgwNzhINDMuNzQ3MUw0MC4zNjMxIDIxLjMyNDFIMzcuNzE2N1oiIGZpbGw9IiMxNkEzNEEiLz4KPHBhdGggZD0iTTU3LjAyMjcgMjEuMzI0MUw1NC4yMTcxIDE3Ljg2NjFINTEuNjk2N0w1MC41NTg0IDIxLjMyNDFINDYuNjMyMUw1MC4wMTYgOC40ODA3OEg1Ni4xNDg2QzU4Ljg0MjUgOC40ODA3OCA2MC40NjgyIDEwLjI5OTcgNTkuOTcxOSAxMi42MjgyQzU5LjYyNzIgMTQuMjI0NSA1OC40NTUgMTUuNjMxOSA1Ni45ODA5IDE2LjIwNjJMNjAuMzQ0MiAyMS4zMjQxSDU3LjAyMjdaTTU1LjIzNDggMTQuODk5Nkw1NS42NjUgMTQuODk5NkM1Ni42NzQ5IDE0Ljg5OTYgNTcuNTYzNiAxNC4zNjM5IDU3Ljc2NSAxMy4zNzQ3QzU3Ljk0MDIgMTIuNTQyMyA1Ny40NDIgMTEuODkxNyA1Ni40MzIxIDExLjg5MTdINTUuOTI5MUw1NS4yMzQ4IDE0Ljg5OTZaIiBmaWxsPSIjMTZBMzRBIi8+CjxwYXRoIGQ9Ik02OC43NDE5IDIxLjMyNDFMNzAuMTc0NiAxNS41NjI3QzcwLjI4NSAxNS4wOTQ3IDcwLjMwNDUgMTQuNzcwNCA3MC4zMTYxIDE0LjU5NzFDNzAuMzM3IDE0LjMxMSA3MC4xMjI5IDE0LjE2NDcgNjkuNjQwNiAxNC4xNjQ3SDY4LjEyNTFMNjYuMzQ3MSAyMS4zMjQxSDYyLjQzMTlMNjUuODE1OCA4LjQ4MDc4SDc1LjcxMDdDNzguMzMxOCA4LjQ4MDc4IDc5LjE3MSAxMC4xODk0IDc4LjcwMjUgMTIuMzg5NEw3Ni45NjkyIDIxLjMyNDFINzMuMDQzOUw3NC41NTc1IDE1LjI1NzJDNzQuNjI4NCAxNC45MDM2IDc0LjY1NTEgMTQuNjkxNyA3NC42Njc5IDE0LjU1OEM3NC42OTA2IDE0LjI3MjQgNzQuNTAyNyAxNC4xMjU4IDc0LjAxMiAxNC4xMjU4SDcyLjQ3MDRMNzAuNjU4NCAyMS4zMjQxSDY4Ljc0MTlaIiBmaWxsPSIjMTZBMzRBIi8+CjxwYXRoIGQ9Ik04NC44NjcxIDIxLjMyNDFMODYuNTQzMiAxMy43MDE5QzgzLjk1NzMgMTUuMTA5MyA4My4yNDgyIDE1LjkzMTcgODIuNjc4NyAxOC4zOTU0TDgxLjk0NzQgMjEuMzI0MUg3OC4wMjIyTDgxLjQwNjEgOC40ODA3OEg4NS4zMzI0TDgzLjcwMTQgMTUuNTQxNkw5MC4wMzkyIDguNDgwNzhIOTMuMjE0N0w4NC44NjcxIDIxLjMyNDFaIiBmaWxsPSIjMTZBMzRBIi8+CjxwYXRoIGQ9Ik05Ny4wMjQ3IDIxLjYxNDVDOTMuMjU5NCAyMS42MTQ1IDkxLjYyMjcgMTguNjc3MiA5Mi40ODkyIDE0LjkxOEM5My4zNTU2IDExLjE1ODkgOTYuMTM0MSA4LjE5MDkyIDk5LjkzNjMgOC4xOTA5MkMxMDMuNzQyIDguMTkwOTIgMTA1LjMzOSAxMS4xNTg5IDEwNC40NzMgMTQuOTE4QzEwMy42MDYgMTguNjc3MiAxMDAuNzkzIDIxLjYxNDUgOTcuMDI0NyAyMS42MTQ1Wk05Ny4xMDg5IDE4LjYzNDdDOTkuMTM0MyAxOC42MzQ3IDEwMC4yODkgMTYuNTYxMyAxMDAuNzEzIDE0LjY5NTJDMTAxLjEzOSAxMi44MTczIDEwMC42ODggMTEuMTcwNCA5OC44MDQ0IDExLjE3MDRDOTYuOTIwNyAxMS4xNzA0IDk1LjYxNjcgMTMuMTA1NCA5NS4xOTU3IDE0Ljk0NDZDOTQuNjk0MiAxNy4xMjEgOTUuMDcyIDE4LjYzNDcgOTcuMTA4OSAxOC42MzQ3WiIgZmlsbD0iIzE2QTM0QSIvPgo8cGF0aCBkPSJNMTA1LjAxNyA4LjQ4MDc4SDExMy44OEwxMTMuMDI3IDExLjM0MjlIMTA4LjA2NUwxMDcuNTI1IDEzLjY0NjRIMTExLjc2OEwxMTEuMDE1IDE2LjIxNjVIMTA2LjczNUwxMDUuODExIDE5LjIxNjJIMTEwLjc0NEwxMDkuOTg4IDIxLjMyNDFIMTAxLjA5MUwxMDUuMDE3IDguNDgwNzhaIiBmaWxsPSIjMTZBMzRBIi8+CjxwYXRoIGQ9Ik0xMTIuMjkzIDguNDgwNzhIMTE2LjcyM0wxMTQuMDQ3IDE3LjQwMjVDMTE0LjAxMSAxNy41Nzk3IDExMy45OTUgMTcuNzQ1NCAxMTQuMDE2IDE3Ljc3MjVDMTE0LjAzNyAxNy43OTk2IDExNC4xMDQgMTcuODE0MSAxMTQuMTk4IDE3LjgxNDFIMTE1LjE3OUwxMTQuNDIzIDIxLjMyNDFIMTEyLjMxM0MxMTAuNDY2IDIxLjMyNDEgMTA5LjgxIDIwLjIzIDExMC4xODIgMTguNDkzNUwxMTIuMjkzIDguNDgwNzhaIiBmaWxsPSIjMTZBMzRBIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMzk3Nl8yNTY2MSI+CjxyZWN0IHdpZHRoPSIxMTciIGhlaWdodD0iMjQiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==" alt="RunDot" style="filter: brightness(10);">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><img src="./assets/rundot-logo-footer.svg" alt="RunDot"></div>
+        <p class="footer-desc">Intelligent training built on 20+ years of real athlete data. RunDot™ gives you the confidence to just run.</p>
+        <div class="footer-fitlogic">
+          <img src="./assets/powered-by-fitlogic-white.png" alt="Powered by FitLogic™" loading="lazy">
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="./pricing/">Pricing</a>
+        <a href="#">Features</a>
+        <a href="#">For Coaches</a>
+        <a href="#">Download App</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="./resources/">Blog</a>
+        <a href="./resources/">Podcast</a>
+        <a href="./resources/">Training Guides</a>
+        <a href="#">Support</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact</a>
+        <a href="https://www.predictive.fit" target="_blank">Predictive Fitness</a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="#how-it-works">How It Works</a>
-      <a href="./pricing/">Pricing</a>
-      <a href="./resources/">Resources</a>
-      <a href="#app">The App</a>
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
+    <div class="footer-bottom">
+      <p class="footer-legal">Predictive Fitness and the Predictive Fitness logo are trademarks or registered trademarks of Predictive Fitness, Inc. in the US and other countries. Other trademarks include TriDot, RunDot, TrainX, RaceX, Optimized Training and Optimized Race Execution. Additional Predictive Fitness trademarks can be found at www.predictive.fit/trademark-list | Limit the use of my sensitive data. 2600 E. Southlake Blvd. Suite 120-140, Southlake, Texas 76092</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+      </div>
     </div>
-    <div class="footer-fitlogic">
-      <img src="./assets/powered-by-fitlogic-white.png" alt="Powered by FitLogic" style="height:48px;width:auto;opacity:0.7;">
-    </div>
-    <div class="footer-legal">
-      <p>Predictive Fitness and the Predictive Fitness logo are trademarks or registered trademarks of Predictive Fitness, Inc. in the US and other countries. Other trademarks include TriDot, RunDot, TrainX, RaceX, Optimized Training and Optimized Race Execution. Additional Predictive Fitness trademarks can be found at <a href="https://www.predictive.fit/trademark-list" target="_blank">www.predictive.fit/trademark-list</a> | <a href="#">Limit the use of my sensitive data.</a></p>
-    </div>
-    <div class="footer-copy">&copy; <span id="footer-year"></span> Predictive Fitness, Inc. All rights reserved.</div>
-    <div class="footer-address">2600 E. Southlake Blvd. Suite 120-140, Southlake, Texas 76092</div>
   </div>
 </footer>
 
 <!-- QR MODAL -->
-<div class="app-modal-backdrop" id="appModal">
-  <div class="app-modal">
-    <button class="app-modal-close" onclick="closeAppModal()">&times;</button>
-    <h3>Get the RunDot&#8482; App</h3>
-    <p>Scan the QR code or tap a button below to download.</p>
-    <div class="app-modal-qr">
-      <img src="./assets/rundot-qr-code.png" alt="QR Code to download RunDot">
-    </div>
-    <div class="app-modal-stores">
-      <a href="https://apps.apple.com/app/rundot/id1619404934" target="_blank"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"></a>
-      <a href="https://play.google.com/store/apps/details?id=com.predictive.rundot" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play"></a>
+<div class="modal-overlay" id="qrModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeQR()">✕</button>
+    <h3>Get RunDot™</h3>
+    <p>Scan to download or tap below.</p>
+    <div class="qr-code">QR Code Placeholder</div>
+    <div class="store-badges">
+      <a href="#"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"></a>
+      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play"></a>
     </div>
   </div>
 </div>
 
 <script>
-document.getElementById('footer-year').textContent = new Date().getFullYear();
-function openAppModal(e) { if (e) e.preventDefault(); document.getElementById('appModal').classList.add('active'); }
-function closeAppModal() { document.getElementById('appModal').classList.remove('active'); }
-document.getElementById('appModal').addEventListener('click', function(e) { if (e.target === this) closeAppModal(); });
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeAppModal(); });
-var obs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); }
+function openQR() { document.getElementById('qrModal').classList.add('active'); }
+function closeQR() { document.getElementById('qrModal').classList.remove('active'); }
+document.getElementById('qrModal').addEventListener('click', function(e) { if (e.target === this) closeQR(); });
+
+// Fade-up animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
+
 </body>
 </html>
