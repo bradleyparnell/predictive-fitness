@@ -383,8 +383,8 @@
     display: flex; justify-content: center; align-items: center;
     gap: 40px; flex-wrap: wrap;
   }
-  .partners-logos img { height: 40px; width: auto; filter: grayscale(1); opacity: 0.5; transition: all 0.3s; }
-  .partners-logos img:hover { filter: grayscale(0); opacity: 1; }
+  .partners-logos img { height: 40px; width: auto; filter: brightness(0); opacity: 0.4; transition: all 0.3s; }
+  .partners-logos img:hover { filter: brightness(0); opacity: 0.7; }
   .partners-logos img.sf-marathon { height: 35px; }
 
   /* FOOTER */
@@ -839,7 +839,7 @@
     <button class="modal-close" onclick="closeQR()">✕</button>
     <h3>Get RunDot™</h3>
     <p>Scan to download or tap below.</p>
-    <div class="qr-code">QR Code Placeholder</div>
+    <div class="qr-code"><img src="./assets/app-qr-code.png" alt="Scan to sign up" style="width:200px;height:200px;border-radius:12px;"></div>
     <div class="store-badges">
       <a href="#"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"></a>
       <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play"></a>
