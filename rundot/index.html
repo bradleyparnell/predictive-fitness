@@ -424,11 +424,9 @@
     position: absolute; z-index: 2;
   }
 
-  /* Laptop float - bottom-left corner, angled for depth */
+  /* Laptop float - bottom-left corner, straight-on */
   .showcase-laptop-float {
     bottom: -36px; left: -60px; width: 260px;
-    transform: perspective(900px) rotateY(-12deg) rotateX(3deg);
-    transform-origin: bottom left;
   }
   .laptop-screen-lg {
     background: #1a1a1a; border-radius: 8px 8px 0 0; padding: 8px 8px 0;
@@ -479,13 +477,13 @@
     display: flex; gap: 20px;
   }
   .watch-frame-lg {
-    width: 130px; height: 130px; background: #1a1a1a; border-radius: 50%;
-    border: 4px solid #555; overflow: hidden;
+    width: 130px; height: 130px; background: #222; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.15); overflow: hidden;
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.25);
   }
   .watch-frame-lg img {
-    width: 88%; height: 88%; object-fit: cover; border-radius: 50%;
+    width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
   }
 
   /* Lifestyle Composites - device frames over lifestyle photos */
@@ -903,7 +901,7 @@
       </div>
       <div class="showcase-visual-col">
         <div class="showcase-circle">
-          <img src="./assets/lifestyle-runner-phone.jpg" alt="Runner checking phone and watch" loading="lazy">
+          <img src="./assets/runner-smartwatch-modern.jpg" alt="Runner checking GPS smartwatch after run" loading="lazy">
         </div>
         <div class="showcase-device-float showcase-phone-float">
           <div class="phone-frame-lg">
