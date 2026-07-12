@@ -240,7 +240,7 @@
 
   /* SOUND FAMILIAR - problem section */
   .familiar {
-    background: url('./assets/runner-sunrise-road.jpg') center center / cover no-repeat;
+    background: url('./assets/lifestyle-runner-phone.jpg') center center / cover no-repeat;
     position: relative;
     overflow: hidden;
     padding-top: 80px;
@@ -337,6 +337,41 @@
     border-radius: 50%; overflow: hidden;
     box-shadow: 0 20px 60px rgba(0,0,0,0.10);
     justify-self: center;
+    position: relative;
+  }
+  .feature-photo-circle::before,
+  .feature-photo-circle::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+  }
+  /* Cluster of dots - top right */
+  .feature-photo-circle::before {
+    width: 12px; height: 12px;
+    background: var(--green);
+    opacity: 0.35;
+    top: -8px; right: 24px;
+    box-shadow:
+      18px 12px 0 0px rgba(83,185,86,0.25),
+      -6px 28px 0 -2px rgba(83,185,86,0.20),
+      32px -4px 0 -1px rgba(83,185,86,0.18),
+      8px -20px 0 1px rgba(83,185,86,0.22),
+      42px 20px 0 -3px rgba(83,185,86,0.15);
+  }
+  /* Cluster of dots - bottom left */
+  .feature-photo-circle::after {
+    width: 10px; height: 10px;
+    background: var(--green);
+    opacity: 0.30;
+    bottom: 16px; left: -12px;
+    box-shadow:
+      -14px -18px 0 1px rgba(83,185,86,0.22),
+      12px -8px 0 -2px rgba(83,185,86,0.18),
+      -22px 8px 0 0px rgba(83,185,86,0.20),
+      6px 16px 0 -1px rgba(83,185,86,0.25),
+      -8px 32px 0 -2px rgba(83,185,86,0.15);
   }
   .feature-photo-circle img {
     width: 100%; height: 100%; object-fit: cover;
@@ -882,7 +917,7 @@
 </section>
 
 <!-- BRAND DOT STRIPE -->
-<div class="chevron-stripe"><div class="chevron-stripe-inner"></div></div>
+<div class="chevron-stripe chevron-stripe-right"><div class="chevron-stripe-inner"></div></div>
 
 <!-- 3.5 APP SHOWCASE - Athletes using the tool on real devices -->
 <section class="section app-showcase">
