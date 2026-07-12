@@ -43,65 +43,79 @@
   html { scroll-behavior: smooth; }
   body { font-family: var(--font-body); background: var(--white); color: var(--text); overflow-x: hidden; }
 
-  /* BRAND DOT STRIPE */
+  /* BRAND DOT STRIPE - refined single-line pattern */
   .dot-stripe {
-    height: 48px;
+    height: 20px;
     position: relative;
     overflow: hidden;
     background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .dot-stripe::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(circle, var(--green) 2.5px, transparent 2.5px),
-      radial-gradient(circle, var(--green) 1.8px, transparent 1.8px),
-      radial-gradient(circle, rgba(83,185,86,0.35) 1.2px, transparent 1.2px);
-    background-size: 24px 24px, 24px 24px, 12px 12px;
-    background-position: 0 0, 12px 12px, 6px 6px;
-    animation: dotScroll 12s linear infinite;
+  .dot-stripe-inner {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    animation: dotDrift 20s linear infinite;
   }
+  .dot-stripe-inner .dot {
+    border-radius: 50%;
+    flex-shrink: 0;
+    opacity: 0;
+    animation: dotFadeIn 0.8s ease forwards;
+  }
+  /* Dot sizes: sm=4px, md=6px, lg=8px */
+  .dot.sm { width: 4px; height: 4px; }
+  .dot.md { width: 6px; height: 6px; }
+  .dot.lg { width: 8px; height: 8px; }
+  /* Colors: mostly muted gray, occasional green accent */
+  .dot.gray { background: #d1d5db; }
+  .dot.gray-light { background: #e5e7eb; }
+  .dot.green { background: var(--green); }
+  .dot.green-soft { background: rgba(83,185,86,0.4); }
+
   .dot-stripe::after {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(90deg,
       var(--white) 0%,
-      transparent 15%,
-      transparent 85%,
+      transparent 12%,
+      transparent 88%,
       var(--white) 100%);
     pointer-events: none;
+    z-index: 1;
   }
-  @keyframes dotScroll {
+  @keyframes dotDrift {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-48px); }
+    100% { transform: translateX(-200px); }
+  }
+  @keyframes dotFadeIn {
+    to { opacity: 1; }
   }
 
+  /* Dark variant */
   .dot-stripe-dark {
     background: var(--dark);
   }
-  .dot-stripe-dark::before {
-    background-image:
-      radial-gradient(circle, var(--green) 2.5px, transparent 2.5px),
-      radial-gradient(circle, var(--green) 1.8px, transparent 1.8px),
-      radial-gradient(circle, rgba(83,185,86,0.25) 1.2px, transparent 1.2px);
-    background-size: 24px 24px, 24px 24px, 12px 12px;
-    background-position: 0 0, 12px 12px, 6px 6px;
-  }
+  .dot-stripe-dark .dot.gray { background: #374151; }
+  .dot-stripe-dark .dot.gray-light { background: #1f2937; }
   .dot-stripe-dark::after {
     background: linear-gradient(90deg,
       var(--dark) 0%,
-      transparent 15%,
-      transparent 85%,
+      transparent 12%,
+      transparent 88%,
       var(--dark) 100%);
   }
 
+  /* Subtle variant - thinner, more transparent */
   .dot-stripe-subtle {
-    height: 32px;
+    height: 14px;
   }
-  .dot-stripe-subtle::before {
-    opacity: 0.5;
+  .dot-stripe-subtle .dot { opacity: 0; animation: dotFadeInSubtle 0.8s ease forwards; }
+  @keyframes dotFadeInSubtle {
+    to { opacity: 0.5; }
   }
 
   /* Dot texture for section backgrounds */
@@ -113,8 +127,8 @@
     position: absolute;
     inset: 0;
     background-image:
-      radial-gradient(circle, rgba(83,185,86,0.06) 1px, transparent 1px);
-    background-size: 20px 20px;
+      radial-gradient(circle, rgba(83,185,86,0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
     pointer-events: none;
     z-index: 0;
   }
@@ -1228,7 +1242,7 @@
 </section>
 
 <!-- BRAND DOT STRIPE -->
-<div class="dot-stripe dot-stripe-dark"></div>
+<div class="dot-stripe dot-stripe-dark"><div class="dot-stripe-inner"></div></div>
 
 <!-- CTA -->
 <section class="cta-section">
@@ -1317,6 +1331,27 @@
 function openQR() { document.getElementById('qrModal').classList.add('active'); }
 function closeQR() { document.getElementById('qrModal').classList.remove('active'); }
 document.getElementById('qrModal').addEventListener('click', function(e) { if (e.target === this) closeQR(); });
+
+// Populate dot stripes with elegant pattern
+document.querySelectorAll('.dot-stripe-inner').forEach(inner => {
+  // Pattern: mostly gray dots with occasional green, varied sizes
+  const pattern = [
+    {s:'sm',c:'gray-light'},{s:'md',c:'gray'},{s:'sm',c:'gray-light'},{s:'lg',c:'green'},
+    {s:'sm',c:'gray'},{s:'md',c:'gray-light'},{s:'sm',c:'green-soft'},{s:'md',c:'gray'},
+    {s:'sm',c:'gray-light'},{s:'sm',c:'gray'},{s:'lg',c:'gray'},{s:'sm',c:'gray-light'},
+    {s:'md',c:'green'},{s:'sm',c:'gray'},{s:'sm',c:'gray-light'},{s:'md',c:'gray'},
+    {s:'sm',c:'gray-light'},{s:'lg',c:'green-soft'},{s:'sm',c:'gray'},{s:'md',c:'gray-light'},
+  ];
+  // Duplicate pattern 4x to fill width and allow smooth scroll loop
+  for (let r = 0; r < 4; r++) {
+    pattern.forEach((d, i) => {
+      const dot = document.createElement('span');
+      dot.className = `dot ${d.s} ${d.c}`;
+      dot.style.animationDelay = `${(r * pattern.length + i) * 0.02}s`;
+      inner.appendChild(dot);
+    });
+  }
+});
 
 // Fade-up animations
 const observer = new IntersectionObserver((entries) => {
