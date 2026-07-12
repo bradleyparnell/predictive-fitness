@@ -43,6 +43,83 @@
   html { scroll-behavior: smooth; }
   body { font-family: var(--font-body); background: var(--white); color: var(--text); overflow-x: hidden; }
 
+  /* BRAND DOT STRIPE */
+  .dot-stripe {
+    height: 48px;
+    position: relative;
+    overflow: hidden;
+    background: var(--white);
+  }
+  .dot-stripe::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle, var(--green) 2.5px, transparent 2.5px),
+      radial-gradient(circle, var(--green) 1.8px, transparent 1.8px),
+      radial-gradient(circle, rgba(83,185,86,0.35) 1.2px, transparent 1.2px);
+    background-size: 24px 24px, 24px 24px, 12px 12px;
+    background-position: 0 0, 12px 12px, 6px 6px;
+    animation: dotScroll 12s linear infinite;
+  }
+  .dot-stripe::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+      var(--white) 0%,
+      transparent 15%,
+      transparent 85%,
+      var(--white) 100%);
+    pointer-events: none;
+  }
+  @keyframes dotScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-48px); }
+  }
+
+  .dot-stripe-dark {
+    background: var(--dark);
+  }
+  .dot-stripe-dark::before {
+    background-image:
+      radial-gradient(circle, var(--green) 2.5px, transparent 2.5px),
+      radial-gradient(circle, var(--green) 1.8px, transparent 1.8px),
+      radial-gradient(circle, rgba(83,185,86,0.25) 1.2px, transparent 1.2px);
+    background-size: 24px 24px, 24px 24px, 12px 12px;
+    background-position: 0 0, 12px 12px, 6px 6px;
+  }
+  .dot-stripe-dark::after {
+    background: linear-gradient(90deg,
+      var(--dark) 0%,
+      transparent 15%,
+      transparent 85%,
+      var(--dark) 100%);
+  }
+
+  .dot-stripe-subtle {
+    height: 32px;
+  }
+  .dot-stripe-subtle::before {
+    opacity: 0.5;
+  }
+
+  /* Dot texture for section backgrounds */
+  .dot-texture {
+    position: relative;
+  }
+  .dot-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle, rgba(83,185,86,0.06) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .dot-texture > * { position: relative; z-index: 1; }
+
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -738,6 +815,9 @@
   </div>
 </section>
 
+<!-- BRAND DOT STRIPE -->
+<div class="dot-stripe"></div>
+
 <!-- 2. TRUST STRIP -->
 <div class="trust-strip">
   <div class="trust-row">
@@ -1076,8 +1156,11 @@
   </div>
 </section>
 
+<!-- BRAND DOT STRIPE -->
+<div class="dot-stripe dot-stripe-subtle"></div>
+
 <!-- 9. SCIENCE - Why it works (tech credibility, Section 8 role) -->
-<section class="section science">
+<section class="section science dot-texture">
   <div class="section-inner fade-up">
     <div class="section-header">
       <div class="section-eyebrow">Why it works</div>
@@ -1143,6 +1226,9 @@
     </div>
   </div>
 </section>
+
+<!-- BRAND DOT STRIPE -->
+<div class="dot-stripe dot-stripe-dark"></div>
 
 <!-- CTA -->
 <section class="cta-section">
