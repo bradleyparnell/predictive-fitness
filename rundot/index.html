@@ -580,7 +580,7 @@
   .app-widget:nth-child(3) { animation-delay: -3s; }
   .app-widget:nth-child(4) { animation-delay: -4.5s; }
   .app-widget img {
-    width: 100%; max-width: 200px; border-radius: 20px;
+    width: 100%; max-width: 200px; border-radius: 50%;
     filter: drop-shadow(0 12px 32px rgba(0,0,0,0.14));
     transition: transform 0.35s ease;
   }
@@ -937,11 +937,11 @@
       </div>
       <div class="showcase-visual-col">
         <div class="showcase-circle">
-          <img src="./assets/runner-country-road.jpg" alt="Runner on a bright country road" loading="lazy">
+          <img src="./assets/runner-stretch-watch.jpg" alt="Runner checking smartwatch outdoors" loading="lazy">
         </div>
         <div class="showcase-device-float" style="bottom: -10px; right: -10px;">
           <div class="watch-frame-lg">
-            <img src="./assets/app-screen-garmin-1.png" alt="RunDot on running watch" style="filter: brightness(1.15);">
+            <img src="./assets/garmin-watch-1.png" alt="RunDot on running watch" style="filter: brightness(1.15);">
           </div>
         </div>
       </div>
@@ -1096,22 +1096,22 @@
       <p class="section-sub">From morning planning to mid-run data to post-workout analysis - RunDot lives where your running does.</p>
     </div>
 
-    <!-- Vignette 1: Command Center - lifestyle laptop composite -->
-    <div class="vignette-header fade-up">
-      <h3>Your Training Command Center</h3>
-      <p>Plan your week, track your progress, and watch your fitness evolve - all from one powerful dashboard.</p>
-    </div>
-    <div class="lifestyle-composite fade-up">
-      <div class="lifestyle-bg" style="background-image: url('./assets/runner-woman-road.jpg');"></div>
-      <div class="lifestyle-device-stack">
-        <div class="device-laptop">
-          <div class="device-laptop-bezel">
-            <img src="./assets/app-desktop-calendar.png" alt="RunDot weekly training calendar" loading="lazy">
-          </div>
+    <!-- Vignette 1: Command Center - circle photo + laptop overlay -->
+    <div class="showcase-panel fade-up">
+      <div class="showcase-text-col">
+        <div class="showcase-label-tag">COMMAND CENTER.</div>
+        <h3 class="showcase-heading">Your Training Command Center</h3>
+        <p class="showcase-desc">Plan your week, track your progress, and watch your fitness evolve - all from one powerful dashboard.</p>
+      </div>
+      <div class="showcase-visual-col">
+        <div class="showcase-circle">
+          <img src="./assets/runner-woman-road.jpg" alt="Runner reviewing training plan" loading="lazy">
         </div>
-        <div class="device-laptop" style="margin-top: -20px;">
-          <div class="device-laptop-bezel">
-            <img src="./assets/app-desktop-chart.png" alt="RunDot training performance chart" loading="lazy">
+        <div class="showcase-device-float" style="bottom: -20px; right: -20px;">
+          <div class="device-laptop" style="max-width: 320px;">
+            <div class="device-laptop-bezel">
+              <img src="./assets/app-desktop-calendar.png" alt="RunDot weekly training calendar" loading="lazy">
+            </div>
           </div>
         </div>
       </div>
@@ -1119,26 +1119,23 @@
 
     <div class="vignette-divider"></div>
 
-    <!-- Vignette 2: Intelligence on the Go - phone + watch lifestyle -->
-    <div class="vignette-header fade-up">
-      <h3>Intelligence on the Go</h3>
-      <p>Your next workout is always one tap away - on your phone, on your wrist, on the road.</p>
-    </div>
-    <div class="lifestyle-composite reverse fade-up">
-      <div class="lifestyle-bg" style="background-image: url('./assets/runner-country-road.jpg');"></div>
-      <div class="lifestyle-device-stack mobile-stack">
-        <div class="device-phone">
-          <div class="device-phone-bezel">
-            <img src="./assets/app-mobile-dashboard.png" alt="RunDot mobile home screen" loading="lazy">
-          </div>
+    <!-- Vignette 2: Intelligence on the Go - circle photo + phone overlay -->
+    <div class="showcase-panel fade-up" style="direction: rtl;">
+      <div class="showcase-text-col" style="direction: ltr;">
+        <div class="showcase-label-tag">ON THE GO.</div>
+        <h3 class="showcase-heading">Intelligence on the Go</h3>
+        <p class="showcase-desc">Your next workout is always one tap away - on your phone, on your wrist, on the road.</p>
+      </div>
+      <div class="showcase-visual-col" style="direction: ltr;">
+        <div class="showcase-circle">
+          <img src="./assets/runner-phone-training.jpg" alt="Runner checking phone and watch outdoors" loading="lazy">
         </div>
-        <div class="device-phone">
-          <div class="device-phone-bezel">
-            <img src="./assets/app-mobile-workout.png" alt="RunDot workout map and stats" loading="lazy">
+        <div class="showcase-device-float" style="bottom: -10px; left: -10px; right: auto;">
+          <div class="device-phone">
+            <div class="device-phone-bezel">
+              <img src="./assets/app-mobile-dashboard.png" alt="RunDot mobile home screen" loading="lazy">
+            </div>
           </div>
-        </div>
-        <div class="device-watch">
-          <img src="./assets/app-garmin-1.png" alt="RunDot on Garmin watch" loading="lazy">
         </div>
       </div>
     </div>
