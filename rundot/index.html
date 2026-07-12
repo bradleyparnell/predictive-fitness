@@ -46,10 +46,12 @@
   /* BRAND DOT STRIPE - refined single-line pattern */
   /* Chevron stripe divider */
   .chevron-stripe {
-    height: 40px;
+    height: 80px;
     position: relative;
     overflow: hidden;
-    background: var(--white);
+    background: transparent;
+    margin-top: -40px;
+    z-index: 2;
   }
   .chevron-stripe-inner {
     position: absolute;
@@ -58,12 +60,12 @@
       -45deg,
       transparent,
       transparent 18px,
-      rgba(83,185,86,0.07) 18px,
-      rgba(83,185,86,0.07) 20px,
+      rgba(83,185,86,0.22) 18px,
+      rgba(83,185,86,0.22) 20px,
       transparent 20px,
       transparent 38px,
-      rgba(209,213,219,0.15) 38px,
-      rgba(209,213,219,0.15) 40px
+      rgba(160,170,180,0.3) 38px,
+      rgba(160,170,180,0.3) 40px
     );
   }
   .chevron-stripe::after {
@@ -71,45 +73,46 @@
     position: absolute;
     inset: 0;
     background: linear-gradient(90deg,
-      var(--white) 0%,
-      transparent 15%,
-      transparent 85%,
-      var(--white) 100%);
+      rgba(255,255,255,0.6) 0%,
+      transparent 12%,
+      transparent 88%,
+      rgba(255,255,255,0.6) 100%);
     pointer-events: none;
     z-index: 1;
   }
 
   /* Dark variant */
   .chevron-stripe-dark {
-    background: var(--dark);
+    background: transparent;
   }
   .chevron-stripe-dark .chevron-stripe-inner {
     background: repeating-linear-gradient(
       -45deg,
       transparent,
       transparent 18px,
-      rgba(83,185,86,0.1) 18px,
-      rgba(83,185,86,0.1) 20px,
+      rgba(83,185,86,0.25) 18px,
+      rgba(83,185,86,0.25) 20px,
       transparent 20px,
       transparent 38px,
-      rgba(255,255,255,0.04) 38px,
-      rgba(255,255,255,0.04) 40px
+      rgba(255,255,255,0.1) 38px,
+      rgba(255,255,255,0.1) 40px
     );
   }
   .chevron-stripe-dark::after {
     background: linear-gradient(90deg,
-      var(--dark) 0%,
-      transparent 15%,
-      transparent 85%,
-      var(--dark) 100%);
+      rgba(15,23,42,0.6) 0%,
+      transparent 12%,
+      transparent 88%,
+      rgba(15,23,42,0.6) 100%);
   }
 
   /* Subtle variant */
   .chevron-stripe-subtle {
-    height: 30px;
+    height: 60px;
+    margin-top: -30px;
   }
   .chevron-stripe-subtle .chevron-stripe-inner {
-    opacity: 0.6;
+    opacity: 0.7;
   }
 
   /* Dot texture for section backgrounds */
