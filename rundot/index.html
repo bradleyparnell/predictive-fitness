@@ -55,7 +55,10 @@
   }
   .chevron-stripe-inner {
     position: absolute;
-    inset: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 55%;
     background: repeating-linear-gradient(
       -45deg,
       transparent,
@@ -67,6 +70,15 @@
       rgba(83,185,86,0.35) 16px,
       rgba(83,185,86,0.35) 20px
     );
+    -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+    mask-image: linear-gradient(to right, black 60%, transparent 100%);
+  }
+  /* Right-aligned variant */
+  .chevron-stripe-right .chevron-stripe-inner {
+    left: auto;
+    right: 0;
+    -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
+    mask-image: linear-gradient(to left, black 60%, transparent 100%);
   }
   .chevron-stripe::after {
     display: none;
@@ -75,19 +87,6 @@
   /* Dark variant */
   .chevron-stripe-dark {
     background: transparent;
-  }
-  .chevron-stripe-dark .chevron-stripe-inner {
-    background: repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 12px,
-      rgba(83,185,86,0.28) 12px,
-      rgba(83,185,86,0.28) 16px,
-      transparent 16px,
-      transparent 28px,
-      rgba(83,185,86,0.16) 28px,
-      rgba(83,185,86,0.16) 32px
-    );
   }
   .chevron-stripe-dark::after {
     display: none;
@@ -1101,7 +1100,7 @@
 </section>
 
 <!-- BRAND DOT STRIPE -->
-<div class="chevron-stripe"><div class="chevron-stripe-inner"></div></div>
+<div class="chevron-stripe chevron-stripe-right"><div class="chevron-stripe-inner"></div></div>
 
 <!-- 8. APP - LIFESTYLE EXPERIENCE -->
 <section class="section app-section">
