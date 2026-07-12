@@ -46,11 +46,11 @@
   /* BRAND DOT STRIPE - refined single-line pattern */
   /* Chevron stripe divider */
   .chevron-stripe {
-    height: 80px;
+    height: 48px;
     position: relative;
     overflow: hidden;
     background: transparent;
-    margin-top: -40px;
+    margin-top: -24px;
     z-index: 2;
   }
   .chevron-stripe-inner {
@@ -69,16 +69,7 @@
     );
   }
   .chevron-stripe::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg,
-      rgba(255,255,255,0.6) 0%,
-      transparent 12%,
-      transparent 88%,
-      rgba(255,255,255,0.6) 100%);
-    pointer-events: none;
-    z-index: 1;
+    display: none;
   }
 
   /* Dark variant */
@@ -99,11 +90,7 @@
     );
   }
   .chevron-stripe-dark::after {
-    background: linear-gradient(90deg,
-      rgba(15,23,42,0.6) 0%,
-      transparent 12%,
-      transparent 88%,
-      rgba(15,23,42,0.6) 100%);
+    display: none;
   }
 
   /* Subtle variant */
