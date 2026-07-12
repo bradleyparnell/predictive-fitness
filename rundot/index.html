@@ -434,9 +434,11 @@
     position: absolute; z-index: 2;
   }
 
-  /* Laptop float - bottom-left, extending past circle */
+  /* Laptop float - bottom-left, extending past circle, angled */
   .showcase-laptop-float {
     bottom: -30px; left: -40px; width: 320px;
+    transform: perspective(1200px) rotateY(-8deg) rotateX(2deg);
+    transform-origin: bottom center;
   }
   .laptop-screen-lg {
     background: #1a1a1a; border-radius: 8px 8px 0 0; padding: 8px 8px 0;
@@ -830,7 +832,7 @@
 </section>
 
 <!-- BRAND DOT STRIPE -->
-<div class="dot-stripe"></div>
+<div class="dot-stripe"><div class="dot-stripe-inner"></div></div>
 
 <!-- 2. TRUST STRIP -->
 <div class="trust-strip">
@@ -886,7 +888,7 @@
       </div>
       <div class="showcase-visual-col">
         <div class="showcase-circle">
-          <img src="./assets/lifestyle-athlete-laptop.jpg" alt="Athlete reviewing training plan on laptop" loading="lazy">
+          <img src="./assets/lifestyle-athlete-plan.jpg" alt="Runner preparing for training session" loading="lazy">
         </div>
         <div class="showcase-device-float showcase-laptop-float">
           <div class="laptop-screen-lg">
@@ -1171,7 +1173,7 @@
 </section>
 
 <!-- BRAND DOT STRIPE -->
-<div class="dot-stripe dot-stripe-subtle"></div>
+<div class="dot-stripe dot-stripe-subtle"><div class="dot-stripe-inner"></div></div>
 
 <!-- 9. SCIENCE - Why it works (tech credibility, Section 8 role) -->
 <section class="section science dot-texture">
