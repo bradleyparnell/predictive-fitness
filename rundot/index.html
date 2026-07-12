@@ -240,7 +240,19 @@
   .section-header .section-sub { margin: 0 auto; }
 
   /* SOUND FAMILIAR - problem section */
-  .familiar { background: var(--white); }
+  .familiar {
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .familiar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('./assets/runner-sunrise-road.jpg') center/cover no-repeat;
+    opacity: 0.035;
+    pointer-events: none;
+  }
   .familiar-grid {
     display: grid; grid-template-columns: repeat(2, 1fr);
     gap: 20px; max-width: 720px; margin: 0 auto;
@@ -861,6 +873,9 @@
   </div>
 </section>
 
+<!-- BRAND DOT STRIPE -->
+<div class="chevron-stripe"><div class="chevron-stripe-inner"></div></div>
+
 <!-- 3.5 APP SHOWCASE - Athletes using the tool on real devices -->
 <section class="section app-showcase">
   <div class="app-showcase-inner fade-up">
@@ -936,6 +951,9 @@
     </div>
   </div>
 </section>
+
+<!-- BRAND DOT STRIPE -->
+<div class="chevron-stripe chevron-stripe-subtle"><div class="chevron-stripe-inner"></div></div>
 
 <!-- 4. PROMISE - What if you never had to wonder? -->
 <section class="section promise">
@@ -1072,6 +1090,9 @@
     </div>
   </div>
 </section>
+
+<!-- BRAND DOT STRIPE -->
+<div class="chevron-stripe"><div class="chevron-stripe-inner"></div></div>
 
 <!-- 8. APP - LIFESTYLE EXPERIENCE -->
 <section class="section app-section">
