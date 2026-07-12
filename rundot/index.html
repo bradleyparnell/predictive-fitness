@@ -541,6 +541,29 @@
     width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
   }
 
+  /* Watch brand compatibility logos */
+  .watch-brands-float {
+    position: absolute; bottom: -20px; right: -30px;
+    background: white; border-radius: 16px; padding: 14px 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06);
+    z-index: 3;
+  }
+  .watch-brands-label {
+    font-size: 11px; font-weight: 600; color: #53b956;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    margin-bottom: 10px; text-align: center;
+  }
+  .watch-brands-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 8px 16px; align-items: center;
+  }
+  .watch-brand-item {
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0.7; transition: opacity 0.3s;
+  }
+  .watch-brand-item:hover { opacity: 1; }
+  .watch-brand-item svg { width: 80px; height: 20px; }
+
   /* Lifestyle Composites - device frames over lifestyle photos */
   .lifestyle-composite {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -985,9 +1008,21 @@
         <div class="showcase-circle">
           <img src="./assets/runner-stretch-watch.jpg" alt="Runner checking smartwatch outdoors" loading="lazy">
         </div>
-        <div class="showcase-device-float" style="bottom: -10px; right: -10px;">
-          <div class="watch-frame-lg">
-            <img src="./assets/garmin-watch-1.png" alt="RunDot on running watch" style="filter: brightness(1.15);">
+        <div class="watch-brands-float">
+          <div class="watch-brands-label">Connects to</div>
+          <div class="watch-brands-grid">
+            <div class="watch-brand-item">
+              <svg viewBox="0 0 120 24" xmlns="http://www.w3.org/2000/svg"><text x="60" y="18" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-weight="800" font-size="16" fill="#333" letter-spacing="3">GARMIN</text></svg>
+            </div>
+            <div class="watch-brand-item">
+              <svg viewBox="0 0 110 24" xmlns="http://www.w3.org/2000/svg"><text x="55" y="18" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-weight="800" font-size="16" fill="#333" letter-spacing="3">COROS</text></svg>
+            </div>
+            <div class="watch-brand-item">
+              <svg viewBox="0 0 140 24" xmlns="http://www.w3.org/2000/svg"><text x="70" y="18" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-weight="600" font-size="15" fill="#333">Apple Watch</text></svg>
+            </div>
+            <div class="watch-brand-item">
+              <svg viewBox="0 0 100 24" xmlns="http://www.w3.org/2000/svg"><text x="50" y="18" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-weight="700" font-size="16" fill="#333" letter-spacing="1">fitbit</text></svg>
+            </div>
           </div>
         </div>
       </div>
