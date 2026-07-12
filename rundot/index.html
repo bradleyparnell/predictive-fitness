@@ -273,44 +273,104 @@
     font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
   }
 
-  /* TESTIMONIALS */
+  /* APP STORE REVIEWS */
   .testimonials { background: var(--off-white); }
   .testimonial-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 24px; max-width: 960px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 24px; max-width: 860px; margin: 0 auto;
   }
   .testimonial-card {
     background: var(--white); border: 1px solid var(--border);
     border-radius: 14px; padding: 32px 28px;
   }
-  .testimonial-card .stars { color: #f59e0b; font-size: 16px; margin-bottom: 14px; letter-spacing: 2px; }
-  .testimonial-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 16px; font-style: italic; }
+  .testimonial-card .stars { color: #f59e0b; font-size: 16px; margin-bottom: 10px; letter-spacing: 2px; }
+  .testimonial-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; font-style: normal; }
   .testimonial-card cite { font-style: normal; font-size: 13px; color: var(--text-muted); font-weight: 600; }
 
-  /* APP SECTION */
+  /* APP SECTION - LIFESTYLE EXPERIENCE */
   .app-section { background: var(--white); }
-  .app-content {
+  .app-section .section-inner { max-width: 1100px; }
+
+  /* Vignette 1: Command Center */
+  .app-command-center {
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 64px; align-items: center;
-    max-width: 1000px; margin: 0 auto;
+    gap: 32px; align-items: start;
+    max-width: 1060px; margin: 0 auto 80px;
   }
-  .app-text .section-eyebrow { text-align: left; }
-  .app-text .section-title { text-align: left; font-size: clamp(28px, 3vw, 40px); }
-  .app-text .section-sub { text-align: left; }
-  .app-highlights { margin-top: 28px; display: flex; flex-direction: column; gap: 16px; }
-  .app-highlight {
-    display: flex; align-items: flex-start; gap: 12px;
-    font-size: 15px; color: var(--text-secondary); line-height: 1.5;
+  .app-command-center img {
+    width: 100%; border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease;
   }
-  .app-highlight svg { width: 20px; height: 20px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; margin-top: 2px; }
-  .app-phones {
-    display: flex; gap: 16px; justify-content: center; align-items: flex-end;
+  .app-command-center img:hover { transform: translateY(-4px); }
+
+  /* Vignette 2: On the Go */
+  .app-on-the-go {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px; align-items: center;
+    max-width: 900px; margin: 0 auto 80px;
   }
-  .app-phones img {
-    width: 240px; border-radius: 20px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  .app-on-the-go-item { position: relative; text-align: center; }
+  .app-on-the-go-item img {
+    width: 100%; max-width: 260px; border-radius: 16px;
+    box-shadow: 0 10px 36px rgba(0,0,0,0.1);
+    transition: transform 0.4s ease;
   }
-  .app-phones img:nth-child(2) { transform: translateY(-12px); }
+  .app-on-the-go-item img:hover { transform: translateY(-4px); }
+  .app-on-the-go-item.garmin-item img {
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  }
+
+  /* Vignette 3: Widget Grid */
+  .app-widgets-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px; max-width: 800px; margin: 0 auto;
+  }
+  .app-widget {
+    text-align: center; position: relative;
+    animation: widgetFloat 6s ease-in-out infinite;
+  }
+  .app-widget:nth-child(2) { animation-delay: -1.5s; }
+  .app-widget:nth-child(3) { animation-delay: -3s; }
+  .app-widget:nth-child(4) { animation-delay: -4.5s; }
+  .app-widget img {
+    width: 100%; max-width: 160px; border-radius: 20px;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.12));
+    transition: transform 0.35s ease;
+  }
+  .app-widget img:hover { transform: scale(1.06); }
+  .app-widget-label {
+    margin-top: 12px; font-family: var(--font-display);
+    font-size: 13px; font-weight: 600; color: var(--text);
+    letter-spacing: 0.01em;
+  }
+  .app-widget-sub {
+    font-size: 12px; color: var(--text-muted); margin-top: 2px;
+  }
+
+  @keyframes widgetFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* Vignette headers */
+  .vignette-header {
+    text-align: center; margin-bottom: 40px;
+  }
+  .vignette-header h3 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(22px, 2.5vw, 30px); color: var(--text);
+    margin-bottom: 8px;
+  }
+  .vignette-header p {
+    font-size: 15px; color: var(--text-secondary); line-height: 1.6;
+    max-width: 560px; margin: 0 auto;
+  }
+  .vignette-divider {
+    width: 48px; height: 3px; background: var(--green);
+    border-radius: 2px; margin: 0 auto 64px;
+  }
 
   /* SCIENCE/CREDIBILITY */
   .science { background: var(--off-white); }
@@ -464,11 +524,11 @@
     .feature-photo.reverse { direction: ltr; }
     .meb-grid { grid-template-columns: 1fr; text-align: center; }
     .meb-photo { width: 200px; height: 200px; margin: 0 auto; }
-    .testimonial-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
-    .app-content { grid-template-columns: 1fr; text-align: center; }
-    .app-text .section-eyebrow, .app-text .section-title, .app-text .section-sub { text-align: center; }
-    .app-highlights { align-items: center; }
-    .app-phones img { width: 180px; }
+    .testimonial-grid { grid-template-columns: 1fr !important; max-width: 400px; margin: 0 auto; }
+    .app-command-center { grid-template-columns: 1fr; gap: 20px; margin-bottom: 48px; }
+    .app-on-the-go { grid-template-columns: 1fr; gap: 24px; max-width: 280px; margin: 0 auto 48px; }
+    .app-widgets-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 340px; margin: 0 auto; }
+    .app-widget img { max-width: 130px; }
     .science-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
     .moments-grid { grid-template-columns: repeat(2, 1fr); }
     .partners-logos { gap: 32px; }
@@ -638,58 +698,112 @@
   </div>
 </section>
 
-<!-- 7. TESTIMONIALS -->
+<!-- 7. APP STORE REVIEWS -->
 <section class="section testimonials">
   <div class="section-inner fade-up">
     <div class="section-header">
-      <div class="section-eyebrow">Real runners. Real results.</div>
-      <h2 class="section-title">They stopped wondering. They started trusting.</h2>
+      <div class="section-eyebrow">From the App Store</div>
+      <h2 class="section-title">Runners are talking.</h2>
     </div>
-    <div class="testimonial-grid">
+    <div class="testimonial-grid" style="grid-template-columns: repeat(2, 1fr);">
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <p>Stop planning. Start running. Open the app and go - it changes how training feels.</p>
+        <h4 style="font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem; font-weight:700; color:var(--text-primary); margin-bottom:10px;">Amazing Fitness App</h4>
+        <p>This app makes training so much smoother and more inspiring. I love seeing my performance metrics right away, like Dot and TrainX scores. It's super easy to start a run whenever I want. I can jump into a planned workout or just head out for a spontaneous session with a few taps. It syncs perfectly with the RunDot platform, so my data is always up to date on all my devices.</p>
+        <cite>Tri-Idaho</cite>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <p>Train less. Run faster. Trust the process and chase the PR you didn't think was possible.</p>
+        <h4 style="font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem; font-weight:700; color:var(--text-primary); margin-bottom:10px;">RunDot</h4>
+        <p>I like technology but I frequently feel overwhelmed with it. I'm happy to say that this App is easy to use and understand. I downloaded it, input basic personal information, and within minutes I had my first run loaded and I hit the road. I loved the guided run from the phone and think it really dialed in my pace. All I had to do was just run and follow the prompts.</p>
+        <cite>Epicenter</cite>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <p>Never wonder what to do next. That peace of mind is worth everything.</p>
+        <h4 style="font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem; font-weight:700; color:var(--text-primary); margin-bottom:10px;">Amazing Training Plan</h4>
+        <p>The training plan changes daily so I am never bored, the paces are prescribed specifically for my ability, age, gender and experience. I love that I can trust that the workouts are exactly what I need, not too much or too little! Highly recommended!</p>
+        <cite>Married 40 years!</cite>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <h4 style="font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem; font-weight:700; color:var(--text-primary); margin-bottom:10px;">Amazing App for Running!</h4>
+        <p>The UI is sleek and super intuitive, very easy to use and see your metrics like pace, heart rate, etc. Love the clear guidelines on upcoming run sessions. App is way more advanced than previous run apps used in the past. Setup is very easy and only takes minutes from downloading to your first run.</p>
+        <cite>triwithasideofhalf</cite>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 8. APP -->
+<!-- 8. APP - LIFESTYLE EXPERIENCE -->
 <section class="section app-section">
   <div class="section-inner">
-    <div class="app-content fade-up">
-      <div class="app-text">
-        <div class="section-eyebrow">The app</div>
-        <h2 class="section-title">Open. Run. Repeat.</h2>
-        <p class="section-sub">Your daily workout is always there. Paces adjusted for weather, training load, and recovery. No decisions required.</p>
-        <div class="app-highlights">
-          <div class="app-highlight">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-            <span><strong>Weather-adjusted paces</strong> - every workout adapts to real-time conditions</span>
-          </div>
-          <div class="app-highlight">
-            <svg viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
-            <span><strong>Dot Score™ tracking</strong> - watch your fitness score improve over time</span>
-          </div>
-          <div class="app-highlight">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            <span><strong>Run with friends</strong> - share workouts, compare progress, stay accountable</span>
-          </div>
-        </div>
+
+    <!-- Section header -->
+    <div class="section-header fade-up">
+      <div class="section-eyebrow">The experience</div>
+      <h2 class="section-title">Your training, everywhere you go.</h2>
+      <p class="section-sub">From morning planning to mid-run data to post-workout analysis - RunDot lives where your running does.</p>
+    </div>
+
+    <!-- Vignette 1: Command Center -->
+    <div class="vignette-header fade-up">
+      <h3>Your Training Command Center</h3>
+      <p>Plan your week, track your progress, and watch your fitness evolve - all from one powerful dashboard.</p>
+    </div>
+    <div class="app-command-center fade-up">
+      <img src="./assets/app-desktop-calendar.png" alt="RunDot weekly training calendar" loading="lazy">
+      <img src="./assets/app-desktop-chart.png" alt="RunDot training performance chart" loading="lazy">
+    </div>
+
+    <div class="vignette-divider"></div>
+
+    <!-- Vignette 2: Intelligence on the Go -->
+    <div class="vignette-header fade-up">
+      <h3>Intelligence on the Go</h3>
+      <p>Your next workout is always one tap away - on your phone, on your wrist, on the road.</p>
+    </div>
+    <div class="app-on-the-go fade-up">
+      <div class="app-on-the-go-item">
+        <img src="./assets/app-mobile-home.png" alt="RunDot mobile home screen with Dot Score and upcoming race" loading="lazy">
       </div>
-      <div class="app-phones">
-        <img src="./assets/app-schedule-weekly.png" alt="RunDot schedule" loading="lazy">
-        <img src="./assets/app-home-completed.png" alt="RunDot workout" loading="lazy">
+      <div class="app-on-the-go-item">
+        <img src="./assets/app-mobile-workout.png" alt="RunDot mobile workout map and stats" loading="lazy">
+      </div>
+      <div class="app-on-the-go-item garmin-item">
+        <img src="./assets/app-garmin-1.png" alt="RunDot on Garmin watch during outdoor run" loading="lazy">
       </div>
     </div>
+
+    <div class="vignette-divider"></div>
+
+    <!-- Vignette 3: Every Metric, One Glance -->
+    <div class="vignette-header fade-up">
+      <h3>Every Metric, One Glance</h3>
+      <p>The numbers that matter most - designed to be understood instantly.</p>
+    </div>
+    <div class="app-widgets-grid fade-up">
+      <div class="app-widget">
+        <img src="./assets/widget-dot-score.png" alt="Dot Score gauge" loading="lazy">
+        <div class="app-widget-label">Dot Score&#8482;</div>
+        <div class="app-widget-sub">Your overall fitness</div>
+      </div>
+      <div class="app-widget">
+        <img src="./assets/widget-trainx.png" alt="TrainX gauge" loading="lazy">
+        <div class="app-widget-label">TrainX&reg;</div>
+        <div class="app-widget-sub">Training efficiency</div>
+      </div>
+      <div class="app-widget">
+        <img src="./assets/widget-training-goal.png" alt="Training Goal gauge" loading="lazy">
+        <div class="app-widget-label">Training Goal</div>
+        <div class="app-widget-sub">Weekly progress</div>
+      </div>
+      <div class="app-widget">
+        <img src="./assets/widget-stress.png" alt="Stress gauge" loading="lazy">
+        <div class="app-widget-label">Stress</div>
+        <div class="app-widget-sub">Recovery balance</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -838,8 +952,8 @@
     <p>Scan to download or tap below.</p>
     <div class="qr-code"><img src="./assets/app-qr-code.png" alt="Scan to sign up" style="width:200px;height:200px;border-radius:12px;"></div>
     <div class="store-badges">
-      <a href="#"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"></a>
-      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play"></a>
+      <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" target="_blank"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.predictivefitness.rundotv2&hl=en_US" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play"></a>
     </div>
   </div>
 </div>
