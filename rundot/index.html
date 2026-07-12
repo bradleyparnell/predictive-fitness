@@ -46,11 +46,11 @@
   /* BRAND DOT STRIPE - refined single-line pattern */
   /* Chevron stripe divider */
   .chevron-stripe {
-    height: 32px;
+    height: 24px;
     position: relative;
     overflow: hidden;
     background: transparent;
-    margin-top: -16px;
+    margin-top: -12px;
     z-index: 2;
   }
   .chevron-stripe-inner {
@@ -59,13 +59,13 @@
     background: repeating-linear-gradient(
       -45deg,
       transparent,
-      transparent 16px,
+      transparent 12px,
+      rgba(83,185,86,0.22) 12px,
       rgba(83,185,86,0.22) 16px,
-      rgba(83,185,86,0.22) 19px,
-      transparent 19px,
-      transparent 35px,
-      rgba(160,170,180,0.3) 35px,
-      rgba(160,170,180,0.3) 38px
+      transparent 16px,
+      transparent 28px,
+      rgba(83,185,86,0.14) 28px,
+      rgba(83,185,86,0.14) 32px
     );
   }
   .chevron-stripe::after {
@@ -80,13 +80,13 @@
     background: repeating-linear-gradient(
       -45deg,
       transparent,
+      transparent 12px,
+      rgba(83,185,86,0.28) 12px,
+      rgba(83,185,86,0.28) 16px,
       transparent 16px,
-      rgba(83,185,86,0.25) 16px,
-      rgba(83,185,86,0.25) 19px,
-      transparent 19px,
-      transparent 35px,
-      rgba(255,255,255,0.1) 35px,
-      rgba(255,255,255,0.1) 38px
+      transparent 28px,
+      rgba(83,185,86,0.16) 28px,
+      rgba(83,185,86,0.16) 32px
     );
   }
   .chevron-stripe-dark::after {
@@ -95,8 +95,8 @@
 
   /* Subtle variant */
   .chevron-stripe-subtle {
-    height: 40px;
-    margin-top: -20px;
+    height: 28px;
+    margin-top: -14px;
   }
   .chevron-stripe-subtle .chevron-stripe-inner {
     opacity: 0.7;
