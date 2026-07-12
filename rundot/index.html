@@ -291,62 +291,100 @@
   .app-section { background: var(--white); }
   .app-section .section-inner { max-width: 1100px; }
 
-  /* Vignette 1: Command Center */
-  .app-command-center {
+  /* Lifestyle Composites - device frames over lifestyle photos */
+  .lifestyle-composite {
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 32px; align-items: start;
-    max-width: 1060px; margin: 0 auto 80px;
+    border-radius: 20px; overflow: hidden;
+    max-width: 1100px; margin: 0 auto 80px;
+    min-height: 480px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.08);
   }
-  .app-command-center img {
-    width: 100%; border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    transition: transform 0.4s ease;
+  .lifestyle-composite.reverse { direction: rtl; }
+  .lifestyle-composite.reverse > * { direction: ltr; }
+  .lifestyle-bg {
+    background-size: cover; background-position: center;
+    min-height: 100%;
   }
-  .app-command-center img:hover { transform: translateY(-4px); }
+  .lifestyle-device-stack {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 20px;
+    padding: 40px 32px;
+    background: var(--off-white);
+  }
+  .lifestyle-device-stack.mobile-stack {
+    flex-direction: row; flex-wrap: wrap;
+    gap: 16px;
+  }
 
-  /* Vignette 2: On the Go */
-  .app-on-the-go {
-    display: grid; grid-template-columns: 1fr 1fr 1fr;
-    gap: 28px; align-items: center;
-    max-width: 900px; margin: 0 auto 80px;
+  /* Laptop device frame */
+  .device-laptop { max-width: 440px; width: 100%; }
+  .device-laptop-bezel {
+    background: #1a1a1a; border-radius: 10px 10px 0 0;
+    padding: 8px 8px 6px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.15);
   }
-  .app-on-the-go-item { position: relative; text-align: center; }
-  .app-on-the-go-item img {
-    width: 100%; max-width: 260px; border-radius: 16px;
-    box-shadow: 0 10px 36px rgba(0,0,0,0.1);
-    transition: transform 0.4s ease;
+  .device-laptop-bezel::before {
+    content: ''; display: block;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #555; margin: 0 auto 6px;
   }
-  .app-on-the-go-item img:hover { transform: translateY(-4px); }
-  .app-on-the-go-item.garmin-item img {
-    border-radius: 12px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  .device-laptop-bezel img {
+    width: 100%; border-radius: 4px; display: block;
+  }
+
+  /* Phone device frame */
+  .device-phone { max-width: 180px; width: 100%; }
+  .device-phone-bezel {
+    background: #1a1a1a; border-radius: 24px;
+    padding: 12px 6px;
+    box-shadow: 0 10px 32px rgba(0,0,0,0.18);
+  }
+  .device-phone-bezel::before {
+    content: ''; display: block;
+    width: 40px; height: 4px; border-radius: 2px;
+    background: #333; margin: 0 auto 8px;
+  }
+  .device-phone-bezel img {
+    width: 100%; border-radius: 16px; display: block;
+  }
+
+  /* Watch frame */
+  .device-watch {
+    max-width: 140px;
+  }
+  .device-watch img {
+    width: 100%; border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   }
 
   /* Vignette 3: Widget Grid */
   .app-widgets-grid {
     display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 24px; max-width: 800px; margin: 0 auto;
+    gap: 40px; max-width: 1000px; margin: 0 auto;
+    padding: 48px 32px;
+    background: var(--off-white); border-radius: 20px;
   }
   .app-widget {
     text-align: center; position: relative;
     animation: widgetFloat 6s ease-in-out infinite;
+    padding: 24px 12px;
   }
   .app-widget:nth-child(2) { animation-delay: -1.5s; }
   .app-widget:nth-child(3) { animation-delay: -3s; }
   .app-widget:nth-child(4) { animation-delay: -4.5s; }
   .app-widget img {
-    width: 100%; max-width: 160px; border-radius: 20px;
-    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.12));
+    width: 100%; max-width: 200px; border-radius: 20px;
+    filter: drop-shadow(0 12px 32px rgba(0,0,0,0.14));
     transition: transform 0.35s ease;
   }
-  .app-widget img:hover { transform: scale(1.06); }
+  .app-widget img:hover { transform: scale(1.08); }
   .app-widget-label {
-    margin-top: 12px; font-family: var(--font-display);
-    font-size: 13px; font-weight: 600; color: var(--text);
+    margin-top: 18px; font-family: var(--font-display);
+    font-size: 17px; font-weight: 700; color: var(--text);
     letter-spacing: 0.01em;
   }
   .app-widget-sub {
-    font-size: 12px; color: var(--text-muted); margin-top: 2px;
+    font-size: 14px; color: var(--text-muted); margin-top: 6px;
   }
 
   @keyframes widgetFloat {
@@ -525,10 +563,16 @@
     .meb-grid { grid-template-columns: 1fr; text-align: center; }
     .meb-photo { width: 200px; height: 200px; margin: 0 auto; }
     .testimonial-grid { grid-template-columns: 1fr !important; max-width: 400px; margin: 0 auto; }
-    .app-command-center { grid-template-columns: 1fr; gap: 20px; margin-bottom: 48px; }
-    .app-on-the-go { grid-template-columns: 1fr; gap: 24px; max-width: 280px; margin: 0 auto 48px; }
-    .app-widgets-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 340px; margin: 0 auto; }
-    .app-widget img { max-width: 130px; }
+    .lifestyle-composite { grid-template-columns: 1fr; min-height: auto; }
+    .lifestyle-composite.reverse { direction: ltr; }
+    .lifestyle-bg { min-height: 260px; }
+    .lifestyle-device-stack { padding: 32px 20px; }
+    .lifestyle-device-stack.mobile-stack { gap: 12px; }
+    .device-laptop { max-width: 320px; }
+    .device-phone { max-width: 140px; }
+    .device-watch { max-width: 100px; }
+    .app-widgets-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 400px; margin: 0 auto; padding: 32px 20px; }
+    .app-widget img { max-width: 150px; }
     .science-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
     .moments-grid { grid-template-columns: repeat(2, 1fr); }
     .partners-logos { gap: 32px; }
@@ -745,38 +789,56 @@
       <p class="section-sub">From morning planning to mid-run data to post-workout analysis - RunDot lives where your running does.</p>
     </div>
 
-    <!-- Vignette 1: Command Center -->
+    <!-- Vignette 1: Command Center - lifestyle laptop composite -->
     <div class="vignette-header fade-up">
       <h3>Your Training Command Center</h3>
       <p>Plan your week, track your progress, and watch your fitness evolve - all from one powerful dashboard.</p>
     </div>
-    <div class="app-command-center fade-up">
-      <img src="./assets/app-desktop-calendar.png" alt="RunDot weekly training calendar" loading="lazy">
-      <img src="./assets/app-desktop-chart.png" alt="RunDot training performance chart" loading="lazy">
+    <div class="lifestyle-composite fade-up">
+      <div class="lifestyle-bg" style="background-image: url('./assets/runner-woman-road.jpg');"></div>
+      <div class="lifestyle-device-stack">
+        <div class="device-laptop">
+          <div class="device-laptop-bezel">
+            <img src="./assets/app-desktop-calendar.png" alt="RunDot weekly training calendar" loading="lazy">
+          </div>
+        </div>
+        <div class="device-laptop" style="margin-top: -20px;">
+          <div class="device-laptop-bezel">
+            <img src="./assets/app-desktop-chart.png" alt="RunDot training performance chart" loading="lazy">
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="vignette-divider"></div>
 
-    <!-- Vignette 2: Intelligence on the Go -->
+    <!-- Vignette 2: Intelligence on the Go - phone + watch lifestyle -->
     <div class="vignette-header fade-up">
       <h3>Intelligence on the Go</h3>
       <p>Your next workout is always one tap away - on your phone, on your wrist, on the road.</p>
     </div>
-    <div class="app-on-the-go fade-up">
-      <div class="app-on-the-go-item">
-        <img src="./assets/app-mobile-home.png" alt="RunDot mobile home screen with Dot Score and upcoming race" loading="lazy">
-      </div>
-      <div class="app-on-the-go-item">
-        <img src="./assets/app-mobile-workout.png" alt="RunDot mobile workout map and stats" loading="lazy">
-      </div>
-      <div class="app-on-the-go-item garmin-item">
-        <img src="./assets/app-garmin-1.png" alt="RunDot on Garmin watch during outdoor run" loading="lazy">
+    <div class="lifestyle-composite reverse fade-up">
+      <div class="lifestyle-bg" style="background-image: url('./assets/runner-trail-flat.jpg');"></div>
+      <div class="lifestyle-device-stack mobile-stack">
+        <div class="device-phone">
+          <div class="device-phone-bezel">
+            <img src="./assets/app-mobile-home.png" alt="RunDot mobile home screen" loading="lazy">
+          </div>
+        </div>
+        <div class="device-phone">
+          <div class="device-phone-bezel">
+            <img src="./assets/app-mobile-workout.png" alt="RunDot workout map and stats" loading="lazy">
+          </div>
+        </div>
+        <div class="device-watch">
+          <img src="./assets/app-garmin-1.png" alt="RunDot on Garmin watch" loading="lazy">
+        </div>
       </div>
     </div>
 
     <div class="vignette-divider"></div>
 
-    <!-- Vignette 3: Every Metric, One Glance -->
+    <!-- Vignette 3: Every Metric, One Glance - exploded widgets -->
     <div class="vignette-header fade-up">
       <h3>Every Metric, One Glance</h3>
       <p>The numbers that matter most - designed to be understood instantly.</p>
@@ -785,22 +847,22 @@
       <div class="app-widget">
         <img src="./assets/widget-dot-score.png" alt="Dot Score gauge" loading="lazy">
         <div class="app-widget-label">Dot Score&#8482;</div>
-        <div class="app-widget-sub">Your overall fitness</div>
+        <div class="app-widget-sub">Your overall fitness level</div>
       </div>
       <div class="app-widget">
         <img src="./assets/widget-trainx.png" alt="TrainX gauge" loading="lazy">
         <div class="app-widget-label">TrainX&reg;</div>
-        <div class="app-widget-sub">Training efficiency</div>
+        <div class="app-widget-sub">Training optimization score</div>
       </div>
       <div class="app-widget">
         <img src="./assets/widget-training-goal.png" alt="Training Goal gauge" loading="lazy">
         <div class="app-widget-label">Training Goal</div>
-        <div class="app-widget-sub">Weekly progress</div>
+        <div class="app-widget-sub">Weekly target progress</div>
       </div>
       <div class="app-widget">
         <img src="./assets/widget-stress.png" alt="Stress gauge" loading="lazy">
         <div class="app-widget-label">Stress</div>
-        <div class="app-widget-sub">Recovery balance</div>
+        <div class="app-widget-sub">Recovery and readiness</div>
       </div>
     </div>
 
@@ -857,19 +919,19 @@
     <div class="moments-grid">
       <div class="moment-card">
         <img src="./assets/runner-lacing-family.jpg" alt="Runner lacing shoes" loading="lazy">
-        <div class="moment-overlay"><p>"I stopped planning and started running."</p></div>
+        <div class="moment-overlay"><p>Stop planning. Start running.</p></div>
       </div>
       <div class="moment-card">
         <img src="./assets/runner-tattooed-road.jpg" alt="Road runner" loading="lazy">
-        <div class="moment-overlay"><p>"I trusted the process. Then I PR'd."</p></div>
+        <div class="moment-overlay"><p>Trust the process. Chase the PR.</p></div>
       </div>
       <div class="moment-card">
         <img src="./assets/runner-road-serious.jpg" alt="Focused runner" loading="lazy">
-        <div class="moment-overlay"><p>"I never wonder what I should do anymore."</p></div>
+        <div class="moment-overlay"><p>Never wonder what to do next.</p></div>
       </div>
       <div class="moment-card">
         <img src="./assets/runner-sunrise-road.jpg" alt="Sunrise road runner" loading="lazy">
-        <div class="moment-overlay"><p>"I'm becoming the runner I always hoped I could be."</p></div>
+        <div class="moment-overlay"><p>Become the runner you always knew you could be.</p></div>
       </div>
     </div>
   </div>
