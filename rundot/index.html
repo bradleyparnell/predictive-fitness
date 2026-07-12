@@ -249,8 +249,17 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: url('./assets/runner-sunrise-road.jpg') center/cover no-repeat;
-    opacity: 0.035;
+    background: url('./assets/runner-country-road.jpg') center/cover no-repeat;
+    mix-blend-mode: multiply;
+    opacity: 0.07;
+    pointer-events: none;
+  }
+  .familiar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(83, 185, 86, 0.12);
+    mix-blend-mode: color;
     pointer-events: none;
   }
   .familiar-grid {
