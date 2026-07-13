@@ -307,7 +307,10 @@
   .promise-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.65; }
 
   /* HOW IT WORKS */
-  .how { background: var(--white); }
+  .how {
+    background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
+                url('./assets/runner-country-road.jpg') center center / cover no-repeat;
+  }
   .how-steps {
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 40px; max-width: 900px; margin: 0 auto;
@@ -444,8 +447,14 @@
   .showcase-text-col { padding: 20px 0; }
   .showcase-label-tag {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 13px; font-weight: 800; letter-spacing: 0.15em;
+    font-size: 20px; font-weight: 800; letter-spacing: 0.15em;
     color: var(--green); margin-bottom: 16px; text-transform: uppercase;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .showcase-label-tag::before {
+    content: ''; display: inline-block;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--green); flex-shrink: 0;
   }
   .showcase-heading {
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -484,15 +493,27 @@
     bottom: -36px; left: -60px; width: 260px;
   }
   .laptop-screen-lg {
-    background: #1a1a1a; border-radius: 8px 8px 0 0; padding: 8px 8px 0;
-    border: 3px solid #444; border-bottom: none;
+    background: #e2e2e2; border-radius: 12px 12px 0 0; padding: 4px 4px 0;
+    border: 2px solid #c8c8c8; border-bottom: none;
     box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    position: relative;
   }
-  .laptop-screen-lg img { width: 100%; display: block; border-radius: 3px; }
+  .laptop-screen-lg::before {
+    content: ''; display: block; width: 5px; height: 5px;
+    border-radius: 50%; background: #555; margin: 2px auto 3px;
+  }
+  .laptop-screen-lg img { width: 100%; display: block; border-radius: 4px; }
   .laptop-base-lg {
-    height: 12px; background: linear-gradient(to bottom, #666, #444);
-    border-radius: 0 0 6px 6px; margin: 0 -2px;
-    border: 2px solid #555; border-top: 1px solid #666;
+    height: 8px; background: linear-gradient(to bottom, #d4d4d4, #bbb);
+    border-radius: 0 0 2px 2px; margin: 0;
+    border: 1px solid #c0c0c0; border-top: 1px solid #d8d8d8;
+    position: relative;
+  }
+  .laptop-base-lg::after {
+    content: ''; position: absolute; bottom: -4px;
+    left: 15%; right: 15%; height: 4px;
+    background: linear-gradient(to bottom, #c0c0c0, #aaa);
+    border-radius: 0 0 8px 8px;
   }
 
   /* Phone float - bottom-right */
@@ -725,18 +746,19 @@
     gap: 16px; max-width: 1100px; margin: 0 auto;
   }
   .moment-card {
-    position: relative; border-radius: 12px; overflow: hidden;
-    aspect-ratio: 3/4; cursor: default;
+    position: relative; border-radius: 50%; overflow: hidden;
+    aspect-ratio: 1/1; cursor: default;
   }
   .moment-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
   .moment-card:hover img { transform: scale(1.04); }
   .moment-overlay {
     position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 24px 18px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.65));
+    padding: 20px 24px 28px;
+    background: linear-gradient(transparent 20%, rgba(0,0,0,0.55));
     color: var(--white);
+    border-radius: 0 0 50% 50%;
   }
-  .moment-overlay p { font-size: 15px; font-style: normal; font-weight: 600; line-height: 1.5; opacity: 0.95; letter-spacing: 0.01em; }
+  .moment-overlay p { font-size: 14px; font-style: normal; font-weight: 600; line-height: 1.4; opacity: 0.95; letter-spacing: 0.01em; text-align: center; }
 
   /* CTA */
   .cta-section {
@@ -1018,9 +1040,9 @@
             <div class="watch-brand-item">
               <svg viewBox="0 0 110 24" xmlns="http://www.w3.org/2000/svg"><text x="55" y="18" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-weight="800" font-size="16" fill="#333" letter-spacing="3">COROS</text></svg>
             </div>
-            <div class="watch-brand-item">
+            <div class="watch-brand-item" style="gap: 2px;">
               <svg class="apple-icon" viewBox="0 0 18 22" xmlns="http://www.w3.org/2000/svg"><path d="M14.94 11.64c-.02-2.34 1.91-3.46 2-3.52-1.09-1.59-2.78-1.81-3.38-1.83-1.44-.15-2.81.85-3.54.85-.73 0-1.87-.83-3.07-.81-1.58.02-3.04.92-3.85 2.34-1.64 2.85-.42 7.07 1.18 9.38.78 1.13 1.71 2.4 2.94 2.35 1.18-.05 1.62-.76 3.05-.76 1.43 0 1.83.76 3.08.74 1.27-.02 2.07-1.15 2.84-2.29.9-1.31 1.27-2.58 1.29-2.64-.03-.01-2.47-.95-2.54-3.81zM12.6 4.56c.65-.79 1.09-1.88.97-2.97-.94.04-2.07.62-2.74 1.41-.61.7-1.14 1.82-.99 2.9 1.05.08 2.11-.53 2.76-1.34z" fill="#333"/></svg>
-              <svg viewBox="0 0 80 24" xmlns="http://www.w3.org/2000/svg"><text x="40" y="18" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-weight="600" font-size="15" fill="#333">Watch</text></svg>
+              <svg viewBox="0 0 60 24" xmlns="http://www.w3.org/2000/svg"><text x="2" y="18" text-anchor="start" font-family="'Plus Jakarta Sans',sans-serif" font-weight="600" font-size="15" fill="#333">Watch</text></svg>
             </div>
             <div class="watch-brand-item">
               <svg viewBox="0 0 100 24" xmlns="http://www.w3.org/2000/svg"><text x="50" y="18" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-weight="700" font-size="16" fill="#333" letter-spacing="1">fitbit</text></svg>
@@ -1100,7 +1122,7 @@
 <!-- 5.5 FEATURE PHOTO - TrainingPeaks-style alternating -->
 <section class="feature-photo fade-up">
   <div class="feature-photo-circle">
-    <img src="./assets/runner-lacing-family.jpg" alt="Runner lacing up shoes with family" loading="lazy">
+    <img src="./assets/runner-hipster-urban.jpg" alt="Modern runner in urban setting at golden hour" loading="lazy">
   </div>
   <div class="feature-photo-content">
     <div class="section-eyebrow">Confidence in every step</div>
@@ -1174,93 +1196,7 @@
 <!-- BRAND DOT STRIPE -->
 <div class="chevron-stripe chevron-stripe-right"><div class="chevron-stripe-inner"></div></div>
 
-<!-- 8. APP - LIFESTYLE EXPERIENCE -->
-<section class="section app-section">
-  <div class="section-inner">
-
-    <!-- Section header -->
-    <div class="section-header fade-up">
-      <div class="section-eyebrow">The experience</div>
-      <h2 class="section-title">Your training, everywhere you go.</h2>
-      <p class="section-sub">From morning planning to mid-run data to post-workout analysis - RunDot lives where your running does.</p>
-    </div>
-
-    <!-- Vignette 1: Command Center - circle photo + laptop overlay -->
-    <div class="showcase-panel fade-up">
-      <div class="showcase-text-col">
-        <div class="showcase-label-tag">COMMAND CENTER.</div>
-        <h3 class="showcase-heading">Your Training Command Center</h3>
-        <p class="showcase-desc">Plan your week, track your progress, and watch your fitness evolve - all from one powerful dashboard.</p>
-      </div>
-      <div class="showcase-visual-col">
-        <div class="showcase-circle">
-          <img src="./assets/runner-woman-road.jpg" alt="Runner reviewing training plan" loading="lazy">
-        </div>
-        <div class="showcase-device-float" style="bottom: -20px; right: -20px;">
-          <div class="device-laptop" style="max-width: 320px;">
-            <div class="device-laptop-bezel">
-              <img src="./assets/app-desktop-calendar.png" alt="RunDot weekly training calendar" loading="lazy">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="vignette-divider"></div>
-
-    <!-- Vignette 2: Intelligence on the Go - circle photo + phone overlay -->
-    <div class="showcase-panel fade-up" style="direction: rtl;">
-      <div class="showcase-text-col" style="direction: ltr;">
-        <div class="showcase-label-tag">ON THE GO.</div>
-        <h3 class="showcase-heading">Intelligence on the Go</h3>
-        <p class="showcase-desc">Your next workout is always one tap away - on your phone, on your wrist, on the road.</p>
-      </div>
-      <div class="showcase-visual-col" style="direction: ltr;">
-        <div class="showcase-circle">
-          <img src="./assets/runner-phone-training.jpg" alt="Runner checking phone and watch outdoors" loading="lazy">
-        </div>
-        <div class="showcase-device-float" style="bottom: -10px; left: -10px; right: auto;">
-          <div class="device-phone">
-            <div class="device-phone-bezel">
-              <img src="./assets/app-mobile-dashboard.png" alt="RunDot mobile home screen" loading="lazy">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="vignette-divider"></div>
-
-    <!-- Vignette 3: Every Metric, One Glance - exploded widgets -->
-    <div class="vignette-header fade-up">
-      <h3>Every Metric, One Glance</h3>
-      <p>The numbers that matter most - designed to be understood instantly.</p>
-    </div>
-    <div class="app-widgets-grid fade-up">
-      <div class="app-widget">
-        <img src="./assets/widget-dot-score.png" alt="Dot Score gauge" loading="lazy">
-        <div class="app-widget-label">Dot Score&#8482;</div>
-        <div class="app-widget-sub">Your overall fitness level</div>
-      </div>
-      <div class="app-widget">
-        <img src="./assets/widget-trainx.png" alt="TrainX gauge" loading="lazy">
-        <div class="app-widget-label">TrainX&reg;</div>
-        <div class="app-widget-sub">Training optimization score</div>
-      </div>
-      <div class="app-widget">
-        <img src="./assets/widget-training-goal.png" alt="Training Goal gauge" loading="lazy">
-        <div class="app-widget-label">Training Goal</div>
-        <div class="app-widget-sub">Weekly target progress</div>
-      </div>
-      <div class="app-widget">
-        <img src="./assets/widget-stress.png" alt="Stress gauge" loading="lazy">
-        <div class="app-widget-label">Stress</div>
-        <div class="app-widget-sub">Recovery and readiness</div>
-      </div>
-    </div>
-
-  </div>
-</section>
+<!-- Section 8 removed per Brad's direction -->
 
 <!-- BRAND DOT STRIPE -->
 <div class="chevron-stripe chevron-stripe-subtle"><div class="chevron-stripe-inner"></div></div>
@@ -1314,19 +1250,19 @@
     </div>
     <div class="moments-grid">
       <div class="moment-card">
-        <img src="./assets/runner-lacing-family.jpg" alt="Runner lacing shoes" loading="lazy">
+        <img src="./assets/moments-elite-female.jpg" alt="Elite female runner on track" loading="lazy">
         <div class="moment-overlay"><p>Stop planning. Start running.</p></div>
       </div>
       <div class="moment-card">
-        <img src="./assets/runner-tattooed-road.jpg" alt="Road runner" loading="lazy">
+        <img src="./assets/moments-beginner-male.jpg" alt="Happy beginner runner in park" loading="lazy">
         <div class="moment-overlay"><p>Trust the process. Chase the PR.</p></div>
       </div>
       <div class="moment-card">
-        <img src="./assets/runner-road-serious.jpg" alt="Focused runner" loading="lazy">
+        <img src="./assets/moments-hipster-female.jpg" alt="Stylish runner stretching on bridge" loading="lazy">
         <div class="moment-overlay"><p>Never wonder what to do next.</p></div>
       </div>
       <div class="moment-card">
-        <img src="./assets/runner-sunrise-road.jpg" alt="Sunrise road runner" loading="lazy">
+        <img src="./assets/moments-mature-male.jpg" alt="Experienced runner on coastal trail" loading="lazy">
         <div class="moment-overlay"><p>Become the runner you always knew you could be.</p></div>
       </div>
     </div>
