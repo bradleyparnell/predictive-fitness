@@ -19,6 +19,7 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  .tm { font-size: 0.6em; vertical-align: super; line-height: 0; }
   :root {
     --green: #53b956;
     --green-light: #6dd070;
@@ -317,7 +318,7 @@
 
   /* HOW IT WORKS */
   .how {
-    background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)),
+    background: linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.82)),
                 url('./assets/runner-country-road.jpg') center center / cover no-repeat;
   }
   .how-steps {
@@ -462,7 +463,7 @@
   }
   .showcase-label-tag::before {
     content: ''; display: inline-block;
-    width: 10px; height: 10px; border-radius: 50%;
+    width: 14px; height: 14px; border-radius: 50%;
     background: var(--green); flex-shrink: 0;
   }
   .showcase-heading {
@@ -490,6 +491,7 @@
   }
   .showcase-circle img {
     width: 100%; height: 100%; object-fit: cover; display: block;
+    object-position: center center;
   }
 
   /* Floating device mockups overlapping the circle */
@@ -502,27 +504,34 @@
     bottom: -36px; left: -60px; width: 260px;
   }
   .laptop-screen-lg {
-    background: #e2e2e2; border-radius: 12px 12px 0 0; padding: 4px 4px 0;
-    border: 2px solid #c8c8c8; border-bottom: none;
+    background: #d1d1d6; border-radius: 10px; padding: 6px 6px 0;
+    border: 2px solid #b8b8bd;
     box-shadow: 0 20px 60px rgba(0,0,0,0.25);
     position: relative;
   }
   .laptop-screen-lg::before {
     content: ''; display: block; width: 5px; height: 5px;
-    border-radius: 50%; background: #555; margin: 2px auto 3px;
+    border-radius: 50%; background: #555; margin: 3px auto 4px;
   }
   .laptop-screen-lg img { width: 100%; display: block; border-radius: 4px; }
   .laptop-base-lg {
-    height: 8px; background: linear-gradient(to bottom, #d4d4d4, #bbb);
+    height: 14px; background: linear-gradient(to bottom, #d4d4d8, #c0c0c4 40%, #a8a8ac);
     border-radius: 0 0 2px 2px; margin: 0;
-    border: 1px solid #c0c0c0; border-top: 1px solid #d8d8d8;
+    border: 1px solid #b8b8bd; border-top: 1px solid #d8d8dc;
     position: relative;
   }
+  .laptop-base-lg::before {
+    content: ''; position: absolute; top: 4px;
+    left: 35%; right: 35%; height: 3px;
+    background: rgba(0,0,0,0.08);
+    border-radius: 2px;
+  }
   .laptop-base-lg::after {
-    content: ''; position: absolute; bottom: -4px;
-    left: 15%; right: 15%; height: 4px;
-    background: linear-gradient(to bottom, #c0c0c0, #aaa);
-    border-radius: 0 0 8px 8px;
+    content: ''; position: absolute; bottom: -5px;
+    left: 10%; right: 10%; height: 5px;
+    background: linear-gradient(to bottom, #c0c0c4, #a0a0a4);
+    border-radius: 0 0 10px 10px;
+    border: 1px solid #b0b0b4; border-top: none;
   }
 
   /* Phone float - bottom-right */
@@ -755,19 +764,20 @@
     gap: 16px; max-width: 1100px; margin: 0 auto;
   }
   .moment-card {
-    position: relative; border-radius: 50%; overflow: hidden;
-    aspect-ratio: 1/1; cursor: default;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 16px; cursor: default;
   }
-  .moment-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-  .moment-card:hover img { transform: scale(1.04); }
-  .moment-overlay {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 20px 24px 28px;
-    background: linear-gradient(transparent 20%, rgba(0,0,0,0.55));
-    color: var(--white);
-    border-radius: 0 0 50% 50%;
+  .moment-circle {
+    width: 100%; aspect-ratio: 1/1; border-radius: 50%; overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
   }
-  .moment-overlay p { font-size: 14px; font-style: normal; font-weight: 600; line-height: 1.4; opacity: 0.95; letter-spacing: 0.01em; text-align: center; }
+  .moment-circle img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+  .moment-card:hover .moment-circle img { transform: scale(1.04); }
+  .moment-caption {
+    font-family: var(--font-display); font-size: 15px; font-weight: 700;
+    color: var(--text); text-align: center; line-height: 1.4;
+    padding: 0 8px;
+  }
 
   /* CTA */
   .cta-section {
@@ -897,7 +907,7 @@
     .app-widgets-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 400px; margin: 0 auto; padding: 32px 20px; }
     .app-widget img { max-width: 150px; }
     .science-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
-    .moments-grid { grid-template-columns: repeat(2, 1fr); }
+    .moments-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .partners-logos { gap: 32px; }
     .footer-top { grid-template-columns: 1fr; gap: 32px; }
   }
@@ -926,7 +936,7 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>Run like you don't have to<br>think about it.</h1>
-    <p class="hero-sub">Because you don't. RunDot™ removes the guesswork -<br>so you can focus on the thing you love most.</p>
+    <p class="hero-sub">Because you don't. RunDot<span class="tm">™</span> removes the guesswork -<br>so you can focus on the thing you love most.</p>
     <div class="hero-cta-row">
       <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Start Free Trial</a>
       <a href="#how" class="btn-outline">See How It Works</a>
@@ -989,9 +999,9 @@
     <!-- Row 1: Desktop - Athlete at laptop -->
     <div class="showcase-panel">
       <div class="showcase-text-col">
-        <div class="showcase-label-tag">PLAN.</div>
+        <div class="showcase-label-tag">PLAN</div>
         <h3 class="showcase-heading">Plan your week in seconds.</h3>
-        <p class="showcase-desc">Open RunDot™ and your entire week is already built - personalized workouts, pacing, and recovery, all adapting to you in real time.</p>
+        <p class="showcase-desc">Open RunDot<span class="tm">™</span> and your entire week is already built - personalized workouts, pacing, and recovery, all adapting to you in real time.</p>
         <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Start Free Trial</a>
       </div>
       <div class="showcase-visual-col">
@@ -1010,8 +1020,8 @@
     <!-- Row 2: Mobile - Runner with phone + watch -->
     <div class="showcase-panel showcase-panel-reverse">
       <div class="showcase-text-col">
-        <div class="showcase-label-tag">TRACK.</div>
-        <h3 class="showcase-heading">Your Dot Score™ at a glance.</h3>
+        <div class="showcase-label-tag">TRACK</div>
+        <h3 class="showcase-heading">Your Dot Score<span class="tm">™</span> at a glance.</h3>
         <p class="showcase-desc">Check your readiness, see today's workout, and track your progress - all from your phone before you even lace up.</p>
         <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Download the App</a>
       </div>
@@ -1034,9 +1044,9 @@
     <!-- Row 3: Watch - Runner on the trail -->
     <div class="showcase-panel">
       <div class="showcase-text-col">
-        <div class="showcase-label-tag">RUN.</div>
+        <div class="showcase-label-tag">RUN</div>
         <h3 class="showcase-heading">Guided pacing on your wrist.</h3>
-        <p class="showcase-desc">RunDot™ connects to your favorite running watch so every interval, tempo, and easy run has real-time pace guidance. Just follow your wrist.</p>
+        <p class="showcase-desc">RunDot<span class="tm">™</span> connects to your favorite running watch so every interval, tempo, and easy run has real-time pace guidance. Just follow your wrist.</p>
         <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Get Started</a>
       </div>
       <div class="showcase-visual-col">
@@ -1073,9 +1083,9 @@
 <section class="section promise">
   <div class="section-inner fade-up">
     <div class="promise-header">
-      <div class="section-eyebrow">The RunDot™ promise</div>
+      <div class="section-eyebrow">The RunDot<span class="tm">™</span> promise</div>
       <h2 class="section-title">What if you never had to wonder?</h2>
-      <p class="section-sub">RunDot™ replaces uncertainty with confidence. Every day, you know exactly what to do.</p>
+      <p class="section-sub">RunDot<span class="tm">™</span> replaces uncertainty with confidence. Every day, you know exactly what to do.</p>
     </div>
     <div class="promise-grid">
       <div class="promise-card">
@@ -1083,14 +1093,14 @@
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         </div>
         <h3>Your plan adapts daily</h3>
-        <p>Not a static plan that ignores your life. RunDot™ adjusts every workout based on how your body is actually responding.</p>
+        <p>Not a static plan that ignores your life. RunDot<span class="tm">™</span> adjusts every workout based on how your body is actually responding.</p>
       </div>
       <div class="promise-card">
         <div class="promise-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
         <h3>Train less, improve more</h3>
-        <p>Runners using RunDot™ train 30% less volume while seeing faster improvement. Quality over quantity, every session.</p>
+        <p>Runners using RunDot<span class="tm">™</span> train 30% less volume while seeing faster improvement. Quality over quantity, every session.</p>
       </div>
       <div class="promise-card">
         <div class="promise-icon">
@@ -1115,7 +1125,7 @@
       <div class="how-step">
         <div class="how-num">1</div>
         <h3>Tell us about you</h3>
-        <p>Your fitness, your goals, your schedule. RunDot™ starts learning from day one.</p>
+        <p>Your fitness, your goals, your schedule. RunDot<span class="tm">™</span> starts learning from day one.</p>
       </div>
       <div class="how-step">
         <div class="how-num">2</div>
@@ -1139,7 +1149,7 @@
   <div class="feature-photo-content">
     <div class="section-eyebrow">Confidence in every step</div>
     <h2 class="section-title">Your training. Built around your life.</h2>
-    <p class="section-sub">Travel, sick days, tough weeks - life happens. RunDot™ recalibrates your plan in real time so you never fall behind. No guilt, no catch-up workouts.</p>
+    <p class="section-sub">Travel, sick days, tough weeks - life happens. RunDot<span class="tm">™</span> recalibrates your plan in real time so you never fall behind. No guilt, no catch-up workouts.</p>
     <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Try it free</a>
   </div>
 </section>
@@ -1151,7 +1161,7 @@
   <div class="feature-photo-content">
     <div class="section-eyebrow">Less is more</div>
     <h2 class="section-title">Better running without the burnout.</h2>
-    <p class="section-sub">RunDot™ athletes train 30% less volume and still see faster improvement. Because the right workout at the right time beats more miles every time.</p>
+    <p class="section-sub">RunDot<span class="tm">™</span> athletes train 30% less volume and still see faster improvement. Because the right workout at the right time beats more miles every time.</p>
     <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Start free trial</a>
   </div>
 </section>
@@ -1219,7 +1229,7 @@
     <div class="section-header">
       <div class="section-eyebrow">Why it works</div>
       <h2 class="section-title">Built on 20 years of real training data.</h2>
-      <p class="section-sub">RunDot™ is powered by FitLogic™ - an intelligent training engine that learns how your body responds to training, rest, and race conditions.</p>
+      <p class="section-sub">RunDot<span class="tm">™</span> is powered by FitLogic<span class="tm">™</span> - an intelligent training engine that learns how your body responds to training, rest, and race conditions.</p>
     </div>
     <div class="science-grid">
       <div class="science-card">
@@ -1234,7 +1244,7 @@
           <svg viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
         </div>
         <h3>Learns your body</h3>
-        <p>FitLogic™ builds a unique performance model for every athlete - how you respond to speed, volume, and recovery.</p>
+        <p>FitLogic<span class="tm">™</span> builds a unique performance model for every athlete - how you respond to speed, volume, and recovery.</p>
       </div>
       <div class="science-card">
         <div class="science-icon">
@@ -1248,7 +1258,7 @@
       <div class="science-badge-dot">
         <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
       </div>
-      <span>Powered by FitLogic™ - the intelligent training engine behind every RunDot™ workout</span>
+      <span>Powered by FitLogic<span class="tm">™</span> - the intelligent training engine behind every RunDot<span class="tm">™</span> workout</span>
     </div>
   </div>
 </section>
@@ -1262,20 +1272,20 @@
     </div>
     <div class="moments-grid">
       <div class="moment-card">
-        <img src="./assets/moments-elite-female.jpg" alt="Elite female runner on track" loading="lazy">
-        <div class="moment-overlay"><p>Stop planning. Start running.</p></div>
+        <div class="moment-circle"><img src="./assets/moments-elite-female.jpg" alt="Female runner jogging with a smile" loading="lazy"></div>
+        <div class="moment-caption">Stop planning. Start running.</div>
       </div>
       <div class="moment-card">
-        <img src="./assets/moments-beginner-male.jpg" alt="Happy beginner runner in park" loading="lazy">
-        <div class="moment-overlay"><p>Trust the process. Chase the PR.</p></div>
+        <div class="moment-circle"><img src="./assets/moments-beginner-male.jpg" alt="Male athlete in starting position on track" loading="lazy"></div>
+        <div class="moment-caption">Trust the process. Chase the PR.</div>
       </div>
       <div class="moment-card">
-        <img src="./assets/moments-hipster-female.jpg" alt="Stylish runner stretching on bridge" loading="lazy">
-        <div class="moment-overlay"><p>Never wonder what to do next.</p></div>
+        <div class="moment-circle"><img src="./assets/moments-hipster-female.jpg" alt="Woman running through city streets" loading="lazy"></div>
+        <div class="moment-caption">Never wonder what to do next.</div>
       </div>
       <div class="moment-card">
-        <img src="./assets/moments-mature-male.jpg" alt="Experienced runner on coastal trail" loading="lazy">
-        <div class="moment-overlay"><p>Become the runner you always knew you could be.</p></div>
+        <div class="moment-circle"><img src="./assets/moments-mature-male.jpg" alt="Experienced marathon runner" loading="lazy"></div>
+        <div class="moment-caption">Become the runner you always knew you could be.</div>
       </div>
     </div>
   </div>
@@ -1315,7 +1325,7 @@
     <div class="footer-top">
       <div>
         <div class="footer-logo"><img src="./assets/rundot-logo-footer.svg" alt="RunDot"></div>
-        <p class="footer-desc">Intelligent training built on 20+ years of real athlete data. RunDot™ gives you the confidence to just run.</p>
+        <p class="footer-desc">Intelligent training built on 20+ years of real athlete data. RunDot<span class="tm">™</span> gives you the confidence to just run.</p>
         <div class="footer-fitlogic">
           <img src="./assets/powered-by-fitlogic-white.png" alt="Powered by FitLogic™" loading="lazy">
         </div>
@@ -1357,7 +1367,7 @@
 <div class="modal-overlay" id="qrModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeQR()">✕</button>
-    <h3>Get RunDot™</h3>
+    <h3>Get RunDot<span class="tm">™</span></h3>
     <p>Scan to download or tap below.</p>
     <div class="qr-code"><img src="./assets/app-qr-code.png" alt="Scan to sign up" style="width:200px;height:200px;border-radius:12px;"></div>
     <div class="store-badges">
