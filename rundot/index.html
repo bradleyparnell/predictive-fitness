@@ -240,33 +240,42 @@
 
   /* SOUND FAMILIAR - problem section */
   .familiar {
-    background: url('./assets/runner-coffee-shop.jpg') center center / cover no-repeat;
-    position: relative;
-    overflow: hidden;
-    padding-top: 80px;
+    background: var(--white);
+    padding-bottom: 0;
   }
-  .familiar::before {
+  .familiar .section-inner { padding-bottom: 0; }
+  .familiar-photo {
+    position: relative;
+    margin-top: 48px;
+    overflow: hidden;
+    background: url('./assets/runner-coffee-shop.jpg') center 20% / cover no-repeat;
+    min-height: 520px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 48px;
+  }
+  .familiar-photo::before {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(
       to bottom,
-      rgba(255,255,255,0.95) 0%,
-      rgba(255,255,255,0.75) 25%,
-      rgba(255,255,255,0.35) 55%,
-      rgba(255,255,255,0.0) 80%
+      rgba(0,0,0,0.0) 0%,
+      rgba(0,0,0,0.0) 40%,
+      rgba(0,0,0,0.25) 70%,
+      rgba(0,0,0,0.45) 100%
     );
     pointer-events: none;
-  }
-  .familiar::after {
-    display: none;
   }
   .familiar-grid {
     display: grid; grid-template-columns: repeat(2, 1fr);
     gap: 20px; max-width: 720px; margin: 0 auto;
+    position: relative; z-index: 2;
   }
   .familiar-card {
-    background: var(--off-white); border: 1px solid var(--border);
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.3);
     border-radius: 12px; padding: 32px 28px;
     text-align: center;
     transition: border-color 0.2s, transform 0.2s;
@@ -850,6 +859,7 @@
     .trust-row { gap: 32px; }
     .section { padding: 64px 20px; }
     .familiar-grid { grid-template-columns: 1fr; }
+    .familiar-photo { min-height: 620px; padding-bottom: 32px; }
     .promise-grid { grid-template-columns: 1fr; max-width: 400px; }
     .how-steps { grid-template-columns: 1fr; gap: 32px; max-width: 400px; margin: 0 auto; }
     .feature-photo { grid-template-columns: 1fr; padding: 48px 24px; gap: 24px; }
@@ -953,6 +963,8 @@
       <h2 class="section-title">Every runner has asked these questions.</h2>
       <p class="section-sub">The biggest thing standing between you and your best running isn't fitness. It's uncertainty.</p>
     </div>
+  </div>
+  <div class="familiar-photo fade-up">
     <div class="familiar-grid">
       <div class="familiar-card"><p>"Am I training enough?"</p></div>
       <div class="familiar-card"><p>"Am I doing too much?"</p></div>
