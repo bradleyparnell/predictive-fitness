@@ -139,30 +139,26 @@
   /* HERO - MEB */
   .hero {
     position: relative; min-height: 100vh;
-    display: flex; align-items: center;
+    display: flex; align-items: flex-end;
     overflow: hidden;
-    background: linear-gradient(135deg, #0a0f1a 0%, #111827 40%, #1a2332 100%);
+    background: url('./assets/hero-bg-road.jpg') center center / cover no-repeat;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.6) 45%, rgba(0,0,0,0.25) 100%);
+    z-index: 1;
   }
   .hero-inner {
+    position: relative; z-index: 2;
     display: grid; grid-template-columns: 1fr 1fr;
     align-items: end; gap: 0;
     max-width: 1400px; width: 100%; margin: 0 auto;
-    padding: 140px 60px 0;
+    padding: 160px 60px 0;
     min-height: 100vh;
   }
   .hero-text {
-    padding-bottom: 120px;
-    z-index: 2;
-  }
-  .hero-credential {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-family: var(--font-display); font-size: 13px; font-weight: 600;
-    color: var(--green); text-transform: uppercase; letter-spacing: 0.12em;
-    margin-bottom: 28px;
-  }
-  .hero-credential::before {
-    content: ''; width: 8px; height: 8px; border-radius: 50%;
-    background: var(--green); display: inline-block;
+    padding-bottom: 100px;
+    z-index: 3;
   }
   .hero h1 {
     font-family: var(--font-display);
@@ -175,7 +171,7 @@
   }
   .hero h1 em { font-style: italic; color: var(--green-light); }
   .hero-sub {
-    font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.7);
+    font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.85);
     max-width: 480px; margin: 0 0 20px; line-height: 1.7;
     letter-spacing: 0.01em;
   }
@@ -184,23 +180,28 @@
     color: var(--white); margin-bottom: 4px;
   }
   .hero-meb-title {
-    font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 32px; line-height: 1.5;
+    font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 32px; line-height: 1.5;
   }
   .hero-cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
   .hero-meb-img {
-    position: relative; z-index: 1;
+    position: relative; z-index: 2;
     display: flex; align-items: flex-end; justify-content: center;
   }
   .hero-meb-img img {
-    width: 100%; max-width: 560px; height: auto;
+    width: 100%; max-width: 520px; height: auto;
     object-fit: contain; object-position: bottom center;
-    filter: drop-shadow(0 0 80px rgba(83,185,86,0.15));
+    filter: drop-shadow(0 4px 40px rgba(0,0,0,0.5));
   }
-  .hero-glow {
-    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-    width: 400px; height: 200px; border-radius: 50%;
-    background: radial-gradient(ellipse, rgba(83,185,86,0.12) 0%, transparent 70%);
-    z-index: 0;
+  .hero-meb-label {
+    position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+    text-align: center; z-index: 3; white-space: nowrap;
+  }
+  .hero-meb-label span {
+    font-family: var(--font-display); font-size: 14px; font-weight: 600;
+    color: var(--white); letter-spacing: 0.06em; text-transform: uppercase;
+    background: rgba(0,0,0,0.5); padding: 8px 20px; border-radius: 6px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.1);
   }
   .btn-primary {
     display: inline-flex; align-items: center; gap: 8px;
@@ -875,13 +876,14 @@
     nav { padding: 14px 20px; }
     .nav-links { display: none; }
     .hero-inner { grid-template-columns: 1fr; padding: 120px 24px 0; text-align: center; }
+    .hero::before { background: linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.3) 100%); }
     .hero-text { padding-bottom: 40px; }
     .hero h1 { font-size: 36px; }
     .hero-sub { font-size: 16px; margin-left: auto; margin-right: auto; }
     .hero-meb-name, .hero-meb-title { text-align: center; }
     .hero-cta-row { justify-content: center; }
-    .hero-meb-img img { max-width: 320px; }
-    .hero-credential { justify-content: center; }
+    .hero-meb-img img { max-width: 280px; }
+    .hero-meb-label span { font-size: 12px; padding: 6px 14px; }
     .trust-row { gap: 32px; }
     .section { padding: 64px 20px; }
     .familiar-grid { grid-template-columns: 1fr; }
@@ -945,7 +947,6 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-text fade-up">
-      <div class="hero-credential">Meb Keflezighi - RunDot<span class="tm">™</span> Partner</div>
       <h1>What Could You Achieve With Complete Confidence?</h1>
       <p class="hero-sub">"RunDot is so far ahead of any other run training option."</p>
       <p class="hero-meb-name">Meb Keflezighi</p>
@@ -956,8 +957,8 @@
       </div>
     </div>
     <div class="hero-meb-img">
-      <div class="hero-glow"></div>
       <img src="./assets/meb-cutout.png" alt="Meb Keflezighi - Boston Marathon Champion" loading="eager">
+      <div class="hero-meb-label"><span>Meb Keflezighi - RunDot<span class="tm">™</span> Partner</span></div>
     </div>
   </div>
 </section>
