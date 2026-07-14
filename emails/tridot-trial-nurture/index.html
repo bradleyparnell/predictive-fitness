@@ -407,109 +407,9 @@
     .before-placeholder .ph-text { font-size: 13px; color: #444; text-align: center; line-height: 1.5; }
 
 
-    /* ── Feedback sticky notes ─────────────────────────── */
-    .feedback-box {
-      background: #fef9c3;
-      border: 2px solid #fbbf24;
-      border-top: 4px solid #f59e0b;
-      border-radius: 0 0 10px 10px;
-      padding: 14px 18px 16px;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      margin-top: 0;
-    }
-    .feedback-header {
-      font-size: 12px;
-      font-weight: 700;
-      color: #92400e;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    .feedback-comments {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-    .feedback-comment {
-      background: #fffbeb;
-      border: 1px solid #fde68a;
-      border-radius: 7px;
-      padding: 8px 32px 8px 12px;
-      font-size: 13px;
-      color: #1c1c1c;
-      position: relative;
-      line-height: 1.5;
-    }
-    .fc-name { font-weight: 700; color: #b45309; margin-right: 5px; }
-    .fc-time { font-size: 10px; color: #a16207; margin-left: 6px; }
-    .fc-del {
-      position: absolute; top: 7px; right: 9px;
-      background: none; border: none; cursor: pointer;
-      color: #d97706; font-size: 15px; line-height: 1;
-      opacity: 0.45; transition: opacity .15s;
-      padding: 0;
-    }
-    .fc-del:hover { opacity: 1; }
-    .feedback-input-row { display: flex; flex-direction: column; gap: 7px; }
-    .feedback-name-input,
-    .feedback-textarea {
-      background: #fff;
-      border: 1px solid #fbbf24;
-      border-radius: 6px;
-      padding: 7px 10px;
-      font-size: 13px;
-      color: #1c1c1c;
-      font-family: inherit;
-    }
-    .feedback-name-input { width: 220px; }
-    .feedback-textarea { resize: vertical; min-height: 56px; }
-    .feedback-name-input:focus,
-    .feedback-textarea:focus { outline: none; border-color: #d97706; box-shadow: 0 0 0 2px #fde68a; }
-    .feedback-submit {
-      align-self: flex-start;
-      background: #fbbf24;
-      border: none;
-      border-radius: 6px;
-      padding: 7px 20px;
-      font-size: 13px;
-      font-weight: 700;
-      color: #78350f;
-      cursor: pointer;
-      transition: background .15s;
-    }
-    .feedback-submit:hover { background: #f59e0b; }
+    
 
-    /* ── Floating feedback export tab ── */
-    #feedback-float-tab {
-      position: fixed;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      rotate: 180deg;
-      background: #161b27;
-      border: 1px solid #252a3a;
-      border-right: none;
-      color: #444;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 18px 10px;
-      cursor: pointer;
-      border-radius: 6px 0 0 6px;
-      z-index: 200;
-      user-select: none;
-      transition: color 0.2s, background 0.2s, border-color 0.2s;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
-    #feedback-float-tab:hover {
-      color: #888;
-      background: #1e2436;
-      border-color: #2e3550;
-    }
+    
 
 
     .approve-btn {
@@ -539,12 +439,6 @@
   </div>
   <span class="nav-badge">Redesign Draft</span>
 </nav>
-
-<!-- Floating feedback export tab -->
-<div id="feedback-float-tab" onclick="exportFeedback()" title="Export all feedback as text">
-  <span>Export Feedback</span>
-</div>
-
 
 <!-- Tab Bar -->
 <div class="tab-bar">
@@ -614,22 +508,6 @@
     <div class="change-icon">✅</div>
     <div class="change-text"><strong>Top performer — light touch.</strong> Cleaned up layout, added numbered onboarding steps, strengthened first CTA. Subject line and tone preserved — this one works.</div>
   </div>
-  <div class="feedback-box" data-email-id="tridot-1" data-email-title="TriDot · Day 1 Welcome">
-    <div class="feedback-header">💬 Internal Feedback</div>
-    <div class="feedback-comments"></div>
-    <div class="feedback-input-row">
-      <input class="feedback-name-input" type="text" placeholder="Your name" />
-      <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
-      <button class="feedback-submit">Post</button>
-      <button class="approve-btn" onclick="toggleApproval(this)">
-        <span class="approve-icon">⬜</span>
-        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
-        <span class="approve-date"></span>
-      </button>
-    </div>
-  </div>
-
-</div>
 
 <!-- ─── EMAIL 2 ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -673,22 +551,6 @@
     <div class="change-icon">✅</div>
     <div class="change-text"><strong>Strong performer — refined.</strong> Added a benefits checklist showing what completing setup unlocks. Made the urgency clearer without changing the warm tone.</div>
   </div>
-  <div class="feedback-box" data-email-id="tridot-2" data-email-title="TriDot · Onboard Started #1">
-    <div class="feedback-header">💬 Internal Feedback</div>
-    <div class="feedback-comments"></div>
-    <div class="feedback-input-row">
-      <input class="feedback-name-input" type="text" placeholder="Your name" />
-      <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
-      <button class="feedback-submit">Post</button>
-      <button class="approve-btn" onclick="toggleApproval(this)">
-        <span class="approve-icon">⬜</span>
-        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
-        <span class="approve-date"></span>
-      </button>
-    </div>
-  </div>
-
-</div>
 
 <!-- ─── EMAIL 3 ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -733,22 +595,6 @@
     <div class="change-icon">⚠️</div>
     <div class="change-text"><strong>Had no CTA — fixed.</strong> Added an app CTA after Jeff's personal story while keeping the conversational founder tone. The original read like a dead end.</div>
   </div>
-  <div class="feedback-box" data-email-id="tridot-3" data-email-title="TriDot · Founder Message">
-    <div class="feedback-header">💬 Internal Feedback</div>
-    <div class="feedback-comments"></div>
-    <div class="feedback-input-row">
-      <input class="feedback-name-input" type="text" placeholder="Your name" />
-      <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
-      <button class="feedback-submit">Post</button>
-      <button class="approve-btn" onclick="toggleApproval(this)">
-        <span class="approve-icon">⬜</span>
-        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
-        <span class="approve-date"></span>
-      </button>
-    </div>
-  </div>
-
-</div>
 
 <!-- ─── EMAIL 4 ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -793,22 +639,6 @@
     <div class="change-icon">🚨</div>
     <div class="change-text"><strong>Lowest CTR in the sequence — full rebuild.</strong> Replaced generic testimonials with outcome-focused reviews, added a stats bar (50K+ athletes, 4.9★, 89% PR rate), wrote a stronger conversion headline, and added a clear CTA. The original had no visual hook and buried the proof.</div>
   </div>
-  <div class="feedback-box" data-email-id="tridot-4" data-email-title="TriDot · Social Proof">
-    <div class="feedback-header">💬 Internal Feedback</div>
-    <div class="feedback-comments"></div>
-    <div class="feedback-input-row">
-      <input class="feedback-name-input" type="text" placeholder="Your name" />
-      <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
-      <button class="feedback-submit">Post</button>
-      <button class="approve-btn" onclick="toggleApproval(this)">
-        <span class="approve-icon">⬜</span>
-        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
-        <span class="approve-date"></span>
-      </button>
-    </div>
-  </div>
-
-</div>
 
 <!-- ─── EMAIL 5 ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -853,22 +683,6 @@
     <div class="change-icon">🔧</div>
     <div class="change-text"><strong>Very sparse original — improved.</strong> Expanded with top 3 setup tips, warmer personal tone from a coach's perspective, and a clearer CTA. Kept the one-on-one feel.</div>
   </div>
-  <div class="feedback-box" data-email-id="tridot-5" data-email-title="TriDot · Onboard Started #2">
-    <div class="feedback-header">💬 Internal Feedback</div>
-    <div class="feedback-comments"></div>
-    <div class="feedback-input-row">
-      <input class="feedback-name-input" type="text" placeholder="Your name" />
-      <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
-      <button class="feedback-submit">Post</button>
-      <button class="approve-btn" onclick="toggleApproval(this)">
-        <span class="approve-icon">⬜</span>
-        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
-        <span class="approve-date"></span>
-      </button>
-    </div>
-  </div>
-
-</div>
 
 <!-- ─── EMAIL 6 ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -909,28 +723,10 @@
     </div>
   </div>
 
-  <div class="feedback-box" data-email-id="tridot-6" data-email-title="TriDot · Trial Expiring">
-    <div class="feedback-header">💬 Internal Feedback</div>
-    <div class="feedback-comments"></div>
-    <div class="feedback-input-row">
-      <input class="feedback-name-input" type="text" placeholder="Your name" />
-      <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
-      <button class="feedback-submit">Post</button>
-      <button class="approve-btn" onclick="toggleApproval(this)">
-        <span class="approve-icon">⬜</span>
-        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
-        <span class="approve-date"></span>
-      </button>
-    </div>
-  </div>
-
-</div>
-
 <!-- Footer -->
 <footer>
   Prepared by Predictive Fitness · TriDot Email Redesign Project · Trial Nurture Sequence
 </footer>
-
 
 
 </div><!-- /tab-tridot -->
@@ -990,22 +786,6 @@
       </div>
     </div>
   </div>
-  <div class="feedback-box" data-email-id="rundot-1" data-email-title="RunDot · Day 1 Welcome">
-    <div class="feedback-header">💬 Internal Feedback</div>
-    <div class="feedback-comments"></div>
-    <div class="feedback-input-row">
-      <input class="feedback-name-input" type="text" placeholder="Your name" />
-      <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
-      <button class="feedback-submit">Post</button>
-      <button class="approve-btn" onclick="toggleApproval(this)">
-        <span class="approve-icon">⬜</span>
-        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
-        <span class="approve-date"></span>
-      </button>
-    </div>
-  </div>
-
-</div>
 
 <!-- ─── RD EMAIL 2: Day 2 ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -1048,22 +828,6 @@
       </div>
     </div>
   </div>
-  <div class="feedback-box" data-email-id="rundot-2" data-email-title="RunDot · Day 2">
-    <div class="feedback-header">💬 Internal Feedback</div>
-    <div class="feedback-comments"></div>
-    <div class="feedback-input-row">
-      <input class="feedback-name-input" type="text" placeholder="Your name" />
-      <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
-      <button class="feedback-submit">Post</button>
-      <button class="approve-btn" onclick="toggleApproval(this)">
-        <span class="approve-icon">⬜</span>
-        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
-        <span class="approve-date"></span>
-      </button>
-    </div>
-  </div>
-
-</div>
 
 <!-- ─── RD EMAIL 3: Onboard Started #1 ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -1106,22 +870,6 @@
       </div>
     </div>
   </div>
-  <div class="feedback-box" data-email-id="rundot-3" data-email-title="RunDot · Onboard Started #1">
-    <div class="feedback-header">💬 Internal Feedback</div>
-    <div class="feedback-comments"></div>
-    <div class="feedback-input-row">
-      <input class="feedback-name-input" type="text" placeholder="Your name" />
-      <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
-      <button class="feedback-submit">Post</button>
-      <button class="approve-btn" onclick="toggleApproval(this)">
-        <span class="approve-icon">⬜</span>
-        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
-        <span class="approve-date"></span>
-      </button>
-    </div>
-  </div>
-
-</div>
 
 <!-- ─── RD EMAIL 4: Day 4 ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -1164,22 +912,6 @@
       </div>
     </div>
   </div>
-  <div class="feedback-box" data-email-id="rundot-4" data-email-title="RunDot · Day 4">
-    <div class="feedback-header">💬 Internal Feedback</div>
-    <div class="feedback-comments"></div>
-    <div class="feedback-input-row">
-      <input class="feedback-name-input" type="text" placeholder="Your name" />
-      <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
-      <button class="feedback-submit">Post</button>
-      <button class="approve-btn" onclick="toggleApproval(this)">
-        <span class="approve-icon">⬜</span>
-        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
-        <span class="approve-date"></span>
-      </button>
-    </div>
-  </div>
-
-</div>
 
 <!-- ─── RD EMAIL 5: Onboard Started #2 ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -1222,22 +954,6 @@
       </div>
     </div>
   </div>
-  <div class="feedback-box" data-email-id="rundot-5" data-email-title="RunDot · Onboard Started #2">
-    <div class="feedback-header">💬 Internal Feedback</div>
-    <div class="feedback-comments"></div>
-    <div class="feedback-input-row">
-      <input class="feedback-name-input" type="text" placeholder="Your name" />
-      <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
-      <button class="feedback-submit">Post</button>
-      <button class="approve-btn" onclick="toggleApproval(this)">
-        <span class="approve-icon">⬜</span>
-        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
-        <span class="approve-date"></span>
-      </button>
-    </div>
-  </div>
-
-</div>
 
 <!-- ─── RD EMAIL 6: Day 8 ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -1280,22 +996,6 @@
       </div>
     </div>
   </div>
-  <div class="feedback-box" data-email-id="rundot-6" data-email-title="RunDot · Day 8">
-    <div class="feedback-header">💬 Internal Feedback</div>
-    <div class="feedback-comments"></div>
-    <div class="feedback-input-row">
-      <input class="feedback-name-input" type="text" placeholder="Your name" />
-      <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
-      <button class="feedback-submit">Post</button>
-      <button class="approve-btn" onclick="toggleApproval(this)">
-        <span class="approve-icon">⬜</span>
-        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
-        <span class="approve-date"></span>
-      </button>
-    </div>
-  </div>
-
-</div>
 
 <!-- ─── RD EMAIL 7: Founder Message ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -1338,22 +1038,6 @@
       </div>
     </div>
   </div>
-  <div class="feedback-box" data-email-id="rundot-7" data-email-title="RunDot · Founder Message">
-    <div class="feedback-header">💬 Internal Feedback</div>
-    <div class="feedback-comments"></div>
-    <div class="feedback-input-row">
-      <input class="feedback-name-input" type="text" placeholder="Your name" />
-      <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
-      <button class="feedback-submit">Post</button>
-      <button class="approve-btn" onclick="toggleApproval(this)">
-        <span class="approve-icon">⬜</span>
-        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
-        <span class="approve-date"></span>
-      </button>
-    </div>
-  </div>
-
-</div>
 
 <!-- ─── RD EMAIL 8: Social Proof ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -1396,22 +1080,6 @@
       </div>
     </div>
   </div>
-  <div class="feedback-box" data-email-id="rundot-8" data-email-title="RunDot · Runners Love RunDot">
-    <div class="feedback-header">💬 Internal Feedback</div>
-    <div class="feedback-comments"></div>
-    <div class="feedback-input-row">
-      <input class="feedback-name-input" type="text" placeholder="Your name" />
-      <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
-      <button class="feedback-submit">Post</button>
-      <button class="approve-btn" onclick="toggleApproval(this)">
-        <span class="approve-icon">⬜</span>
-        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
-        <span class="approve-date"></span>
-      </button>
-    </div>
-  </div>
-
-</div>
 
 <!-- ─── RD EMAIL 9: Trial Expiring ─── -->
 <div class="email-block" style="max-width:1264px;">
@@ -1454,304 +1122,10 @@
       </div>
     </div>
   </div>
-  <div class="feedback-box" data-email-id="rundot-9" data-email-title="RunDot · Trial Expiring">
-    <div class="feedback-header">💬 Internal Feedback</div>
-    <div class="feedback-comments"></div>
-    <div class="feedback-input-row">
-      <input class="feedback-name-input" type="text" placeholder="Your name" />
-      <textarea class="feedback-textarea" placeholder="Leave feedback on this email… (Cmd+Enter to post)"></textarea>
-      <button class="feedback-submit">Post</button>
-      <button class="approve-btn" onclick="toggleApproval(this)">
-        <span class="approve-icon">⬜</span>
-        <span class="approve-label">Mark as CEO Approved — Ready for HubSpot</span>
-        <span class="approve-date"></span>
-      </button>
-    </div>
-  </div>
-
-</div>
 
 
 </div><!-- /tab-rundot -->
 
-
-<script>
-  // Tab switching
-  function switchTab(tab) {
-    document.getElementById('tab-tridot').classList.remove('active');
-    document.getElementById('tab-rundot').classList.remove('active');
-    document.getElementById('btn-tridot').className = 'tab-btn';
-    document.getElementById('btn-rundot').className = 'tab-btn';
-
-    document.getElementById('tab-' + tab).classList.add('active');
-    if (tab === 'tridot') {
-      document.getElementById('btn-tridot').className = 'tab-btn active-tridot';
-    } else {
-      document.getElementById('btn-rundot').className = 'tab-btn active-rundot';
-    }
-    // Reinit iframes in new tab
-    setTimeout(initIframes, 100);
-  }
-
-  // Auto-resize iframes to full content height, then scale to fit panel width
-  function initIframes() {
-    var iframes = document.querySelectorAll('.tab-content.active iframe');
-    iframes.forEach(function(iframe) {
-      function resize() {
-        try {
-          var doc = iframe.contentDocument || iframe.contentWindow.document;
-          var h = doc.documentElement.scrollHeight || doc.body.scrollHeight;
-          if (h > 100) {
-            iframe.style.height = h + 'px';
-            var panelW = iframe.parentElement.offsetWidth || 572;
-            var scale = panelW / 600;
-            iframe.style.transform = 'scale(' + scale + ')';
-            iframe.style.transformOrigin = 'top left';
-            iframe.style.width = '600px';
-            iframe.parentElement.style.height = Math.round(h * scale) + 'px';
-          }
-        } catch(e) {}
-      }
-      iframe.addEventListener('load', function() {
-        setTimeout(resize, 300);
-      });
-      window.addEventListener('load', function() { setTimeout(resize, 500); });
-      // Trigger if already loaded
-      if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
-        setTimeout(resize, 100);
-      }
-    });
-  }
-  document.addEventListener('DOMContentLoaded', initIframes);
-// ── Supabase shared feedback ──────────────────────────
-  const SB_URL = 'https://wuvxqxnqkwkzmazagffi.supabase.co';
-  const SB_KEY = 'sb_publishable_f6R1spqW5zMCzyCEN7_inA_VVKMWpzP';
-  const SB_HEADERS = {
-    'apikey': SB_KEY,
-    'Authorization': 'Bearer ' + SB_KEY,
-    'Content-Type': 'application/json',
-    'Prefer': 'return=representation'
-  };
-  const REVIEWER_KEY = 'fb_reviewer';
-
-  // Cache for all feedback data (keyed by email_id)
-  let fbCache = {};
-  let fbLoaded = false;
-
-  function escHtml(s) {
-    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-
-  // Fetch ALL feedback from Supabase
-  async function fetchAllFeedback() {
-    try {
-      const res = await fetch(SB_URL + '/rest/v1/feedback?select=*&order=created_at.asc', {
-        headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY }
-      });
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      const rows = await res.json();
-      fbCache = {};
-      rows.forEach(r => {
-        if (!fbCache[r.email_id]) fbCache[r.email_id] = [];
-        fbCache[r.email_id].push(r);
-      });
-      fbLoaded = true;
-      return true;
-    } catch(e) {
-      console.error('Supabase fetch error:', e);
-      return false;
-    }
-  }
-
-  function getComments(emailId) {
-    return (fbCache[emailId] || []).filter(r => r.comment !== '__APPROVAL__');
-  }
-
-  function getApproval(emailId) {
-    return (fbCache[emailId] || []).find(r => r.comment === '__APPROVAL__' && r.approved);
-  }
-
-  function renderFeedbackBox(box) {
-    const id = box.dataset.emailId;
-    const commentsEl = box.querySelector('.feedback-comments');
-    const comments = getComments(id);
-
-    commentsEl.innerHTML = '';
-    comments.forEach(c => {
-      const d = document.createElement('div');
-      d.className = 'feedback-comment';
-      const timeStr = new Date(c.created_at).toLocaleString();
-      d.innerHTML = '<span class="fc-name">' + escHtml(c.reviewer) + '</span>'
-        + escHtml(c.comment)
-        + '<span class="fc-time">\u2014 ' + escHtml(timeStr) + '</span>'
-        + '<button class="fc-del" data-id="' + c.id + '" title="Delete">\u00d7</button>';
-      commentsEl.appendChild(d);
-    });
-
-    // Wire delete buttons
-    commentsEl.querySelectorAll('.fc-del').forEach(b => {
-      b.addEventListener('click', async () => {
-        b.disabled = true;
-        try {
-          await fetch(SB_URL + '/rest/v1/feedback?id=eq.' + b.dataset.id, {
-            method: 'DELETE',
-            headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY }
-          });
-          // Remove from cache
-          fbCache[id] = (fbCache[id] || []).filter(r => r.id !== b.dataset.id);
-          renderFeedbackBox(box);
-        } catch(e) { console.error(e); b.disabled = false; }
-      });
-    });
-
-    // Update approval button state
-    const approveBtn = box.querySelector('.approve-btn');
-    if (approveBtn) {
-      const approval = getApproval(id);
-      if (approval) {
-        approveBtn.classList.add('approved');
-        approveBtn.querySelector('.approve-icon').textContent = '\u2705';
-        approveBtn.querySelector('.approve-label').textContent = 'CEO Approved \u2014 Ready for HubSpot';
-        const dateStr = new Date(approval.approved_at || approval.created_at).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
-        approveBtn.querySelector('.approve-date').textContent = 'Approved ' + dateStr + ' by ' + approval.reviewer;
-      } else {
-        approveBtn.classList.remove('approved');
-        approveBtn.querySelector('.approve-icon').textContent = '\u2b1c';
-        approveBtn.querySelector('.approve-label').textContent = 'Mark as CEO Approved \u2014 Ready for HubSpot';
-        approveBtn.querySelector('.approve-date').textContent = '';
-      }
-    }
-  }
-
-  function initFeedback(box) {
-    const id = box.dataset.emailId;
-    const nameIn = box.querySelector('.feedback-name-input');
-    const textIn = box.querySelector('.feedback-textarea');
-    const btn = box.querySelector('.feedback-submit');
-
-    nameIn.value = localStorage.getItem(REVIEWER_KEY) || '';
-    nameIn.addEventListener('change', () => {
-      localStorage.setItem(REVIEWER_KEY, nameIn.value.trim());
-      document.querySelectorAll('.feedback-name-input').forEach(i => { i.value = nameIn.value; });
-    });
-
-    async function post() {
-      const name = (nameIn.value.trim() || 'Anonymous');
-      const text = textIn.value.trim();
-      if (!text) return;
-      localStorage.setItem(REVIEWER_KEY, name);
-      btn.disabled = true;
-      btn.textContent = 'Posting...';
-      try {
-        const res = await fetch(SB_URL + '/rest/v1/feedback', {
-          method: 'POST',
-          headers: SB_HEADERS,
-          body: JSON.stringify({ email_id: id, reviewer: name, comment: text })
-        });
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const rows = await res.json();
-        if (!fbCache[id]) fbCache[id] = [];
-        fbCache[id].push(rows[0]);
-        textIn.value = '';
-        renderFeedbackBox(box);
-      } catch(e) {
-        console.error(e);
-        alert('Failed to post feedback. Please try again.');
-      }
-      btn.disabled = false;
-      btn.textContent = 'Post';
-    }
-
-    btn.addEventListener('click', post);
-    textIn.addEventListener('keydown', e => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') { e.preventDefault(); post(); }
-    });
-
-    renderFeedbackBox(box);
-  }
-
-  // Toggle approval (called from onclick)
-  window.toggleApproval = async function(btn) {
-    const box = btn.closest('.feedback-box');
-    const id = box.dataset.emailId;
-    const reviewer = localStorage.getItem(REVIEWER_KEY) || 'Anonymous';
-
-    if (btn.classList.contains('approved')) {
-      // Un-approve: delete the approval row
-      const approval = getApproval(id);
-      if (approval) {
-        await fetch(SB_URL + '/rest/v1/feedback?id=eq.' + approval.id, {
-          method: 'DELETE',
-          headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY }
-        });
-        fbCache[id] = (fbCache[id] || []).filter(r => r.id !== approval.id);
-      }
-    } else {
-      // Approve: insert approval row
-      const res = await fetch(SB_URL + '/rest/v1/feedback', {
-        method: 'POST',
-        headers: SB_HEADERS,
-        body: JSON.stringify({
-          email_id: id,
-          reviewer: reviewer,
-          comment: '__APPROVAL__',
-          approved: true,
-          approved_at: new Date().toISOString()
-        })
-      });
-      if (res.ok) {
-        const rows = await res.json();
-        if (!fbCache[id]) fbCache[id] = [];
-        fbCache[id].push(rows[0]);
-      }
-    }
-    renderFeedbackBox(box);
-  };
-
-  // Export all feedback as CSV
-  window.exportFeedback = function() {
-    const lines = [];
-    lines.push('TriDot / RunDot Email Redesign - Internal Feedback');
-    lines.push('Exported: ' + new Date().toLocaleString());
-    lines.push('Email ID,Email Title,Approved,Approved Date,Approved By,Reviewer,Comment,Timestamp');
-    document.querySelectorAll('.feedback-box').forEach(box => {
-      const id = box.dataset.emailId;
-      const title = box.dataset.emailTitle;
-      const approval = getApproval(id);
-      const approved = approval ? 'YES' : 'NO';
-      const approvedDate = approval ? new Date(approval.approved_at || approval.created_at).toLocaleDateString() : '';
-      const approvedBy = approval ? approval.reviewer : '';
-      const comments = getComments(id);
-      const esc = v => '"' + String(v).replace(/"/g, '""') + '"';
-      if (comments.length) {
-        comments.forEach(c => {
-          const ts = new Date(c.created_at).toLocaleString();
-          lines.push([esc(id), esc(title), approved, esc(approvedDate), esc(approvedBy), esc(c.reviewer), esc(c.comment), esc(ts)].join(','));
-        });
-      } else {
-        lines.push([esc(id), esc(title), approved, esc(approvedDate), esc(approvedBy), '', '', ''].join(','));
-      }
-    });
-    const blob = new Blob([lines.join('\n')], { type: 'text/csv' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'email-feedback-' + new Date().toISOString().slice(0,10) + '.csv';
-    a.click();
-  };
-
-  // Initialize: fetch from Supabase, then init all boxes
-  (async function() {
-    await fetchAllFeedback();
-    document.querySelectorAll('.feedback-box').forEach(initFeedback);
-
-    // Poll for updates every 15 seconds
-    setInterval(async () => {
-      const ok = await fetchAllFeedback();
-      if (ok) {
-        document.querySelectorAll('.feedback-box').forEach(renderFeedbackBox);
-      }
-    }, 15000);
-  })();</script>
 
 <script>
 function autoH(el){
