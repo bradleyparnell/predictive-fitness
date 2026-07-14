@@ -611,7 +611,14 @@
   .cta-section {
     background: var(--dark); color: var(--white);
     padding: 120px 40px; text-align: center;
+    position: relative; overflow: hidden;
   }
+  .cta-section::before {
+    content: ''; position: absolute; inset: 0;
+    background: url('./assets/runner-finish-celebration.jpg') center center / cover no-repeat;
+    opacity: 0.12;
+  }
+  .cta-section > * { position: relative; z-index: 2; }
   .cta-section .section-title {
     color: var(--white); margin-bottom: 24px;
     max-width: 680px; margin-left: auto; margin-right: auto;
