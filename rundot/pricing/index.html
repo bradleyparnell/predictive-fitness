@@ -4,72 +4,95 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing | RunDot™</title>
-<meta name="description" content="Choose your RunDot™ plan. From Lifestyle to Premium Coached, find the perfect plan for your running goals.">
+<meta name="description" content="Choose your RunDot™ plan. Every plan starts with a free trial. No credit card required.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,600;0,700;0,800;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  .tm { font-size: 0.6em; vertical-align: super; line-height: 0; }
   :root {
     --green: #53b956; --green-light: #6dd070;
-    --green-dim: rgba(83,185,86,0.15); --green-border: rgba(83,185,86,0.35);
-    --dark: #060a0f; --dark-2: #0d1117; --dark-3: #111827; --dark-4: #1a2332;
-    --gray: #374151; --gray-mid: #6b7280; --gray-light: #9ca3af;
-    --white: #ffffff; --off-white: #f9fafb;
+    --green-soft: rgba(83,185,86,0.08); --green-border: rgba(83,185,86,0.2);
+    --green-dim: rgba(83,185,86,0.12);
+    --dark: #111827; --dark-2: #1f2937;
+    --text: #1a1a2e; --text-secondary: #4b5563; --text-muted: #6b7280; --text-light: #9ca3af;
+    --white: #ffffff; --off-white: #f9fafb; --light-bg: #f3f4f6;
+    --border: #e5e7eb; --border-light: #f0f0f0;
     --font-body: 'DM Sans', sans-serif;
     --font-display: 'Plus Jakarta Sans', sans-serif;
   }
   html { scroll-behavior: smooth; }
-  body { font-family: var(--font-body); background: var(--dark); color: var(--white); overflow-x: hidden; }
+  body { font-family: var(--font-body); background: var(--white); color: var(--text); overflow-x: hidden; }
+
+  /* BRAND DOT STRIPE */
+  .chevron-stripe { height: 24px; position: relative; overflow: hidden; background: transparent; z-index: 2; }
+  .chevron-stripe-inner {
+    position: absolute; top: 0; bottom: 0; left: 0; width: 55%;
+    background: repeating-linear-gradient(
+      transparent 0px, transparent 2px,
+      rgba(83,185,86,0.35) 2px, rgba(83,185,86,0.35) 6px,
+      transparent 6px, transparent 12px
+    );
+    mask-image: linear-gradient(to right, rgba(0,0,0,1) 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 60%, transparent 100%);
+  }
+  .chevron-stripe-right .chevron-stripe-inner {
+    left: auto; right: 0;
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 60%, transparent 100%);
+  }
 
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 20px 60px;
-    background: rgba(6, 10, 15, 0.92); backdrop-filter: blur(24px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.92); backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border-light);
   }
   .nav-logo img { height: 28px; width: auto; }
   .nav-logo a { display: flex; }
   .nav-links { display: flex; gap: 36px; align-items: center; }
-  .nav-links a { text-decoration: none; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; letter-spacing: 0.02em; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--white); }
-  .nav-links a.active { color: var(--white); }
-  .nav-login { border: 1px solid rgba(255,255,255,0.2); padding: 8px 18px; border-radius: 6px; font-weight: 600 !important; transition: border-color 0.2s, color 0.2s !important; }
-  .nav-login:hover { border-color: rgba(255,255,255,0.5) !important; color: var(--white) !important; }
+  .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 500; letter-spacing: 0.02em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a.active { color: var(--text); font-weight: 600; }
+  .nav-login { border: 1px solid var(--border); color: var(--text) !important; padding: 8px 18px; border-radius: 6px; font-weight: 600 !important; transition: border-color 0.2s !important; }
+  .nav-login:hover { border-color: var(--green) !important; color: var(--green) !important; }
   .nav-cta { background: var(--green); color: var(--white) !important; padding: 10px 22px; border-radius: 6px; font-weight: 600 !important; transition: background 0.2s !important; }
   .nav-cta:hover { background: var(--green-light) !important; }
-  .nav-hamburger {
-    display: none; background: none; border: none; cursor: pointer;
-    flex-direction: column; gap: 5px; padding: 4px;
-  }
-  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+  .nav-hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
 
   /* HERO */
   .pricing-hero {
     padding: 160px 80px 80px; text-align: center;
-    background: linear-gradient(180deg, var(--dark) 0%, var(--dark-2) 100%);
+    background: var(--white);
+    position: relative;
+  }
+  .pricing-hero::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
   }
   .pricing-hero h1 {
-    font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.6rem);
-    font-weight: 800; margin-bottom: 16px;
+    font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.2rem);
+    font-weight: 800; margin-bottom: 16px; color: var(--text);
   }
-  .pricing-hero p { font-size: 18px; color: var(--gray-light); max-width: 560px; margin: 0 auto 40px; line-height: 1.6; }
+  .pricing-hero p { font-size: 17px; color: var(--text-secondary); max-width: 480px; margin: 0 auto 40px; line-height: 1.6; }
 
   /* TOGGLE */
-  .toggle-wrap { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 64px; }
-  .toggle-label { font-size: 15px; font-weight: 600; color: var(--gray-light); transition: color 0.2s; cursor: pointer; }
-  .toggle-label.active { color: var(--white); }
+  .toggle-wrap { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 0; }
+  .toggle-label { font-size: 15px; font-weight: 600; color: var(--text-light); transition: color 0.2s; cursor: pointer; }
+  .toggle-label.active { color: var(--text); }
   .toggle-track {
-    width: 56px; height: 30px; background: var(--gray); border-radius: 999px;
+    width: 56px; height: 30px; background: var(--border); border-radius: 999px;
     position: relative; cursor: pointer; transition: background 0.3s;
   }
   .toggle-track.annual { background: var(--green); }
   .toggle-thumb {
     position: absolute; top: 3px; left: 3px;
     width: 24px; height: 24px; background: var(--white); border-radius: 50%;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.15);
   }
   .toggle-track.annual .toggle-thumb { transform: translateX(26px); }
   .save-badge {
@@ -80,116 +103,122 @@
 
   /* PRICING CARDS */
   .pricing-grid {
-    max-width: 1200px; margin: 0 auto; padding: 0 40px 80px;
+    max-width: 1200px; margin: 0 auto; padding: 64px 40px 80px;
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
   }
   .plan-card {
-    background: var(--dark-3); border: 1px solid rgba(255,255,255,0.08);
+    background: var(--white); border: 1px solid var(--border);
     border-radius: 20px; padding: 40px 32px; position: relative;
-    transition: border-color 0.3s, transform 0.3s;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
   }
-  .plan-card:hover { border-color: var(--green-border); transform: translateY(-4px); }
+  .plan-card:hover { border-color: var(--green-border); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.06); }
   .plan-card.featured {
-    border-color: var(--green); background: linear-gradient(180deg, rgba(83,185,86,0.08) 0%, var(--dark-3) 40%);
+    border-color: var(--green);
+    box-shadow: 0 8px 32px rgba(83,185,86,0.1);
   }
   .plan-badge {
     position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
     background: var(--green); color: var(--white); font-size: 12px; font-weight: 700;
     padding: 5px 16px; border-radius: 999px; letter-spacing: 0.06em; white-space: nowrap;
   }
-  .plan-name { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+  .plan-name { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
   .plan-price-wrap { margin: 24px 0; }
-  .plan-price { font-family: var(--font-display); font-size: 48px; font-weight: 800; line-height: 1; }
+  .plan-price { font-family: var(--font-display); font-size: 48px; font-weight: 800; line-height: 1; color: var(--text); }
   .plan-price .currency { font-size: 24px; vertical-align: top; margin-right: 2px; }
-  .plan-period { font-size: 16px; color: var(--gray-light); margin-left: 4px; }
-  .plan-annual-note { font-size: 13px; color: var(--gray-mid); margin-top: 6px; }
+  .plan-period { font-size: 16px; color: var(--text-light); margin-left: 4px; }
+  .plan-annual-note { font-size: 13px; color: var(--text-muted); margin-top: 6px; }
   .plan-cta {
     display: block; width: 100%; text-align: center; padding: 14px;
     border-radius: 10px; font-size: 16px; font-weight: 700;
     text-decoration: none; margin: 28px 0; transition: all 0.2s;
-    font-family: var(--font-display);
+    font-family: var(--font-display); cursor: pointer;
   }
   .plan-cta-primary { background: var(--green); color: var(--white); border: none; }
   .plan-cta-primary:hover { background: var(--green-light); transform: scale(1.02); }
-  .plan-cta-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.2); }
+  .plan-cta-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
   .plan-cta-outline:hover { border-color: var(--green); color: var(--green); }
-  .plan-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 0 0 24px; }
+  .plan-divider { height: 1px; background: var(--border-light); margin: 0 0 24px; }
   .plan-features { list-style: none; display: flex; flex-direction: column; gap: 14px; }
   .plan-features li {
     display: flex; align-items: flex-start; gap: 10px;
-    font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.5;
+    font-size: 14px; color: var(--text-secondary); line-height: 1.5;
   }
   .plan-features li .check { color: var(--green); font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-  .plan-features li.highlight { color: var(--white); font-weight: 600; }
+  .plan-features li.highlight { color: var(--text); font-weight: 600; }
 
   /* COMPARE TABLE */
-  .compare-section { max-width: 1100px; margin: 0 auto; padding: 40px 40px 80px; }
+  .compare-section {
+    max-width: 1100px; margin: 0 auto; padding: 40px 40px 80px;
+  }
   .compare-title {
     font-family: var(--font-display); font-size: 28px; font-weight: 800;
-    text-align: center; margin-bottom: 48px;
+    text-align: center; margin-bottom: 48px; color: var(--text);
   }
   .compare-table { width: 100%; border-collapse: collapse; }
   .compare-table th, .compare-table td {
-    padding: 14px 20px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 14px 20px; text-align: left; border-bottom: 1px solid var(--border-light);
     font-size: 14px;
   }
-  .compare-table th { color: var(--gray-light); font-weight: 500; }
+  .compare-table th { color: var(--text-muted); font-weight: 500; }
   .compare-table th:first-child { width: 40%; }
-  .compare-table th:not(:first-child) { text-align: center; font-family: var(--font-display); font-weight: 700; color: var(--white); font-size: 15px; }
+  .compare-table th:not(:first-child) { text-align: center; font-family: var(--font-display); font-weight: 700; color: var(--text); font-size: 15px; }
   .compare-table td:not(:first-child) { text-align: center; }
-  .compare-table td { color: rgba(255,255,255,0.7); }
+  .compare-table td { color: var(--text-secondary); }
   .compare-check { color: var(--green); font-size: 18px; }
-  .compare-dash { color: var(--gray); }
+  .compare-dash { color: var(--border); }
 
   /* FAQ */
   .faq-section {
     max-width: 800px; margin: 0 auto; padding: 80px 40px;
+    border-top: 1px solid var(--border-light);
   }
   .faq-title {
     font-family: var(--font-display); font-size: 28px; font-weight: 800;
-    text-align: center; margin-bottom: 48px;
+    text-align: center; margin-bottom: 48px; color: var(--text);
   }
-  .faq-item {
-    border-bottom: 1px solid rgba(255,255,255,0.08); overflow: hidden;
-  }
+  .faq-item { border-bottom: 1px solid var(--border-light); overflow: hidden; }
   .faq-q {
     display: flex; justify-content: space-between; align-items: center;
     padding: 20px 0; cursor: pointer; font-weight: 600; font-size: 16px;
-    color: var(--white); transition: color 0.2s;
+    color: var(--text); transition: color 0.2s;
   }
   .faq-q:hover { color: var(--green); }
-  .faq-arrow { font-size: 20px; transition: transform 0.3s; color: var(--gray-light); }
+  .faq-arrow { font-size: 20px; transition: transform 0.3s; color: var(--text-light); }
   .faq-item.open .faq-arrow { transform: rotate(180deg); }
   .faq-a {
     max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s;
-    font-size: 15px; color: var(--gray-light); line-height: 1.7;
+    font-size: 15px; color: var(--text-secondary); line-height: 1.7;
   }
   .faq-item.open .faq-a { max-height: 400px; padding-bottom: 20px; }
 
   /* TESTIMONIALS */
-  .testimonials-section { background: var(--dark-2); padding: 80px 40px; }
+  .testimonials-section {
+    background: var(--off-white); padding: 80px 40px;
+    border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);
+  }
   .testimonials-inner { max-width: 1100px; margin: 0 auto; }
   .testimonials-title {
     font-family: var(--font-display); font-size: 28px; font-weight: 800;
-    text-align: center; margin-bottom: 48px;
+    text-align: center; margin-bottom: 48px; color: var(--text);
   }
   .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .testimonial-card {
-    background: var(--dark-3); border: 1px solid rgba(255,255,255,0.06);
+    background: var(--white); border: 1px solid var(--border-light);
     border-radius: 16px; padding: 32px; transition: border-color 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   }
   .testimonial-card:hover { border-color: var(--green-border); }
   .testimonial-stars { color: #fbbf24; font-size: 16px; margin-bottom: 16px; letter-spacing: 2px; }
-  .testimonial-text { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.65; margin-bottom: 16px; font-style: italic; }
-  .testimonial-author { font-size: 14px; font-weight: 600; color: var(--white); }
+  .testimonial-text { font-size: 15px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 16px; font-style: italic; }
+  .testimonial-author { font-size: 14px; font-weight: 600; color: var(--text); }
 
   /* CTA */
   .bottom-cta {
-    text-align: center; padding: 80px 40px;
-    background: linear-gradient(180deg, var(--dark) 0%, var(--dark-2) 100%);
+    text-align: center; padding: 100px 40px;
+    background: var(--white); position: relative;
   }
-  .bottom-cta h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 16px; }
-  .bottom-cta p { color: var(--gray-light); font-size: 16px; margin-bottom: 32px; }
+  .bottom-cta h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 16px; color: var(--text); }
+  .bottom-cta p { color: var(--text-secondary); font-size: 16px; margin-bottom: 32px; }
   .bottom-cta .btn-primary {
     display: inline-block; background: var(--green); color: var(--white);
     padding: 16px 40px; border-radius: 10px; font-weight: 700; font-size: 16px;
@@ -200,19 +229,22 @@
 
   /* FOOTER */
   footer {
-    padding: 48px 80px; border-top: 1px solid rgba(255,255,255,0.06);
-    background: var(--dark);
+    padding: 48px 80px; border-top: 1px solid var(--border-light);
+    background: var(--white);
   }
   .footer-inner { max-width: 1340px; margin: 0 auto; text-align: center; }
   .footer-logo { margin-bottom: 24px; }
-  .footer-logo img { height: 22px; opacity: 0.6; }
+  .footer-logo img { height: 22px; opacity: 0.5; }
   .footer-links { display: flex; justify-content: center; gap: 28px; margin-bottom: 24px; flex-wrap: wrap; }
-  .footer-links a { text-decoration: none; color: var(--gray-mid); font-size: 13px; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--white); }
-  .footer-legal { font-size: 11px; color: var(--gray-mid); line-height: 1.6; max-width: 700px; margin: 0 auto 12px; }
-  .footer-legal a { color: var(--gray-mid); }
-  .footer-copy { font-size: 11px; color: var(--gray-mid); margin-bottom: 4px; }
-  .footer-address { font-size: 11px; color: var(--gray-mid); }
+  .footer-links a { text-decoration: none; color: var(--text-muted); font-size: 13px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text); }
+  .footer-legal { font-size: 11px; color: var(--text-light); line-height: 1.6; max-width: 700px; margin: 0 auto 12px; }
+  .footer-legal a { color: var(--text-light); }
+  .footer-copy { font-size: 11px; color: var(--text-light); margin-bottom: 4px; }
+  .footer-address { font-size: 11px; color: var(--text-light); }
+  .footer-fitlogic { margin-top: 16px; display: flex; justify-content: center; gap: 24px; align-items: center; }
+  .footer-fitlogic img { height: 18px; opacity: 0.35; transition: opacity 0.2s; }
+  .footer-fitlogic img:hover { opacity: 0.6; }
 
   /* MOBILE */
   @media (max-width: 900px) {
@@ -220,12 +252,12 @@
     .nav-hamburger { display: flex; }
     .nav-links {
       display: none; position: absolute; top: 100%; left: 0; right: 0;
-      flex-direction: column; background: rgba(6,10,15,0.96); padding: 24px;
-      gap: 16px; border-bottom: 1px solid rgba(255,255,255,0.06);
+      flex-direction: column; background: rgba(255,255,255,0.96); backdrop-filter: blur(20px); padding: 24px;
+      gap: 16px; border-bottom: 1px solid var(--border-light);
     }
     .nav-links.nav-open { display: flex; }
     .pricing-hero { padding: 130px 24px 60px; }
-    .pricing-grid { grid-template-columns: 1fr; padding: 0 24px 60px; max-width: 480px; }
+    .pricing-grid { grid-template-columns: 1fr; padding: 48px 24px 60px; max-width: 480px; }
     .compare-section { overflow-x: auto; }
     .testimonials-grid { grid-template-columns: 1fr; }
     footer { padding: 40px 24px; }
@@ -234,7 +266,7 @@
   /* APP DOWNLOAD MODAL */
   .app-modal-overlay {
     position: fixed; inset: 0; z-index: 9999;
-    background: rgba(0,0,0,0.65); backdrop-filter: blur(8px);
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(8px);
     display: none; align-items: center; justify-content: center;
     opacity: 0; transition: opacity 0.25s ease;
   }
@@ -242,7 +274,7 @@
   .app-modal {
     background: #fff; border-radius: 20px; padding: 48px 40px;
     max-width: 420px; width: 90%; text-align: center;
-    position: relative; box-shadow: 0 32px 80px rgba(0,0,0,0.4);
+    position: relative; box-shadow: 0 32px 80px rgba(0,0,0,0.2);
     animation: modalSlideUp 0.3s ease;
   }
   @keyframes modalSlideUp {
@@ -264,6 +296,10 @@
   .app-modal-stores { display: flex; gap: 12px; justify-content: center; }
   .app-modal-stores a { display: flex; transition: transform 0.2s; }
   .app-modal-stores a:hover { transform: scale(1.05); }
+
+  /* FADE UP */
+  .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
@@ -272,7 +308,7 @@
 <nav>
   <div class="nav-logo">
     <a href="../">
-      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTE3IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTE3IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzk3Nl8yNTY2MSkiPgo8cGF0aCBkPSJNMjIuNTY0NiA2LjQ5MTU3QzIxLjc5MzUgOC41NDU0OSAxOS42NDIyIDkuNzk5OTcgMTcuNDM2OSA5LjM0NzAyQzE3LjExODkgOS4yOTQ4NCAxNi43OTg4IDkuMTg2MyAxNi41MDc4IDkuMDUyNzFMMTUuNTI0NyA5Ljk4NTc0QzE1LjgxNzcgMTAuNjI2NSAxNS45MjM3IDExLjM0NjcgMTUuNzYzNyAxMi4wOTM5QzE1LjM5MTYgMTMuOTM0OSAxMy41ODU0IDE1LjEzNTIgMTEuNzUyMSAxNC43MzQ0QzExLjQzNDEgMTQuNjgyMiAxMS4xMTQgMTQuNTczNyAxMC44NTAxIDE0LjQxNUw5Ljk3MjkzIDE1LjI0MTZDMTAuMjY2IDE1Ljc0ODggMTAuMzk2OSAxNi4zODk2IDEwLjI2NiAxNy4wMDMzQzkuOTk5OTUgMTguMzY0MiA4LjY3MTc3IDE5LjIxOCA3LjM0MzYgMTguOTUwOEM1Ljk4ODQgMTguNjgzNiA1LjEzODI4IDE3LjM0OTggNS40MDQzNCAxNi4wMTZDNS42NzAzOSAxNC42NTUxIDYuOTk4NTYgMTMuODAxNCA4LjMyNjc0IDE0LjA2ODVDOC41MTM4IDE0LjEyMDcgOC42OTg3OSAxNC4xNzUgOC44ODU4NiAxNC4yNTY0TDkuNjI5OTcgMTMuMjk2MkM5LjE1MTkxIDEyLjU3NjEgOC45Mzk5IDExLjY0MSA5LjEyNDg5IDEwLjczNTFDOS40OTY5NSA4Ljg5NDA3IDExLjMwMzIgNy43MjEgMTMuMTM2NCA4LjA5NDYzQzEzLjI5NjUgOC4xMjE3NyAxMy40ODE1IDguMTczOTUgMTMuNjQxNSA4LjIyODIyTDE0LjQ2NDYgNy4xODY2NUMxMy45MzI1IDYuMjUzNjEgMTMuNzIwNSA1LjEzMjcyIDEzLjkzMjUgNC4wMTE4M0MxNC4yMjU2IDIuNTcxNTggMTUuMTU0NyAxLjQ1MDY5IDE2LjM3NjkgMC44NjQxNTVDMTUuNzM4NyAwLjU5Njk3OCAxNS4wNzU3IDAuNDExMjA3IDE0LjM1NjUgMC4yNTA0ODNDNy44OTg1NiAtMS4wODc0OSAxLjU3NTcgMy4xMDE3NiAwLjI0NzUyMyA5LjU4NDk4Qy0xLjA4MDY1IDE2LjA2ODIgMy4wOTA5NCAyMi40MTc4IDkuNTQ2ODMgMjMuNzUxNkMxNi4wMjk3IDI1LjA4NTQgMjIuMzI1NiAyMC44OTYyIDIzLjY1MzggMTQuNDEyOUMyNC4yMTI5IDExLjYxMTggMjMuNzU5OCA4LjgzNzcyIDIyLjU2NDYgNi40ODk0OFY2LjQ5MTU3WiIgZmlsbD0iIzE2QTM0QSIvPgo8bWFzayBpZD0ibWFzazBfMzk3Nl8yNTY2MSIgc3R5bGU9Im1hc2stdHlwZTpsdW1pbmFuY2UiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjExNCIgeT0iMTkiIHdpZHRoPSIzIiBoZWlnaHQ9IjMiPgo8cGF0aCBkPSJNMTE2LjcwMSAxOS41OTU3SDExNC44OTNWMjEuMzU3NEgxMTYuNzAxVjE5LjU5NTdaIiBmaWxsPSJ3aGl0ZSIvPgo8L21hc2s+CjxnIG1hc2s9InVybCgjbWFzazBfMzk3Nl8yNTY2MSkiPgo8cGF0aCBkPSJNMTE2LjAzNiAxOS41OTU3QzExNi41MTQgMTkuNTk1NyAxMTYuODA3IDE5Ljk5NjUgMTE2LjY3NCAyMC40NzY2QzExNi41NDEgMjAuOTU2NyAxMTYuMDM2IDIxLjM1NzQgMTE1LjU1OCAyMS4zNTc0QzExNS4wOCAyMS4zNTc0IDExNC43ODcgMjAuOTU2NyAxMTQuOTIgMjAuNDc2NkMxMTUuMDUzIDE5Ljk5NjUgMTE1LjU1OCAxOS41OTU3IDExNi4wMzYgMTkuNTk1N1pNMTE1LjYxIDIxLjE3MTdDMTE1Ljk4MiAyMS4xNzE3IDExNi4zNTQgMjAuODUwMiAxMTYuNDYgMjAuNDc4N0MxMTYuNTY2IDIwLjEwNTEgMTE2LjMyNyAxOS43ODU3IDExNS45ODIgMTkuNzg1N0MxMTUuNjEgMTkuNzg1NyAxMTUuMjM4IDIwLjA4IDExNS4xMzIgMjAuNDc4N0MxMTUuMDI2IDIwLjg1MjMgMTE1LjIzOCAyMS4xNzE3IDExNS42MSAyMS4xNzE3Wk0xMTUuNzQzIDIwLjU1OEgxMTUuNjFMMTE1LjUwNCAyMC45NTg4SDExNS4zMTlMMTE1LjU4NSAxOS45OTg2SDExNS45NTdDMTE2LjE5NiAxOS45OTg2IDExNi4zMDIgMjAuMDc3OSAxMTYuMjUgMjAuMjY1OEMxMTYuMTk2IDIwLjQyNjUgMTE2LjA2NSAyMC41MDU4IDExNS45MyAyMC41MzNMMTE2LjA2MyAyMC45NjA5SDExNS44NTFMMTE1Ljc0NSAyMC41NjAxTDExNS43NDMgMjAuNTU4Wk0xMTUuODIyIDIwLjQyNDRDMTE1LjkyOCAyMC40MjQ0IDExNi4wMzQgMjAuMzk3MyAxMTYuMDYxIDIwLjI5MDhDMTE2LjA4OCAyMC4xODQ0IDExNS45ODIgMjAuMTU3MiAxMTUuOTAxIDIwLjE1NzJIMTE1Ljc0MUwxMTUuNjYyIDIwLjQyNDRIMTE1LjgyMloiIGZpbGw9IndoaXRlIi8+CjwvZz4KPHBhdGggZD0iTTM3LjcxNjcgMjEuMzI0MUwzOS4yMDQ5IDE1LjU5MDJDMzkuMjI1NyAxNS41MDQ2IDM5LjI0MjMgMTUuNDI5NSAzOS4yNTQ4IDE1LjM2ODlDMzkuMjY3MiAxNS4zMDg0IDM5LjI3MzUgMTUuMjUyIDM5LjI3NTUgMTUuMTk5OUMzOS4yOTAxIDE0LjkyNDMgMzkuMDU1MiAxNC43ODQ1IDM4LjU3MyAxNC43ODQ1SDMyLjkxNTNMMzEuMjA0NiAyMS4zMjQxSDI3LjI3ODNMMzAuNjYyMiA4LjQ4MDc4SDM0LjU4ODVMMzMuNjg4NSAxMS44Nzg5SDM5LjA2MzVDMzkuNDQxOCAxMS44Nzg5IDM5LjY5OTYgMTEuODE4NCAzOS44MzQ3IDExLjY5NzNDMzkuOTY5OCAxMS41NzYzIDQwLjA5MDMgMTEuMzM0MSA0MC4xOTYzIDEwLjk3MDlMNDAuOTY1NCA4LjExNzU4QzQwLjk4NjIgOC4wMzIgNDEuMDAyOCA3Ljk1MjY4IDQxLjAxNzMgNy44ODM4QzQxLjAyOTggNy44MTQ5MiA0MS4wMzYxIDcuNzU0MzkgNDEuMDQwMiA3LjcwMjIxQzQxLjA1MDYgNy40OTU1NiA0MC45OTg2IDcuMzU1NzEgNDAuODgwMiA3LjI4NjgzQzQwLjc2MzggNy4yMTc5NSA0MC41NTggNy4xODI0NiA0MC4yNjQ5IDcuMTgyNDZIMzAuOTg4NUwzMS44OTA2IDMuNzU3MTdINDMuMDAwM0M0My44OTYxIDMuNzU3MTcgNDQuNTM0MiAzLjkxNzkgNDQuOTEyNSA0LjIzNzI1QzQ1LjI5MDggNC41NTY2MSA0NS40NjU0IDUuMDQ1MDUgNDUuNDMwMSA1LjcwMjU1QzQ1LjQyMTcgNS44NTkxIDQ1LjQwMSA2LjAyMTkxIDQ1LjM2NTYgNi4xOTUxNkM0NS4zMzAzIDYuMzY4NDEgNDUuMjkwOCA2LjU1IDQ1LjI0NzEgNi43Mzk5NUw0NC4yNDc0IDEwLjU1MzVDNDQuMDEwNCAxMS40NTMxIDQzLjYzMjEgMTIuMDg5OCA0My4xMTQ2IDEyLjQ2MTNDNDIuNTk0OSAxMi44MzI4IDQyLjAzMzcgMTMuMDU0MSA0MS40MjY4IDEzLjEyM0M0MS45NzU1IDEzLjE1ODUgNDIuNDM0OSAxMy4yODM3IDQyLjgwMjggMTMuNDk4N0M0My4xNzA3IDEzLjcxNTggNDMuMzM5MSAxNC4wOTk4IDQzLjMxIDE0LjY1M0M0My4zMDU4IDE0Ljc0MDYgNDMuMzAxNiAxNC44MzA0IDQzLjI5NTQgMTQuOTI2NEM0My4yOTEzIDE1LjAyMjQgNDMuMjY4NCAxNS4xMjA1IDQzLjIyODkgMTUuMjI0OUw0MS42NDUxIDIxLjMyMkgzNy43MTg3TDM3LjcxNjcgMjEuMzI0MVoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik01My42NTg5IDIxLjMyNDFMNTQuMDE2NCAxOS45MjM1QzUzLjY2MyAyMC40MjQ0IDUzLjI3ODUgMjAuNzgzNCA1Mi44NjI4IDIxLjAwMDVDNTIuNDQ3MSAyMS4yMTc2IDUxLjk2MjggMjEuMzI0MSA1MS40MTIgMjEuMzI0MUg0NS43MjcyQzQ1LjAzNzIgMjEuMzI0MSA0NC41MzIxIDIxLjIwMyA0NC4yMDk5IDIwLjk2MDlDNDMuODg1NyAyMC43MTg3IDQzLjc0MDIgMjAuMzExNyA0My43NjkzIDE5Ljc0MTlDNDMuNzgzOCAxOS40ODMgNDMuODQyIDE5LjE1MzIgNDMuOTUwMSAxOC43NTY2TDQ2LjcyNDkgOC4xOTY5SDUwLjM0MTVMNDcuODkzIDE3LjQ2MDRDNDcuODQ5NCAxNy42MzM3IDQ3LjgyNjUgMTcuNzQ2NCA0Ny44MjQ1IDE3Ljc5ODZDNDcuODA5OSAxOC4wNzYyIDQ4LjAwOTQgMTguMjEzOSA0OC40MjMxIDE4LjIxMzlINTMuNjE3M0M1My44OTE3IDE4LjIxMzkgNTQuMDkzMyAxOC4xNjE4IDU0LjIyMDEgMTguMDU3NEM1NC4zNDQ4IDE3Ljk1MyA1NC40NTA4IDE3Ljc1NDcgNTQuNTM2IDE3LjQ2MDRMNTYuOTg0NSA4LjE5NjlINjAuNjAxMUw1Ny4xNTA4IDIxLjMyNjFINTMuNjYzTDUzLjY1ODkgMjEuMzI0MVoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik02OS4yMzc2IDIxLjMyNEw3MS42NTkgMTIuMDYwNUM3MS43MDI3IDExLjg4NzMgNzEuNzI1NiAxMS43ODUgNzEuNzI3NiAxMS43NDk1QzcxLjc0MjIgMTEuNDc0IDcxLjUzNDMgMTEuMzM0MSA3MS4xMDQxIDExLjMzNDFINjUuNzA0MUM2NS40NDYzIDExLjMzNDEgNjUuMjUzIDExLjM4MjEgNjUuMTI4MyAxMS40NzYxQzY1LjAwMzYgMTEuNTcyMSA2NC44OTc2IDExLjc2NjIgNjQuODE0NSAxMi4wNjA1TDYyLjM5MyAyMS4zMjRINTguNzc2NEw2Mi4yMjY3IDguMTk0ODFINjUuNzE0NUw2NS4zMjk5IDkuNjIyNTRDNjUuOTk5MiA4LjY3MDcyIDY2Ljg3NjQgOC4xOTQ4MSA2Ny45NjM0IDguMTk0ODFINzMuODI5Qzc0LjUzNTcgOC4xOTQ4MSA3NS4wNDA4IDguMzE1ODcgNzUuMzQ2MyA4LjU1OEM3NS42NTE5IDguODAwMTMgNzUuNzkxMSA5LjIwNzE2IDc1Ljc2IDkuNzc3Qzc1Ljc0MzMgMTAuMTA2OCA3NS42OTE0IDEwLjQzNDUgNzUuNjA2MiAxMC43NjIyTDcyLjgzMTMgMjEuMzIySDY5LjIzOTZMNjkuMjM3NiAyMS4zMjRaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNzUuMTU1MyAyMS4zMjQxTDc4LjUzNyA4LjUwNTgzSDgyLjQxMzVMNzkuOTMzOCAxNy44OTg4SDg1LjQzNzdDODYuMzUwMiAxNy44OTg4IDg2Ljk1NzEgMTcuMzM3MyA4Ny4yNTY0IDE2LjIxMjJMODkuMTg5NSA4Ljg5NjE1Qzg5LjI1MTggOC42ODk1MSA4OS4yODkyIDguNDg5MTMgODkuMjk3NSA4LjI5OTE4Qzg5LjMzNSA3LjU3Mjc5IDg4Ljk4MzcgNy4yMDk2IDg4LjI0MzcgNy4yMDk2SDc4Ljg2NTRMNzkuNzY5NiAzLjc1OTI2SDg5Ljg3MTJDOTIuNDE5NSAzLjc1OTI2IDkzLjY0MTcgNC43OTY2NiA5My41MzE1IDYuODczNTRDOTMuNTA4NiA3LjMwNTYyIDkzLjQzMzggNy43NjQ4MyA5My4zMDQ5IDguMjQ5MDlMOTEuMDIyNyAxNi44Mzg0QzkwLjYzNjEgMTguMzA3OSA4OS45NjY4IDE5LjQyNDYgODkuMDEyOCAyMC4xODY1Qzg4LjA2MDggMjAuOTQ4MyA4Ni44MDk2IDIxLjMyODIgODUuMjU5IDIxLjMyODJINzUuMTU3NEw3NS4xNTUzIDIxLjMyNDFaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNOTMuODYxMyAyMS4zMjRDOTMuMTM4IDIxLjMyNCA5Mi42MjI1IDIxLjE5ODggOTIuMzE2OSAyMC45NDgzQzkyLjAxMTQgMjAuNjk3OSA5MS44NzIxIDIwLjMwMzMgOTEuOTAxMiAxOS43NjY5QzkxLjkxMzcgMTkuNTI0OCA5MS45NzQgMTkuMTg2NiA5Mi4wODQxIDE4Ljc1NDZMOTQuMTgxNCAxMC43NjIyQzk0LjQxNjIgOS44NzkyOCA5NC43NjU0IDkuMjMyMjEgOTUuMjI2OSA4LjgxNjgzQzk1LjY4ODMgOC40MDE0NSA5Ni4zODI1IDguMTk0ODEgOTcuMzEzNyA4LjE5NDgxSDEwNi4yMDFDMTA2Ljk2IDguMTk0ODEgMTA3LjQ4NiA4LjMyMDA1IDEwNy43ODMgOC41NzA1M0MxMDguMDggOC44MjEwMSAxMDguMjE2IDkuMjE1NTEgMTA4LjE4NiA5Ljc1MTk1QzEwOC4xNzQgOS45OTQwOCAxMDguMTE0IDEwLjMzMjIgMTA4LjAwNCAxMC43NjQzTDEwNS45MDYgMTguNzU2NkMxMDUuNjcxIDE5LjYzOTYgMTA1LjMyMiAyMC4yODY3IDEwNC44NjEgMjAuNzAyQzEwNC4zOTkgMjEuMTE3NCAxMDMuNjk1IDIxLjMyNCAxMDIuNzQ5IDIxLjMyNEg5My44NjEzWk0xMDQuMDM0IDEyLjA2MDVDMTA0LjA3NyAxMS44ODczIDEwNC4xIDExLjc4NSAxMDQuMTAyIDExLjc0OTVDMTA0LjExNyAxMS40NzQgMTAzLjg5MiAxMS4zMzQxIDEwMy40MjcgMTEuMzM0MUg5OC4zMTE0Qzk4LjAzNSAxMS4zMzQxIDk3LjgzOTYgMTEuMzgyMSA5Ny43MjMyIDExLjQ3NjFDOTcuNjA2OCAxMS41NzIxIDk3LjUxMzIgMTEuNzY2MiA5Ny40NDY3IDEyLjA2MDVMOTYuMDU2MiAxNy40MDYxQzk2LjAzNTQgMTcuNDc1IDk2LjAxODggMTcuNTM1NiA5Ni4wMDg0IDE3LjU4NzdDOTUuOTk1OSAxNy42Mzk5IDk1Ljk4OTcgMTcuNjkyMSA5NS45ODc2IDE3Ljc0NDNDOTUuOTc1MSAxNy45ODY0IDk2LjE1ODEgMTguMTA3NSA5Ni41MzYzIDE4LjEwNzVIMTAxLjY1MkMxMDEuOTYxIDE4LjEwNzUgMTAyLjE4OCAxOC4wNTUzIDEwMi4zMzEgMTcuOTUwOUMxMDIuNDc1IDE3Ljg0NjYgMTAyLjU3OSAxNy42NjUgMTAyLjY0MyAxNy40MDYxTDEwNC4wMzQgMTIuMDYwNVoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0xMDkuMjM0IDIxLjMyNEMxMDguNTExIDIxLjMyNCAxMDcuOTk2IDIxLjE5ODggMTA3LjY5IDIwLjk0ODNDMTA3LjM4NCAyMC42OTc5IDEwNy4yNDUgMjAuMzAzMyAxMDcuMjc0IDE5Ljc2NjlDMTA3LjI4NyAxOS41MjQ4IDEwNy4zNDcgMTkuMTg2NiAxMDcuNDU3IDE4Ljc1NDZMMTExLjE5NiA0LjUzNTc0SDExNC44MTNMMTEzLjg0NyA4LjE5NDgxSDExN0wxMTYuMjU2IDExLjA0ODJIMTEzLjEwMkwxMTEuMzI5IDE3Ljc2OTNDMTExLjI4NiAxNy45NDI2IDExMS4yNjMgMTguMDU1MyAxMTEuMjYxIDE4LjEwNzVDMTExLjI0OCAxOC4zNDk2IDExMS40MzEgMTguNDcwNyAxMTEuODEgMTguNDcwN0gxMTQuMTg3TDExMy40NDMgMjEuMzI0SDEwOS4yMzJIMTA5LjIzNFoiIGZpbGw9IndoaXRlIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMzk3Nl8yNTY2MSI+CjxyZWN0IHdpZHRoPSIxMTciIGhlaWdodD0iMjQiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==" alt="RunDot">
+      <img src="../assets/rundot-logo-dark.svg" alt="RunDot" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTE3IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTE3IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8zOTc2XzI1NjYxKSI+PHBhdGggZD0iTTIyLjU2NDYgNi40OTE1N0MyMS43OTM1IDguNTQ1NDkgMTkuNjQyMiA5Ljc5OTk3IDE3LjQzNjkgOS4zNDcwMkMxNy4xMTg5IDkuMjk0ODQgMTYuNzk4OCA5LjE4NjMgMTYuNTA3OCA5LjA1MjcxTDE1LjUyNDcgOS45ODU3NEMxNS44MTc3IDEwLjYyNjUgMTUuOTIzNyAxMS4zNDY3IDE1Ljc2MzcgMTIuMDkzOUMxNS4zOTE2IDEzLjkzNDkgMTMuNTg1NCAxNS4xMzUyIDExLjc1MjEgMTQuNzM0NEMxMS40MzQxIDE0LjY4MjIgMTEuMTE0IDE0LjU3MzcgMTAuODUwMSAxNC40MTVMOS45NzI5MyAxNS4yNDE2QzEwLjI2NiAxNS43NDg4IDEwLjM5NjkgMTYuMzg5NiAxMC4yNjYgMTcuMDAzM0M5Ljk5OTk1IDE4LjM2NDIgOC42NzE3NyAxOS4yMTggNy4zNDM2IDE4Ljk1MDhDNS45ODg0IDE4LjY4MzYgNS4xMzgyOCAxNy4zNDk4IDUuNDA0MzQgMTYuMDE2QzUuNjcwMzkgMTQuNjU1MSA2Ljk5ODU2IDEzLjgwMTQgOC4zMjY3NCAxNC4wNjg1QzguNTEzOCAxNC4xMjA3IDguNjk4NzkgMTQuMTc1IDguODg1ODYgMTQuMjU2NEw5LjYyOTk3IDEzLjI5NjJDOS4xNTE5MSAxMi41NzYxIDguOTM5OSAxMS42NDEgOS4xMjQ4OSAxMC43MzUxQzkuNDk2OTUgOC44OTQwNyAxMS4zMDMyIDcuNzIxIDEzLjEzNjQgOC4wOTQ2M0MxMy4yOTY1IDguMTIxNzcgMTMuNDgxNSA4LjE3Mzk1IDEzLjY0MTUgOC4yMjgyMkwxNC40NjQ2IDcuMTg2NjVDMTMuOTMyNSA2LjI1MzYxIDEzLjcyMDUgNS4xMzI3MiAxMy45MzI1IDQuMDExODNDMTQuMjI1NiAyLjU3MTU4IDE1LjE1NDcgMS40NTA2OSAxNi4zNzY5IDAuODY0MTU1QzE1LjczODcgMC41OTY5NzggMTUuMDc1NyAwLjQxMTIwNyAxNC4zNTY1IDAuMjUwNDgzQzcuODk4NTYgLTEuMDg3NDkgMS41NzU3IDMuMTAxNzYgMC4yNDc1MjMgOS41ODQ5OEMtMS4wODA2NSAxNi4wNjgyIDMuMDkwOTQgMjIuNDE3OCA5LjU0NjgzIDIzLjc1MTZDMTYuMDI5NyAyNS4wODU0IDIyLjMyNTYgMjAuODk2MiAyMy42NTM4IDE0LjQxMjlDMjQuMjEyOSAxMS42MTE4IDIzLjc1OTggOC44Mzc3MiAyMi41NjQ2IDYuNDg5NDhWNi40OTE1N1oiIGZpbGw9IiMxNkEzNEEiLz48L2c+PGRlZnM+PGNsaXBQYXRoIGlkPSJjbGlwMF8zOTc2XzI1NjYxIj48cmVjdCB3aWR0aD0iMTE3IiBoZWlnaHQ9IjI0IiBmaWxsPSJ3aGl0ZSIvPjwvY2xpcFBhdGg+PC9kZWZzPjwvc3ZnPg=='">
     </a>
   </div>
   <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -290,14 +326,13 @@
 </nav>
 
 <!-- HERO -->
-<section class="pricing-hero">
-  <h1>Choose the plan for you</h1>
-  <p>Every plan starts with a free trial. No credit card required. Cancel anytime.</p>
+<section class="pricing-hero fade-up">
+  <h1>Find your plan</h1>
+  <p>Every plan starts with a free trial. No credit card required.</p>
 
-  <!-- TOGGLE -->
   <div class="toggle-wrap">
     <span class="toggle-label" id="monthlyLabel">Monthly</span>
-    <div class="toggle-track" id="toggleTrack" onclick="togglePricing()">
+    <div class="toggle-track annual" id="toggleTrack" onclick="togglePricing()">
       <div class="toggle-thumb"></div>
     </div>
     <span class="toggle-label active" id="annualLabel">Annual</span>
@@ -305,91 +340,97 @@
   </div>
 </section>
 
+<!-- DOT STRIPE -->
+<div class="chevron-stripe"><div class="chevron-stripe-inner"></div></div>
+
 <!-- PRICING CARDS -->
 <div class="pricing-grid">
 
   <!-- LIFESTYLE -->
-  <div class="plan-card">
+  <div class="plan-card fade-up">
     <div class="plan-name">Lifestyle</div>
     <div class="plan-price-wrap">
       <div class="plan-price"><span class="currency">$</span><span class="price-val" data-monthly="17.99" data-annual="13">13</span><span class="plan-period">/ month</span></div>
       <div class="plan-annual-note annual-note">Billed at $156 / year</div>
     </div>
-    <a href="#" class="plan-cta plan-cta-outline" onclick="openAppModal(event)">Start Free Trial</a>
+    <a href="#" class="plan-cta plan-cta-outline" onclick="openAppModal(event)">Get your first workout</a>
     <div class="plan-divider"></div>
     <ul class="plan-features">
-      <li><span class="check">✓</span> 2 scheduled races – any distance</li>
-      <li><span class="check">✓</span> Race plans &amp; predictions with RaceX®</li>
-      <li><span class="check">✓</span> Real training zones</li>
-      <li><span class="check">✓</span> All drill and exercise videos</li>
-      <li><span class="check">✓</span> EnviroNorm® technology</li>
-      <li><span class="check">✓</span> TrainX® scoring</li>
-      <li><span class="check">✓</span> Training volume preference</li>
-      <li><span class="check">✓</span> Fully customizable schedule</li>
+      <li><span class="check">&#10003;</span> 2 scheduled races - any distance</li>
+      <li><span class="check">&#10003;</span> Race plans &amp; predictions with RaceX<span class="tm">&reg;</span></li>
+      <li><span class="check">&#10003;</span> Real training zones</li>
+      <li><span class="check">&#10003;</span> All drill and exercise videos</li>
+      <li><span class="check">&#10003;</span> EnviroNorm<span class="tm">&reg;</span> technology</li>
+      <li><span class="check">&#10003;</span> TrainX<span class="tm">&reg;</span> scoring</li>
+      <li><span class="check">&#10003;</span> Training volume preference</li>
+      <li><span class="check">&#10003;</span> Fully customizable schedule</li>
     </ul>
   </div>
 
   <!-- PERFORMANCE -->
-  <div class="plan-card featured">
+  <div class="plan-card featured fade-up">
     <div class="plan-badge">Best Value</div>
     <div class="plan-name">Performance</div>
     <div class="plan-price-wrap">
       <div class="plan-price"><span class="currency">$</span><span class="price-val" data-monthly="49" data-annual="36">36</span><span class="plan-period">/ month</span></div>
       <div class="plan-annual-note annual-note">Billed at $432 / year</div>
     </div>
-    <a href="#" class="plan-cta plan-cta-primary" onclick="openAppModal(event)">Start Free Trial</a>
+    <a href="#" class="plan-cta plan-cta-primary" onclick="openAppModal(event)">Get your first workout</a>
     <div class="plan-divider"></div>
     <ul class="plan-features">
-      <li><span class="check">✓</span> Unlimited scheduled races – any distance</li>
-      <li><span class="check">✓</span> Race plans &amp; predictions with RaceX®</li>
-      <li><span class="check">✓</span> Real training zones</li>
-      <li><span class="check">✓</span> All drill and exercise videos</li>
-      <li><span class="check">✓</span> EnviroNorm® technology</li>
-      <li><span class="check">✓</span> TrainX® scoring</li>
-      <li><span class="check">✓</span> Training volume preference</li>
-      <li><span class="check">✓</span> Fully customizable schedule</li>
-      <li class="highlight"><span class="check">✓</span> Advanced race execution</li>
-      <li class="highlight"><span class="check">✓</span> Guided strength training workouts</li>
-      <li class="highlight"><span class="check">✓</span> Calendar sync (iCal)</li>
-      <li class="highlight"><span class="check">✓</span> Priority support</li>
+      <li><span class="check">&#10003;</span> Unlimited scheduled races - any distance</li>
+      <li><span class="check">&#10003;</span> Race plans &amp; predictions with RaceX<span class="tm">&reg;</span></li>
+      <li><span class="check">&#10003;</span> Real training zones</li>
+      <li><span class="check">&#10003;</span> All drill and exercise videos</li>
+      <li><span class="check">&#10003;</span> EnviroNorm<span class="tm">&reg;</span> technology</li>
+      <li><span class="check">&#10003;</span> TrainX<span class="tm">&reg;</span> scoring</li>
+      <li><span class="check">&#10003;</span> Training volume preference</li>
+      <li><span class="check">&#10003;</span> Fully customizable schedule</li>
+      <li class="highlight"><span class="check">&#10003;</span> Advanced race execution</li>
+      <li class="highlight"><span class="check">&#10003;</span> Guided strength training workouts</li>
+      <li class="highlight"><span class="check">&#10003;</span> Calendar sync (iCal)</li>
+      <li class="highlight"><span class="check">&#10003;</span> Priority support</li>
     </ul>
   </div>
 
   <!-- PREMIUM COACHED -->
-  <div class="plan-card">
-    <div class="plan-name">Premium – Coached</div>
+  <div class="plan-card fade-up">
+    <div class="plan-name">Premium - Coached</div>
     <div class="plan-price-wrap">
       <div class="plan-price"><span class="currency">$</span><span class="price-val" data-monthly="149" data-annual="149">149</span><span class="plan-period">/ month</span></div>
-      <div class="plan-annual-note annual-note" style="visibility:hidden;">—</div>
+      <div class="plan-annual-note annual-note" style="visibility:hidden;">-</div>
     </div>
-    <a href="#" class="plan-cta plan-cta-outline" onclick="openAppModal(event)">Start Free Trial</a>
+    <a href="#" class="plan-cta plan-cta-outline" onclick="openAppModal(event)">Get your first workout</a>
     <div class="plan-divider"></div>
     <ul class="plan-features">
-      <li class="highlight"><span class="check">✓</span> Dedicated 1:1 coaching with a top RunDot™ coach</li>
-      <li><span class="check">✓</span> Unlimited scheduled races – any distance</li>
-      <li><span class="check">✓</span> Race plans &amp; predictions with RaceX®</li>
-      <li><span class="check">✓</span> Real training zones</li>
-      <li><span class="check">✓</span> All drill and exercise videos</li>
-      <li><span class="check">✓</span> EnviroNorm® technology</li>
-      <li><span class="check">✓</span> TrainX® scoring</li>
-      <li><span class="check">✓</span> Training volume preference</li>
-      <li><span class="check">✓</span> Fully customizable schedule</li>
-      <li><span class="check">✓</span> Advanced race execution</li>
-      <li><span class="check">✓</span> Guided strength training workouts</li>
-      <li><span class="check">✓</span> Calendar sync (iCal)</li>
-      <li><span class="check">✓</span> Priority support</li>
+      <li class="highlight"><span class="check">&#10003;</span> Dedicated 1:1 coaching with a top RunDot<span class="tm">&trade;</span> coach</li>
+      <li><span class="check">&#10003;</span> Unlimited scheduled races - any distance</li>
+      <li><span class="check">&#10003;</span> Race plans &amp; predictions with RaceX<span class="tm">&reg;</span></li>
+      <li><span class="check">&#10003;</span> Real training zones</li>
+      <li><span class="check">&#10003;</span> All drill and exercise videos</li>
+      <li><span class="check">&#10003;</span> EnviroNorm<span class="tm">&reg;</span> technology</li>
+      <li><span class="check">&#10003;</span> TrainX<span class="tm">&reg;</span> scoring</li>
+      <li><span class="check">&#10003;</span> Training volume preference</li>
+      <li><span class="check">&#10003;</span> Fully customizable schedule</li>
+      <li><span class="check">&#10003;</span> Advanced race execution</li>
+      <li><span class="check">&#10003;</span> Guided strength training workouts</li>
+      <li><span class="check">&#10003;</span> Calendar sync (iCal)</li>
+      <li><span class="check">&#10003;</span> Priority support</li>
     </ul>
   </div>
 </div>
 
+<!-- DOT STRIPE -->
+<div class="chevron-stripe chevron-stripe-right"><div class="chevron-stripe-inner"></div></div>
+
 <!-- FAQ -->
-<section class="faq-section">
-  <h2 class="faq-title">Frequently Asked Questions</h2>
+<section class="faq-section fade-up">
+  <h2 class="faq-title">Frequently asked questions</h2>
 
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">
       <span>What if I only have limited time to train?</span>
-      <span class="faq-arrow">▾</span>
+      <span class="faq-arrow">&#9662;</span>
     </div>
     <div class="faq-a">Your time is extremely precious so it's vital that you're spending that time wisely. RunDot is the world's most efficient training platform, allowing you to train up to 30% less time and still reach your goals. RunDot also has a "low volume" training preference setting specifically for those who have limited time.</div>
   </div>
@@ -397,23 +438,23 @@
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">
       <span>What level athlete is RunDot most appropriate for?</span>
-      <span class="faq-arrow">▾</span>
+      <span class="faq-arrow">&#9662;</span>
     </div>
     <div class="faq-a">RunDot is designed for runners of all performance levels, even people who wouldn't consider themselves runners yet. RunDot's algorithms are trained on over a decade of training and race data from first timers to Boston qualifiers, and every level in between.</div>
   </div>
 
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">
-      <span>What's my RunDot® score?</span>
-      <span class="faq-arrow">▾</span>
+      <span>What's my Dot Score<span class="tm">&trade;</span>?</span>
+      <span class="faq-arrow">&#9662;</span>
     </div>
-    <div class="faq-a">Your RunDot Score is a measure of your performance ability on a 1–100 scale where 100 is world-class performance. Your RunDot Score is "equalized", which means it compares your performance ability against those of a similar age and gender.</div>
+    <div class="faq-a">Your Dot Score is a measure of your performance ability on a 1-100 scale where 100 is world-class performance. Your Dot Score is "equalized", which means it compares your performance ability against those of a similar age and gender.</div>
   </div>
 
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">
-      <span>What are my TrainX® scores?</span>
-      <span class="faq-arrow">▾</span>
+      <span>What are my TrainX<span class="tm">&reg;</span> scores?</span>
+      <span class="faq-arrow">&#9662;</span>
     </div>
     <div class="faq-a">Your TrainX scores measure how well you've completed your specific training on RunDot. Your TrainX score is a single number between 1 and 100 that lets you know how you're doing, making it easy to get an instant idea of your progress. It scores individual sessions, weekly training, and multi-week periods.</div>
   </div>
@@ -421,56 +462,56 @@
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">
       <span>What is my "threshold" or "FTP" and why should I care?</span>
-      <span class="faq-arrow">▾</span>
+      <span class="faq-arrow">&#9662;</span>
     </div>
     <div class="faq-a">Your "threshold" or "FTP" refers to your Functional Threshold Pace (or Power if you use a Power footpod like Stryd) and is your primary baseline performance metric. FTP is defined as the maximum pace you can sustain for an all-out, one-hour effort. RunDot automatically determines your threshold from your onboarding data, training, and assessments.</div>
   </div>
 
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">
-      <span>What is EnviroNorm® ("Environment Normalization")?</span>
-      <span class="faq-arrow">▾</span>
+      <span>What is EnviroNorm<span class="tm">&reg;</span>?</span>
+      <span class="faq-arrow">&#9662;</span>
     </div>
-    <div class="faq-a">EnviroNorm® means more accurate analysis, higher quality training, and better race results. Environmental factors such as temperature, humidity, elevation, wind, and terrain have a significant impact on performance. EnviroNorm accounts for these variable factors to keep your training and racing spot on.</div>
+    <div class="faq-a">EnviroNorm means more accurate analysis, higher quality training, and better race results. Environmental factors such as temperature, humidity, elevation, wind, and terrain have a significant impact on performance. EnviroNorm accounts for these variable factors to keep your training and racing on point.</div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="testimonials-section">
+<section class="testimonials-section fade-up">
   <div class="testimonials-inner">
-    <h2 class="testimonials-title">Runners around the world love RunDot</h2>
+    <h2 class="testimonials-title">What runners are saying</h2>
     <div class="testimonials-grid">
       <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"After 30 years of running, I finally understand heart rate zones and base building — thanks to RunDot!"</p>
-        <div class="testimonial-author">– Vanessa Coronado</div>
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"After 30 years of running, I finally understand heart rate zones and base building - thanks to RunDot."</p>
+        <div class="testimonial-author">Vanessa Coronado</div>
       </div>
       <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"An 11-minute personal best! Running slow to gain speed really works — RunDot proved it."</p>
-        <div class="testimonial-author">– J. Richards</div>
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"An 11-minute personal best. Running slow to gain speed really works - RunDot proved it."</p>
+        <div class="testimonial-author">J. Richards</div>
       </div>
       <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"RunDot has been amazing for me! At 63, I'm running pain-free, injury-free, and faster than ever."</p>
-        <div class="testimonial-author">– Kathy</div>
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">"RunDot has been amazing for me. At 63, I'm running pain-free, injury-free, and faster than ever."</p>
+        <div class="testimonial-author">Kathy</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BOTTOM CTA -->
-<section class="bottom-cta">
-  <h2>Start training smarter today.</h2>
-  <p>Free trial. No credit card required. Cancel anytime.</p>
-  <a href="#" class="btn-primary" onclick="openAppModal(event)">Start Your Free Trial</a>
+<!-- CTA -->
+<section class="bottom-cta fade-up">
+  <h2>Every meaningful running experience starts with trusting today's run.</h2>
+  <p>Free trial. No credit card required.</p>
+  <a href="#" class="btn-primary" onclick="openAppModal(event)">Get your first workout</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
-      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTE3IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTE3IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzk3Nl8yNTY2MSkiPgo8cGF0aCBkPSJNMjIuNTY0NiA2LjQ5MTU3QzIxLjc5MzUgOC41NDU0OSAxOS42NDIyIDkuNzk5OTcgMTcuNDM2OSA5LjM0NzAyQzE3LjExODkgOS4yOTQ4NCAxNi43OTg4IDkuMTg2MyAxNi41MDc4IDkuMDUyNzFMMTUuNTI0NyA5Ljk4NTc0QzE1LjgxNzcgMTAuNjI2NSAxNS45MjM3IDExLjM0NjcgMTUuNzYzNyAxMi4wOTM5QzE1LjM5MTYgMTMuOTM0OSAxMy41ODU0IDE1LjEzNTIgMTEuNzUyMSAxNC43MzQ0QzExLjQzNDEgMTQuNjgyMiAxMS4xMTQgMTQuNTczNyAxMC44NTAxIDE0LjQxNUw5Ljk3MjkzIDE1LjI0MTZDMTAuMjY2IDE1Ljc0ODggMTAuMzk2OSAxNi4zODk2IDEwLjI2NiAxNy4wMDMzQzkuOTk5OTUgMTguMzY0MiA4LjY3MTc3IDE5LjIxOCA3LjM0MzYgMTguOTUwOEM1Ljk4ODQgMTguNjgzNiA1LjEzODI4IDE3LjM0OTggNS40MDQzNCAxNi4wMTZDNS42NzAzOSAxNC42NTUxIDYuOTk4NTYgMTMuODAxNCA4LjMyNjc0IDE0LjA2ODVDOC41MTM4IDE0LjEyMDcgOC42OTg3OSAxNC4xNzUgOC44ODU4NiAxNC4yNTY0TDkuNjI5OTcgMTMuMjk2MkM5LjE1MTkxIDEyLjU3NjEgOC45Mzk5IDExLjY0MSA5LjEyNDg5IDEwLjczNTFDOS40OTY5NSA4Ljg5NDA3IDExLjMwMzIgNy43MjEgMTMuMTM2NCA4LjA5NDYzQzEzLjI5NjUgOC4xMjE3NyAxMy40ODE1IDguMTczOTUgMTMuNjQxNSA4LjIyODIyTDE0LjQ2NDYgNy4xODY2NUMxMy45MzI1IDYuMjUzNjEgMTMuNzIwNSA1LjEzMjcyIDEzLjkzMjUgNC4wMTE4M0MxNC4yMjU2IDIuNTcxNTggMTUuMTU0NyAxLjQ1MDY5IDE2LjM3NjkgMC44NjQxNTVDMTUuNzM4NyAwLjU5Njk3OCAxNS4wNzU3IDAuNDExMjA3IDE0LjM1NjUgMC4yNTA0ODNDNy44OTg1NiAtMS4wODc0OSAxLjU3NTcgMy4xMDE3NiAwLjI0NzUyMyA5LjU4NDk4Qy0xLjA4MDY1IDE2LjA2ODIgMy4wOTA5NCAyMi40MTc4IDkuNTQ2ODMgMjMuNzUxNkMxNi4wMjk3IDI1LjA4NTQgMjIuMzI1NiAyMC44OTYyIDIzLjY1MzggMTQuNDEyOUMyNC4yMTI5IDExLjYxMTggMjMuNzU5OCA4LjgzNzcyIDIyLjU2NDYgNi40ODk0OFY2LjQ5MTU3WiIgZmlsbD0iIzE2QTM0QSIvPjwvZz48ZGVmcz48Y2xpcFBhdGggaWQ9ImNsaXAwXzM5NzZfMjU2NjEiPjxyZWN0IHdpZHRoPSIxMTciIGhlaWdodD0iMjQiIGZpbGw9IndoaXRlIi8+PC9jbGlwUGF0aD48L2RlZnM+PC9zdmc+" alt="RunDot">
+      <img src="../assets/rundot-logo-dark.svg" alt="RunDot" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTE3IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTE3IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8zOTc2XzI1NjYxKSI+PHBhdGggZD0iTTIyLjU2NDYgNi40OTE1N0MyMS43OTM1IDguNTQ1NDkgMTkuNjQyMiA5Ljc5OTk3IDE3LjQzNjkgOS4zNDcwMkMxNy4xMTg5IDkuMjk0ODQgMTYuNzk4OCA5LjE4NjMgMTYuNTA3OCA5LjA1MjcxTDE1LjUyNDcgOS45ODU3NEMxNS44MTc3IDEwLjYyNjUgMTUuOTIzNyAxMS4zNDY3IDE1Ljc2MzcgMTIuMDkzOUMxNS4zOTE2IDEzLjkzNDkgMTMuNTg1NCAxNS4xMzUyIDExLjc1MjEgMTQuNzM0NEMxMS40MzQxIDE0LjY4MjIgMTEuMTE0IDE0LjU3MzcgMTAuODUwMSAxNC40MTVMOS45NzI5MyAxNS4yNDE2QzEwLjI2NiAxNS43NDg4IDEwLjM5NjkgMTYuMzg5NiAxMC4yNjYgMTcuMDAzM0M5Ljk5OTk1IDE4LjM2NDIgOC42NzE3NyAxOS4yMTggNy4zNDM2IDE4Ljk1MDhDNS45ODg0IDE4LjY4MzYgNS4xMzgyOCAxNy4zNDk4IDUuNDA0MzQgMTYuMDE2QzUuNjcwMzkgMTQuNjU1MSA2Ljk5ODU2IDEzLjgwMTQgOC4zMjY3NCAxNC4wNjg1QzguNTEzOCAxNC4xMjA3IDguNjk4NzkgMTQuMTc1IDguODg1ODYgMTQuMjU2NEw5LjYyOTk3IDEzLjI5NjJDOS4xNTE5MSAxMi41NzYxIDguOTM5OSAxMS42NDEgOS4xMjQ4OSAxMC43MzUxQzkuNDk2OTUgOC44OTQwNyAxMS4zMDMyIDcuNzIxIDEzLjEzNjQgOC4wOTQ2M0MxMy4yOTY1IDguMTIxNzcgMTMuNDgxNSA4LjE3Mzk1IDEzLjY0MTUgOC4yMjgyMkwxNC40NjQ2IDcuMTg2NjVDMTMuOTMyNSA2LjI1MzYxIDEzLjcyMDUgNS4xMzI3MiAxMy45MzI1IDQuMDExODNDMTQuMjI1NiAyLjU3MTU4IDE1LjE1NDcgMS40NTA2OSAxNi4zNzY5IDAuODY0MTU1QzE1LjczODcgMC41OTY5NzggMTUuMDc1NyAwLjQxMTIwNyAxNC4zNTY1IDAuMjUwNDgzQzcuODk4NTYgLTEuMDg3NDkgMS41NzU3IDMuMTAxNzYgMC4yNDc1MjMgOS41ODQ5OEMtMS4wODA2NSAxNi4wNjgyIDMuMDkwOTQgMjIuNDE3OCA5LjU0NjgzIDIzLjc1MTZDMTYuMDI5NyAyNS4wODU0IDIyLjMyNTYgMjAuODk2MiAyMy42NTM4IDE0LjQxMjlDMjQuMjEyOSAxMS42MTE4IDIzLjc1OTggOC44Mzc3MiAyMi41NjQ2IDYuNDg5NDhWNi40OTE1N1oiIGZpbGw9IiMxNkEzNEEiLz48L2c+PGRlZnM+PGNsaXBQYXRoIGlkPSJjbGlwMF8zOTc2XzI1NjYxIj48cmVjdCB3aWR0aD0iMTE3IiBoZWlnaHQ9IjI0IiBmaWxsPSJ3aGl0ZSIvPjwvY2xpcFBhdGg+PC9kZWZzPjwvc3ZnPg=='">
     </div>
     <div class="footer-links">
       <a href="../#training">Training</a>
@@ -479,6 +520,10 @@
       <a href="../#science">Science</a>
       <a href="#">Privacy</a>
       <a href="#">Terms</a>
+    </div>
+    <div class="footer-fitlogic">
+      <img src="../assets/fitlogic-logo-dark.png" alt="Powered by FitLogic" onerror="this.style.display='none'">
+      <img src="../assets/predictive-fitness-logo-dark.png" alt="Predictive Fitness" onerror="this.style.display='none'">
     </div>
     <div class="footer-legal">
       <p>Predictive Fitness and the Predictive Fitness logo are trademarks or registered trademarks of Predictive Fitness, Inc. in the US and other countries. Other trademarks include TriDot, RunDot, TrainX, RaceX, Optimized Training and Optimized Race Execution. Additional Predictive Fitness trademarks can be found at <a href="https://www.predictive.fit/trademark-list" target="_blank">www.predictive.fit/trademark-list</a></p>
@@ -494,14 +539,14 @@
     <button class="app-modal-close" onclick="closeAppModal(event)" aria-label="Close">&times;</button>
     <h3 class="app-modal-title">Scan to get the app</h3>
     <div class="app-modal-qr">
-      <img src="../assets/app-qr-code.png" alt="QR Code to download RunDot" width="200" height="200">
+      <img src="../assets/rundot-qr-signup.png" alt="QR Code to download RunDot" width="200" height="200">
     </div>
     <p class="app-modal-or">Or download on your mobile device.</p>
     <div class="app-modal-stores">
-      <a href="https://apps.apple.com/app/rundot/id6471074498" target="_blank" rel="noopener">
+      <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" target="_blank" rel="noopener">
         <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="44">
       </a>
-      <a href="https://play.google.com/store/apps/details?id=com.predictivefitness.rundot" target="_blank" rel="noopener">
+      <a href="https://play.google.com/store/apps/details?id=com.predictivefitness.rundotv2&hl=en_US" target="_blank" rel="noopener">
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" height="44">
       </a>
     </div>
@@ -509,7 +554,6 @@
 </div>
 
 <script>
-// Toggle pricing
 var isAnnual = true;
 function togglePricing() {
   isAnnual = !isAnnual;
@@ -523,13 +567,7 @@ function togglePricing() {
     el.style.visibility = isAnnual ? 'visible' : 'hidden';
   });
 }
-
-// FAQ accordion
-function toggleFaq(el) {
-  el.parentElement.classList.toggle('open');
-}
-
-// App modal
+function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
 function openAppModal(e) {
   if (e) e.preventDefault();
   var m = document.getElementById('appModal');
@@ -545,8 +583,6 @@ function closeAppModal(e) {
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeAppModal(); });
-
-// Mobile nav
 var hamburger = document.querySelector('.nav-hamburger');
 var navLinks = document.querySelector('.nav-links');
 if (hamburger) {
@@ -555,7 +591,11 @@ if (hamburger) {
     hamburger.setAttribute('aria-expanded', navLinks.classList.contains('nav-open'));
   });
 }
+// Fade-up observer
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
 </script>
-
 </body>
 </html>
