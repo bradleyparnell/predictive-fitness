@@ -74,6 +74,41 @@
   }
   .chevron-stripe::after { display: none; }
   .chevron-stripe-dark { background: transparent; }
+
+  /* Athlete gallery scroll strip */
+  .athlete-scroll-track {
+    width: 100%; overflow: hidden; position: relative;
+    mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+  .athlete-scroll-inner {
+    display: flex; gap: 48px; width: max-content;
+    animation: athleteScroll 30s linear infinite;
+  }
+  .athlete-scroll-item { display: flex; flex-direction: column; align-items: center; gap: 12px; flex-shrink: 0; }
+  .athlete-scroll-circle {
+    width: 160px; height: 160px; border-radius: 50%; overflow: hidden;
+    border: 3px solid rgba(83,185,86,0.4);
+    box-shadow: 0 0 20px rgba(83,185,86,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .athlete-scroll-circle:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px rgba(83,185,86,0.3);
+  }
+  .athlete-scroll-circle img { width: 100%; height: 100%; object-fit: cover; }
+  .athlete-scroll-name {
+    font-family: var(--font-body); font-size: 14px; font-weight: 600;
+    color: var(--dark); letter-spacing: 0.02em; opacity: 0.7;
+  }
+  @keyframes athleteScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @media (max-width: 768px) {
+    .athlete-scroll-circle { width: 120px; height: 120px; }
+    .athlete-scroll-inner { gap: 32px; }
+  }
   .chevron-stripe-dark::after { display: none; }
   .chevron-stripe-subtle { height: 28px; margin-top: -14px; }
   .chevron-stripe-subtle .chevron-stripe-inner { opacity: 0.7; }
@@ -1206,6 +1241,59 @@
       <div class="moment-card stagger-item">
         <div class="moment-circle"><img src="./assets/moments-victory-female.jpg" alt="Female runner crossing finish line in victory" loading="lazy"></div>
         <div class="moment-caption">Become the runner you always knew you could be.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ATHLETE GALLERY STRIP -->
+<section class="athlete-gallery-section" style="background: var(--off-white); padding: 80px 0; overflow: hidden;">
+  <div style="text-align: center; margin-bottom: 48px;">
+    <p class="section-eyebrow"><span class="eyebrow-dot"></span> REAL ATHLETES. REAL FINISH LINES.</p>
+  </div>
+  <div class="athlete-scroll-track">
+    <div class="athlete-scroll-inner">
+      <!-- First set -->
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/charlotte-kooima.jpg" alt="Charlotte Kooima" loading="lazy"></div>
+        <span class="athlete-scroll-name">Charlotte K.</span>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/bryan-mumfrey.jpg" alt="Bryan Mumfrey" loading="lazy"></div>
+        <span class="athlete-scroll-name">Bryan M.</span>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/courtney-baxter.jpg" alt="Courtney Baxter" loading="lazy"></div>
+        <span class="athlete-scroll-name">Courtney B.</span>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/meghan-mozi.jpg" alt="Meghan Mozi" loading="lazy"></div>
+        <span class="athlete-scroll-name">Meghan M.</span>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/elizabeth-tx.jpg" alt="Elizabeth" loading="lazy"></div>
+        <span class="athlete-scroll-name">Elizabeth</span>
+      </div>
+      <!-- Duplicate set for seamless loop -->
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/charlotte-kooima.jpg" alt="Charlotte Kooima" loading="lazy"></div>
+        <span class="athlete-scroll-name">Charlotte K.</span>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/bryan-mumfrey.jpg" alt="Bryan Mumfrey" loading="lazy"></div>
+        <span class="athlete-scroll-name">Bryan M.</span>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/courtney-baxter.jpg" alt="Courtney Baxter" loading="lazy"></div>
+        <span class="athlete-scroll-name">Courtney B.</span>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/meghan-mozi.jpg" alt="Meghan Mozi" loading="lazy"></div>
+        <span class="athlete-scroll-name">Meghan M.</span>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/elizabeth-tx.jpg" alt="Elizabeth" loading="lazy"></div>
+        <span class="athlete-scroll-name">Elizabeth</span>
       </div>
     </div>
   </div>
