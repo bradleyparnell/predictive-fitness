@@ -44,8 +44,7 @@
   html { scroll-behavior: smooth; }
   body { font-family: var(--font-body); background: var(--white); color: var(--text); overflow-x: hidden; }
 
-  /* BRAND DOT STRIPE - refined single-line pattern */
-  /* Chevron stripe divider */
+  /* BRAND DOT STRIPE */
   .chevron-stripe {
     height: 24px;
     position: relative;
@@ -56,67 +55,28 @@
   }
   .chevron-stripe-inner {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
+    top: 0; bottom: 0; left: 0;
     width: 55%;
     background: repeating-linear-gradient(
       -45deg,
-      transparent,
-      transparent 6px,
-      rgba(83,185,86,0.35) 6px,
-      rgba(83,185,86,0.35) 10px,
-      transparent 10px,
-      transparent 16px,
-      rgba(83,185,86,0.35) 16px,
-      rgba(83,185,86,0.35) 20px
+      transparent, transparent 6px,
+      rgba(83,185,86,0.35) 6px, rgba(83,185,86,0.35) 10px,
+      transparent 10px, transparent 16px,
+      rgba(83,185,86,0.35) 16px, rgba(83,185,86,0.35) 20px
     );
     -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
     mask-image: linear-gradient(to right, black 60%, transparent 100%);
   }
-  /* Right-aligned variant */
   .chevron-stripe-right .chevron-stripe-inner {
-    left: auto;
-    right: 0;
+    left: auto; right: 0;
     -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
     mask-image: linear-gradient(to left, black 60%, transparent 100%);
   }
-  .chevron-stripe::after {
-    display: none;
-  }
-
-  /* Dark variant */
-  .chevron-stripe-dark {
-    background: transparent;
-  }
-  .chevron-stripe-dark::after {
-    display: none;
-  }
-
-  /* Subtle variant */
-  .chevron-stripe-subtle {
-    height: 28px;
-    margin-top: -14px;
-  }
-  .chevron-stripe-subtle .chevron-stripe-inner {
-    opacity: 0.7;
-  }
-
-  /* Dot texture for section backgrounds */
-  .dot-texture {
-    position: relative;
-  }
-  .dot-texture::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(circle, rgba(83,185,86,0.04) 1px, transparent 1px);
-    background-size: 24px 24px;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .dot-texture > * { position: relative; z-index: 1; }
+  .chevron-stripe::after { display: none; }
+  .chevron-stripe-dark { background: transparent; }
+  .chevron-stripe-dark::after { display: none; }
+  .chevron-stripe-subtle { height: 28px; margin-top: -14px; }
+  .chevron-stripe-subtle .chevron-stripe-inner { opacity: 0.7; }
 
   /* NAV */
   nav {
@@ -144,21 +104,21 @@
   }
   .hero-video {
     position: absolute; inset: 0; width: 100%; height: 100%;
-    object-fit: cover; opacity: 0.55;
+    object-fit: cover; opacity: 0.6;
   }
   .hero::before {
     content: ''; position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.6) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.55) 100%);
     z-index: 1;
   }
   .hero-content {
     position: relative; z-index: 2;
-    text-align: center; max-width: 820px;
+    text-align: center; max-width: 780px;
     padding: 120px 32px 80px;
   }
   .hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(38px, 5.5vw, 68px);
+    font-size: clamp(40px, 5.5vw, 68px);
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 24px;
@@ -168,24 +128,19 @@
   .hero h1 em { font-style: italic; color: var(--green-light); }
   .hero-sub {
     font-size: 19px; font-weight: 400; color: rgba(255,255,255,0.85);
-    max-width: 560px; margin: 0 auto 12px; line-height: 1.7;
+    max-width: 540px; margin: 0 auto 40px; line-height: 1.7;
     letter-spacing: 0.01em;
-  }
-  .hero-sub-secondary {
-    font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.6);
-    max-width: 520px; margin: 0 auto 36px; line-height: 1.7;
   }
   .hero-cta-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
 
   /* MEB ENDORSEMENT STRIP */
   .meb-strip {
-    background: var(--white); padding: 40px 32px;
-    margin-top: 0; position: relative; z-index: 10;
-    border-radius: 0;
+    background: var(--white); padding: 40px 32px 24px;
+    position: relative; z-index: 10;
   }
   .meb-strip-inner {
     max-width: 900px; margin: 0 auto;
-    display: flex; align-items: center; gap: 40px;
+    display: flex; align-items: flex-start; gap: 40px;
   }
   .meb-strip-photo {
     flex-shrink: 0; width: 140px; height: 140px;
@@ -193,24 +148,22 @@
     box-shadow: 0 4px 24px rgba(0,0,0,0.1);
     margin-top: -130px;
   }
-  .meb-strip-photo img {
-    width: 100%; height: 100%; object-fit: cover;
-  }
-  .meb-strip-text {
-    flex: 1;
-  }
+  .meb-strip-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .meb-strip-text { flex: 1; }
   .meb-strip-quote {
     font-family: var(--font-display); font-size: 22px; font-weight: 600;
-    color: var(--charcoal); line-height: 1.45; margin-bottom: 12px;
+    color: var(--text); line-height: 1.45; margin-bottom: 12px;
     letter-spacing: -0.01em;
   }
   .meb-strip-name {
     font-family: var(--font-display); font-size: 15px; font-weight: 700;
-    color: var(--charcoal); margin-bottom: 2px;
+    color: var(--text); margin-bottom: 2px;
   }
   .meb-strip-title {
     font-size: 14px; color: #6b7280; line-height: 1.5;
   }
+
+  /* BUTTONS */
   .btn-primary {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 16px 36px; border-radius: 8px;
@@ -271,7 +224,7 @@
   }
   .section-header .section-sub { margin: 0 auto; }
 
-  /* SOUND FAMILIAR - problem section */
+  /* SOUND FAMILIAR */
   .familiar {
     background: var(--white);
     padding-bottom: 0;
@@ -292,13 +245,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.0) 0%,
-      rgba(0,0,0,0.0) 40%,
-      rgba(0,0,0,0.25) 70%,
-      rgba(0,0,0,0.45) 100%
-    );
+    background: linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.25) 70%, rgba(0,0,0,0.45) 100%);
     pointer-events: none;
   }
   .familiar-grid {
@@ -321,147 +268,40 @@
     font-style: italic;
   }
 
-  /* PROMISE SECTION */
-  .promise { background: var(--off-white); }
-  .promise-header { text-align: center; margin-bottom: 64px; }
-  .promise-header .section-sub { margin: 0 auto; }
-  .promise-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 24px; max-width: 960px; margin: 0 auto;
+  /* MANIFESTO - breathing moment */
+  .manifesto {
+    padding: 120px 40px;
+    background: var(--white);
+    text-align: center;
   }
-  .promise-card {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: 14px; padding: 40px 28px;
-    text-align: center; transition: all 0.25s;
+  .manifesto-inner {
+    max-width: 760px;
+    margin: 0 auto;
   }
-  .promise-card:hover { border-color: var(--green-border); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
-  .promise-icon {
-    width: 56px; height: 56px; border-radius: 14px;
-    background: var(--green-soft); border: 1px solid var(--green-border);
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 20px;
+  .manifesto-line {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--text);
+    letter-spacing: -0.02em;
   }
-  .promise-icon svg { width: 28px; height: 28px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .promise-card h3 {
-    font-family: var(--font-display); font-weight: 700;
-    font-size: 20px; color: var(--text); margin-bottom: 10px;
+  .manifesto-line em {
+    font-style: italic;
+    color: var(--green);
   }
-  .promise-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.65; }
-
-  /* HOW IT WORKS */
-  .how {
-    background: linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.82)),
-                url('./assets/runner-country-road.jpg') center center / cover no-repeat;
-  }
-  .how-steps {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 40px; max-width: 900px; margin: 0 auto;
-  }
-  .how-step { text-align: center; }
-  .how-num {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 52px; height: 52px; border-radius: 50%;
-    background: var(--green); color: var(--white);
-    font-family: var(--font-display); font-weight: 800; font-size: 22px;
-    margin-bottom: 20px;
-  }
-  .how-step h3 {
-    font-family: var(--font-display); font-weight: 700;
-    font-size: 20px; color: var(--text); margin-bottom: 8px;
-  }
-  .how-step p { font-size: 15px; color: var(--text-secondary); line-height: 1.65; }
-
-  /* PHOTO FEATURE SECTION (TrainingPeaks-style) */
-  .feature-photo {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 0; max-width: 1200px; margin: 0 auto;
-    padding: 80px 40px; align-items: center;
-  }
-  .feature-photo-circle {
-    width: clamp(280px, 28vw, 420px); height: clamp(280px, 28vw, 420px);
-    border-radius: 50%; overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.10);
-    justify-self: center;
-    position: relative;
-  }
-  .feature-photo-circle::before,
-  .feature-photo-circle::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    z-index: -1;
-    pointer-events: none;
-  }
-  /* Cluster of dots - top right */
-  .feature-photo-circle::before {
-    width: 12px; height: 12px;
-    background: var(--green);
-    opacity: 0.35;
-    top: -8px; right: 24px;
-    box-shadow:
-      18px 12px 0 0px rgba(83,185,86,0.25),
-      -6px 28px 0 -2px rgba(83,185,86,0.20),
-      32px -4px 0 -1px rgba(83,185,86,0.18),
-      8px -20px 0 1px rgba(83,185,86,0.22),
-      42px 20px 0 -3px rgba(83,185,86,0.15);
-  }
-  /* Cluster of dots - bottom left */
-  .feature-photo-circle::after {
-    width: 10px; height: 10px;
-    background: var(--green);
-    opacity: 0.30;
-    bottom: 16px; left: -12px;
-    box-shadow:
-      -14px -18px 0 1px rgba(83,185,86,0.22),
-      12px -8px 0 -2px rgba(83,185,86,0.18),
-      -22px 8px 0 0px rgba(83,185,86,0.20),
-      6px 16px 0 -1px rgba(83,185,86,0.25),
-      -8px 32px 0 -2px rgba(83,185,86,0.15);
-  }
-  .feature-photo-circle img {
-    width: 100%; height: 100%; object-fit: cover;
-  }
-  .feature-photo-content {
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 40px 56px;
-  }
-  .feature-photo-content .section-eyebrow { text-align: left; }
-  .feature-photo-content .section-title { text-align: left; font-size: clamp(28px, 3vw, 40px); }
-  .feature-photo-content .section-sub { text-align: left; }
-  .feature-photo-content .btn-primary { align-self: flex-start; margin-top: 28px; }
-  .feature-photo.reverse { direction: rtl; }
-  .feature-photo.reverse > * { direction: ltr; }
-
-  /* MEB / SOCIAL PROOF */
-  .meb-section { background: var(--dark); color: var(--white); padding: 0 !important; }
-  .meb-graphic-wrap {
-    max-width: 800px; margin: 0 auto; text-align: center;
-  }
-  .meb-graphic-img {
-    width: 100%; max-width: 800px; border-radius: 12px;
-    display: block; margin: 0 auto;
+  .manifesto-sub {
+    font-size: 17px;
+    color: var(--text-secondary);
+    margin-top: 32px;
+    line-height: 1.8;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  /* APP STORE REVIEWS */
-  .testimonials { background: var(--off-white); }
-  .testimonial-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr);
-    gap: 24px; max-width: 860px; margin: 0 auto;
-  }
-  .testimonial-card {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: 14px; padding: 32px 28px;
-  }
-  .testimonial-card .stars { color: #f59e0b; font-size: 16px; margin-bottom: 10px; letter-spacing: 2px; }
-  .testimonial-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; font-style: normal; }
-  .testimonial-card cite { font-style: normal; font-size: 13px; color: var(--text-muted); font-weight: 600; }
-
-  /* APP SECTION - LIFESTYLE EXPERIENCE */
-  .app-section { background: var(--white); }
-  .app-section .section-inner { max-width: 1100px; }
-
-  /* APP SHOWCASE - TrainingPeaks-style lifestyle + device panels */
-  .app-showcase { background: var(--off-white); padding: 80px 0 40px; }
+  /* APP SHOWCASE */
+  .app-showcase { background: var(--off-white); padding: 100px 0 60px; }
   .app-showcase-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
   .showcase-panel {
@@ -469,14 +309,13 @@
     align-items: center; margin-bottom: 100px;
     min-height: 500px;
   }
-  .showcase-panel:last-child { margin-bottom: 0; }
+  .showcase-panel:last-child { margin-bottom: 40px; }
   .showcase-panel-reverse { direction: rtl; }
   .showcase-panel-reverse > * { direction: ltr; }
 
-  /* Text column */
   .showcase-text-col { padding: 20px 0; }
   .showcase-label-tag {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-display);
     font-size: 20px; font-weight: 800; letter-spacing: 0.15em;
     color: var(--green); margin-bottom: 16px; text-transform: uppercase;
     display: flex; align-items: center; gap: 10px;
@@ -487,22 +326,19 @@
     background: var(--green); flex-shrink: 0;
   }
   .showcase-heading {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-display);
     font-size: 36px; font-weight: 800; color: var(--dark);
     margin: 0 0 20px; line-height: 1.2;
   }
   .showcase-desc {
-    font-size: 17px; color: var(--text-light); line-height: 1.7;
+    font-size: 17px; color: var(--text-muted); line-height: 1.7;
     margin: 0 0 32px;
   }
 
-  /* Visual column - relative for floating devices */
   .showcase-visual-col {
     position: relative; min-height: 420px;
     display: flex; align-items: center; justify-content: center;
   }
-
-  /* Large circular lifestyle photo - like TrainingPeaks */
   .showcase-circle {
     width: 380px; height: 380px; border-radius: 50%; overflow: hidden;
     box-shadow: 0 24px 80px rgba(0,0,0,0.12);
@@ -513,16 +349,9 @@
     width: 100%; height: 100%; object-fit: cover; display: block;
     object-position: center center;
   }
+  .showcase-device-float { position: absolute; z-index: 2; }
 
-  /* Floating device mockups overlapping the circle */
-  .showcase-device-float {
-    position: absolute; z-index: 2;
-  }
-
-  /* Laptop float - bottom-left corner, straight-on */
-  .showcase-laptop-float {
-    bottom: -36px; left: -60px; width: 260px;
-  }
+  .showcase-laptop-float { bottom: -36px; left: -60px; width: 260px; }
   .laptop-screen-lg {
     background: #1a1a1e; border-radius: 8px 8px 0 0; padding: 4px 4px 0;
     border: 2px solid #2a2a2e;
@@ -536,7 +365,7 @@
   .laptop-screen-lg img { width: 100%; display: block; border-radius: 3px; }
   .laptop-base-lg {
     height: 8px; background: linear-gradient(to bottom, #2a2a2e, #1a1a1e);
-    border-radius: 0 0 2px 2px; margin: 0;
+    border-radius: 0 0 2px 2px;
     border: 1px solid #2a2a2e; border-top: 1px solid #333;
     position: relative;
   }
@@ -554,10 +383,7 @@
     border: 1px solid #2a2a2e; border-top: none;
   }
 
-  /* Phone float - bottom-right */
-  .showcase-phone-float {
-    bottom: -20px; right: -10px;
-  }
+  .showcase-phone-float { bottom: -20px; right: -10px; }
   .phone-frame-lg {
     width: 180px; background: #1a1a1a;
     border-radius: 28px; padding: 12px 8px;
@@ -571,36 +397,17 @@
   .phone-screen-lg { border-radius: 18px; overflow: hidden; }
   .phone-screen-lg img { width: 100%; display: block; }
 
-  /* Floating widget gauges */
   .showcase-floating-gauge {
     position: absolute; z-index: 3;
     width: 110px; height: auto;
     filter: drop-shadow(0 8px 24px rgba(0,0,0,0.15));
     animation: float-subtle 4s ease-in-out infinite;
   }
-  .sg-1 { top: 20px; left: -20px; animation-delay: 0s; }
-  .sg-2 { top: 60px; right: -30px; animation-delay: 2s; }
   @keyframes float-subtle {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
   }
 
-  /* Watch float - bottom area */
-  .showcase-watch-float {
-    bottom: -20px; left: 50%; transform: translateX(-50%);
-    display: flex; gap: 20px;
-  }
-  .watch-frame-lg {
-    width: 130px; height: 130px; background: #222; border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.15); overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.25);
-  }
-  .watch-frame-lg img {
-    width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
-  }
-
-  /* Watch brand compatibility logos */
   .watch-brands-float {
     position: absolute; bottom: -28px; right: -40px;
     background: white; border-radius: 20px; padding: 22px 32px;
@@ -624,189 +431,159 @@
   .watch-brand-item svg { width: 100px; height: 24px; }
   .watch-brand-item .apple-icon { width: 18px; height: 22px; flex-shrink: 0; }
 
-  /* Lifestyle Composites - device frames over lifestyle photos */
-  .lifestyle-composite {
-    display: grid; grid-template-columns: 1fr 1fr;
-    border-radius: 20px; overflow: hidden;
-    max-width: 1100px; margin: 0 auto 80px;
-    min-height: 480px;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+  /* HOW IT WORKS - narrative style */
+  .how {
+    background: var(--white);
+    padding: 100px 40px;
   }
-  .lifestyle-composite.reverse { direction: rtl; }
-  .lifestyle-composite.reverse > * { direction: ltr; }
-  .lifestyle-bg {
-    background-size: cover; background-position: center;
-    min-height: 100%;
+  .how-narrative {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
   }
-  .lifestyle-device-stack {
-    display: flex; flex-direction: column; align-items: center;
-    justify-content: center; gap: 20px;
-    padding: 40px 32px;
-    background: var(--off-white);
+  .how-step { text-align: center; }
+  .how-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--green); color: var(--white);
+    font-family: var(--font-display); font-weight: 800; font-size: 22px;
+    margin-bottom: 20px;
   }
-  .lifestyle-device-stack.mobile-stack {
-    flex-direction: row; flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  /* Laptop device frame */
-  .device-laptop { max-width: 440px; width: 100%; }
-  .device-laptop-bezel {
-    background: #1a1a1a; border-radius: 10px 10px 0 0;
-    padding: 8px 8px 6px;
-    box-shadow: 0 8px 28px rgba(0,0,0,0.15);
-  }
-  .device-laptop-bezel::before {
-    content: ''; display: block;
-    width: 6px; height: 6px; border-radius: 50%;
-    background: #555; margin: 0 auto 6px;
-  }
-  .device-laptop-bezel img {
-    width: 100%; border-radius: 4px; display: block;
-  }
-
-  /* Phone device frame */
-  .device-phone { max-width: 180px; width: 100%; }
-  .device-phone-bezel {
-    background: #1a1a1a; border-radius: 24px;
-    padding: 12px 6px;
-    box-shadow: 0 10px 32px rgba(0,0,0,0.18);
-  }
-  .device-phone-bezel::before {
-    content: ''; display: block;
-    width: 40px; height: 4px; border-radius: 2px;
-    background: #333; margin: 0 auto 8px;
-  }
-  .device-phone-bezel img {
-    width: 100%; border-radius: 16px; display: block;
-  }
-
-  /* Watch frame */
-  .device-watch {
-    max-width: 140px;
-  }
-  .device-watch img {
-    width: 100%; border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  }
-
-  /* Vignette 3: Widget Grid */
-  .app-widgets-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 40px; max-width: 1000px; margin: 0 auto;
-    padding: 48px 32px;
-    background: var(--off-white); border-radius: 20px;
-  }
-  .app-widget {
-    text-align: center; position: relative;
-    animation: widgetFloat 6s ease-in-out infinite;
-    padding: 24px 12px;
-  }
-  .app-widget:nth-child(2) { animation-delay: -1.5s; }
-  .app-widget:nth-child(3) { animation-delay: -3s; }
-  .app-widget:nth-child(4) { animation-delay: -4.5s; }
-  .app-widget img {
-    width: 100%; max-width: 200px; border-radius: 50%;
-    filter: drop-shadow(0 12px 32px rgba(0,0,0,0.14));
-    transition: transform 0.35s ease;
-  }
-  .app-widget img:hover { transform: scale(1.08); }
-  .app-widget-label {
-    margin-top: 18px; font-family: var(--font-display);
-    font-size: 17px; font-weight: 700; color: var(--text);
-    letter-spacing: 0.01em;
-  }
-  .app-widget-sub {
-    font-size: 14px; color: var(--text-muted); margin-top: 6px;
-  }
-
-  @keyframes widgetFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-
-  /* Vignette headers */
-  .vignette-header {
-    text-align: center; margin-bottom: 40px;
-  }
-  .vignette-header h3 {
+  .how-step h3 {
     font-family: var(--font-display); font-weight: 700;
-    font-size: clamp(22px, 2.5vw, 30px); color: var(--text);
-    margin-bottom: 8px;
+    font-size: 20px; color: var(--text); margin-bottom: 8px;
   }
-  .vignette-header p {
-    font-size: 15px; color: var(--text-secondary); line-height: 1.6;
-    max-width: 560px; margin: 0 auto;
-  }
-  .vignette-divider {
-    width: 48px; height: 3px; background: var(--green);
-    border-radius: 2px; margin: 0 auto 64px;
-  }
-
-  /* SCIENCE/CREDIBILITY */
-  .science { background: var(--off-white); }
-  .science-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 24px; max-width: 960px; margin: 0 auto;
-  }
-  .science-card {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: 14px; padding: 36px 28px;
+  .how-step p { font-size: 15px; color: var(--text-secondary); line-height: 1.65; }
+  .how-credibility {
     text-align: center;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-light);
   }
-  .science-icon {
-    width: 52px; height: 52px; border-radius: 14px;
-    background: var(--green-soft); border: 1px solid var(--green-border);
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 18px;
+  .how-credibility p {
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
   }
-  .science-icon svg { width: 22px; height: 22px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .science-card h3 {
-    font-family: var(--font-display); font-weight: 700;
-    font-size: 18px; color: var(--text); margin-bottom: 8px;
-  }
-  .science-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
-  .science-badge {
-    display: flex; align-items: center; gap: 8px;
-    justify-content: center; margin-top: 40px;
+  .how-credibility-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 16px;
     font-size: 13px; color: var(--text-muted); font-weight: 500;
   }
-  .science-badge-dot {
-    width: 28px; height: 28px; border-radius: 50%;
+  .how-credibility-dot {
+    width: 24px; height: 24px; border-radius: 50%;
     background: var(--green); display: flex; align-items: center; justify-content: center;
   }
-  .science-badge-dot svg { width: 18px; height: 18px; stroke: white; fill: none; stroke-width: 2; }
+  .how-credibility-dot svg { width: 14px; height: 14px; stroke: white; fill: none; stroke-width: 2; }
 
-  /* MOMENTS / PHOTO GRID */
-  .moments { background: var(--white); }
+  /* FEATURE PHOTO - circle + content */
+  .feature-photo {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; max-width: 1200px; margin: 0 auto;
+    padding: 80px 40px; align-items: center;
+  }
+  .feature-photo-circle {
+    width: clamp(280px, 28vw, 420px); height: clamp(280px, 28vw, 420px);
+    border-radius: 50%; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.10);
+    justify-self: center;
+    position: relative;
+  }
+  .feature-photo-circle::before,
+  .feature-photo-circle::after {
+    content: ''; position: absolute; border-radius: 50%;
+    z-index: -1; pointer-events: none;
+  }
+  .feature-photo-circle::before {
+    width: 12px; height: 12px;
+    background: var(--green); opacity: 0.35;
+    top: -8px; right: 24px;
+    box-shadow: 18px 12px 0 0px rgba(83,185,86,0.25), -6px 28px 0 -2px rgba(83,185,86,0.20), 32px -4px 0 -1px rgba(83,185,86,0.18), 8px -20px 0 1px rgba(83,185,86,0.22), 42px 20px 0 -3px rgba(83,185,86,0.15);
+  }
+  .feature-photo-circle::after {
+    width: 10px; height: 10px;
+    background: var(--green); opacity: 0.30;
+    bottom: 16px; left: -12px;
+    box-shadow: -14px -18px 0 1px rgba(83,185,86,0.22), 12px -8px 0 -2px rgba(83,185,86,0.18), -22px 8px 0 0px rgba(83,185,86,0.20), 6px 16px 0 -1px rgba(83,185,86,0.25), -8px 32px 0 -2px rgba(83,185,86,0.15);
+  }
+  .feature-photo-circle img { width: 100%; height: 100%; object-fit: cover; }
+  .feature-photo-content {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 40px 56px;
+  }
+  .feature-photo-content .section-eyebrow { text-align: left; }
+  .feature-photo-content .section-title { text-align: left; font-size: clamp(28px, 3vw, 40px); }
+  .feature-photo-content .section-sub { text-align: left; }
+  .feature-photo.reverse { direction: rtl; }
+  .feature-photo.reverse > * { direction: ltr; }
+
+  /* REVIEWS - editorial style */
+  .testimonials { background: var(--off-white); }
+  .testimonial-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 24px; max-width: 860px; margin: 0 auto;
+  }
+  .testimonial-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 14px; padding: 32px 28px;
+  }
+  .testimonial-card .stars { color: #f59e0b; font-size: 16px; margin-bottom: 10px; letter-spacing: 2px; }
+  .testimonial-card h4 {
+    font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+    color: var(--text); margin-bottom: 10px;
+  }
+  .testimonial-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .testimonial-card p strong { color: var(--text); font-weight: 600; }
+  .testimonial-card cite { font-style: normal; font-size: 13px; color: var(--text-muted); font-weight: 600; }
+
+  /* MOMENTS - expanded grid */
+  .moments { background: var(--white); padding: 120px 40px; }
   .moments-grid {
     display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 16px; max-width: 1100px; margin: 0 auto;
+    gap: 32px; max-width: 1100px; margin: 0 auto;
   }
   .moment-card {
     display: flex; flex-direction: column; align-items: center;
-    gap: 16px; cursor: default;
+    gap: 20px; cursor: default;
   }
   .moment-circle {
     width: 100%; aspect-ratio: 1/1; border-radius: 50%; overflow: hidden;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.10);
   }
   .moment-circle img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
   .moment-card:hover .moment-circle img { transform: scale(1.04); }
   .moment-caption {
-    font-family: var(--font-display); font-size: 15px; font-weight: 700;
+    font-family: var(--font-display); font-size: 16px; font-weight: 700;
     color: var(--text); text-align: center; line-height: 1.4;
-    padding: 0 8px;
+    padding: 0 4px;
   }
 
   /* CTA */
   .cta-section {
     background: var(--dark); color: var(--white);
-    padding: 100px 40px; text-align: center;
+    padding: 120px 40px; text-align: center;
   }
   .cta-section .section-title { color: var(--white); margin-bottom: 16px; }
   .cta-section .section-sub { color: rgba(255,255,255,0.7); margin: 0 auto 40px; }
   .cta-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .cta-no-cc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    margin-top: 16px;
+  }
+  .cta-tagline {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    margin-top: 48px;
+    letter-spacing: 0.02em;
+    font-style: italic;
+  }
 
   /* PARTNERS */
   .partners { padding: 56px 40px; background: var(--white); border-top: 1px solid var(--border-light); }
@@ -868,7 +645,6 @@
     width: 200px; height: 200px; margin: 0 auto 20px;
     background: var(--off-white); border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 12px; color: var(--text-muted);
     border: 1px solid var(--border);
   }
   .store-badges { display: flex; justify-content: center; gap: 12px; }
@@ -887,7 +663,7 @@
     .hero h1 { font-size: 34px; }
     .hero-sub { font-size: 16px; }
     .hero-cta-row { justify-content: center; }
-    .meb-strip { padding: 40px 24px; margin-top: 0; }
+    .meb-strip { padding: 40px 24px; }
     .meb-strip-inner { flex-direction: column; text-align: center; gap: 24px; }
     .meb-strip-photo { width: 110px; height: 110px; margin-top: -90px; }
     .meb-strip-quote { font-size: 18px; }
@@ -895,17 +671,16 @@
     .section { padding: 64px 20px; }
     .familiar-grid { grid-template-columns: 1fr; }
     .familiar-photo { min-height: 620px; padding-bottom: 32px; }
-    .promise-grid { grid-template-columns: 1fr; max-width: 400px; }
-    .how-steps { grid-template-columns: 1fr; gap: 32px; max-width: 400px; margin: 0 auto; }
+    .manifesto { padding: 80px 24px; }
+    .manifesto-line { font-size: 24px; }
+    .how-narrative { grid-template-columns: 1fr; gap: 32px; max-width: 400px; }
     .feature-photo { grid-template-columns: 1fr; padding: 48px 24px; gap: 24px; }
     .feature-photo-circle { width: 260px; height: 260px; justify-self: center; }
     .feature-photo-content { padding: 0 8px; text-align: center; }
     .feature-photo-content .section-eyebrow,
     .feature-photo-content .section-title,
     .feature-photo-content .section-sub { text-align: center; }
-    .feature-photo-content .btn-primary { align-self: center; }
     .feature-photo.reverse { direction: ltr; }
-    .meb-graphic-img { border-radius: 8px; }
     .testimonial-grid { grid-template-columns: 1fr !important; max-width: 400px; margin: 0 auto; }
     .showcase-panel { grid-template-columns: 1fr; gap: 40px; margin-bottom: 80px; min-height: auto; }
     .showcase-panel-reverse { direction: ltr; }
@@ -916,24 +691,13 @@
     .phone-frame-lg { width: 150px; }
     .showcase-phone-float { bottom: -10px; right: 0; }
     .showcase-floating-gauge { width: 80px; }
-    .sg-1 { left: 0; }
-    .sg-2 { right: 0; }
-    .watch-frame-lg { width: 100px; height: 100px; }
-    .showcase-watch-float { gap: 12px; }
-    .lifestyle-composite { grid-template-columns: 1fr; min-height: auto; }
-    .lifestyle-composite.reverse { direction: ltr; }
-    .lifestyle-bg { min-height: 260px; }
-    .lifestyle-device-stack { padding: 32px 20px; }
-    .lifestyle-device-stack.mobile-stack { gap: 12px; }
-    .device-laptop { max-width: 320px; }
-    .device-phone { max-width: 140px; }
-    .device-watch { max-width: 100px; }
-    .app-widgets-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 400px; margin: 0 auto; padding: 32px 20px; }
-    .app-widget img { max-width: 150px; }
-    .science-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    .watch-brands-float { position: relative; bottom: auto; right: auto; margin: 24px auto 0; }
+    .moments { padding: 80px 20px; }
     .moments-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .partners-logos { gap: 32px; }
     .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .cta-section { padding: 80px 24px; }
+    .app-showcase { padding: 64px 0 40px; }
   }
 </style>
 </head>
@@ -946,7 +710,7 @@
     <a href="./pricing/">Pricing</a>
     <a href="./resources/">Resources</a>
     <a href="#" class="nav-login">Log In</a>
-    <a href="#" class="nav-cta" onclick="openQR()">Start Free</a>
+    <a href="#" class="nav-cta" onclick="openQR()">Get Started</a>
   </div>
 </nav>
 
@@ -958,15 +722,14 @@
   <div class="hero-content fade-up">
     <h1>Train with <em>confidence.</em></h1>
     <p class="hero-sub">Know you're doing the right workout today so you can experience more on race day.</p>
-    <p class="hero-sub-secondary">The world's most adaptive training platform, built to help every runner stop guessing and start trusting the process.</p>
     <div class="hero-cta-row">
-      <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Start Free Trial</a>
-      <a href="#how" class="btn-outline">See How It Works</a>
+      <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Get your first workout</a>
+      <a href="#how" class="btn-outline">See how it works</a>
     </div>
   </div>
 </section>
 
-<!-- MEB ENDORSEMENT -->
+<!-- 2. MEB ENDORSEMENT -->
 <div class="meb-strip">
   <div class="meb-strip-inner fade-up">
     <div class="meb-strip-photo">
@@ -974,8 +737,8 @@
     </div>
     <div class="meb-strip-text">
       <p class="meb-strip-quote">"RunDot's technology is so far ahead of anything else I've seen, and I want the absolute best for my athletes."</p>
-      <p class="meb-strip-name">Meb Keflezighi - RunDot<span class="tm">™</span> Partner</p>
-      <p class="meb-strip-title">Olympic Marathon Silver Medalist - Boston &amp; NYC Marathon Champion</p>
+      <p class="meb-strip-name">Meb Keflezighi &middot; RunDot<span class="tm">™</span> Partner</p>
+      <p class="meb-strip-title">Olympic Marathon Silver Medalist &middot; Boston &amp; NYC Marathon Champion</p>
     </div>
   </div>
 </div>
@@ -983,7 +746,7 @@
 <!-- BRAND DOT STRIPE -->
 <div class="chevron-stripe"><div class="chevron-stripe-inner"></div></div>
 
-<!-- 2. TRUST STRIP -->
+<!-- 3. TRUST STRIP -->
 <div class="trust-strip">
   <div class="trust-row">
     <div class="trust-item">
@@ -991,31 +754,31 @@
       <div class="trust-label">of real athlete data</div>
     </div>
     <div class="trust-item">
-      <div class="trust-num">★★★★★</div>
-      <div class="trust-label">top-rated training app</div>
+      <div class="trust-num">4.9<span class="green">★</span></div>
+      <div class="trust-label">App Store rating</div>
     </div>
     <div class="trust-item">
-      <div class="trust-num">30% <span class="green">less</span></div>
-      <div class="trust-label">training time, better results</div>
+      <div class="trust-num">5K to <span class="green">ultra</span></div>
+      <div class="trust-label">every distance, every runner</div>
     </div>
   </div>
 </div>
 
-<!-- 3. SOUND FAMILIAR? - Problem -->
+<!-- 4. SOUND FAMILIAR -->
 <section class="section familiar">
   <div class="section-inner fade-up">
     <div class="section-header">
-      <div class="section-eyebrow">Sound familiar?</div>
+      <div class="section-eyebrow">The runner's dilemma</div>
       <h2 class="section-title">Every runner has asked these questions.</h2>
       <p class="section-sub">The biggest thing standing between you and your best running isn't fitness. It's uncertainty.</p>
     </div>
   </div>
   <div class="familiar-photo fade-up">
     <div class="familiar-grid">
-      <div class="familiar-card"><p>"Am I training enough?"</p></div>
-      <div class="familiar-card"><p>"Am I doing too much?"</p></div>
-      <div class="familiar-card"><p>"Should I run today or rest?"</p></div>
-      <div class="familiar-card"><p>"Will I actually be ready?"</p></div>
+      <div class="familiar-card"><p>Am I training enough?</p></div>
+      <div class="familiar-card"><p>Am I doing too much?</p></div>
+      <div class="familiar-card"><p>Should I run today or rest?</p></div>
+      <div class="familiar-card"><p>Will I actually be ready?</p></div>
     </div>
   </div>
 </section>
@@ -1023,26 +786,28 @@
 <!-- BRAND DOT STRIPE -->
 <div class="chevron-stripe chevron-stripe-right"><div class="chevron-stripe-inner"></div></div>
 
-<!-- 3.5 APP SHOWCASE - Athletes using the tool on real devices -->
+<!-- 5. MANIFESTO - breathing moment -->
+<section class="manifesto fade-up">
+  <div class="manifesto-inner">
+    <p class="manifesto-line">What if you never had to wonder?</p>
+    <p class="manifesto-sub">What if every morning, your workout was already there - built for your body, your goals, and exactly where you are today. No second-guessing. No overtraining. Just the quiet confidence that comes from knowing you're doing exactly what you should be doing.</p>
+  </div>
+</section>
+
+<!-- 6. APP SHOWCASE -->
 <section class="section app-showcase">
   <div class="app-showcase-inner fade-up">
-    <div class="section-header" style="text-align:center; margin-bottom: 64px;">
-      <div class="section-eyebrow">Inside the app</div>
-      <h2 class="section-title">This is what confident running looks like.</h2>
-      <p class="section-sub">Your training, your metrics, your next run - all in one place.</p>
-    </div>
 
-    <!-- Row 1: Desktop - Athlete at laptop -->
+    <!-- PLAN -->
     <div class="showcase-panel">
       <div class="showcase-text-col">
         <div class="showcase-label-tag">PLAN</div>
-        <h3 class="showcase-heading">Plan your week in seconds.</h3>
-        <p class="showcase-desc">Open RunDot<span class="tm">™</span> and your entire week is already built - personalized workouts, pacing, and recovery, all adapting to you in real time.</p>
-        <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Start Free Trial</a>
+        <h3 class="showcase-heading">Wake up knowing.</h3>
+        <p class="showcase-desc">Your entire week is already built - personalized, adaptive, and ready before your alarm goes off. Open the app and your plan is waiting.</p>
       </div>
       <div class="showcase-visual-col">
         <div class="showcase-circle">
-          <img src="./assets/lifestyle-athlete-plan.jpg" alt="Runner on a sunrise morning run" loading="lazy" style="filter: brightness(1.1);">
+          <img src="./assets/lifestyle-athlete-plan.jpg" alt="Runner preparing for a morning run" loading="lazy" style="filter: brightness(1.1);">
         </div>
         <div class="showcase-device-float showcase-laptop-float">
           <div class="laptop-screen-lg">
@@ -1053,17 +818,16 @@
       </div>
     </div>
 
-    <!-- Row 2: Mobile - Runner with phone + watch -->
+    <!-- TRACK -->
     <div class="showcase-panel showcase-panel-reverse">
       <div class="showcase-text-col">
         <div class="showcase-label-tag">TRACK</div>
-        <h3 class="showcase-heading">Your Dot Score<span class="tm">™</span> at a glance.</h3>
-        <p class="showcase-desc">Check your readiness, see today's workout, and track your progress - all from your phone before you even lace up.</p>
-        <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Download the App</a>
+        <h3 class="showcase-heading">See yourself improving.</h3>
+        <p class="showcase-desc">Watch your fitness evolve over days, weeks, and months - not just individual workouts. Your Dot Score<span class="tm">™</span> captures your progress in one clear number.</p>
       </div>
       <div class="showcase-visual-col">
         <div class="showcase-circle">
-          <img src="./assets/runner-tattooed-road.jpg" alt="Runner with tattoos on gravel trail" loading="lazy">
+          <img src="./assets/runner-oceanside-female.jpg" alt="Female runner on oceanside seawall" loading="lazy">
         </div>
         <div class="showcase-device-float showcase-phone-float">
           <div class="phone-frame-lg">
@@ -1077,17 +841,16 @@
       </div>
     </div>
 
-    <!-- Row 3: Watch - Runner on the trail -->
+    <!-- RUN -->
     <div class="showcase-panel">
       <div class="showcase-text-col">
         <div class="showcase-label-tag">RUN</div>
-        <h3 class="showcase-heading">Guided pacing on your wrist.</h3>
-        <p class="showcase-desc">RunDot<span class="tm">™</span> connects to your favorite running watch so every interval, tempo, and easy run has real-time pace guidance. Just follow your wrist.</p>
-        <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Get Started</a>
+        <h3 class="showcase-heading">Just follow your wrist.</h3>
+        <p class="showcase-desc">Real-time pace guidance on your watch means you never have to think about splits again. RunDot<span class="tm">™</span> connects to your favorite running watch so every interval, tempo, and easy run is guided.</p>
       </div>
       <div class="showcase-visual-col">
         <div class="showcase-circle">
-          <img src="./assets/runner-watch-modern.jpg" alt="Athletic runner checking smartwatch by city waterfront" loading="lazy">
+          <img src="./assets/runner-watch-modern.jpg" alt="Athletic runner checking smartwatch" loading="lazy">
         </div>
         <div class="watch-brands-float">
           <div class="watch-brands-label">Connects to</div>
@@ -1109,64 +872,35 @@
         </div>
       </div>
     </div>
+
+    <!-- Single CTA after showcase -->
+    <div style="text-align: center; padding: 20px 0 40px;">
+      <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Get your first workout</a>
+    </div>
   </div>
 </section>
 
 <!-- BRAND DOT STRIPE -->
 <div class="chevron-stripe chevron-stripe-subtle"><div class="chevron-stripe-inner"></div></div>
 
-<!-- 4. PROMISE - What if you never had to wonder? -->
-<section class="section promise">
-  <div class="section-inner fade-up">
-    <div class="promise-header">
-      <div class="section-eyebrow">The RunDot<span class="tm">™</span> promise</div>
-      <h2 class="section-title">What if you never had to wonder?</h2>
-      <p class="section-sub">RunDot<span class="tm">™</span> replaces uncertainty with confidence. Every day, you know exactly what to do.</p>
-    </div>
-    <div class="promise-grid">
-      <div class="promise-card">
-        <div class="promise-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </div>
-        <h3>Your plan adapts daily</h3>
-        <p>Not a static plan that ignores your life. RunDot<span class="tm">™</span> adjusts every workout based on how your body is actually responding.</p>
-      </div>
-      <div class="promise-card">
-        <div class="promise-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <h3>Train less, improve more</h3>
-        <p>Runners using RunDot<span class="tm">™</span> train 30% less volume while seeing faster improvement. Quality over quantity, every session.</p>
-      </div>
-      <div class="promise-card">
-        <div class="promise-icon">
-          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        </div>
-        <h3>Show up ready</h3>
-        <p>Whether it's your first 5K or your next marathon, you'll arrive at the start line with confidence - not anxiety.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 5. HOW IT WORKS -->
+<!-- 7. HOW IT WORKS -->
 <section class="section how" id="how">
   <div class="section-inner fade-up">
     <div class="section-header">
-      <div class="section-eyebrow">How it works</div>
+      <div class="section-eyebrow">It's this simple</div>
       <h2 class="section-title">Three steps. That's it.</h2>
-      <p class="section-sub">No complicated setup. No data science degree required.</p>
+      <p class="section-sub">Setup takes five minutes. Then you run.</p>
     </div>
-    <div class="how-steps">
+    <div class="how-narrative">
       <div class="how-step">
         <div class="how-num">1</div>
         <h3>Tell us about you</h3>
-        <p>Your fitness, your goals, your schedule. RunDot<span class="tm">™</span> starts learning from day one.</p>
+        <p>Your fitness, your goals, your schedule. Your plan starts building immediately.</p>
       </div>
       <div class="how-step">
         <div class="how-num">2</div>
         <h3>Get your daily workout</h3>
-        <p>Open the app. Your workout is already there - paces adjusted for today's weather, your recent training, and your body's readiness.</p>
+        <p>Open the app. Your workout is already there - paces adjusted for your recent training and your body's readiness.</p>
       </div>
       <div class="how-step">
         <div class="how-num">3</div>
@@ -1174,65 +908,74 @@
         <p>That's the whole point, isn't it? Stop planning. Start running. Trust the process.</p>
       </div>
     </div>
+    <div class="how-credibility">
+      <p>20 years of real runners, real races, and real results. The more you run, the smarter it gets - adapting every workout to how your body actually responds.</p>
+      <div class="how-credibility-badge">
+        <div class="how-credibility-dot">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <span>Powered by FitLogic<span class="tm">™</span></span>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- 5.5 FEATURE PHOTO - TrainingPeaks-style alternating -->
+<!-- 8. FEATURE PHOTO -->
 <section class="feature-photo fade-up">
   <div class="feature-photo-circle">
-    <img src="./assets/runner-hipster-urban.jpg" alt="Modern runner in urban setting at golden hour" loading="lazy">
+    <img src="./assets/runner-urban-sprint.jpg" alt="Dynamic female runner sprinting through city" loading="lazy">
   </div>
   <div class="feature-photo-content">
-    <div class="section-eyebrow">Confidence in every step</div>
+    <div class="section-eyebrow">Built for real life</div>
     <h2 class="section-title">Your training. Built around your life.</h2>
-    <p class="section-sub">Travel, sick days, tough weeks - life happens. RunDot<span class="tm">™</span> recalibrates your plan in real time so you never fall behind. No guilt, no catch-up workouts.</p>
-    <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Try it free</a>
+    <p class="section-sub">Travel, sick days, tough weeks - life happens. Your plan adjusts so you never fall behind. No guilt, no catch-up workouts. Just pick up where you are.</p>
   </div>
 </section>
 
 <section class="feature-photo reverse fade-up">
   <div class="feature-photo-circle">
-    <img src="./assets/runner-sunrise-road.jpg" alt="Runner on road at sunrise" loading="lazy">
+    <img src="./assets/runner-dawn-highway.jpg" alt="Runner on scenic highway at dawn" loading="lazy">
   </div>
   <div class="feature-photo-content">
-    <div class="section-eyebrow">Less is more</div>
+    <div class="section-eyebrow">Smarter, not harder</div>
     <h2 class="section-title">Better running without the burnout.</h2>
-    <p class="section-sub">RunDot<span class="tm">™</span> athletes train 30% less volume and still see faster improvement. Because the right workout at the right time beats more miles every time.</p>
-    <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Start free trial</a>
+    <p class="section-sub">Your plan knows when to push and when to rest. Not based on a formula - based on how your body actually responded to yesterday's workout. The right workout at the right time beats more miles every time.</p>
   </div>
 </section>
 
+<!-- BRAND DOT STRIPE -->
+<div class="chevron-stripe chevron-stripe-right"><div class="chevron-stripe-inner"></div></div>
 
-<!-- 7. APP STORE REVIEWS -->
+<!-- 9. REVIEWS -->
 <section class="section testimonials">
   <div class="section-inner fade-up">
     <div class="section-header">
       <div class="section-eyebrow">From the App Store</div>
-      <h2 class="section-title">Runners are talking.</h2>
+      <h2 class="section-title">What runners say after their first month.</h2>
     </div>
-    <div class="testimonial-grid" style="grid-template-columns: repeat(2, 1fr);">
+    <div class="testimonial-grid">
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <h4 style="font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem; font-weight:700; color:var(--text-primary); margin-bottom:10px;">Amazing Fitness App</h4>
-        <p>This app makes training so much smoother and more inspiring. I love seeing my performance metrics right away, like Dot and TrainX scores. It's super easy to start a run whenever I want. I can jump into a planned workout or just head out for a spontaneous session with a few taps. It syncs perfectly with the RunDot platform, so my data is always up to date on all my devices.</p>
+        <h4>Amazing Fitness App</h4>
+        <p><strong>This app makes training so much smoother and more inspiring.</strong> I love seeing my performance metrics right away, like Dot and TrainX scores. It's super easy to start a run whenever I want. I can jump into a planned workout or just head out for a spontaneous session with a few taps.</p>
         <cite>Tri-Idaho</cite>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <h4 style="font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem; font-weight:700; color:var(--text-primary); margin-bottom:10px;">RunDot</h4>
-        <p>I like technology but I frequently feel overwhelmed with it. I'm happy to say that this App is easy to use and understand. I downloaded it, input basic personal information, and within minutes I had my first run loaded and I hit the road. I loved the guided run from the phone and think it really dialed in my pace. All I had to do was just run and follow the prompts.</p>
+        <h4>RunDot</h4>
+        <p>I like technology but I frequently feel overwhelmed with it. <strong>I downloaded it, input basic personal information, and within minutes I had my first run loaded and I hit the road.</strong> I loved the guided run from the phone and think it really dialed in my pace.</p>
         <cite>Epicenter</cite>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <h4 style="font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem; font-weight:700; color:var(--text-primary); margin-bottom:10px;">Amazing Training Plan</h4>
-        <p>The training plan changes daily so I am never bored, the paces are prescribed specifically for my ability, age, gender and experience. I love that I can trust that the workouts are exactly what I need, not too much or too little! Highly recommended!</p>
+        <h4>Amazing Training Plan</h4>
+        <p>The training plan changes daily so I am never bored, the paces are prescribed specifically for my ability, age, gender and experience. <strong>I love that I can trust that the workouts are exactly what I need, not too much or too little!</strong></p>
         <cite>Married 40 years!</cite>
       </div>
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
-        <h4 style="font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem; font-weight:700; color:var(--text-primary); margin-bottom:10px;">Amazing App for Running!</h4>
-        <p>The UI is sleek and super intuitive, very easy to use and see your metrics like pace, heart rate, etc. Love the clear guidelines on upcoming run sessions. App is way more advanced than previous run apps used in the past. Setup is very easy and only takes minutes from downloading to your first run.</p>
+        <h4>Amazing App for Running!</h4>
+        <p>The UI is sleek and super intuitive, very easy to use and see your metrics like pace, heart rate, etc. <strong>App is way more advanced than previous run apps used in the past.</strong> Setup is very easy and only takes minutes from downloading to your first run.</p>
         <cite>triwithasideofhalf</cite>
       </div>
     </div>
@@ -1240,75 +983,29 @@
 </section>
 
 <!-- BRAND DOT STRIPE -->
-<div class="chevron-stripe chevron-stripe-right"><div class="chevron-stripe-inner"></div></div>
-
-<!-- Section 8 removed per Brad's direction -->
-
-<!-- BRAND DOT STRIPE -->
 <div class="chevron-stripe chevron-stripe-subtle"><div class="chevron-stripe-inner"></div></div>
 
-<!-- 9. SCIENCE - Why it works (tech credibility, Section 8 role) -->
-<section class="section science dot-texture">
-  <div class="section-inner fade-up">
-    <div class="section-header">
-      <div class="section-eyebrow">Why it works</div>
-      <h2 class="section-title">Built on 20 years of real training data.</h2>
-      <p class="section-sub">RunDot<span class="tm">™</span> is powered by FitLogic<span class="tm">™</span> - an intelligent training engine that learns how your body responds to training, rest, and race conditions.</p>
-    </div>
-    <div class="science-grid">
-      <div class="science-card">
-        <div class="science-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </div>
-        <h3>Adapts every day</h3>
-        <p>Your plan isn't static. It recalculates after every workout, rest day, and life event - optimizing your path forward.</p>
-      </div>
-      <div class="science-card">
-        <div class="science-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
-        </div>
-        <h3>Learns your body</h3>
-        <p>FitLogic<span class="tm">™</span> builds a unique performance model for every athlete - how you respond to speed, volume, and recovery.</p>
-      </div>
-      <div class="science-card">
-        <div class="science-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3>Millions of data points</h3>
-        <p>Two decades of training, racing, and recovery data from real athletes - not theories, not formulas, not guesswork.</p>
-      </div>
-    </div>
-    <div class="science-badge">
-      <div class="science-badge-dot">
-        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      </div>
-      <span>Powered by FitLogic<span class="tm">™</span> - the intelligent training engine behind every RunDot<span class="tm">™</span> workout</span>
-    </div>
-  </div>
-</section>
-
-<!-- 10. MOMENTS - Photo grid -->
-<section class="section moments">
-  <div class="section-inner fade-up">
-    <div class="section-header">
-      <div class="section-eyebrow">Running is more than workouts</div>
+<!-- 10. MOMENTS -->
+<section class="moments fade-up">
+  <div class="section-inner">
+    <div class="section-header" style="margin-bottom: 56px;">
       <h2 class="section-title">It's the moments that matter.</h2>
     </div>
     <div class="moments-grid">
       <div class="moment-card">
-        <div class="moment-circle"><img src="./assets/moments-elite-female.jpg" alt="Female runner jogging with a smile" loading="lazy"></div>
+        <div class="moment-circle"><img src="./assets/moments-silhouette-sunrise.jpg" alt="Runner silhouette at sunrise" loading="lazy"></div>
         <div class="moment-caption">Stop planning. Start running.</div>
       </div>
       <div class="moment-card">
-        <div class="moment-circle"><img src="./assets/moments-beginner-male.jpg" alt="Male athlete in starting position on track" loading="lazy"></div>
+        <div class="moment-circle"><img src="./assets/moments-beach-dawn.jpg" alt="Runner on beach at dawn" loading="lazy"></div>
         <div class="moment-caption">Trust the process. Chase the PR.</div>
       </div>
       <div class="moment-card">
-        <div class="moment-circle"><img src="./assets/moments-hipster-female.jpg" alt="Woman running through city streets" loading="lazy"></div>
+        <div class="moment-circle"><img src="./assets/moments-finish-joy.jpg" alt="Runner celebrating marathon finish" loading="lazy"></div>
         <div class="moment-caption">Never wonder what to do next.</div>
       </div>
       <div class="moment-card">
-        <div class="moment-circle"><img src="./assets/moments-mature-male.jpg" alt="Experienced marathon runner" loading="lazy"></div>
+        <div class="moment-circle"><img src="./assets/moments-victory-female.jpg" alt="Female runner crossing finish line in victory" loading="lazy"></div>
         <div class="moment-caption">Become the runner you always knew you could be.</div>
       </div>
     </div>
@@ -1318,14 +1015,16 @@
 <!-- BRAND DOT STRIPE -->
 <div class="chevron-stripe chevron-stripe-dark"><div class="chevron-stripe-inner"></div></div>
 
-<!-- CTA -->
+<!-- 11. CTA -->
 <section class="cta-section">
   <div class="fade-up">
     <h2 class="section-title">Your next run is already planned.</h2>
-    <p class="section-sub">Start your free trial today. No credit card required.</p>
+    <p class="section-sub">Get your first workout in minutes.</p>
     <div class="cta-row">
-      <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Start Free Trial</a>
+      <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Get your first workout</a>
     </div>
+    <p class="cta-no-cc">No credit card required</p>
+    <p class="cta-tagline">Trust the run.</p>
   </div>
 </section>
 
@@ -1406,9 +1105,6 @@ function openQR() { document.getElementById('qrModal').classList.add('active'); 
 function closeQR() { document.getElementById('qrModal').classList.remove('active'); }
 document.getElementById('qrModal').addEventListener('click', function(e) { if (e.target === this) closeQR(); });
 
-// Chevron stripes are pure CSS - no JS needed
-
-// Fade-up animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
