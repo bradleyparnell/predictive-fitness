@@ -572,13 +572,42 @@
     background: var(--dark); color: var(--white);
     padding: 120px 40px; text-align: center;
   }
-  .cta-section .section-title { color: var(--white); margin-bottom: 16px; }
+  .cta-section .section-title {
+    color: var(--white); margin-bottom: 24px;
+    max-width: 680px; margin-left: auto; margin-right: auto;
+  }
   .cta-section .section-sub { color: rgba(255,255,255,0.7); margin: 0 auto 40px; }
+  .cta-accent-line {
+    width: 48px; height: 3px; background: var(--green-light);
+    border-radius: 2px; margin: 0 auto 32px;
+  }
+  .cta-glow {
+    position: relative; display: inline-block;
+  }
+  .cta-glow::before {
+    content: ''; position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 280px; height: 120px;
+    background: radial-gradient(ellipse, rgba(83,185,86,0.2) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+  .cta-glow .btn-primary { position: relative; z-index: 1; }
   .cta-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
   .cta-no-cc {
     font-size: 13px;
     color: rgba(255,255,255,0.45);
     margin-top: 16px;
+  }
+  .cta-qr {
+    margin-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 12px;
+  }
+  .cta-qr img {
+    width: 100px; height: 100px; border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.15);
+  }
+  .cta-qr span {
+    font-size: 13px; color: rgba(255,255,255,0.4);
+    letter-spacing: 0.02em;
   }
   .cta-tagline {
     font-family: var(--font-display);
@@ -1047,11 +1076,18 @@
 <!-- 11. CTA -->
 <section class="cta-section">
   <div class="fade-up">
+    <div class="cta-accent-line"></div>
     <h2 class="section-title">Every meaningful running experience starts with trusting today's run.</h2>
     <div class="cta-row">
-      <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Get your first workout</a>
+      <div class="cta-glow">
+        <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Get your first workout</a>
+      </div>
     </div>
     <p class="cta-no-cc">No credit card required</p>
+    <div class="cta-qr">
+      <img src="./assets/rundot-qr-signup.png" alt="Scan to sign up">
+      <span>Or scan to get started</span>
+    </div>
     <p class="cta-tagline">Trust the run.</p>
   </div>
 </section>
