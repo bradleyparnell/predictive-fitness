@@ -358,33 +358,34 @@
   }
   .showcase-device-float { position: absolute; z-index: 2; }
 
-  .showcase-laptop-float { bottom: -36px; left: -60px; width: 260px; }
+  .showcase-laptop-float { bottom: -36px; left: -60px; width: 280px; }
   .laptop-screen-lg {
-    background: #e2e2e6; border-radius: 10px 10px 0 0; padding: 6px 6px 0;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.22), 0 4px 12px rgba(0,0,0,0.1);
+    background: #222; border-radius: 8px 8px 0 0; padding: 10px 10px 6px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.28), 0 4px 12px rgba(0,0,0,0.12);
     position: relative;
   }
   .laptop-screen-lg::before {
-    content: ''; display: block; width: 5px; height: 5px;
-    border-radius: 50%; background: #c0c0c0; margin: 1px auto 4px;
+    content: ''; display: block; width: 4px; height: 4px;
+    border-radius: 50%; background: #555; margin: 0 auto 6px;
   }
-  .laptop-screen-lg img { width: 100%; display: block; border-radius: 4px; }
+  .laptop-screen-lg img { width: 100%; display: block; border-radius: 3px; }
   .laptop-base-lg {
-    height: 6px; background: linear-gradient(to bottom, #d8d8dc, #c8c8cc);
+    height: 10px;
+    background: linear-gradient(to bottom, #c0c0c4 0%, #d4d4d8 30%, #e0e0e4 70%, #d0d0d4 100%);
     border-radius: 0 0 2px 2px;
     position: relative;
   }
   .laptop-base-lg::before {
-    content: ''; position: absolute; top: 1px;
-    left: 35%; right: 35%; height: 2px;
-    background: rgba(0,0,0,0.06);
-    border-radius: 2px;
+    content: ''; position: absolute; top: 2px;
+    left: 38%; right: 38%; height: 3px;
+    background: rgba(0,0,0,0.08);
+    border-radius: 4px;
   }
   .laptop-base-lg::after {
-    content: ''; position: absolute; bottom: -3px;
-    left: 12%; right: 12%; height: 3px;
-    background: linear-gradient(to bottom, #c4c4c8, #b8b8bc);
-    border-radius: 0 0 8px 8px;
+    content: ''; position: absolute; bottom: -4px;
+    left: 8%; right: 8%; height: 4px;
+    background: linear-gradient(to bottom, #bbbbbe, #a8a8ac);
+    border-radius: 0 0 12px 12px;
   }
 
   .showcase-phone-float { bottom: -20px; right: -10px; }
