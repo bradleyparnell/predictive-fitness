@@ -276,8 +276,37 @@
   }
 
   /* MANIFESTO - breathing moment */
+  /* HERO SOCIAL PROOF */
+  .hero-social-proof {
+    display: flex; align-items: center; gap: 14px;
+    margin-top: 28px; justify-content: center;
+  }
+  .hero-avatars {
+    display: flex; align-items: center;
+  }
+  .hero-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 12px; font-weight: 700;
+    color: #fff; border: 2px solid rgba(255,255,255,0.3);
+    margin-right: -10px; position: relative;
+  }
+  .hero-avatar:nth-child(1) { z-index: 5; }
+  .hero-avatar:nth-child(2) { z-index: 4; }
+  .hero-avatar:nth-child(3) { z-index: 3; }
+  .hero-avatar:nth-child(4) { z-index: 2; }
+  .hero-avatar:nth-child(5) { z-index: 1; margin-right: 0; }
+  .hero-avatar-plus { font-size: 16px; font-weight: 600; }
+  .hero-social-text {
+    font-size: 15px; color: rgba(255,255,255,0.85);
+    letter-spacing: 0.01em;
+  }
+  .hero-social-text strong {
+    color: #fff; font-weight: 700;
+  }
+
   .manifesto {
-    padding: 120px 40px;
+    padding: 80px 40px 60px;
     background: var(--white);
     text-align: center;
   }
@@ -871,6 +900,16 @@
       <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Get your first workout</a>
       <a href="#how" class="btn-outline">See how it works</a>
     </div>
+    <div class="hero-social-proof hero-cta-entrance">
+      <div class="hero-avatars">
+        <span class="hero-avatar" style="background:#2d6a2e;">JM</span>
+        <span class="hero-avatar" style="background:#3a7d3c;">SR</span>
+        <span class="hero-avatar" style="background:#1b5e1d;">TK</span>
+        <span class="hero-avatar" style="background:#4a8f4c;">AB</span>
+        <span class="hero-avatar hero-avatar-plus" style="background:#53b956;">+</span>
+      </div>
+      <span class="hero-social-text"><strong>50,000+ runners</strong> already training smarter</span>
+    </div>
   </div>
 </section>
 
@@ -878,7 +917,7 @@
 <div class="meb-strip">
   <div class="meb-strip-inner fade-up">
     <div class="meb-strip-photo">
-      <img src="./assets/meb-graphic.jpg" alt="Meb Keflezighi">
+      <img src="./assets/meb-medals-bw.jpg" alt="Meb Keflezighi">
     </div>
     <div class="meb-strip-text">
       <p class="meb-strip-quote">"RunDot's technology is so far ahead of anything else I've seen, and I want the absolute best for my athletes."</p>
