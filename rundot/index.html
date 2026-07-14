@@ -168,14 +168,18 @@
   .hero h1 em { font-style: italic; color: var(--green-light); }
   .hero-sub {
     font-size: 19px; font-weight: 400; color: rgba(255,255,255,0.85);
-    max-width: 560px; margin: 0 auto 36px; line-height: 1.7;
+    max-width: 560px; margin: 0 auto 12px; line-height: 1.7;
     letter-spacing: 0.01em;
+  }
+  .hero-sub-secondary {
+    font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.6);
+    max-width: 520px; margin: 0 auto 36px; line-height: 1.7;
   }
   .hero-cta-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
 
   /* MEB ENDORSEMENT STRIP */
   .meb-strip {
-    background: var(--white); padding: 56px 32px;
+    background: var(--white); padding: 40px 32px;
     margin-top: 0; position: relative; z-index: 10;
     border-radius: 0;
   }
@@ -952,8 +956,9 @@
     <source src="./assets/hero-video.mp4" type="video/mp4">
   </video>
   <div class="hero-content fade-up">
-    <h1>What Could You&nbsp;Achieve With <em>Complete&nbsp;Confidence?</em></h1>
-    <p class="hero-sub">RunDot<span class="tm">™</span> builds your perfect training plan around your life, your fitness, and your goals. Not someone else's program. Yours.</p>
+    <h1>Train with <em>confidence.</em></h1>
+    <p class="hero-sub">Know you're doing the right workout today so you can experience more on race day.</p>
+    <p class="hero-sub-secondary">The world's most adaptive training platform, built to help every runner stop guessing and start trusting the process.</p>
     <div class="hero-cta-row">
       <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Start Free Trial</a>
       <a href="#how" class="btn-outline">See How It Works</a>
