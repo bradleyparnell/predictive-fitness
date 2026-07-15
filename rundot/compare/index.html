@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RunDot vs Runna - Why Real Intelligence Beats Templates</title>
+<meta name="description" content="See how RunDot's adaptive training intelligence compares to template-based training apps. Real AI vs static plans.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ==============================
+   RESET & FOUNDATIONS
+   ============================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: #1a1a2e;
+  background: #fff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, h5 { font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.15; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+sup { font-size: 0.5em; vertical-align: super; }
+.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+/* ==============================
+   NAV
+   ============================== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 16px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: transparent;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+nav.scrolled {
+  background: rgba(255,255,255,0.97);
+  box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+}
+nav .nav-logo { height: 28px; }
+nav .nav-links { display: flex; gap: 32px; align-items: center; }
+nav .nav-links a { font-size: 15px; font-weight: 500; color: #fff; transition: color 0.3s; }
+nav.scrolled .nav-links a { color: #1a1a2e; }
+.btn-nav {
+  background: #53b956; color: #fff; padding: 10px 24px; border-radius: 50px;
+  font-weight: 600; font-size: 14px; transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-nav:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(83,185,86,0.35); }
+
+/* ==============================
+   HERO
+   ============================== */
+.hero {
+  position: relative; min-height: 85vh;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 50%, #0f2818 100%);
+  overflow: hidden; text-align: center; padding: 120px 24px 80px;
+}
+.hero::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 70%, rgba(83,185,86,0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 30%, rgba(83,185,86,0.05) 0%, transparent 60%);
+}
+.hero-content { position: relative; z-index: 2; max-width: 820px; }
+.hero-content h1 {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  color: #fff; font-weight: 800; margin-bottom: 20px;
+}
+.hero-content h1 em { font-style: italic; color: #53b956; }
+.hero-content p {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: rgba(255,255,255,0.75); max-width: 600px; margin: 0 auto 36px;
+}
+.hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-primary {
+  background: #53b956; color: #fff; padding: 14px 36px; border-radius: 50px;
+  font-weight: 700; font-size: 16px; display: inline-flex; align-items: center; gap: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(83,185,86,0.4); }
+.btn-secondary {
+  background: rgba(255,255,255,0.1); color: #fff; padding: 14px 36px; border-radius: 50px;
+  font-weight: 600; font-size: 16px; border: 1px solid rgba(255,255,255,0.2);
+  transition: background 0.3s;
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.18); }
+
+/* Eyebrow */
+.section-eyebrow {
+  display: flex; align-items: center; gap: 10px; justify-content: center;
+  font-size: 14px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase;
+  color: #53b956; margin-bottom: 16px; font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.section-eyebrow::before {
+  content: ''; width: 14px; height: 14px; border-radius: 50%; background: #53b956; flex-shrink: 0;
+}
+
+/* ==============================
+   BOTTOM LINE STRIP
+   ============================== */
+.bottom-line {
+  background: #53b956; padding: 48px 24px; text-align: center;
+}
+.bottom-line p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 700; color: #fff; max-width: 800px; margin: 0 auto; line-height: 1.5;
+}
+
+/* ==============================
+   PHILOSOPHY SECTION
+   ============================== */
+.philosophy {
+  padding: 100px 24px; background: #f8faf8;
+}
+.philosophy-header { text-align: center; margin-bottom: 56px; }
+.philosophy-header h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; margin-bottom: 12px;
+}
+.philosophy-header p { font-size: 1.1rem; color: #555; max-width: 600px; margin: 0 auto; }
+.philosophy-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 960px; margin: 0 auto;
+}
+.phil-card {
+  background: #fff; border-radius: 16px; padding: 40px 32px;
+  border: 1px solid #e8e8e8; transition: transform 0.3s;
+}
+.phil-card:hover { transform: translateY(-3px); }
+.phil-card.rundot { border-top: 4px solid #53b956; }
+.phil-card.template { border-top: 4px solid #d1d5db; }
+.phil-card .card-badge {
+  display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 16px; padding: 4px 12px; border-radius: 20px;
+}
+.phil-card.rundot .card-badge { background: rgba(83,185,86,0.1); color: #53b956; }
+.phil-card.template .card-badge { background: #f3f4f6; color: #9ca3af; }
+.phil-card h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: 12px; }
+.phil-card p { color: #555; font-size: 0.95rem; line-height: 1.7; }
+
+/* ==============================
+   PHASE SECTIONS
+   ============================== */
+.phase {
+  padding: 80px 24px;
+}
+.phase:nth-child(even) { background: #f8faf8; }
+.phase-header { text-align: center; margin-bottom: 48px; }
+.phase-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase;
+  color: #53b956; margin-bottom: 12px; font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.phase-label .phase-num {
+  width: 28px; height: 28px; border-radius: 50%; background: #53b956; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; letter-spacing: 0;
+}
+.phase-header h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 8px;
+}
+.phase-header p { font-size: 1.05rem; color: #555; max-width: 600px; margin: 0 auto; }
+
+/* Comparison row */
+.compare-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 960px; margin: 0 auto;
+}
+.compare-box {
+  background: #fff; border-radius: 16px; padding: 32px 28px;
+  border: 1px solid #e8e8e8;
+}
+.compare-box.rundot-box { border-left: 4px solid #53b956; }
+.compare-box.template-box { border-left: 4px solid #d1d5db; }
+.compare-box .box-label {
+  font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.compare-box.rundot-box .box-label { color: #53b956; }
+.compare-box.template-box .box-label { color: #9ca3af; }
+.compare-box h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+.compare-box ul {
+  list-style: none; display: flex; flex-direction: column; gap: 10px;
+}
+.compare-box.rundot-box li::before { content: '✓ '; color: #53b956; font-weight: 700; }
+.compare-box.template-box li::before { content: '✗ '; color: #d1d5db; font-weight: 700; }
+.compare-box li { font-size: 0.92rem; color: #444; line-height: 1.5; }
+.compare-box p.impact {
+  margin-top: 16px; padding-top: 16px; border-top: 1px solid #f0f0f0;
+  font-size: 0.88rem; color: #53b956; font-weight: 600; font-style: italic;
+}
+
+/* ==============================
+   FEATURE COMPARISON TABLE
+   ============================== */
+.feature-table-section {
+  padding: 80px 24px; background: #0f172a;
+}
+.feature-table-section .section-eyebrow { color: #53b956; }
+.feature-table-section h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: #fff;
+  text-align: center; margin-bottom: 40px;
+}
+.feature-table {
+  max-width: 800px; margin: 0 auto; border-radius: 16px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.ft-header {
+  display: grid; grid-template-columns: 1fr 120px 120px;
+  background: rgba(255,255,255,0.05); padding: 16px 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 14px;
+}
+.ft-header span:first-child { color: rgba(255,255,255,0.5); }
+.ft-header span:nth-child(2) { color: #53b956; text-align: center; }
+.ft-header span:nth-child(3) { color: rgba(255,255,255,0.4); text-align: center; }
+.ft-row {
+  display: grid; grid-template-columns: 1fr 120px 120px;
+  padding: 14px 24px; border-top: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.92rem; color: rgba(255,255,255,0.8); align-items: center;
+}
+.ft-row:hover { background: rgba(255,255,255,0.03); }
+.ft-row span:nth-child(2),
+.ft-row span:nth-child(3) { text-align: center; font-size: 1.1rem; }
+.ft-check { color: #53b956; }
+.ft-x { color: rgba(255,255,255,0.2); }
+
+/* ==============================
+   WHAT YOU GET
+   ============================== */
+.what-you-get {
+  padding: 80px 24px; text-align: center;
+}
+.what-you-get h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; margin-bottom: 40px;
+}
+.outcomes-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  max-width: 900px; margin: 0 auto;
+}
+.outcome-card {
+  background: #f8faf8; border-radius: 16px; padding: 32px 24px; text-align: center;
+  border: 1px solid #e8e8e8;
+}
+.outcome-icon {
+  width: 48px; height: 48px; border-radius: 50%; background: rgba(83,185,86,0.1);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px; font-size: 1.4rem;
+}
+.outcome-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+.outcome-card p { font-size: 0.88rem; color: #666; line-height: 1.5; }
+
+/* ==============================
+   MEB STRIP
+   ============================== */
+.meb-strip {
+  background: #0f172a; padding: 48px 24px;
+}
+.meb-content {
+  display: flex; align-items: center; gap: 32px;
+  max-width: 800px; margin: 0 auto;
+}
+.meb-photo {
+  width: 100px; height: 100px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(83,185,86,0.5), 0 0 20px rgba(83,185,86,0.2);
+}
+.meb-text blockquote {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.1rem; font-weight: 500; color: #fff; font-style: italic; margin-bottom: 8px;
+}
+.meb-text cite { font-size: 0.85rem; color: rgba(255,255,255,0.5); font-style: normal; }
+
+/* ==============================
+   FINAL CTA
+   ============================== */
+.final-cta {
+  padding: 100px 24px; text-align: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 50%, #0f2818 100%);
+  position: relative; overflow: hidden;
+}
+.final-cta::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(83,185,86,0.08) 0%, transparent 60%);
+}
+.final-cta-content { position: relative; z-index: 2; }
+.final-cta h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: #fff; font-weight: 800; margin-bottom: 16px; max-width: 700px; margin-left: auto; margin-right: auto;
+}
+.final-cta p { color: rgba(255,255,255,0.6); font-size: 1.1rem; margin-bottom: 32px; }
+.final-cta .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-dark {
+  background: #fff; color: #1a1a2e; padding: 14px 36px; border-radius: 50px;
+  font-weight: 700; font-size: 16px; transition: transform 0.2s;
+}
+.btn-dark:hover { transform: translateY(-2px); }
+
+/* ==============================
+   FOOTER
+   ============================== */
+footer {
+  background: #0a0a1a; padding: 64px 24px 32px; color: rgba(255,255,255,0.5);
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+  max-width: 1080px; margin: 0 auto 40px;
+}
+.footer-brand p { font-size: 0.88rem; margin-top: 12px; line-height: 1.6; }
+.footer-social { display: flex; gap: 16px; margin-top: 16px; }
+.footer-social a { font-size: 0.85rem; color: rgba(255,255,255,0.4); transition: color 0.3s; }
+.footer-social a:hover { color: #53b956; }
+.footer-col h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 16px;
+}
+.footer-col a { display: block; font-size: 0.88rem; color: rgba(255,255,255,0.4); margin-bottom: 10px; transition: color 0.3s; }
+.footer-col a:hover { color: #53b956; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px; text-align: center; font-size: 0.8rem; max-width: 1080px; margin: 0 auto;
+}
+
+/* ==============================
+   REVEAL ANIMATION
+   ============================== */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+@media (max-width: 768px) {
+  nav .nav-links { display: none; }
+  .philosophy-grid, .compare-row { grid-template-columns: 1fr; }
+  .outcomes-grid { grid-template-columns: 1fr; }
+  .ft-header, .ft-row { grid-template-columns: 1fr 80px 80px; font-size: 0.82rem; }
+  .ft-header span:first-child, .ft-row span:first-child { font-size: 0.82rem; }
+  .meb-content { flex-direction: column; text-align: center; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .hero { min-height: 70vh; padding: 100px 20px 60px; }
+}
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .ft-header, .ft-row { grid-template-columns: 1fr 60px 60px; padding: 12px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="../"><img src="../assets/rundot-logo-white.svg" alt="RunDot" class="nav-logo" id="nav-logo"></a>
+  <div class="nav-links">
+    <a href="../#how-it-works">How It Works</a>
+    <a href="../#showcase">Features</a>
+    <a href="../pricing/">Pricing</a>
+    <a href="../resources/">Resources</a>
+    <a href="#final-cta" class="btn-nav">Get your first workout</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content reveal">
+    <div class="section-eyebrow" style="color: rgba(255,255,255,0.5);">COMPARE</div>
+    <h1>Your training plan should know <em>you</em></h1>
+    <p>Two platforms. Two fundamentally different approaches to your running. One builds intelligence around your body. The other hands you a template.</p>
+    <div class="hero-ctas">
+      <a href="#final-cta" class="btn-primary">Get your first workout</a>
+      <a href="#philosophy" class="btn-secondary">See the difference</a>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM LINE -->
+<section class="bottom-line reveal">
+  <div class="container">
+    <p>RunDot<sup>™</sup> delivers up to 30% more efficient training through proprietary AI trained on 20+ years of real athlete data. Template apps ask 3 questions and hope for the best.</p>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="philosophy">
+  <div class="container">
+    <div class="philosophy-header reveal">
+      <div class="section-eyebrow">THE FOUNDATION</div>
+      <h2>True AI vs template automation</h2>
+      <p>The difference starts at the foundation and cascades through every aspect of your training.</p>
+    </div>
+    <div class="philosophy-grid reveal">
+      <div class="phil-card rundot">
+        <span class="card-badge">RunDot<sup>™</sup></span>
+        <h3>Intelligence built for you</h3>
+        <p>Built on a proprietary AI model trained on over 20 years of real athlete training and performance data. Purpose-built intelligence designed specifically for endurance training optimization. It continuously learns and adapts to you.</p>
+      </div>
+      <div class="phil-card template">
+        <span class="card-badge">Template Apps</span>
+        <h3>Same plan, different runner</h3>
+        <p>Generates template training plans based on a few variables: your general ability level, how many days per week you want to run, and how many weeks until your event. Every athlete of similar ability gets the same plan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 1: ASSESSMENT -->
+<section class="phase" id="assessment">
+  <div class="container">
+    <div class="phase-header reveal">
+      <div class="phase-label"><span class="phase-num">1</span> ASSESS</div>
+      <h2>Knowing where you really stand</h2>
+      <p>A training plan is only as good as the data behind it.</p>
+    </div>
+    <div class="compare-row reveal">
+      <div class="compare-box rundot-box">
+        <div class="box-label">RunDot<sup>™</sup></div>
+        <h4>Comprehensive individual analysis</h4>
+        <ul>
+          <li>Dot Score<sup>™</sup> - a 1-to-100 scale that normalizes for temperature, humidity, and elevation</li>
+          <li>Training Stress Profile quantifies your capacity across aerobic, threshold, muscular, and neural dimensions</li>
+          <li>Adjusts for age, gender, body composition, and historical training response</li>
+          <li>Optional genome analysis through Physiogenomix<sup>®</sup> technology</li>
+        </ul>
+        <p class="impact">Result: your true training capacity, measured and understood</p>
+      </div>
+      <div class="compare-box template-box">
+        <div class="box-label">Template Apps</div>
+        <h4>Three questions and a guess</h4>
+        <ul>
+          <li>How many days per week do you want to run?</li>
+          <li>How many weeks until your race?</li>
+          <li>What is your approximate fitness level?</li>
+        </ul>
+        <p class="impact" style="color: #9ca3af;">Result: assumptions from minimal information</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 2: PRESCRIPTION -->
+<section class="phase" id="prescription">
+  <div class="container">
+    <div class="phase-header reveal">
+      <div class="phase-label"><span class="phase-num">2</span> PRESCRIBE</div>
+      <h2>The right training at the right time</h2>
+      <p>Every workout should serve a purpose specific to your body.</p>
+    </div>
+    <div class="compare-row reveal">
+      <div class="compare-box rundot-box">
+        <div class="box-label">RunDot<sup>™</sup></div>
+        <h4>Intelligent, adaptive programming</h4>
+        <ul>
+          <li>Normalized Training Stress quantifies the exact stimulus for each workout by stress type</li>
+          <li>Adjusts intensities for temperature, humidity, elevation, and indoor/outdoor conditions before each workout</li>
+          <li>Considers residual fatigue and recovery needs when scheduling future sessions</li>
+          <li>One cohesive program for all your planned races</li>
+        </ul>
+        <p class="impact">Result: the right stimulus for your body, every single day</p>
+      </div>
+      <div class="compare-box template-box">
+        <div class="box-label">Template Apps</div>
+        <h4>Static plans regardless of reality</h4>
+        <ul>
+          <li>Same paces whether it is 60 or 95 degrees</li>
+          <li>Same progression regardless of how you responded</li>
+          <li>Same recovery assumptions for everyone</li>
+          <li>Single-race templates only - no multi-race coordination</li>
+        </ul>
+        <p class="impact" style="color: #9ca3af;">Result: generic plans hoping to fit your situation</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 3: EVALUATION -->
+<section class="phase" id="evaluation">
+  <div class="container">
+    <div class="phase-header reveal">
+      <div class="phase-label"><span class="phase-num">3</span> EVALUATE</div>
+      <h2>Understanding your response</h2>
+      <p>Training quality matters more than training quantity.</p>
+    </div>
+    <div class="compare-row reveal">
+      <div class="compare-box rundot-box">
+        <div class="box-label">RunDot<sup>™</sup></div>
+        <h4>Meaningful progress evaluation</h4>
+        <ul>
+          <li>TrainX<sup>®</sup> scores evaluate execution quality - not vanity metrics like total hours or distance</li>
+          <li>Higher scores for nailing interval paces, completing prescribed distances, keeping easy runs easy</li>
+          <li>Residual Training Stress quantifies lingering fatigue by stress type for precise recovery planning</li>
+        </ul>
+        <p class="impact">Result: actionable insight that optimizes your next workout</p>
+      </div>
+      <div class="compare-box template-box">
+        <div class="box-label">Template Apps</div>
+        <h4>Surface-level data tracking</h4>
+        <ul>
+          <li>Today's weather</li>
+          <li>Workouts planned vs completed this week</li>
+          <li>Distance planned vs completed this week</li>
+        </ul>
+        <p class="impact" style="color: #9ca3af;">Result: data you already know, without context</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 4: PREDICTION -->
+<section class="phase" id="prediction">
+  <div class="container">
+    <div class="phase-header reveal">
+      <div class="phase-label"><span class="phase-num">4</span> PREDICT</div>
+      <h2>Race day, dialed in</h2>
+      <p>Show up knowing exactly where you stand.</p>
+    </div>
+    <div class="compare-row reveal">
+      <div class="compare-box rundot-box">
+        <div class="box-label">RunDot<sup>™</sup></div>
+        <h4>Precision race strategy</h4>
+        <ul>
+          <li>Predicts optimal target paces and race-day splits</li>
+          <li>Factors in local terrain, elevation, temperature, and humidity</li>
+          <li>Built from your current fitness and training adaptations</li>
+          <li>Algorithm continuously improves from real-world race outcomes</li>
+        </ul>
+        <p class="impact">Result: a personalized race plan, not a generic pace chart</p>
+      </div>
+      <div class="compare-box template-box">
+        <div class="box-label">Template Apps</div>
+        <h4>No predictive capabilities</h4>
+        <ul>
+          <li>No predicted times based on your actual data</li>
+          <li>No pacing targets based on race-specific conditions</li>
+          <li>No way to learn from outcomes and improve</li>
+        </ul>
+        <p class="impact" style="color: #9ca3af;">Result: guessing on the most important day</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE TABLE -->
+<section class="feature-table-section">
+  <div class="container">
+    <div class="section-eyebrow reveal" style="justify-content: center;">AT A GLANCE</div>
+    <h2 class="reveal">Capability comparison</h2>
+    <div class="feature-table reveal">
+      <div class="ft-header">
+        <span>Capability</span>
+        <span>RunDot<sup>™</sup></span>
+        <span>Template</span>
+      </div>
+      <div class="ft-row">
+        <span>Individual performance baseline</span>
+        <span class="ft-check">✓</span>
+        <span class="ft-x">✗</span>
+      </div>
+      <div class="ft-row">
+        <span>Daily adaptive training</span>
+        <span class="ft-check">✓</span>
+        <span class="ft-x">✗</span>
+      </div>
+      <div class="ft-row">
+        <span>Environmental adjustments</span>
+        <span class="ft-check">✓</span>
+        <span class="ft-x">✗</span>
+      </div>
+      <div class="ft-row">
+        <span>Training stress quantification</span>
+        <span class="ft-check">✓</span>
+        <span class="ft-x">✗</span>
+      </div>
+      <div class="ft-row">
+        <span>Multi-race programming</span>
+        <span class="ft-check">✓</span>
+        <span class="ft-x">✗</span>
+      </div>
+      <div class="ft-row">
+        <span>Execution quality scoring</span>
+        <span class="ft-check">✓</span>
+        <span class="ft-x">✗</span>
+      </div>
+      <div class="ft-row">
+        <span>Fatigue-aware recovery</span>
+        <span class="ft-check">✓</span>
+        <span class="ft-x">✗</span>
+      </div>
+      <div class="ft-row">
+        <span>Race prediction with conditions</span>
+        <span class="ft-check">✓</span>
+        <span class="ft-x">✗</span>
+      </div>
+      <div class="ft-row">
+        <span>Self-improving algorithms</span>
+        <span class="ft-check">✓</span>
+        <span class="ft-x">✗</span>
+      </div>
+      <div class="ft-row">
+        <span>Genomic training insights</span>
+        <span class="ft-check">✓</span>
+        <span class="ft-x">✗</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="what-you-get">
+  <div class="container">
+    <div class="section-eyebrow reveal" style="justify-content: center;">THE DIFFERENCE</div>
+    <h2 class="reveal">What training intelligence gives you</h2>
+    <div class="outcomes-grid reveal">
+      <div class="outcome-card">
+        <div class="outcome-icon">⚡</div>
+        <h4>More efficient training</h4>
+        <p>Precise stress management means less wasted time and more purposeful miles</p>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">🛡️</div>
+        <h4>Fewer injuries</h4>
+        <p>Intelligent load progression and fatigue monitoring keep you healthy</p>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">🏁</div>
+        <h4>Better race results</h4>
+        <p>Truly personalized preparation for every distance and every condition</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEB STRIP -->
+<section class="meb-strip">
+  <div class="container">
+    <div class="meb-content reveal">
+      <img src="../assets/meb-medals-bw.jpg" alt="Meb Keflezighi" class="meb-photo">
+      <div class="meb-text">
+        <blockquote>"RunDot's technology is so far ahead of anything else I've seen, and I want the absolute best for my athletes."</blockquote>
+        <cite>- Meb Keflezighi, Olympic Silver Medalist & Boston Marathon Champion</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="final-cta">
+  <div class="final-cta-content reveal">
+    <div class="section-eyebrow" style="color: rgba(255,255,255,0.4);">EVERY GOAL STARTS WITH TODAY'S RUN</div>
+    <h2>Your goals deserve more than a template</h2>
+    <p>Trust the run.</p>
+    <div class="cta-buttons">
+      <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" class="btn-primary">Get your first workout</a>
+      <a href="https://play.google.com/store/apps/details?id=com.predictivefitness.rundotv2&hl=en_US" class="btn-dark">Google Play</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/rundot-logo-white.svg" alt="RunDot" style="height: 28px;">
+        <p>Adaptive run training powered by FitLogic<sup>™</sup> predictive intelligence. Any runner. Any goal.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/rundottraining" target="_blank">Instagram</a>
+          <a href="#" target="_blank">Facebook</a>
+          <a href="#" target="_blank">YouTube</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="../#showcase">Features</a>
+        <a href="../pricing/">Pricing</a>
+        <a href="../resources/">Resources</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Predictive Fitness. All rights reserved. RunDot<sup>™</sup>, Dot Score<sup>™</sup>, TrainX<sup>®</sup>, and FitLogic<sup>™</sup> are trademarks of Predictive Fitness Inc.</p>
+    </div>
+    <div style="text-align: center; margin-top: 20px;">
+      <img src="../assets/fitlogic-logo-white.svg" alt="Powered by FitLogic" style="height: 32px; opacity: 0.7;">
+    </div>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+// Nav scroll behavior
+const nav = document.getElementById('main-nav');
+const navLogo = document.getElementById('nav-logo');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    nav.classList.add('scrolled');
+    navLogo.src = '../assets/rundot-logo-dark.svg';
+  } else {
+    nav.classList.remove('scrolled');
+    navLogo.src = '../assets/rundot-logo-white.svg';
+  }
+});
+
+// Reveal on scroll
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
+revealEls.forEach(el => observer.observe(el));
+
+// Fallback: reveal all after 2s
+setTimeout(() => { revealEls.forEach(el => el.classList.add('visible')); }, 2000);
+</script>
+</body>
+</html>
