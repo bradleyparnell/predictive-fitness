@@ -105,6 +105,9 @@ nav.scrolled {
   padding: 14px 40px;
 }
 nav .logo img { height: 32px; transition: opacity 0.3s; }
+nav .logo .logo-dark { display: none; }
+nav.scrolled .logo .logo-light { display: none; }
+nav.scrolled .logo .logo-dark { display: block; }
 nav .nav-links { display: flex; gap: 32px; align-items: center; }
 nav .nav-links a {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -474,7 +477,7 @@ nav.scrolled .hamburger span { background: #1a1a2e; }
 
 /* ========== FITLOGIC REVEAL (Apple-style) ========== */
 .fitlogic-reveal {
-  padding: 120px 0;
+  padding: 100px 0 80px;
   background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
   text-align: center;
   overflow: hidden;
@@ -640,6 +643,8 @@ nav.scrolled .hamburger span { background: #1a1a2e; }
 }
 .watch-image {
   max-width: 300px; margin: 0 auto;
+  border-radius: 20px;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
 }
 
 /* ========== FAQ ========== */
@@ -684,7 +689,7 @@ nav.scrolled .hamburger span { background: #1a1a2e; }
 
 /* ========== FINAL CTA ========== */
 .final-cta {
-  padding: 140px 0;
+  padding: 100px 0;
   background: #1a1a2e;
   text-align: center;
   position: relative;
@@ -930,6 +935,7 @@ footer {
   background: #f8f9fa; border-radius: 20px;
   padding: 40px 32px; text-align: center;
   transition: all 0.3s ease;
+  border: 1px solid #e8e8e8;
   border: 2px solid transparent;
 }
 .pricing-card.featured {
@@ -977,6 +983,7 @@ footer {
 <nav id="navbar">
   <a href="#" class="logo">
     <img src="../assets/rundot-logo-white.svg" alt="RunDot" class="logo-light">
+    <img src="../assets/rundot-logo-dark.svg" alt="RunDot" class="logo-dark">
   </a>
   <div class="nav-links">
     <a href="#how-it-knows">How It Works</a>
@@ -1569,8 +1576,13 @@ const observer = new IntersectionObserver((entries) => {
       entry.target.classList.add('visible');
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.05, rootMargin: '0px 0px 100px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Fallback: make all reveals visible after 3s in case observer doesn't fire
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+}, 3000);
 
 // FAQ toggle
 function toggleFaq(btn) {
