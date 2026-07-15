@@ -962,55 +962,154 @@
   .fade-up.visible { opacity: 1; transform: translateY(0); }
 
   /* RESPONSIVE */
+  /* TABLET (768px) */
   @media (max-width: 768px) {
     nav { padding: 14px 20px; }
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
-    .hero-content { padding: 120px 24px 80px; }
-    .hero h1 { font-size: 34px; }
-    .hero-sub { font-size: 16px; }
+    .hero { min-height: 75vh; }
+    .hero-content { padding: 120px 24px 60px; }
+    .hero h1 { font-size: 34px; margin-bottom: 18px; }
+    .hero-sub { font-size: 16px; max-width: 420px; }
     .hero-cta-row { justify-content: center; }
+    .hero-social-proof { flex-direction: column; gap: 8px; margin-top: 24px; }
     .meb-strip { padding: 40px 24px; }
-    .meb-strip-inner { flex-direction: column; text-align: center; gap: 24px; }
-    .meb-strip-photo { width: 110px; height: 110px; margin-top: -90px; }
-    .meb-strip-quote { font-size: 18px; }
-    .trust-row { gap: 32px; }
+    .meb-strip-inner { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+    .meb-strip-photo { width: 100px; height: 100px; margin-top: -80px; }
+    .meb-strip-quote { font-size: 17px; }
+    .meb-strip-name { font-size: 14px; }
+    .trust-strip { padding: 36px 20px; }
+    .trust-row { gap: 24px; }
+    .trust-num { font-size: 26px; }
+    .trust-label { font-size: 13px; }
     .section { padding: 64px 20px; }
-    .familiar-grid { grid-template-columns: 1fr; }
-    .familiar-photo { min-height: 620px; padding-bottom: 32px; }
-    .manifesto { padding: 80px 24px; }
+    .section-title { margin-bottom: 12px; }
+    .section-sub { font-size: 16px; }
+    .section-header { margin-bottom: 48px; }
+    .familiar-grid { grid-template-columns: 1fr; gap: 16px; }
+    .familiar-card { padding: 24px 20px; }
+    .familiar-card p { font-size: 16px; }
+    .familiar-photo { min-height: 580px; padding-bottom: 32px; }
+    .manifesto { padding: 64px 24px 16px; }
     .manifesto-line { font-size: 24px; }
+    .manifesto-sub { font-size: 15px; margin-top: 24px; }
+    .how { padding: 64px 20px; }
     .how-narrative { grid-template-columns: 1fr; gap: 32px; max-width: 400px; }
+    .how-num { width: 60px; height: 60px; font-size: 24px; }
+    .how-credibility { margin-top: 40px; padding-top: 32px; }
     .feature-photo { grid-template-columns: 1fr; padding: 48px 24px; gap: 24px; }
     .feature-photo-circle { width: 260px; height: 260px; justify-self: center; }
     .feature-photo-content { padding: 0 8px; text-align: center; }
+    .feature-photo-content .section-eyebrow { justify-content: center; }
     .feature-photo-content .section-eyebrow,
     .feature-photo-content .section-title,
     .feature-photo-content .section-sub { text-align: center; }
     .feature-photo.reverse { direction: ltr; }
     .testimonial-grid { grid-template-columns: 1fr !important; max-width: 400px; margin: 0 auto; }
-    .showcase-panel { grid-template-columns: 1fr; gap: 40px; padding: 48px 0; min-height: auto; }
+    .testimonial-card { padding: 24px 20px; }
+    .app-showcase { padding: 64px 0 40px; }
+    .showcase-panel { grid-template-columns: 1fr; gap: 32px; padding: 48px 0; min-height: auto; }
     .showcase-panel-alt { margin-left: -20px; margin-right: -20px; padding-left: 20px; padding-right: 20px; }
     .showcase-text-col { padding: 16px 0; }
     .showcase-panel-reverse { direction: ltr; }
     .showcase-heading { font-size: 28px; }
-    .showcase-visual-col { min-height: 360px; }
-    .showcase-circle { width: 280px; height: 280px; }
-    .showcase-laptop-float { width: 240px; bottom: -20px; left: 0; }
-    .phone-frame-lg { width: 150px; }
+    .showcase-desc { font-size: 15px; }
+    .showcase-visual-col { min-height: 320px; }
+    .showcase-circle { width: 260px; height: 260px; }
+    .showcase-laptop-float { width: 220px; bottom: -16px; left: 0; }
+    .phone-frame-lg { width: 140px; }
     .showcase-phone-float { bottom: -10px; right: 0; }
-    .showcase-floating-gauge { width: 80px; }
+    .showcase-floating-gauge { width: 70px; }
     .watch-brands-float { position: relative; bottom: auto; right: auto; margin: 24px auto 0; }
-    .moments { padding: 80px 20px; }
-    .moments-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    .partners-logos { gap: 32px; }
-    .footer-top { grid-template-columns: 1fr; gap: 32px; }
-    .cta-section { padding: 80px 24px; }
-    .app-showcase { padding: 64px 0 40px; }
+    .moments { padding: 64px 20px; }
+    .moments-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .moment-caption { font-size: 14px; }
+    .partners { padding: 40px 20px; }
+    .partners-logos { gap: 24px; }
+    .partners-logos img { height: 40px; }
+    .cta-section { padding: 72px 24px; }
+    .cta-section .section-title { font-size: 28px; }
+    .cta-tagline { font-size: 17px; margin-top: 36px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
     .sticky-cta { padding: 10px 20px; gap: 16px; }
     .sticky-cta p { font-size: 12px; }
     .faq-section { padding: 64px 20px; }
     .faq-q { font-size: 15px; padding: 20px 0; }
+    .back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+  }
+
+  /* SMALL PHONE (480px) */
+  @media (max-width: 480px) {
+    .hero { min-height: 70vh; }
+    .hero-content { padding: 100px 20px 50px; }
+    .hero h1 { font-size: 28px; letter-spacing: -0.02em; }
+    .hero-sub { font-size: 15px; max-width: 320px; line-height: 1.6; }
+    .hero-cta-row { flex-direction: column; align-items: center; gap: 12px; }
+    .btn-primary { padding: 14px 28px; font-size: 15px; width: 100%; justify-content: center; }
+    .btn-outline { padding: 14px 28px; font-size: 15px; width: 100%; justify-content: center; }
+    .hero-social-proof { margin-top: 20px; }
+    .hero-social-text { font-size: 13px; }
+    .meb-strip { padding: 32px 20px; }
+    .meb-strip-photo { width: 80px; height: 80px; margin-top: -60px; }
+    .meb-strip-quote { font-size: 15px; line-height: 1.5; }
+    .trust-strip { padding: 28px 16px; }
+    .trust-row { gap: 16px; }
+    .trust-num { font-size: 22px; }
+    .trust-label { font-size: 12px; }
+    .section { padding: 48px 16px; }
+    .section-eyebrow { font-size: 16px; gap: 8px; }
+    .section-eyebrow::before { width: 10px; height: 10px; }
+    .section-header { margin-bottom: 36px; }
+    .familiar-photo { min-height: 520px; padding: 0 12px 24px; }
+    .familiar-card { padding: 20px 16px; border-radius: 10px; }
+    .familiar-card p { font-size: 14px; }
+    .manifesto { padding: 48px 20px 12px; }
+    .manifesto-line { font-size: 20px; line-height: 1.6; }
+    .manifesto-sub { font-size: 14px; }
+    .how { padding: 48px 16px; }
+    .how-num { width: 52px; height: 52px; font-size: 20px; }
+    .how-step h3 { font-size: 18px; }
+    .how-step p { font-size: 14px; }
+    .feature-photo { padding: 36px 16px; gap: 20px; }
+    .feature-photo-circle { width: 220px; height: 220px; }
+    .feature-photo-content { padding: 0 4px; }
+    .testimonial-card p { font-size: 13px; }
+    .showcase-panel { gap: 24px; padding: 36px 0; }
+    .showcase-heading { font-size: 24px; }
+    .showcase-desc { font-size: 14px; }
+    .showcase-bullets li { font-size: 13px; }
+    .showcase-circle { width: 220px; height: 220px; }
+    .showcase-laptop-float { width: 180px; }
+    .phone-frame-lg { width: 120px; }
+    .moments { padding: 48px 16px; }
+    .moments-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .moment-caption { font-size: 13px; }
+    .cta-section { padding: 56px 20px; }
+    .cta-section .section-title { font-size: 24px; }
+    .cta-qr img { width: 80px; height: 80px; }
+    .cta-tagline { font-size: 15px; }
+    .partners { padding: 32px 16px; }
+    .partners-logos img { height: 32px; }
+    .partners-logos img.sf-marathon { height: 28px; }
+    footer { padding: 48px 20px 32px; }
+    .footer-top { grid-template-columns: 1fr; gap: 24px; }
+    .footer-col h4 { font-size: 12px; }
+    .footer-bottom { flex-direction: column; gap: 12px; }
+    .footer-legal { font-size: 10px; }
+    .faq-section { padding: 48px 16px; }
+    .faq-q { font-size: 14px; padding: 16px 0; }
+    .faq-a p { font-size: 13px; }
+    .app-showcase { padding: 48px 0 32px; }
+    .sticky-cta { padding: 8px 16px; gap: 12px; }
+    .sticky-cta p { font-size: 11px; }
+    .sticky-cta .btn-sticky { padding: 6px 14px; font-size: 12px; }
+    .nav-mobile-overlay a { font-size: 20px; }
+    .back-to-top { bottom: 16px; right: 16px; width: 36px; height: 36px; }
+    .back-to-top svg { width: 16px; height: 16px; }
+
+    /* Athlete gallery smaller on phone */
+    .athlete-scroll-circle { width: 90px; height: 90px; }
+    .athlete-scroll-inner { gap: 24px; }
   }
 </style>
 </head>
