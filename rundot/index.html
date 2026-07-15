@@ -13,6 +13,7 @@
 <meta property="og:image" content="https://bradleyparnell.github.io/predictive-fitness/rundot/assets/hero-bright-runner.jpg">
 <meta property="og:url" content="https://bradleyparnell.github.io/predictive-fitness/rundot/">
 <meta property="og:type" content="website">
+<link rel="preload" as="video" href="./assets/hero-video.mp4" type="video/mp4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
@@ -121,7 +122,9 @@
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(24px);
     border-bottom: 1px solid var(--border-light);
+    transition: box-shadow 0.3s ease;
   }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
   .nav-logo img { height: 28px; width: auto; }
   .nav-links { display: flex; gap: 36px; align-items: center; }
   .nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 14px; font-weight: 500; letter-spacing: 0.02em; transition: color 0.2s; }
@@ -654,6 +657,8 @@
   .testimonial-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; }
   .testimonial-card p strong { color: var(--text); font-weight: 600; }
   .testimonial-card cite { font-style: normal; font-size: 13px; color: var(--text-muted); font-weight: 600; }
+  .testimonial-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
 
   /* MOMENTS - expanded grid */
   .moments { background: var(--white); padding: 120px 40px; }
@@ -744,8 +749,8 @@
     display: flex; justify-content: center; align-items: center;
     gap: 40px; flex-wrap: wrap;
   }
-  .partners-logos img { height: 50px; width: auto; filter: brightness(0); opacity: 0.4; transition: all 0.3s; }
-  .partners-logos img:hover { filter: brightness(0); opacity: 0.7; }
+  .partners-logos img { height: 50px; width: auto; filter: brightness(0); opacity: 0.35; transition: all 0.3s; }
+  .partners-logos img:hover { filter: brightness(0) sepia(1) saturate(5) hue-rotate(85deg); opacity: 0.65; }
   .partners-logos img.sf-marathon { height: 45px; }
 
   /* FOOTER */
@@ -772,6 +777,7 @@
   .footer-links { display: flex; gap: 20px; }
   .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 12px; transition: color 0.2s; }
   .footer-links a:hover { color: var(--green-light); }
+  .footer-social a:hover { color: var(--green-light) !important; }
 
   /* QR MODAL */
   .modal-overlay {
@@ -868,6 +874,60 @@
     font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.75;
   }
 
+  /* BACK TO TOP */
+  .back-to-top {
+    position: fixed; bottom: 32px; right: 32px; z-index: 90;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--green); color: white; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(83,185,86,0.3);
+    opacity: 0; transform: translateY(12px);
+    transition: opacity 0.3s, transform 0.3s, background 0.2s;
+    pointer-events: none;
+  }
+  .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .back-to-top:hover { background: var(--green-light); }
+  .back-to-top svg { width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 2.5; }
+
+  /* CTA PULSE */
+  .cta-section .btn-primary {
+    animation: cta-gentle-pulse 3s ease-in-out infinite;
+  }
+  @keyframes cta-gentle-pulse {
+    0%, 100% { box-shadow: 0 4px 16px rgba(83,185,86,0.2); }
+    50% { box-shadow: 0 4px 32px rgba(83,185,86,0.4), 0 0 0 4px rgba(83,185,86,0.08); }
+  }
+
+  /* MOBILE HAMBURGER */
+  .nav-hamburger {
+    display: none; background: none; border: none; cursor: pointer;
+    width: 32px; height: 32px; padding: 4px;
+    flex-direction: column; justify-content: center; gap: 5px;
+  }
+  .nav-hamburger span {
+    display: block; width: 100%; height: 2px;
+    background: var(--text); border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav-mobile-overlay {
+    display: none; position: fixed; inset: 0; z-index: 98;
+    background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+    flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+    padding-top: 80px;
+  }
+  .nav-mobile-overlay.open { display: flex; }
+  .nav-mobile-overlay a {
+    font-family: var(--font-display); font-size: 22px; font-weight: 600;
+    color: var(--text); text-decoration: none; letter-spacing: -0.01em;
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:hover { color: var(--green); }
+  .nav-mobile-overlay .btn-primary { font-size: 18px; margin-top: 8px; }
+
   /* HERO ENTRANCE */
   @keyframes hero-fade-word {
     from { opacity: 0; transform: translateY(12px); }
@@ -905,6 +965,7 @@
   @media (max-width: 768px) {
     nav { padding: 14px 20px; }
     .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
     .hero-content { padding: 120px 24px 80px; }
     .hero h1 { font-size: 34px; }
     .hero-sub { font-size: 16px; }
@@ -967,7 +1028,18 @@
     <a href="#" class="nav-login">Log In</a>
     <a href="#" class="nav-cta" onclick="openQR()">Get Started</a>
   </div>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE NAV OVERLAY -->
+<div class="nav-mobile-overlay" id="mobileNav">
+  <a href="./pricing/" onclick="closeMobileNav()">Pricing</a>
+  <a href="./resources/" onclick="closeMobileNav()">Resources</a>
+  <a href="#" onclick="closeMobileNav()">Log In</a>
+  <a href="#" class="btn-primary" onclick="event.preventDefault();closeMobileNav();openQR()">Get Started</a>
+</div>
 
 <!-- STICKY CTA BAR -->
 <div class="sticky-cta" id="stickyCta">
@@ -1252,7 +1324,7 @@
         <p>I like technology but I frequently feel overwhelmed with it. <strong>I downloaded it, input basic personal information, and within minutes I had my first run loaded and I hit the road.</strong> I loved the guided run from the phone and think it really dialed in my pace.</p>
         <cite>Epicenter</cite>
       </div>
-      <div class="testimonial-card">
+      <div class="testimonial-card stagger-item">
         <div class="stars">★★★★★</div>
         <h4>Amazing Training Plan</h4>
         <p>The training plan changes daily so I am never bored, the paces are prescribed specifically for my ability, age, gender and experience. <strong>I love that I can trust that the workouts are exactly what I need, not too much or too little!</strong></p>
@@ -1473,6 +1545,17 @@
       <div>
         <div class="footer-logo"><img src="./assets/rundot-logo-footer.svg" alt="RunDot"></div>
         <p class="footer-desc">RunDot<span class="tm">™</span> gives you the confidence to just run.</p>
+        <div class="footer-social" style="display: flex; gap: 16px; margin-top: 20px;">
+          <a href="https://www.instagram.com/rundottraining" target="_blank" aria-label="Instagram" style="color: rgba(255,255,255,0.4); transition: color 0.2s;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" style="color: rgba(255,255,255,0.4); transition: color 0.2s;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" style="color: rgba(255,255,255,0.4); transition: color 0.2s;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+          </a>
+        </div>
         <div class="footer-fitlogic">
           <img src="./assets/powered-by-fitlogic-white.png" alt="Powered by FitLogic™" loading="lazy">
         </div>
@@ -1509,6 +1592,11 @@
     </div>
   </div>
 </footer>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 
 <!-- QR MODAL -->
 <div class="modal-overlay" id="qrModal">
