@@ -372,19 +372,32 @@
   }
 
   /* APP SHOWCASE */
-  .app-showcase { background: var(--off-white); padding: 60px 0 60px; }
+  .app-showcase { background: var(--off-white); padding: 60px 0 0; }
   .app-showcase-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
   .showcase-panel {
     display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-    align-items: center; margin-bottom: 100px;
-    min-height: 500px;
+    align-items: center; min-height: 520px;
+    padding: 80px 0;
+    position: relative;
   }
-  .showcase-panel:last-child { margin-bottom: 40px; }
+  .showcase-panel:last-child { padding-bottom: 60px; }
   .showcase-panel-reverse { direction: rtl; }
   .showcase-panel-reverse > * { direction: ltr; }
 
-  .showcase-text-col { padding: 20px 0; }
+  /* Alternating panel backgrounds */
+  .showcase-panel-alt {
+    background: linear-gradient(135deg, #f5f7f5 0%, #f0f4f0 100%);
+    margin-left: -24px; margin-right: -24px;
+    padding-left: 24px; padding-right: 24px;
+    border-radius: 0;
+  }
+
+  .showcase-text-col {
+    padding: 20px 0 20px 28px;
+    border-left: 3px solid var(--green);
+    position: relative;
+  }
   .showcase-label-tag {
     font-family: var(--font-display);
     font-size: 20px; font-weight: 800; letter-spacing: 0.15em;
@@ -398,8 +411,8 @@
   }
   .showcase-heading {
     font-family: var(--font-display);
-    font-size: 36px; font-weight: 800; color: var(--dark);
-    margin: 0 0 20px; line-height: 1.2;
+    font-size: 40px; font-weight: 800; color: var(--dark);
+    margin: 0 0 20px; line-height: 1.15;
   }
   .showcase-desc {
     font-size: 17px; color: var(--text-muted); line-height: 1.7;
@@ -410,21 +423,30 @@
   }
   .showcase-bullets li {
     font-family: var(--font-body); font-size: 15px; color: var(--text-muted);
-    line-height: 1.6; padding: 6px 0 6px 24px; position: relative;
+    line-height: 1.6; padding: 8px 0 8px 28px; position: relative;
   }
   .showcase-bullets li::before {
-    content: ''; position: absolute; left: 0; top: 14px;
+    content: ''; position: absolute; left: 0; top: 16px;
     width: 8px; height: 8px; border-radius: 50%;
     background: var(--green);
   }
 
+  /* Scroll fade-up animation */
+  .showcase-panel .showcase-text-col,
+  .showcase-panel .showcase-visual-col {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .showcase-panel.in-view .showcase-text-col { opacity: 1; transform: translateY(0); }
+  .showcase-panel.in-view .showcase-visual-col { opacity: 1; transform: translateY(0); transition-delay: 0.15s; }
+
   .showcase-visual-col {
-    position: relative; min-height: 420px;
+    position: relative; min-height: 460px;
     display: flex; align-items: center; justify-content: center;
   }
   .showcase-circle {
-    width: 380px; height: 380px; border-radius: 50%; overflow: hidden;
-    box-shadow: 0 24px 80px rgba(0,0,0,0.12);
+    width: 420px; height: 420px; border-radius: 50%; overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.12), 0 0 0 1px rgba(83,185,86,0.08);
     position: relative; z-index: 1;
     flex-shrink: 0;
   }
@@ -434,10 +456,10 @@
   }
   .showcase-device-float { position: absolute; z-index: 2; animation: float-subtle 4s ease-in-out infinite; }
 
-  .showcase-laptop-float { bottom: -36px; left: -60px; width: 280px; }
+  .showcase-laptop-float { bottom: -36px; left: -60px; width: 320px; }
   .laptop-screen-lg {
     background: #222; border-radius: 8px 8px 0 0; padding: 10px 10px 6px;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.28), 0 4px 12px rgba(0,0,0,0.12);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.32), 0 6px 16px rgba(0,0,0,0.14);
     position: relative;
   }
   .laptop-screen-lg::before {
@@ -906,7 +928,9 @@
     .feature-photo-content .section-sub { text-align: center; }
     .feature-photo.reverse { direction: ltr; }
     .testimonial-grid { grid-template-columns: 1fr !important; max-width: 400px; margin: 0 auto; }
-    .showcase-panel { grid-template-columns: 1fr; gap: 40px; margin-bottom: 80px; min-height: auto; }
+    .showcase-panel { grid-template-columns: 1fr; gap: 40px; padding: 48px 0; min-height: auto; }
+    .showcase-panel-alt { margin-left: -20px; margin-right: -20px; padding-left: 20px; padding-right: 20px; }
+    .showcase-text-col { padding: 16px 0 16px 20px; }
     .showcase-panel-reverse { direction: ltr; }
     .showcase-heading { font-size: 28px; }
     .showcase-visual-col { min-height: 360px; }
@@ -1073,7 +1097,7 @@
     </div>
 
     <!-- TRACK -->
-    <div class="showcase-panel showcase-panel-reverse">
+    <div class="showcase-panel showcase-panel-reverse showcase-panel-alt">
       <div class="showcase-text-col">
         <div class="showcase-label-tag">TRACK</div>
         <h3 class="showcase-heading">See yourself improving.</h3>
@@ -1617,6 +1641,12 @@ window.addEventListener('scroll', function() {
     stickyCta.classList.remove('visible');
   }
 }, { passive: true });
+
+/* Showcase panel scroll reveal */
+const showcaseObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); showcaseObserver.unobserve(e.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll('.showcase-panel').forEach(p => showcaseObserver.observe(p));
 </script>
 
 </body>
