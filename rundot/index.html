@@ -403,7 +403,19 @@
   }
   .showcase-desc {
     font-size: 17px; color: var(--text-muted); line-height: 1.7;
-    margin: 0 0 32px;
+    margin: 0 0 20px;
+  }
+  .showcase-bullets {
+    list-style: none; padding: 0; margin: 0 0 32px;
+  }
+  .showcase-bullets li {
+    font-family: var(--font-body); font-size: 15px; color: var(--text-muted);
+    line-height: 1.6; padding: 6px 0 6px 24px; position: relative;
+  }
+  .showcase-bullets li::before {
+    content: ''; position: absolute; left: 0; top: 14px;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--green);
   }
 
   .showcase-visual-col {
@@ -1041,6 +1053,11 @@
         <div class="showcase-label-tag">PLAN</div>
         <h3 class="showcase-heading">Wake up knowing.</h3>
         <p class="showcase-desc">Tomorrow's run is already figured out. So is the rest of the week.</p>
+        <ul class="showcase-bullets">
+          <li>Personalized daily workouts based on your fitness and your goal</li>
+          <li>Adapts weekly as your body responds to training</li>
+          <li>Race-day ready plans from 5K to ultra</li>
+        </ul>
       </div>
       <div class="showcase-visual-col">
         <div class="showcase-circle">
@@ -1061,6 +1078,11 @@
         <div class="showcase-label-tag">TRACK</div>
         <h3 class="showcase-heading">See yourself improving.</h3>
         <p class="showcase-desc">Some weeks you can't tell you're getting faster. Your Dot Score<span class="tm">™</span> can.</p>
+        <ul class="showcase-bullets">
+          <li>One number that tracks your overall running fitness</li>
+          <li>See progress over weeks, not just single workouts</li>
+          <li>Know when you're peaking and when to pull back</li>
+        </ul>
       </div>
       <div class="showcase-visual-col">
         <div class="showcase-circle">
@@ -1084,6 +1106,11 @@
         <div class="showcase-label-tag">RUN</div>
         <h3 class="showcase-heading">Just follow your wrist.</h3>
         <p class="showcase-desc">Your watch tells you exactly what to do. Just run the pace on your wrist.</p>
+        <ul class="showcase-bullets">
+          <li>Structured workouts sent directly to your running watch</li>
+          <li>Pace, distance, and interval targets built in</li>
+          <li>Connects to your favorite running watch</li>
+        </ul>
       </div>
       <div class="showcase-visual-col">
         <div class="showcase-circle">
