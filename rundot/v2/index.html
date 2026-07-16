@@ -168,12 +168,7 @@ nav.scrolled .hamburger span { background: #1a1a2e; }
 .goal-slider-window {
   height: 36px; overflow: hidden; position: relative;
 }
-.goal-slider-window::before,
-.goal-slider-window::after {
-  content: ''; position: absolute; left: 0; right: 0; height: 8px; z-index: 2; pointer-events: none;
-}
-.goal-slider-window::before { top: 0; background: linear-gradient(to bottom, rgba(10,10,10,0.8), transparent); }
-.goal-slider-window::after { bottom: 0; background: linear-gradient(to top, rgba(10,10,10,0.8), transparent); }
+
 .goal-slider-track {
   display: flex; flex-direction: column;
   transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
