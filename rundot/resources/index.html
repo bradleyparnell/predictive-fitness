@@ -249,7 +249,24 @@
   /* FADE */
   .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
-</style>
+
+    /* Footer */
+    footer.sub-footer { background: var(--white); padding: 64px 40px 32px; border-top: 1px solid rgba(26,31,54,0.06); }
+    .sub-footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; max-width: 1100px; margin: 0 auto 48px; }
+    .sub-footer-brand img { height: 24px; margin-bottom: 12px; }
+    .sub-footer-fitlogic { margin-top: 12px; }
+    .sub-footer-fitlogic img { height: 42px; opacity: 0.7; }
+    .sub-footer-col h4 { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin-bottom: 16px; }
+    .sub-footer-col a { display: block; font-size: 14px; color: rgba(26,31,54,0.5); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+    .sub-footer-col a:hover { color: var(--navy); }
+    .sub-footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(26,31,54,0.06); display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+    .sub-footer-legal { font-size: 11px; color: rgba(26,31,54,0.3); line-height: 1.6; max-width: 700px; }
+    .sub-footer-legal a { color: rgba(26,31,54,0.3); }
+    .sub-footer-links { display: flex; gap: 20px; }
+    .sub-footer-links a { font-size: 12px; color: rgba(26,31,54,0.4); text-decoration: none; transition: color 0.2s; }
+    .sub-footer-links a:hover { color: var(--navy); }
+
+  </style>
 </head>
 <body>
 
@@ -259,8 +276,8 @@
   <div class="sub-nav-links">
     <a href="../pricing/">Pricing</a>
     <a href="../resources/">Resources</a>
-    <a href="#" class="sub-nav-login">Log In</a>
-    <a href="../" class="sub-cta">Get Started</a>
+    <a href="https://rundot.com" target="_blank">Log In</a>
+    <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" class="sub-cta" target="_blank">Get Started</a>
   </div>
 </nav>
 
@@ -403,28 +420,41 @@
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">
-      <img src="../assets/rundot-logo-dark.svg" alt="RunDot" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTE3IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTE3IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMF8zOTc2XzI1NjYxKSI+PHBhdGggZD0iTTIyLjU2NDYgNi40OTE1N0MyMS43OTM1IDguNTQ1NDkgMTkuNjQyMiA5Ljc5OTk3IDE3LjQzNjkgOS4zNDcwMkMxNy4xMTg5IDkuMjk0ODQgMTYuNzk4OCA5LjE4NjMgMTYuNTA3OCA5LjA1MjcxTDE1LjUyNDcgOS45ODU3NEMxNS44MTc3IDEwLjYyNjUgMTUuOTIzNyAxMS4zNDY3IDE1Ljc2MzcgMTIuMDkzOUMxNS4zOTE2IDEzLjkzNDkgMTMuNTg1NCAxNS4xMzUyIDExLjc1MjEgMTQuNzM0NEMxMS40MzQxIDE0LjY4MjIgMTEuMTE0IDE0LjU3MzcgMTAuODUwMSAxNC40MTVMOS45NzI5MyAxNS4yNDE2QzEwLjI2NiAxNS43NDg4IDEwLjM5NjkgMTYuMzg5NiAxMC4yNjYgMTcuMDAzM0M5Ljk5OTk1IDE4LjM2NDIgOC42NzE3NyAxOS4yMTggNy4zNDM2IDE4Ljk1MDhDNS45ODg0IDE4LjY4MzYgNS4xMzgyOCAxNy4zNDk4IDUuNDA0MzQgMTYuMDE2QzUuNjcwMzkgMTQuNjU1MSA2Ljk5ODU2IDEzLjgwMTQgOC4zMjY3NCAxNC4wNjg1QzguNTEzOCAxNC4xMjA3IDguNjk4NzkgMTQuMTc1IDguODg1ODYgMTQuMjU2NEw5LjYyOTk3IDEzLjI5NjJDOS4xNTE5MSAxMi41NzYxIDguOTM5OSAxMS42NDEgOS4xMjQ4OSAxMC43MzUxQzkuNDk2OTUgOC44OTQwNyAxMS4zMDMyIDcuNzIxIDEzLjEzNjQgOC4wOTQ2M0MxMy4yOTY1IDguMTIxNzcgMTMuNDgxNSA4LjE3Mzk1IDEzLjY0MTUgOC4yMjgyMkwxNC40NjQ2IDcuMTg2NjVDMTMuOTMyNSA2LjI1MzYxIDEzLjcyMDUgNS4xMzI3MiAxMy45MzI1IDQuMDExODNDMTQuMjI1NiAyLjU3MTU4IDE1LjE1NDcgMS40NTA2OSAxNi4zNzY5IDAuODY0MTU1QzE1LjczODcgMC41OTY5NzggMTUuMDc1NyAwLjQxMTIwNyAxNC4zNTY1IDAuMjUwNDgzQzcuODk4NTYgLTEuMDg3NDkgMS41NzU3IDMuMTAxNzYgMC4yNDc1MjMgOS41ODQ5OEMtMS4wODA2NSAxNi4wNjgyIDMuMDkwOTQgMjIuNDE3OCA5LjU0NjgzIDIzLjc1MTZDMTYuMDI5NyAyNS4wODU0IDIyLjMyNTYgMjAuODk2MiAyMy42NTM4IDE0LjQxMjlDMjQuMjEyOSAxMS42MTE4IDIzLjc1OTggOC44Mzc3MiAyMi41NjQ2IDYuNDg5NDhWNi40OTE1N1oiIGZpbGw9IiMxNkEzNEEiLz48L2c+PGRlZnM+PGNsaXBQYXRoIGlkPSJjbGlwMF8zOTc2XzI1NjYxIj48cmVjdCB3aWR0aD0iMTE3IiBoZWlnaHQ9IjI0IiBmaWxsPSJ3aGl0ZSIvPjwvY2xpcFBhdGg+PC9kZWZzPjwvc3ZnPg=='">
+<footer class="sub-footer">
+  <div class="sub-footer-inner">
+    <div class="sub-footer-brand">
+      <img src="../assets/rundot-logo-dark.svg" alt="RunDot" style="height: 24px; margin-bottom: 12px;">
+      <div class="sub-footer-fitlogic">
+        <img src="../assets/fitlogic-logo-white.svg" alt="Powered by FitLogic" style="height: 42px; opacity: 0.7; filter: brightness(0);">
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="../#training">Training</a>
+    <div class="sub-footer-col">
+      <h4>Product</h4>
       <a href="../pricing/">Pricing</a>
-      <a href="./">Resources</a>
-      <a href="../#science">Science</a>
+      <a href="../features/">Features</a>
+      <a href="../download/">Download App</a>
+    </div>
+    <div class="sub-footer-col">
+      <h4>Resources</h4>
+      <a href="../blog/">Blog</a>
+      <a href="../podcast/">Podcast</a>
+      <a href="../training-guides/">Training Guides</a>
+      <a href="../support/">Support</a>
+    </div>
+    <div class="sub-footer-col">
+      <h4>Company</h4>
+      <a href="../about/">About</a>
+      <a href="../careers/">Careers</a>
+      <a href="../contact/">Contact</a>
+      <a href="https://www.predictive.fit" target="_blank">Predictive Fitness</a>
+    </div>
+  </div>
+  <div class="sub-footer-bottom">
+    <p class="sub-footer-legal">Predictive Fitness and the Predictive Fitness logo are trademarks or registered trademarks of Predictive Fitness, Inc. in the US and other countries. Other trademarks include TriDot, RunDot, TrainX, RaceX, Optimized Training and Optimized Race Execution. Additional Predictive Fitness trademarks can be found at <a href="https://www.predictive.fit/trademark-list" target="_blank">www.predictive.fit/trademark-list</a></p>
+    <div class="sub-footer-links">
       <a href="#">Privacy</a>
       <a href="#">Terms</a>
     </div>
-    <div class="footer-fitlogic">
-      <img src="../assets/fitlogic-logo-dark.png" alt="Powered by FitLogic" onerror="this.style.display='none'">
-      <img src="../assets/predictive-fitness-logo-dark.png" alt="Predictive Fitness" onerror="this.style.display='none'">
-    </div>
-    <div class="footer-legal">
-      <p>Predictive Fitness and the Predictive Fitness logo are trademarks or registered trademarks of Predictive Fitness, Inc. in the US and other countries. Other trademarks include TriDot, RunDot, TrainX, RaceX, Optimized Training and Optimized Race Execution. Additional Predictive Fitness trademarks can be found at <a href="https://www.predictive.fit/trademark-list" target="_blank">www.predictive.fit/trademark-list</a></p>
-    </div>
-    <div class="footer-copy">&copy; <script>document.write(new Date().getFullYear())</script> Predictive Fitness, Inc. All rights reserved.</div>
-    <div class="footer-address">2600 E. Southlake Blvd. Suite 120-140, Southlake, Texas 76092</div>
   </div>
 </footer>
 

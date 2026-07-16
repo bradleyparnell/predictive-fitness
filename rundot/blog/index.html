@@ -42,8 +42,28 @@
     @media (max-width: 768px) {
       .sub-nav { padding: 16px 20px; }
       .sub-nav-links a:not(.sub-cta) { display: none; }
+      .sub-footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .sub-footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+
       .sub-hero { padding: 80px 24px 48px; }
     }
+  
+    /* Footer */
+    footer.sub-footer { background: var(--white); padding: 64px 40px 32px; border-top: 1px solid rgba(26,31,54,0.06); }
+    .sub-footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; max-width: 1100px; margin: 0 auto 48px; }
+    .sub-footer-brand img { height: 24px; margin-bottom: 12px; }
+    .sub-footer-fitlogic { margin-top: 12px; }
+    .sub-footer-fitlogic img { height: 42px; opacity: 0.7; }
+    .sub-footer-col h4 { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin-bottom: 16px; }
+    .sub-footer-col a { display: block; font-size: 14px; color: rgba(26,31,54,0.5); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+    .sub-footer-col a:hover { color: var(--navy); }
+    .sub-footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(26,31,54,0.06); display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+    .sub-footer-legal { font-size: 11px; color: rgba(26,31,54,0.3); line-height: 1.6; max-width: 700px; }
+    .sub-footer-legal a { color: rgba(26,31,54,0.3); }
+    .sub-footer-links { display: flex; gap: 20px; }
+    .sub-footer-links a { font-size: 12px; color: rgba(26,31,54,0.4); text-decoration: none; transition: color 0.2s; }
+    .sub-footer-links a:hover { color: var(--navy); }
+
   </style>
 </head>
 <body>
@@ -66,12 +86,41 @@
 </section>
 
 <footer class="sub-footer">
-  <div>
-    <a href="#">Privacy</a>
-    <a href="#">Terms</a>
-    <a href="../contact/">Contact</a>
+  <div class="sub-footer-inner">
+    <div class="sub-footer-brand">
+      <img src="../assets/rundot-logo-dark.svg" alt="RunDot" style="height: 24px; margin-bottom: 12px;">
+      <div class="sub-footer-fitlogic">
+        <img src="../assets/fitlogic-logo-white.svg" alt="Powered by FitLogic" style="height: 42px; opacity: 0.7; filter: brightness(0);">
+      </div>
+    </div>
+    <div class="sub-footer-col">
+      <h4>Product</h4>
+      <a href="../pricing/">Pricing</a>
+      <a href="../features/">Features</a>
+      <a href="../download/">Download App</a>
+    </div>
+    <div class="sub-footer-col">
+      <h4>Resources</h4>
+      <a href="../blog/">Blog</a>
+      <a href="../podcast/">Podcast</a>
+      <a href="../training-guides/">Training Guides</a>
+      <a href="../support/">Support</a>
+    </div>
+    <div class="sub-footer-col">
+      <h4>Company</h4>
+      <a href="../about/">About</a>
+      <a href="../careers/">Careers</a>
+      <a href="../contact/">Contact</a>
+      <a href="https://www.predictive.fit" target="_blank">Predictive Fitness</a>
+    </div>
   </div>
-  <p>&copy; 2025 Predictive Fitness. All rights reserved.</p>
+  <div class="sub-footer-bottom">
+    <p class="sub-footer-legal">Predictive Fitness and the Predictive Fitness logo are trademarks or registered trademarks of Predictive Fitness, Inc. in the US and other countries. Other trademarks include TriDot, RunDot, TrainX, RaceX, Optimized Training and Optimized Race Execution. Additional Predictive Fitness trademarks can be found at <a href="https://www.predictive.fit/trademark-list" target="_blank">www.predictive.fit/trademark-list</a></p>
+    <div class="sub-footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
 </footer>
 </body>
 </html>
