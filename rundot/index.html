@@ -1337,7 +1337,7 @@
       <div class="trust-label">App Store rating</div>
     </div>
     <div class="trust-item">
-      <div class="trust-num">5K to <span class="green">ultra</span></div>
+      <div class="trust-num">5K to <span class="green distance-cycle">half marathon</span></div>
       <div class="trust-label">every distance, every runner</div>
     </div>
   </div>
@@ -1640,7 +1640,7 @@
 <!-- ATHLETE GALLERY STRIP -->
 <section class="athlete-gallery-section" style="background: var(--off-white); padding: 80px 0; overflow: hidden;">
   <div style="text-align: center; margin-bottom: 48px;">
-    <p class="section-eyebrow" style="justify-content: center;">EVERY RUNNER. EVERY GOAL.</p>
+    <p class="section-eyebrow" style="justify-content: center;">EVERY RUNNER, EVERY GOAL</p>
   </div>
   <div class="athlete-scroll-track">
     <div class="athlete-scroll-inner">
@@ -2044,6 +2044,26 @@ window.addEventListener('scroll', function() {
     }
   }
   tick();
+})();
+
+/* Distance cycle animation */
+(function() {
+  const el = document.querySelector('.distance-cycle');
+  if (!el) return;
+  const distances = ['half marathon', 'marathon', 'ultra'];
+  let di = 0;
+  function cycle() {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(8px)';
+    setTimeout(() => {
+      di = (di + 1) % distances.length;
+      el.textContent = distances[di];
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, 300);
+  }
+  el.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+  setInterval(cycle, 2200);
 })();
 
 /* Timeline animation */
