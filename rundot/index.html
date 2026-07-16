@@ -46,8 +46,7 @@
   
   /* Prevent horizontal scroll */
   html, body { overflow-x: hidden; max-width: 100vw; }
-  section, .trust-strip, .partners, footer, .app-showcase, .phone-showcase, .familiar-photo { max-width: 100vw; overflow-x: hidden; }
-  .meb-strip { max-width: 100vw; overflow: visible; }
+  section, .trust-strip, .partners, footer, .app-showcase, .phone-showcase, .familiar-photo, .meb-strip { max-width: 100vw; }
   body { font-family: var(--font-body); background: var(--white); color: var(--text); overflow-x: hidden; opacity: 0; transition: opacity 0.6s ease; }
   body.loaded { opacity: 1; }  /* BRAND DOT STRIPE */
   .chevron-stripe {
@@ -1288,7 +1287,8 @@
     .timeline-item::after { left: -29px; }
     .meb-strip { padding: 40px 24px; }
     .meb-strip-inner { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
-    .meb-strip-photo { width: 100px; height: 100px; margin-top: -80px; }
+    .meb-strip-photo { width: 120px; height: 120px; margin-top: -90px; }
+    .meb-strip-photo img { object-position: top center; }
     .meb-strip-quote { font-size: 17px; }
     .meb-strip-name { font-size: 14px; }
     .trust-strip { padding: 36px 20px; }
@@ -1324,8 +1324,8 @@
     .testimonial-card { padding: 24px 20px; }
     .app-showcase { padding: 64px 0 40px; }
     .showcase-panel { grid-template-columns: 1fr; gap: 32px; padding: 48px 0; min-height: auto; }
-    .showcase-panel-alt { margin-left: -20px; margin-right: -20px; padding-left: 20px; padding-right: 20px; }
-    .showcase-text-col { padding: 16px 0; }
+    .showcase-panel-alt { margin-left: 0; margin-right: 0; padding-left: 20px; padding-right: 20px; }
+    .showcase-text-col { padding: 16px 0; word-wrap: break-word; overflow-wrap: break-word; }
     .showcase-panel-reverse { direction: ltr; }
     .showcase-heading { font-size: 28px; }
     .showcase-desc { font-size: 15px; }
@@ -1378,8 +1378,9 @@
     .meb-strip-photo { width: 100px; height: 100px; margin-top: -70px; }
     .meb-strip-photo img { object-position: top center; }
     .meb-strip-quote { font-size: 15px; line-height: 1.5; }
-    .app-showcase-inner { padding: 0 16px; overflow: hidden; }
-    .showcase-heading { font-size: 22px; }
+    .app-showcase-inner { padding: 0 16px; }
+    .showcase-panel-alt { margin-left: 0; margin-right: 0; padding-left: 16px; padding-right: 16px; }
+    .showcase-heading { font-size: 22px; word-wrap: break-word; overflow-wrap: break-word; }
     .trust-strip { padding: 28px 16px; }
     .trust-row { gap: 12px; flex-wrap: wrap; justify-content: center; }
     .trust-item { min-width: auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
