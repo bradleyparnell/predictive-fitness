@@ -156,6 +156,29 @@ nav.scrolled .hamburger span { background: #1a1a2e; }
 .hero-content h1 em {
   font-style: italic; color: #53b956;
 }
+.goal-cycle {
+  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 20px; font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.goal-cycle-prefix {
+  font-size: 26px; font-weight: 500; color: rgba(255,255,255,0.6);
+  letter-spacing: -0.01em;
+}
+.goal-cycle-text {
+  font-size: 26px; font-weight: 700; color: #53b956;
+  letter-spacing: -0.01em;
+  transition: opacity 0.4s ease;
+  min-width: 200px;
+}
+.goal-cycle-text.fade-out { opacity: 0; }
+.goal-cycle-cursor {
+  display: inline-block; width: 2px; height: 28px;
+  background: #53b956; margin-left: 2px;
+  animation: cursorBlink 1s ease-in-out infinite;
+  vertical-align: middle;
+}
+@keyframes cursorBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
 .hero-content p {
   font-size: 20px; color: rgba(255,255,255,0.8);
   line-height: 1.6; margin-bottom: 36px; max-width: 540px;
@@ -899,6 +922,7 @@ footer {
   .hamburger { display: flex; }
   .hero-content { padding: 120px 24px 80px; }
   .hero-content h1 { font-size: 36px; }
+  .goal-cycle-prefix, .goal-cycle-text { font-size: 22px; }
   .hero-content p { font-size: 17px; }
   .hero-ctas { flex-direction: column; }
   .hero-ctas .btn-primary, .hero-ctas .btn-secondary { width: 100%; justify-content: center; }
@@ -939,6 +963,8 @@ footer {
   .container { padding: 0 16px; }
   .hero-content { padding: 110px 16px 60px; margin-left: 0; }
   .hero-content h1 { font-size: 28px; }
+  .goal-cycle-prefix, .goal-cycle-text { font-size: 18px; }
+  .goal-cycle { gap: 6px; margin-bottom: 14px; }
   .hero-content p { font-size: 15px; }
   .btn-primary, .btn-secondary, .btn-dark { padding: 14px 28px; font-size: 14px; }
   .section-eyebrow { font-size: 16px; letter-spacing: 2px; }
@@ -1090,6 +1116,11 @@ footer {
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>Who could you become when you trust your <em>training?</em></h1>
+    <div class="goal-cycle">
+      <span class="goal-cycle-prefix">I want to</span>
+      <span class="goal-cycle-text" id="goalCycleText">finish my first 5K</span>
+      <span class="goal-cycle-cursor"></span>
+    </div>
     <p>If you're a runner with a goal, RunDot<sup>™</sup> helps you know exactly what to run today.</p>
     <div class="hero-ctas">
       <a href="#final-cta" class="btn-primary">Get your first workout</a>
@@ -1618,6 +1649,30 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 setTimeout(() => {
   document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
 }, 3000);
+
+// Goal cycling animation
+const goalPhrases = [
+  'finish my first 5K',
+  'PR my marathon',
+  'train for my first half',
+  'complete an ultra',
+  'get my fastest mile time',
+  'become a marathoner',
+  'run pain-free again',
+  'qualify for Boston'
+];
+let goalIndex = 0;
+const goalEl = document.getElementById('goalCycleText');
+if (goalEl) {
+  setInterval(() => {
+    goalEl.classList.add('fade-out');
+    setTimeout(() => {
+      goalIndex = (goalIndex + 1) % goalPhrases.length;
+      goalEl.textContent = goalPhrases[goalIndex];
+      goalEl.classList.remove('fade-out');
+    }, 400);
+  }, 3000);
+}
 
 // Timeline animation
 const timelineObserver = new IntersectionObserver((entries) => {
