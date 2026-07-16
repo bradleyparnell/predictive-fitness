@@ -2180,9 +2180,9 @@ window.addEventListener('scroll', function() {
 (function() {
   const el = document.querySelector('.distance-cycle');
   if (!el) return;
-  const sequence = ['half marathon', 'marathon', 'ultra', 'half marathon', 'marathon', 'ultra', 'half marathon', 'marathon', 'ultra'];
+  const sequence = ['half marathon', 'marathon', 'ultra'];
   let i = 0;
-  el.style.transition = 'opacity 0.15s ease, transform 0.15s ease';
+  el.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
   function step() {
     el.style.opacity = '0';
     el.style.transform = 'translateY(6px)';
@@ -2192,11 +2192,11 @@ window.addEventListener('scroll', function() {
       el.style.transform = 'translateY(0)';
       i++;
       if (i < sequence.length) {
-        setTimeout(step, 250 + (i > 6 ? (i - 6) * 100 : 0));
+        setTimeout(step, 1200);
       }
-    }, 150);
+    }, 250);
   }
-  setTimeout(step, 800);
+  setTimeout(step, 1200);
 })();
 
 /* Timeline animation */
