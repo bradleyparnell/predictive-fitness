@@ -1129,10 +1129,16 @@
 
 <script>
 function switchTab(brand) {
-  document.getElementById('tab-tridot').style.display = brand === 'tridot' ? 'block' : 'none';
-  document.getElementById('tab-rundot').style.display = brand === 'rundot' ? 'block' : 'none';
+  var tabT = document.getElementById('tab-tridot');
+  var tabR = document.getElementById('tab-rundot');
   var btnT = document.getElementById('btn-tridot');
   var btnR = document.getElementById('btn-rundot');
+  tabT.classList.remove('active');
+  tabR.classList.remove('active');
+  tabT.style.display = '';
+  tabR.style.display = '';
+  if (brand === 'tridot') { tabT.classList.add('active'); }
+  else { tabR.classList.add('active'); }
   btnT.classList.remove('active-tridot', 'active-rundot');
   btnR.classList.remove('active-tridot', 'active-rundot');
   if (brand === 'tridot') btnT.classList.add('active-tridot');
