@@ -177,20 +177,22 @@
     min-width: 2px;
   }
   .goal-typewriter-cursor {
-    display: inline-block; width: 2px; height: 1.1em;
+    display: inline-block; width: 2px; height: 0.85em;
     background: #53b956; margin-left: 2px;
     animation: cursorBlink 0.8s ease-in-out infinite;
-    vertical-align: text-bottom;
+    vertical-align: baseline;
+    position: relative;
+    top: -0.05em;
   }
   @keyframes cursorBlink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
   }
   .distance-cursor {
-    display: inline-block; width: 3px; height: 1.1em;
+    display: inline-block; width: 3px; height: 0.85em;
     background: var(--green); margin-left: 3px;
     animation: cursorBlink 1s ease-in-out infinite;
-    vertical-align: text-bottom;
+    vertical-align: baseline;
     color: transparent; overflow: hidden;
   }  /* HOW IT KNOWS (timeline) */
   .how-it-knows {
@@ -797,6 +799,8 @@
     height: 100%;
     object-fit: cover;
     object-position: top;
+    image-rendering: auto;
+    -webkit-font-smoothing: antialiased;
   }
   .phone-notch {
     position: absolute;
