@@ -1120,7 +1120,7 @@
     padding: 0 0 0 0;
   }
   .faq-item.open .faq-a {
-    max-height: 200px;
+    max-height: 400px;
     padding: 0 0 24px 0;
   }
   .faq-a p {
@@ -1220,7 +1220,8 @@
     flex-direction: column; align-items: center; justify-content: center; gap: 28px;
     padding-top: 80px;
   }
-  .nav-mobile-overlay.open { display: flex; }
+  .nav-mobile-overlay { transition: opacity 0.3s ease; opacity: 0; }
+  .nav-mobile-overlay.open { display: flex; opacity: 1; }
   .nav-mobile-overlay a {
     font-family: var(--font-display); font-size: 22px; font-weight: 600;
     color: var(--text); text-decoration: none; letter-spacing: -0.01em;
@@ -1363,7 +1364,9 @@
     .meb-strip-quote { font-size: 15px; line-height: 1.5; }
     .trust-strip { padding: 28px 16px; }
     .trust-row { gap: 12px; flex-wrap: wrap; justify-content: center; }
-    .trust-item { min-width: 100%; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .trust-item { min-width: auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .trust-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .trust-row .trust-item:last-child { grid-column: 1 / -1; }
     .how-credibility-badge { justify-content: center; flex-wrap: wrap; font-size: 14px; gap: 8px; }
     .trust-num { font-size: 22px; white-space: nowrap; }
     .trust-label { font-size: 11px; }
@@ -1421,7 +1424,11 @@
     .sticky-cta .btn-sticky { padding: 6px 14px; font-size: 12px; }
     .nav-mobile-overlay a { font-size: 20px; }
     .back-to-top { bottom: 16px; right: 16px; width: 36px; height: 36px; }
-    .back-to-top svg { width: 16px; height: 16px; }    /* Athlete gallery smaller on phone */
+.back-to-top svg { width: 16px; height: 16px; }
+    /* Why Do You Run mobile */
+    .why-run { padding: 80px 20px !important; }
+    .why-run p:first-child { font-size: 28px !important; }
+    /* Athlete gallery smaller on phone */
         .athlete-gallery { padding: 48px 0; }
     .athlete-gallery .section-eyebrow { font-size: 14px; }
     
@@ -1486,7 +1493,7 @@
 <div class="meb-strip">
   <div class="meb-strip-inner">
     <div class="meb-strip-photo">
-      <img src="./assets/meb-medals-bw.jpg" alt="Meb Keflezighi">
+      <img src="./assets/meb-medals-bw.jpg" alt="Meb Keflezighi" loading="lazy">
     </div>
     <div class="meb-strip-text">
       <p class="meb-strip-quote">"RunDot's technology is so far ahead of anything else I've seen, and I want the absolute best for my athletes."</p>
@@ -1503,7 +1510,7 @@
       <div class="trust-label">of real athlete data</div>
     </div>
     <div class="trust-item">
-      <div class="trust-num">4.9<span class="green">★</span></div>
+      <div class="trust-num">4.4<span class="green">★</span></div>
       <div class="trust-label">App Store rating</div>
     </div>
     <div class="trust-item">
@@ -1815,6 +1822,7 @@
       </div>
     </div>
   </div>
+</section>
 <!-- BRAND DOT STRIPE -->
 <div class="chevron-stripe chevron-stripe-dark" style="background: var(--dark);"><div class="chevron-stripe-inner"></div></div><!-- WHY DO YOU RUN -->
 <section class="why-run fade-up" style="position: relative; padding: 140px 40px; text-align: center; overflow: hidden; background: #0f172a;">
@@ -1888,7 +1896,7 @@
     </div>
   </div>
 </section><!-- BRAND DOT STRIPE -->
-<div class="chevron-stripe" style="background: var(--dark);"><div class="chevron-stripe-inner"></div></div><!-- 11. CTA -->
+<div class="chevron-stripe" style="background: var(--dark); margin-top: 0;"><div class="chevron-stripe-inner"></div></div><!-- 11. CTA -->
 <section class="cta-section">
   <div class="fade-up">
     <div class="cta-accent-line"></div>
@@ -2266,5 +2274,47 @@ document.querySelectorAll('.feature-photo-circle').forEach(el => ringObserver.ob
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); pwObs.unobserve(e.target); } });
     }, { threshold: 0.2 });
     phoneWidgets.forEach(w => pwObs.observe(w));
-  }</script></body>
+  }// Nav scroll shadow
+window.addEventListener('scroll', function() {
+  const nav = document.querySelector('nav');
+  if (nav) {
+    if (window.scrollY > 10) { nav.classList.add('scrolled'); }
+    else { nav.classList.remove('scrolled'); }
+  }
+}, { passive: true });
+
+// Back to top button
+(function() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 800) { btn.classList.add('visible'); }
+    else { btn.classList.remove('visible'); }
+  }, { passive: true });
+})();
+
+// Mobile nav toggle
+function toggleMobileNav() {
+  const overlay = document.getElementById('mobileNav');
+  const hamburger = document.querySelector('.nav-hamburger');
+  if (!overlay || !hamburger) return;
+  const isOpen = overlay.classList.contains('open');
+  if (isOpen) {
+    overlay.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  } else {
+    overlay.classList.add('open');
+    hamburger.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeMobileNav() {
+  const overlay = document.getElementById('mobileNav');
+  const hamburger = document.querySelector('.nav-hamburger');
+  if (overlay) overlay.classList.remove('open');
+  if (hamburger) hamburger.classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script></body>
 </html>
