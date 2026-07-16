@@ -174,10 +174,15 @@
   /* Goal vertical slider */
   /* Goal typewriter */
   .goal-typewriter {
-    display: flex; align-items: baseline; gap: 0;
+    display: inline-flex; align-items: baseline; gap: 0;
     margin-bottom: 20px; font-family: var(--font-display);
-    justify-content: center;
     font-size: 22px; letter-spacing: -0.01em;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50px;
+    padding: 12px 28px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
   .goal-typewriter-prefix {
     font-weight: 500; color: rgba(255,255,255,0.6);
@@ -239,22 +244,22 @@
   }
   .timeline-item::before {
     content: ''; position: absolute;
-    left: -53px; top: 50%;
+    left: -37px; top: 50%;
     width: 24px; height: 24px;
     background: #53b956; border-radius: 50%;
     border: 4px solid var(--off-white);
-    transform: scale(0) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%) scale(0);
     transition: transform 0.4s ease 0.2s;
   }
   .timeline-item.timeline-visible::before {
-    transform: scale(1) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%) scale(1);
   }
   .timeline-item::after {
     content: ''; position: absolute;
-    left: -42px; top: 50%;
+    left: -37px; top: 50%;
     width: 10px; height: 10px;
     background: rgba(83,185,86,0.3); border-radius: 50%;
-    transform: translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
     animation: none;
   }
   .timeline-item.timeline-visible::after {
@@ -1087,6 +1092,8 @@
     .how-it-knows-header h2 { font-size: 28px; }
     .intelligence-timeline { padding-left: 48px; }
     .timeline-item { padding: 22px; }
+    .timeline-item::before { left: -29px; }
+    .timeline-item::after { left: -29px; }
     .meb-strip { padding: 40px 24px; }
     .meb-strip-inner { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
     .meb-strip-photo { width: 100px; height: 100px; margin-top: -80px; }
@@ -1166,8 +1173,8 @@
     .intelligence-timeline { padding-left: 40px; }
     .intelligence-timeline::before { left: 14px; }
     .timeline-item { padding: 18px; margin-bottom: 28px; }
-    .timeline-item::before { left: -39px; top: 50%; width: 18px; height: 18px; }
-    .timeline-item::after { left: -32px; top: 50%; width: 8px; height: 8px; }
+    .timeline-item::before { left: -25px; top: 50%; width: 18px; height: 18px; }
+    .timeline-item::after { left: -25px; top: 50%; width: 8px; height: 8px; }
     .timeline-item h3 { font-size: 16px; }
     .timeline-item p { font-size: 13px; }
     .btn-primary { padding: 14px 28px; font-size: 15px; width: 100%; justify-content: center; }
