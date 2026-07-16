@@ -537,19 +537,25 @@
     margin: 0 0 20px;
   }
   .showcase-bullets {
-    list-style: none; padding: 0 0 0 24px; margin: 0 0 32px;
-    border-left: 2px solid rgba(83,185,86,0.35);
+    list-style: none; padding: 0 0 0 48px; margin: 0 0 32px;
     position: relative;
+  }
+  .showcase-bullets::before {
+    content: ''; position: absolute;
+    left: 17px; top: 0; bottom: 0;
+    width: 3px; background: linear-gradient(to bottom, rgba(83,185,86,0.5), rgba(83,185,86,0.15));
+    border-radius: 3px;
   }
   .showcase-bullets li {
     font-family: var(--font-body); font-size: 15px; color: var(--text-muted);
-    line-height: 1.6; padding: 10px 0 10px 32px; position: relative;
+    line-height: 1.6; padding: 10px 0 10px 16px; position: relative;
   }
   .showcase-bullets li::before {
-    content: ''; position: absolute; left: -18px; top: 50%;
+    content: ''; position: absolute; left: -34px; top: 50%;
     transform: translateY(-50%);
-    width: 12px; height: 12px; border-radius: 50%;
+    width: 14px; height: 14px; border-radius: 50%;
     background: var(--green);
+    z-index: 1;
   }
 
   /* Scroll fade-up animation */
