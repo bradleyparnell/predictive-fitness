@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Training Guides - RunDot™</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1a1f36;
+      --navy-light: #2d3250;
+      --green: #53b956;
+      --green-light: #6fcf72;
+      --white: #f8f9fa;
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font-body); background: var(--white); color: var(--navy); }
+
+    /* Nav */
+    .sub-nav { background: var(--white); padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(26,31,54,0.06); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
+    .sub-nav-logo img { height: 28px; }
+    .sub-nav-links { display: flex; gap: 12px; align-items: center; }
+    .sub-nav-links a { font-family: var(--font-body); font-size: 14px; color: var(--navy); text-decoration: none; padding: 8px 16px; border-radius: 8px; transition: all 0.2s; }
+    .sub-nav-links a:hover { background: rgba(26,31,54,0.04); }
+    .sub-nav-links .sub-cta { background: var(--green); color: white; font-weight: 600; }
+    .sub-nav-links .sub-cta:hover { background: var(--green-light); }
+
+    /* Hero */
+    .sub-hero { padding: 120px 40px 80px; text-align: center; max-width: 800px; margin: 0 auto; }
+    .sub-hero h1 { font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px); font-weight: 800; color: var(--navy); line-height: 1.15; margin-bottom: 24px; }
+    .sub-desc { font-size: 18px; line-height: 1.7; color: rgba(26,31,54,0.65); max-width: 600px; margin: 0 auto 48px; }
+
+    /* Coming Soon */
+    .sub-coming-soon { margin: 48px auto; text-align: center; }
+    .sub-coming-pill { display: inline-block; padding: 12px 32px; background: rgba(83,185,86,0.08); color: var(--green); font-family: var(--font-display); font-weight: 700; font-size: 14px; letter-spacing: 0.05em; border-radius: 100px; border: 1px solid rgba(83,185,86,0.2); }
+
+    /* Features grid */
+    .sub-features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; max-width: 1000px; margin: 0 auto; padding: 0 40px 80px; }
+    .sub-feature-card { background: white; border-radius: 16px; padding: 40px 32px; border: 1px solid rgba(26,31,54,0.06); transition: transform 0.2s, box-shadow 0.2s; }
+    .sub-feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(26,31,54,0.08); }
+    .sub-feature-icon { font-size: 32px; margin-bottom: 16px; }
+    .sub-feature-card h3 { font-family: var(--font-display); font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--navy); }
+    .sub-feature-card p { font-size: 15px; line-height: 1.65; color: rgba(26,31,54,0.6); }
+
+    /* Contact items */
+    .sub-contact-grid { max-width: 500px; margin: 0 auto 80px; }
+    .sub-contact-item { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(26,31,54,0.06); }
+    .sub-contact-label { font-family: var(--font-display); font-weight: 700; font-size: 15px; color: var(--navy); }
+    .sub-contact-value { font-size: 15px; color: rgba(26,31,54,0.6); }
+
+    /* Download */
+    .sub-download-section { display: flex; flex-direction: column; align-items: center; gap: 32px; padding-bottom: 80px; }
+    .sub-download-qr { text-align: center; }
+    .sub-download-qr img { width: 200px; height: 200px; border-radius: 16px; }
+    .sub-download-qr p { margin-top: 12px; font-size: 14px; color: rgba(26,31,54,0.5); }
+    .sub-store-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: white; padding: 14px 28px; border-radius: 12px; text-decoration: none; font-family: var(--font-display); font-weight: 600; font-size: 15px; transition: background 0.2s; }
+    .sub-store-btn:hover { background: var(--navy-light); }
+
+    /* Footer */
+    .sub-footer { background: var(--navy); padding: 60px 40px 32px; color: white; }
+    .sub-footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .sub-footer-brand { display: flex; flex-direction: column; gap: 16px; }
+    .sub-footer-brand img { height: 28px; width: auto; align-self: flex-start; }
+    .sub-footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; max-width: 280px; }
+    .sub-footer-col h4 { font-family: var(--font-display); font-weight: 700; font-size: 13px; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+    .sub-footer-col a { display: block; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 8px; font-size: 13px; transition: color 0.2s; }
+    .sub-footer-col a:hover { color: var(--green-light); }
+    .sub-footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; }
+    .sub-footer-legal { font-size: 11px; color: rgba(255,255,255,0.25); max-width: 700px; line-height: 1.5; }
+    .sub-footer-links { display: flex; gap: 20px; }
+    .sub-footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+    .sub-footer-links a:hover { color: var(--green-light); }
+    .sub-footer-fitlogic { margin-top: 12px; }
+    .sub-footer-fitlogic img { height: 42px; opacity: 0.7; }
+
+    @media (max-width: 768px) {
+      .sub-nav { padding: 16px 20px; }
+      .sub-nav-links a:not(.sub-cta) { display: none; }
+      .sub-hero { padding: 80px 20px 48px; }
+      .sub-features-grid { grid-template-columns: 1fr; padding: 0 20px 48px; }
+      .sub-footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .sub-footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .sub-footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="sub-nav">
+  <a href="../" class="sub-nav-logo"><img src="../assets/rundot-logo-dark.svg" alt="RunDot"></a>
+  <div class="sub-nav-links">
+    <a href="../features/">Features</a>
+    <a href="../about/">About</a>
+    <a href="../" class="sub-cta">Get your first workout</a>
+  </div>
+</nav>
+
+<section class="sub-hero">
+  <h1>Run smarter from day one.</h1>
+  <p class="sub-desc">Whether you're lacing up for your first 5K or chasing a marathon PR, these guides help you understand the why behind your training.</p>
+  <div class="sub-coming-soon"><span class="sub-coming-pill">Coming Soon</span></div>
+  
+</section>
+
+
+
+
+<footer class="sub-footer">
+  <div class="sub-footer-inner">
+    <div class="sub-footer-brand">
+      <img src="../assets/rundot-logo-white.svg" alt="RunDot">
+      <p>Adaptive run training powered by 20 years of real athlete data.</p>
+      <div class="sub-footer-fitlogic">
+        <img src="../assets/fitlogic-logo-white.svg" alt="Powered by FitLogic™" />
+      </div>
+    </div>
+    <div class="sub-footer-col">
+      <h4>Product</h4>
+      <a href="../pricing/">Pricing</a>
+      <a href="../features/">Features</a>
+      <a href="../download/">Download App</a>
+    </div>
+    <div class="sub-footer-col">
+      <h4>Resources</h4>
+      <a href="../resources/">Blog</a>
+      <a href="../podcast/">Podcast</a>
+      <a href="../training-guides/">Training Guides</a>
+      <a href="../support/">Support</a>
+    </div>
+    <div class="sub-footer-col">
+      <h4>Company</h4>
+      <a href="../about/">About</a>
+      <a href="../careers/">Careers</a>
+      <a href="../contact/">Contact</a>
+      <a href="https://www.predictive.fit" target="_blank">Predictive Fitness</a>
+    </div>
+  </div>
+  <div class="sub-footer-bottom">
+    <p class="sub-footer-legal">Predictive Fitness and the Predictive Fitness logo are trademarks or registered trademarks of Predictive Fitness, Inc. in the US and other countries.</p>
+    <div class="sub-footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

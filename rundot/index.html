@@ -777,7 +777,19 @@
   .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
 
   /* MOMENTS - expanded grid */
-  .moments { background: var(--white); padding: 120px 40px; }
+  .moments { background: var(--white); padding: 120px 40px; position: relative; overflow: hidden; }
+  .moments::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(83,185,86,0.12) 1.5px, transparent 1.5px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .moments .section-inner { position: relative; z-index: 1; }
   .moments-grid {
     display: grid; grid-template-columns: repeat(4, 1fr);
     gap: 32px; max-width: 1100px; margin: 0 auto;
@@ -1538,7 +1550,7 @@
       <div class="how-step">
         <div class="how-num">2</div>
         <h3>Get your daily workout</h3>
-        <p>Open the app. Your workout is already there.</p>
+        <p>Open the app. Your workout is already there - built for today, not last week.</p>
       </div>
       <div class="how-step">
         <div class="how-num">3</div>
@@ -1874,22 +1886,21 @@
       <div class="footer-col">
         <h4>Product</h4>
         <a href="./pricing/">Pricing</a>
-        <a href="#">Features</a>
-        <a href="#">For Coaches</a>
-        <a href="#">Download App</a>
+        <a href="./features/">Features</a>
+        <a href="./download/">Download App</a>
       </div>
       <div class="footer-col">
         <h4>Resources</h4>
         <a href="./resources/">Blog</a>
-        <a href="./resources/">Podcast</a>
-        <a href="./resources/">Training Guides</a>
-        <a href="#">Support</a>
+        <a href="./podcast/">Podcast</a>
+        <a href="./training-guides/">Training Guides</a>
+        <a href="./support/">Support</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="#">About</a>
-        <a href="#">Careers</a>
-        <a href="#">Contact</a>
+        <a href="./about/">About</a>
+        <a href="./careers/">Careers</a>
+        <a href="./contact/">Contact</a>
         <a href="https://www.predictive.fit" target="_blank">Predictive Fitness</a>
       </div>
     </div>
