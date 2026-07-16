@@ -414,16 +414,17 @@
     position: relative; z-index: 2;
   }
   .familiar-card {
-    background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 12px; padding: 32px 28px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50px; padding: 16px 28px;
     text-align: center;
     transition: border-color 0.2s, transform 0.2s;
   }
-  .familiar-card:hover { border-color: var(--green-border); transform: translateY(-3px); }
+  .familiar-card:hover { border-color: rgba(255,255,255,0.3); transform: translateY(-3px); }
   .familiar-card p {
-    font-family: var(--font-display); font-weight: 600;
-    font-size: 18px; color: var(--text);
+    font-family: var(--font-display); font-weight: 500;
+    font-size: 17px; color: rgba(255,255,255,0.85);
     line-height: 1.5;
     font-style: italic;
   }
