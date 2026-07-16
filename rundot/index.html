@@ -1102,9 +1102,10 @@
     .meb-strip-quote { font-size: 17px; }
     .meb-strip-name { font-size: 14px; }
     .trust-strip { padding: 36px 20px; }
-    .trust-row { gap: 24px; }
-    .trust-num { font-size: 26px; }
-    .trust-label { font-size: 13px; }
+    .trust-row { gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .trust-item { min-width: 140px; }
+    .trust-num { font-size: 24px; }
+    .trust-label { font-size: 12px; }
     .section { padding: 64px 20px; }
     .section-title { margin-bottom: 12px; }
     .section-sub { font-size: 16px; }
@@ -1187,9 +1188,10 @@
     .meb-strip-photo { width: 80px; height: 80px; margin-top: -60px; }
     .meb-strip-quote { font-size: 15px; line-height: 1.5; }
     .trust-strip { padding: 28px 16px; }
-    .trust-row { gap: 16px; }
-    .trust-num { font-size: 22px; }
-    .trust-label { font-size: 12px; }
+    .trust-row { gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .trust-item { min-width: 100%; text-align: center; }
+    .trust-num { font-size: 22px; white-space: nowrap; }
+    .trust-label { font-size: 11px; }
     .section { padding: 48px 16px; }
     .section-eyebrow { font-size: 16px; gap: 8px; }
     .section-eyebrow::before { width: 10px; height: 10px; }
@@ -1242,8 +1244,18 @@
     .back-to-top svg { width: 16px; height: 16px; }
 
     /* Athlete gallery smaller on phone */
-    .athlete-scroll-circle { width: 90px; height: 90px; }
-    .athlete-scroll-inner { gap: 24px; }
+    .athlete-scroll-circle { width: 80px; height: 80px; }
+    .athlete-scroll-inner { gap: 20px; }
+    .athlete-gallery { padding: 48px 0; }
+    .athlete-gallery .section-eyebrow { font-size: 14px; }
+    
+    /* Moments grid tighter on phone */
+    .moment-circle { margin-bottom: 8px; }
+    .moment-item { gap: 6px; }
+    
+    /* Sound Familiar mobile polish */
+    .familiar-card { border-radius: 20px; }
+    .familiar-answer { font-size: 15px; padding: 0 12px; }
   }
 </style>
 </head>
@@ -1644,24 +1656,15 @@
   </div>
   <div class="athlete-scroll-track">
     <div class="athlete-scroll-inner">
-      <!-- First set -->
+      <!-- First set - max diversity: gender, age, skin tone, setting -->
       <div class="athlete-scroll-item">
         <div class="athlete-scroll-circle"><img src="./assets/runner-urban-sprint.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-beach-sunrise.jpg" alt="Runner" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/moments-hipster-female.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
         <div class="athlete-scroll-circle"><img src="./assets/runner-finish-celebration.jpg" alt="Runner" loading="lazy"></div>
-      </div>
-      <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-hipster-urban.jpg" alt="Runner" loading="lazy"></div>
-      </div>
-      <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-oceanside-female.jpg" alt="Runner" loading="lazy"></div>
-      </div>
-      <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-action-road.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
         <div class="athlete-scroll-circle"><img src="./assets/moments-mature-male.jpg" alt="Runner" loading="lazy"></div>
@@ -1670,29 +1673,35 @@
         <div class="athlete-scroll-circle"><img src="./assets/runner-woman-road.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/moments-hipster-female.jpg" alt="Runner" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/runner-trail-flat.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runners-group-diverse.jpg" alt="Runners" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/runner-beach-sunrise.jpg" alt="Runner" loading="lazy"></div>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/runner-country-road.jpg" alt="Runner" loading="lazy"></div>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/runner-tattooed-road.jpg" alt="Runner" loading="lazy"></div>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/runner-silhouette-sunrise.jpg" alt="Runner" loading="lazy"></div>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/runner-road-serious.jpg" alt="Runner" loading="lazy"></div>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/moments-elite-female.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <!-- Duplicate set for seamless loop -->
       <div class="athlete-scroll-item">
         <div class="athlete-scroll-circle"><img src="./assets/runner-urban-sprint.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-beach-sunrise.jpg" alt="Runner" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/moments-hipster-female.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
         <div class="athlete-scroll-circle"><img src="./assets/runner-finish-celebration.jpg" alt="Runner" loading="lazy"></div>
-      </div>
-      <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-hipster-urban.jpg" alt="Runner" loading="lazy"></div>
-      </div>
-      <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-oceanside-female.jpg" alt="Runner" loading="lazy"></div>
-      </div>
-      <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-action-road.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
         <div class="athlete-scroll-circle"><img src="./assets/moments-mature-male.jpg" alt="Runner" loading="lazy"></div>
@@ -1701,10 +1710,25 @@
         <div class="athlete-scroll-circle"><img src="./assets/runner-woman-road.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/moments-hipster-female.jpg" alt="Runner" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/runner-trail-flat.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runners-group-diverse.jpg" alt="Runners" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/runner-beach-sunrise.jpg" alt="Runner" loading="lazy"></div>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/runner-country-road.jpg" alt="Runner" loading="lazy"></div>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/runner-tattooed-road.jpg" alt="Runner" loading="lazy"></div>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/runner-silhouette-sunrise.jpg" alt="Runner" loading="lazy"></div>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/runner-road-serious.jpg" alt="Runner" loading="lazy"></div>
+      </div>
+      <div class="athlete-scroll-item">
+        <div class="athlete-scroll-circle"><img src="./assets/moments-elite-female.jpg" alt="Runner" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -2046,24 +2070,27 @@ window.addEventListener('scroll', function() {
   tick();
 })();
 
-/* Distance cycle animation */
+/* Distance cycle animation - fast slot-machine, lands on ultra */
 (function() {
   const el = document.querySelector('.distance-cycle');
   if (!el) return;
-  const distances = ['half marathon', 'marathon', 'ultra'];
-  let di = 0;
-  function cycle() {
+  const sequence = ['half marathon', 'marathon', 'ultra', 'half marathon', 'marathon', 'ultra', 'half marathon', 'marathon', 'ultra'];
+  let i = 0;
+  el.style.transition = 'opacity 0.15s ease, transform 0.15s ease';
+  function step() {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(8px)';
+    el.style.transform = 'translateY(6px)';
     setTimeout(() => {
-      di = (di + 1) % distances.length;
-      el.textContent = distances[di];
+      el.textContent = sequence[i];
       el.style.opacity = '1';
       el.style.transform = 'translateY(0)';
-    }, 300);
+      i++;
+      if (i < sequence.length) {
+        setTimeout(step, 250 + (i > 6 ? (i - 6) * 100 : 0));
+      }
+    }, 150);
   }
-  el.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-  setInterval(cycle, 2200);
+  setTimeout(step, 800);
 })();
 
 /* Timeline animation */
