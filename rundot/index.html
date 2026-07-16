@@ -537,17 +537,20 @@
     margin: 0 0 20px;
   }
   .showcase-bullets {
-    list-style: none; padding: 0 0 0 20px; margin: 0 0 32px;
+    list-style: none; padding: 0 0 0 24px; margin: 0 0 32px;
     border-left: 3px solid var(--green);
+    position: relative;
   }
   .showcase-bullets li {
     font-family: var(--font-body); font-size: 15px; color: var(--text-muted);
-    line-height: 1.6; padding: 8px 0 8px 28px; position: relative;
+    line-height: 1.6; padding: 10px 0 10px 32px; position: relative;
   }
   .showcase-bullets li::before {
-    content: ''; position: absolute; left: 0; top: 16px;
-    width: 8px; height: 8px; border-radius: 50%;
+    content: ''; position: absolute; left: -14px; top: 50%;
+    transform: translateY(-50%);
+    width: 14px; height: 14px; border-radius: 50%;
     background: var(--green);
+    box-shadow: 0 0 0 4px rgba(83,185,86,0.18);
   }
 
   /* Scroll fade-up animation */
@@ -720,14 +723,27 @@
     gap: 0; max-width: 1200px; margin: 0 auto;
     padding: 80px 40px; align-items: center;
   }
+  @property --ring-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+  @keyframes ringDraw {
+    0% { --ring-angle: 0deg; }
+    100% { --ring-angle: 300deg; }
+  }
   .feature-photo-circle {
     width: clamp(280px, 28vw, 420px); height: clamp(280px, 28vw, 420px);
     border-radius: 50%; overflow: visible;
     justify-self: center;
     position: relative;
     padding: 6px;
-    background: conic-gradient(from 180deg, var(--green), transparent 60%, transparent 100%);
+    --ring-angle: 0deg;
+    background: conic-gradient(from 180deg, var(--green) 0deg, var(--green) var(--ring-angle), transparent var(--ring-angle), transparent 360deg);
     box-shadow: 0 20px 60px rgba(0,0,0,0.10);
+  }
+  .feature-photo-circle.ring-animate {
+    animation: ringDraw 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
   .feature-photo-circle::before {
     content: ''; position: absolute; inset: 6px;
@@ -1783,7 +1799,7 @@
     <p style="font-size: 19px; color: rgba(255,255,255,0.7); line-height: 1.8; margin-top: 40px;">
       To finish what you started. To prove something to yourself.<br>Whatever your goal, it starts with trusting today's run.
     </p>
-    <p style="font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--green-light); font-style: italic; margin-top: 32px;">So do we.</p>
+    <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" class="cta-btn" style="margin-top: 32px; display: inline-block;">Get your first workout</a>
   </div>
 </section>
 
@@ -2132,6 +2148,17 @@ const showcaseObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); showcaseObserver.unobserve(e.target); } });
 }, { threshold: 0.15 });
 document.querySelectorAll('.showcase-panel').forEach(p => showcaseObserver.observe(p));
+
+// Ring draw animation on feature photo circles
+const ringObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('ring-animate');
+      ringObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.feature-photo-circle').forEach(el => ringObserver.observe(el));
 </script>
 
 </body>
