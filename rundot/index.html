@@ -171,6 +171,115 @@
   }
   .hero-cta-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
 
+  /* Goal vertical slider */
+  .goal-slider {
+    display: flex; align-items: baseline; gap: 10px;
+    margin-bottom: 20px; font-family: var(--font-display);
+    justify-content: center;
+  }
+  .goal-slider-prefix {
+    font-size: 22px; font-weight: 500; color: rgba(255,255,255,0.6);
+    letter-spacing: -0.01em; white-space: nowrap;
+  }
+  .goal-slider-window {
+    height: 32px; overflow: hidden; position: relative;
+  }
+  .goal-slider-window::before,
+  .goal-slider-window::after {
+    content: ''; position: absolute; left: 0; right: 0; height: 8px; z-index: 2; pointer-events: none;
+  }
+  .goal-slider-window::before { top: 0; background: linear-gradient(to bottom, rgba(10,10,10,0.8), transparent); }
+  .goal-slider-window::after { bottom: 0; background: linear-gradient(to top, rgba(10,10,10,0.8), transparent); }
+  .goal-slider-track {
+    display: flex; flex-direction: column;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .goal-slider-item {
+    height: 32px; line-height: 32px;
+    font-size: 22px; font-weight: 700; color: #53b956;
+    letter-spacing: -0.01em; white-space: nowrap;
+  }
+
+  /* HOW IT KNOWS (timeline) */
+  .how-it-knows {
+    padding: 100px 0;
+    background: var(--off-white);
+  }
+  .how-it-knows-header {
+    text-align: center; margin-bottom: 60px;
+  }
+  .how-it-knows-header h2 {
+    font-family: var(--font-display);
+    font-size: 38px; font-weight: 800; color: var(--text);
+    margin-bottom: 14px; letter-spacing: -0.02em;
+  }
+  .how-it-knows-header p {
+    font-size: 18px; color: #666; max-width: 560px; margin: 0 auto;
+    font-family: var(--font-body);
+  }
+  .intelligence-timeline {
+    max-width: 660px; margin: 0 auto;
+    position: relative; padding-left: 56px;
+  }
+  .intelligence-timeline::before {
+    content: ''; position: absolute;
+    left: 18px; top: 0; bottom: 0;
+    width: 3px; background: linear-gradient(to bottom, #53b956, rgba(83,185,86,0.2));
+    border-radius: 3px;
+  }
+  .timeline-item {
+    position: relative; margin-bottom: 40px;
+    padding: 28px; background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    opacity: 0; transform: translateX(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .timeline-item.timeline-visible {
+    opacity: 1; transform: translateX(0);
+  }
+  .timeline-item::before {
+    content: ''; position: absolute;
+    left: -49px; top: 32px;
+    width: 14px; height: 14px;
+    background: #53b956; border-radius: 50%;
+    border: 4px solid var(--off-white);
+    transform: scale(0);
+    transition: transform 0.4s ease 0.2s;
+  }
+  .timeline-item.timeline-visible::before {
+    transform: scale(1);
+  }
+  .timeline-item::after {
+    content: ''; position: absolute;
+    left: -46px; top: 35px;
+    width: 8px; height: 8px;
+    background: rgba(83,185,86,0.3); border-radius: 50%;
+    animation: none;
+  }
+  .timeline-item.timeline-visible::after {
+    animation: timelinePulse 2s ease-in-out infinite;
+  }
+  @keyframes timelinePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(83,185,86,0.3); }
+    50% { box-shadow: 0 0 0 10px rgba(83,185,86,0); }
+  }
+  .timeline-item .step-label {
+    font-family: var(--font-display);
+    font-size: 11px; font-weight: 800; letter-spacing: 3px;
+    text-transform: uppercase; color: #53b956;
+    margin-bottom: 6px;
+  }
+  .timeline-item h3 {
+    font-family: var(--font-display);
+    font-size: 18px; font-weight: 700; color: var(--text);
+    margin-bottom: 6px;
+  }
+  .timeline-item p {
+    font-size: 14px; color: #666; line-height: 1.6;
+    font-family: var(--font-body);
+  }
+
   /* MEB ENDORSEMENT STRIP */
   .meb-strip {
     background: var(--white); padding: 40px 32px 24px;
@@ -973,6 +1082,13 @@
     .hero-sub { font-size: 16px; max-width: 420px; }
     .hero-cta-row { justify-content: center; }
     .hero-social-proof { flex-direction: column; gap: 8px; margin-top: 24px; }
+    .goal-slider-prefix, .goal-slider-item { font-size: 20px; }
+    .goal-slider-window { height: 28px; }
+    .goal-slider-item { height: 28px; line-height: 28px; }
+    .how-it-knows { padding: 72px 24px; }
+    .how-it-knows-header h2 { font-size: 28px; }
+    .intelligence-timeline { padding-left: 48px; }
+    .timeline-item { padding: 22px; }
     .meb-strip { padding: 40px 24px; }
     .meb-strip-inner { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
     .meb-strip-photo { width: 100px; height: 100px; margin-top: -80px; }
@@ -1045,6 +1161,20 @@
     .hero h1 { font-size: 28px; letter-spacing: -0.02em; }
     .hero-sub { font-size: 15px; max-width: 320px; line-height: 1.6; }
     .hero-cta-row { flex-direction: column; align-items: center; gap: 12px; }
+    .goal-slider-prefix, .goal-slider-item { font-size: 17px; }
+    .goal-slider { gap: 6px; margin-bottom: 14px; }
+    .goal-slider-window { height: 24px; }
+    .goal-slider-item { height: 24px; line-height: 24px; }
+    .how-it-knows { padding: 56px 16px; }
+    .how-it-knows-header h2 { font-size: 24px; }
+    .how-it-knows-header p { font-size: 15px; }
+    .intelligence-timeline { padding-left: 40px; }
+    .intelligence-timeline::before { left: 14px; }
+    .timeline-item { padding: 18px; margin-bottom: 28px; }
+    .timeline-item::before { left: -37px; top: 24px; width: 12px; height: 12px; }
+    .timeline-item::after { left: -35px; top: 26px; width: 6px; height: 6px; }
+    .timeline-item h3 { font-size: 16px; }
+    .timeline-item p { font-size: 13px; }
     .btn-primary { padding: 14px 28px; font-size: 15px; width: 100%; justify-content: center; }
     .btn-outline { padding: 14px 28px; font-size: 15px; width: 100%; justify-content: center; }
     .hero-social-proof { margin-top: 20px; }
@@ -1153,6 +1283,21 @@
   </video>
   <div class="hero-content" id="heroContent">
     <h1 id="heroHeadline"></h1>
+    <div class="goal-slider hero-sub-entrance">
+      <span class="goal-slider-prefix">I want to</span>
+      <div class="goal-slider-window">
+        <div class="goal-slider-track" id="goalSliderTrack">
+          <span class="goal-slider-item">finish my first 5K</span>
+          <span class="goal-slider-item">PR my marathon</span>
+          <span class="goal-slider-item">train for my first half</span>
+          <span class="goal-slider-item">complete an ultra</span>
+          <span class="goal-slider-item">get my fastest mile time</span>
+          <span class="goal-slider-item">become a marathoner</span>
+          <span class="goal-slider-item">run pain-free again</span>
+          <span class="goal-slider-item">qualify for Boston</span>
+        </div>
+      </div>
+    </div>
     <p class="hero-sub hero-sub-entrance">If you're a runner with a goal, RunDot&#8482; helps you know exactly what to run today.</p>
     <div class="hero-cta-row hero-cta-entrance">
       <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Get your first workout</a>
@@ -1235,6 +1380,39 @@
   <div class="manifesto-inner">
     <p class="manifesto-line">What if you never had to wonder?</p>
     <p class="manifesto-sub">What if every morning, your workout was already there. No second-guessing. Just the quiet confidence of knowing you're exactly where you should be.</p>
+  </div>
+</section>
+
+<!-- HOW IT KNOWS -->
+<section class="how-it-knows" id="how-it-knows">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+    <div class="how-it-knows-header fade-up">
+      <div class="section-eyebrow" style="justify-content: center;">HOW IT KNOWS</div>
+      <h2>Not a template. An intelligence.</h2>
+      <p>RunDot<span class="tm">™</span> doesn't guess your training. It learns it, every single day.</p>
+    </div>
+    <div class="intelligence-timeline fade-up">
+      <div class="timeline-item">
+        <div class="step-label">DAY 1</div>
+        <h3>It learns who you are</h3>
+        <p>Connect your watch. RunDot<span class="tm">™</span> analyzes your training history, current fitness, and the patterns most plans ignore.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="step-label">EVERY WORKOUT</div>
+        <h3>It watches how you respond</h3>
+        <p>Every run teaches it something. It measures how your body absorbs training and adjusts intensity, volume, and recovery in real time.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="step-label">OVER TIME</div>
+        <h3>It predicts what you need next</h3>
+        <p>The longer you train, the smarter it gets. Your Dot Score<span class="tm">™</span> tracks optimization across every dimension of your running.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="step-label">RACE DAY</div>
+        <h3>You show up ready</h3>
+        <p>Not overtrained. Not undertrained. Exactly where the data says you should be.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1828,6 +2006,31 @@ window.addEventListener('scroll', function() {
     stickyCta.classList.remove('visible');
   }
 }, { passive: true });
+
+/* Goal vertical slider */
+const sliderTrack = document.getElementById('goalSliderTrack');
+if (sliderTrack) {
+  const items = sliderTrack.querySelectorAll('.goal-slider-item');
+  const itemHeight = items[0].offsetHeight;
+  let currentGoal = 0;
+  setInterval(() => {
+    currentGoal = (currentGoal + 1) % items.length;
+    sliderTrack.style.transform = 'translateY(-' + (currentGoal * itemHeight) + 'px)';
+  }, 2500);
+}
+
+/* Timeline animation */
+const timelineObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('timeline-visible');
+    }
+  });
+}, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.timeline-item').forEach((el, i) => {
+  el.style.transitionDelay = (i * 0.15) + 's';
+  timelineObserver.observe(el);
+});
 
 /* Showcase panel scroll reveal */
 const showcaseObserver = new IntersectionObserver((entries) => {
