@@ -201,10 +201,11 @@
     50% { opacity: 0; }
   }
   .distance-cursor {
-    display: inline-block; width: 2px; height: 1.1em;
-    background: #53b956; margin-left: 3px;
-    animation: cursorBlink 0.8s ease-in-out infinite;
+    display: inline-block; width: 3px; height: 1.1em;
+    background: var(--green); margin-left: 3px;
+    animation: cursorBlink 1s ease-in-out infinite;
     vertical-align: text-bottom;
+    color: transparent; overflow: hidden;
   }
 
   /* HOW IT KNOWS (timeline) */
@@ -2197,27 +2198,34 @@ window.addEventListener('scroll', function() {
   tick();
 })();
 
-/* Distance cycle animation - fast slot-machine, lands on ultra */
+/* Distance cycle animation - typing effect with green cursor */
 (function() {
   const el = document.querySelector('.distance-cycle');
   if (!el) return;
-  const sequence = ['1/2 marathon', 'marathon', 'ultra'];
-  let i = 0;
-  el.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
-  function step() {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(6px)';
-    setTimeout(() => {
-      el.textContent = sequence[i];
-      el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
-      i++;
-      if (i < sequence.length) {
-        setTimeout(step, 1200);
+  const sequence = ['10K', '1/2 marathon', 'marathon', 'ultra'];
+  let gi = 0, ci = 0, deleting = false;
+  // Start with first item already shown
+  el.textContent = sequence[0];
+  ci = sequence[0].length;
+  function tick() {
+    const goal = sequence[gi];
+    if (!deleting) {
+      ci++;
+      el.textContent = goal.substring(0, ci);
+      if (ci === goal.length) {
+        if (gi === sequence.length - 1) return; // stay on last item
+        setTimeout(() => { deleting = true; tick(); }, 2000);
+        return;
       }
-    }, 250);
+      setTimeout(tick, 80 + Math.random() * 50);
+    } else {
+      ci--;
+      el.textContent = goal.substring(0, ci);
+      if (ci === 0) { deleting = false; gi++; setTimeout(tick, 500); return; }
+      setTimeout(tick, 40);
+    }
   }
-  setTimeout(step, 1200);
+  setTimeout(() => { deleting = true; tick(); }, 2000);
 })();
 
 /* Timeline animation */
