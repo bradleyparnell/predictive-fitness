@@ -538,7 +538,7 @@
   }
   .showcase-bullets {
     list-style: none; padding: 0 0 0 24px; margin: 0 0 32px;
-    border-left: 3px solid var(--green);
+    border-left: 2px solid rgba(83,185,86,0.35);
     position: relative;
   }
   .showcase-bullets li {
@@ -546,11 +546,13 @@
     line-height: 1.6; padding: 10px 0 10px 32px; position: relative;
   }
   .showcase-bullets li::before {
-    content: ''; position: absolute; left: -14px; top: 50%;
+    content: ''; position: absolute; left: -18px; top: 50%;
     transform: translateY(-50%);
-    width: 14px; height: 14px; border-radius: 50%;
+    width: 12px; height: 12px; border-radius: 50%;
     background: var(--green);
-    box-shadow: 0 0 0 4px rgba(83,185,86,0.18);
+    border: 3px solid rgba(83,185,86,0.2);
+    box-shadow: 0 0 0 3px rgba(83,185,86,0.08);
+    z-index: 1;
   }
 
   /* Scroll fade-up animation */
@@ -1869,7 +1871,7 @@
     <p style="font-size: 19px; color: rgba(255,255,255,0.7); line-height: 1.8; margin-top: 40px;">
       To finish what you started. To prove something to yourself.<br>Whatever your goal, it starts with trusting today's run.
     </p>
-    <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" class="cta-btn" style="margin-top: 32px; display: inline-block;">Get your first workout</a>
+    <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" class="btn-primary" style="margin-top: 32px; display: inline-block;">Get your first workout</a>
   </div>
 </section>
 
