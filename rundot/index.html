@@ -1021,6 +1021,76 @@
     font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.75;
   }
 
+  /* ANIMATION: Stagger items */
+  .stagger-item {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .stagger-item.stagger-visible {
+    opacity: 1; transform: translateY(0);
+  }
+
+  /* ANIMATION: Meb slide-in */
+  .meb-strip-inner {
+    opacity: 0; transform: translateX(-40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .meb-strip-inner.meb-visible {
+    opacity: 1; transform: translateX(0);
+  }
+  .meb-strip-photo {
+    opacity: 0; transform: scale(0.8);
+    transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+  }
+  .meb-strip-inner.meb-visible .meb-strip-photo {
+    opacity: 1; transform: scale(1);
+  }
+
+  /* ANIMATION: Partner logos stagger */
+  .partners-logos img {
+    opacity: 0; transform: translateY(12px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out, filter 0.3s, all 0.3s;
+  }
+  .partners-logos.partners-visible img {
+    opacity: 0.35; transform: translateY(0);
+  }
+  .partners-logos.partners-visible img:hover {
+    filter: brightness(0) sepia(1) saturate(5) hue-rotate(85deg); opacity: 0.65;
+  }
+
+  /* ANIMATION: Green line draw */
+  .green-line-sep {
+    transform: scaleX(0); transform-origin: left center;
+    transition: transform 1s ease-out;
+  }
+  .green-line-sep.line-visible {
+    transform: scaleX(1);
+  }
+
+  /* ANIMATION: Trust strip counter */
+  .trust-item {
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .trust-item.trust-visible {
+    opacity: 1; transform: translateY(0);
+  }
+
+  /* ANIMATION: Review card hover lift */
+  .testimonial-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .testimonial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+  }
+
+  /* ANIMATION: Parallax backgrounds */
+  .parallax-bg {
+    transition: transform 0.1s linear;
+    will-change: transform;
+  }
+
   /* BACK TO TOP */
   .back-to-top {
     position: fixed; bottom: 32px; right: 32px; z-index: 90;
@@ -1353,7 +1423,7 @@
 
 <!-- 2. MEB ENDORSEMENT -->
 <div class="meb-strip">
-  <div class="meb-strip-inner fade-up">
+  <div class="meb-strip-inner">
     <div class="meb-strip-photo">
       <img src="./assets/meb-medals-bw.jpg" alt="Meb Keflezighi">
     </div>
@@ -1366,7 +1436,7 @@
 </div>
 
 <!-- BRAND GREEN LINE -->
-<div style="width: 100%; height: 4px; background: var(--green);"></div>
+<div class="green-line-sep" style="width: 100%; height: 4px; background: var(--green);"></div>
 
 <!-- 3. TRUST STRIP -->
 <div class="trust-strip">
@@ -1784,7 +1854,7 @@
 
 <!-- WHY DO YOU RUN -->
 <section class="why-run fade-up" style="position: relative; padding: 140px 40px; text-align: center; overflow: hidden; background: #0f172a;">
-  <div style="position: absolute; inset: 0; background: url('./assets/runner-silhouette-sunrise.jpg') center center / cover no-repeat; opacity: 0.25;"></div>
+  <div class="parallax-bg" data-parallax="0.15" style="position: absolute; inset: -60px 0 -60px 0; background: url('./assets/runner-silhouette-sunrise.jpg') center center / cover no-repeat; opacity: 0.25;"></div>
   <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0.6) 0%, rgba(15,23,42,0.3) 50%, rgba(15,23,42,0.7) 100%);"></div>
   <div style="position: relative; z-index: 2; max-width: 680px; margin: 0 auto;">
     <p style="font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px); font-weight: 800; color: white; letter-spacing: -0.02em; margin-bottom: 48px;">Why do you run?</p>
@@ -2159,6 +2229,146 @@ const ringObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.4 });
 document.querySelectorAll('.feature-photo-circle').forEach(el => ringObserver.observe(el));
+
+/* === POLISH ANIMATIONS === */
+
+// 1. Trust strip stat counter animation
+(function() {
+  const trustObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('trust-visible');
+        trustObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.trust-item').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.15) + 's';
+    trustObserver.observe(el);
+  });
+  // Animate the "20+" number counting up
+  const trustNums = document.querySelectorAll('.trust-num');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const text = el.textContent;
+      const match = text.match(/^(\d+)/);
+      if (match) {
+        const target = parseInt(match[1]);
+        const suffix = text.slice(match[1].length);
+        let current = 0;
+        const duration = 1200;
+        const startTime = performance.now();
+        function tick(now) {
+          const progress = Math.min((now - startTime) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          current = Math.round(eased * target);
+          el.innerHTML = current + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+      counterObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  trustNums.forEach(el => counterObserver.observe(el));
+})();
+
+// 2. Partner logos stagger fade-in
+(function() {
+  const pObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('partners-visible');
+        pObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.partners-logos').forEach(container => {
+    container.querySelectorAll('img').forEach((img, i) => {
+      img.style.transitionDelay = (i * 0.12) + 's';
+    });
+    pObs.observe(container);
+  });
+})();
+
+// 3. Sound Familiar cards stagger
+// 4. Reviews cards stagger
+// 5. Moments grid stagger
+(function() {
+  const staggerObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('stagger-visible');
+        staggerObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  // Familiar cards
+  document.querySelectorAll('.familiar-card').forEach((el, i) => {
+    el.classList.add('stagger-item');
+    el.style.transitionDelay = (i * 0.12) + 's';
+    staggerObs.observe(el);
+  });
+  // Testimonial cards
+  document.querySelectorAll('.testimonial-card').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.1) + 's';
+    staggerObs.observe(el);
+  });
+  // Moment cards
+  document.querySelectorAll('.moment-card').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.12) + 's';
+    staggerObs.observe(el);
+  });
+})();
+
+// 6. Green line draws across on scroll
+(function() {
+  const lineObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('line-visible');
+        lineObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.green-line-sep').forEach(el => lineObs.observe(el));
+})();
+
+// 7. Parallax backgrounds
+(function() {
+  const parallaxEls = document.querySelectorAll('.parallax-bg');
+  if (!parallaxEls.length) return;
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        parallaxEls.forEach(el => {
+          const rect = el.parentElement.getBoundingClientRect();
+          const speed = parseFloat(el.dataset.parallax) || 0.15;
+          const offset = (rect.top - window.innerHeight / 2) * speed;
+          el.style.transform = 'translateY(' + offset + 'px)';
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+})();
+
+// 9. Meb strip fade-in with portrait slide
+(function() {
+  const mebObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('meb-visible');
+        mebObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.meb-strip-inner').forEach(el => mebObs.observe(el));
+})();
 </script>
 
 </body>
