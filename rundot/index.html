@@ -2124,7 +2124,6 @@ window.addEventListener('scroll', function() {
       ci++;
       el.textContent = goal.substring(0, ci);
       if (ci === goal.length) {
-        if (gi === sequence.length - 1) return; // stay on last item
         setTimeout(() => { deleting = true; tick(); }, 2000);
         return;
       }
@@ -2132,7 +2131,7 @@ window.addEventListener('scroll', function() {
     } else {
       ci--;
       el.textContent = goal.substring(0, ci);
-      if (ci === 0) { deleting = false; gi++; setTimeout(tick, 500); return; }
+      if (ci === 0) { deleting = false; gi = (gi + 1) % sequence.length; setTimeout(tick, 500); return; }
       setTimeout(tick, 40);
     }
   }
