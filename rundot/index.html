@@ -172,27 +172,31 @@
   .hero-cta-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
 
   /* Goal vertical slider */
-  .goal-slider {
-    display: flex; align-items: baseline; gap: 10px;
+  /* Goal typewriter */
+  .goal-typewriter {
+    display: flex; align-items: baseline; gap: 0;
     margin-bottom: 20px; font-family: var(--font-display);
     justify-content: center;
+    font-size: 22px; letter-spacing: -0.01em;
   }
-  .goal-slider-prefix {
-    font-size: 22px; font-weight: 500; color: rgba(255,255,255,0.6);
-    letter-spacing: -0.01em; white-space: nowrap;
+  .goal-typewriter-prefix {
+    font-weight: 500; color: rgba(255,255,255,0.6);
+    white-space: nowrap;
   }
-  .goal-slider-window {
-    height: 32px; overflow: hidden; position: relative;
+  .goal-typewriter-text {
+    font-weight: 700; color: #53b956;
+    white-space: nowrap;
+    min-width: 2px;
   }
-
-  .goal-slider-track {
-    display: flex; flex-direction: column;
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  .goal-typewriter-cursor {
+    display: inline-block; width: 2px; height: 1.1em;
+    background: #53b956; margin-left: 2px;
+    animation: cursorBlink 0.8s ease-in-out infinite;
+    vertical-align: text-bottom;
   }
-  .goal-slider-item {
-    height: 32px; line-height: 32px;
-    font-size: 22px; font-weight: 700; color: #53b956;
-    letter-spacing: -0.01em; white-space: nowrap;
+  @keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
 
   /* HOW IT KNOWS (timeline) */
@@ -235,8 +239,8 @@
   }
   .timeline-item::before {
     content: ''; position: absolute;
-    left: -49px; top: 32px;
-    width: 14px; height: 14px;
+    left: -53px; top: 28px;
+    width: 24px; height: 24px;
     background: #53b956; border-radius: 50%;
     border: 4px solid var(--off-white);
     transform: scale(0);
@@ -247,8 +251,8 @@
   }
   .timeline-item::after {
     content: ''; position: absolute;
-    left: -46px; top: 35px;
-    width: 8px; height: 8px;
+    left: -42px; top: 35px;
+    width: 10px; height: 10px;
     background: rgba(83,185,86,0.3); border-radius: 50%;
     animation: none;
   }
@@ -1077,9 +1081,7 @@
     .hero-sub { font-size: 16px; max-width: 420px; }
     .hero-cta-row { justify-content: center; }
     .hero-social-proof { flex-direction: column; gap: 8px; margin-top: 24px; }
-    .goal-slider-prefix, .goal-slider-item { font-size: 20px; }
-    .goal-slider-window { height: 28px; }
-    .goal-slider-item { height: 28px; line-height: 28px; }
+    .goal-typewriter { font-size: 20px; }
     .how-it-knows { padding: 72px 24px; }
     .how-it-knows-header h2 { font-size: 28px; }
     .intelligence-timeline { padding-left: 48px; }
@@ -1156,18 +1158,15 @@
     .hero h1 { font-size: 28px; letter-spacing: -0.02em; }
     .hero-sub { font-size: 15px; max-width: 320px; line-height: 1.6; }
     .hero-cta-row { flex-direction: column; align-items: center; gap: 12px; }
-    .goal-slider-prefix, .goal-slider-item { font-size: 17px; }
-    .goal-slider { gap: 6px; margin-bottom: 14px; }
-    .goal-slider-window { height: 24px; }
-    .goal-slider-item { height: 24px; line-height: 24px; }
+    .goal-typewriter { font-size: 17px; }
     .how-it-knows { padding: 56px 16px; }
     .how-it-knows-header h2 { font-size: 24px; }
     .how-it-knows-header p { font-size: 15px; }
     .intelligence-timeline { padding-left: 40px; }
     .intelligence-timeline::before { left: 14px; }
     .timeline-item { padding: 18px; margin-bottom: 28px; }
-    .timeline-item::before { left: -37px; top: 24px; width: 12px; height: 12px; }
-    .timeline-item::after { left: -35px; top: 26px; width: 6px; height: 6px; }
+    .timeline-item::before { left: -39px; top: 22px; width: 18px; height: 18px; }
+    .timeline-item::after { left: -32px; top: 29px; width: 8px; height: 8px; }
     .timeline-item h3 { font-size: 16px; }
     .timeline-item p { font-size: 13px; }
     .btn-primary { padding: 14px 28px; font-size: 15px; width: 100%; justify-content: center; }
@@ -1278,20 +1277,8 @@
   </video>
   <div class="hero-content" id="heroContent">
     <h1 id="heroHeadline"></h1>
-    <div class="goal-slider hero-sub-entrance">
-      <span class="goal-slider-prefix">I want to</span>
-      <div class="goal-slider-window">
-        <div class="goal-slider-track" id="goalSliderTrack">
-          <span class="goal-slider-item">finish my first 5K</span>
-          <span class="goal-slider-item">PR my marathon</span>
-          <span class="goal-slider-item">train for my first half</span>
-          <span class="goal-slider-item">complete an ultra</span>
-          <span class="goal-slider-item">get my fastest mile time</span>
-          <span class="goal-slider-item">become a marathoner</span>
-          <span class="goal-slider-item">run pain-free again</span>
-          <span class="goal-slider-item">qualify for Boston</span>
-        </div>
-      </div>
+    <div class="goal-typewriter hero-sub-entrance">
+      <span class="goal-typewriter-prefix">I want to </span><span class="goal-typewriter-text" id="goalTypewriter"></span><span class="goal-typewriter-cursor">|</span>
     </div>
     <p class="hero-sub hero-sub-entrance">If you're a runner with a goal, RunDot&#8482; helps you know exactly what to run today.</p>
     <div class="hero-cta-row hero-cta-entrance">
@@ -2002,17 +1989,28 @@ window.addEventListener('scroll', function() {
   }
 }, { passive: true });
 
-/* Goal vertical slider */
-const sliderTrack = document.getElementById('goalSliderTrack');
-if (sliderTrack) {
-  const items = sliderTrack.querySelectorAll('.goal-slider-item');
-  const itemHeight = items[0].offsetHeight;
-  let currentGoal = 0;
-  setInterval(() => {
-    currentGoal = (currentGoal + 1) % items.length;
-    sliderTrack.style.transform = 'translateY(-' + (currentGoal * itemHeight) + 'px)';
-  }, 2500);
-}
+/* Goal typewriter */
+(function() {
+  const el = document.getElementById('goalTypewriter');
+  if (!el) return;
+  const goals = ['finish my first 5K','PR my marathon','train for my first half','complete an ultra','get my fastest mile time','become a marathoner','run pain-free again','qualify for Boston'];
+  let gi = 0, ci = 0, deleting = false;
+  function tick() {
+    const goal = goals[gi];
+    if (!deleting) {
+      ci++;
+      el.textContent = goal.substring(0, ci);
+      if (ci === goal.length) { setTimeout(() => { deleting = true; tick(); }, 2000); return; }
+      setTimeout(tick, 60 + Math.random() * 40);
+    } else {
+      ci--;
+      el.textContent = goal.substring(0, ci);
+      if (ci === 0) { deleting = false; gi = (gi + 1) % goals.length; setTimeout(tick, 400); return; }
+      setTimeout(tick, 30);
+    }
+  }
+  tick();
+})();
 
 /* Timeline animation */
 const timelineObserver = new IntersectionObserver((entries) => {
