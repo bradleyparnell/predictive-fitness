@@ -12,6 +12,16 @@
    RESET & FOUNDATIONS
    ============================== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* Nav */
+    .sub-nav { background: var(--white); padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(26,31,54,0.06); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
+    .sub-nav-logo img { height: 28px; }
+    .sub-nav-links { display: flex; gap: 12px; align-items: center; }
+    .sub-nav-links a { font-family: var(--font-body); font-size: 14px; color: var(--navy); text-decoration: none; padding: 8px 16px; border-radius: 8px; transition: all 0.2s; }
+    .sub-nav-links a:hover { background: rgba(26,31,54,0.04); }
+    .sub-nav-links .sub-cta { background: var(--green); color: white; font-weight: 600; }
+    .sub-nav-links .sub-cta:hover { background: var(--green-light); }
+
 html { scroll-behavior: smooth; }
 body {
   font-family: 'DM Sans', sans-serif;
@@ -334,6 +344,10 @@ footer {
    RESPONSIVE
    ============================== */
 @media (max-width: 768px) {
+
+      .sub-nav { padding: 16px 20px; }
+      .sub-nav-links a:not(.sub-cta) { display: none; }
+
   nav .nav-links { display: none; }
   .philosophy-grid, .compare-row { grid-template-columns: 1fr; }
   .outcomes-grid { grid-template-columns: 1fr; }
