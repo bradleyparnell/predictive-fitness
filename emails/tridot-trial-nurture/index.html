@@ -1128,16 +1128,23 @@
 
 
 <script>
+function switchTab(brand) {
+  document.getElementById('tab-tridot').style.display = brand === 'tridot' ? 'block' : 'none';
+  document.getElementById('tab-rundot').style.display = brand === 'rundot' ? 'block' : 'none';
+  var btnT = document.getElementById('btn-tridot');
+  var btnR = document.getElementById('btn-rundot');
+  btnT.classList.remove('active-tridot', 'active-rundot');
+  btnR.classList.remove('active-tridot', 'active-rundot');
+  if (brand === 'tridot') btnT.classList.add('active-tridot');
+  else btnR.classList.add('active-rundot');
+}
+
 function autoH(el){
   try {
     var h = el.contentWindow.document.documentElement.scrollHeight;
     if(h > 100) el.style.height = h + 'px';
   } catch(e) {}
 }
-</script>
-
-<script>
-(function() {
 </script>
 
 </body>
