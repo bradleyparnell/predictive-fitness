@@ -381,6 +381,26 @@ footer {
     .sub-footer-links a { font-size: 12px; color: rgba(26,31,54,0.4); text-decoration: none; transition: color 0.2s; }
     .sub-footer-links a:hover { color: var(--navy); }
 
+  
+    /* CHEVRON STRIPE */
+    .chevron-stripe { height: 24px; position: relative; overflow: hidden; background: transparent; margin-top: -12px; z-index: 2; }
+    .chevron-stripe-inner {
+      position: absolute; top: 0; bottom: 0; left: 0; width: 55%;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent, transparent 6px,
+        rgba(83,185,86,0.35) 6px, rgba(83,185,86,0.35) 10px,
+        transparent 10px, transparent 16px,
+        rgba(83,185,86,0.35) 16px, rgba(83,185,86,0.35) 20px
+      );
+      -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+      mask-image: linear-gradient(to right, black 60%, transparent 100%);
+    }
+    .chevron-stripe-right .chevron-stripe-inner {
+      left: auto; right: 0;
+      -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
+      mask-image: linear-gradient(to left, black 60%, transparent 100%);
+    }
   </style>
 </head>
 <body>
@@ -395,6 +415,7 @@ footer {
     <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" class="sub-cta" target="_blank">Get Started</a>
   </div>
 </nav>
+<div class="chevron-stripe chevron-stripe-right" style="margin-top: 0;"><div class="chevron-stripe-inner"></div></div>
 
 <!-- HERO -->
 <section class="hero">
@@ -692,6 +713,7 @@ footer {
 </section>
 
 <!-- FOOTER -->
+<div class="chevron-stripe"><div class="chevron-stripe-inner"></div></div>
 <footer class="sub-footer">
   <div class="sub-footer-inner">
     <div class="sub-footer-brand">
