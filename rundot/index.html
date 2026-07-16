@@ -1962,17 +1962,24 @@ function toggleFaq(btn) {
 // Hero headline word-by-word entrance
 (function() {
   const headline = document.getElementById('heroHeadline');
-  const words = 'Hit Your Running <em>Goals</em>'.split(/(\s+|<em>.*?<\/em>)/);
+  const parts = [
+    { text: 'Hit', green: false },
+    { text: 'Your', green: false },
+    { text: '<br>', isBr: true },
+    { text: 'Running', green: true },
+    { text: 'Goals', green: true }
+  ];
   let delay = 0.15;
-  words.forEach(word => {
-    if (!word || /^\s+$/.test(word)) {
-      headline.innerHTML += ' ';
+  parts.forEach(p => {
+    if (p.isBr) {
+      headline.appendChild(document.createElement('br'));
       return;
     }
     const span = document.createElement('span');
     span.className = 'hero-word';
     span.style.animationDelay = delay + 's';
-    span.innerHTML = word + ' ';
+    if (p.green) span.style.color = 'var(--green-light)';
+    span.textContent = p.text + ' ';
     headline.appendChild(span);
     delay += 0.07;
   });
