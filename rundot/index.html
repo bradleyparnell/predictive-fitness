@@ -822,22 +822,26 @@
   @media (max-width: 768px) {
     .phone-layout {
       flex-direction: column;
-      gap: 40px;
+      gap: 32px;
       min-height: auto;
     }
     .phone-widgets-left, .phone-widgets-right {
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
+      gap: 12px;
       margin: 0;
+      padding: 0 16px;
     }
     .phone-widgets-left { order: 2; }
-    .phone-frame { order: 1; }
+    .phone-frame { order: 1; width: 240px; }
     .phone-widgets-right { order: 3; }
-    .pw-gauge { width: 100px; }
-    .pw-notification { width: 200px; }
-    .pw-chart { width: 220px; }
-    .pw-pods { width: 220px; }
+    .pw-gauge { width: 90px; }
+    .pw-notification { width: 180px; }
+    .pw-chart { width: calc(50% - 6px); max-width: 180px; }
+    .pw-pods { width: calc(50% - 6px); max-width: 180px; }
+    .phone-showcase { padding: 64px 0 56px; }
+    .phone-showcase h2 { font-size: 28px; }
   }  /* FEATURE PHOTO - circle + content */
   .feature-photo {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -1256,7 +1260,7 @@
     .nav-hamburger { display: flex; }
     .hero { min-height: 75vh; }
     .hero-content { padding: 120px 24px 60px; }
-    .hero h1 { font-size: 34px; margin-bottom: 18px; }
+    .hero h1 { font-size: 44px; margin-bottom: 18px; }
     .hero-sub { font-size: 16px; max-width: 420px; }
     .hero-cta-row { justify-content: center; }
     .hero-social-proof { flex-direction: column; gap: 8px; margin-top: 24px; }
@@ -1315,7 +1319,7 @@
     .phone-frame-lg { width: 140px; }
     .showcase-phone-float { bottom: -10px; right: 0; }
     .showcase-floating-gauge { width: 70px; }
-    .watch-brands-float { position: relative; bottom: auto; right: auto; margin: 24px auto 0; }
+    .watch-brands-float { position: relative; bottom: auto; right: auto; margin: 24px auto 0; max-width: 100%; box-sizing: border-box; padding: 18px 20px; }
     .moments { padding: 64px 20px; }
     .moments-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .moment-caption { font-size: 14px; }
@@ -1335,7 +1339,7 @@
   @media (max-width: 480px) {
     .hero { min-height: 70vh; }
     .hero-content { padding: 100px 20px 50px; }
-    .hero h1 { font-size: 28px; letter-spacing: -0.02em; }
+    .hero h1 { font-size: 38px; letter-spacing: -0.02em; }
     .hero-sub { font-size: 15px; max-width: 320px; line-height: 1.6; }
     .hero-cta-row { flex-direction: column; align-items: center; gap: 12px; }
     .goal-typewriter { font-size: 17px; }
@@ -1407,6 +1411,11 @@
     .app-showcase { padding: 48px 0 32px; }
     .sticky-cta { padding: 8px 16px; gap: 12px; }
     .sticky-cta p { font-size: 11px; }
+    .watch-brands-float { padding: 14px 16px; border-radius: 16px; }
+    .watch-brands-grid { gap: 10px 16px; }
+    .watch-brand-item svg { width: 80px; height: 20px; }
+    .watch-brand-item .apple-icon { width: 14px; height: 18px; }
+    .watch-brand-item span { font-size: 12px; }
     .sticky-cta .btn-sticky { padding: 6px 14px; font-size: 12px; }
     .nav-mobile-overlay a { font-size: 20px; }
     .back-to-top { bottom: 16px; right: 16px; width: 36px; height: 36px; }
