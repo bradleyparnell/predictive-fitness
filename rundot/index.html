@@ -1295,7 +1295,8 @@
     .how { padding: 64px 20px; }
     .how-narrative { grid-template-columns: 1fr; gap: 32px; max-width: 400px; }
     .how-num { width: 60px; height: 60px; font-size: 24px; }
-    .how-credibility { margin-top: 40px; padding-top: 32px; }
+    .how-credibility { margin-top: 40px; padding-top: 32px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .how-credibility-badge { justify-content: center; flex-wrap: wrap; font-size: 15px; }
     .feature-photo { grid-template-columns: 1fr; padding: 48px 24px; gap: 24px; }
     .feature-photo-circle { width: 260px; height: 260px; justify-self: center; }
     .feature-photo-content { padding: 0 8px; text-align: center; }
@@ -1362,7 +1363,8 @@
     .meb-strip-quote { font-size: 15px; line-height: 1.5; }
     .trust-strip { padding: 28px 16px; }
     .trust-row { gap: 12px; flex-wrap: wrap; justify-content: center; }
-    .trust-item { min-width: 100%; text-align: center; }
+    .trust-item { min-width: 100%; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .how-credibility-badge { justify-content: center; flex-wrap: wrap; font-size: 14px; gap: 8px; }
     .trust-num { font-size: 22px; white-space: nowrap; }
     .trust-label { font-size: 11px; }
     .section { padding: 48px 16px; }
@@ -1728,6 +1730,9 @@
         <div class="phone-widget pw-chart"><img src="./assets/data-session-preview.png" alt="Session Preview chart" loading="lazy"></div>
         <div class="phone-widget pw-gauge"><img src="./assets/icon-stress.png" alt="Stress level indicator" loading="lazy"></div>
       </div>
+    </div>
+    <div style="text-align: center; margin-top: 48px;">
+      <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" class="cta-btn" style="display: inline-block;">Download the App</a>
     </div>
   </div>
 </section><!-- 8. FEATURE PHOTO -->
