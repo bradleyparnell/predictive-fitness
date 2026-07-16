@@ -741,6 +741,170 @@
   }
   .how-credibility-dot svg { width: 18px; height: 18px; stroke: white; fill: none; stroke-width: 2; }
 
+  /* PHONE SHOWCASE */
+  .phone-showcase {
+    padding: 100px 0 80px;
+    background: #0a0a0a;
+    overflow: hidden;
+    position: relative;
+  }
+  .phone-showcase-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+  }
+  .phone-showcase-label {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+  .phone-showcase-label::after {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: var(--green);
+    border-radius: 50%;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+  .phone-showcase h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 12px;
+    line-height: 1.15;
+  }
+  .phone-showcase-sub {
+    font-family: var(--font-body);
+    font-size: 18px;
+    color: rgba(255,255,255,0.55);
+    max-width: 500px;
+    margin: 0 auto 60px;
+    line-height: 1.5;
+  }
+  .phone-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+    min-height: 580px;
+  }
+  /* Floating widgets column */
+  .phone-widgets-left, .phone-widgets-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-shrink: 0;
+    z-index: 2;
+  }
+  .phone-widgets-left { align-items: flex-end; margin-right: -30px; }
+  .phone-widgets-right { align-items: flex-start; margin-left: -30px; }
+  .phone-widget {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .phone-widget.in-view { opacity: 1; transform: translateY(0); }
+  .phone-widget img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .pw-gauge { width: 120px; border-radius: 18px; }
+  .pw-notification { width: 240px; border-radius: 12px; }
+  .pw-chart { width: 260px; border-radius: 16px; }
+  .pw-pods { width: 260px; border-radius: 16px; }
+  /* Phone frame */
+  .phone-frame {
+    position: relative;
+    width: 280px;
+    flex-shrink: 0;
+    z-index: 3;
+  }
+  .phone-bezel {
+    background: #1a1a1a;
+    border-radius: 40px;
+    padding: 12px;
+    box-shadow: 0 0 60px rgba(83,185,86,0.15), 0 20px 60px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .phone-screen {
+    border-radius: 30px;
+    overflow: hidden;
+    background: #111;
+    aspect-ratio: 9/19.5;
+    position: relative;
+  }
+  .phone-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  .phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 28px;
+    background: #1a1a1a;
+    border-radius: 0 0 18px 18px;
+    z-index: 2;
+  }
+  /* Subtle glow behind phone */
+  .phone-frame::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(83,185,86,0.06) 0%, transparent 60%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  /* Stagger delays */
+  .phone-widget:nth-child(1) { transition-delay: 0.1s; }
+  .phone-widget:nth-child(2) { transition-delay: 0.3s; }
+  .phone-widget:nth-child(3) { transition-delay: 0.5s; }
+  .phone-widgets-right .phone-widget:nth-child(1) { transition-delay: 0.2s; }
+  .phone-widgets-right .phone-widget:nth-child(2) { transition-delay: 0.4s; }
+  .phone-widgets-right .phone-widget:nth-child(3) { transition-delay: 0.6s; }
+  /* Mobile */
+  @media (max-width: 768px) {
+    .phone-layout {
+      flex-direction: column;
+      gap: 40px;
+      min-height: auto;
+    }
+    .phone-widgets-left, .phone-widgets-right {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0;
+    }
+    .phone-widgets-left { order: 2; }
+    .phone-frame { order: 1; }
+    .phone-widgets-right { order: 3; }
+    .pw-gauge { width: 100px; }
+    .pw-notification { width: 200px; }
+    .pw-chart { width: 220px; }
+    .pw-pods { width: 220px; }
+  }
+
   /* FEATURE PHOTO - circle + content */
   .feature-photo {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -1688,7 +1852,37 @@
         <div class="how-credibility-dot">
           <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
-        <span>Powered by <img src="./assets/fitlogic-logo-dark.svg" alt="FitLogic™" style="height: 18px; vertical-align: middle; margin: 0 4px; opacity: 0.85;"> · 20 years of real athlete data</span>
+        <span>Powered by <img src="./assets/fitlogic-logo-dark.svg" alt="FitLogic™" style="height: 18px; vertical-align: middle; margin: 0 4px; opacity: 0.85;"> 20 years of real athlete data</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 7b. PHONE SHOWCASE -->
+<section class="phone-showcase">
+  <div class="phone-showcase-inner">
+    <div class="phone-showcase-label">The App</div>
+    <h2>Everything you need.<br>Nothing you don't.</h2>
+    <p class="phone-showcase-sub">Your training, your metrics, your next run - all in one place.</p>
+    <div class="phone-layout">
+      <div class="phone-widgets-left">
+        <div class="phone-widget pw-gauge"><img src="./assets/icon-dot-score.png" alt="Dot Score™ gauge" loading="lazy"></div>
+        <div class="phone-widget pw-notification"><img src="./assets/notification-start-workout.png" alt="Start Workout notification" loading="lazy"></div>
+        <div class="phone-widget pw-gauge"><img src="./assets/icon-training-goal.png" alt="Training Goal progress" loading="lazy"></div>
+      </div>
+      <div class="phone-frame fade-up">
+        <div class="phone-bezel">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <img src="./assets/app-screen-mobile-home.png" alt="RunDot app home screen" loading="lazy">
+          </div>
+        </div>
+      </div>
+      <div class="phone-widgets-right">
+        <div class="phone-widget pw-gauge"><img src="./assets/icon-trainx.png" alt="TrainX® score" loading="lazy"></div>
+        <div class="phone-widget pw-chart"><img src="./assets/data-session-preview.png" alt="Session Preview chart" loading="lazy"></div>
+        <div class="phone-widget pw-gauge"><img src="./assets/icon-stress.png" alt="Stress level indicator" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -1810,25 +2004,25 @@
         <div class="athlete-scroll-circle"><img src="./assets/runner-woman-road.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-trail-flat.jpg" alt="Runner" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/rundot-next-photo-2.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-beach-sunrise.jpg" alt="Runner" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/rundot-next-photo-3.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-country-road.jpg" alt="Runner" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/rundot-next-photo-6.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
         <div class="athlete-scroll-circle"><img src="./assets/runner-tattooed-road.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-silhouette-sunrise.jpg" alt="Runner" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/rundot-next-photo-10.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-road-serious.jpg" alt="Runner" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/rundot-next-photo-11.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/moments-elite-female.jpg" alt="Runner" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/rundot-next-photo-4.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <!-- Duplicate set for seamless loop -->
       <div class="athlete-scroll-item">
@@ -1847,25 +2041,25 @@
         <div class="athlete-scroll-circle"><img src="./assets/runner-woman-road.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-trail-flat.jpg" alt="Runner" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/rundot-next-photo-2.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-beach-sunrise.jpg" alt="Runner" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/rundot-next-photo-3.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-country-road.jpg" alt="Runner" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/rundot-next-photo-6.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
         <div class="athlete-scroll-circle"><img src="./assets/runner-tattooed-road.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-silhouette-sunrise.jpg" alt="Runner" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/rundot-next-photo-10.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/runner-road-serious.jpg" alt="Runner" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/rundot-next-photo-11.jpg" alt="Runner" loading="lazy"></div>
       </div>
       <div class="athlete-scroll-item">
-        <div class="athlete-scroll-circle"><img src="./assets/moments-elite-female.jpg" alt="Runner" loading="lazy"></div>
+        <div class="athlete-scroll-circle"><img src="./assets/rundot-next-photo-4.jpg" alt="Runner" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -2371,6 +2565,16 @@ document.querySelectorAll('.feature-photo-circle').forEach(el => ringObserver.ob
   }, { threshold: 0.3 });
   document.querySelectorAll('.meb-strip-inner').forEach(el => mebObs.observe(el));
 })();
+
+  // Phone widget animation
+  const phoneWidgets = document.querySelectorAll('.phone-widget');
+  if (phoneWidgets.length > 0) {
+    const pwObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); pwObs.unobserve(e.target); } });
+    }, { threshold: 0.2 });
+    phoneWidgets.forEach(w => pwObs.observe(w));
+  }
+
 </script>
 
 </body>
