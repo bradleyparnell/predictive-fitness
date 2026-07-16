@@ -67,27 +67,11 @@ sup { font-size: 0.5em; vertical-align: super; }
 }
 .btn-dark:hover { background: #2a2a3e; transform: translateY(-2px); }
 
-/* ========== DOT STRIPES ========== */
-.dot-stripes {
-  position: relative; overflow: hidden;
-}
-.dot-stripes::before, .dot-stripes::after {
-  content: ''; position: absolute;
-  height: 24px; width: 55%;
-  background: repeating-linear-gradient(
-    to bottom, #53b956 0px, #53b956 4px, transparent 4px, transparent 10px
-  );
-  opacity: 0.35; pointer-events: none; z-index: 1;
-}
-.dot-stripes::before {
-  top: 30px; left: 0;
-  mask-image: linear-gradient(to right, rgba(0,0,0,1) 60%, transparent);
-  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 60%, transparent);
-}
-.dot-stripes::after {
-  top: 64px; right: 0;
-  mask-image: linear-gradient(to left, rgba(0,0,0,1) 60%, transparent);
-  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 60%, transparent);
+/* ========== SECTION DIVIDER ========== */
+.section-divider {
+  width: 80px; height: 3px;
+  background: #53b956; opacity: 0.4;
+  margin: 0 auto; border-radius: 2px;
 }
 
 /* ========== NAV ========== */
@@ -176,28 +160,63 @@ nav.scrolled .hamburger span { background: #1a1a2e; }
   font-size: 20px; color: rgba(255,255,255,0.8);
   line-height: 1.6; margin-bottom: 36px; max-width: 540px;
 }
-.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+.hero-social-proof {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+}
+.hero-avatars { display: flex; }
+.avatar-circle {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #53b956; color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid rgba(255,255,255,0.3);
+  margin-right: -8px;
+}
+.avatar-plus { background: #3a8a3d; }
+.hero-social-text {
+  font-size: 14px; color: rgba(255,255,255,0.7);
+}
+.hero-social-text strong { color: #fff; }
+/* Hero Meb credibility */
+.hero-meb {
+  position: absolute; bottom: 60px; left: 0; right: 0;
+  z-index: 3; padding: 0 40px;
+  display: flex; align-items: center; gap: 24px;
+  max-width: 800px;
+  margin-left: max(6vw, 60px);
+}
+.hero-meb-photo {
+  width: 120px; height: 120px; border-radius: 50%;
+  object-fit: cover; flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(83,185,86,0.4), 0 0 30px rgba(83,185,86,0.15);
+}
+.hero-meb-text blockquote {
+  font-size: 17px; font-style: italic; color: rgba(255,255,255,0.9);
+  line-height: 1.5; margin-bottom: 8px;
+}
+.hero-meb-text cite {
+  font-size: 13px; color: rgba(255,255,255,0.7); font-style: normal; font-weight: 600;
+}
+.hero-meb-text cite span {
+  font-weight: 400; color: rgba(255,255,255,0.5);
+}
 
-/* ========== ATHLETE GALLERY (horizontal scroll) ========== */
+/* ========== ATHLETE GALLERY (fixed) ========== */
 .athlete-gallery {
   background: #f8f9fa;
-  padding: 20px 0;
-  overflow: hidden;
+  padding: 24px 0;
 }
-.athlete-scroll {
-  display: flex; gap: 24px;
-  animation: scrollAthletes 30s linear infinite;
-  width: max-content;
+.athlete-row {
+  display: flex; justify-content: center; gap: 24px;
+  flex-wrap: wrap;
 }
-.athlete-scroll img {
-  width: 110px; height: 110px;
+.athlete-row img {
+  width: 100px; height: 100px;
   border-radius: 50%; object-fit: cover;
   border: 3px solid #53b956;
   flex-shrink: 0;
-}
-@keyframes scrollAthletes {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
 }
 
 /* ========== THE QUESTION (Competitive Wedge #1) ========== */
@@ -492,11 +511,12 @@ nav.scrolled .hamburger span { background: #1a1a2e; }
   margin-bottom: 60px; line-height: 1.6;
 }
 .fitlogic-name {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 56px; font-weight: 800; color: #53b956;
   margin-bottom: 16px;
   opacity: 0; animation: revealFade 1s ease forwards;
   animation-delay: 0.5s;
+}
+.fitlogic-logo-reveal {
+  height: 48px; margin: 0 auto;
 }
 @keyframes revealFade {
   to { opacity: 1; }
@@ -871,7 +891,10 @@ footer {
   .hero-content p { font-size: 15px; }
   .btn-primary, .btn-secondary, .btn-dark { padding: 14px 28px; font-size: 14px; }
   .section-eyebrow { font-size: 16px; letter-spacing: 2px; }
-  .athlete-scroll img { width: 64px; height: 64px; }
+  .athlete-row img { width: 56px; height: 56px; gap: 12px; }
+  .hero-meb-photo { width: 72px; height: 72px; }
+  .hero-meb-text blockquote { font-size: 14px; }
+  .hero-meb { padding: 0 16px; gap: 16px; }
   .the-question { padding: 80px 0; }
   .the-question h2 { font-size: 24px; }
   .the-question .subtitle { font-size: 16px; }
@@ -988,7 +1011,6 @@ footer {
   <div class="nav-links">
     <a href="#how-it-knows">How It Works</a>
     <a href="#showcase">Features</a>
-    <a href="#pricing">Pricing</a>
     <a href="resources/">Resources</a>
     <a href="#final-cta" class="nav-cta">Get your first workout</a>
   </div>
@@ -1020,17 +1042,31 @@ footer {
       <a href="#final-cta" class="btn-primary">Get your first workout</a>
       <a href="#the-question" class="btn-secondary">See how it works</a>
     </div>
+    <!-- Social proof strip -->
+    <div class="hero-social-proof">
+      <div class="hero-avatars">
+        <span class="avatar-circle">JM</span>
+        <span class="avatar-circle">SR</span>
+        <span class="avatar-circle">TK</span>
+        <span class="avatar-circle">AB</span>
+        <span class="avatar-circle avatar-plus">+</span>
+      </div>
+      <span class="hero-social-text"><strong>50,000+ runners</strong> already training smarter</span>
+    </div>
+  </div>
+  <!-- Meb credibility block -->
+  <div class="hero-meb">
+    <img src="../assets/meb-medals-bw.jpg" alt="Meb Keflezighi" class="hero-meb-photo">
+    <div class="hero-meb-text">
+      <blockquote>"RunDot's technology is so far ahead of anything else I've seen, and I want the absolute best for my athletes."</blockquote>
+      <cite>Meb Keflezighi · RunDot<sup>™</sup> Partner<br><span>Olympic Marathon Silver Medalist · Boston & NYC Marathon Champion</span></cite>
+    </div>
   </div>
 </section>
 
 <!-- ATHLETE GALLERY -->
 <section class="athlete-gallery">
-  <div class="athlete-scroll">
-    <img src="../assets/charlotte-kooima.jpg" alt="Athlete">
-    <img src="../assets/bryan-mumfrey.jpg" alt="Athlete">
-    <img src="../assets/courtney-baxter.jpg" alt="Athlete">
-    <img src="../assets/meghan-mozi.jpg" alt="Athlete">
-    <img src="../assets/elizabeth-tx.jpg" alt="Athlete">
+  <div class="athlete-row">
     <img src="../assets/charlotte-kooima.jpg" alt="Athlete">
     <img src="../assets/bryan-mumfrey.jpg" alt="Athlete">
     <img src="../assets/courtney-baxter.jpg" alt="Athlete">
@@ -1238,7 +1274,7 @@ footer {
     <div class="section-eyebrow" style="justify-content: center; color: #53b956;">UNDER THE HOOD</div>
     <h2>The engine behind every decision</h2>
     <p class="lead">Every workout, every pace, every recovery window - calculated by a training intelligence years in the making.</p>
-    <div class="fitlogic-name">FitLogic<sup>™</sup></div>
+    <div class="fitlogic-name"><img src="../assets/fitlogic-logo-dark.svg" alt="FitLogic" class="fitlogic-logo-reveal"></div>
     <p class="fitlogic-tagline">Predictive training intelligence</p>
     <div class="fitlogic-stats">
       <div class="fitlogic-stat">
@@ -1347,7 +1383,8 @@ footer {
 </section>
 
 <!-- WATCH -->
-<section class="watch-section dot-stripes">
+<div class="section-divider"></div>
+<section class="watch-section">
   <div class="container reveal">
     <div class="section-eyebrow" style="justify-content: center;">SEAMLESS</div>
     <h2>Connects to your favorite running watch</h2>
@@ -1356,53 +1393,7 @@ footer {
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="pricing-ribbon" id="pricing">
-  <div class="container reveal">
-    <div class="section-eyebrow" style="justify-content: center;">PRICING</div>
-    <h2>Find your plan</h2>
-    <p class="pricing-sub">Start free. Upgrade when you are ready.</p>
-    <div class="pricing-cards">
-      <div class="pricing-card">
-        <div class="plan-name">Lifestyle</div>
-        <div class="price">$13<span>/mo</span></div>
-        <p class="plan-desc">For runners building a consistent habit</p>
-        <ul>
-          <li>Adaptive daily workouts</li>
-          <li>Dot Score<sup>™</sup> tracking</li>
-          <li>Watch integration</li>
-          <li>Training calendar</li>
-        </ul>
-        <a href="#final-cta" class="btn-primary" style="width: 100%; justify-content: center;">Get started</a>
-      </div>
-      <div class="pricing-card featured">
-        <div class="plan-name">Performance</div>
-        <div class="price">$36<span>/mo</span></div>
-        <p class="plan-desc">For goal-driven runners chasing a time</p>
-        <ul>
-          <li>Everything in Lifestyle</li>
-          <li>Race-specific training plans</li>
-          <li>TrainX<sup>®</sup> execution scoring</li>
-          <li>Advanced analytics</li>
-          <li>Race time predictions</li>
-        </ul>
-        <a href="#final-cta" class="btn-primary" style="width: 100%; justify-content: center;">Get started</a>
-      </div>
-      <div class="pricing-card">
-        <div class="plan-name">Premium Coached</div>
-        <div class="price">$149<span>/mo</span></div>
-        <p class="plan-desc">For runners who want human expertise + AI</p>
-        <ul>
-          <li>Everything in Performance</li>
-          <li>Certified running coach</li>
-          <li>Monthly check-ins</li>
-          <li>Plan customization</li>
-        </ul>
-        <a href="#final-cta" class="btn-primary" style="width: 100%; justify-content: center;">Get started</a>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- FAQ -->
 <section class="faq">
@@ -1508,7 +1499,6 @@ footer {
       <div class="footer-col">
         <h4>Product</h4>
         <a href="#showcase">Features</a>
-        <a href="#pricing">Pricing</a>
         <a href="resources/">Resources</a>
         <a href="#how-it-knows">How It Works</a>
       </div>
@@ -1535,7 +1525,7 @@ footer {
       </div>
     </div>
     <div style="text-align: center; margin-top: 20px;">
-      <img src="../assets/fitlogic-logo-white.svg" alt="Powered by FitLogic" style="height: 32px; opacity: 0.7;">
+      <img src="../assets/fitlogic-logo-white.svg" alt="Powered by FitLogic" style="height: 20px; opacity: 0.5;">
     </div>
   </div>
 </footer>
