@@ -13,6 +13,10 @@
 <meta property="og:image" content="https://bradleyparnell.github.io/predictive-fitness/rundot/assets/hero-bright-runner.jpg">
 <meta property="og:url" content="https://bradleyparnell.github.io/predictive-fitness/rundot/">
 <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RunDot™ | Trust the Run">
+<meta name="twitter:description" content="Know you're doing the right run today. Trust the run.">
+<meta name="twitter:image" content="https://bradleyparnell.github.io/predictive-fitness/rundot/assets/hero-bright-runner.jpg">
 <link rel="preload" as="video" href="./assets/hero-video.mp4" type="video/mp4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +43,8 @@
     --font-body: 'DM Sans', sans-serif;
     --font-display: 'Plus Jakarta Sans', sans-serif;
   }  html { scroll-behavior: smooth; }
-  body { font-family: var(--font-body); background: var(--white); color: var(--text); overflow-x: hidden; }  /* BRAND DOT STRIPE */
+  body { font-family: var(--font-body); background: var(--white); color: var(--text); overflow-x: hidden; opacity: 0; transition: opacity 0.6s ease; }
+  body.loaded { opacity: 1; }  /* BRAND DOT STRIPE */
   .chevron-stripe {
     height: 24px;
     position: relative;
@@ -1452,6 +1457,110 @@
     .familiar-card { border-radius: 20px; }
     .familiar-answer { font-size: 15px; padding: 0 12px; }
   }
+  /* ACCESSIBILITY: Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .parallax-bg { transform: none !important; }
+    html { scroll-behavior: auto; }
+  }
+  /* ACCESSIBILITY: Focus states */
+  :focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  .btn-primary:focus-visible, .btn-outline:focus-visible {
+    outline: 2px solid var(--green-light);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 4px rgba(83,185,86,0.2);
+  }
+  .faq-q:focus-visible { outline: 2px solid var(--green); outline-offset: -2px; border-radius: 8px; }
+  /* How It Works step hover */
+  .how-step {
+    padding: 28px 20px;
+    border-radius: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  }
+  .how-step:hover {
+    transform: translateY(-4px);
+    background: var(--green-soft);
+    box-shadow: 0 8px 32px rgba(83,185,86,0.08);
+  }
+  /* CTA press micro-interaction */
+  .btn-primary:active { transform: scale(0.97) !important; transition-duration: 0.1s !important; }
+  .btn-outline:active { transform: scale(0.97) !important; transition-duration: 0.1s !important; }
+  /* Phone showcase 3D perspective */
+  .phone-frame {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  .phone-frame:hover {
+    transform: rotateY(-3deg) rotateX(2deg) scale(1.02);
+  }
+  /* Footer link hover underline */
+  .footer-col a {
+    position: relative;
+  }
+  .footer-col a::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 0; height: 1px;
+    background: var(--green-light);
+    transition: width 0.3s ease;
+  }
+  .footer-col a:hover::after { width: 100%; }
+  /* Green line shimmer after draw */
+  @keyframes lineShimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  .green-line-sep.line-visible {
+    background: linear-gradient(90deg, var(--green) 30%, var(--green-light) 50%, var(--green) 70%);
+    background-size: 200% 100%;
+    animation: lineShimmer 3s ease-in-out 1s 1;
+  }
+  /* Smoother section transitions */
+  .how-it-knows { position: relative; }
+  .how-it-knows::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 0; right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, var(--white), transparent);
+    z-index: 1;
+    pointer-events: none;
+  }
+  /* Why Do You Run cascade reveal */
+  .why-run-stanza {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .why-run-stanza.cascade-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* Manifesto line-by-line reveal */
+  .manifesto-line, .manifesto-sub {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .manifesto-line.manifesto-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .manifesto-sub.manifesto-revealed {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+  }
 </style>
 </head>
 <body><!-- TOP DOT STRIPE -->
@@ -1479,7 +1588,7 @@
   <a href="#" class="btn-sticky" onclick="event.preventDefault();openQR()">Get your first workout</a>
 </div><!-- 1. HERO - VIDEO -->
 <section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
+  <video class="hero-video" autoplay muted loop playsinline poster="./assets/hero-bright-runner.jpg">
     <source src="./assets/hero-video.mp4" type="video/mp4">
   </video>
   <div class="hero-content" id="heroContent">
@@ -1842,18 +1951,18 @@
   <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0.6) 0%, rgba(15,23,42,0.3) 50%, rgba(15,23,42,0.7) 100%);"></div>
   <div style="position: relative; z-index: 2; max-width: 680px; margin: 0 auto;">
     <p style="font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px); font-weight: 800; color: white; letter-spacing: -0.02em; margin-bottom: 48px;">Why do you run?</p>
-    <p style="font-size: 19px; color: rgba(255,255,255,0.7); line-height: 2.2; margin-bottom: 0;">
+    <p class="why-run-stanza" style="font-size: 19px; color: rgba(255,255,255,0.7); line-height: 2.2; margin-bottom: 0;">
       Not for another graph.<br>
       Not for another workout.<br>
       Not for another notification.
     </p>
-    <p style="font-size: 19px; color: rgba(255,255,255,0.85); line-height: 1.8; margin-top: 40px;">
+    <p class="why-run-stanza" style="font-size: 19px; color: rgba(255,255,255,0.85); line-height: 1.8; margin-top: 40px;">
       You run because something inside you believes you're capable of more.
     </p>
-    <p style="font-size: 19px; color: rgba(255,255,255,0.7); line-height: 1.8; margin-top: 40px;">
+    <p class="why-run-stanza" style="font-size: 19px; color: rgba(255,255,255,0.7); line-height: 1.8; margin-top: 40px;">
       To finish what you started. To prove something to yourself.<br>Whatever your goal, it starts with trusting today's run.
     </p>
-    <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" class="btn-primary" style="margin-top: 32px; display: inline-block;">Plan your next run</a>
+    <a href="#" class="btn-primary" style="margin-top: 32px; display: inline-block;" onclick="event.preventDefault();openQR()">Plan your next run</a>
   </div>
 </section><!-- FAQ -->
 <section class="faq-section">
@@ -2328,5 +2437,54 @@ function closeMobileNav() {
   if (hamburger) hamburger.classList.remove('open');
   document.body.style.overflow = '';
 }
+
+// Page load fade-in
+window.addEventListener('DOMContentLoaded', function() {
+  requestAnimationFrame(function() { document.body.classList.add('loaded'); });
+});
+
+// Why Do You Run cascade reveal
+(function() {
+  const cascadeObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        var stanzas = e.target.closest('.why-run').querySelectorAll('.why-run-stanza');
+        stanzas.forEach(function(s, i) {
+          setTimeout(function() { s.classList.add('cascade-visible'); }, i * 400);
+        });
+        cascadeObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.why-run-stanza').forEach(function(el) {
+    if (el === el.parentElement.querySelector('.why-run-stanza')) cascadeObs.observe(el);
+  });
+})();
+
+// Manifesto line-by-line reveal
+(function() {
+  var mObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        var lines = e.target.querySelectorAll('.manifesto-line, .manifesto-sub');
+        lines.forEach(function(l, i) {
+          setTimeout(function() { l.classList.add('manifesto-revealed'); }, i * 250);
+        });
+        mObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.manifesto-inner').forEach(function(el) { mObs.observe(el); });
+})();
+
+// FAQ keyboard support
+document.querySelectorAll('.faq-q').forEach(function(btn) {
+  btn.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleFaq(btn);
+    }
+  });
+});
 </script></body>
 </html>
