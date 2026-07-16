@@ -841,7 +841,10 @@
     .pw-chart { width: calc(50% - 6px); max-width: 180px; }
     .pw-pods { width: calc(50% - 6px); max-width: 180px; }
     .phone-showcase { padding: 64px 0 56px; }
+    .phone-showcase::before { background: rgba(10,10,10,0.55); }
     .phone-showcase h2 { font-size: 28px; }
+    .phone-widgets-left, .phone-widgets-right { overflow: visible; max-width: 100%; }
+    .phone-widget img { max-width: 100%; }
   }  /* FEATURE PHOTO - circle + content */
   .feature-photo {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -1395,6 +1398,15 @@
     .showcase-circle { width: 220px; height: 220px; }
     .showcase-laptop-float { width: 180px; }
     .phone-frame-lg { width: 120px; }
+    .phone-showcase { padding: 48px 0 40px; }
+    .phone-showcase::before { background: rgba(10,10,10,0.45); }
+    .phone-showcase h2 { font-size: 24px; }
+    .phone-frame { width: 200px; }
+    .pw-gauge { width: 75px; }
+    .pw-notification { width: 150px; }
+    .pw-chart { max-width: 150px; }
+    .pw-pods { max-width: 150px; }
+    .phone-widgets-left, .phone-widgets-right { gap: 8px; padding: 0 8px; }
     .moments { padding: 48px 16px; }
     .moments-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
     .moment-caption { font-size: 13px; }
