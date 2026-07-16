@@ -1468,7 +1468,7 @@
       <div class="familiar-card"><p>Am I doing<br>enough?</p></div>
       <div class="familiar-card"><p>Am I doing<br>too much?</p></div>
       <div class="familiar-card"><p>Am I actually<br>getting faster?</p></div>
-      <div class="familiar-card"><p>I have a goal but no idea<br>how to train for it</p></div>
+      <div class="familiar-card"><p>How do I train<br>for my goal race?</p></div>
     </div>
     <p style="font-family: var(--font-display); font-size: 20px; font-weight: 500; color: #fff; text-align: center; margin: 32px auto 0; letter-spacing: -0.01em; text-shadow: 0 2px 12px rgba(0,0,0,0.5); position: relative; z-index: 2;">You shouldn't have to answer those alone.</p>
   </div>
@@ -2124,13 +2124,13 @@ const counterObserver = new IntersectionObserver((entries) => {
           num.appendChild(document.createTextNode(' '));
           num.appendChild(greenSpan);
           animateCounter(numSpan, 20, '+ ');
-        } else if (text.includes('4.9')) {
+        } else if (text.includes('4.4')) {
           const numSpan = document.createElement('span');
           numSpan.textContent = '0.0';
           num.textContent = '';
           num.appendChild(numSpan);
           num.appendChild(greenSpan);
-          animateCounter(numSpan, 4.9, '');
+          animateCounter(numSpan, 4.4, '');
         }
       });
       counterObserver.unobserve(el);
@@ -2245,33 +2245,6 @@ document.querySelectorAll('.feature-photo-circle').forEach(el => ringObserver.ob
     el.style.transitionDelay = (i * 0.15) + 's';
     trustObserver.observe(el);
   });
-  // Animate the "20+" number counting up
-  const trustNums = document.querySelectorAll('.trust-num');
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target;
-      const text = el.textContent;
-      const match = text.match(/^(\d+)/);
-      if (match) {
-        const target = parseInt(match[1]);
-        const suffix = text.slice(match[1].length);
-        let current = 0;
-        const duration = 1200;
-        const startTime = performance.now();
-        function tick(now) {
-          const progress = Math.min((now - startTime) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          current = Math.round(eased * target);
-          el.innerHTML = current + suffix;
-          if (progress < 1) requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-      }
-      counterObserver.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-  trustNums.forEach(el => counterObserver.observe(el));
 })();
 
 // 2. Partner logos stagger fade-in
