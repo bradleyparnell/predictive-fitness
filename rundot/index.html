@@ -46,7 +46,7 @@
   
   /* Prevent horizontal scroll */
   html { overflow-x: clip; } html, body { overflow-x: hidden; max-width: 100%; }
-  section, .trust-strip, .partners, footer, .app-showcase, .phone-showcase, .familiar-photo, .meb-strip { max-width: 100%; overflow-x: clip; }
+  section, .trust-strip, .partners, footer, .app-showcase, .phone-showcase, .familiar-photo, .meb-strip { max-width: 100%; box-sizing: border-box; }
   body { font-family: var(--font-body); background: var(--white); color: var(--text); overflow-x: hidden; opacity: 0; transition: opacity 0.6s ease; }
   body.loaded { opacity: 1; }  /* BRAND DOT STRIPE */
   .chevron-stripe {
