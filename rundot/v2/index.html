@@ -1,1236 +1,2566 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RunDot - Trust the Run</title>
+<title>RunDot™ | Trust the Run</title>
+<meta name="description" content="RunDot™ - know you're doing the right run today so you can enjoy more meaningful running experiences tomorrow.">
+<meta property="og:title" content="RunDot™ | Trust the Run">
+<meta property="og:description" content="Know you're doing the right run today. Trust the run.">
+<meta property="og:image" content="https://bradleyparnell.github.io/predictive-fitness/rundot/assets/hero-bright-runner.jpg">
+<meta property="og:url" content="https://bradleyparnell.github.io/predictive-fitness/rundot/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RunDot™ | Trust the Run">
+<meta name="twitter:description" content="Know you're doing the right run today. Trust the run.">
+<meta name="twitter:image" content="https://bradleyparnell.github.io/predictive-fitness/rundot/assets/hero-bright-runner.jpg">
+<link rel="preload" as="video" href="../assets/hero-video.mp4" type="video/mp4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 <style>
-/* ========== RESET & BASE ========== */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'DM Sans', sans-serif;
-  color: #1a1a2e;
-  background: #ffffff;
-  line-height: 1.6;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-h1, h2, h3, h4, h5 { font-family: 'Plus Jakarta Sans', sans-serif; }
-a { text-decoration: none; color: inherit; }
-img { max-width: 100%; display: block; }
-sup { font-size: 0.5em; vertical-align: super; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }  .tm { font-size: 0.6em; vertical-align: super; line-height: 0; }
+  :root {
+    --green: #53b956;
+    --green-light: #6dd070;
+    --green-soft: rgba(83,185,86,0.08);
+    --green-border: rgba(83,185,86,0.2);
+    --green-dim: rgba(83,185,86,0.12);
+    --dark: #111827;
+    --dark-2: #1f2937;
+    --text: #1a1a2e;
+    --text-secondary: #4b5563;
+    --text-muted: #6b7280;
+    --text-light: #9ca3af;
+    --white: #ffffff;
+    --off-white: #f9fafb;
+    --light-bg: #f3f4f6;
+    --border: #e5e7eb;
+    --border-light: #f0f0f0;
+    --font-body: 'DM Sans', sans-serif;
+    --font-display: 'Plus Jakarta Sans', sans-serif;
+  }  html { scroll-behavior: smooth; }
+  
+  /* Prevent horizontal scroll */
+  html { overflow-x: clip; } html, body { overflow-x: hidden; max-width: 100%; }
+  section, .trust-strip, .partners, footer, .app-showcase, .phone-showcase, .familiar-photo, .meb-strip { max-width: 100%; box-sizing: border-box; }
+  body { font-family: var(--font-body); background: var(--white); color: var(--text); overflow-x: hidden; opacity: 0; transition: opacity 0.6s ease; }
+  body.loaded { opacity: 1; }  /* BRAND DOT STRIPE */
+  .chevron-stripe {
+    height: 24px;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    margin-top: -12px;
+    z-index: 2;
+  }
+  .chevron-stripe-inner {
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 55%;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent, transparent 6px,
+      rgba(83,185,86,0.35) 6px, rgba(83,185,86,0.35) 10px,
+      transparent 10px, transparent 16px,
+      rgba(83,185,86,0.35) 16px, rgba(83,185,86,0.35) 20px
+    );
+    -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+    mask-image: linear-gradient(to right, black 60%, transparent 100%);
+  }
+  .chevron-stripe-right .chevron-stripe-inner {
+    left: auto; right: 0;
+    -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
+    mask-image: linear-gradient(to left, black 60%, transparent 100%);
+  }
+  .chevron-stripe::after { display: none; }
+  .chevron-stripe-dark { background: transparent; }  /* Athlete gallery scroll strip */
+  @keyframes athleteScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @media (max-width: 768px) {
+      }
+  .chevron-stripe-dark::after { display: none; }
+  .chevron-stripe-subtle { height: 28px; margin-top: -14px; }
+  .chevron-stripe-subtle .chevron-stripe-inner { opacity: 0.7; }  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border-light);
+    transition: box-shadow 0.3s ease;
+  }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
+  .nav-logo img { height: 28px; width: auto; }
+  .nav-links { display: flex; gap: 36px; align-items: center; }
+  .nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 14px; font-weight: 500; letter-spacing: 0.02em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-login { border: 1px solid var(--border); padding: 8px 18px; border-radius: 6px; font-weight: 600 !important; color: var(--text) !important; transition: border-color 0.2s, background 0.2s !important; }
+  .nav-login:hover { border-color: var(--text-muted) !important; background: var(--off-white) !important; }
+  .nav-cta { background: var(--green); color: var(--white) !important; padding: 10px 22px; border-radius: 6px; font-weight: 600 !important; transition: background 0.2s !important; border: none; }
+  .nav-cta:hover { background: var(--green-light) !important; }  /* HERO - VIDEO */
+  .hero {
+    position: relative; min-height: 82vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; background: #0a0a0a;
+  }
+  .hero-video {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; opacity: 0.6;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.55) 100%);
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center; max-width: 780px;
+    padding: 180px 32px 60px;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 6.5vw, 82px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -0.03em;
+    color: var(--white);
+  }
+  .hero h1 em { font-style: italic; color: var(--green-light); }
+  .hero-sub {
+    font-size: 19px; font-weight: 400; color: rgba(255,255,255,0.85);
+    max-width: 540px; margin: 0 auto 40px; line-height: 1.7;
+    letter-spacing: 0.01em;
+  }
+  .hero-cta-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }  /* Goal vertical slider */
+  /* Goal typewriter */
+  .goal-typewriter {
+    display: inline-flex; align-items: baseline; gap: 0;
+    margin-top: 48px; margin-bottom: 96px; font-family: var(--font-display);
+    font-size: 22px; letter-spacing: -0.01em;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50px;
+    padding: 12px 28px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .goal-typewriter-prefix {
+    font-weight: 500; color: rgba(255,255,255,0.6);
+    white-space: pre;
+  }
+  .goal-typewriter-text {
+    font-weight: 700; color: #53b956;
+    white-space: nowrap;
+    min-width: 2px;
+  }
+  .goal-typewriter-cursor {
+    display: inline-block; width: 2px; height: 0.85em;
+    background: #53b956; margin-left: 2px;
+    animation: cursorBlink 0.8s ease-in-out infinite;
+    vertical-align: baseline;
+    position: relative;
+    top: -0.05em;
+  }
+  @keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  .distance-cursor {
+    display: inline-block; width: 3px; height: 0.85em;
+    background: var(--green); margin-left: 3px;
+    animation: cursorBlink 1s ease-in-out infinite;
+    vertical-align: baseline;
+    color: transparent; overflow: hidden;
+  }  /* HOW IT KNOWS (timeline) */
+  .how-it-knows {
+    padding: 100px 0;
+    background: var(--off-white);
+  }
+  .how-it-knows-header {
+    text-align: center; margin-bottom: 60px;
+  }
+  .how-it-knows-header h2 {
+    font-family: var(--font-display);
+    font-size: 38px; font-weight: 800; color: var(--text);
+    margin-bottom: 14px; letter-spacing: -0.02em;
+  }
+  .how-it-knows-header p {
+    font-size: 18px; color: #666; max-width: 560px; margin: 0 auto;
+    font-family: var(--font-body);
+  }
+  .intelligence-timeline {
+    max-width: 660px; margin: 0 auto;
+    position: relative; padding-left: 56px;
+  }
+  .intelligence-timeline::before {
+    content: ''; position: absolute;
+    left: 18px; top: 0; bottom: 0;
+    width: 3px; background: linear-gradient(to bottom, #53b956, rgba(83,185,86,0.2));
+    border-radius: 3px;
+  }
+  .timeline-item {
+    position: relative; margin-bottom: 40px;
+    padding: 28px; background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    opacity: 0; transform: translateX(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .timeline-item.timeline-visible {
+    opacity: 1; transform: translateX(0);
+  }
+  .timeline-item::before {
+    content: ''; position: absolute;
+    left: -37px; top: 50%;
+    width: 24px; height: 24px;
+    background: #53b956; border-radius: 50%;
+    border: 4px solid var(--off-white);
+    transform: translateX(-50%) translateY(-50%) scale(0);
+    transition: transform 0.4s ease 0.2s;
+  }
+  .timeline-item.timeline-visible::before {
+    transform: translateX(-50%) translateY(-50%) scale(1);
+  }
+  .timeline-item::after {
+    content: ''; position: absolute;
+    left: -37px; top: 50%;
+    width: 10px; height: 10px;
+    background: rgba(83,185,86,0.3); border-radius: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    animation: none;
+  }
+  .timeline-item.timeline-visible::after {
+    animation: timelinePulse 2s ease-in-out infinite;
+  }
+  @keyframes timelinePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(83,185,86,0.3); }
+    50% { box-shadow: 0 0 0 10px rgba(83,185,86,0); }
+  }
+  .timeline-item .step-label {
+    font-family: var(--font-display);
+    font-size: 11px; font-weight: 800; letter-spacing: 3px;
+    text-transform: uppercase; color: #53b956;
+    margin-bottom: 6px;
+  }
+  .timeline-item h3 {
+    font-family: var(--font-display);
+    font-size: 18px; font-weight: 700; color: var(--text);
+    margin-bottom: 6px;
+  }
+  .timeline-item p {
+    font-size: 14px; color: #666; line-height: 1.6;
+    font-family: var(--font-body);
+  }  /* MEB ENDORSEMENT STRIP */
+  .meb-strip {
+    background: var(--white); padding: 40px 32px 24px;
+    position: relative; z-index: 10;
+  }
+  .meb-strip-inner {
+    max-width: 900px; margin: 0 auto;
+    display: flex; align-items: flex-start; gap: 40px;
+  }
+  .meb-strip-photo {
+    flex-shrink: 0; width: 140px; height: 140px;
+    border-radius: 50%; overflow: hidden;
+    box-shadow: 0 0 0 3px rgba(83,185,86,0.5), 0 0 20px rgba(83,185,86,0.25), 0 4px 24px rgba(0,0,0,0.1);
+    margin-top: -130px;
+  }
+  .meb-strip-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .meb-strip-text { flex: 1; }
+  .meb-strip-quote {
+    font-family: var(--font-display); font-size: 22px; font-weight: 600;
+    color: var(--text); line-height: 1.45; margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .meb-strip-name {
+    font-family: var(--font-display); font-size: 15px; font-weight: 700;
+    color: var(--text); margin-bottom: 2px;
+  }
+  .meb-strip-title {
+    font-size: 14px; color: #6b7280; line-height: 1.5;
+  }  /* BUTTONS */
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 16px 36px; border-radius: 8px;
+    background: var(--green); color: var(--white);
+    font-family: var(--font-display); font-weight: 700; font-size: 16px;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(83,185,86,0.3); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 16px 36px; border-radius: 8px;
+    background: transparent; color: var(--white);
+    font-family: var(--font-display); font-weight: 700; font-size: 16px;
+    text-decoration: none; cursor: pointer;
+    border: 2px solid rgba(255,255,255,0.35);
+    transition: all 0.25s ease;
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.65); background: rgba(255,255,255,0.08); }  /* TRUST STRIP */
+  .trust-strip {
+    padding: 48px 40px;
+    background: var(--off-white);
+    border-bottom: 1px solid var(--border-light);
+  }
+  .trust-row {
+    display: flex; justify-content: center; gap: 72px; flex-wrap: wrap;
+    max-width: 900px; margin: 0 auto;
+  }
+  .trust-item { text-align: center; }
+  .trust-num {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 32px; color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .trust-num .green { color: var(--green); }
+  .trust-label { font-size: 16px; color: var(--text-muted); margin-top: 6px; font-weight: 500; }  /* SECTION BASE */
+  .section { padding: 100px 40px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-header { text-align: center; margin-bottom: 64px; }
+  .section-eyebrow {
+    font-family: var(--font-display); font-size: 20px; font-weight: 800;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--green); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-eyebrow::before {
+    content: ''; display: inline-block;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--green); flex-shrink: 0;
+  }
+  .section-title {
+    font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800; color: var(--text);
+    line-height: 1.15; letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 18px; color: var(--text-secondary);
+    max-width: 600px; line-height: 1.7;
+  }
+  .section-header .section-sub { margin: 0 auto; }
+  .section-header .section-eyebrow { justify-content: center; }  /* SOUND FAMILIAR */
+  .familiar {
+    background: var(--white);
+    padding-bottom: 0;
+  }
+  .familiar .section-inner { padding-bottom: 0; }
+  .familiar-photo {
+    position: relative;
+    margin-top: 48px;
+    overflow: hidden;
+    background: url('../assets/runner-coffee-shop.jpg') center 20% / cover no-repeat;
+    min-height: 640px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 24px 40px;
+  }
+  .familiar-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.25) 70%, rgba(0,0,0,0.45) 100%);
+    pointer-events: none;
+  }
+  .familiar-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 20px; max-width: 720px; margin: 0 auto;
+    position: relative; z-index: 2;
+  }
+  .familiar-card {
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.55);
+    border-radius: 50px; padding: 16px 28px;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .familiar-card:hover { border-color: rgba(255,255,255,0.3); transform: translateY(-3px); }
+  .familiar-card p {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: 17px; color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+    font-style: italic;
+  }  /* MANIFESTO - breathing moment */
+  /* HERO SOCIAL PROOF */
+  .hero-social-proof {
+    display: flex; align-items: center; gap: 14px;
+    margin-top: 28px; justify-content: center;
+  }
+  .hero-avatars {
+    display: flex; align-items: center;
+  }
+  .hero-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 12px; font-weight: 700;
+    color: #fff; border: 2px solid rgba(255,255,255,0.3);
+    margin-right: -10px; position: relative;
+  }
+  .hero-avatar:nth-child(1) { z-index: 5; }
+  .hero-avatar:nth-child(2) { z-index: 4; }
+  .hero-avatar:nth-child(3) { z-index: 3; }
+  .hero-avatar:nth-child(4) { z-index: 2; }
+  .hero-avatar:nth-child(5) { z-index: 1; margin-right: 0; }
+  .hero-avatar-plus { font-size: 16px; font-weight: 600; }
+  .hero-social-text {
+    font-size: 15px; color: rgba(255,255,255,0.85);
+    letter-spacing: 0.01em;
+  }
+  .hero-social-text strong {
+    color: #fff; font-weight: 700;
+  }  .manifesto {
+    padding: 80px 40px 80px;
+    background: var(--white);
+    text-align: center;
+  }
+  .manifesto-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .manifesto-line {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 2.8vw, 32px);
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .manifesto-line em {
+    font-style: italic;
+    color: var(--green);
+  }
+  .manifesto-sub {
+    font-size: 17px;
+    color: var(--text-secondary);
+    margin-top: 32px;
+    line-height: 1.8;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }  /* APP SHOWCASE */
+  .app-showcase { background: var(--off-white); padding: 0 0 0; }
+  .app-showcase-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }  .showcase-panel {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    align-items: center; min-height: 520px;
+    padding: 80px 0;
+    position: relative;
+  }
+  .showcase-panel:last-child { padding-bottom: 60px; }
+  .showcase-panel-reverse { direction: rtl; }
+  .showcase-panel-reverse > * { direction: ltr; }  /* Alternating panel backgrounds */
+  .showcase-panel-alt {
+    background: linear-gradient(135deg, #f5f7f5 0%, #f0f4f0 100%);
+    margin-left: -24px; margin-right: -24px;
+    padding-left: 24px; padding-right: 24px;
+    border-radius: 0;
+  }  .showcase-text-col {
+    padding: 20px 0;
+    position: relative;
+  }
+  .showcase-label-tag {
+    font-family: var(--font-display);
+    font-size: 20px; font-weight: 800; letter-spacing: 0.15em;
+    color: var(--green); margin-bottom: 16px; text-transform: uppercase;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .showcase-label-tag::before {
+    content: ''; display: inline-block;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--green); flex-shrink: 0;
+  }
+  .showcase-heading {
+    font-family: var(--font-display);
+    font-size: 40px; font-weight: 800; color: var(--dark);
+    margin: 0 0 20px; line-height: 1.15;
+  }
+  .showcase-desc {
+    font-size: 17px; color: var(--text-muted); line-height: 1.7;
+    margin: 0 0 20px;
+  }
+  .showcase-bullets {
+    list-style: none; padding: 0 0 0 48px; margin: 0 0 32px;
+    position: relative;
+  }
+  .showcase-bullets::before {
+    content: ''; position: absolute;
+    left: 17px; top: 0; bottom: 0;
+    width: 2px; background: rgba(83,185,86,0.18);
+    border-radius: 2px;
+  }
+  .showcase-bullets li {
+    font-family: var(--font-body); font-size: 15px; color: var(--text-muted);
+    line-height: 1.6; padding: 10px 0 10px 16px; position: relative;
+    opacity: 0; transform: translateX(-10px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  .showcase-panel.in-view .showcase-bullets li {
+    opacity: 1; transform: translateX(0);
+  }
+  .showcase-panel.in-view .showcase-bullets li:nth-child(1) { transition-delay: 0.3s; }
+  .showcase-panel.in-view .showcase-bullets li:nth-child(2) { transition-delay: 0.5s; }
+  .showcase-panel.in-view .showcase-bullets li:nth-child(3) { transition-delay: 0.7s; }
+  .showcase-bullets li::before {
+    content: ''; position: absolute; left: -30px; top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--green);
+    z-index: 1;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .showcase-panel.in-view .showcase-bullets li::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .showcase-panel.in-view .showcase-bullets li:nth-child(1)::before { transition-delay: 0.3s; }
+  .showcase-panel.in-view .showcase-bullets li:nth-child(2)::before { transition-delay: 0.5s; }
+  .showcase-panel.in-view .showcase-bullets li:nth-child(3)::before { transition-delay: 0.7s; }  /* Scroll fade-up animation */
+  .showcase-panel .showcase-text-col,
+  .showcase-panel .showcase-visual-col {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .showcase-panel.in-view .showcase-text-col { opacity: 1; transform: translateY(0); }
+  .showcase-panel.in-view .showcase-visual-col { opacity: 1; transform: translateY(0); transition-delay: 0.15s; }  .showcase-visual-col {
+    position: relative; min-height: 460px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .showcase-circle {
+    width: 420px; height: 420px; border-radius: 50%; overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.12), 0 0 0 1px rgba(83,185,86,0.08);
+    position: relative; z-index: 1;
+    flex-shrink: 0;
+  }
+  .showcase-circle img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    object-position: center center;
+  }
+  .showcase-device-float { position: absolute; z-index: 2; animation: float-subtle 4s ease-in-out infinite; }  .showcase-laptop-float { bottom: -36px; left: -60px; width: 320px; }
+  .laptop-screen-lg {
+    background: #222; border-radius: 8px 8px 0 0; padding: 10px 10px 6px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.32), 0 6px 16px rgba(0,0,0,0.14);
+    position: relative;
+  }
+  .laptop-screen-lg::before {
+    content: ''; display: block; width: 4px; height: 4px;
+    border-radius: 50%; background: #555; margin: 0 auto 6px;
+  }
+  .laptop-screen-lg img { width: 100%; display: block; border-radius: 3px; }
+  .laptop-base-lg {
+    height: 10px;
+    background: linear-gradient(to bottom, #c0c0c4 0%, #d4d4d8 30%, #e0e0e4 70%, #d0d0d4 100%);
+    border-radius: 0 0 2px 2px;
+    position: relative;
+  }
+  .laptop-base-lg::before {
+    content: ''; position: absolute; top: 2px;
+    left: 38%; right: 38%; height: 3px;
+    background: rgba(0,0,0,0.08);
+    border-radius: 4px;
+  }
+  .laptop-base-lg::after {
+    content: ''; position: absolute; bottom: -4px;
+    left: 8%; right: 8%; height: 4px;
+    background: linear-gradient(to bottom, #bbbbbe, #a8a8ac);
+    border-radius: 0 0 12px 12px;
+  }  .showcase-phone-float { bottom: -20px; right: -10px; animation-delay: 0.8s; }
+  .phone-frame-lg {
+    width: 180px; background: #1a1a1a;
+    border-radius: 28px; padding: 12px 8px;
+    border: 3px solid #444;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  }
+  .phone-notch-lg {
+    width: 60px; height: 5px; background: #111; border-radius: 4px;
+    margin: 0 auto 8px;
+  }
+  .phone-screen-lg { border-radius: 18px; overflow: hidden; }
+  .phone-screen-lg img { width: 100%; display: block; }  .showcase-floating-gauge {
+    position: absolute; z-index: 3;
+    width: 110px; height: auto;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.15));
+    animation: float-subtle 4s ease-in-out infinite;
+  }
+  @keyframes float-subtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }  .watch-brands-float {
+    position: absolute; bottom: -28px; right: -40px;
+    background: white; border-radius: 20px; padding: 22px 32px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.06);
+    z-index: 3;
+    animation: float-subtle 4s ease-in-out infinite;
+    animation-delay: 0.5s;
+  }
+  .watch-brands-label {
+    font-size: 12px; font-weight: 700; color: #53b956;
+    text-transform: uppercase; letter-spacing: 2px;
+    margin-bottom: 16px; text-align: center;
+  }
+  .watch-brands-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px 28px; align-items: center;
+  }
+  .watch-brand-item {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    opacity: 0.7; transition: opacity 0.3s;
+  }
+  .watch-brand-item:hover { opacity: 1; }
+  .watch-brand-item svg { width: 100px; height: 24px; }
+  .watch-brand-item .apple-icon { width: 18px; height: 22px; flex-shrink: 0; }  /* HOW IT WORKS - narrative style */
+  .how {
+    background: var(--white);
+    padding: 100px 40px;
+  }
+  .how-narrative {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+  .how-step { text-align: center; }
+  .how-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--green); color: var(--white);
+    font-family: var(--font-display); font-weight: 800; font-size: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 0 0 rgba(83,185,86,0.4);
+    animation: pulse-ring 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(83,185,86,0.4); }
+    50% { box-shadow: 0 0 0 12px rgba(83,185,86,0); }
+    100% { box-shadow: 0 0 0 0 rgba(83,185,86,0.4); }
+  }
+  .how-step:nth-child(2) .how-num { animation-delay: 0.6s; }
+  .how-step:nth-child(3) .how-num { animation-delay: 1.2s; }
+  .how-step h3 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 20px; color: var(--text); margin-bottom: 8px;
+  }
+  .how-step p { font-size: 15px; color: var(--text-secondary); line-height: 1.65; }
+  .how-credibility {
+    text-align: center;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-light);
+  }
+  .how-credibility p {
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+  .how-credibility-badge {
+    display: inline-flex; align-items: center; gap: 12px;
+    margin-top: 16px;
+    font-size: 17px; color: var(--text-muted); font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .how-credibility-dot {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--green); display: flex; align-items: center; justify-content: center;
+  }
+  .how-credibility-dot svg { width: 18px; height: 18px; stroke: white; fill: none; stroke-width: 2; }  /* PHONE SHOWCASE */
+  .phone-showcase {
+    padding: 100px 0 80px;
+    background: #0a0a0a url('../assets/rundot-next-photo-1.jpg') center center / cover no-repeat;
+    overflow: hidden;
+    position: relative;
+  }
+  .phone-showcase::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(10,10,10,0.78);
+    z-index: 0;
+  }
+  .phone-showcase-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+  }
+  .phone-showcase-label {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+  .phone-showcase-label::after {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: var(--green);
+    border-radius: 50%;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+  .phone-showcase h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 12px;
+    line-height: 1.15;
+  }
+  .phone-showcase-sub {
+    font-family: var(--font-body);
+    font-size: 18px;
+    color: rgba(255,255,255,0.55);
+    max-width: 500px;
+    margin: 0 auto 60px;
+    line-height: 1.5;
+  }
+  .phone-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+    min-height: 580px;
+  }
+  /* Floating widgets column */
+  .phone-widgets-left, .phone-widgets-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-shrink: 0;
+    z-index: 2;
+  }
+  .phone-widgets-left { align-items: flex-end; margin-right: -30px; }
+  .phone-widgets-right { align-items: flex-start; margin-left: -30px; }
+  .phone-widget {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .phone-widget.in-view { opacity: 1; transform: translateY(0); }
+  .phone-widget img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .pw-gauge { width: 120px; border-radius: 18px; }
+  .pw-notification { width: 240px; border-radius: 12px; }
+  .pw-chart { width: 260px; border-radius: 16px; }
+  .pw-pods { width: 260px; border-radius: 16px; }
+  /* Phone frame */
+  .phone-frame {
+    position: relative;
+    width: 280px;
+    flex-shrink: 0;
+    z-index: 3;
+  }
+  .phone-bezel {
+    background: #1a1a1a;
+    border-radius: 40px;
+    padding: 12px;
+    box-shadow: 0 0 60px rgba(83,185,86,0.15), 0 20px 60px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .phone-screen {
+    border-radius: 30px;
+    overflow: hidden;
+    background: #111;
+    aspect-ratio: 9/19.5;
+    position: relative;
+  }
+  .phone-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    image-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+  }
+  .phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 28px;
+    background: #1a1a1a;
+    border-radius: 0 0 18px 18px;
+    z-index: 2;
+  }
+  /* Subtle glow behind phone */
+  .phone-frame::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(83,185,86,0.06) 0%, transparent 60%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  /* Stagger delays */
+  .phone-widget:nth-child(1) { transition-delay: 0.1s; }
+  .phone-widget:nth-child(2) { transition-delay: 0.3s; }
+  .phone-widget:nth-child(3) { transition-delay: 0.5s; }
+  .phone-widgets-right .phone-widget:nth-child(1) { transition-delay: 0.2s; }
+  .phone-widgets-right .phone-widget:nth-child(2) { transition-delay: 0.4s; }
+  .phone-widgets-right .phone-widget:nth-child(3) { transition-delay: 0.6s; }
+  /* Mobile */
+  @media (max-width: 768px) {
+    .phone-layout {
+      flex-direction: column;
+      gap: 32px;
+      min-height: auto;
+    }
+    .phone-widgets-left, .phone-widgets-right {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 0;
+      padding: 0 16px;
+    }
+    .phone-widgets-left { order: 2; }
+    .phone-frame { order: 1; width: 240px; }
+    .phone-widgets-right { order: 3; }
+    .pw-gauge { width: 90px; }
+    .pw-notification { width: 180px; }
+    .pw-chart { width: calc(50% - 6px); max-width: 180px; }
+    .pw-pods { width: calc(50% - 6px); max-width: 180px; }
+    .phone-showcase { padding: 64px 0 56px; }
+    .phone-showcase::before { background: rgba(10,10,10,0.55); }
+    .phone-showcase h2 { font-size: 28px; }
+    .phone-widgets-left, .phone-widgets-right { overflow: visible; max-width: 100%; }
+    .phone-widget img { max-width: 100%; }
+  }  /* FEATURE PHOTO - circle + content */
+  .feature-photo {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; max-width: 1200px; margin: 0 auto;
+    padding: 80px 40px; align-items: center;
+  }
+  @property --ring-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+  @keyframes ringDraw {
+    0% { --ring-angle: 0deg; }
+    100% { --ring-angle: 300deg; }
+  }
+  .feature-photo-circle {
+    width: clamp(280px, 28vw, 420px); height: clamp(280px, 28vw, 420px);
+    border-radius: 50%; overflow: visible;
+    justify-self: center;
+    position: relative;
+    padding: 6px;
+    --ring-angle: 0deg;
+    background: conic-gradient(from 180deg, var(--green) 0deg, var(--green) var(--ring-angle), transparent var(--ring-angle), transparent 360deg);
+  }
+  .feature-photo-circle.ring-animate {
+    animation: ringDraw 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .feature-photo-circle::before {
+    content: none;
+  }
+  .feature-photo-circle::after {
+    content: none;
+  }
+  .feature-photo-circle img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; position: relative; z-index: 1; }
+  .feature-photo-content {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 40px 56px;
+  }
+  .feature-photo-content .section-eyebrow { text-align: left; }
+  .feature-photo-content .section-title { text-align: left; font-size: clamp(28px, 3vw, 40px); }
+  .feature-photo-content .section-sub { text-align: left; }
+  .feature-photo.reverse { direction: rtl; }
+  .feature-photo.reverse > * { direction: ltr; }  /* REVIEWS - editorial style */
+  .testimonials { background: var(--off-white); }
+  .testimonial-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 24px; max-width: 860px; margin: 0 auto;
+  }
+  .testimonial-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 14px; padding: 32px 28px;
+  }
+  .testimonial-card .stars { color: #f59e0b; font-size: 16px; margin-bottom: 10px; letter-spacing: 2px; }
+  .testimonial-card h4 {
+    font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+    color: var(--text); margin-bottom: 10px;
+  }
+  .testimonial-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .testimonial-card p strong { color: var(--text); font-weight: 600; }
+  .testimonial-card cite { font-style: normal; font-size: 13px; color: var(--text-muted); font-weight: 600; }
+  .testimonial-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }  /* MOMENTS - expanded grid */
+  .moments { background: var(--white); padding: 120px 40px 160px; position: relative; overflow: hidden; }
+  .moments::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(83,185,86,0.12) 1.5px, transparent 1.5px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .moments .section-inner { position: relative; z-index: 1; }
+  .moments-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 32px; max-width: 1100px; margin: 0 auto;
+  }
+  .moment-card {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 20px; cursor: default;
+  }
+  .moment-circle {
+    width: 100%; aspect-ratio: 1/1; border-radius: 50%; overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.10);
+    position: relative;
+    padding: 6px;
+    background: conic-gradient(
+      from 0deg,
+      #53b956 0deg,
+      #53b956 180deg,
+      rgba(83,185,86,0.15) 270deg,
+      rgba(83,185,86,0.0) 360deg
+    );
+  }
+  .moment-circle img { border-radius: 50%; }
+  .moment-circle img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+  .moment-card:hover .moment-circle img { transform: scale(1.04); }
+  .moment-caption {
+    font-family: var(--font-display); font-size: 16px; font-weight: 700;
+    color: var(--text); text-align: center; line-height: 1.4;
+    padding: 0 4px;
+  }  /* CTA */
+  .cta-section {
+    background: var(--dark); color: var(--white);
+    padding: 120px 40px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: ''; position: absolute; inset: 0;
+    background: url('../assets/runner-finish-celebration.jpg') center center / cover no-repeat;
+    opacity: 0.12;
+  }
+  .cta-section > * { position: relative; z-index: 2; }
+  .cta-section .section-title {
+    color: var(--white); margin-bottom: 24px;
+    max-width: 680px; margin-left: auto; margin-right: auto;
+  }
+  .cta-section .section-sub { color: rgba(255,255,255,0.7); margin: 0 auto 40px; }
+  .cta-accent-line {
+    width: 48px; height: 3px; background: var(--green-light);
+    border-radius: 2px; margin: 0 auto 32px;
+  }
+  .cta-glow {
+    position: relative; display: inline-block;
+  }
+  .cta-glow::before {
+    content: ''; position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 280px; height: 120px;
+    background: radial-gradient(ellipse, rgba(83,185,86,0.2) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+  }
+  .cta-glow .btn-primary { position: relative; z-index: 1; }
+  .cta-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .cta-no-cc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    margin-top: 16px;
+  }
+  .cta-qr {
+    margin-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 12px;
+  }
+  .cta-qr img {
+    width: 100px; height: 100px; border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.15);
+  }
+  .cta-qr span {
+    font-size: 13px; color: rgba(255,255,255,0.4);
+    letter-spacing: 0.02em;
+  }
+  .cta-tagline {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    margin-top: 48px;
+    letter-spacing: 0.02em;
+    font-style: italic;
+  }  /* PARTNERS */
+  .partners { padding: 56px 40px; background: var(--white); border-top: 1px solid var(--border-light); }
+  .partners-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+  .partners-label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 28px; }
+  .partners-logos {
+    display: flex; justify-content: center; align-items: center;
+    gap: 40px; flex-wrap: wrap;
+  }
+  .partners-logos img { height: 50px; width: auto; filter: brightness(0); opacity: 0.35; transition: all 0.3s; }
+  .partners-logos img:hover { filter: brightness(0) sepia(1) saturate(5) hue-rotate(85deg); opacity: 0.65; }
+  .partners-logos img.sf-marathon { height: 45px; }  /* FOOTER */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,0.5);
+    padding: 60px 40px 40px; font-size: 13px; line-height: 1.7;
+  }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-logo { margin-bottom: 28px; }
+  .footer-logo img { height: 24px; width: auto; opacity: 0.7; }
+  .footer-desc { max-width: 280px; line-height: 1.7; }
+  .footer-col h4 { font-family: var(--font-display); font-weight: 700; font-size: 13px; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+  .footer-col a { display: block; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 8px; transition: color 0.2s; font-size: 13px; }
+  .footer-col a:hover { color: var(--green-light); }
+  .footer-fitlogic { margin-top: 24px; }
+  .footer-fitlogic img { height: 52px; width: auto; opacity: 0.7; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-legal { max-width: 700px; font-size: 11px; line-height: 1.8; color: rgba(255,255,255,0.35); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--green-light); }
+  .footer-social a:hover { color: var(--green-light) !important; }  /* QR MODAL */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(6px);
+    z-index: 200; align-items: center; justify-content: center;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal-box {
+    background: var(--white); border-radius: 16px; padding: 40px;
+    max-width: 400px; width: 90%; text-align: center; position: relative;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+  }
+  .modal-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; font-size: 20px;
+    color: var(--text-muted); cursor: pointer;
+  }
+  .modal-box h3 { font-family: var(--font-display); font-weight: 700; font-size: 20px; margin-bottom: 8px; }
+  .modal-box p { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+  .qr-code {
+    width: 200px; height: 200px; margin: 0 auto 20px;
+    background: var(--off-white); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--border);
+  }
+  .store-badges { display: flex; justify-content: center; gap: 12px; }
+  .store-badges a { display: inline-block; }
+  .store-badges img { height: 40px; width: auto; }  /* STICKY CTA BAR */
+  .sticky-cta {
+    position: fixed; top: -60px; left: 0; right: 0; z-index: 99;
+    background: rgba(17,24,39,0.95); backdrop-filter: blur(16px);
+    padding: 12px 40px;
+    display: flex; align-items: center; justify-content: center; gap: 24px;
+    transition: top 0.35s ease;
+    border-bottom: 1px solid rgba(83,185,86,0.15);
+  }
+  .sticky-cta.visible { top: 0; }
+  .sticky-cta p {
+    font-family: var(--font-display); font-size: 14px; font-weight: 600;
+    color: rgba(255,255,255,0.8); letter-spacing: -0.01em;
+  }
+  .sticky-cta .btn-sticky {
+    padding: 8px 20px; border-radius: 6px;
+    background: var(--green); color: var(--white);
+    font-family: var(--font-display); font-weight: 700; font-size: 13px;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .sticky-cta .btn-sticky:hover { background: var(--green-light); }  /* FAQ */
+  .faq-section {
+    background: var(--dark); color: var(--white);
+    padding: 100px 40px;
+  }
+  .faq-section .section-eyebrow { color: var(--green-light); justify-content: center; }
+  .faq-section .section-title { color: var(--white); text-align: center; margin-bottom: 56px; }
+  .faq-list {
+    max-width: 720px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .faq-q {
+    width: 100%; background: none; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 0; gap: 16px; text-align: left;
+    font-family: var(--font-display); font-size: 17px; font-weight: 600;
+    color: rgba(255,255,255,0.9); transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--green-light); }
+  .faq-icon {
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: transform 0.3s, border-color 0.3s;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); border-color: var(--green); }
+  .faq-icon svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    padding: 0 0 0 0;
+  }
+  .faq-item.open .faq-a {
+    max-height: 400px;
+    padding: 0 0 24px 0;
+  }
+  .faq-a p {
+    font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.75;
+  }  /* ANIMATION: Stagger items */
+  .stagger-item {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .stagger-item.stagger-visible {
+    opacity: 1; transform: translateY(0);
+  }  /* ANIMATION: Meb slide-in */
+  .meb-strip-inner {
+    opacity: 0; transform: translateX(-40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .meb-strip-inner.meb-visible {
+    opacity: 1; transform: translateX(0);
+  }
+  .meb-strip-photo {
+    opacity: 0; transform: scale(0.8);
+    transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+  }
+  .meb-strip-inner.meb-visible .meb-strip-photo {
+    opacity: 1; transform: scale(1);
+  }  /* ANIMATION: Partner logos stagger */
+  .partners-logos img {
+    opacity: 0; transform: translateY(12px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out, filter 0.3s, all 0.3s;
+  }
+  .partners-logos.partners-visible img {
+    opacity: 0.35; transform: translateY(0);
+  }
+  .partners-logos.partners-visible img:hover {
+    filter: brightness(0) sepia(1) saturate(5) hue-rotate(85deg); opacity: 0.65;
+  }  /* ANIMATION: Green line draw */
+  .green-line-sep {
+    transform: scaleX(0); transform-origin: left center;
+    transition: transform 1s ease-out;
+  }
+  .green-line-sep.line-visible {
+    transform: scaleX(1);
+  }  /* ANIMATION: Trust strip counter */
+  .trust-item {
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .trust-item.trust-visible {
+    opacity: 1; transform: translateY(0);
+  }  /* ANIMATION: Review card hover lift */
+  .testimonial-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .testimonial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+  }  /* ANIMATION: Parallax backgrounds */
+  .parallax-bg {
+    transition: transform 0.1s linear;
+    will-change: transform;
+  }  /* BACK TO TOP */
+  .back-to-top {
+    position: fixed; bottom: 32px; right: 32px; z-index: 90;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--green); color: white; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(83,185,86,0.3);
+    opacity: 0; transform: translateY(12px);
+    transition: opacity 0.3s, transform 0.3s, background 0.2s;
+    pointer-events: none;
+  }
+  .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .back-to-top:hover { background: var(--green-light); }
+  .back-to-top svg { width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 2.5; }  /* CTA PULSE */
+  .cta-section .btn-primary {
+    animation: cta-gentle-pulse 3s ease-in-out infinite;
+  }
+  @keyframes cta-gentle-pulse {
+    0%, 100% { box-shadow: 0 4px 16px rgba(83,185,86,0.2); }
+    50% { box-shadow: 0 4px 32px rgba(83,185,86,0.4), 0 0 0 4px rgba(83,185,86,0.08); }
+  }  /* MOBILE HAMBURGER */
+  .nav-hamburger {
+    display: none; background: none; border: none; cursor: pointer;
+    width: 32px; height: 32px; padding: 4px;
+    flex-direction: column; justify-content: center; gap: 5px;
+  }
+  .nav-hamburger span {
+    display: block; width: 100%; height: 2px;
+    background: var(--text); border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }  .nav-mobile-overlay {
+    display: none; position: fixed; inset: 0; z-index: 98;
+    background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+    flex-direction: column; align-items: center; justify-content: center; gap: 36px;
+    padding-top: 60px;
+  }
+  .nav-mobile-overlay { transition: opacity 0.3s ease; opacity: 0; }
+  .nav-mobile-overlay.open { display: flex; opacity: 1; }
+  .nav-mobile-overlay a {
+    font-family: var(--font-display); font-size: 28px; font-weight: 600;
+    color: var(--text); text-decoration: none; letter-spacing: -0.01em;
+    transition: color 0.2s;
+  }
+  .nav-mobile-overlay a:hover { color: var(--green); }
+  .nav-mobile-overlay .btn-primary { font-size: 18px; margin-top: 8px; }  /* HERO ENTRANCE */
+  @keyframes hero-fade-word {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-word {
+    display: inline-block;
+    opacity: 0;
+    animation: hero-fade-word 0.5s ease forwards;
+  }
+  .hero-sub-entrance {
+    opacity: 0;
+    animation: hero-fade-word 0.6s ease 0.8s forwards;
+  }
+  .hero-cta-entrance {
+    opacity: 0;
+    animation: hero-fade-word 0.6s ease 1.1s forwards;
+  }  /* STAGGER ANIMATIONS */
+  .stagger-item {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .stagger-item.visible { opacity: 1; transform: translateY(0); }  /* COUNTER ANIMATION */
+  .trust-num[data-target] { min-width: 80px; }  /* ANIMATIONS */
+  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }  /* RESPONSIVE */
+  /* TABLET (768px) */
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .hero { min-height: 75vh; }
+    .hero-content { padding: 120px 24px 60px; }
+    .hero h1 { font-size: 52px; margin-bottom: 18px; }
+    .hero-sub { font-size: 16px; max-width: 420px; }
+    .hero-cta-row { justify-content: center; }
+    .hero-social-proof { flex-direction: column; gap: 8px; margin-top: 24px; }
+    .hero h1 { font-size: 52px; margin-bottom: 12px; }
+    .goal-typewriter { font-size: 20px; margin-top: 20px; margin-bottom: 32px; }
+    .how-it-knows { padding: 72px 24px; }
+    .how-it-knows-header h2 { font-size: 28px; }
+    .intelligence-timeline { padding-left: 48px; }
+    .timeline-item { padding: 22px; }
+    .timeline-item::before { left: -29px; }
+    .timeline-item::after { left: -29px; }
+    .meb-strip { padding: 40px 24px; }
+    .meb-strip-inner { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+    .meb-strip-photo { width: 120px; height: 120px; margin-top: -90px; }
+    .meb-strip-photo img { object-position: top center; }
+    .meb-strip-quote { font-size: 17px; }
+    .meb-strip-name { font-size: 14px; }
+    .trust-strip { padding: 36px 20px; }
+    .trust-row { gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .trust-item { min-width: 140px; }
+    .trust-num { font-size: 24px; }
+    .trust-label { font-size: 12px; }
+    .section { padding: 64px 20px; }
+    .section-title { margin-bottom: 12px; }
+    .section-sub { font-size: 16px; }
+    .section-header { margin-bottom: 48px; }
+    .familiar-grid { grid-template-columns: 1fr; gap: 16px; }
+    .familiar-card { padding: 24px 20px; }
+    .familiar-card p { font-size: 16px; }
+    .familiar-photo { min-height: 580px; padding-bottom: 32px; }
+    .manifesto { padding: 64px 24px 16px; }
+    .manifesto-line { font-size: 24px; }
+    .manifesto-sub { font-size: 15px; margin-top: 24px; }
+    .how { padding: 64px 20px; }
+    .how-narrative { grid-template-columns: 1fr; gap: 32px; max-width: 400px; }
+    .how-num { width: 60px; height: 60px; font-size: 24px; }
+    .how-credibility { margin-top: 40px; padding-top: 32px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .how-credibility-badge { justify-content: center; flex-wrap: wrap; font-size: 15px; }
+    .feature-photo { grid-template-columns: 1fr; padding: 48px 24px; gap: 24px; }
+    .feature-photo-circle { width: 260px; height: 260px; justify-self: center; }
+    .feature-photo-content { padding: 0 8px; text-align: center; }
+    .feature-photo-content .section-eyebrow { justify-content: center; }
+    .feature-photo-content .section-eyebrow,
+    .feature-photo-content .section-title,
+    .feature-photo-content .section-sub { text-align: center; }
+    .feature-photo.reverse { direction: ltr; }
+    .testimonial-grid { grid-template-columns: 1fr !important; max-width: 400px; margin: 0 auto; }
+    .testimonial-card { padding: 24px 20px; }
+    .app-showcase { padding: 64px 0 40px; }
+    .showcase-panel { grid-template-columns: 1fr; gap: 32px; padding: 48px 0; min-height: auto; }
+    .showcase-panel-alt { margin-left: 0; margin-right: 0; padding-left: 20px; padding-right: 20px; }
+    .showcase-text-col { padding: 16px 0; word-wrap: break-word; overflow-wrap: break-word; }
+    .showcase-panel-reverse { direction: ltr; }
+    .showcase-heading { font-size: 28px; }
+    .showcase-desc { font-size: 15px; }
+    .showcase-visual-col { min-height: 320px; }
+    .showcase-circle { width: 260px; height: 260px; }
+    .showcase-laptop-float { width: 220px; bottom: -16px; left: 0; }
+    .phone-frame-lg { width: 140px; }
+    .showcase-phone-float { bottom: -10px; right: 0; }
+    .showcase-floating-gauge { width: 70px; }
+    .watch-brands-float { position: relative; bottom: auto; right: auto; margin: 24px auto 0; max-width: 100%; box-sizing: border-box; padding: 18px 20px; }
+    .moments { padding: 64px 20px; }
+    .moments-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .moment-caption { font-size: 14px; }
+    .partners { padding: 40px 20px; }
+    .partners-logos { gap: 24px; }
+    .partners-logos img { height: 50px; }
+    .cta-section { padding: 72px 24px; }
+    .cta-section .section-title { font-size: 28px; }
+    .cta-tagline { font-size: 17px; margin-top: 36px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .sticky-cta { padding: 10px 20px; gap: 16px; }
+    .sticky-cta p { font-size: 12px; }
+    .faq-section { padding: 64px 20px; }
+    .faq-q { font-size: 15px; padding: 20px 0; }
+    .back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+  }  /* SMALL PHONE (480px) */
+  @media (max-width: 480px) {
+    .hero { min-height: 70vh; }
+    .hero-content { padding: 100px 20px 50px; }
+    .hero h1 { font-size: 46px; letter-spacing: -0.02em; }
+    .hero-sub { font-size: 15px; max-width: 320px; line-height: 1.6; }
+    .hero-cta-row { flex-direction: column; align-items: center; gap: 12px; }
+    .hero h1 { font-size: 46px; margin-bottom: 10px; }
+    .goal-typewriter { font-size: 17px; margin-top: 16px; margin-bottom: 24px; }
+    .how-it-knows { padding: 56px 16px; }
+    .how-it-knows-header h2 { font-size: 24px; }
+    .how-it-knows-header p { font-size: 15px; }
+    .intelligence-timeline { padding-left: 40px; }
+    .intelligence-timeline::before { left: 14px; }
+    .timeline-item { padding: 18px; margin-bottom: 28px; }
+    .timeline-item::before { left: -25px; top: 50%; width: 18px; height: 18px; }
+    .timeline-item::after { left: -25px; top: 50%; width: 8px; height: 8px; }
+    .timeline-item h3 { font-size: 16px; }
+    .timeline-item p { font-size: 13px; }
+    .btn-primary { padding: 14px 28px; font-size: 15px; width: 100%; justify-content: center; }
+    .btn-outline { padding: 14px 28px; font-size: 15px; width: 100%; justify-content: center; }
+    .hero-social-proof { margin-top: 20px; }
+    .hero-social-text { font-size: 13px; }
+    .meb-strip { padding: 32px 20px; }
+    .meb-strip-photo { width: 100px; height: 100px; margin-top: -70px; }
+    .meb-strip-photo img { object-position: top center; }
+    .meb-strip-quote { font-size: 15px; line-height: 1.5; }
+    .app-showcase-inner { padding: 0 16px; }
+    .showcase-panel-alt { margin-left: 0; margin-right: 0; padding-left: 16px; padding-right: 16px; }
+    .showcase-heading { font-size: 22px; word-wrap: break-word; overflow-wrap: break-word; }
+    .trust-strip { padding: 28px 16px; }
+    .trust-row { gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .trust-item { min-width: auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .trust-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .trust-num { white-space: normal; }
+    .trust-row .trust-item:last-child { grid-column: 1 / -1; }
+    .how-credibility-badge { justify-content: center; flex-wrap: wrap; font-size: 14px; gap: 8px; }
+    .trust-num { font-size: 22px; white-space: nowrap; }
+    .trust-label { font-size: 11px; }
+    .section { padding: 48px 16px; }
+    .section-eyebrow { font-size: 16px; gap: 8px; }
+    .section-eyebrow::before { width: 10px; height: 10px; }
+    .section-header { margin-bottom: 36px; }
+    .familiar-photo { min-height: 520px; padding: 0 12px 24px; }
+    .familiar-card { padding: 20px 16px; border-radius: 10px; }
+    .familiar-card p { font-size: 14px; }
+    .manifesto { padding: 48px 20px 12px; }
+    .manifesto-line { font-size: 20px; line-height: 1.6; }
+    .manifesto-sub { font-size: 14px; }
+    .how { padding: 48px 16px; }
+    .how-num { width: 52px; height: 52px; font-size: 20px; }
+    .how-step h3 { font-size: 18px; }
+    .how-step p { font-size: 14px; }
+    .feature-photo { padding: 36px 16px; gap: 20px; }
+    .feature-photo-circle { width: 220px; height: 220px; }
+    .feature-photo-content { padding: 0 4px; }
+    .testimonial-card p { font-size: 13px; }
+    .showcase-panel { gap: 24px; padding: 36px 0; }
+    .showcase-heading { font-size: 24px; }
+    .showcase-desc { font-size: 14px; }
+    .showcase-bullets li { font-size: 13px; }
+    .showcase-circle { width: 220px; height: 220px; }
+    .showcase-laptop-float { width: 180px; }
+    .phone-frame-lg { width: 120px; }
+    .phone-showcase { padding: 48px 0 40px; }
+    .phone-showcase::before { background: rgba(10,10,10,0.45); }
+    .phone-showcase h2 { font-size: 24px; }
+    .phone-frame { width: 200px; }
+    .pw-gauge { width: 75px; }
+    .pw-notification { width: 150px; }
+    .pw-chart { max-width: 150px; }
+    .pw-pods { max-width: 150px; }
+    .phone-widgets-left, .phone-widgets-right { gap: 8px; padding: 0 8px; }
+    .moments { padding: 48px 16px; }
+    .moments-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .moment-caption { font-size: 13px; }
+    .cta-section { padding: 56px 20px; }
+    .cta-section .section-title { font-size: 24px; }
+    .cta-qr img { width: 80px; height: 80px; }
+    .cta-tagline { font-size: 15px; }
+    .partners { padding: 32px 16px; }
+    .partners-logos img { height: 42px; }
+    .partners-logos img.sf-marathon { height: 36px; }
+    footer { padding: 48px 20px 32px; }
+    .footer-top { grid-template-columns: 1fr; gap: 24px; }
+    .footer-col h4 { font-size: 12px; }
+    .footer-bottom { flex-direction: column; gap: 12px; }
+    .footer-legal { font-size: 10px; }
+    .faq-section { padding: 48px 16px; }
+    .faq-q { font-size: 14px; padding: 16px 0; }
+    .faq-a p { font-size: 13px; }
+    .app-showcase { padding: 48px 0 32px; }
+    .sticky-cta { padding: 8px 16px; gap: 12px; }
+    .sticky-cta p { font-size: 11px; }
+    .watch-brands-float { padding: 14px 16px; border-radius: 16px; }
+    .watch-brands-grid { gap: 10px 16px; }
+    .watch-brand-item svg { width: 80px; height: 20px; }
+    .watch-brand-item .apple-icon { width: 14px; height: 18px; }
+    .watch-brand-item span { font-size: 12px; }
+    .sticky-cta .btn-sticky { padding: 6px 14px; font-size: 12px; }
+    .nav-mobile-overlay a { font-size: 26px; }
+    .back-to-top { bottom: 16px; right: 16px; width: 36px; height: 36px; }
+.back-to-top svg { width: 16px; height: 16px; }
+    /* Why Do You Run mobile */
+    .why-run { padding: 80px 20px !important; }
+    .why-run p:first-child { font-size: 28px !important; }
+    /* Athlete gallery smaller on phone */
+        .athlete-gallery { padding: 48px 0; }
+    .athlete-gallery .section-eyebrow { font-size: 14px; }
+    
+    /* Moments grid tighter on phone */
+    .moment-circle { margin-bottom: 8px; }
+    .moment-item { gap: 6px; }
+    
+    /* Sound Familiar mobile polish */
+    .familiar-card { border-radius: 20px; }
+    .familiar-answer { font-size: 15px; padding: 0 12px; }
+  }
+  /* ACCESSIBILITY: Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .parallax-bg { transform: none !important; }
+    html { scroll-behavior: auto; }
+  }
+  /* ACCESSIBILITY: Focus states */
+  :focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  .btn-primary:focus-visible, .btn-outline:focus-visible {
+    outline: 2px solid var(--green-light);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 4px rgba(83,185,86,0.2);
+  }
+  .faq-q:focus-visible { outline: 2px solid var(--green); outline-offset: -2px; border-radius: 8px; }
+  /* How It Works step hover */
+  .how-step {
+    padding: 28px 20px;
+    border-radius: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  }
+  .how-step:hover {
+    transform: translateY(-4px);
+    background: var(--green-soft);
+    box-shadow: 0 8px 32px rgba(83,185,86,0.08);
+  }
+  /* CTA press micro-interaction */
+  .btn-primary:active { transform: scale(0.97) !important; transition-duration: 0.1s !important; }
+  .btn-outline:active { transform: scale(0.97) !important; transition-duration: 0.1s !important; }
+  /* Phone showcase 3D perspective */
+  .phone-frame {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  .phone-frame:hover {
+    transform: rotateY(-3deg) rotateX(2deg) scale(1.02);
+  }
+  /* Footer link hover underline */
+  .footer-col a {
+    position: relative;
+  }
+  .footer-col a::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 0; height: 1px;
+    background: var(--green-light);
+    transition: width 0.3s ease;
+  }
+  .footer-col a:hover::after { width: 100%; }
+  /* Green line shimmer after draw */
+  @keyframes lineShimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  .green-line-sep.line-visible {
+    background: linear-gradient(90deg, var(--green) 30%, var(--green-light) 50%, var(--green) 70%);
+    background-size: 200% 100%;
+    animation: lineShimmer 3s ease-in-out 1s 1;
+  }
+  /* Smoother section transitions */
+  .how-it-knows { position: relative; }
+  .how-it-knows::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 0; right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, var(--white), transparent);
+    z-index: 1;
+    pointer-events: none;
+  }
+  /* Why Do You Run cascade reveal */
+  .why-run-stanza {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .why-run-stanza.cascade-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* Manifesto line-by-line reveal */
+  .manifesto-line, .manifesto-sub {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .manifesto-line.manifesto-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .manifesto-sub.manifesto-revealed {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+  }
 
-/* ========== UTILITY ========== */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-.section-eyebrow {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 20px; font-weight: 800; letter-spacing: 3px;
-  text-transform: uppercase; color: #53b956;
-  display: flex; align-items: center; gap: 10px;
-  margin-bottom: 20px;
-}
-.section-eyebrow::before {
-  content: ''; width: 14px; height: 14px;
-  background: #53b956; border-radius: 50%; flex-shrink: 0;
-}
-.green { color: #53b956; }
-.btn-primary {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: #53b956; color: #fff;
-  padding: 16px 36px; border-radius: 50px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700; font-size: 16px;
-  transition: all 0.3s ease; border: none; cursor: pointer;
-}
-.btn-primary:hover { background: #45a049; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(83,185,86,0.4); }
-.btn-secondary {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: transparent; color: #fff;
-  padding: 16px 36px; border-radius: 50px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700; font-size: 16px;
-  border: 2px solid rgba(255,255,255,0.4);
-  transition: all 0.3s ease; cursor: pointer;
-}
-.btn-secondary:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
-.btn-dark {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: #1a1a2e; color: #fff;
-  padding: 16px 36px; border-radius: 50px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700; font-size: 16px;
-  transition: all 0.3s ease; border: none; cursor: pointer;
-}
-.btn-dark:hover { background: #2a2a3e; transform: translateY(-2px); }
 
-/* ========== SECTION DIVIDER ========== */
-.section-divider {
-  width: 80px; height: 3px;
-  background: #53b956; opacity: 0.4;
-  margin: 0 auto; border-radius: 2px;
+/* ===== V2 RNNR/ALTRA FUNKY RESKIN ===== */
+:root {
+    --v2-chartreuse: #c8f542;
+    --v2-hot-green: #53b956;
 }
 
-/* ========== NAV ========== */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  padding: 18px 40px;
-  display: flex; align-items: center; justify-content: space-between;
-  transition: all 0.3s ease;
-  background: transparent;
+/* --- TYPOGRAPHY: Barlow Condensed for impact headlines --- */
+.hero-content h1,
+.manifesto-headline,
+.sound-familiar-section h2,
+.app-showcase h2,
+.how-it-works-section h2,
+.phone-showcase h2,
+.reviews-section h2,
+.moments-section h2,
+.why-run-section h2,
+.faq-section h2,
+.final-cta-section h2,
+.feature-photo-section h2 {
+    font-family: 'Barlow Condensed', 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.02em !important;
 }
-nav.scrolled {
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-  padding: 14px 40px;
-}
-nav .logo img { height: 32px; transition: opacity 0.3s; }
-nav .logo .logo-dark { display: none; }
-nav.scrolled .logo .logo-light { display: none; }
-nav.scrolled .logo .logo-dark { display: block; }
-nav .nav-links { display: flex; gap: 32px; align-items: center; }
-nav .nav-links a {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 14px; font-weight: 600; color: #fff;
-  letter-spacing: 0.5px; transition: color 0.3s;
-}
-nav.scrolled .nav-links a { color: #1a1a2e; }
-nav .nav-links a:hover { color: #53b956; }
-nav .nav-cta {
-  background: #53b956; color: #fff !important;
-  padding: 10px 24px; border-radius: 50px; font-size: 13px !important;
-}
-nav .nav-cta:hover { background: #45a049; }
-.hamburger {
-  display: none; flex-direction: column; gap: 5px;
-  background: none; border: none; cursor: pointer; padding: 4px; z-index: 1001;
-}
-.hamburger span {
-  width: 24px; height: 2px; background: #fff;
-  transition: all 0.3s; display: block;
-}
-nav.scrolled .hamburger span { background: #1a1a2e; }
-.mobile-overlay {
-  display: none; position: fixed; inset: 0;
-  background: rgba(26,26,46,0.97); z-index: 999;
-  flex-direction: column; align-items: center; justify-content: center; gap: 28px;
-}
-.mobile-overlay.active { display: flex; }
-.mobile-overlay a {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 22px; font-weight: 700; color: #fff;
-}
-.mobile-overlay a:hover { color: #53b956; }
 
-/* ========== HERO ========== */
+.hero-content h1 {
+    font-size: clamp(4rem, 8vw, 7rem) !important;
+    line-height: 0.95 !important;
+}
+
+/* --- HERO: Full-bleed bright runner photo, text overlay --- */
 .hero {
-  position: relative; min-height: 100vh;
-  display: flex; align-items: center;
-  background: #1a1a2e; overflow: hidden;
+    background: url('../assets/runner-country-road.jpg') center/cover no-repeat !important;
+    position: relative !important;
 }
-.hero-video {
-  position: absolute; inset: 0; z-index: 1;
+.hero::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 100%) !important;
+    z-index: 1 !important;
 }
-.hero-video video {
-  width: 100%; height: 100%; object-fit: cover;
-  opacity: 0.35;
+.hero > * {
+    position: relative !important;
+    z-index: 2 !important;
 }
-.hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(26,26,46,0.3) 0%, rgba(26,26,46,0.7) 100%);
-  z-index: 2;
+.hero video,
+.hero .hero-video-container {
+    display: none !important;
 }
 .hero-content {
-  position: relative; z-index: 3;
-  max-width: 720px; padding: 140px 40px 100px;
-  margin-left: max(6vw, 60px);
+    max-width: 680px !important;
+    text-align: left !important;
+    padding-left: 5% !important;
 }
-.hero-content h1 {
-  font-size: 52px; font-weight: 800; line-height: 1.15;
-  color: #fff; margin-bottom: 24px;
-}
-.hero-content h1 em {
-  font-style: italic; color: #53b956;
-}
-/* Goal vertical slider */
-.goal-slider {
-  display: flex; align-items: baseline; gap: 10px;
-  margin-bottom: 28px; font-family: 'Plus Jakarta Sans', sans-serif;
-}
-.goal-slider-prefix {
-  font-size: 26px; font-weight: 500; color: rgba(255,255,255,0.6);
-  letter-spacing: -0.01em; white-space: nowrap;
-}
-.goal-slider-window {
-  height: 36px; overflow: hidden; position: relative;
+.hero-content h1 span {
+    display: block !important;
 }
 
-.goal-slider-track {
-  display: flex; flex-direction: column;
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+/* --- TRUST STRIP: Chartreuse background --- */
+.trust-strip {
+    background: var(--v2-chartreuse) !important;
+    color: #111 !important;
 }
-.goal-slider-item {
-  height: 36px; line-height: 36px;
-  font-size: 26px; font-weight: 700; color: #53b956;
-  letter-spacing: -0.01em; white-space: nowrap;
+.trust-strip * {
+    color: #111 !important;
 }
-.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
-.hero-social-proof {
-  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+.trust-strip .stat-number {
+    color: #111 !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
 }
-.hero-avatars { display: flex; }
-.avatar-circle {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: #53b956; color: #fff;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 11px; font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
-  border: 2px solid rgba(255,255,255,0.3);
-  margin-right: -8px;
+.trust-strip .stat-label {
+    color: #333 !important;
 }
-.avatar-plus { background: #3a8a3d; }
-.hero-social-text {
-  font-size: 14px; color: rgba(255,255,255,0.7);
+.trust-strip .distance-cycle {
+    color: var(--v2-hot-green) !important;
+    font-weight: 800 !important;
 }
-.hero-social-text strong { color: #fff; }
-/* Meb endorsement strip */
+.trust-strip svg,
+.trust-strip .star-icon {
+    color: #111 !important;
+    fill: #111 !important;
+}
+
+/* --- MEB STRIP: Darker, grittier --- */
 .meb-strip {
-  background: #0a0a0a; padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.06);
-}
-.meb-strip-inner {
-  display: flex; align-items: center; gap: 32px;
-  max-width: 700px; margin: 0 auto;
-}
-.meb-strip-photo {
-  width: 100px; height: 100px; border-radius: 50%;
-  object-fit: cover; flex-shrink: 0;
-  box-shadow: 0 0 0 3px rgba(83,185,86,0.4), 0 0 24px rgba(83,185,86,0.15);
-}
-.meb-strip-content blockquote {
-  font-size: 18px; font-style: italic; color: rgba(255,255,255,0.9);
-  line-height: 1.6; margin-bottom: 10px; font-family: 'Plus Jakarta Sans', sans-serif;
-}
-.meb-strip-content cite {
-  font-size: 13px; color: rgba(255,255,255,0.6); font-style: normal; font-weight: 600;
-}
-.meb-strip-content cite span {
-  font-weight: 400; color: rgba(255,255,255,0.45);
+    background: #0a0a0a !important;
+    border-top: 4px solid var(--v2-chartreuse) !important;
+    border-bottom: 4px solid var(--v2-chartreuse) !important;
 }
 
-/* ========== ATHLETE GALLERY (fixed) ========== */
-.athlete-gallery {
-  background: #f8f9fa;
-  padding: 24px 0;
+/* --- SECTION EYEBROWS: Funky badge style --- */
+.section-eyebrow,
+.showcase-label {
+    background: var(--v2-chartreuse) !important;
+    color: #111 !important;
+    padding: 6px 18px !important;
+    border-radius: 4px !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 800 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    display: inline-block !important;
+    border: none !important;
+    letter-spacing: 0.05em !important;
 }
-.athlete-row {
-  display: flex; justify-content: center; gap: 24px;
-  flex-wrap: wrap;
-}
-.athlete-row img {
-  width: 100px; height: 100px;
-  border-radius: 50%; object-fit: cover;
-  border: 3px solid #53b956;
-  flex-shrink: 0;
-}
-
-/* ========== THE QUESTION (Competitive Wedge #1) ========== */
-.the-question {
-  padding: 120px 0;
-  background: #fff;
-  text-align: center;
-}
-.the-question h2 {
-  font-size: 42px; font-weight: 800; line-height: 1.2;
-  color: #1a1a2e; max-width: 800px; margin: 0 auto 24px;
-}
-.the-question .subtitle {
-  font-size: 20px; color: #666; max-width: 600px;
-  margin: 0 auto 60px; line-height: 1.6;
-}
-.comparison-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 40px; max-width: 900px; margin: 0 auto;
-}
-.compare-card {
-  padding: 48px 40px; border-radius: 20px;
-  text-align: left;
-}
-.compare-card.static {
-  background: #f5f5f5; border: 2px solid #e0e0e0;
-}
-.compare-card.adaptive {
-  background: linear-gradient(135deg, #1a1a2e 0%, #2a2a4e 100%);
-  color: #fff; border: 2px solid #53b956;
-  box-shadow: 0 20px 60px rgba(83,185,86,0.15);
-}
-.compare-card .card-label {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 12px; font-weight: 800; letter-spacing: 3px;
-  text-transform: uppercase; margin-bottom: 16px;
-}
-.compare-card.static .card-label { color: #999; }
-.compare-card.adaptive .card-label { color: #53b956; }
-.compare-card h3 {
-  font-size: 24px; font-weight: 700; margin-bottom: 24px; line-height: 1.3;
-}
-.compare-card ul {
-  list-style: none; display: flex; flex-direction: column; gap: 14px;
-}
-.compare-card ul li {
-  font-size: 15px; line-height: 1.5;
-  display: flex; align-items: flex-start; gap: 10px;
-}
-.compare-card.static ul li::before {
-  content: '—'; color: #ccc; font-weight: 700; flex-shrink: 0;
-}
-.compare-card.adaptive ul li::before {
-  content: '✓'; color: #53b956; font-weight: 700; flex-shrink: 0;
+.section-eyebrow .green-dot,
+.showcase-label .green-dot {
+    display: none !important;
 }
 
-/* ========== SOUND FAMILIAR ========== */
-.sound-familiar {
-  padding: 0; overflow: hidden;
-}
-.sound-familiar-text {
-  background: #1a1a2e;
-  padding: 80px 40px 60px;
-  text-align: center;
-}
-.sound-familiar-text h2 {
-  font-size: 42px; font-weight: 800; color: #fff;
-  margin-bottom: 16px;
-}
-.sound-familiar-text p {
-  font-size: 18px; color: rgba(255,255,255,0.6);
-  max-width: 500px; margin: 0 auto;
-}
-.sound-familiar-photo {
-  position: relative;
-  height: 500px;
-  background: url('../assets/runner-coffee-shop.jpg') center/cover no-repeat;
-}
-.doubt-cards {
-  position: absolute; bottom: 40px; left: 0; right: 0;
-  display: flex; gap: 16px; justify-content: center;
-  padding: 0 40px; flex-wrap: wrap;
-}
+/* --- SOUND FAMILIAR: Edgier cards --- */
 .doubt-card {
-  background: #fff; border-radius: 16px;
-  padding: 20px 24px; max-width: 220px;
-  font-size: 14px; font-weight: 500; color: #1a1a2e;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-  line-height: 1.4;
+    border: 2px solid rgba(255,255,255,0.3) !important;
+    border-radius: 4px !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 700 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.02em !important;
 }
 
-/* ========== HOW IT KNOWS (Competitive Wedge #2) ========== */
-.how-it-knows {
-  padding: 120px 0;
-  background: #f8f9fa;
+/* --- MANIFESTO: Bolder --- */
+.manifesto-section {
+    background: #111 !important;
 }
-.how-it-knows-header {
-  text-align: center; margin-bottom: 80px;
+.manifesto-headline {
+    font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
+    line-height: 1.05 !important;
+}
+.manifesto-body {
+    font-size: 1.15rem !important;
+    max-width: 700px !important;
+    margin: 0 auto !important;
+    line-height: 1.7 !important;
+}
+
+/* --- HOW IT KNOWS: Cleaner cards --- */
+.how-it-knows-section h2,
+.how-it-knows-section .manifesto-headline {
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+}
+
+/* --- APP SHOWCASE: Punchier sub-headers --- */
+.showcase-panel h3 {
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 800 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    font-size: 2.2rem !important;
+    letter-spacing: -0.01em !important;
+}
+
+/* --- BUTTONS: Sharper, more angular --- */
+.cta-button,
+.hero-cta-primary,
+a[class*="cta"] {
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 800 !important;
+    font-style: italic !important;
+    letter-spacing: 0.06em !important;
+    font-size: 1.05rem !important;
+}
+.hero-cta-secondary,
+.secondary-cta {
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 700 !important;
+    font-style: italic !important;
+    letter-spacing: 0.06em !important;
+}
+
+/* --- REVIEW CARDS: Sharper corners --- */
+.review-card {
+    border-radius: 6px !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+/* --- MOMENTS GRID: Sharper corners, edgier overlay --- */
+.moment-item {
+    border-radius: 6px !important;
+}
+.moment-overlay {
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 800 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.02em !important;
+}
+
+/* --- WHY DO YOU RUN: Bigger, bolder --- */
+.why-run-section h2 {
+    font-size: clamp(3rem, 6vw, 5.5rem) !important;
+    line-height: 1 !important;
+}
+.why-run-cta {
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 800 !important;
+    font-style: italic !important;
+}
+
+/* --- FAQ: Sharper --- */
+.faq-question {
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.02em !important;
+}
+
+/* --- PHONE SHOWCASE: Edge --- */
+.phone-showcase h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem) !important;
+}
+
+/* --- FEATURE PHOTO: Barlow headline --- */
+.feature-photo-section h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem) !important;
+}
+
+/* --- STRIPE DECORATION: Chartreuse tint --- */
+.chevron-stripe-decoration {
+    opacity: 0.5 !important;
+}
+
+/* --- NAV: Uppercase links --- */
+.nav-links a {
+    text-transform: uppercase !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    font-size: 0.95rem !important;
+}
+
+/* --- FOOTER: Edgier --- */
+.site-footer {
+    border-top: 4px solid var(--v2-chartreuse) !important;
+}
+
+/* --- PARTNER LOGOS --- */
+.partners-section {
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+/* --- HOW IT WORKS STEPS --- */
+.step-number {
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+}
+
+/* --- SCROLL-TO-TOP BUTTON --- */
+.scroll-top-btn {
+    background: var(--v2-chartreuse) !important;
+    color: #111 !important;
+    border-radius: 4px !important;
+}
+
+/* --- MOBILE TWEAKS --- */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: clamp(3rem, 12vw, 4.5rem) !important;
+    }
+    .hero-content {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+    .why-run-section h2 {
+        font-size: clamp(2.5rem, 10vw, 4rem) !important;
+    }
+}
+
+/* ===== END V2 RESKIN ===== */
+
+/* ===== V2 CONTRAST & POLISH (FIXED SELECTORS) ===== */
+
+/* --- HOW IT KNOWS section --- */
+.how-it-knows {
+    background: #f5f5f5 !important;
 }
 .how-it-knows-header h2 {
-  font-size: 42px; font-weight: 800; color: #1a1a2e;
-  margin-bottom: 16px;
+    color: #111 !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    font-size: clamp(2rem, 4vw, 3rem) !important;
 }
 .how-it-knows-header p {
-  font-size: 20px; color: #666; max-width: 600px; margin: 0 auto;
-}
-.intelligence-timeline {
-  max-width: 700px; margin: 0 auto;
-  position: relative;
-  padding-left: 60px;
-}
-.intelligence-timeline::before {
-  content: ''; position: absolute;
-  left: 19px; top: 0; bottom: 0;
-  width: 3px; background: linear-gradient(to bottom, #53b956, rgba(83,185,86,0.2));
-  border-radius: 3px;
+    color: #555 !important;
 }
 .timeline-item {
-  position: relative; margin-bottom: 48px;
-  padding: 32px; background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  opacity: 0; transform: translateX(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.timeline-item.timeline-visible {
-  opacity: 1; transform: translateX(0);
-}
-.timeline-item::before {
-  content: ''; position: absolute;
-  left: -52px; top: 36px;
-  width: 16px; height: 16px;
-  background: #53b956; border-radius: 50%;
-  border: 4px solid #f8f9fa;
-  transform: scale(0);
-  transition: transform 0.4s ease 0.2s;
-}
-.timeline-item.timeline-visible::before {
-  transform: scale(1);
-}
-.timeline-item::after {
-  content: ''; position: absolute;
-  left: -48px; top: 40px;
-  width: 8px; height: 8px;
-  background: rgba(83,185,86,0.3); border-radius: 50%;
-  animation: none;
-}
-.timeline-item.timeline-visible::after {
-  animation: dotPulse 2s ease-in-out infinite;
-}
-@keyframes dotPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(83,185,86,0.3); }
-  50% { box-shadow: 0 0 0 10px rgba(83,185,86,0); }
-}
-.timeline-item .step-label {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 11px; font-weight: 800; letter-spacing: 3px;
-  text-transform: uppercase; color: #53b956;
-  margin-bottom: 8px;
+    background: #fff !important;
+    border: 1px solid #e0e0e0 !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
 }
 .timeline-item h3 {
-  font-size: 20px; font-weight: 700; color: #1a1a2e;
-  margin-bottom: 8px;
+    color: #111 !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 800 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
 }
 .timeline-item p {
-  font-size: 15px; color: #666; line-height: 1.6;
+    color: #555 !important;
+}
+.timeline-item .day-label {
+    color: #53b956 !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+}
+/* Force visibility - scroll observer may not trigger in preview */
+.timeline-item {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+.timeline-item::before {
+    transform: translateX(-50%) translateY(-50%) scale(1) !important;
 }
 
-/* ========== PLAN / TRACK / RUN SHOWCASE ========== */
-.showcase {
-  padding: 120px 0;
-  background: #fff;
+/* --- MANIFESTO --- */
+.manifesto {
+    background: #111 !important;
+    padding: 100px 40px !important;
 }
-.showcase-panel {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 80px; align-items: center;
-  margin-bottom: 100px;
+.manifesto-line {
+    color: #fff !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
+    opacity: 1 !important;
 }
-.showcase-panel:last-child { margin-bottom: 0; }
-.showcase-panel.reverse { direction: rtl; }
-.showcase-panel.reverse > * { direction: ltr; }
-.showcase-text .showcase-label {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 20px; font-weight: 800; letter-spacing: 3px;
-  text-transform: uppercase; color: #53b956;
-  display: flex; align-items: center; gap: 10px;
-  margin-bottom: 16px;
-}
-.showcase-label::before {
-  content: ''; width: 14px; height: 14px;
-  background: #53b956; border-radius: 50%; flex-shrink: 0;
-}
-.showcase-text h3 {
-  font-size: 32px; font-weight: 700; color: #1a1a2e;
-  margin-bottom: 16px; line-height: 1.3;
-}
-.showcase-text p {
-  font-size: 16px; color: #666; line-height: 1.7; margin-bottom: 20px;
-}
-.showcase-bullets {
-  list-style: none; display: flex; flex-direction: column; gap: 12px;
-  border-left: 3px solid #53b956; padding-left: 20px;
-}
-.showcase-bullets li {
-  font-size: 15px; color: #444; line-height: 1.5;
-  display: flex; align-items: flex-start; gap: 10px;
-}
-.showcase-bullets li::before {
-  content: ''; width: 8px; height: 8px;
-  background: #53b956; border-radius: 50%;
-  flex-shrink: 0; margin-top: 6px;
-}
-.showcase-visual {
-  display: flex; justify-content: center; align-items: center;
-}
-.showcase-visual .circle-photo {
-  width: 420px; height: 420px; border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 0 0 4px rgba(83,185,86,0.15), 0 20px 60px rgba(0,0,0,0.1);
-}
-.showcase-panel.track-panel {
-  background: #fafbfc; border-radius: 24px; padding: 60px;
+.manifesto-sub {
+    color: rgba(255,255,255,0.8) !important;
+    opacity: 1 !important;
+    font-size: 1.15rem !important;
+    max-width: 700px !important;
+    margin: 24px auto 0 !important;
 }
 
-/* ========== WHY DO YOU RUN (Brand moment) ========== */
-.why-run {
-  padding: 140px 0;
-  background: #1a1a2e;
-  position: relative;
-  text-align: center;
-  overflow: hidden;
-}
-.why-run-bg {
-  position: absolute; inset: 0;
-  background: url('../assets/runner-silhouette-sunrise.jpg') center/cover no-repeat;
-  opacity: 0.25;
-}
-.why-run-content {
-  position: relative; z-index: 2;
-  max-width: 700px; margin: 0 auto;
-}
-.why-run-content h2 {
-  font-size: 48px; font-weight: 800; color: #fff;
-  margin-bottom: 40px;
-}
-.why-run-stanzas {
-  display: flex; flex-direction: column; gap: 12px;
-  margin-bottom: 40px;
-}
-.why-run-stanzas p {
-  font-size: 20px; color: rgba(255,255,255,0.7);
-  font-style: italic; line-height: 1.6;
-}
-.why-run-anchor {
-  font-size: 22px; font-weight: 700; color: #53b956;
-  margin-top: 20px;
+/* --- SOUND FAMILIAR / .familiar --- */
+.familiar .section-title,
+.section.familiar h2 {
+    color: #111 !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
 }
 
-/* ========== WHAT CHANGES (Competitive Wedge #3 - before/after) ========== */
-.what-changes {
-  padding: 120px 0;
-  background: #fff;
+/* --- PARTNERS --- */
+.partners {
+    background: #fff !important;
+    border-top: 1px solid #eee !important;
+    border-bottom: 1px solid #eee !important;
 }
-.what-changes-header {
-  text-align: center; margin-bottom: 80px;
-}
-.what-changes-header h2 {
-  font-size: 42px; font-weight: 800; color: #1a1a2e;
-  margin-bottom: 16px;
-}
-.what-changes-header p {
-  font-size: 20px; color: #666; max-width: 600px; margin: 0 auto;
-}
-.transformation-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 24px; max-width: 900px; margin: 0 auto;
-}
-.transform-card {
-  background: #fff; border-radius: 20px;
-  padding: 40px 32px; text-align: center;
-  transition: all 0.3s ease;
-  border: 1px solid #e8e8e8;
-  position: relative; overflow: hidden;
-}
-.transform-card::before {
-  content: ''; position: absolute;
-  top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, #53b956, rgba(83,185,86,0.3));
-  opacity: 0; transition: opacity 0.3s ease;
-}
-.transform-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-  border-color: rgba(83,185,86,0.3);
-}
-.transform-card:hover::before { opacity: 1; }
-.transform-before {
-  font-size: 14px; color: #aaa; margin-bottom: 20px;
-  text-decoration: line-through;
-  font-style: italic;
-}
-.transform-arrow {
-  width: 32px; height: 32px; margin: 0 auto 20px;
-  background: rgba(83,185,86,0.1); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px; color: #53b956;
-}
-.transform-after {
-  font-size: 18px; font-weight: 700; color: #1a1a2e;
-  margin-bottom: 12px; line-height: 1.3;
-}
-.transform-detail {
-  font-size: 14px; color: #888; line-height: 1.5;
+.partners-label {
+    color: #888 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    font-size: 0.85rem !important;
 }
 
-/* ========== FITLOGIC REVEAL (Apple-style) ========== */
-.fitlogic-reveal {
-  padding: 100px 0 80px;
-  background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
-  text-align: center;
-  overflow: hidden;
+/* --- APP SHOWCASE (dark bg) --- */
+.section.app-showcase {
+    background: #111 !important;
 }
-.fitlogic-reveal .container { max-width: 800px; }
-.fitlogic-reveal h2 {
-  font-size: 42px; font-weight: 800; color: #fff;
-  margin-bottom: 16px; line-height: 1.2;
+.showcase-panel h3 {
+    color: #fff !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 800 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    font-size: 2rem !important;
 }
-.fitlogic-reveal .lead {
-  font-size: 20px; color: rgba(255,255,255,0.6);
-  margin-bottom: 60px; line-height: 1.6;
-}
-.fitlogic-name {
-  margin-bottom: 16px;
-  opacity: 0; animation: revealFade 1s ease forwards;
-  animation-delay: 0.5s;
-}
-.fitlogic-logo-reveal {
-  height: 48px; margin: 0 auto;
-}
-@keyframes revealFade {
-  to { opacity: 1; }
-}
-.fitlogic-tagline {
-  font-size: 18px; color: rgba(255,255,255,0.5);
-  margin-bottom: 60px;
-}
-.fitlogic-stats {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 40px; margin-bottom: 60px;
-}
-.fitlogic-stat h4 {
-  font-size: 36px; font-weight: 800; color: #53b956;
-  margin-bottom: 8px;
-}
-.fitlogic-stat p {
-  font-size: 14px; color: rgba(255,255,255,0.5);
-  line-height: 1.4;
+.showcase-panel p,
+.showcase-panel li {
+    color: rgba(255,255,255,0.8) !important;
 }
 
-/* ========== TRUST NUMBERS ========== */
-.trust-numbers {
-  padding: 60px 0;
-  background: #53b956;
+/* --- HOW IT WORKS (.how) --- */
+.section.how {
+    background: #fafafa !important;
 }
-.trust-numbers-grid {
-  display: flex; justify-content: center; gap: 60px;
-  flex-wrap: wrap;
+.section.how .section-title {
+    color: #111 !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
 }
-.trust-stat { text-align: center; }
-.trust-stat h3 {
-  font-size: 36px; font-weight: 800; color: #fff;
+.section.how .step-title {
+    color: #333 !important;
 }
-.trust-stat p {
-  font-size: 14px; color: rgba(255,255,255,0.8);
-  font-weight: 500;
+.section.how .step-description,
+.section.how p {
+    color: #555 !important;
 }
-
-/* ========== MEB STRIP ========== */
-.meb-strip {
-  padding: 80px 0;
-  background: #f8f9fa;
-}
-.meb-content {
-  display: flex; align-items: center; gap: 48px;
-  max-width: 900px; margin: 0 auto;
-}
-.meb-photo {
-  width: 160px; height: 160px; border-radius: 50%;
-  object-fit: cover; flex-shrink: 0;
-  box-shadow: 0 0 0 4px rgba(83,185,86,0.3), 0 0 40px rgba(83,185,86,0.15);
-}
-.meb-text blockquote {
-  font-size: 20px; font-style: italic; color: #1a1a2e;
-  line-height: 1.6; margin-bottom: 12px;
-}
-.meb-text cite {
-  font-size: 14px; color: #666; font-style: normal; font-weight: 600;
+.step-number {
+    background: var(--v2-chartreuse) !important;
+    color: #111 !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
 }
 
-/* ========== TESTIMONIALS ========== */
-.testimonials {
-  padding: 120px 0;
-  background: #fff;
+/* --- PHONE SHOWCASE --- */
+.phone-showcase {
+    background: #1a1a1a !important;
 }
-.testimonials-header {
-  text-align: center; margin-bottom: 60px;
+.phone-showcase h2 {
+    color: #fff !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
 }
-.testimonials-header h2 {
-  font-size: 36px; font-weight: 800; color: #1a1a2e;
-  margin-bottom: 8px;
+
+/* --- FEATURE PHOTO --- */
+.feature-photo .section-title {
+    color: #222 !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
 }
-.testimonials-header p {
-  font-size: 16px; color: #666;
+.feature-photo .section-sub {
+    color: #555 !important;
 }
-.testimonial-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+
+/* --- TESTIMONIALS / REVIEWS --- */
+.section.testimonials {
+    background: #fafafa !important;
+}
+.section.testimonials .section-title {
+    color: #111 !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
 }
 .testimonial-card {
-  background: #f8f9fa; border-radius: 20px;
-  padding: 36px; transition: all 0.3s ease;
+    background: #fff !important;
+    border: 1px solid #e8e8e8 !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+    border-radius: 6px !important;
 }
-.testimonial-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-}
-.testimonial-stars {
-  color: #53b956; font-size: 16px; margin-bottom: 16px;
-  letter-spacing: 2px;
+.testimonial-card h3 {
+    color: #111 !important;
 }
 .testimonial-card p {
-  font-size: 15px; color: #444; line-height: 1.6;
-  margin-bottom: 16px;
+    color: #444 !important;
 }
-.testimonial-card cite {
-  font-size: 13px; color: #999; font-style: normal;
+.testimonial-card .review-author {
+    color: #888 !important;
 }
 
-/* ========== MOMENTS GRID ========== */
+/* --- MOMENTS --- */
 .moments {
-  padding: 100px 0;
-  background: #f8f9fa;
+    background: #111 !important;
 }
-.moments-header {
-  text-align: center; margin-bottom: 60px;
+.moments .section-title {
+    color: #fff !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
 }
-.moments-header h2 {
-  font-size: 36px; font-weight: 800; color: #1a1a2e;
-}
-.moments-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-.moment-card {
-  position: relative; border-radius: 16px;
-  overflow: hidden; aspect-ratio: 1;
-}
-.moment-card img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.4s ease;
-}
-.moment-card:hover img { transform: scale(1.05); }
-.moment-card .moment-text {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 20px;
-  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-  color: #fff; font-size: 14px; font-weight: 600;
+.moment-caption {
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 800 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
 }
 
-/* ========== WATCH SECTION ========== */
-.watch-section {
-  padding: 100px 0;
-  background: #fff;
-  text-align: center;
+/* --- WHY DO YOU RUN --- */
+.why-run h2 {
+    color: #fff !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    font-size: clamp(3rem, 6vw, 5.5rem) !important;
 }
-.watch-section h2 {
-  font-size: 36px; font-weight: 800; color: #1a1a2e;
-  margin-bottom: 16px;
-}
-.watch-section p {
-  font-size: 18px; color: #666; margin-bottom: 40px;
-}
-.watch-image {
-  max-width: 300px; margin: 0 auto;
-  border-radius: 20px;
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+.why-run p {
+    color: rgba(255,255,255,0.85) !important;
 }
 
-/* ========== FAQ ========== */
-.faq {
-  padding: 100px 0;
-  background: #f8f9fa;
+/* --- FAQ --- */
+.faq-section {
+    background: #fafafa !important;
 }
-.faq-header {
-  text-align: center; margin-bottom: 60px;
+.faq-section h2,
+.faq-section .section-title {
+    color: #111 !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
 }
-.faq-header h2 {
-  font-size: 36px; font-weight: 800; color: #1a1a2e;
+.faq-q {
+    color: #222 !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
 }
-.faq-list {
-  max-width: 700px; margin: 0 auto;
-  display: flex; flex-direction: column; gap: 16px;
+.faq-a,
+.faq-a p {
+    color: #555 !important;
 }
-.faq-item {
-  background: #fff; border-radius: 16px;
-  overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+
+/* --- CTA SECTION --- */
+.final-cta h2 {
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+}
+
+/* --- BUTTONS --- */
+.cta-button,
+.hero-cta-primary,
+a.cta-button {
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 800 !important;
+    font-style: italic !important;
+    letter-spacing: 0.06em !important;
+}
+.hero-cta-secondary {
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 700 !important;
+    font-style: italic !important;
+}
+
+/* --- SCROLL TO TOP --- */
+.scroll-top-btn {
+    background: var(--v2-chartreuse) !important;
+    color: #111 !important;
+    border-radius: 4px !important;
+}
+
+/* --- FOOTER --- */
+.site-footer {
+    border-top: 4px solid var(--v2-chartreuse) !important;
+}
+
+/* --- NAV --- */
+.nav-links a {
+    text-transform: uppercase !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+}
+
+/* --- TRUST STRIP --- */
+.trust-strip {
+    background: var(--v2-chartreuse) !important;
+}
+.trust-strip,
+.trust-strip * {
+    color: #111 !important;
+}
+.trust-strip .distance-cycle {
+    color: #53b956 !important;
+    font-weight: 800 !important;
+}
+
+/* --- MEB STRIP --- */
+.meb-strip {
+    border-top: 4px solid var(--v2-chartreuse) !important;
+    border-bottom: 4px solid var(--v2-chartreuse) !important;
+}
+
+/* --- SECTION EYEBROWS: Chartreuse badge --- */
+.section-eyebrow {
+    background: var(--v2-chartreuse) !important;
+    color: #111 !important;
+    padding: 6px 18px !important;
+    border-radius: 4px !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 800 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    display: inline-flex !important;
+    border: none !important;
+}
+.section-eyebrow .green-dot {
+    display: none !important;
+}
+
+/* --- SHOWCASE LABELS (PLAN/TRACK/RUN) --- */
+.showcase-label {
+    color: var(--v2-chartreuse) !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 800 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+}
+
+/* --- STRIPE DECORATION --- */
+.chevron-stripe-decoration {
+    opacity: 0.6 !important;
+}
+
+/* --- Force all fade-up visible for V2 --- */
+.fade-up {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+.stagger-item {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* ===== END V2 FIXED SELECTORS ===== */
+
+
+/* --- Light section text: Make readable --- */
+.how-it-knows-section,
+.how-it-works-section,
+.reviews-section,
+.feature-photo-section,
+.partners-section {
+    background: #fafafa !important;
+}
+
+/* Headings on light bg need dark color */
+.how-it-knows-section h2,
+.how-it-knows-section h3,
+.how-it-works-section h2,
+.how-it-works-section h3,
+.reviews-section h2,
+.feature-photo-section h2,
+.partners-section h2,
+.sound-familiar-section h2 {
+    color: #111 !important;
+}
+
+/* Body text on light bg */
+.how-it-knows-section p,
+.how-it-knows-section .step-description,
+.how-it-works-section p,
+.how-it-works-section .step-title,
+.how-it-works-section .step-description,
+.reviews-section p,
+.feature-photo-section p,
+.feature-photo-section h2 {
+    color: #333 !important;
+}
+
+/* How It Knows step cards - visible on light bg */
+.how-it-knows-section .how-it-knows-step,
+.intelligence-step {
+    background: #fff !important;
+    border: 1px solid #e5e5e5 !important;
+    border-radius: 8px !important;
+    padding: 32px !important;
+}
+.intelligence-step h3,
+.how-it-knows-step h3 {
+    color: #111 !important;
+}
+.intelligence-step p,
+.how-it-knows-step p {
+    color: #555 !important;
+}
+.intelligence-step .day-label,
+.how-it-knows-step .day-label {
+    color: var(--v2-hot-green) !important;
+}
+
+/* Review cards - visible */
+.review-card {
+    background: #fff !important;
+    border: 1px solid #e8e8e8 !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+}
+.review-card h3,
+.review-card .review-title {
+    color: #111 !important;
+}
+.review-card p,
+.review-card .review-text {
+    color: #444 !important;
+}
+.review-card .review-author,
+.review-card .reviewer-name {
+    color: #888 !important;
+}
+.review-card .stars,
+.review-card .star {
+    color: #f5a623 !important;
+}
+
+/* Manifesto - more visible */
+.manifesto-section {
+    background: #111 !important;
+}
+.manifesto-headline {
+    color: #fff !important;
+    opacity: 1 !important;
+}
+.manifesto-body,
+.manifesto-section p {
+    color: rgba(255,255,255,0.85) !important;
+    opacity: 1 !important;
+}
+
+/* How It Works step numbers */
+.step-number {
+    background: var(--v2-chartreuse) !important;
+    color: #111 !important;
+}
+
+/* Feature photo section text */
+.feature-photo-section h2 {
+    color: #222 !important;
+}
+.feature-photo-section p {
+    color: #555 !important;
+}
+
+/* App showcase - keep dark bg but ensure text visible */
+.app-showcase {
+    background: #111 !important;
+}
+.app-showcase h2,
+.app-showcase h3,
+.showcase-panel h3 {
+    color: #fff !important;
+}
+.app-showcase p,
+.showcase-panel p,
+.showcase-panel li {
+    color: rgba(255,255,255,0.8) !important;
+}
+
+/* Moments section */
+.moments-section {
+    background: #111 !important;
+}
+.moments-section h2 {
+    color: #fff !important;
+}
+
+/* FAQ section */
+.faq-section {
+    background: #fafafa !important;
+}
+.faq-section h2 {
+    color: #111 !important;
 }
 .faq-question {
-  width: 100%; padding: 24px 28px;
-  display: flex; justify-content: space-between; align-items: center;
-  background: none; border: none; cursor: pointer;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 16px; font-weight: 700; color: #1a1a2e;
-  text-align: left;
+    color: #222 !important;
 }
-.faq-question .faq-toggle {
-  font-size: 20px; color: #53b956; transition: transform 0.3s;
-  font-weight: 300;
-}
-.faq-item.active .faq-toggle { transform: rotate(45deg); }
-.faq-answer {
-  max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
-}
-.faq-answer-inner {
-  padding: 0 28px 24px;
-  font-size: 15px; color: #666; line-height: 1.6;
+.faq-answer,
+.faq-answer p {
+    color: #555 !important;
 }
 
-/* ========== FINAL CTA ========== */
-.final-cta {
-  padding: 100px 0;
-  background: #1a1a2e;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+/* Why do you run */
+.why-run-section h2 {
+    color: #fff !important;
 }
-.final-cta-bg {
-  position: absolute; inset: 0;
-  background: url('../assets/runner-finish-celebration.jpg') center/cover no-repeat;
-  opacity: 0.12;
-}
-.final-cta-content {
-  position: relative; z-index: 2;
-}
-.final-cta .eyebrow-cta {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 14px; font-weight: 800; letter-spacing: 4px;
-  text-transform: uppercase; color: #53b956;
-  margin-bottom: 20px;
-}
-.final-cta h2 {
-  font-size: 44px; font-weight: 800; color: #fff;
-  margin-bottom: 16px; line-height: 1.2;
-  max-width: 700px; margin-left: auto; margin-right: auto;
-}
-.final-cta p {
-  font-size: 18px; color: rgba(255,255,255,0.6);
-  margin-bottom: 40px; max-width: 500px;
-  margin-left: auto; margin-right: auto;
-}
-.final-cta .cta-buttons {
-  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
-  margin-bottom: 32px;
-}
-.qr-section {
-  display: flex; align-items: center; gap: 20px;
-  justify-content: center;
-  margin-top: 8px;
-}
-.qr-card {
-  background: #fff; border-radius: 14px; padding: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-}
-.qr-card img { width: 72px; height: 72px; border-radius: 6px; display: block; }
-.qr-text { display: flex; flex-direction: column; gap: 4px; text-align: left; }
-.qr-label {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.8);
-}
-.qr-sub {
-  font-size: 13px; color: rgba(255,255,255,0.4);
+.why-run-section p {
+    color: rgba(255,255,255,0.85) !important;
 }
 
-/* ========== PARTNER LOGOS ========== */
-.partners {
-  padding: 60px 0;
-  background: #111;
+/* Final CTA */
+.final-cta-section h2 {
+    color: #fff !important;
 }
-.partner-logos {
-  display: flex; justify-content: center; align-items: center;
-  gap: 48px; flex-wrap: wrap;
-}
-.partner-logos img {
-  height: 36px; opacity: 0.5;
-  filter: brightness(0) invert(1);
-  transition: opacity 0.3s;
-}
-.partner-logos img:hover { opacity: 0.9; }
-
-/* ========== FOOTER ========== */
-footer {
-  background: #0a0a14; padding: 60px 40px 30px;
-}
-.footer-grid {
-  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px; margin-bottom: 40px;
-}
-.footer-brand p {
-  font-size: 14px; color: rgba(255,255,255,0.4);
-  line-height: 1.6; margin-top: 12px;
-  max-width: 280px;
-}
-.footer-col h4 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13px; font-weight: 700; color: #fff;
-  text-transform: uppercase; letter-spacing: 1px;
-  margin-bottom: 16px;
-}
-.footer-col a {
-  display: block; font-size: 14px;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 10px; transition: color 0.3s;
-}
-.footer-col a:hover { color: #53b956; }
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 24px;
-  display: flex; justify-content: space-between;
-  align-items: center; flex-wrap: wrap; gap: 16px;
-}
-.footer-bottom p {
-  font-size: 12px; color: rgba(255,255,255,0.3);
-}
-.footer-bottom-links {
-  display: flex; gap: 24px;
-}
-.footer-bottom-links a {
-  font-size: 12px; color: rgba(255,255,255,0.3);
-  transition: color 0.3s;
-}
-.footer-bottom-links a:hover { color: #53b956; }
-.footer-social {
-  display: flex; gap: 16px; margin-top: 12px;
-}
-.footer-social a {
-  color: rgba(255,255,255,0.4); font-size: 14px;
-  transition: color 0.3s;
-}
-.footer-social a:hover { color: #53b956; }
-
-/* ========== BACK TO TOP ========== */
-.back-to-top {
-  position: fixed; bottom: 32px; right: 32px;
-  width: 48px; height: 48px; border-radius: 50%;
-  background: #53b956; color: #fff; border: none;
-  font-size: 20px; cursor: pointer; z-index: 900;
-  opacity: 0; visibility: hidden;
-  transition: all 0.3s ease;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 20px rgba(83,185,86,0.3);
-}
-.back-to-top.visible { opacity: 1; visibility: visible; }
-.back-to-top:hover { transform: translateY(-3px); }
-
-/* ========== SCROLL REVEAL ========== */
-.reveal {
-  opacity: 0; transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible {
-  opacity: 1; transform: translateY(0);
+.final-cta-section p {
+    color: rgba(255,255,255,0.8) !important;
 }
 
-/* ========== RESPONSIVE: TABLET ========== */
-@media (max-width: 768px) {
-  .container { padding: 0 24px; }
-  nav { padding: 14px 20px; }
-  nav .nav-links { display: none; }
-  .hamburger { display: flex; }
-  .hero-content { padding: 120px 24px 80px; }
-  .hero-content h1 { font-size: 36px; }
-  .goal-slider-prefix, .goal-slider-item { font-size: 22px; }
-  .goal-slider-window { height: 32px; }
-  .goal-slider-item { height: 32px; line-height: 32px; }
-  .meb-strip-inner { flex-direction: column; text-align: center; gap: 20px; }
-  .meb-strip-content blockquote { font-size: 16px; }
-  .hero-ctas { flex-direction: column; }
-  .hero-ctas .btn-primary, .hero-ctas .btn-secondary { width: 100%; justify-content: center; }
-  .athlete-scroll img { width: 80px; height: 80px; }
-  .the-question h2 { font-size: 30px; }
-  .comparison-grid { grid-template-columns: 1fr; gap: 24px; }
-  .compare-card { padding: 36px 28px; }
-  .sound-familiar-text h2 { font-size: 30px; }
-  .sound-familiar-photo { height: 400px; }
-  .doubt-cards { flex-direction: column; align-items: center; }
-  .doubt-card { max-width: 280px; }
-  .how-it-knows-header h2 { font-size: 30px; }
-  .showcase-panel { grid-template-columns: 1fr; gap: 40px; }
-  .showcase-panel.reverse { direction: ltr; }
-  .showcase-visual .circle-photo { width: 300px; height: 300px; }
-  .showcase-panel.track-panel { padding: 40px 24px; }
-  .why-run-content h2 { font-size: 32px; }
-  .why-run-stanzas p { font-size: 17px; }
-  .what-changes-header h2 { font-size: 30px; }
-  .transformation-grid { grid-template-columns: 1fr; gap: 16px; }
-  .fitlogic-reveal h2 { font-size: 30px; }
-  .fitlogic-name { font-size: 40px; }
-  .fitlogic-stats { grid-template-columns: 1fr; gap: 24px; }
-  .trust-numbers-grid { gap: 32px; }
-  .trust-stat h3 { font-size: 28px; }
-  .meb-content { flex-direction: column; text-align: center; }
-  .meb-photo { width: 120px; height: 120px; }
-  .meb-text blockquote { font-size: 17px; }
-  .testimonial-grid { grid-template-columns: 1fr; }
-  .moments-grid { grid-template-columns: repeat(2, 1fr); }
-  .final-cta h2 { font-size: 30px; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .mobile-overlay a { font-size: 20px; }
+/* Sound Familiar headline */
+.sound-familiar-section h2 {
+    color: #222 !important;
 }
 
-/* ========== RESPONSIVE: PHONE ========== */
-@media (max-width: 480px) {
-  .container { padding: 0 16px; }
-  .hero-content { padding: 110px 16px 60px; margin-left: 0; }
-  .hero-content h1 { font-size: 28px; }
-  .goal-slider-prefix, .goal-slider-item { font-size: 18px; }
-  .goal-slider { gap: 6px; margin-bottom: 14px; }
-  .goal-slider-window { height: 26px; }
-  .goal-slider-item { height: 26px; line-height: 26px; }
-  .btn-primary, .btn-secondary, .btn-dark { padding: 14px 28px; font-size: 14px; }
-  .section-eyebrow { font-size: 16px; letter-spacing: 2px; }
-  .athlete-row img { width: 56px; height: 56px; gap: 12px; }
-  .meb-strip { padding: 40px 0; }
-  .meb-strip-photo { width: 80px; height: 80px; }
-  .meb-strip-content blockquote { font-size: 14px; }
-  .the-question { padding: 80px 0; }
-  .the-question h2 { font-size: 24px; }
-  .the-question .subtitle { font-size: 16px; }
-  .compare-card { padding: 28px 20px; }
-  .compare-card h3 { font-size: 20px; }
-  .sound-familiar-text { padding: 60px 16px 40px; }
-  .sound-familiar-text h2 { font-size: 24px; }
-  .sound-familiar-photo { height: 350px; }
-  .doubt-card { font-size: 13px; padding: 16px 20px; }
-  .how-it-knows { padding: 80px 0; }
-  .intelligence-timeline { padding-left: 48px; }
-  .timeline-item { padding: 24px; }
-  .timeline-item h3 { font-size: 18px; }
-  .showcase { padding: 80px 0; }
-  .showcase-text h3 { font-size: 24px; }
-  .showcase-visual .circle-photo { width: 240px; height: 240px; }
-  .showcase-panel.track-panel { padding: 32px 16px; }
-  .why-run { padding: 100px 0; }
-  .why-run-content h2 { font-size: 26px; }
-  .why-run-stanzas p { font-size: 15px; }
-  .what-changes { padding: 80px 0; }
-  .what-changes-header h2 { font-size: 24px; }
-  .transform-card { padding: 28px 20px; }
-  .fitlogic-reveal { padding: 80px 0; }
-  .fitlogic-reveal h2 { font-size: 24px; }
-  .fitlogic-name { font-size: 32px; }
-  .trust-numbers-grid { flex-direction: column; gap: 20px; }
-  .trust-stat h3 { font-size: 24px; }
-  .meb-strip { padding: 60px 0; }
-  .meb-text blockquote { font-size: 15px; }
-  .testimonials { padding: 80px 0; }
-  .moments { padding: 60px 0; }
-  .moments-grid { gap: 12px; }
-  .final-cta { padding: 100px 0; }
-  .final-cta h2 { font-size: 26px; }
-  .qr-card img { width: 56px; height: 56px; }
-  .qr-label { font-size: 13px; }
-  .qr-sub { font-size: 11px; }
-  .partner-logos { gap: 24px; }
-  .partner-logos img { height: 28px; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .back-to-top { width: 40px; height: 40px; font-size: 16px; bottom: 20px; right: 20px; }
+/* Powered by FitLogic strip */
+.fitlogic-strip,
+.powered-by-strip {
+    background: #fff !important;
+    border-top: 1px solid #eee !important;
+    border-bottom: 1px solid #eee !important;
+}
+.fitlogic-strip *,
+.powered-by-strip * {
+    color: #555 !important;
 }
 
-/* ========== PRICING RIBBON ========== */
-.pricing-ribbon {
-  padding: 80px 0;
-  background: #fff;
-  text-align: center;
-}
-.pricing-ribbon h2 {
-  font-size: 36px; font-weight: 800; color: #1a1a2e;
-  margin-bottom: 8px;
-}
-.pricing-ribbon .pricing-sub {
-  font-size: 16px; color: #666; margin-bottom: 48px;
-}
-.pricing-cards {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 24px; max-width: 900px; margin: 0 auto;
-}
-.pricing-card {
-  background: #f8f9fa; border-radius: 20px;
-  padding: 40px 32px; text-align: center;
-  transition: all 0.3s ease;
-  border: 1px solid #e8e8e8;
-  border: 2px solid transparent;
-}
-.pricing-card.featured {
-  border-color: #53b956;
-  background: #fff;
-  box-shadow: 0 12px 40px rgba(83,185,86,0.12);
-  transform: scale(1.03);
-}
-.pricing-card .plan-name {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 14px; font-weight: 800; letter-spacing: 2px;
-  text-transform: uppercase; color: #53b956;
-  margin-bottom: 12px;
-}
-.pricing-card .price {
-  font-size: 40px; font-weight: 800; color: #1a1a2e;
-  margin-bottom: 4px;
-}
-.pricing-card .price span { font-size: 16px; font-weight: 500; color: #999; }
-.pricing-card .plan-desc {
-  font-size: 14px; color: #666; margin-bottom: 24px;
-}
-.pricing-card ul {
-  list-style: none; text-align: left;
-  display: flex; flex-direction: column; gap: 10px;
-  margin-bottom: 28px;
-}
-.pricing-card ul li {
-  font-size: 14px; color: #444;
-  display: flex; align-items: flex-start; gap: 8px;
-}
-.pricing-card ul li::before {
-  content: '✓'; color: #53b956; font-weight: 700; flex-shrink: 0;
+/* Partners section on light bg */
+.partners-section .partner-label,
+.partners-section p {
+    color: #888 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    font-size: 0.85rem !important;
 }
 
-@media (max-width: 768px) {
-  .pricing-cards { grid-template-columns: 1fr; max-width: 400px; }
-  .pricing-card.featured { transform: none; }
+/* Scroll-to-top: chartreuse */
+.scroll-top-btn {
+    background: var(--v2-chartreuse) !important;
+    color: #111 !important;
+    border-radius: 4px !important;
 }
+.scroll-top-btn svg {
+    fill: #111 !important;
+    color: #111 !important;
+}
+
+/* Phone showcase section */
+.phone-showcase {
+    background: #1a1a1a !important;
+}
+.phone-showcase h2 {
+    color: #fff !important;
+    font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
+}
+
+/* Green accents stay brand green */
+.showcase-label {
+    color: var(--v2-hot-green) !important;
+    background: transparent !important;
+    border: 2px solid var(--v2-hot-green) !important;
+    padding: 4px 16px !important;
+    font-size: 0.9rem !important;
+}
+
+/* Override chartreuse on eyebrows only at section level */
+.section-eyebrow {
+    background: var(--v2-chartreuse) !important;
+    color: #111 !important;
+}
+
+/* ===== END CONTRAST FIXES ===== */
+
+
 </style>
 </head>
-<body>
-
-<!-- NAV -->
-<nav id="navbar">
-  <a href="#" class="logo">
-    <img src="../assets/rundot-logo-white.svg" alt="RunDot" class="logo-light">
-    <img src="../assets/rundot-logo-dark.svg" alt="RunDot" class="logo-dark">
-  </a>
+<body><!-- TOP DOT STRIPE -->
+<div class="chevron-stripe chevron-stripe-right" style="margin-top: 0; position: absolute; top: 64px; left: 0; right: 0; z-index: 99; opacity: 0.6;"><div class="chevron-stripe-inner"></div></div><!-- NAV -->
+<nav>
+  <a class="nav-logo" href="./"><img src="../assets/rundot-logo-dark.svg" alt="RunDot"></a>
   <div class="nav-links">
-    <a href="#how-it-knows">How It Works</a>
-    <a href="#showcase">Features</a>
-    <a href="resources/">Resources</a>
-    <a href="#final-cta" class="nav-cta">Get your first workout</a>
+    <a href="./pricing/">Pricing</a>
+    <a href="./resources/">Resources</a>
+    <a href="#" class="nav-login">Log In</a>
+    <a href="#" class="nav-cta" onclick="openQR()">Get Started</a>
   </div>
-  <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+  <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-</nav>
-
-<div class="mobile-overlay" id="mobileMenu">
-  <a href="#how-it-knows" onclick="toggleMobileMenu()">How It Works</a>
-  <a href="#showcase" onclick="toggleMobileMenu()">Features</a>
-  <a href="resources/" onclick="toggleMobileMenu()">Resources</a>
-  <a href="#final-cta" class="btn-primary" onclick="toggleMobileMenu()">Get your first workout</a>
-</div>
-
-<!-- HERO -->
+</nav><!-- MOBILE NAV OVERLAY -->
+<div class="nav-mobile-overlay" id="mobileNav">
+  <a href="./pricing/" onclick="closeMobileNav()">Pricing</a>
+  <a href="./resources/" onclick="closeMobileNav()">Resources</a>
+  <a href="#" onclick="closeMobileNav()">Log In</a>
+  <a href="#" class="btn-primary" onclick="event.preventDefault();closeMobileNav();openQR()">Get Started</a>
+</div><!-- STICKY CTA BAR -->
+<div class="sticky-cta" id="stickyCta">
+  <p>Ready to trust your training?</p>
+  <a href="#" class="btn-sticky" onclick="event.preventDefault();openQR()">Get your first workout</a>
+</div><!-- 1. HERO - VIDEO -->
 <section class="hero">
-  <div class="hero-video">
-    <video autoplay muted loop playsinline preload="metadata">
-      <source src="../assets/hero-video.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1>Who could you become when you trust your <em>training?</em></h1>
-    <div class="goal-slider">
-      <span class="goal-slider-prefix">I want to</span>
-      <div class="goal-slider-window">
-        <div class="goal-slider-track" id="goalSliderTrack">
-          <span class="goal-slider-item">finish my first 5K</span>
-          <span class="goal-slider-item">PR my marathon</span>
-          <span class="goal-slider-item">train for my first half</span>
-          <span class="goal-slider-item">complete an ultra</span>
-          <span class="goal-slider-item">get my fastest mile time</span>
-          <span class="goal-slider-item">become a marathoner</span>
-          <span class="goal-slider-item">run pain-free again</span>
-          <span class="goal-slider-item">qualify for Boston</span>
-        </div>
-      </div>
+  <video class="hero-video" autoplay muted loop playsinline poster="../assets/hero-bright-runner.jpg">
+    <source src="../assets/hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content" id="heroContent">
+    <h1 id="heroHeadline"></h1>
+    <div class="goal-typewriter hero-sub-entrance">
+      <span class="goal-typewriter-prefix">I want to </span><span class="goal-typewriter-text" id="goalTypewriter"></span><span class="goal-typewriter-cursor"></span>
+    </div>    <div class="hero-cta-row hero-cta-entrance">
+      <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Get your first workout</a>
+      <a href="#how" class="btn-outline">See how it works</a>
     </div>
-    <div class="hero-ctas">
-      <a href="#final-cta" class="btn-primary">Get your first workout</a>
-      <a href="#the-question" class="btn-secondary">See how it works</a>
-    </div>
-    <!-- Social proof strip -->
-    <div class="hero-social-proof">
+    <div class="hero-social-proof hero-cta-entrance">
       <div class="hero-avatars">
-        <span class="avatar-circle">JM</span>
-        <span class="avatar-circle">SR</span>
-        <span class="avatar-circle">TK</span>
-        <span class="avatar-circle">AB</span>
-        <span class="avatar-circle avatar-plus">+</span>
+        <span class="hero-avatar" style="background:#2d6a2e;">JM</span>
+        <span class="hero-avatar" style="background:#3a7d3c;">SR</span>
+        <span class="hero-avatar" style="background:#1b5e1d;">TK</span>
+        <span class="hero-avatar" style="background:#4a8f4c;">AB</span>
+        <span class="hero-avatar hero-avatar-plus" style="background:#53b956;">+</span>
       </div>
       <span class="hero-social-text"><strong>50,000+ runners</strong> already training smarter</span>
     </div>
   </div>
-</section>
-
-<!-- ATHLETE GALLERY -->
-<section class="athlete-gallery">
-  <div class="athlete-row">
-    <img src="../assets/charlotte-kooima.jpg" alt="Athlete">
-    <img src="../assets/bryan-mumfrey.jpg" alt="Athlete">
-    <img src="../assets/courtney-baxter.jpg" alt="Athlete">
-    <img src="../assets/meghan-mozi.jpg" alt="Athlete">
-    <img src="../assets/elizabeth-tx.jpg" alt="Athlete">
-  </div>
-</section>
-
-<!-- MEB ENDORSEMENT -->
-<section class="meb-strip">
-  <div class="container">
-    <div class="meb-strip-inner">
-      <img src="../assets/meb-medals-bw.jpg" alt="Meb Keflezighi" class="meb-strip-photo">
-      <div class="meb-strip-content">
-        <blockquote>"RunDot's technology is so far ahead of anything else I've seen, and I want the absolute best for my athletes."</blockquote>
-        <cite>Meb Keflezighi · RunDot<sup>™</sup> Partner<br><span>Olympic Marathon Silver Medalist · Boston &amp; NYC Marathon Champion</span></cite>
-      </div>
+</section><!-- 2. MEB ENDORSEMENT -->
+<div class="meb-strip">
+  <div class="meb-strip-inner">
+    <div class="meb-strip-photo">
+      <img src="../assets/meb-medals-bw.jpg" alt="Meb Keflezighi" loading="lazy">
+    </div>
+    <div class="meb-strip-text">
+      <p class="meb-strip-quote">"RunDot's technology is so far ahead of anything else I've seen, and I want the absolute best for my athletes."</p>
+      <p class="meb-strip-name">Meb Keflezighi &middot; RunDot<span class="tm">™</span> Partner</p>
+      <p class="meb-strip-title">Olympic Marathon Silver Medalist &middot; Boston &amp; NYC Marathon Champion</p>
     </div>
   </div>
-</section>
-
-<!-- THE QUESTION (Competitive Wedge #1) -->
-<section class="the-question" id="the-question">
-  <div class="container reveal">
-    <div class="section-eyebrow" style="justify-content: center;">THE REAL QUESTION</div>
-    <h2>Is your training plan actually training <em>you</em>?</h2>
-    <p class="subtitle">Most apps hand you a template. RunDot<sup>™</sup> builds intelligence around your body.</p>
-    <div class="comparison-grid">
-      <div class="compare-card static">
-        <div class="card-label">Static plans</div>
-        <h3>Same plan, different runner</h3>
-        <ul>
-          <li>Pick a template based on your goal</li>
-          <li>Follow the same schedule regardless of progress</li>
-          <li>Missed a run? The plan doesn't know</li>
-          <li>Race prediction based on averages</li>
-        </ul>
-      </div>
-      <div class="compare-card adaptive">
-        <div class="card-label">RunDot<sup>™</sup> intelligence</div>
-        <h3>Your plan learns as you do</h3>
-        <ul>
-          <li>Every workout prescribed for your current fitness</li>
-          <li>Adapts daily based on what you actually ran</li>
-          <li>Accounts for weather, fatigue, and life</li>
-          <li>Race prediction built from your real data</li>
-        </ul>
-      </div>
+</div><!-- BRAND GREEN LINE -->
+<div class="green-line-sep" style="width: 100%; height: 4px; background: var(--green);"></div><!-- 3. TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-row">
+    <div class="trust-item">
+      <div class="trust-num">20+ <span class="green">years</span></div>
+      <div class="trust-label">of real athlete data</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">4.4<span class="green">★</span></div>
+      <div class="trust-label">App Store rating</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">5K to <span class="green distance-cycle">10K</span><span class="distance-cursor"></span></div>
+      <div class="trust-label">every distance, every runner</div>
     </div>
   </div>
-</section>
-
-<!-- SOUND FAMILIAR -->
-<section class="sound-familiar">
-  <div class="sound-familiar-text reveal">
-    <div class="section-eyebrow" style="justify-content: center; color: #53b956;">SOUND FAMILIAR</div>
-    <h2 style="color: #fff;">The doubt every runner knows</h2>
-    <p>You are not alone.</p>
-  </div>
-  <div class="sound-familiar-photo">
-    <div class="doubt-cards">
-      <div class="doubt-card">"Am I running too much or not enough?"</div>
-      <div class="doubt-card">"I keep getting injured mid-training"</div>
-      <div class="doubt-card">"I don't know if this plan is working"</div>
-      <div class="doubt-card">"I have a goal but no idea how to train for it"</div>
+</div><!-- 4. SOUND FAMILIAR -->
+<section class="section familiar">
+  <div class="section-inner fade-up">
+    <div class="section-header">
+      <div class="section-eyebrow">The runner's dilemma</div>
+      <h2 class="section-title">Every runner has asked these questions.</h2>
     </div>
   </div>
-</section>
-
-<!-- HOW IT KNOWS (Competitive Wedge #2) -->
+  <div class="familiar-photo fade-up">
+    <div class="familiar-grid">
+      <div class="familiar-card"><p>Am I doing<br>enough?</p></div>
+      <div class="familiar-card"><p>Am I doing<br>too much?</p></div>
+      <div class="familiar-card"><p>Am I actually<br>getting faster?</p></div>
+      <div class="familiar-card"><p>How do I train<br>for my goal race?</p></div>
+    </div>
+    <p style="font-family: var(--font-display); font-size: 20px; font-weight: 500; color: #fff; text-align: center; margin: 32px auto 0; letter-spacing: -0.01em; text-shadow: 0 2px 12px rgba(0,0,0,0.5); position: relative; z-index: 2;">You shouldn't have to answer those alone.</p>
+  </div>
+</section><!-- BRAND DOT STRIPE -->
+<div class="chevron-stripe chevron-stripe-right" style="margin-top: 0;"><div class="chevron-stripe-inner"></div></div><!-- 5. MANIFESTO - breathing moment -->
+<section class="manifesto fade-up">
+  <div class="manifesto-inner">
+    <p class="manifesto-line">What if you never had to wonder?</p>
+    <p class="manifesto-sub">What if every morning, your workout was already there. No second-guessing. Just the quiet confidence of knowing you're exactly where you should be.</p>
+  </div>
+</section><!-- PARTNERS -->
+<div class="partners">
+  <div class="partners-inner">
+    <div class="partners-label">Trusted by race partners &amp; elite coaches</div>
+    <div class="partners-logos">
+      <img class="sf-marathon" src="../assets/sf-marathon-logo.png" alt="San Francisco Marathon" loading="lazy">
+      <img src="../assets/elite-energy-logo.png" alt="Elite Energy" loading="lazy">
+      <img src="../assets/rose-bowl-logo.png" alt="Rose Bowl Half Marathon" loading="lazy">
+      <img src="../assets/la-marathon-logo.png" alt="LA Marathon" loading="lazy">
+      <img src="../assets/wildflower-logo.png" alt="Wildflower" loading="lazy">
+    </div>
+  </div>
+</div><!-- HOW IT KNOWS -->
 <section class="how-it-knows" id="how-it-knows">
-  <div class="container">
-    <div class="how-it-knows-header reveal">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+    <div class="how-it-knows-header fade-up">
       <div class="section-eyebrow" style="justify-content: center;">HOW IT KNOWS</div>
       <h2>Not a template. An intelligence.</h2>
-      <p>RunDot<sup>™</sup> doesn't guess your training. It learns it, every single day.</p>
+      <p>RunDot<span class="tm">™</span> doesn't guess your training. It learns it, every single day.</p>
     </div>
-    <div class="intelligence-timeline reveal">
+    <div class="intelligence-timeline fade-up">
       <div class="timeline-item">
         <div class="step-label">DAY 1</div>
         <h3>It learns who you are</h3>
-        <p>Connect your watch. RunDot<sup>™</sup> analyzes your training history, current fitness, and the patterns most plans ignore.</p>
+        <p>Connect your watch. RunDot<span class="tm">™</span> analyzes your training history, current fitness, and the patterns most plans ignore.</p>
       </div>
       <div class="timeline-item">
         <div class="step-label">EVERY WORKOUT</div>
@@ -1240,7 +2570,7 @@ footer {
       <div class="timeline-item">
         <div class="step-label">OVER TIME</div>
         <h3>It predicts what you need next</h3>
-        <p>The longer you train, the smarter it gets. Your Dot Score<sup>™</sup> tracks optimization across every dimension of your running.</p>
+        <p>The longer you train, the smarter it gets. Your Dot Score<span class="tm">™</span> tracks optimization across every dimension of your running.</p>
       </div>
       <div class="timeline-item">
         <div class="step-label">RACE DAY</div>
@@ -1249,431 +2579,566 @@ footer {
       </div>
     </div>
   </div>
-</section>
-
-<!-- PLAN / TRACK / RUN SHOWCASE -->
-<section class="showcase" id="showcase">
-  <div class="container">
-
-    <!-- PLAN -->
-    <div class="showcase-panel reveal">
-      <div class="showcase-text">
-        <div class="showcase-label">PLAN</div>
-        <h3>Know exactly what to run today</h3>
-        <p>No second-guessing. No Googling training plans. Open the app, see your workout, and go.</p>
+</section><!-- 6. APP SHOWCASE -->
+<section class="section app-showcase">
+  <div class="app-showcase-inner fade-up">    <!-- PLAN -->
+    <div class="showcase-panel">
+      <div class="showcase-text-col">
+        <div class="showcase-label-tag">PLAN</div>
+        <h3 class="showcase-heading">Wake up knowing.</h3>
+        <p class="showcase-desc">Tomorrow's run is already figured out. So is the rest of the week.</p>
         <ul class="showcase-bullets">
-          <li>Workouts built around your schedule and goals</li>
-          <li>Adapts when life gets in the way</li>
-          <li>Race-specific periodization built in</li>
+          <li>Personalized daily workouts based on your fitness and your goal</li>
+          <li>Adapts weekly as your body responds to training</li>
+          <li>Race-day ready plans from 5K to ultra</li>
         </ul>
       </div>
-      <div class="showcase-visual">
-        <img src="../assets/lifestyle-athlete-plan.jpg" alt="Runner planning" class="circle-photo">
+      <div class="showcase-visual-col">
+        <div class="showcase-circle">
+          <img src="../assets/lifestyle-athlete-plan.jpg" alt="Runner preparing for a morning run" loading="lazy" style="filter: brightness(1.1);">
+        </div>
+        <div class="showcase-device-float showcase-laptop-float">
+          <div class="laptop-screen-lg">
+            <img src="../assets/app-desktop-calendar.png" alt="RunDot weekly training calendar">
+          </div>
+          <div class="laptop-base-lg"></div>
+        </div>
       </div>
-    </div>
-
-    <!-- TRACK -->
-    <div class="showcase-panel reverse track-panel reveal">
-      <div class="showcase-text">
-        <div class="showcase-label">TRACK</div>
-        <h3>See your progress in real numbers</h3>
-        <p>Your Dot Score<sup>™</sup> and TrainX<sup>®</sup> score show exactly how your training is working.</p>
+    </div>    <!-- TRACK -->
+    <div class="showcase-panel showcase-panel-reverse showcase-panel-alt">
+      <div class="showcase-text-col">
+        <div class="showcase-label-tag">TRACK</div>
+        <h3 class="showcase-heading">See yourself improving.</h3>
+        <p class="showcase-desc">Some weeks you can't tell you're getting faster. Your Dot Score<span class="tm">™</span> can.</p>
         <ul class="showcase-bullets">
-          <li>Dot Score<sup>™</sup> measures total running optimization</li>
-          <li>TrainX<sup>®</sup> shows training execution quality</li>
+          <li>One number that tracks your overall running fitness</li>
+          <li>See progress over weeks, not just single workouts</li>
+          <li>Know when you're peaking and when to pull back</li>
+        </ul>
+      </div>
+      <div class="showcase-visual-col">
+        <div class="showcase-circle">
+          <img src="../assets/runner-dawn-highway.jpg" alt="Runner on open highway at dawn" loading="lazy">
+        </div>
+        <div class="showcase-device-float showcase-phone-float">
+          <div class="phone-frame-lg">
+            <div class="phone-notch-lg"></div>
+            <div class="phone-screen-lg">
+              <img src="../assets/app-mobile-dashboard.png" alt="RunDot Dot Score dashboard">
+            </div>
+          </div>
+        </div>
+        <img src="../assets/widget-dot-score.png" alt="Dot Score gauge" class="showcase-floating-gauge" style="top: 30px; left: 40px; animation-delay: 0s;">
+      </div>
+    </div>    <!-- RUN -->
+    <div class="showcase-panel">
+      <div class="showcase-text-col">
+        <div class="showcase-label-tag">RUN</div>
+        <h3 class="showcase-heading">Just follow your personalized plan.</h3>
+        <p class="showcase-desc">Your plan tells you exactly what to do. Just run the pace on your wrist.</p>
+        <ul class="showcase-bullets">
+          <li>Structured workouts sent directly to your running watch</li>
+          <li>Pace, distance, and interval targets built in</li>
           <li>Connects to your favorite running watch</li>
+          <li>Don't have one yet? Just grab your phone and go</li>
         </ul>
       </div>
-      <div class="showcase-visual">
-        <img src="../assets/runner-tattooed-road.jpg" alt="Runner tracking" class="circle-photo">
-      </div>
-    </div>
-
-    <!-- RUN -->
-    <div class="showcase-panel reveal">
-      <div class="showcase-text">
-        <div class="showcase-label">RUN</div>
-        <h3>Trust every mile</h3>
-        <p>When you know the purpose behind every run, you stop worrying and start becoming.</p>
-        <ul class="showcase-bullets">
-          <li>Pacing guidance for every workout type</li>
-          <li>Confidence that each run serves a purpose</li>
-          <li>The freedom to focus on the run, not the plan</li>
-        </ul>
-      </div>
-      <div class="showcase-visual">
-        <img src="../assets/runner-dawn-highway.jpg" alt="Runner in motion" class="circle-photo">
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- WHY DO YOU RUN -->
-<section class="why-run">
-  <div class="why-run-bg"></div>
-  <div class="why-run-content reveal">
-    <div class="section-eyebrow" style="justify-content: center; color: #53b956;">BRAND MOMENT</div>
-    <h2>Why do you run?</h2>
-    <div class="why-run-stanzas">
-      <p>To clear your head.</p>
-      <p>To prove you still can.</p>
-      <p>To become someone you haven't met yet.</p>
-      <p>To finish what you started.</p>
-      <p>To prove something to yourself.</p>
-    </div>
-    <div class="why-run-anchor">Whatever your goal, it starts with trusting today's run.</div>
-  </div>
-</section>
-
-<!-- WHAT CHANGES (Competitive Wedge #3 - before/after) -->
-<section class="what-changes" id="what-changes">
-  <div class="container">
-    <div class="what-changes-header reveal">
-      <div class="section-eyebrow" style="justify-content: center;">WHAT CHANGES</div>
-      <h2>When training becomes intelligent</h2>
-      <p>Here is what runners experience when the plan starts working for them, not just at them.</p>
-    </div>
-    <div class="transformation-grid reveal">
-      <div class="transform-card">
-        <div class="transform-before">Guessing your paces</div>
-        <div class="transform-arrow">↓</div>
-        <div class="transform-after">Knowing your zones are right</div>
-        <div class="transform-detail">Paces calculated from your data, not a chart</div>
-      </div>
-      <div class="transform-card">
-        <div class="transform-before">Following a rigid 16-week block</div>
-        <div class="transform-arrow">↓</div>
-        <div class="transform-after">A plan that moves with your life</div>
-        <div class="transform-detail">Missed a week? It recalibrates. No restart.</div>
-      </div>
-      <div class="transform-card">
-        <div class="transform-before">Hoping you are ready on race day</div>
-        <div class="transform-arrow">↓</div>
-        <div class="transform-after">Knowing your predicted finish time</div>
-        <div class="transform-detail">Built from your actual training, not averages</div>
-      </div>
-      <div class="transform-card">
-        <div class="transform-before">No idea if it is working</div>
-        <div class="transform-arrow">↓</div>
-        <div class="transform-after">Watching your Dot Score<sup>™</sup> climb</div>
-        <div class="transform-detail">One number that tracks your running optimization</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FITLOGIC REVEAL (Apple-style) -->
-<section class="fitlogic-reveal">
-  <div class="container reveal">
-    <div class="section-eyebrow" style="justify-content: center; color: #53b956;">UNDER THE HOOD</div>
-    <h2>The engine behind every decision</h2>
-    <p class="lead">Every workout, every pace, every recovery window - calculated by a training intelligence years in the making.</p>
-    <div class="fitlogic-name"><img src="../assets/fitlogic-logo-white.png" alt="FitLogic" class="fitlogic-logo-reveal"></div>
-    <p class="fitlogic-tagline">Predictive training intelligence</p>
-    <div class="fitlogic-stats">
-      <div class="fitlogic-stat">
-        <h4>Millions</h4>
-        <p>of training data points analyzed</p>
-      </div>
-      <div class="fitlogic-stat">
-        <h4>Daily</h4>
-        <p>adaptation based on your response</p>
-      </div>
-      <div class="fitlogic-stat">
-        <h4>Years</h4>
-        <p>of development and refinement</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TRUST NUMBERS -->
-<section class="trust-numbers">
-  <div class="container">
-    <div class="trust-numbers-grid">
-      <div class="trust-stat">
-        <h3>50,000+</h3>
-        <p>athletes trust RunDot<sup>™</sup></p>
-      </div>
-      <div class="trust-stat">
-        <h3>4.4 ★</h3>
-        <p>App Store rating</p>
-      </div>
-      <div class="trust-stat">
-        <h3>5K to Ultra</h3>
-        <p>every distance, every runner</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MEB STRIP -->
-<section class="meb-strip">
-  <div class="container">
-    <div class="meb-content reveal">
-      <img src="../assets/meb-medals-bw.jpg" alt="Meb Keflezighi" class="meb-photo">
-      <div class="meb-text">
-        <blockquote>"RunDot's technology is so far ahead of anything else I've seen, and I want the absolute best for my athletes."</blockquote>
-        <cite>- Meb Keflezighi, Olympic Silver Medalist & Boston Marathon Champion</cite>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="container">
-    <div class="testimonials-header reveal">
-      <div class="section-eyebrow" style="justify-content: center;">FROM THE APP STORE</div>
-      <h2>Runners are talking</h2>
-      <p>Real reviews from real runners</p>
-    </div>
-    <div class="testimonial-grid reveal">
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p>"Amazing Fitness App - This app has completely changed the way I approach my training. Highly recommend for anyone serious about improving."</p>
-        <cite>- Tri-Idaho, App Store</cite>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p>"RunDot - Great adaptive training platform. The workouts are perfectly calibrated and I can feel the difference in my race performance."</p>
-        <cite>- Epicenter, App Store</cite>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p>"Amazing Training Plan - After years of trying different approaches, this is the first time training has felt personalized to me."</p>
-        <cite>- Married 40 years!, App Store</cite>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MOMENTS GRID -->
-<section class="moments">
-  <div class="container">
-    <div class="moments-header reveal">
-      <div class="section-eyebrow" style="justify-content: center;">EVERY RUNNER. EVERY GOAL.</div>
-      <h2>Built for moments like these</h2>
-    </div>
-    <div class="moments-grid reveal">
-      <div class="moment-card">
-        <img src="../assets/moments-elite-female.jpg" alt="Elite runner">
-        <div class="moment-text">The PR that seemed impossible</div>
-      </div>
-      <div class="moment-card">
-        <img src="../assets/moments-beginner-male.jpg" alt="Beginner runner">
-        <div class="moment-text">The first finish line</div>
-      </div>
-      <div class="moment-card">
-        <img src="../assets/moments-hipster-female.jpg" alt="Runner">
-        <div class="moment-text">The run that cleared your head</div>
-      </div>
-      <div class="moment-card">
-        <img src="../assets/moments-mature-male.jpg" alt="Experienced runner">
-        <div class="moment-text">The comeback nobody expected</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WATCH -->
-<div class="section-divider"></div>
-<section class="watch-section">
-  <div class="container reveal">
-    <div class="section-eyebrow" style="justify-content: center;">SEAMLESS</div>
-    <h2>Connects to your favorite running watch</h2>
-    <p>Sync your data automatically. RunDot<sup>™</sup> works with the gear you already own.</p>
-    <img src="../assets/garmin-watch-2.png" alt="Running watch" class="watch-image">
-  </div>
-</section>
-
-
-
-<!-- FAQ -->
-<section class="faq">
-  <div class="container">
-    <div class="faq-header reveal">
-      <div class="section-eyebrow" style="justify-content: center;">FAQ</div>
-      <h2>Common questions</h2>
-    </div>
-    <div class="faq-list reveal">
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          How is RunDot different from other training apps?
-          <span class="faq-toggle">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Most training apps give you a static plan based on a questionnaire. RunDot<sup>™</sup> uses FitLogic<sup>™</sup> predictive intelligence to analyze your actual training data and adapt your plan daily. Every workout is prescribed specifically for your current fitness, not a template.</div>
+      <div class="showcase-visual-col">
+        <div class="showcase-circle">
+          <img src="../assets/runner-watch-modern.jpg" alt="Athletic runner checking smartwatch" loading="lazy">
+        </div>
+        <div class="watch-brands-float">
+          <div class="watch-brands-label">Connects to</div>
+          <div class="watch-brands-grid">
+            <div class="watch-brand-item">
+              <svg viewBox="0 0 120 24" xmlns="http://www.w3.org/2000/svg"><text x="60" y="18" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-weight="800" font-size="16" fill="#333" letter-spacing="3">GARMIN</text></svg>
+            </div>
+            <div class="watch-brand-item">
+              <svg viewBox="0 0 110 24" xmlns="http://www.w3.org/2000/svg"><text x="55" y="18" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-weight="800" font-size="16" fill="#333" letter-spacing="3">COROS</text></svg>
+            </div>
+            <div class="watch-brand-item" style="gap: 2px;">
+              <svg class="apple-icon" viewBox="0 0 18 22" xmlns="http://www.w3.org/2000/svg"><path d="M14.94 11.64c-.02-2.34 1.91-3.46 2-3.52-1.09-1.59-2.78-1.81-3.38-1.83-1.44-.15-2.81.85-3.54.85-.73 0-1.87-.83-3.07-.81-1.58.02-3.04.92-3.85 2.34-1.64 2.85-.42 7.07 1.18 9.38.78 1.13 1.71 2.4 2.94 2.35 1.18-.05 1.62-.76 3.05-.76 1.43 0 1.83.76 3.08.74 1.27-.02 2.07-1.15 2.84-2.29.9-1.31 1.27-2.58 1.29-2.64-.03-.01-2.47-.95-2.54-3.81zM12.6 4.56c.65-.79 1.09-1.88.97-2.97-.94.04-2.07.62-2.74 1.41-.61.7-1.14 1.82-.99 2.9 1.05.08 2.11-.53 2.76-1.34z" fill="#333"/></svg>
+              <svg viewBox="0 0 60 24" xmlns="http://www.w3.org/2000/svg"><text x="2" y="18" text-anchor="start" font-family="'Plus Jakarta Sans',sans-serif" font-weight="600" font-size="15" fill="#333">Watch</text></svg>
+            </div>
+            <div class="watch-brand-item">
+              <svg viewBox="0 0 100 24" xmlns="http://www.w3.org/2000/svg"><text x="50" y="18" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-weight="700" font-size="16" fill="#333" letter-spacing="1">fitbit</text></svg>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          What watches and devices does RunDot work with?
-          <span class="faq-toggle">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">RunDot<sup>™</sup> connects to your favorite running watch and syncs your data automatically. Connect through the app and your workouts flow in seamlessly.</div>
-        </div>
+    </div>    <!-- Single CTA after showcase -->
+    <div style="text-align: center; padding: 20px 0 40px;">
+      <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Get your first workout</a>
+    </div>
+  </div>
+</section><!-- BRAND DOT STRIPE -->
+<div class="chevron-stripe chevron-stripe-subtle"><div class="chevron-stripe-inner"></div></div><!-- 7. HOW IT WORKS -->
+<section class="section how" id="how">
+  <div class="section-inner fade-up">
+    <div class="section-header">
+      <div class="section-eyebrow">It's this simple</div>
+      <h2 class="section-title">Five minutes. Then you run.</h2>
+    </div>
+    <div class="how-narrative">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <h3>Tell us about you</h3>
+        <p>Your fitness, your goals, your schedule. Your plan starts building immediately.</p>
       </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          I am a beginner. Is RunDot right for me?
-          <span class="faq-toggle">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">If you are a runner with a goal, RunDot<sup>™</sup> is built for you. Whether you are training for your first 5K or your tenth marathon, the intelligence adapts to your level and builds from where you are.</div>
-        </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <h3>Get your daily workout</h3>
+        <p>Open the app. Your workout is already there - built fresh for today.</p>
       </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          What is a Dot Score?
-          <span class="faq-toggle">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Your Dot Score<sup>™</sup> is a single number that represents your overall running optimization. It tracks how well your training, recovery, and performance are working together, and it updates as you train.</div>
-        </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <h3>Run</h3>
+        <p>That's the whole point, isn't it? Stop planning. Start running. Trust the process.</p>
       </div>
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          Can I try RunDot for free?
-          <span class="faq-toggle">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Yes. Sign up and get your first workout free. No credit card required to start.</div>
+    </div>
+    <div class="how-credibility">
+      <div class="how-credibility-badge">
+        <div class="how-credibility-dot">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
+        <span>Powered by <img src="../assets/fitlogic-logo-dark.svg" alt="FitLogic™" style="height: 18px; vertical-align: middle; margin: 0 4px; opacity: 0.85;"> 20 years of real athlete data</span>
       </div>
     </div>
   </div>
 </section>
-
-<!-- PARTNER LOGOS -->
-<section class="partners">
-  <div class="container">
-    <div class="partner-logos reveal">
-      <img src="../assets/la-marathon-logo.png" alt="LA Marathon">
-      <img src="../assets/sf-marathon-logo.png" alt="SF Marathon">
-      <img src="../assets/rose-bowl-logo.png" alt="Rose Bowl Half">
-      <img src="../assets/elite-energy-logo.png" alt="Elite Energy">
-      <img src="../assets/wildflower-logo.png" alt="Wildflower">
+<!-- 7b. PHONE SHOWCASE -->
+<section class="phone-showcase">
+  <div class="phone-showcase-inner">
+    
+    <h2>Your next run<br>starts here.</h2>
+    
+    <div class="phone-layout">
+      <div class="phone-widgets-left">
+        <div class="phone-widget pw-gauge"><img src="../assets/icon-dot-score.png" alt="Dot Score™ gauge" loading="lazy"></div>
+        <div class="phone-widget pw-notification"><img src="../assets/notification-start-workout.png" alt="Start Workout notification" loading="lazy"></div>
+        <div class="phone-widget pw-gauge"><img src="../assets/icon-training-goal.png" alt="Training Goal progress" loading="lazy"></div>
+      </div>
+      <div class="phone-frame fade-up">
+        <div class="phone-bezel">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <img src="../assets/app-home-incomplete.png" alt="RunDot app home screen" loading="lazy">
+          </div>
+        </div>
+      </div>
+      <div class="phone-widgets-right">
+        <div class="phone-widget pw-gauge"><img src="../assets/icon-trainx.png" alt="TrainX® score" loading="lazy"></div>
+        <div class="phone-widget pw-chart"><img src="../assets/data-session-preview.png" alt="Session Preview chart" loading="lazy"></div>
+        <div class="phone-widget pw-gauge"><img src="../assets/icon-stress.png" alt="Stress level indicator" loading="lazy"></div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 48px;">
+      <a href="#" onclick="event.preventDefault();openQR()" style="display: inline-block; background: #53b956; color: #fff; padding: 16px 36px; border-radius: 8px; font-size: 17px; font-weight: 700; text-decoration: none; letter-spacing: 0.3px; transition: background 0.2s; cursor: pointer;">Download the App</a>
+    </div>
+  </div>
+</section><!-- 8. FEATURE PHOTO -->
+<section class="feature-photo fade-up">
+  <div class="feature-photo-circle">
+    <img src="../assets/runner-urban-sprint.jpg" alt="Dynamic female runner sprinting through city" loading="lazy">
+  </div>
+  <div class="feature-photo-content">
+    <div class="section-eyebrow">Built for real life</div>
+    <h2 class="section-title">Miss a day. It's already handled.</h2>
+    <p class="section-sub">Life happens. Your plan adjusts. No guilt, no catch-up workouts.</p>
+  </div>
+</section><section class="feature-photo reverse fade-up">
+  <div class="feature-photo-circle">
+    <img src="../assets/runner-dawn-highway.jpg" alt="Runner on scenic highway at dawn" loading="lazy">
+  </div>
+  <div class="feature-photo-content">
+    <div class="section-eyebrow">The right effort</div>
+    <h2 class="section-title">Push when it matters. Rest when it counts.</h2>
+    <p class="section-sub">Every session is built around how your body is actually responding.</p>
+  </div>
+</section><!-- BRAND DOT STRIPE -->
+<div class="chevron-stripe chevron-stripe-right"><div class="chevron-stripe-inner"></div></div><!-- 9. REVIEWS -->
+<section class="section testimonials">
+  <div class="section-inner fade-up">
+    <div class="section-header">
+      <div class="section-eyebrow">From the App Store</div>
+      <h2 class="section-title">What runners say after their first month.</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card stagger-item">
+        <div class="stars">★★★★★</div>
+        <h4>Amazing Fitness App</h4>
+        <p><strong>This app makes training so much smoother and more inspiring.</strong> I love seeing my performance metrics right away, like Dot and TrainX scores. It's super easy to start a run whenever I want. I can jump into a planned workout or just head out for a spontaneous session with a few taps.</p>
+        <cite>Tri-Idaho</cite>
+      </div>
+      <div class="testimonial-card stagger-item">
+        <div class="stars">★★★★★</div>
+        <h4>RunDot</h4>
+        <p>I like technology but I frequently feel overwhelmed with it. <strong>I downloaded it, input basic personal information, and within minutes I had my first run loaded and I hit the road.</strong> I loved the guided run from the phone and think it really dialed in my pace.</p>
+        <cite>Epicenter</cite>
+      </div>
+      <div class="testimonial-card stagger-item">
+        <div class="stars">★★★★★</div>
+        <h4>Amazing Training Plan</h4>
+        <p>The training plan changes daily so I am never bored, the paces are prescribed specifically for my ability, age, gender and experience. <strong>I love that I can trust that the workouts are exactly what I need, not too much or too little!</strong></p>
+        <cite>Married 40 years!</cite>
+      </div>
+      <div class="testimonial-card stagger-item">
+        <div class="stars">★★★★★</div>
+        <h4>Amazing App for Running!</h4>
+        <p>The UI is sleek and super intuitive, very easy to use and see your metrics like pace, heart rate, etc. <strong>App is way more advanced than previous run apps used in the past.</strong> Setup is very easy and only takes minutes from downloading to your first run.</p>
+        <cite>triwithasideofhalf</cite>
+      </div>
+    </div>
+  </div>
+</section><!-- BRAND DOT STRIPE -->
+<div class="chevron-stripe chevron-stripe-subtle"><div class="chevron-stripe-inner"></div></div><!-- 10. MOMENTS -->
+<section class="moments fade-up">
+  <div class="section-inner">
+    <div class="section-header" style="margin-bottom: 56px;">
+      <h2 class="section-title">It's the moments that matter.</h2>
+    </div>
+    <div class="moments-grid">
+      <div class="moment-card stagger-item">
+        <div class="moment-circle"><img src="../assets/moments-silhouette-sunrise.jpg" alt="Runner silhouette at sunrise" loading="lazy"></div>
+        <div class="moment-caption">Become someone<br>who doesn't quit.</div>
+      </div>
+      <div class="moment-card stagger-item">
+        <div class="moment-circle"><img src="../assets/moments-beach-dawn.jpg" alt="Runner on beach at dawn" loading="lazy"></div>
+        <div class="moment-caption">Become a runner<br>who trusts the process.</div>
+      </div>
+      <div class="moment-card stagger-item">
+        <div class="moment-circle"><img src="../assets/moments-finish-joy.jpg" alt="Runner celebrating marathon finish" loading="lazy"></div>
+        <div class="moment-caption">Become a finisher.<br>Then become faster.</div>
+      </div>
+      <div class="moment-card stagger-item">
+        <div class="moment-circle"><img src="../assets/moments-victory-female.jpg" alt="Female runner crossing finish line in victory" loading="lazy"></div>
+        <div class="moment-caption">Become the runner you<br>always knew you could be.</div>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- FINAL CTA -->
-<section class="final-cta" id="final-cta">
-  <div class="final-cta-bg"></div>
-  <div class="final-cta-content reveal">
-    <div class="eyebrow-cta">EVERY GOAL STARTS WITH TODAY'S RUN</div>
-    <h2>Every meaningful running experience starts with trusting today's run.</h2>
-    <p>Trust the run.</p>
-    <div class="cta-buttons">
-      <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" class="btn-primary">Get your first workout</a>
+<!-- BRAND DOT STRIPE -->
+<div class="chevron-stripe chevron-stripe-dark" style="background: var(--dark);"><div class="chevron-stripe-inner"></div></div><!-- WHY DO YOU RUN -->
+<section class="why-run fade-up" style="position: relative; padding: 140px 40px; text-align: center; overflow: hidden; background: #0f172a;">
+  <div class="parallax-bg" data-parallax="0.15" style="position: absolute; inset: -60px 0 -60px 0; background: url('../assets/runner-silhouette-sunrise.jpg') center center / cover no-repeat; opacity: 0.25;"></div>
+  <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0.6) 0%, rgba(15,23,42,0.3) 50%, rgba(15,23,42,0.7) 100%);"></div>
+  <div style="position: relative; z-index: 2; max-width: 680px; margin: 0 auto;">
+    <p style="font-family: var(--font-display); font-size: clamp(32px, 4vw, 48px); font-weight: 800; color: white; letter-spacing: -0.02em; margin-bottom: 48px;">Why do you run?</p>
+    <p class="why-run-stanza" style="font-size: 19px; color: rgba(255,255,255,0.7); line-height: 2.2; margin-bottom: 0;">
+      Not for another graph.<br>
+      Not for another workout.<br>
+      Not for another notification.
+    </p>
+    <p class="why-run-stanza" style="font-size: 19px; color: rgba(255,255,255,0.85); line-height: 1.8; margin-top: 40px;">
+      You run because something inside you believes you're capable of more.
+    </p>
+    <p class="why-run-stanza" style="font-size: 19px; color: rgba(255,255,255,0.7); line-height: 1.8; margin-top: 40px;">
+      To finish what you started. To prove something to yourself.<br>Whatever your goal, it starts with trusting today's run.
+    </p>
+    <a href="#" class="btn-primary" style="margin-top: 32px; display: inline-block;" onclick="event.preventDefault();openQR()">Plan your next run</a>
+  </div>
+</section><!-- FAQ -->
+<section class="faq-section">
+  <div class="section-inner fade-up">
+    <div class="section-header">
+      <div class="section-eyebrow">Common questions</div>
+      <h2 class="section-title">Before you lace up.</h2>
     </div>
-    <div class="qr-section">
-      <div class="qr-card">
-        <img src="../assets/rundot-qr-signup.png" alt="QR Code">
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Is RunDot for beginners?</span>
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Every runner starts somewhere. Whether you're training for your first 5K or your tenth ultra, your plan is built around your current fitness and adapts as you progress.</p></div>
       </div>
-      <div class="qr-text">
-        <span class="qr-label">Scan to sign up free</span>
-        <span class="qr-sub">No credit card required</span>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Do I need a running watch?</span>
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><p>A watch helps, but it's not required. RunDot connects to your favorite running watch - Garmin, Apple Watch, COROS, and more - but you can run with just the app on your phone.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>How is this different from a generic training plan?</span>
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Generic plans don't know you. RunDot's training adapts daily based on how your body is actually responding - your paces, your recovery, your progress. It's built on 20+ years of real athlete data through FitLogic<span class="tm">™</span>.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>What if I miss a workout?</span>
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Life happens. Your plan adjusts automatically. No guilt, no catch-up workouts - just a recalculated path forward.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>How do I know it's working?</span>
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Your Dot Score<span class="tm">™</span> tracks your running fitness over time. Some weeks you can't feel the progress - your Dot Score can.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span>Can I cancel anytime?</span>
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Yes. No contracts, no commitments. Start with a free workout and upgrade when you're ready.</p></div>
       </div>
     </div>
   </div>
-</section>
-
-<!-- FOOTER -->
+</section><!-- BRAND DOT STRIPE -->
+<div class="chevron-stripe" style="background: var(--dark); margin-top: 0;"><div class="chevron-stripe-inner"></div></div><!-- 11. CTA -->
+<section class="cta-section">
+  <div class="fade-up">
+    <div class="cta-accent-line"></div>
+    <p style="font-size: 17px; color: rgba(255,255,255,0.55); font-weight: 500; margin-bottom: 24px; letter-spacing: 0.03em;">EVERY GOAL STARTS WITH TODAY'S RUN</p>
+    <h2 class="section-title">Every meaningful running experience starts with trusting today's run.</h2>
+    <div class="cta-row">
+      <div class="cta-glow">
+        <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Get your first workout</a>
+      </div>
+    </div>
+    <p class="cta-no-cc">No credit card required</p>
+    <div class="cta-qr">
+      <img src="../assets/rundot-qr-signup.png" alt="Scan to sign up">
+      <span>Or scan to get started</span>
+    </div>
+    <p class="cta-tagline">Trust the run.</p>
+  </div>
+</section><!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <img src="../assets/rundot-logo-white.svg" alt="RunDot" style="height: 28px;">
-        <p>Adaptive run training powered by FitLogic<sup>™</sup> predictive intelligence. Any runner. Any goal.</p>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/rundottraining" target="_blank">Instagram</a>
-          <a href="#" target="_blank">Facebook</a>
-          <a href="#" target="_blank">YouTube</a>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><img src="../assets/rundot-logo-footer.svg" alt="RunDot"></div>
+        <p class="footer-desc">RunDot<span class="tm">™</span> gives you the confidence to just run.</p>
+        <div class="footer-social" style="display: flex; gap: 16px; margin-top: 20px;">
+          <a href="https://www.instagram.com/rundottraining" target="_blank" aria-label="Instagram" style="color: rgba(255,255,255,0.4); transition: color 0.2s;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" style="color: rgba(255,255,255,0.4); transition: color 0.2s;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" style="color: rgba(255,255,255,0.4); transition: color 0.2s;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+          </a>
+        </div>
+        <div class="footer-fitlogic">
+          <img src="../assets/powered-by-fitlogic-white.png" alt="Powered by FitLogic™" loading="lazy">
         </div>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
-        <a href="#showcase">Features</a>
-        <a href="resources/">Resources</a>
-        <a href="#how-it-knows">How It Works</a>
+        <a href="./pricing/">Pricing</a>
+        <a href="./features/">Features</a>
+        <a href="./download/">Download App</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="./blog/">Blog</a>
+        <a href="./podcast/">Podcast</a>
+        <a href="./training-guides/">Training Guides</a>
+        <a href="./support/">Support</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="#">About</a>
-        <a href="#">Careers</a>
-        <a href="#">Contact</a>
-        <a href="#">Press</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookie Policy</a>
+        <a href="./about/">About</a>
+        <a href="./careers/">Careers</a>
+        <a href="./contact/">Contact</a>
+        <a href="https://www.predictive.fit" target="_blank">Predictive Fitness</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Predictive Fitness. All rights reserved. RunDot<sup>™</sup>, Dot Score<sup>™</sup>, TrainX<sup>®</sup>, and FitLogic<sup>™</sup> are trademarks of Predictive Fitness Inc.</p>
-      <div class="footer-bottom-links">
+      <p class="footer-legal">Predictive Fitness and the Predictive Fitness logo are trademarks or registered trademarks of Predictive Fitness, Inc. in the US and other countries. Other trademarks include TriDot, RunDot, TrainX, RaceX, Optimized Training and Optimized Race Execution. Additional Predictive Fitness trademarks can be found at www.predictive.fit/trademark-list | Limit the use of my sensitive data. 2600 E. Southlake Blvd. Suite 120-140, Southlake, Texas 76092</p>
+      <div class="footer-links">
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
         <a href="#">Cookies</a>
       </div>
     </div>
-    <div style="text-align: center; margin-top: 20px;">
-      <img src="../assets/fitlogic-logo-white.svg" alt="Powered by FitLogic" style="height: 20px; opacity: 0.5;">
+  </div>
+</footer><!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button><!-- QR MODAL -->
+<div class="modal-overlay" id="qrModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeQR()">✕</button>
+    <p style="font-family: var(--font-display); font-size: 14px; font-weight: 500; color: #666; margin: 0 0 8px; letter-spacing: 0.02em; text-transform: uppercase;">Get</p>
+    <img src="../assets/rundot-logo-dark.svg" alt="RunDot" style="height: 32px; width: auto; margin: 0 auto 8px; display: block;">
+    <p>Scan to download or tap below.</p>
+    <div class="qr-code"><img src="../assets/app-qr-code.png" alt="Scan to sign up" style="width:200px;height:200px;border-radius:12px;"></div>
+    <div class="store-badges">
+      <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" target="_blank"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.predictivefitness.rundotv2&hl=en_US" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play"></a>
     </div>
   </div>
-</footer>
-
-<!-- BACK TO TOP -->
-<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
-<script>
-// Nav scroll
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-  document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 600);
-});
-
-// Mobile menu
-function toggleMobileMenu() {
-  const menu = document.getElementById('mobileMenu');
-  menu.classList.toggle('active');
-}
-
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
+</div><script>
+// QR Modal
+function openQR() { document.getElementById('qrModal').classList.add('active'); }
+function closeQR() { document.getElementById('qrModal').classList.remove('active'); }
+document.getElementById('qrModal').addEventListener('click', function(e) { if (e.target === this) closeQR(); });// FAQ toggle
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}// Hero headline word-by-word entrance
+(function() {
+  const headline = document.getElementById('heroHeadline');
+  const parts = [
+    { text: 'Hit', green: false },
+    { text: 'Your', green: false },
+    { text: '<br>', isBr: true },
+    { text: 'Running', green: true },
+    { text: 'Goals', green: true }
+  ];
+  let delay = 0.15;
+  parts.forEach(p => {
+    if (p.isBr) {
+      headline.appendChild(document.createElement('br'));
+      return;
+    }
+    const span = document.createElement('span');
+    span.className = 'hero-word';
+    span.style.animationDelay = delay + 's';
+    if (p.green) span.style.color = 'var(--green-light)';
+    span.textContent = p.text + ' ';
+    headline.appendChild(span);
+    delay += 0.07;
+  });
+})();// Fade-up observer
+const fadeObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
+      fadeObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.05, rootMargin: '0px 0px 100px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Fallback: make all reveals visible after 3s in case observer doesn't fire
-setTimeout(() => {
-  document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
-}, 3000);
-
-// Goal vertical slider animation
-const sliderTrack = document.getElementById('goalSliderTrack');
-if (sliderTrack) {
-  const items = sliderTrack.querySelectorAll('.goal-slider-item');
-  const itemHeight = items[0].offsetHeight;
-  let currentGoal = 0;
-  setInterval(() => {
-    currentGoal = (currentGoal + 1) % items.length;
-    sliderTrack.style.transform = `translateY(-${currentGoal * itemHeight}px)`;
-  }, 2500);
-}
-
-// Timeline animation
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));// Stagger observer - items animate in one at a time
+const staggerObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const parent = entry.target.parentElement;
+      const siblings = parent.querySelectorAll('.stagger-item');
+      siblings.forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), i * 120);
+      });
+      siblings.forEach(el => staggerObserver.unobserve(el));
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.stagger-item').forEach(el => staggerObserver.observe(el));// Animated stat counters - green text stays visible during animation
+function animateCounter(numSpan, target, suffix) {
+  const duration = 1400;
+  const start = performance.now();
+  const isFloat = String(target).includes('.');
+  function tick(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = isFloat ? (eased * target).toFixed(1) : Math.round(eased * target);
+    numSpan.textContent = current + suffix;
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      if (el.dataset.counted) return;
+      el.dataset.counted = '1';
+      const nums = el.querySelectorAll('.trust-num');
+      nums.forEach(num => {
+        const greenSpan = num.querySelector('.green');
+        const text = num.textContent;
+        if (text.includes('20+')) {
+          // Create a span for just the number portion
+          const numSpan = document.createElement('span');
+          numSpan.textContent = '0+ ';
+          num.textContent = '';
+          num.appendChild(numSpan);
+          num.appendChild(document.createTextNode(' '));
+          num.appendChild(greenSpan);
+          animateCounter(numSpan, 20, '+ ');
+        } else if (text.includes('4.4')) {
+          const numSpan = document.createElement('span');
+          numSpan.textContent = '0.0';
+          num.textContent = '';
+          num.appendChild(numSpan);
+          num.appendChild(greenSpan);
+          animateCounter(numSpan, 4.4, '');
+        }
+      });
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+const trustRow = document.querySelector('.trust-row');
+if (trustRow) counterObserver.observe(trustRow);// Sticky CTA bar - shows after scrolling past hero
+const stickyCta = document.getElementById('stickyCta');
+const heroEl = document.querySelector('.hero');
+window.addEventListener('scroll', function() {
+  if (!heroEl || !stickyCta) return;
+  const heroBottom = heroEl.offsetTop + heroEl.offsetHeight;
+  if (window.scrollY > heroBottom) {
+    stickyCta.classList.add('visible');
+  } else {
+    stickyCta.classList.remove('visible');
+  }
+}, { passive: true });/* Goal typewriter */
+(function() {
+  const el = document.getElementById('goalTypewriter');
+  if (!el) return;
+  const goals = ['finish my first 5K','PR my marathon','train for my first half','complete an ultra','get my fastest mile time','become a marathoner','run pain-free again','qualify for Boston'];
+  let gi = 0, ci = 0, deleting = false;
+  function tick() {
+    const goal = goals[gi];
+    if (!deleting) {
+      ci++;
+      el.textContent = goal.substring(0, ci);
+      if (ci === goal.length) { setTimeout(() => { deleting = true; tick(); }, 2000); return; }
+      setTimeout(tick, 60 + Math.random() * 40);
+    } else {
+      ci--;
+      el.textContent = goal.substring(0, ci);
+      if (ci === 0) { deleting = false; gi = (gi + 1) % goals.length; setTimeout(tick, 400); return; }
+      setTimeout(tick, 30);
+    }
+  }
+  tick();
+})();/* Distance cycle animation - typing effect with green cursor */
+(function() {
+  const el = document.querySelector('.distance-cycle');
+  if (!el) return;
+  const sequence = ['10K', '1/2 marathon', 'marathon', 'ultra'];
+  let gi = 0, ci = 0, deleting = false;
+  // Start with first item already shown
+  el.textContent = sequence[0];
+  ci = sequence[0].length;
+  function tick() {
+    const goal = sequence[gi];
+    if (!deleting) {
+      ci++;
+      el.textContent = goal.substring(0, ci);
+      if (ci === goal.length) {
+        setTimeout(() => { deleting = true; tick(); }, 2000);
+        return;
+      }
+      setTimeout(tick, 80 + Math.random() * 50);
+    } else {
+      ci--;
+      el.textContent = goal.substring(0, ci);
+      if (ci === 0) { deleting = false; gi = (gi + 1) % sequence.length; setTimeout(tick, 500); return; }
+      setTimeout(tick, 40);
+    }
+  }
+  setTimeout(() => { deleting = true; tick(); }, 2000);
+})();/* Timeline animation */
 const timelineObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -1684,26 +3149,215 @@ const timelineObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.timeline-item').forEach((el, i) => {
   el.style.transitionDelay = (i * 0.15) + 's';
   timelineObserver.observe(el);
-});
-
-// FAQ toggle
-function toggleFaq(btn) {
-  const item = btn.parentElement;
-  const answer = item.querySelector('.faq-answer');
-  const isActive = item.classList.contains('active');
-  
-  // Close all
-  document.querySelectorAll('.faq-item').forEach(i => {
-    i.classList.remove('active');
-    i.querySelector('.faq-answer').style.maxHeight = null;
+});/* Showcase panel scroll reveal */
+const showcaseObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); showcaseObserver.unobserve(e.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll('.showcase-panel').forEach(p => showcaseObserver.observe(p));// Ring draw animation on feature photo circles
+const ringObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('ring-animate');
+      ringObserver.unobserve(e.target);
+    }
   });
-  
-  if (!isActive) {
-    item.classList.add('active');
-    answer.style.maxHeight = answer.scrollHeight + 'px';
+}, { threshold: 0.4 });
+document.querySelectorAll('.feature-photo-circle').forEach(el => ringObserver.observe(el));/* === POLISH ANIMATIONS === */// 1. Trust strip stat counter animation
+(function() {
+  const trustObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('trust-visible');
+        trustObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.trust-item').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.15) + 's';
+    trustObserver.observe(el);
+  });
+})();// 2. Partner logos stagger fade-in
+(function() {
+  const pObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('partners-visible');
+        pObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.partners-logos').forEach(container => {
+    container.querySelectorAll('img').forEach((img, i) => {
+      img.style.transitionDelay = (i * 0.12) + 's';
+    });
+    pObs.observe(container);
+  });
+})();// 3. Sound Familiar cards stagger
+// 4. Reviews cards stagger
+// 5. Moments grid stagger
+(function() {
+  const staggerObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('stagger-visible');
+        staggerObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  // Familiar cards
+  document.querySelectorAll('.familiar-card').forEach((el, i) => {
+    el.classList.add('stagger-item');
+    el.style.transitionDelay = (i * 0.12) + 's';
+    staggerObs.observe(el);
+  });
+  // Testimonial cards
+  document.querySelectorAll('.testimonial-card').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.1) + 's';
+    staggerObs.observe(el);
+  });
+  // Moment cards
+  document.querySelectorAll('.moment-card').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.12) + 's';
+    staggerObs.observe(el);
+  });
+})();// 6. Green line draws across on scroll
+(function() {
+  const lineObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('line-visible');
+        lineObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.green-line-sep').forEach(el => lineObs.observe(el));
+})();// 7. Parallax backgrounds
+(function() {
+  const parallaxEls = document.querySelectorAll('.parallax-bg');
+  if (!parallaxEls.length) return;
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        parallaxEls.forEach(el => {
+          const rect = el.parentElement.getBoundingClientRect();
+          const speed = parseFloat(el.dataset.parallax) || 0.15;
+          const offset = (rect.top - window.innerHeight / 2) * speed;
+          el.style.transform = 'translateY(' + offset + 'px)';
+        });
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+})();// 9. Meb strip fade-in with portrait slide
+(function() {
+  const mebObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('meb-visible');
+        mebObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.meb-strip-inner').forEach(el => mebObs.observe(el));
+})();  // Phone widget animation
+  const phoneWidgets = document.querySelectorAll('.phone-widget');
+  if (phoneWidgets.length > 0) {
+    const pwObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); pwObs.unobserve(e.target); } });
+    }, { threshold: 0.2 });
+    phoneWidgets.forEach(w => pwObs.observe(w));
+  }// Nav scroll shadow
+window.addEventListener('scroll', function() {
+  const nav = document.querySelector('nav');
+  if (nav) {
+    if (window.scrollY > 10) { nav.classList.add('scrolled'); }
+    else { nav.classList.remove('scrolled'); }
+  }
+}, { passive: true });
+
+// Back to top button
+(function() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 800) { btn.classList.add('visible'); }
+    else { btn.classList.remove('visible'); }
+  }, { passive: true });
+})();
+
+// Mobile nav toggle
+function toggleMobileNav() {
+  const overlay = document.getElementById('mobileNav');
+  const hamburger = document.querySelector('.nav-hamburger');
+  if (!overlay || !hamburger) return;
+  const isOpen = overlay.classList.contains('open');
+  if (isOpen) {
+    overlay.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  } else {
+    overlay.classList.add('open');
+    hamburger.classList.add('open');
+    document.body.style.overflow = 'hidden';
   }
 }
-</script>
+function closeMobileNav() {
+  const overlay = document.getElementById('mobileNav');
+  const hamburger = document.querySelector('.nav-hamburger');
+  if (overlay) overlay.classList.remove('open');
+  if (hamburger) hamburger.classList.remove('open');
+  document.body.style.overflow = '';
+}
 
-</body>
+// Page load fade-in
+window.addEventListener('DOMContentLoaded', function() {
+  requestAnimationFrame(function() { document.body.classList.add('loaded'); });
+});
+
+// Why Do You Run cascade reveal
+(function() {
+  const cascadeObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        var stanzas = e.target.closest('.why-run').querySelectorAll('.why-run-stanza');
+        stanzas.forEach(function(s, i) {
+          setTimeout(function() { s.classList.add('cascade-visible'); }, i * 400);
+        });
+        cascadeObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.why-run-stanza').forEach(function(el) {
+    if (el === el.parentElement.querySelector('.why-run-stanza')) cascadeObs.observe(el);
+  });
+})();
+
+// Manifesto line-by-line reveal
+(function() {
+  var mObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        var lines = e.target.querySelectorAll('.manifesto-line, .manifesto-sub');
+        lines.forEach(function(l, i) {
+          setTimeout(function() { l.classList.add('manifesto-revealed'); }, i * 250);
+        });
+        mObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.manifesto-inner').forEach(function(el) { mObs.observe(el); });
+})();
+
+// FAQ keyboard support
+document.querySelectorAll('.faq-q').forEach(function(btn) {
+  btn.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleFaq(btn);
+    }
+  });
+});
+</script></body>
 </html>
