@@ -3765,24 +3765,80 @@ body::after {
     transform: translateX(-50%) rotate(2deg);
 }
 
-/* Tape on review cards */
+
+/* Stagger testimonial cards like taped on a wall */
+.testimonial-card {
+    position: relative !important;
+}
+.testimonial-card::after {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 100px;
+    height: 26px;
+    background: rgba(83,185,86,0.22);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(83,185,86,0.3);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    border-radius: 2px;
+    z-index: 10;
+    pointer-events: none;
+}
+.testimonial-card:nth-child(1) { transform: rotate(-1.5deg) !important; }
+.testimonial-card:nth-child(2) { transform: rotate(1.2deg) !important; margin-top: 18px !important; }
+.testimonial-card:nth-child(3) { transform: rotate(-0.8deg) !important; margin-top: -8px !important; }
+.testimonial-card:nth-child(4) { transform: rotate(1.8deg) !important; margin-top: 12px !important; }
+
+.testimonial-card:nth-child(1)::after { transform: translateX(-50%) rotate(-3deg); left: 45%; }
+.testimonial-card:nth-child(2)::after { transform: translateX(-50%) rotate(2.5deg); left: 55%; }
+.testimonial-card:nth-child(3)::after { transform: translateX(-50%) rotate(-1deg); left: 48%; }
+.testimonial-card:nth-child(4)::after { transform: translateX(-50%) rotate(3.5deg); left: 52%; }
+
+.testimonial-card:nth-child(1):hover { transform: rotate(-1.5deg) translateY(-4px) !important; }
+.testimonial-card:nth-child(2):hover { transform: rotate(1.2deg) translateY(-4px) !important; }
+.testimonial-card:nth-child(3):hover { transform: rotate(-0.8deg) translateY(-4px) !important; }
+.testimonial-card:nth-child(4):hover { transform: rotate(1.8deg) translateY(-4px) !important; }
+
+/* Tape on review cards (legacy, kept for safety) */
 .review-card {
     position: relative;
 }
 .review-card::before {
     content: '';
     position: absolute;
-    top: -10px;
+    top: -12px;
     left: 50%;
-    transform: translateX(-50%) rotate(-1.5deg);
-    width: 90px;
-    height: 24px;
-    background: rgba(83,185,86,0.2);
-    backdrop-filter: blur(3px);
+    transform: translateX(-50%) rotate(-2deg);
+    width: 100px;
+    height: 26px;
+    background: rgba(83,185,86,0.22);
+    backdrop-filter: blur(4px);
     border: 1px solid rgba(83,185,86,0.3);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    border-radius: 2px;
     z-index: 10;
     pointer-events: none;
+}
+
+/* Stagger review cards like taped on a wall */
+.review-card:nth-child(1) { transform: rotate(-1.5deg); }
+.review-card:nth-child(2) { transform: rotate(1.2deg); margin-top: 18px; }
+.review-card:nth-child(3) { transform: rotate(-0.8deg); margin-top: -8px; }
+.review-card:nth-child(4) { transform: rotate(1.8deg); margin-top: 12px; }
+
+/* Vary tape position per card */
+.review-card:nth-child(1)::before { transform: translateX(-50%) rotate(-3deg); left: 45%; }
+.review-card:nth-child(2)::before { transform: translateX(-50%) rotate(2deg); left: 55%; }
+.review-card:nth-child(3)::before { transform: translateX(-50%) rotate(-1deg); left: 48%; }
+.review-card:nth-child(4)::before { transform: translateX(-50%) rotate(3.5deg); left: 52%; }
+
+/* Keep hover state but preserve rotation */
+.review-card:nth-child(1):hover { transform: rotate(-1.5deg) translateY(-4px); }
+.review-card:nth-child(2):hover { transform: rotate(1.2deg) translateY(-4px); }
+.review-card:nth-child(3):hover { transform: rotate(-0.8deg) translateY(-4px); }
+.review-card:nth-child(4):hover { transform: rotate(1.8deg) translateY(-4px); }
 }
 
 /* Tape on Meb section photo circle */
@@ -4772,7 +4828,7 @@ document.querySelectorAll('.green-ring-photo').forEach(el => {
 // Add tape accents to showcase circular photos
 document.querySelectorAll('.showcase-circle, .feature-photo-circle').forEach((wrapper, i) => {
     const tape = document.createElement('div');
-    tape.className = 'tape-accent ' + (i % 2 === 0 ? 'tape-top' : 'tape-bottom');
+    tape.className = 'tape-accent tape-top';
     wrapper.style.position = 'relative';
     wrapper.appendChild(tape);
 });
