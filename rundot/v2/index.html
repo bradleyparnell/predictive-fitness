@@ -3897,6 +3897,52 @@ body::after {
             100% { transform: translateX(-50%); }
         }
 
+  /* Ask AI Section */
+  .ask-ai-section {
+    background: #111; padding: 80px 24px; text-align: center; position: relative;
+    overflow: hidden;
+  }
+  .ask-ai-section::before {
+    content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 400px; height: 400px; background: radial-gradient(circle, rgba(83,185,86,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .ask-ai-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+  .ask-ai-inner h2 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 42px; font-weight: 800;
+    text-transform: uppercase; font-style: italic; color: #fff; margin-bottom: 16px;
+    letter-spacing: -0.5px; line-height: 1.1;
+  }
+  .ask-ai-inner h2 span { color: #53b956; }
+  .ask-ai-subtitle {
+    font-family: 'DM Sans', sans-serif; font-size: 17px; color: rgba(255,255,255,0.6);
+    margin-bottom: 40px; line-height: 1.6;
+  }
+  .ask-ai-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .ask-ai-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px; padding: 16px 28px; color: #fff;
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600;
+    text-decoration: none; transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+  }
+  .ask-ai-btn:hover {
+    background: rgba(83,185,86,0.12); border-color: rgba(83,185,86,0.3);
+    transform: translateY(-2px); box-shadow: 0 8px 24px rgba(83,185,86,0.15);
+  }
+  .ai-icon {
+    width: 28px; height: 28px; border-radius: 8px; display: flex;
+    align-items: center; justify-content: center; font-weight: 800;
+    font-family: 'DM Sans', sans-serif; font-size: 15px; color: #fff;
+    flex-shrink: 0;
+  }
+  .ask-ai-note {
+    font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(255,255,255,0.35);
+    margin-top: 24px;
+  }
+  .showcase-plan-phone { left: -40px; right: auto; bottom: -20px; }
+
 </style>
 </head>
 <body><!-- TOP DOT STRIPE -->
@@ -4053,7 +4099,7 @@ body::after {
       <div class="timeline-item">
         <div class="step-label">OVER TIME</div>
         <h3>It predicts what you need next</h3>
-        <p>The longer you train, the smarter it gets. Your Dot Score<span class="tm">™</span> tracks optimization across every dimension of your running.</p>
+        <p>The longer you train, the smarter it gets. It normalizes for temperature, humidity, and elevation - so your performance is benchmarked across real-world conditions, not just good-weather days.</p>
       </div>
       <div class="timeline-item">
         <div class="step-label">RACE DAY</div>
@@ -4080,11 +4126,13 @@ body::after {
         <div class="showcase-circle">
           <img src="../assets/v2-tattoo-race-event.jpg" alt="Runner preparing for a morning run" loading="lazy" style="filter: brightness(1.1);">
         </div>
-        <div class="showcase-device-float showcase-laptop-float">
-          <div class="laptop-screen-lg">
-            <img src="../assets/app-desktop-calendar.png" alt="RunDot weekly training calendar">
+        <div class="showcase-device-float showcase-phone-float showcase-plan-phone" style="bottom: -20px; left: -40px; right: auto;">
+          <div class="phone-frame-lg">
+            <div class="phone-notch-lg"></div>
+            <div class="phone-screen-lg">
+              <img src="../assets/app-training-calendar-monthly.png" alt="RunDot monthly training calendar">
+            </div>
           </div>
-          <div class="laptop-base-lg"></div>
         </div>
       </div>
     </div>    <!-- TRACK -->
@@ -4092,10 +4140,10 @@ body::after {
       <div class="showcase-text-col">
         <div class="showcase-label-tag">TRACK</div>
         <h3 class="showcase-heading">See yourself improving.</h3>
-        <p class="showcase-desc">Some weeks you can't tell you're getting faster. Your Dot Score<span class="tm">™</span> can.</p>
+        <p class="showcase-desc">Some weeks you can't tell you're getting faster. Your data can - normalized across every condition you train in.</p>
         <ul class="showcase-bullets">
-          <li>One number that tracks your overall running fitness</li>
-          <li>See progress over weeks, not just single workouts</li>
+          <li>Performance benchmarked across temperature, humidity, and elevation</li>
+          <li>See real progress, not just good-weather PRs</li>
           <li>Know when you're peaking and when to pull back</li>
         </ul>
       </div>
@@ -4107,7 +4155,7 @@ body::after {
           <div class="phone-frame-lg">
             <div class="phone-notch-lg"></div>
             <div class="phone-screen-lg">
-              <img src="../assets/app-mobile-dashboard.png" alt="RunDot Dot Score dashboard">
+              <img src="../assets/app-mobile-dashboard.png" alt="RunDot performance dashboard">
             </div>
           </div>
         </div>
@@ -4197,7 +4245,7 @@ body::after {
     
     <div class="phone-layout">
       <div class="phone-widgets-left">
-        <div class="phone-widget pw-gauge"><img src="../assets/icon-dot-score.png" alt="Dot Score™ gauge" loading="lazy"></div>
+        <div class="phone-widget pw-gauge"><img src="../assets/icon-dot-score.png" alt="Performance benchmark gauge" loading="lazy"></div>
         <div class="phone-widget pw-notification"><img src="../assets/notification-start-workout.png" alt="Start Workout notification" loading="lazy"></div>
         <div class="phone-widget pw-gauge"><img src="../assets/icon-training-goal.png" alt="Training Goal progress" loading="lazy"></div>
       </div>
@@ -4361,7 +4409,7 @@ body::after {
           <span>How do I know it's working?</span>
           <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
         </button>
-        <div class="faq-a"><p>Your Dot Score<span class="tm">™</span> tracks your running fitness over time. Some weeks you can't feel the progress - your Dot Score can.</p></div>
+        <div class="faq-a"><p>Your performance is continuously benchmarked - normalized for temperature, humidity, and elevation. Some weeks you can't feel the progress, but the data shows it clearly.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
@@ -4372,7 +4420,29 @@ body::after {
       </div>
     </div>
   </div>
-</section><!-- BRAND DOT STRIPE -->
+</section><!-- ASK AI SECTION -->
+<section class="ask-ai-section fade-up">
+  <div class="ask-ai-inner">
+    <h2>Still not sure? <span>Ask AI.</span></h2>
+    <p class="ask-ai-subtitle">Let your favorite AI tell you why RunDot<span class="tm">™</span> is different. Click a button and see what it says.</p>
+    <div class="ask-ai-buttons">
+      <a href="https://chat.openai.com/?q=Tell+me+about+RunDot+running+app+by+Predictive+Fitness+and+why+it+is+different+from+other+running+apps+like+Runna+or+TrainingPeaks" target="_blank" rel="noopener" class="ask-ai-btn">
+        <span class="ai-icon" style="background: #10a37f;">G</span>
+        Ask ChatGPT
+      </a>
+      <a href="https://claude.ai/new?q=Tell+me+about+RunDot+running+app+by+Predictive+Fitness+and+why+it+is+different+from+other+running+apps+like+Runna+or+TrainingPeaks" target="_blank" rel="noopener" class="ask-ai-btn">
+        <span class="ai-icon" style="background: #d97706;">C</span>
+        Ask Claude
+      </a>
+      <a href="https://www.perplexity.ai/search/new?q=Tell+me+about+RunDot+running+app+by+Predictive+Fitness+and+why+it+is+different+from+other+running+apps+like+Runna+or+TrainingPeaks" target="_blank" rel="noopener" class="ask-ai-btn">
+        <span class="ai-icon" style="background: #20b8cd;">P</span>
+        Ask Perplexity
+      </a>
+    </div>
+    <p class="ask-ai-note">Links open in a new tab with a pre-filled question about RunDot</p>
+  </div>
+</section>
+<!-- BRAND DOT STRIPE -->
 <div class="chevron-stripe" style="background: var(--dark); margin-top: 0;"><div class="chevron-stripe-inner"></div></div><!-- 11. CTA -->
 <section class="cta-section cta-redesigned">
   <div class="cta-inner fade-up">
