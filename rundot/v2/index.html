@@ -2434,7 +2434,229 @@ a.cta-button {
 /* ===== END CONTRAST FIXES ===== */
 
 
-</style>
+
+    /* ========== ALTRA-INSPIRED UPGRADES ========== */
+    
+    /* Film grain overlay - gritty editorial texture */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+    
+    /* Higher contrast photo treatment */
+    .plan-track-run .showcase-circle img,
+    .feature-photo-section .feature-circle img,
+    .moments-grid .moment-card img {
+      filter: contrast(1.12) saturate(0.85);
+    }
+    
+    /* Even bolder headlines - tighter tracking */
+    .hero h1,
+    .manifesto h2,
+    .how-it-knows h2,
+    .phone-showcase h2 {
+      letter-spacing: -0.04em !important;
+      line-height: 0.9 !important;
+    }
+    
+    /* Oversized section headings - Altra-scale */
+    .manifesto h2 {
+      font-size: clamp(42px, 5.5vw, 72px) !important;
+    }
+    
+    .how-it-knows h2 {
+      font-size: clamp(38px, 5vw, 64px) !important;
+    }
+    
+    /* Moments grid - Altra-style text overlay on image */
+    .moments-grid .moment-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px !important;
+    }
+    
+    .moments-grid .moment-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 60%;
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .moments-grid .moment-card .moment-caption {
+      position: absolute !important;
+      bottom: 20px !important;
+      left: 20px !important;
+      right: 20px !important;
+      z-index: 2;
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-weight: 700 !important;
+      font-style: italic !important;
+      font-size: 22px !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.02em !important;
+      line-height: 1.1 !important;
+      color: #fff !important;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    
+    .moments-grid .moment-card img {
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    /* Gritty noise texture on dark sections */
+    .sound-familiar,
+    .hero,
+    .why-run-section,
+    .final-cta {
+      position: relative;
+    }
+    
+    .sound-familiar::before,
+    .why-run-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.06;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 512px 512px;
+      mix-blend-mode: overlay;
+    }
+    
+    /* Raw edge-to-edge hero treatment */
+    .hero {
+      border-bottom: 4px solid var(--v2-lime, #a3e635) !important;
+    }
+    
+    /* Bolder eyebrow badges - Altra "All-New" style */
+    .section-eyebrow,
+    .showcase-label {
+      font-size: 13px !important;
+      font-weight: 900 !important;
+      letter-spacing: 0.18em !important;
+      text-transform: uppercase !important;
+      background: var(--v2-lime, #a3e635) !important;
+      color: #000 !important;
+      padding: 6px 16px !important;
+      border-radius: 2px !important;
+      display: inline-block !important;
+      border: none !important;
+    }
+    
+    /* Remove the green dot from eyebrows (replaced by badge bg) */
+    .section-eyebrow::before,
+    .showcase-label::before {
+      display: none !important;
+    }
+    
+    /* More aggressive button hover - Altra-inspired */
+    .cta-button:hover,
+    .hero .cta-button:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 24px rgba(163, 230, 53, 0.4) !important;
+    }
+    
+    /* Rougher section dividers */
+    .plan-track-run,
+    .how-it-works,
+    .phone-showcase-section {
+      border-top: 1px solid rgba(163, 230, 53, 0.15) !important;
+    }
+    
+    /* Review cards - edgier treatment */
+    .review-card {
+      border-radius: 4px !important;
+      border: 1px solid rgba(163, 230, 53, 0.12) !important;
+    }
+    
+    .review-card:hover {
+      border-color: rgba(163, 230, 53, 0.3) !important;
+    }
+    
+    /* Sound Familiar doubt cards - grittier */
+    .doubt-card {
+      border-radius: 4px !important;
+      backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(255,255,255,0.25) !important;
+    }
+    
+    /* Feature photo circle - tighter, more editorial */
+    .feature-circle {
+      border: 3px solid var(--v2-lime, #a3e635) !important;
+    }
+    
+    /* Plan/Track/Run circles - lime border accent */
+    .showcase-circle {
+      border: 3px solid rgba(163, 230, 53, 0.3) !important;
+    }
+    
+    /* FAQ section - sharper edges */
+    .faq-item {
+      border-radius: 4px !important;
+    }
+    
+    /* Trust strip - bolder numbers */
+    .trust-strip .stat-number,
+    .trust-strip .counter-value {
+      font-family: 'Barlow Condensed', sans-serif !important;
+      font-weight: 800 !important;
+      font-style: italic !important;
+      font-size: 48px !important;
+    }
+    
+    /* "Why do you run?" section - more dramatic */
+    .why-run-section h2 {
+      font-size: clamp(48px, 6vw, 84px) !important;
+      letter-spacing: -0.03em !important;
+    }
+    
+    /* Scrollbar styling - dark/lime */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(163, 230, 53, 0.3);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(163, 230, 53, 0.5);
+    }
+    
+    /* Mobile adjustments for Altra upgrades */
+    @media (max-width: 768px) {
+      .moments-grid .moment-card .moment-caption {
+        font-size: 16px !important;
+        bottom: 12px !important;
+        left: 12px !important;
+      }
+      
+      .trust-strip .stat-number,
+      .trust-strip .counter-value {
+        font-size: 36px !important;
+      }
+      
+      .why-run-section h2 {
+        font-size: 40px !important;
+      }
+    }
+
+  </style>
 </head>
 <body><!-- TOP DOT STRIPE -->
 <div class="chevron-stripe chevron-stripe-right" style="margin-top: 0; position: absolute; top: 64px; left: 0; right: 0; z-index: 99; opacity: 0.6;"><div class="chevron-stripe-inner"></div></div><!-- NAV -->
