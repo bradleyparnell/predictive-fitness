@@ -3972,7 +3972,6 @@ body::after {
 .review-card:nth-child(2):hover { transform: rotate(1.2deg) translateY(-4px); }
 .review-card:nth-child(3):hover { transform: rotate(-0.8deg) translateY(-4px); }
 .review-card:nth-child(4):hover { transform: rotate(1.8deg) translateY(-4px); }
-}
 
 /* Tape on Meb section photo circle */
 .meb-section .tape-accent-meb {
@@ -4456,6 +4455,7 @@ body::after {
     .showcase-panel h3 {
         font-size: 1.3rem !important;
     }
+
     .manifesto-headline,
     .manifesto h2 {
         font-size: clamp(1.6rem, 8vw, 2.2rem) !important;
@@ -4490,6 +4490,176 @@ body::after {
         font-size: 13px !important;
     }
 }
+/* === CIRCLE & TEXT SAFETY (768px) === */
+@media (max-width: 768px) {
+    /* Showcase circles - force equal dimensions */
+    .showcase-circle {
+        width: 220px !important;
+        height: 220px !important;
+        aspect-ratio: 1/1 !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* Feature photo circles */
+    .feature-photo-circle {
+        width: clamp(200px, 55vw, 260px) !important;
+        height: clamp(200px, 55vw, 260px) !important;
+        aspect-ratio: 1/1 !important;
+        margin: 0 auto !important;
+    }
+    .feature-photo {
+        grid-template-columns: 1fr !important;
+        padding: 40px 16px !important;
+        gap: 20px !important;
+    }
+    .feature-photo.reverse {
+        direction: ltr !important;
+    }
+    .feature-photo-content {
+        padding: 16px 8px !important;
+        text-align: center !important;
+    }
+    .feature-photo-content .section-eyebrow,
+    .feature-photo-content .section-title,
+    .feature-photo-content .section-sub {
+        text-align: center !important;
+    }
+    
+    /* Meb strip */
+    .meb-strip {
+        padding: 32px 16px !important;
+    }
+    .meb-strip-inner {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 16px !important;
+    }
+    .meb-strip-photo {
+        width: 100px !important;
+        height: 100px !important;
+        aspect-ratio: 1/1 !important;
+        flex-shrink: 0 !important;
+    }
+    .meb-strip-quote {
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* Moment circles */
+    .moment-circle {
+        aspect-ratio: 1/1 !important;
+        border-radius: 50% !important;
+    }
+    
+    /* Text cutoff prevention */
+    h1, h2, h3, h4, p, span, a, li, .section-title, .section-sub, .section-eyebrow,
+    .cta-button, .hero-cta, .manifesto-headline, .manifesto-text {
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+    }
+    
+    /* Trust strip */
+    .trust-strip {
+        padding: 20px 12px !important;
+    }
+    .trust-strip-inner,
+    .trust-strip .stats-row {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 12px !important;
+    }
+    .trust-stat {
+        min-width: 0 !important;
+        flex: 0 0 auto !important;
+    }
+    .trust-strip .stat-number,
+    .trust-strip .counter-value {
+        font-size: 20px !important;
+    }
+    .trust-strip .stat-label {
+        font-size: 11px !important;
+    }
+    .distance-cycle {
+        font-size: 14px !important;
+    }
+    
+    /* Partners */
+    .partners {
+        padding: 32px 16px !important;
+    }
+    .partner-logos {
+        flex-wrap: wrap !important;
+        gap: 16px !important;
+        justify-content: center !important;
+    }
+    .partner-logos img {
+        height: 36px !important;
+        max-width: 80px !important;
+    }
+    
+    /* How it knows */
+    .how-it-knows-card {
+        padding: 20px !important;
+    }
+    
+    /* Sound familiar */
+    .familiar-photo {
+        min-height: 480px !important;
+    }
+    .doubt-cards-container {
+        padding: 0 12px !important;
+        gap: 8px !important;
+    }
+    
+    /* Manifesto */
+    .manifesto {
+        padding: 48px 20px !important;
+    }
+    
+    /* Global overflow protection */
+    body {
+        overflow-x: hidden !important;
+    }
+    img, video, iframe, svg {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    /* Circle images keep height */
+    .showcase-circle img,
+    .feature-photo-circle img,
+    .moment-circle img,
+    .meb-strip-photo img {
+        height: 100% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .showcase-circle {
+        width: 180px !important;
+        height: 180px !important;
+    }
+    .feature-photo-circle {
+        width: clamp(160px, 50vw, 200px) !important;
+        height: clamp(160px, 50vw, 200px) !important;
+    }
+    .meb-strip-photo {
+        width: 80px !important;
+        height: 80px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .showcase-circle {
+        width: 160px !important;
+        height: 160px !important;
+    }
+    .feature-photo-circle {
+        width: 160px !important;
+        height: 160px !important;
+    }
+}
+
 /* ===== END MOBILE OPTIMIZATION ===== */
 
 </style>
