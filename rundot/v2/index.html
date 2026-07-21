@@ -1539,15 +1539,6 @@
   }
   /* Smoother section transitions */
   .how-it-knows { position: relative; }
-  .how-it-knows::before {
-    content: '';
-    position: absolute;
-    top: -1px; left: 0; right: 0;
-    height: 80px;
-    background: linear-gradient(to bottom, var(--white), transparent);
-    z-index: 1;
-    pointer-events: none;
-  }
   /* Why Do You Run cascade reveal */
   .why-run-stanza {
     opacity: 0;
@@ -1602,8 +1593,14 @@
 }
 
 .hero-content h1 {
-    font-size: clamp(4rem, 8vw, 7rem) !important;
-    line-height: 0.95 !important;
+    font-size: clamp(4.5rem, 10vw, 8rem) !important;
+    line-height: 0.88 !important;
+    letter-spacing: -0.04em !important;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.4), 0 0 40px rgba(0,0,0,0.3) !important;
+}
+.hero-content h1 .hero-word {
+    display: inline-block !important;
+    margin-right: 0.15em !important;
 }
 
 /* --- HERO: Full-bleed bright runner photo, text overlay --- */
@@ -1847,7 +1844,8 @@ a[class*="cta"] {
 /* --- MOBILE TWEAKS --- */
 @media (max-width: 768px) {
     .hero-content h1 {
-        font-size: clamp(3rem, 12vw, 4.5rem) !important;
+        font-size: clamp(3.5rem, 13vw, 5rem) !important;
+        line-height: 0.9 !important;
     }
     .hero-content {
         padding-left: 20px !important;
@@ -2666,12 +2664,15 @@ a.cta-button {
     /* ========== ALTRA EDITORIAL v4 ========== */
     
     /* === TYPOGRAPHY: Massive, tight, uppercase - like Altra === */
-    .hero-headline {
-      font-size: clamp(5rem, 13vw, 11rem) !important;
-      letter-spacing: -0.07em !important;
-      line-height: 0.82 !important;
+    .hero h1 {
+      font-size: clamp(4.5rem, 10vw, 8rem) !important;
+      letter-spacing: -0.04em !important;
+      line-height: 0.88 !important;
       text-transform: uppercase !important;
-      text-shadow: 4px 4px 0 rgba(0,0,0,0.5), 0 0 60px rgba(0,0,0,0.5) !important;
+      text-shadow: 3px 3px 0 rgba(0,0,0,0.4), 0 0 40px rgba(0,0,0,0.3) !important;
+      font-family: 'Barlow Condensed', 'Plus Jakarta Sans', sans-serif !important;
+      font-weight: 900 !important;
+      font-style: italic !important;
     }
     
     .manifesto-section h2,
@@ -2892,6 +2893,465 @@ a.cta-button {
       border-color: rgba(83,185,86,0.5) !important;
     }
     
+
+/* --- MEB STRIP TEXT FIX: White text on dark bg --- */
+.meb-strip {
+    background: #0a0a0a !important;
+}
+.meb-strip-quote {
+    color: #ffffff !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    font-family: 'Barlow Condensed', 'Plus Jakarta Sans', sans-serif !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.01em !important;
+}
+.meb-strip-name {
+    color: var(--green) !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
+.meb-strip-title {
+    color: rgba(255,255,255,0.6) !important;
+    font-size: 14px !important;
+}
+.meb-strip-photo {
+    box-shadow: 0 0 0 4px rgba(83,185,86,0.5), 0 0 30px rgba(83,185,86,0.2), 0 4px 24px rgba(0,0,0,0.3) !important;
+}
+
+/* --- READABILITY FIX: Darker text on light backgrounds --- */
+
+/* App showcase section text when on light alt bg */
+.showcase-panel-alt .showcase-heading {
+    color: #111 !important;
+}
+.showcase-panel-alt .showcase-desc {
+    color: #333 !important;
+}
+.showcase-panel-alt .showcase-bullets li {
+    color: #444 !important;
+}
+
+/* All showcase text on light backgrounds */
+.showcase-heading {
+    color: #111 !important;
+}
+.showcase-desc {
+    color: #333 !important;
+    font-size: 17px !important;
+}
+.showcase-bullets li {
+    color: #444 !important;
+    font-size: 15px !important;
+}
+.showcase-label-tag {
+    color: var(--green) !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 800 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    font-size: 22px !important;
+    letter-spacing: 0.1em !important;
+}
+
+/* How It Knows body text */
+.how-it-knows-header p {
+    color: #333 !important;
+}
+.timeline-item p {
+    color: #444 !important;
+}
+.timeline-item h3 {
+    color: #111 !important;
+}
+
+/* How It Works body text */
+.how-step h3 {
+    color: #111 !important;
+}
+.how-step p {
+    color: #333 !important;
+}
+.how-credibility p,
+.how-credibility-badge span {
+    color: #444 !important;
+}
+
+/* Feature photo text */
+.feature-photo-content .section-title {
+    color: #111 !important;
+}
+.feature-photo-content .section-sub {
+    color: #333 !important;
+}
+
+/* Testimonial text */
+.testimonial-card h4 {
+    color: #111 !important;
+}
+.testimonial-card p {
+    color: #333 !important;
+}
+.testimonial-card p strong {
+    color: #111 !important;
+}
+.testimonial-card cite {
+    color: #666 !important;
+}
+.testimonial-card .stars {
+    color: #f59e0b !important;
+}
+
+/* Section titles on light bg */
+.section-title {
+    color: #111 !important;
+}
+
+/* Sound Familiar headline */
+.familiar .section-title {
+    color: #111 !important;
+}
+
+/* Manifesto (dark bg) - ensure visible */
+.manifesto-line {
+    color: #fff !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+.manifesto-sub {
+    color: rgba(255,255,255,0.85) !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* FAQ on light bg */
+.faq-q {
+    color: #111 !important;
+}
+.faq-a p {
+    color: #444 !important;
+}
+
+/* Moments section title on dark bg */
+.moments .section-title {
+    color: #fff !important;
+}
+.moment-caption {
+    color: #fff !important;
+}
+
+/* Trust strip text on chartreuse */
+.trust-num {
+    color: #111 !important;
+}
+.trust-label {
+    color: #333 !important;
+}
+
+/* --- DOT TEXTURE on white/light sections --- */
+.familiar,
+.how-it-knows,
+.how,
+.testimonials,
+.feature-photo {
+    position: relative !important;
+}
+
+.familiar::before,
+.how-it-knows::before,
+.how::before,
+.testimonials::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    pointer-events: none !important;
+    background-image: radial-gradient(circle, rgba(83,185,86,0.10) 1.8px, transparent 1.8px) !important;
+    background-size: 24px 24px !important;
+    z-index: 0 !important;
+    opacity: 1 !important;
+}
+
+/* Feature photo sections - subtler dot pattern */
+.feature-photo::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    pointer-events: none !important;
+    background-image: radial-gradient(circle, rgba(83,185,86,0.08) 1.5px, transparent 1.5px) !important;
+    background-size: 28px 28px !important;
+    z-index: 0 !important;
+}
+
+/* Ensure content sits above dot pattern */
+.familiar .section-inner,
+.familiar .familiar-photo,
+.how-it-knows > div,
+.how .section-inner,
+.testimonials .section-inner,
+.feature-photo > * {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* FAQ section dot texture */
+.faq-section {
+    position: relative !important;
+}
+.faq-section::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    pointer-events: none !important;
+    background-image: radial-gradient(circle, rgba(83,185,86,0.08) 1.5px, transparent 1.5px) !important;
+    background-size: 28px 28px !important;
+    z-index: 0 !important;
+}
+.faq-section .section-inner {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Moments section - dot texture on dark bg with lighter dots */
+.moments::before {
+    background-image: radial-gradient(circle, rgba(83,185,86,0.15) 2px, transparent 2px) !important;
+    background-size: 24px 24px !important;
+    opacity: 1 !important;
+}
+
+
+/* --- DOT TEXTURE on white backgrounds --- */
+.section.familiar::after,
+.how-it-knows::after,
+.section.how::after,
+.feature-photo::after,
+.reviews::after,
+.faq-section::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-image: radial-gradient(circle, rgba(83,185,86,0.12) 1.5px, transparent 1.5px) !important;
+    background-size: 22px 22px !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+}
+.section.familiar,
+.how-it-knows,
+.section.how,
+.feature-photo,
+.reviews,
+.faq-section {
+    position: relative !important;
+    overflow: hidden !important;
+}
+.section.familiar > *,
+.how-it-knows > *,
+.section.how > *,
+.feature-photo > *,
+.reviews > *,
+.faq-section > * {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* --- CREATIVE DIRECTOR: Visual consistency & balance --- */
+
+/* Consistent section backgrounds - alternating rhythm */
+.app-showcase {
+    background: #111 !important;
+}
+.app-showcase .showcase-heading {
+    color: #fff !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+}
+.app-showcase .showcase-desc {
+    color: rgba(255,255,255,0.8) !important;
+}
+.app-showcase .showcase-bullets li {
+    color: rgba(255,255,255,0.7) !important;
+}
+.app-showcase .showcase-label-tag {
+    color: var(--v2-chartreuse) !important;
+}
+
+/* Alt panels within dark app-showcase need white text */
+.app-showcase .showcase-panel-alt {
+    background: rgba(255,255,255,0.04) !important;
+}
+.app-showcase .showcase-panel-alt .showcase-heading {
+    color: #fff !important;
+}
+.app-showcase .showcase-panel-alt .showcase-desc {
+    color: rgba(255,255,255,0.8) !important;
+}
+.app-showcase .showcase-panel-alt .showcase-bullets li {
+    color: rgba(255,255,255,0.7) !important;
+}
+
+/* How it works step numbers - consistent chartreuse */
+.how-num {
+    background: var(--v2-chartreuse) !important;
+    color: #111 !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+}
+
+/* Section eyebrows - consistent badge treatment */
+.section-eyebrow {
+    background: var(--v2-chartreuse) !important;
+    color: #111 !important;
+    padding: 6px 18px !important;
+    border-radius: 4px !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 800 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    display: inline-flex !important;
+    border: none !important;
+    letter-spacing: 0.12em !important;
+    font-size: 14px !important;
+}
+.section-eyebrow::before {
+    display: none !important;
+}
+
+/* All section titles - consistent Barlow treatment */
+.section-title,
+.how-it-knows-header h2 {
+    font-family: 'Barlow Condensed', 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.02em !important;
+}
+
+/* Showcase headings - consistent */
+.showcase-heading {
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    font-size: clamp(28px, 3.5vw, 42px) !important;
+    letter-spacing: -0.02em !important;
+}
+
+/* Feature photo titles - consistent */
+.feature-photo-content .section-title {
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+}
+
+/* Green line - consistent weight */
+.green-line-sep {
+    height: 4px !important;
+    background: var(--green) !important;
+}
+
+/* Stripe dividers - consistent */
+.chevron-stripe {
+    height: 28px !important;
+}
+.chevron-stripe-inner {
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent, transparent 6px,
+      rgba(83,185,86,0.3) 6px, rgba(83,185,86,0.3) 10px,
+      transparent 10px, transparent 16px,
+      rgba(83,185,86,0.3) 16px, rgba(83,185,86,0.3) 20px
+    ) !important;
+}
+
+/* Footer - green top border for V2 */
+footer {
+    border-top: 6px solid var(--green) !important;
+}
+
+/* Back to top button - chartreuse for V2 */
+.back-to-top {
+    background: var(--v2-chartreuse) !important;
+    color: #111 !important;
+    border-radius: 4px !important;
+}
+.back-to-top svg {
+    stroke: #111 !important;
+}
+
+/* CTA section - consistent */
+.cta-section .section-title {
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    color: #fff !important;
+}
+
+/* Why Do You Run - consistent */
+.why-run p:first-child {
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+}
+
+/* Consistent border-radius on all cards */
+.testimonial-card {
+    border-radius: 6px !important;
+}
+.timeline-item {
+    border-radius: 8px !important;
+}
+
+/* Consistent button style */
+.btn-primary {
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 800 !important;
+    font-style: italic !important;
+    letter-spacing: 0.08em !important;
+}
+.btn-outline {
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 700 !important;
+    font-style: italic !important;
+    letter-spacing: 0.08em !important;
+}
+
+/* Remove film grain full-page overlay - it washes everything out */
+body::after {
+    display: none !important;
+}
+
+/* Testimonial cards - left green border accent for V2 feel */
+.testimonial-card {
+    border-left: 3px solid var(--green) !important;
+}
+
+/* Watch brands float - consistent with dark sections */
+.app-showcase .watch-brands-float {
+    background: rgba(255,255,255,0.95) !important;
+}
+
+/* Phone showcase - consistent with V2 */
+.phone-showcase h2 {
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+}
+
     /* ========== END ALTRA v4 ========== */
 
   </style>
@@ -2996,19 +3456,8 @@ a.cta-button {
     <p class="manifesto-line">What if you never had to wonder?</p>
     <p class="manifesto-sub">What if every morning, your workout was already there. No second-guessing. Just the quiet confidence of knowing you're exactly where you should be.</p>
   </div>
-</section><!-- PARTNERS -->
-<div class="partners">
-  <div class="partners-inner">
-    <div class="partners-label">Trusted by race partners &amp; elite coaches</div>
-    <div class="partners-logos">
-      <img class="sf-marathon" src="../assets/sf-marathon-logo.png" alt="San Francisco Marathon" loading="lazy">
-      <img src="../assets/elite-energy-logo.png" alt="Elite Energy" loading="lazy">
-      <img src="../assets/rose-bowl-logo.png" alt="Rose Bowl Half Marathon" loading="lazy">
-      <img src="../assets/la-marathon-logo.png" alt="LA Marathon" loading="lazy">
-      <img src="../assets/wildflower-logo.png" alt="Wildflower" loading="lazy">
-    </div>
-  </div>
-</div><!-- HOW IT KNOWS -->
+</section><!-- PARTNERS REMOVED --><!-- HOW IT KNOWS -->
+  <!-- HOW IT KNOWS -->
 <section class="how-it-knows" id="how-it-knows">
   <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
     <div class="how-it-knows-header fade-up">
