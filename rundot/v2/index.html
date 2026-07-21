@@ -1577,6 +1577,7 @@
   }
 
 
+
 /* ===== V2 RNNR/ALTRA FUNKY RESKIN ===== */
 :root {
     --v2-chartreuse: #c8f542;
@@ -1607,11 +1608,35 @@
     font-size: clamp(4.5rem, 10vw, 8rem) !important;
     line-height: 0.88 !important;
     letter-spacing: -0.04em !important;
+    position: relative !important;
     text-shadow: none !important;
 }
+
 .hero-content h1 .hero-word {
     display: inline-block !important;
     margin-right: 0.15em !important;
+    position: relative !important;
+}
+.hero-content h1 .hero-word::before {
+    content: attr(data-text) !important;
+    position: absolute !important;
+    top: 8px !important;
+    left: 8px !important;
+    z-index: -1 !important;
+    color: rgba(83, 185, 86, 0.35) !important;
+    -webkit-text-stroke: 0 !important;
+    pointer-events: none !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    font-style: inherit !important;
+    letter-spacing: inherit !important;
+    text-transform: inherit !important;
+    line-height: inherit !important;
+}
+/* Green words get a darker green offset for contrast */
+.hero-content h1 .hero-word.green-word::before {
+    color: rgba(30, 90, 32, 0.55) !important;
 }
 
 /* --- HERO: Full-bleed bright runner photo, text overlay --- */
@@ -1865,6 +1890,111 @@ a[class*="cta"] {
     }
     .why-run-section h2 {
         font-size: clamp(2.5rem, 10vw, 4rem) !important;
+    }
+    /* Finally wrapper mobile */
+    .finally-wrapper {
+        margin-bottom: 12px !important;
+    }
+    .finally-text {
+        font-size: clamp(28px, 7vw, 40px) !important;
+    }
+    .finally-scribble {
+        width: clamp(120px, 35vw, 180px) !important;
+    }
+    /* Marquee banner mobile */
+    .marquee-banner {
+        padding: 12px 0 !important;
+    }
+    .marquee-track span {
+        font-size: 20px !important;
+    }
+    .marquee-dot {
+        width: 8px !important;
+        height: 8px !important;
+        margin: 0 20px !important;
+    }
+    /* Ask AI section mobile */
+    .ask-ai-inner h2 {
+        font-size: 28px !important;
+    }
+    .ask-ai-subtitle {
+        font-size: 15px !important;
+    }
+    .ask-ai-buttons {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+    .ask-ai-btn {
+        width: 100% !important;
+        max-width: 300px !important;
+        justify-content: center !important;
+        padding: 14px 24px !important;
+    }
+    /* Tape-top circle styling mobile */
+    .tape-top {
+        width: 40px !important;
+        height: 16px !important;
+    }
+    /* Showcase panels - prevent overflow */
+    .showcase-panel h3 {
+        font-size: 1.6rem !important;
+        word-wrap: break-word !important;
+    }
+    /* V2 eyebrows mobile */
+    .section-eyebrow,
+    .showcase-label {
+        font-size: 14px !important;
+        padding: 4px 14px !important;
+    }
+    /* Manifesto bolder */
+    .manifesto-headline {
+        font-size: clamp(2rem, 7vw, 3rem) !important;
+    }
+    /* Phone showcase mobile */
+    .showcase-plan-phone {
+        left: auto !important;
+        right: auto !important;
+        position: relative !important;
+        margin: 0 auto !important;
+    }
+    /* Testimonial wall-pinned mobile */
+    .testimonial-card {
+        transform: none !important;
+    }
+}
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: clamp(2.8rem, 14vw, 4rem) !important;
+    }
+    .finally-text {
+        font-size: 24px !important;
+    }
+    .finally-scribble {
+        width: 110px !important;
+    }
+    .marquee-track span {
+        font-size: 16px !important;
+    }
+    .ask-ai-inner h2 {
+        font-size: 22px !important;
+    }
+    .ask-ai-section {
+        padding: 56px 16px !important;
+    }
+    .showcase-panel h3 {
+        font-size: 1.4rem !important;
+    }
+    .manifesto-headline {
+        font-size: clamp(1.8rem, 8vw, 2.5rem) !important;
+    }
+    /* Goal typewriter mobile */
+    .goal-typewriter {
+        font-size: 16px !important;
+    }
+    /* Trust strip chartreuse mobile */
+    .trust-strip .stat-number {
+        font-size: 20px !important;
     }
 }
 
@@ -3947,6 +4077,421 @@ body::after {
     /* Top announcement marquee bar */
 
 
+
+/* ===== V2 COMPREHENSIVE MOBILE OPTIMIZATION ===== */
+@media (max-width: 768px) {
+    /* Global overflow prevention */
+    html, body {
+        overflow-x: hidden !important;
+        max-width: 100% !important;
+    }
+    
+    /* Hero section */
+    .hero {
+        min-height: 90vh !important;
+        padding-top: 80px !important;
+    }
+    .hero-content {
+        padding: 0 16px !important;
+        text-align: center !important;
+    }
+    .hero-content h1 {
+        font-size: clamp(3rem, 14vw, 5rem) !important;
+        line-height: 0.92 !important;
+        letter-spacing: -0.03em !important;
+    }
+    /* Reduce offset on mobile */
+    .hero-content h1 .hero-word::before {
+        top: 5px !important;
+        left: 5px !important;
+    }
+    
+    /* Finally wrapper */
+    .finally-wrapper {
+        margin-bottom: 8px !important;
+    }
+    .finally-text {
+        font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
+        letter-spacing: 2px !important;
+    }
+    .finally-scribble {
+        width: clamp(110px, 30vw, 160px) !important;
+        height: clamp(45px, 12vw, 65px) !important;
+    }
+    
+    /* Goal typewriter */
+    .goal-typewriter {
+        font-size: 16px !important;
+        max-width: 90% !important;
+        margin: 16px auto 0 !important;
+    }
+    
+    /* Hero CTAs */
+    .hero-cta-group {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+        padding: 0 20px !important;
+    }
+    .hero-cta-group .cta-button,
+    .hero-cta-group a {
+        width: 100% !important;
+        max-width: 320px !important;
+        text-align: center !important;
+        justify-content: center !important;
+        display: flex !important;
+    }
+    
+    /* Social proof bar */
+    .hero-social-proof {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        font-size: 13px !important;
+    }
+    .avatar-stack img {
+        width: 28px !important;
+        height: 28px !important;
+    }
+    
+    /* Meb strip */
+    .meb-strip {
+        flex-direction: column !important;
+        padding: 32px 20px !important;
+        gap: 20px !important;
+        text-align: center !important;
+    }
+    .meb-strip img,
+    .meb-photo {
+        width: 100px !important;
+        height: 100px !important;
+        margin: 0 auto !important;
+    }
+    .meb-strip blockquote,
+    .meb-quote {
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* Chevron stripe dividers */
+    .chevron-stripe,
+    .chevron-stripe-right {
+        height: 6px !important;
+        overflow: hidden !important;
+    }
+    
+    /* Trust strip */
+    .trust-strip {
+        padding: 20px 16px !important;
+        flex-wrap: wrap !important;
+        gap: 12px !important;
+    }
+    .trust-strip .stat-number {
+        font-size: 18px !important;
+    }
+    .trust-strip .stat-label {
+        font-size: 11px !important;
+    }
+    
+    /* Sound Familiar section */
+    .sound-familiar {
+        padding: 60px 16px !important;
+    }
+    .sound-familiar h2 {
+        font-size: clamp(1.8rem, 7vw, 2.5rem) !important;
+    }
+    .doubt-cards {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        padding: 0 8px !important;
+    }
+    .doubt-card {
+        padding: 16px 20px !important;
+        font-size: 15px !important;
+    }
+    
+    /* Marquee banner */
+    .marquee-banner {
+        padding: 10px 0 !important;
+    }
+    .marquee-track span {
+        font-size: 18px !important;
+        padding: 0 4px !important;
+    }
+    .marquee-dot {
+        width: 6px !important;
+        height: 6px !important;
+        margin: 0 12px !important;
+    }
+    
+    /* Manifesto section */
+    .manifesto-section,
+    .manifesto {
+        padding: 60px 20px !important;
+    }
+    .manifesto-headline,
+    .manifesto h2 {
+        font-size: clamp(1.8rem, 7vw, 2.8rem) !important;
+        line-height: 1.0 !important;
+    }
+    .manifesto-body,
+    .manifesto p {
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+    }
+    
+    /* How It Knows section */
+    .how-it-knows {
+        padding: 60px 20px !important;
+    }
+    .how-it-knows h2 {
+        font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
+    }
+    .how-it-knows-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    /* Showcase panels (PLAN/TRACK/RUN) */
+    .showcase-panel {
+        padding: 48px 16px !important;
+        flex-direction: column !important;
+    }
+    .showcase-panel .panel-content {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    .showcase-panel .panel-media {
+        max-width: 100% !important;
+        margin: 24px auto !important;
+    }
+    .showcase-panel h3 {
+        font-size: 1.5rem !important;
+        word-break: break-word !important;
+    }
+    .showcase-panel .panel-image,
+    .panel-circle-image {
+        width: 240px !important;
+        height: 240px !important;
+        margin: 0 auto !important;
+    }
+    .tape-top {
+        width: 36px !important;
+        height: 14px !important;
+    }
+    
+    /* Timeline/vertical line */
+    .timeline-line {
+        display: none !important;
+    }
+    
+    /* Phone showcase */
+    .phone-showcase {
+        padding: 60px 20px !important;
+    }
+    .phone-showcase h2 {
+        font-size: clamp(1.8rem, 7vw, 2.5rem) !important;
+    }
+    .phone-lineup {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 24px !important;
+    }
+    .phone-mockup {
+        width: 220px !important;
+        max-width: 70% !important;
+    }
+    
+    /* Ask AI section */
+    .ask-ai-section {
+        padding: 48px 16px !important;
+    }
+    .ask-ai-inner h2 {
+        font-size: 24px !important;
+        line-height: 1.2 !important;
+    }
+    .ask-ai-subtitle {
+        font-size: 14px !important;
+    }
+    .ask-ai-buttons {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
+    .ask-ai-btn {
+        width: 100% !important;
+        max-width: 280px !important;
+        padding: 12px 20px !important;
+        font-size: 14px !important;
+        justify-content: center !important;
+    }
+    .ask-ai-note {
+        font-size: 12px !important;
+    }
+    
+    /* Reviews/testimonials */
+    .reviews-section {
+        padding: 48px 16px !important;
+    }
+    .reviews-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+    .testimonial-card {
+        transform: none !important;
+        margin: 0 !important;
+    }
+    
+    /* Moments grid */
+    .moments-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+        padding: 0 16px !important;
+    }
+    .moment-card {
+        height: 180px !important;
+    }
+    .moment-text,
+    .moment-caption {
+        font-size: 14px !important;
+    }
+    
+    /* Why Do You Run */
+    .why-run-section {
+        padding: 80px 20px !important;
+    }
+    .why-run-section h2 {
+        font-size: clamp(2rem, 9vw, 3rem) !important;
+    }
+    
+    /* FAQ section */
+    .faq-section {
+        padding: 48px 16px !important;
+    }
+    .faq-item {
+        padding: 16px !important;
+    }
+    
+    /* CTA section */
+    .cta-redesigned,
+    .cta-section {
+        padding: 60px 20px !important;
+    }
+    .cta-main-headline {
+        font-size: clamp(2rem, 8vw, 3rem) !important;
+    }
+    .cta-qr-card {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 16px !important;
+        gap: 12px !important;
+    }
+    .cta-qr-card img {
+        width: 80px !important;
+        height: 80px !important;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 48px 20px 24px !important;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+        text-align: center !important;
+    }
+    .footer-logo img {
+        margin: 0 auto !important;
+    }
+    
+    /* Nav hamburger */
+    .nav-links {
+        display: none !important;
+    }
+    .nav-hamburger,
+    .hamburger,
+    .mobile-menu-btn {
+        display: flex !important;
+    }
+    
+    /* Dot grid texture - reduce on mobile */
+    .dot-grid-texture::before,
+    section::after {
+        opacity: 0.3 !important;
+    }
+    
+    /* Prevent any section from overflowing */
+    section, .section, [class*="section"] {
+        max-width: 100vw !important;
+        overflow-x: clip !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: clamp(2.5rem, 15vw, 3.5rem) !important;
+    }
+    .hero-content h1 .hero-word::before {
+        top: 3px !important;
+        left: 3px !important;
+    }
+    .finally-text {
+        font-size: 1.4rem !important;
+        letter-spacing: 1px !important;
+    }
+    .marquee-track span {
+        font-size: 14px !important;
+    }
+    .moments-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .moment-card {
+        height: 200px !important;
+    }
+    .doubt-card {
+        font-size: 14px !important;
+        padding: 14px 16px !important;
+    }
+    .showcase-panel h3 {
+        font-size: 1.3rem !important;
+    }
+    .manifesto-headline,
+    .manifesto h2 {
+        font-size: clamp(1.6rem, 8vw, 2.2rem) !important;
+    }
+    .phone-showcase h2 {
+        font-size: clamp(1.5rem, 8vw, 2rem) !important;
+    }
+    .why-run-section h2 {
+        font-size: clamp(1.8rem, 10vw, 2.5rem) !important;
+    }
+    .cta-main-headline {
+        font-size: clamp(1.8rem, 9vw, 2.5rem) !important;
+    }
+    .ask-ai-inner h2 {
+        font-size: 20px !important;
+    }
+    .trust-strip .stat-number {
+        font-size: 16px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-content h1 {
+        font-size: 2.2rem !important;
+    }
+    .finally-text {
+        font-size: 1.2rem !important;
+    }
+    .hero-cta-group .cta-button,
+    .hero-cta-group a {
+        padding: 14px 24px !important;
+        font-size: 13px !important;
+    }
+}
+/* ===== END MOBILE OPTIMIZATION ===== */
+
 </style>
 </head>
 <body><!-- TOP DOT STRIPE -->
@@ -4560,13 +5105,14 @@ function toggleFaq(btn) {
       return;
     }
     const span = document.createElement('span');
-    span.className = 'hero-word';
+    span.className = 'hero-word'; span.setAttribute('data-text', p.text);
     span.style.animationDelay = delay + 's';
-    if (p.green) span.style.color = 'var(--green-light)';
+    if (p.green) { span.style.color = 'var(--green-light)'; span.classList.add('green-word'); }
     span.textContent = p.text + ' ';
     headline.appendChild(span);
     delay += 0.07;
   });
+
 })();// Fade-up observer
 const fadeObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
