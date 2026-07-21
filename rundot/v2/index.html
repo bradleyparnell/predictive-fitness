@@ -1606,7 +1606,7 @@
     font-size: clamp(4.5rem, 10vw, 8rem) !important;
     line-height: 0.88 !important;
     letter-spacing: -0.04em !important;
-    text-shadow: 3px 3px 0 rgba(0,0,0,0.4), 0 0 40px rgba(0,0,0,0.3) !important;
+    text-shadow: none !important;
 }
 .hero-content h1 .hero-word {
     display: inline-block !important;
@@ -1622,7 +1622,7 @@
     content: '' !important;
     position: absolute !important;
     inset: 0 !important;
-    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 100%) !important;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.5) 100%) !important;
     z-index: 1 !important;
 }
 .hero > * {
@@ -1634,9 +1634,10 @@
     display: none !important;
 }
 .hero-content {
-    max-width: 680px !important;
-    text-align: left !important;
-    padding-left: 5% !important;
+    max-width: 780px !important;
+    text-align: center !important;
+    padding-left: 0 !important;
+    margin: 0 auto !important;
 }
 .hero-content h1 span {
     display: block !important;
@@ -2816,7 +2817,7 @@ a.cta-button {
       letter-spacing: -0.04em !important;
       line-height: 0.88 !important;
       text-transform: uppercase !important;
-      text-shadow: 3px 3px 0 rgba(0,0,0,0.4), 0 0 40px rgba(0,0,0,0.3) !important;
+      text-shadow: none !important;
       font-family: 'Barlow Condensed', 'Plus Jakarta Sans', sans-serif !important;
       font-weight: 900 !important;
       font-style: italic !important;
@@ -3433,6 +3434,179 @@ footer {
     stroke: #111 !important;
 }
 
+
+/* --- REDESIGNED CTA SECTION --- */
+.cta-redesigned {
+    background: #0a0a0a !important;
+    padding: 100px 40px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+.cta-redesigned::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: 
+        radial-gradient(ellipse at 50% 0%, rgba(200,255,0,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 100%, rgba(83,185,86,0.04) 0%, transparent 50%) !important;
+    pointer-events: none !important;
+}
+.cta-redesigned::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background-image: radial-gradient(circle, rgba(200,255,0,0.08) 1px, transparent 1px) !important;
+    background-size: 24px 24px !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+}
+.cta-inner {
+    position: relative !important;
+    z-index: 2 !important;
+    max-width: 640px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+}
+.cta-main-headline {
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-size: clamp(3rem, 6vw, 4.5rem) !important;
+    font-weight: 900 !important;
+    font-style: italic !important;
+    text-transform: uppercase !important;
+    color: #fff !important;
+    letter-spacing: -0.02em !important;
+    line-height: 0.95 !important;
+    margin-bottom: 20px !important;
+}
+.cta-sub-text {
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 18px !important;
+    color: rgba(255,255,255,0.5) !important;
+    line-height: 1.6 !important;
+    max-width: 480px !important;
+    margin: 0 auto 48px !important;
+    font-weight: 400 !important;
+}
+.cta-action-block {
+    margin-bottom: 48px !important;
+}
+.cta-big-btn {
+    font-size: 16px !important;
+    padding: 18px 48px !important;
+    background: var(--v2-chartreuse, #c8ff00) !important;
+    color: #111 !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    border-radius: 8px !important;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+}
+.cta-big-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 32px rgba(200,255,0,0.25) !important;
+}
+.cta-redesigned .cta-no-cc {
+    font-size: 13px !important;
+    color: rgba(255,255,255,0.3) !important;
+    margin-top: 14px !important;
+    letter-spacing: 0.03em !important;
+}
+.cta-qr-card {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 20px !important;
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    border-radius: 12px !important;
+    padding: 16px 24px !important;
+    backdrop-filter: blur(8px) !important;
+}
+.cta-qr-card img {
+    width: 72px !important;
+    height: 72px !important;
+    border-radius: 8px !important;
+    border: none !important;
+}
+.cta-qr-text {
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: left !important;
+    gap: 4px !important;
+}
+.cta-qr-label {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: rgba(255,255,255,0.7) !important;
+    letter-spacing: 0.02em !important;
+}
+.cta-qr-sub {
+    font-size: 12px !important;
+    color: rgba(255,255,255,0.35) !important;
+}
+@media (max-width: 768px) {
+    .cta-redesigned { padding: 72px 24px !important; }
+    .cta-main-headline { font-size: 2.5rem !important; }
+    .cta-qr-card { padding: 14px 18px !important; gap: 14px !important; }
+    .cta-qr-card img { width: 56px !important; height: 56px !important; }
+}
+
+
+/* --- FINALLY chalk circle graphic --- */
+.finally-wrapper {
+    position: relative !important;
+    display: inline-block !important;
+    margin-bottom: 8px !important;
+}
+.finally-text {
+    font-family: 'Caveat', 'Permanent Marker', cursive !important;
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem) !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em !important;
+    position: relative !important;
+    z-index: 2 !important;
+    display: inline-block !important;
+    padding: 0 20px !important;
+}
+.finally-scribble {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 220px !important;
+    height: 90px !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+}
+.scribble-path {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    transition: stroke-dashoffset 1.2s ease-out;
+}
+.scribble-path.drawn {
+    stroke-dashoffset: 0;
+}
+
+/* Animate the "finally" text too - fade in before scribble */
+.finally-text {
+    opacity: 1 !important;
+    animation: finallyFadeIn 0.8s ease-out 0.3s both !important;
+}
+@keyframes finallyFadeIn {
+    from { opacity: 0; transform: translateY(12px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 768px) {
+    .finally-text {
+        font-size: 2rem !important;
+    }
+    .finally-scribble {
+        width: 170px !important;
+        height: 70px !important;
+    }
+}
+
 /* CTA section - consistent */
 .cta-section .section-title {
     font-family: 'Barlow Condensed', sans-serif !important;
@@ -3532,6 +3706,14 @@ body::after {
     <source src="../assets/hero-video.mp4" type="video/mp4">
   </video>
   <div class="hero-content" id="heroContent">
+    <div class="finally-wrapper" id="finallyWrapper">
+      <span class="finally-text">finally</span>
+      <svg class="finally-scribble" viewBox="0 0 220 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 50 C30 25, 80 10, 130 12 C180 14, 205 30, 200 48 C195 66, 150 78, 100 76 C50 74, 20 62, 25 48" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.85" class="scribble-path scribble-1"/>
+        <path d="M35 52 C32 28, 85 8, 135 10 C185 12, 210 32, 205 50 C200 68, 148 82, 95 80 C42 78, 18 60, 28 46" stroke="white" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5" class="scribble-path scribble-2"/>
+        <path d="M25 46 C28 22, 75 14, 125 15 C175 16, 195 34, 192 50 C189 66, 155 74, 105 73 C55 72, 22 58, 30 44" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.35" class="scribble-path scribble-3"/>
+      </svg>
+    </div>
     <h1 id="heroHeadline"></h1>
     <div class="goal-typewriter hero-sub-entrance">
       <span class="goal-typewriter-prefix">I want to </span><span class="goal-typewriter-text" id="goalTypewriter"></span><span class="goal-typewriter-cursor"></span>
@@ -3947,22 +4129,27 @@ body::after {
   </div>
 </section><!-- BRAND DOT STRIPE -->
 <div class="chevron-stripe" style="background: var(--dark); margin-top: 0;"><div class="chevron-stripe-inner"></div></div><!-- 11. CTA -->
-<section class="cta-section">
-  <div class="fade-up">
-    <div class="cta-accent-line"></div>
-    <p style="font-size: 17px; color: rgba(255,255,255,0.55); font-weight: 500; margin-bottom: 24px; letter-spacing: 0.03em;">EVERY GOAL STARTS WITH TODAY'S RUN</p>
-    <h2 class="section-title">Every meaningful running experience starts with trusting today's run.</h2>
-    <div class="cta-row">
+<section class="cta-section cta-redesigned">
+  <div class="cta-inner fade-up">
+    <div class="cta-top-block">
+      <h2 class="section-title cta-main-headline">Trust today's run.</h2>
+      <p class="cta-sub-text">Every meaningful running experience starts with trusting your training.</p>
+    </div>
+    <div class="cta-action-block">
       <div class="cta-glow">
-        <a href="#" class="btn-primary" onclick="event.preventDefault();openQR()">Get your first workout</a>
+        <a href="#" class="btn-primary cta-big-btn" onclick="event.preventDefault();openQR()">Get your first workout</a>
+      </div>
+      <p class="cta-no-cc">No credit card required</p>
+    </div>
+    <div class="cta-qr-block">
+      <div class="cta-qr-card">
+        <img src="../assets/rundot-qr-signup.png" alt="Scan to sign up">
+        <div class="cta-qr-text">
+          <span class="cta-qr-label">Scan to download</span>
+          <span class="cta-qr-sub">Available on iOS</span>
+        </div>
       </div>
     </div>
-    <p class="cta-no-cc">No credit card required</p>
-    <div class="cta-qr">
-      <img src="../assets/rundot-qr-signup.png" alt="Scan to sign up">
-      <span>Or scan to get started</span>
-    </div>
-    <p class="cta-tagline">Trust the run.</p>
   </div>
 </section><!-- FOOTER -->
 <footer>
@@ -4456,5 +4643,12 @@ document.querySelectorAll('.green-ring-photo').forEach(el => {
 });
 
 // ===== END V2 ANIMATIONS =====
+
+// Scribble draw animation
+setTimeout(() => {
+  document.querySelectorAll('.scribble-path').forEach((p, i) => {
+    setTimeout(() => p.classList.add('drawn'), i * 250);
+  });
+}, 800);
 </script></body>
 </html>
