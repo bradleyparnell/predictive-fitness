@@ -119,6 +119,16 @@
     background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.55) 100%);
     z-index: 1;
   }
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(83,185,86,0.25) 1.2px, transparent 1.2px);
+    background-size: 18px 18px;
+    z-index: 1;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
   .hero-content {
     position: relative; z-index: 2;
     text-align: center; max-width: 780px;
@@ -2196,17 +2206,154 @@ a.cta-button {
     opacity: 0.6 !important;
 }
 
-/* --- Force all fade-up visible for V2 --- */
-.fade-up {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}
-.stagger-item {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}
+/* --- V2 scroll animations enabled --- */
 
 /* ===== END V2 FIXED SELECTORS ===== */
+
+/* ===== V2 ANIMATIONS ===== */
+
+/* Slide-in from left */
+.slide-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.slide-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Slide-in from right */
+.slide-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.slide-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale-in reveal */
+.scale-in {
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Glitch flicker on headlines */
+@keyframes glitch-in {
+    0% { opacity: 0; transform: translateX(-4px) skewX(-2deg); filter: blur(4px); }
+    20% { opacity: 0.7; transform: translateX(3px) skewX(1deg); filter: blur(0); }
+    40% { opacity: 0.9; transform: translateX(-2px) skewX(-0.5deg); }
+    60% { opacity: 1; transform: translateX(1px) skewX(0.3deg); }
+    80% { transform: translateX(-1px) skewX(0); }
+    100% { opacity: 1; transform: translateX(0) skewX(0); filter: blur(0); }
+}
+.glitch-in {
+    opacity: 0;
+}
+.glitch-in.visible {
+    animation: glitch-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Green line draw animation (horizontal) */
+@keyframes line-draw {
+    from { width: 0; }
+    to { width: 100%; }
+}
+.line-draw {
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.line-draw.visible {
+    width: 100%;
+}
+
+/* Pulse glow on green elements */
+@keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(83,185,86,0.15); }
+    50% { box-shadow: 0 0 40px rgba(83,185,86,0.35), 0 0 80px rgba(83,185,86,0.1); }
+}
+
+/* Counter spin-up feel */
+@keyframes count-flash {
+    0% { color: #c8ff00; text-shadow: 0 0 20px rgba(200,255,0,0.5); }
+    100% { color: inherit; text-shadow: none; }
+}
+
+/* Parallax scroll on sections */
+.parallax-bg {
+    transition: transform 0.1s linear;
+    will-change: transform;
+}
+
+/* Stagger delay utility */
+.stagger-item:nth-child(1) { transition-delay: 0s; }
+.stagger-item:nth-child(2) { transition-delay: 0.1s; }
+.stagger-item:nth-child(3) { transition-delay: 0.2s; }
+.stagger-item:nth-child(4) { transition-delay: 0.3s; }
+.stagger-item:nth-child(5) { transition-delay: 0.4s; }
+.stagger-item:nth-child(6) { transition-delay: 0.5s; }
+.stagger-item:nth-child(7) { transition-delay: 0.6s; }
+.stagger-item:nth-child(8) { transition-delay: 0.7s; }
+
+/* Hero social proof entrance */
+@keyframes hero-social-slide {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.hero-social-proof {
+    opacity: 0;
+    animation: hero-social-slide 0.7s ease 1.4s forwards;
+}
+
+/* Chevron stripe slide-in */
+@keyframes stripe-slide {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+.chevron-stripe-inner {
+    opacity: 0;
+}
+.chevron-stripe.visible .chevron-stripe-inner {
+    animation: stripe-slide 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Green glow ring pulse on scroll */
+.green-ring-photo {
+    transition: box-shadow 0.6s ease, transform 0.6s ease;
+}
+.green-ring-photo.visible {
+    animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Moment card hover lift - V2 edgier */
+.moment-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.moment-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(83,185,86,0.2);
+}
+
+/* Review card slide-in with stagger */
+.review-card {
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Section divider stripe animation */
+@keyframes divider-draw {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+/* ===== END V2 ANIMATIONS ===== */
+
 
 
 /* --- Light section text: Make readable --- */
@@ -3451,7 +3598,7 @@ body::after {
   </div>
 </section><!-- BRAND DOT STRIPE -->
 <div class="chevron-stripe chevron-stripe-right" style="margin-top: 0;"><div class="chevron-stripe-inner"></div></div><!-- 5. MANIFESTO - breathing moment -->
-<section class="manifesto fade-up">
+<section class="manifesto fade-up glitch-in">
   <div class="manifesto-inner">
     <p class="manifesto-line">What if you never had to wonder?</p>
     <p class="manifesto-sub">What if every morning, your workout was already there. No second-guessing. Just the quiet confidence of knowing you're exactly where you should be.</p>
@@ -3460,7 +3607,7 @@ body::after {
   <!-- HOW IT KNOWS -->
 <section class="how-it-knows" id="how-it-knows">
   <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
-    <div class="how-it-knows-header fade-up">
+    <div class="how-it-knows-header fade-up slide-right">
       <div class="section-eyebrow" style="justify-content: center;">HOW IT KNOWS</div>
       <h2>Not a template. An intelligence.</h2>
       <p>RunDot<span class="tm">™</span> doesn't guess your training. It learns it, every single day.</p>
@@ -3627,7 +3774,7 @@ body::after {
         <div class="phone-widget pw-notification"><img src="../assets/notification-start-workout.png" alt="Start Workout notification" loading="lazy"></div>
         <div class="phone-widget pw-gauge"><img src="../assets/icon-training-goal.png" alt="Training Goal progress" loading="lazy"></div>
       </div>
-      <div class="phone-frame fade-up">
+      <div class="phone-frame fade-up scale-in">
         <div class="phone-bezel">
           <div class="phone-screen">
             <div class="phone-notch"></div>
@@ -3646,7 +3793,7 @@ body::after {
     </div>
   </div>
 </section><!-- 8. FEATURE PHOTO -->
-<section class="feature-photo fade-up">
+<section class="feature-photo fade-up scale-in">
   <div class="feature-photo-circle">
     <img src="../assets/v2-tattoo-stairs-up.jpg" alt="Dynamic female runner sprinting through city" loading="lazy">
   </div>
@@ -4268,5 +4415,46 @@ document.querySelectorAll('.faq-q').forEach(function(btn) {
     }
   });
 });
+
+// ===== V2 ANIMATIONS =====
+
+// Slide-left / slide-right / scale-in / glitch-in observer
+const v2AnimObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            v2AnimObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.slide-left, .slide-right, .scale-in, .glitch-in, .chevron-stripe').forEach(el => {
+    v2AnimObserver.observe(el);
+});
+
+// Parallax effect on hero video
+const heroVideo = document.querySelector('.hero-video');
+if (heroVideo) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                if (scrollY < window.innerHeight) {
+                    heroVideo.style.transform = 'translateY(' + (scrollY * 0.3) + 'px) scale(1.1)';
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+}
+
+// Parallax on green glow ring photos
+document.querySelectorAll('.green-ring-photo').forEach(el => {
+    v2AnimObserver.observe(el);
+});
+
+// ===== END V2 ANIMATIONS =====
 </script></body>
 </html>
