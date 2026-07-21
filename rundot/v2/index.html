@@ -20,7 +20,8 @@
 <link rel="preload" as="video" href="../assets/hero-video.mp4" type="video/mp4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }  .tm { font-size: 0.6em; vertical-align: super; line-height: 0; }
   :root {
@@ -3558,7 +3559,7 @@ footer {
     margin-bottom: 8px !important;
 }
 .finally-text {
-    font-family: 'Caveat', 'Permanent Marker', cursive !important;
+    font-family: 'Permanent Marker', cursive !important;
     font-size: clamp(2.2rem, 4.5vw, 3.5rem) !important;
     color: #fff !important;
     font-weight: 700 !important;
@@ -3675,7 +3676,130 @@ body::after {
 
     /* ========== END ALTRA v4 ========== */
 
-  </style>
+  
+/* Dot overlay on dark sections */
+.showcase-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(circle, rgba(83,185,86,0.18) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Tape strip styling */
+.tape-strip {
+    position: relative;
+    display: inline-block;
+}
+.tape-strip::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 120px;
+    height: 32px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255,255,255,0.12);
+    z-index: 2;
+    pointer-events: none;
+}
+.tape-strip-corner-tl::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    width: 80px;
+    height: 28px;
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255,255,255,0.1);
+    transform: rotate(-12deg);
+    z-index: 2;
+    pointer-events: none;
+}
+.tape-strip-corner-tr::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 80px;
+    height: 28px;
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255,255,255,0.1);
+    transform: rotate(8deg);
+    z-index: 2;
+    pointer-events: none;
+}
+.tape-strip-bottom::before {
+    top: auto;
+    bottom: -8px;
+    transform: translateX(-50%) rotate(1.5deg);
+}
+
+/* Tape on circular photos */
+.showcase-circle .tape-accent,
+.feature-photo-circle .tape-accent {
+    position: absolute;
+    width: 120px;
+    height: 30px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 10;
+    pointer-events: none;
+}
+.tape-top {
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+}
+.tape-bottom {
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%) rotate(2deg);
+}
+
+/* Tape on review cards */
+.review-card {
+    position: relative;
+}
+.review-card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1.5deg);
+    width: 90px;
+    height: 24px;
+    background: rgba(83,185,86,0.2);
+    backdrop-filter: blur(3px);
+    border: 1px solid rgba(83,185,86,0.3);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Tape on Meb section photo circle */
+.meb-section .tape-accent-meb {
+    position: absolute;
+    width: 110px;
+    height: 28px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(3px);
+    border: 1px solid rgba(255,255,255,0.1);
+    z-index: 10;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-4deg);
+    pointer-events: none;
+}
+</style>
 </head>
 <body><!-- TOP DOT STRIPE -->
 <div class="chevron-stripe chevron-stripe-right" style="margin-top: 0; position: absolute; top: 64px; left: 0; right: 0; z-index: 99; opacity: 0.6;"><div class="chevron-stripe-inner"></div></div><!-- NAV -->
@@ -4643,6 +4767,21 @@ document.querySelectorAll('.green-ring-photo').forEach(el => {
 });
 
 // ===== END V2 ANIMATIONS =====
+
+
+// Add tape accents to showcase circular photos
+document.querySelectorAll('.showcase-circle, .feature-photo-circle').forEach((wrapper, i) => {
+    const tape = document.createElement('div');
+    tape.className = 'tape-accent ' + (i % 2 === 0 ? 'tape-top' : 'tape-bottom');
+    wrapper.style.position = 'relative';
+    wrapper.appendChild(tape);
+});
+
+// Add tape accents to review cards
+document.querySelectorAll('.review-card').forEach((card, i) => {
+    // Review cards already have ::before tape via CSS
+    card.style.position = 'relative';
+});
 
 // Scribble draw animation
 setTimeout(() => {
