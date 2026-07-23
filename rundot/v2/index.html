@@ -1671,20 +1671,22 @@
 
 /* --- TRUST STRIP: Chartreuse background --- */
 .trust-strip {
-    background: var(--v2-chartreuse) !important;
-    color: #111 !important;
+    background: #111 !important;
+    color: #fff !important;
+    border-top: 3px solid var(--v2-hot-green) !important;
+    border-bottom: 3px solid var(--v2-hot-green) !important;
 }
 .trust-strip * {
-    color: #111 !important;
+    color: #fff !important;
 }
 .trust-strip .stat-number {
-    color: #111 !important;
+    color: var(--v2-hot-green) !important;
     font-family: 'Barlow Condensed', sans-serif !important;
     font-weight: 900 !important;
     font-style: italic !important;
 }
 .trust-strip .stat-label {
-    color: #333 !important;
+    color: rgba(255,255,255,0.7) !important;
 }
 .trust-strip .distance-cycle {
     color: var(--v2-hot-green) !important;
@@ -1692,8 +1694,8 @@
 }
 .trust-strip svg,
 .trust-strip .star-icon {
-    color: #111 !important;
-    fill: #111 !important;
+    color: var(--v2-hot-green) !important;
+    fill: var(--v2-hot-green) !important;
 }
 
 /* --- MEB STRIP: Darker, grittier --- */
@@ -2290,14 +2292,19 @@ a.cta-button {
 
 /* --- TRUST STRIP --- */
 .trust-strip {
-    background: var(--v2-chartreuse) !important;
+    background: #111 !important;
+    border-top: 3px solid var(--v2-hot-green) !important;
+    border-bottom: 3px solid var(--v2-hot-green) !important;
 }
 .trust-strip,
 .trust-strip * {
-    color: #111 !important;
+    color: #fff !important;
+}
+.trust-strip .stat-number {
+    color: var(--v2-hot-green) !important;
 }
 .trust-strip .distance-cycle {
-    color: #53b956 !important;
+    color: var(--v2-hot-green) !important;
     font-weight: 800 !important;
 }
 
