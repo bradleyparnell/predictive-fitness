@@ -3923,10 +3923,7 @@ body::after {
     margin-top: 0 !important;
     transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
-.testimonial-card::before,
-.testimonial-card::after {
-    display: none !important;
-}
+/* Tape styles handled in comprehensive fix block */
 .testimonial-card:hover {
     transform: translateY(-4px) !important;
     box-shadow: 0 12px 32px rgba(0,0,0,0.08) !important;
@@ -4838,6 +4835,7 @@ body::after {
 <span>THE ONLY PREDICTIVE FITNESS APP WITH 20 YEARS OF ATHLETE DATA</span>
 <span class="marquee-dot">●</span>
 </div>
+</div><!-- close marquee-banner -->
 <section class="ask-ai-section fade-up">
   <div class="ask-ai-inner">
     <h2>Go ahead. <span>Fact-check us.</span></h2>
@@ -4893,6 +4891,7 @@ body::after {
     </div>
   </div>
 <div class="chevron-stripe chevron-stripe-subtle"><div class="chevron-stripe-inner"></div></div><!-- 7. HOW IT WORKS -->
+</section><!-- close how-it-knows -->
 <section class="section how" id="how">
   <div class="section-inner fade-up">
     <div class="section-header">
@@ -4962,6 +4961,7 @@ body::after {
     </div>
   </div>
 <!-- 9. REVIEWS -->
+</section><!-- close phone-showcase -->
 <section class="section testimonials">
   <div class="section-inner fade-up">
     <div class="section-header">
@@ -5095,6 +5095,7 @@ body::after {
     </div>
   </div>
 <!-- 11. CTA -->
+</section><!-- close faq-section -->
 <section class="cta-section cta-redesigned">
   <div class="cta-inner fade-up">
     <div class="cta-top-block">
@@ -5636,6 +5637,46 @@ setTimeout(() => {
 <style>
 /* === COMPREHENSIVE V2 LAYOUT FIX === */
 
+/* --- V2 Review Card Tape Treatment (staggered) --- */
+.testimonial-card {
+    position: relative !important;
+}
+.testimonial-card::before {
+    content: '' !important;
+    display: block !important;
+    position: absolute !important;
+    top: -6px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 48px !important;
+    height: 14px !important;
+    background: rgba(83,185,86,0.25) !important;
+    border-radius: 1px !important;
+    z-index: 5 !important;
+    pointer-events: none !important;
+}
+.testimonial-card::after {
+    display: none !important;
+}
+/* Stagger: slight rotation + vertical offset */
+.testimonial-card:nth-child(1) { transform: rotate(-0.8deg) !important; }
+.testimonial-card:nth-child(2) { transform: rotate(0.6deg) !important; margin-top: 12px !important; }
+.testimonial-card:nth-child(3) { transform: rotate(0.5deg) !important; margin-top: -8px !important; }
+.testimonial-card:nth-child(4) { transform: rotate(-0.4deg) !important; margin-top: 16px !important; }
+.testimonial-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08) !important;
+}
+
+/* --- Footer edge-to-edge --- */
+footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+}
+
 /* Meb strip - photo uses negative margin to overlap above, must NOT be clipped */
 .meb-strip {
     overflow: visible !important;
@@ -5706,10 +5747,7 @@ section, .section, [class*="section"],
 }
 
 /* Tape/rotation killed */
-.testimonial-card::before,
-.testimonial-card::after {
-    display: none !important;
-}
+/* Tape styles handled in comprehensive fix block */
 
 /* Footer containment */
 .footer-inner,
