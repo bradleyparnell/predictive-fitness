@@ -1512,8 +1512,8 @@
   }
   .how-step:hover {
     transform: translateY(-4px);
-    background: var(--green-soft);
-    box-shadow: 0 8px 32px rgba(83,185,86,0.08);
+    background: transparent;
+    box-shadow: none;
   }
   /* CTA press micro-interaction */
   .btn-primary:active { transform: scale(0.97) !important; transition-duration: 0.1s !important; }
@@ -4381,7 +4381,7 @@ body::after {
     
     /* Prevent any section from overflowing */
     section, .section, [class*="section"] {
-        max-width: 100vw !important;
+        max-width: 100% !important;
         overflow-x: clip !important;
     }
 }
@@ -5632,81 +5632,90 @@ setTimeout(() => {
     setTimeout(() => p.classList.add('drawn'), i * 250);
   });
 }, 800);
-</script></body>
+</script>
 <style>
-/* ===== COMPREHENSIVE OVERFLOW + LAYOUT FIX ===== */
+/* === COMPREHENSIVE V2 LAYOUT FIX === */
 
-/* Global containment - prevent any section from extending beyond viewport */
-section, .meb-strip, .trust-strip, .familiar-photo, footer {
-    overflow: hidden !important;
+/* Prevent all sections from exceeding viewport */
+section, .section, [class*="section"],
+.meb-strip, .trust-strip, .familiar-photo, footer,
+.marquee-section, .ask-ai-section {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Section titles - prevent overflow */
+.section-title,
+.how-it-knows-header h2,
+.testimonials .section-title {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
     max-width: 100% !important;
 }
 
-/* How It Knows - contain timeline text */
+/* How It Knows cards - contain text */
+.timeline-item,
+.timeline-item p {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    max-width: 100% !important;
+}
 .intelligence-timeline {
     max-width: 100% !important;
-    overflow: hidden !important;
-}
-.timeline-item {
-    max-width: 100% !important;
-    overflow: hidden !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
-}
-.timeline-item p {
-    max-width: 100% !important;
-    overflow-wrap: break-word !important;
-    word-break: break-word !important;
+    box-sizing: border-box !important;
 }
 
-/* How It Works - remove persistent green bg from step hover (V2 uses chartreuse circles, no bg needed) */
+/* How It Works - NO green bg on steps (V2 uses chartreuse circles only) */
+.how-step {
+    background: transparent !important;
+}
 .how-step:hover {
     background: transparent !important;
     box-shadow: none !important;
 }
 
-/* Section titles - prevent horizontal overflow */
-.section-title,
-.how-it-knows-header h2,
-h2 {
-    overflow-wrap: break-word !important;
-    word-wrap: break-word !important;
-    max-width: 100% !important;
-    hyphens: auto !important;
-}
-
-/* Reviews - FORCE 2x2 grid layout */
+/* Reviews - FORCE 2x2 grid on desktop */
+.testimonials .testimonial-grid,
 .testimonial-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 24px !important;
-    max-width: 100% !important;
+    max-width: 860px !important;
     margin: 0 auto !important;
     box-sizing: border-box !important;
 }
 .testimonial-card {
     min-width: 0 !important;
     overflow: hidden !important;
-    word-wrap: break-word !important;
     overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    box-sizing: border-box !important;
 }
 
-/* Footer + CTA containment */
+/* Tape/rotation killed */
+.testimonial-card::before,
+.testimonial-card::after {
+    display: none !important;
+}
+
+/* Footer containment */
 .footer-inner,
-.cta-section,
-.final-cta,
-.faq-section {
+footer {
     max-width: 100% !important;
     overflow: hidden !important;
     box-sizing: border-box !important;
 }
 
-/* Mobile reviews: single column only below 768px */
+/* Mobile: single column reviews */
 @media (max-width: 768px) {
+    .testimonials .testimonial-grid,
     .testimonial-grid {
         grid-template-columns: 1fr !important;
         max-width: 400px !important;
     }
 }
 </style>
+
+</body>
 </html>
