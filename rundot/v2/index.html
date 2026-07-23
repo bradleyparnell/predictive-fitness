@@ -5636,6 +5636,18 @@ setTimeout(() => {
 <style>
 /* === COMPREHENSIVE V2 LAYOUT FIX === */
 
+/* Meb strip - photo uses negative margin to overlap above, must NOT be clipped */
+.meb-strip {
+    overflow: visible !important;
+}
+.meb-strip-inner {
+    overflow: visible !important;
+}
+.meb-strip-photo {
+    position: relative;
+    z-index: 20;
+}
+
 /* Prevent all sections from exceeding viewport */
 section, .section, [class*="section"],
 .meb-strip, .trust-strip, .familiar-photo, footer,
