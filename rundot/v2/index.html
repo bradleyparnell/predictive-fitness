@@ -3906,79 +3906,29 @@ body::after {
 }
 
 
-/* Stagger testimonial cards like taped on a wall */
+/* Testimonial cards - clean 2x2 grid (no rotation/tape) */
+
+/* Reviews - clean 2x2 grid */
+.testimonial-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px !important;
+    max-width: 860px !important;
+    margin: 0 auto !important;
+}
 .testimonial-card {
-    position: relative !important;
+    transform: none !important;
+    margin-top: 0 !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
+.testimonial-card::before,
 .testimonial-card::after {
-    content: '';
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-2deg);
-    width: 100px;
-    height: 26px;
-    background: rgba(83,185,86,0.22);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(83,185,86,0.3);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    border-radius: 2px;
-    z-index: 10;
-    pointer-events: none;
+    display: none !important;
 }
-.testimonial-card:nth-child(1) { transform: rotate(-1.5deg) !important; }
-.testimonial-card:nth-child(2) { transform: rotate(1.2deg) !important; margin-top: 18px !important; }
-.testimonial-card:nth-child(3) { transform: rotate(-0.8deg) !important; margin-top: -8px !important; }
-.testimonial-card:nth-child(4) { transform: rotate(1.8deg) !important; margin-top: 12px !important; }
-
-.testimonial-card:nth-child(1)::after { transform: translateX(-50%) rotate(-3deg); left: 45%; }
-.testimonial-card:nth-child(2)::after { transform: translateX(-50%) rotate(2.5deg); left: 55%; }
-.testimonial-card:nth-child(3)::after { transform: translateX(-50%) rotate(-1deg); left: 48%; }
-.testimonial-card:nth-child(4)::after { transform: translateX(-50%) rotate(3.5deg); left: 52%; }
-
-.testimonial-card:nth-child(1):hover { transform: rotate(-1.5deg) translateY(-4px) !important; }
-.testimonial-card:nth-child(2):hover { transform: rotate(1.2deg) translateY(-4px) !important; }
-.testimonial-card:nth-child(3):hover { transform: rotate(-0.8deg) translateY(-4px) !important; }
-.testimonial-card:nth-child(4):hover { transform: rotate(1.8deg) translateY(-4px) !important; }
-
-/* Tape on review cards (legacy, kept for safety) */
-.review-card {
-    position: relative;
+.testimonial-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08) !important;
 }
-.review-card::before {
-    content: '';
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-2deg);
-    width: 100px;
-    height: 26px;
-    background: rgba(83,185,86,0.22);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(83,185,86,0.3);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    border-radius: 2px;
-    z-index: 10;
-    pointer-events: none;
-}
-
-/* Stagger review cards like taped on a wall */
-.review-card:nth-child(1) { transform: rotate(-1.5deg); }
-.review-card:nth-child(2) { transform: rotate(1.2deg); margin-top: 18px; }
-.review-card:nth-child(3) { transform: rotate(-0.8deg); margin-top: -8px; }
-.review-card:nth-child(4) { transform: rotate(1.8deg); margin-top: 12px; }
-
-/* Vary tape position per card */
-.review-card:nth-child(1)::before { transform: translateX(-50%) rotate(-3deg); left: 45%; }
-.review-card:nth-child(2)::before { transform: translateX(-50%) rotate(2deg); left: 55%; }
-.review-card:nth-child(3)::before { transform: translateX(-50%) rotate(-1deg); left: 48%; }
-.review-card:nth-child(4)::before { transform: translateX(-50%) rotate(3.5deg); left: 52%; }
-
-/* Keep hover state but preserve rotation */
-.review-card:nth-child(1):hover { transform: rotate(-1.5deg) translateY(-4px); }
-.review-card:nth-child(2):hover { transform: rotate(1.2deg) translateY(-4px); }
-.review-card:nth-child(3):hover { transform: rotate(-0.8deg) translateY(-4px); }
-.review-card:nth-child(4):hover { transform: rotate(1.8deg) translateY(-4px); }
 
 /* Tape on Meb section photo circle */
 .meb-section .tape-accent-meb {
@@ -4886,6 +4836,28 @@ body::after {
 <span>THE ONLY PREDICTIVE FITNESS APP WITH 20 YEARS OF ATHLETE DATA</span>
 <span class="marquee-dot">●</span>
 </div>
+<section class="ask-ai-section fade-up">
+  <div class="ask-ai-inner">
+    <h2>Don't trust us? <span>Ask AI.</span></h2>
+    <p class="ask-ai-subtitle">Let your favorite AI tell you why RunDot<span class="tm">™</span> is different. Click a button and see what it says.</p>
+    <div class="ask-ai-buttons">
+      <a href="https://chat.openai.com/?q=Tell+me+about+RunDot+running+app+by+Predictive+Fitness+and+why+it+is+different+from+other+running+apps+like+Runna+or+TrainingPeaks" target="_blank" rel="noopener" class="ask-ai-btn">
+        <span class="ai-icon" style="background: #10a37f;">G</span>
+        Ask ChatGPT
+      </a>
+      <a href="https://claude.ai/new?q=Tell+me+about+RunDot+running+app+by+Predictive+Fitness+and+why+it+is+different+from+other+running+apps+like+Runna+or+TrainingPeaks" target="_blank" rel="noopener" class="ask-ai-btn">
+        <span class="ai-icon" style="background: #d97706;">C</span>
+        Ask Claude
+      </a>
+      <a href="https://www.perplexity.ai/search/new?q=Tell+me+about+RunDot+running+app+by+Predictive+Fitness+and+why+it+is+different+from+other+running+apps+like+Runna+or+TrainingPeaks" target="_blank" rel="noopener" class="ask-ai-btn">
+        <span class="ai-icon" style="background: #20b8cd;">P</span>
+        Ask Perplexity
+      </a>
+    </div>
+    <p class="ask-ai-note">Links open in a new tab with a pre-filled question about RunDot</p>
+  </div>
+</section>
+<div class="chevron-stripe chevron-stripe-right" style="margin-top: 0;"><div class="chevron-stripe-inner"></div></div>
 <!-- HOW IT KNOWS -->
   <!-- HOW IT KNOWS -->
 <section class="how-it-knows" id="how-it-knows">
@@ -5115,30 +5087,7 @@ body::after {
       </div>
     </div>
   </div>
-</section><!-- ASK AI SECTION -->
-<section class="ask-ai-section fade-up">
-  <div class="ask-ai-inner">
-    <h2>Still not sure? <span>Ask AI.</span></h2>
-    <p class="ask-ai-subtitle">Let your favorite AI tell you why RunDot<span class="tm">™</span> is different. Click a button and see what it says.</p>
-    <div class="ask-ai-buttons">
-      <a href="https://chat.openai.com/?q=Tell+me+about+RunDot+running+app+by+Predictive+Fitness+and+why+it+is+different+from+other+running+apps+like+Runna+or+TrainingPeaks" target="_blank" rel="noopener" class="ask-ai-btn">
-        <span class="ai-icon" style="background: #10a37f;">G</span>
-        Ask ChatGPT
-      </a>
-      <a href="https://claude.ai/new?q=Tell+me+about+RunDot+running+app+by+Predictive+Fitness+and+why+it+is+different+from+other+running+apps+like+Runna+or+TrainingPeaks" target="_blank" rel="noopener" class="ask-ai-btn">
-        <span class="ai-icon" style="background: #d97706;">C</span>
-        Ask Claude
-      </a>
-      <a href="https://www.perplexity.ai/search/new?q=Tell+me+about+RunDot+running+app+by+Predictive+Fitness+and+why+it+is+different+from+other+running+apps+like+Runna+or+TrainingPeaks" target="_blank" rel="noopener" class="ask-ai-btn">
-        <span class="ai-icon" style="background: #20b8cd;">P</span>
-        Ask Perplexity
-      </a>
-    </div>
-    <p class="ask-ai-note">Links open in a new tab with a pre-filled question about RunDot</p>
-  </div>
-</section>
-<!-- BRAND DOT STRIPE -->
-<div class="chevron-stripe" style="background: var(--dark); margin-top: 0;"><div class="chevron-stripe-inner"></div></div><!-- 11. CTA -->
+<!-- 11. CTA -->
 <section class="cta-section cta-redesigned">
   <div class="cta-inner fade-up">
     <div class="cta-top-block">
