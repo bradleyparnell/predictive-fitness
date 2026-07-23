@@ -269,6 +269,7 @@
   .timeline-item p {
     font-size: 14px; color: #666; line-height: 1.6;
     font-family: var(--font-body);
+    overflow-wrap: break-word; word-break: break-word;
   }  /* MEB ENDORSEMENT STRIP */
   .meb-strip {
     background: var(--white); padding: 40px 32px 24px;
@@ -637,7 +638,7 @@
     max-width: 900px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 48px;
   }
   .how-step { text-align: center; }
@@ -657,6 +658,7 @@
   }
   .how-step:nth-child(2) .how-num { animation-delay: 0.6s; }
   .how-step:nth-child(3) .how-num { animation-delay: 1.2s; }
+  .how-step:nth-child(4) .how-num { animation-delay: 1.8s; }
   .how-step h3 {
     font-family: var(--font-display); font-weight: 700;
     font-size: 20px; color: var(--text); margin-bottom: 8px;
@@ -1040,7 +1042,7 @@
     background: var(--dark); color: rgba(255,255,255,0.5);
     padding: 60px 40px 40px; font-size: 13px; line-height: 1.7;
   }
-  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; }
   .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
   .footer-logo { margin-bottom: 28px; }
   .footer-logo img { height: 24px; width: auto; opacity: 0.7; }
@@ -1319,7 +1321,7 @@
     .manifesto-line { font-size: 24px; }
     .manifesto-sub { font-size: 15px; margin-top: 24px; }
     .how { padding: 64px 20px; }
-    .how-narrative { grid-template-columns: 1fr; gap: 32px; max-width: 400px; }
+    .how-narrative { grid-template-columns: 1fr; gap: 32px; max-width: 400px; margin: 0 auto; }
     .how-num { width: 60px; height: 60px; font-size: 24px; }
     .how-credibility { margin-top: 40px; padding-top: 32px; text-align: center; display: flex; flex-direction: column; align-items: center; }
     .how-credibility-badge { justify-content: center; flex-wrap: wrap; font-size: 15px; }
@@ -4838,7 +4840,7 @@ body::after {
 </div>
 <section class="ask-ai-section fade-up">
   <div class="ask-ai-inner">
-    <h2>Don't trust us? <span>Ask AI.</span></h2>
+    <h2>Go ahead. <span>Fact-check us.</span></h2>
     <p class="ask-ai-subtitle">Let your favorite AI tell you why RunDot<span class="tm">™</span> is different. Click a button and see what it says.</p>
     <div class="ask-ai-buttons">
       <a href="https://chat.openai.com/?q=Tell+me+about+RunDot+running+app+by+Predictive+Fitness+and+why+it+is+different+from+other+running+apps+like+Runna+or+TrainingPeaks" target="_blank" rel="noopener" class="ask-ai-btn">
@@ -4911,7 +4913,12 @@ body::after {
       <div class="how-step">
         <div class="how-num">3</div>
         <h3>Run</h3>
-        <p>That's the whole point, isn't it? Stop planning. Start running. Trust the process.</p>
+        <p>That's the whole point, isn't it? Stop planning. Start running.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">4</div>
+        <h3>Trust the run</h3>
+        <p>RunDot<span class="tm">™</span> learns from every session. The more you run, the smarter your plan gets.</p>
       </div>
     </div>
     <div class="how-credibility">
