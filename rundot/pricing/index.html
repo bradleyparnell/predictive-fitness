@@ -308,6 +308,7 @@
   .app-modal-stores { display: flex; gap: 12px; justify-content: center; }
   .app-modal-stores a { display: flex; transition: transform 0.2s; }
   .app-modal-stores a:hover { transform: scale(1.05); }
+  @media (max-width: 768px) { .app-modal-qr { display: none !important; } .app-modal-or { display: none !important; } .app-modal-title { margin-bottom: 16px !important; } }
 
   /* FADE UP */
   .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | RunDot™</title>
+<meta name="description" content="Stories, insights, and lessons from the RunDot community. Training wisdom for runners who want to trust the process.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Rock+Salt&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --green: #53b956; --green-light: #6dd070;
+  --green-soft: rgba(83,185,86,0.08); --green-border: rgba(83,185,86,0.2);
+  --green-dim: rgba(83,185,86,0.12);
+  --dark: #111827; --dark-2: #1f2937;
+  --text: #1a1a2e; --text-secondary: #4b5563; --text-muted: #6b7280; --text-light: #9ca3af;
+  --white: #ffffff; --off-white: #f9fafb; --light-bg: #f3f4f6;
+  --border: #e5e7eb; --border-light: #f0f0f0;
+  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-headline: 'Barlow Condensed', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { overflow-x: hidden; max-width: 100%; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--white); color: var(--text); }
+.tm { font-size: 0.5em; vertical-align: top; position: relative; top: -0.4em; line-height: 0; margin-left: 0.05em; margin-right: 0.05em; }
+
+.chevron-stripe { height: 24px; position: relative; overflow: hidden; background: transparent; margin-top: -12px; z-index: 2; }
+.chevron-stripe-inner {
+  position: absolute; top: 0; bottom: 0; left: 0; width: 55%;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 6px, rgba(83,185,86,0.35) 6px, rgba(83,185,86,0.35) 10px, transparent 10px, transparent 16px, rgba(83,185,86,0.35) 16px, rgba(83,185,86,0.35) 20px);
+  -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+  mask-image: linear-gradient(to right, black 60%, transparent 100%);
+}
+.chevron-stripe-right .chevron-stripe-inner {
+  left: auto; right: 0;
+  -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
+  mask-image: linear-gradient(to left, black 60%, transparent 100%);
+}
+
+.dot-grid { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.08) 1.5px, transparent 1.5px); background-size: 22px 22px; pointer-events: none; }
+
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 12px; font-weight: 900; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
+.eyebrow::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green); display: inline-block; }
+.eyebrow.on-dark { color: var(--green-light); }
+
+.section-title {
+  font-family: var(--font-headline); font-weight: 900; font-style: italic; text-transform: uppercase;
+  letter-spacing: -0.02em; line-height: 0.95; color: var(--text); font-size: clamp(28px, 4vw, 44px);
+}
+.on-dark { color: #fff; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 60px;
+  background: rgba(255,255,255,0.92); backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border-light);
+  transition: box-shadow 0.3s ease;
+}
+nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
+.nav-logo img { height: 28px; width: auto; }
+.nav-logo { display: flex; }
+.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 14px; font-weight: 500; letter-spacing: 0.02em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-login { border: 1px solid var(--border); padding: 8px 18px; border-radius: 6px; font-weight: 600 !important; color: var(--text) !important; }
+.nav-cta { background: var(--green); color: var(--white) !important; padding: 10px 22px; border-radius: 6px; font-weight: 600 !important; border: none; cursor: pointer; }
+.nav-cta:hover { background: var(--green-light) !important; }
+.nav-hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+.nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-mobile-overlay {
+  display: none; position: fixed; inset: 0; z-index: 99;
+  background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+  flex-direction: column; align-items: center; justify-content: center; gap: 24px;
+  transition: opacity 0.3s ease; opacity: 0;
+}
+.nav-mobile-overlay.open { display: flex; opacity: 1; }
+.nav-mobile-overlay a { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--text); text-decoration: none; }
+
+.btn { display: inline-block; border-radius: 8px; padding: 16px 36px; font-family: var(--font-display); font-weight: 700; font-size: 15px; text-decoration: none; cursor: pointer; transition: all 0.2s; border: none; }
+.btn-primary { background: var(--green); color: #fff; }
+.btn-primary:hover { background: var(--green-light); transform: scale(1.02); }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+.btn-outline:hover { border-color: var(--green); color: var(--green); }
+.btn-outline-dark { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.25); }
+.btn-outline-dark:hover { border-color: var(--green-light); color: var(--green-light); }
+
+footer {
+  background: #111827; color: #fff; padding: 80px 60px 40px;
+  width: 100%; max-width: 100%; box-sizing: border-box;
+}
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-logo img { height: 28px; margin-bottom: 16px; }
+.footer-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 16px; }
+.footer-col h4 { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+.footer-col a { display: block; color: rgba(255,255,255,0.45); font-size: 14px; text-decoration: none; margin-bottom: 12px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--green-light); }
+.footer-fitlogic { margin-top: 20px; }
+.footer-fitlogic img { height: 36px; opacity: 0.5; }
+.footer-bottom { padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+.footer-legal { font-size: 11px; color: rgba(255,255,255,0.2); line-height: 1.6; max-width: 700px; }
+.footer-links { display: flex; gap: 20px; flex-shrink: 0; }
+.footer-links a { color: rgba(255,255,255,0.3); font-size: 12px; text-decoration: none; }
+.footer-links a:hover { color: var(--green-light); }
+
+.modal-overlay { position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; }
+.modal-overlay.active { display: flex; }
+.modal-box { background: #fff; border-radius: 20px; padding: 48px 40px; max-width: 420px; width: 90%; text-align: center; position: relative; box-shadow: 0 32px 80px rgba(0,0,0,0.25); }
+.modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666; }
+.qr-code { margin: 16px 0; }
+.store-badges { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
+.store-badges a { display: flex; transition: transform 0.2s; }
+.store-badges a:hover { transform: scale(1.05); }
+.store-badges img { height: 44px; }
+
+.fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .qr-desktop-only { display: none !important; }
+  .qr-desktop-text { display: none !important; }
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  footer { padding: 48px 24px 32px; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 12px; }
+}
+@media (max-width: 480px) {
+  .footer-top { grid-template-columns: 1fr; }
+}
+
+/* HERO */
+.blog-hero {
+  padding: 190px 40px 140px; text-align: center; position: relative; overflow: hidden;
+  background: radial-gradient(ellipse at 50% -10%, #1f2937 0%, #111827 55%, #0b0f19 100%);
+  color: #fff; min-height: 70vh; display: flex; align-items: center; justify-content: center;
+}
+.blog-hero-inner { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+.blog-hero .eyebrow { justify-content: center; }
+.blog-hero h1 {
+  font-family: var(--font-headline); font-size: clamp(3rem, 9vw, 5.6rem);
+  font-weight: 900; font-style: italic; text-transform: uppercase;
+  letter-spacing: -0.04em; line-height: 0.88; margin-bottom: 24px; color: #fff;
+}
+.blog-hero p { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 520px; margin: 0 auto 32px; line-height: 1.6; }
+.coming-soon-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green-dim); border: 1px solid rgba(83,185,86,0.3);
+  color: var(--green-light); font-family: var(--font-display); font-size: 13px; font-weight: 800;
+  letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 24px; border-radius: 999px;
+}
+.coming-soon-pill::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green-light); display: inline-block; }
+
+@media (max-width: 900px) {
+  .blog-hero { padding: 140px 24px 100px; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="../"><img src="../../assets/rundot-logo-dark.svg" alt="RunDot"></a>
+  <div class="nav-links">
+    <a href="../pricing/">Pricing</a>
+    <a href="../resources/">Resources</a>
+    <a href="#" class="nav-login">Log In</a>
+    <a href="#" class="nav-cta" onclick="event.preventDefault();openQR()">Get Started</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile-overlay" id="mobileNav">
+  <a href="../pricing/" onclick="closeMobileNav()">Pricing</a>
+  <a href="../resources/" onclick="closeMobileNav()">Resources</a>
+  <a href="#" onclick="closeMobileNav()">Log In</a>
+  <a href="#" class="btn-primary" onclick="event.preventDefault();closeMobileNav();openQR()">Get Started</a>
+</div>
+
+<!-- HERO -->
+<section class="blog-hero fade-up">
+  <div class="dot-grid"></div>
+  <div class="blog-hero-inner">
+    <div class="eyebrow on-dark">Blog</div>
+    <h1>Blog</h1>
+    <p>Stories, insights, and lessons from the RunDot community. Training wisdom for runners who want to trust the process.</p>
+    <div class="coming-soon-pill">Coming Soon</div>
+  </div>
+</section>
+
+<div class="chevron-stripe"><div class="chevron-stripe-inner"></div></div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><img src="../../assets/rundot-logo-footer.svg" alt="RunDot"></div>
+        <p class="footer-desc">RunDot<span class="tm">&trade;</span> gives you the confidence to just run.</p>
+        <div class="footer-social" style="display: flex; gap: 16px; margin-top: 20px;">
+          <a href="https://www.instagram.com/rundottraining" target="_blank" aria-label="Instagram" style="color: rgba(255,255,255,0.4); transition: color 0.2s;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" style="color: rgba(255,255,255,0.4); transition: color 0.2s;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" style="color: rgba(255,255,255,0.4); transition: color 0.2s;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+          </a>
+        </div>
+        <div class="footer-fitlogic">
+          <img src="../../assets/powered-by-fitlogic-white.png" alt="Powered by FitLogic&trade;" loading="lazy">
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="../pricing/">Pricing</a>
+        <a href="../features/">Features</a>
+        <a href="../download/">Download App</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="../blog/">Blog</a>
+        <a href="../podcast/">Podcast</a>
+        <a href="../training-guides/">Training Guides</a>
+        <a href="../support/">Support</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="../about/">About</a>
+        <a href="../careers/">Careers</a>
+        <a href="../contact/">Contact</a>
+        <a href="https://www.predictive.fit" target="_blank">Predictive Fitness</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">Predictive Fitness and the Predictive Fitness logo are trademarks or registered trademarks of Predictive Fitness, Inc. in the US and other countries. Other trademarks include TriDot, RunDot, TrainX, RaceX, Optimized Training and Optimized Race Execution. Additional Predictive Fitness trademarks can be found at www.predictive.fit/trademark-list | Limit the use of my sensitive data. 2600 E. Southlake Blvd. Suite 120-140, Southlake, Texas 76092</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="qrModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeQR()">&#10005;</button>
+    <p style="font-family: var(--font-display); font-size: 14px; font-weight: 500; color: #666; margin: 0 0 8px; letter-spacing: 0.02em; text-transform: uppercase;">Get</p>
+    <img src="../../assets/rundot-logo-dark.svg" alt="RunDot" style="height: 32px; width: auto; margin: 0 auto 8px; display: block;">
+    <p class="qr-desktop-text">Scan to download or tap below.</p>
+    <div class="qr-code qr-desktop-only"><img src="../../assets/rundot-qr-signup.png" alt="Scan to sign up" style="width:200px;height:200px;border-radius:12px;"></div>
+    <div class="store-badges">
+      <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" target="_blank"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.predictivefitness.rundotv2&hl=en_US" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play"></a>
+    </div>
+  </div>
+</div>
+
+<script>
+
+function openQR() { document.getElementById('qrModal').classList.add('active'); }
+function closeQR() { document.getElementById('qrModal').classList.remove('active'); }
+document.getElementById('qrModal').addEventListener('click', function(e) { if (e.target === this) closeQR(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeQR(); });
+
+function toggleMobileNav() {
+  var overlay = document.getElementById('mobileNav');
+  var hamburger = document.querySelector('.nav-hamburger');
+  overlay.classList.toggle('open');
+  hamburger.classList.toggle('open');
+  document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
+}
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+  document.querySelector('.nav-hamburger').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+window.addEventListener('scroll', function() {
+  document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+var fadeObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); fadeObserver.unobserve(entry.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(function(el) { fadeObserver.observe(el); });
+
+</script>
+</body>
+</html>

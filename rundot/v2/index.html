@@ -1088,7 +1088,11 @@
   }
   .store-badges { display: flex; justify-content: center; gap: 12px; }
   .store-badges a { display: inline-block; }
-  .store-badges img { height: 40px; width: auto; }  /* STICKY CTA BAR */
+  .store-badges img { height: 40px; width: auto; }
+  @media (max-width: 768px) {
+    .qr-desktop-only { display: none !important; }
+  }
+  /* STICKY CTA BAR */
   .sticky-cta {
     position: fixed; top: -60px; left: 0; right: 0; z-index: 99;
     background: rgba(17,24,39,0.95); backdrop-filter: blur(16px);
@@ -3686,8 +3690,10 @@ footer {
 @media (max-width: 768px) {
     .cta-redesigned { padding: 72px 24px !important; }
     .cta-main-headline { font-size: 2.5rem !important; }
-    .cta-qr-card { padding: 14px 18px !important; gap: 14px !important; }
-    .cta-qr-card img { width: 56px !important; height: 56px !important; }
+    .cta-qr-card { display: none !important; }
+    .qr-code { display: none !important; }
+    .modal-box p:first-of-type + img + p { display: none !important; }
+    .mobile-store-badges { display: flex !important; }
 }
 
 
@@ -5180,7 +5186,8 @@ body::after {
     <p style="font-family: var(--font-display); font-size: 14px; font-weight: 500; color: #666; margin: 0 0 8px; letter-spacing: 0.02em; text-transform: uppercase;">Get</p>
     <img src="../assets/rundot-logo-dark.svg" alt="RunDot" style="height: 32px; width: auto; margin: 0 auto 8px; display: block;">
     <p>Scan to download or tap below.</p>
-    <div class="qr-code"><img src="../assets/app-qr-code.png" alt="Scan to sign up" style="width:200px;height:200px;border-radius:12px;"></div>
+    <div class="qr-code qr-desktop-only"><img src="../assets/app-qr-code.png" alt="Scan to sign up" style="width:200px;height:200px;border-radius:12px;"></div>
+    <p class="qr-desktop-only" style="font-size:13px;color:#999;margin-bottom:16px;">Or download directly</p>
     <div class="store-badges">
       <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" target="_blank"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"></a>
       <a href="https://play.google.com/store/apps/details?id=com.predictivefitness.rundotv2&hl=en_US" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play"></a>
