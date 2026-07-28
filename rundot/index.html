@@ -1075,7 +1075,7 @@
   }
   .store-badges { display: flex; justify-content: center; gap: 12px; }
   .store-badges a { display: inline-block; }
-  .store-badges img { height: 40px; width: auto; }  /* STICKY CTA BAR */
+  .store-badges img { height: 48px; width: 160px; object-fit: contain; }  /* STICKY CTA BAR */
   .sticky-cta {
     position: fixed; top: -60px; left: 0; right: 0; z-index: 99;
     background: rgba(17,24,39,0.95); backdrop-filter: blur(16px);
@@ -1582,7 +1582,7 @@
   <div class="nav-links">
     <a href="./pricing/">Pricing</a>
     <a href="./resources/">Resources</a>
-    <a href="#" class="nav-login">Log In</a>
+    <a href="https://app.rundot.com/login" class="nav-login">Log In</a>
     <a href="#" class="nav-cta" onclick="openQR()">Get Started</a>
   </div>
   <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
@@ -1592,7 +1592,7 @@
 <div class="nav-mobile-overlay" id="mobileNav">
   <a href="./pricing/" onclick="closeMobileNav()">Pricing</a>
   <a href="./resources/" onclick="closeMobileNav()">Resources</a>
-  <a href="#" onclick="closeMobileNav()">Log In</a>
+  <a href="https://app.rundot.com/login" onclick="closeMobileNav()">Log In</a>
   <a href="#" class="btn-primary" onclick="event.preventDefault();closeMobileNav();openQR()">Get Started</a>
 </div><!-- STICKY CTA BAR -->
 <div class="sticky-cta" id="stickyCta">
@@ -1630,7 +1630,7 @@
     </div>
     <div class="meb-strip-text">
       <p class="meb-strip-quote">"RunDot's technology is so far ahead of anything else I've seen, and I want the absolute best for my athletes."</p>
-      <p class="meb-strip-name">Meb Keflezighi &middot; RunDot<span class="tm">™</span> Partner</p>
+      <p class="meb-strip-name">Meb Keflezighi</p>
       <p class="meb-strip-title">Olympic Marathon Silver Medalist &middot; Boston &amp; NYC Marathon Champion</p>
     </div>
   </div>
@@ -2075,8 +2075,8 @@
     <div class="qr-code qr-desktop-only"><img src="./assets/app-qr-code.png" alt="Scan to sign up" style="width:200px;height:200px;border-radius:12px;"></div>
     <p class="qr-desktop-only" style="font-size:13px;color:#999;margin-bottom:16px;">Or download directly</p>
     <div class="store-badges">
-      <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" target="_blank"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"></a>
-      <a href="https://play.google.com/store/apps/details?id=com.predictivefitness.rundotv2&hl=en_US" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play"></a>
+      <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" target="_blank"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" style="height:48px;width:160px;object-fit:contain;"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.predictivefitness.rundotv2&hl=en_US" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" style="height:48px;width:160px;object-fit:contain;"></a>
     </div>
   </div>
 </div><script>
