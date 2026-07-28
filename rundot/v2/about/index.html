@@ -46,13 +46,13 @@ body { font-family: var(--font-body); background: var(--white); color: var(--tex
 
 .dot-grid { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.08) 1.5px, transparent 1.5px); background-size: 22px 22px; pointer-events: none; }
 
-.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 12px; font-weight: 900; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
 .eyebrow::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green); display: inline-block; }
 .eyebrow.on-dark { color: var(--green-light); }
 
 .section-title {
-  font-family: var(--font-headline); font-weight: 900; font-style: italic; text-transform: uppercase;
-  letter-spacing: -0.02em; line-height: 0.95; color: var(--text); font-size: clamp(28px, 4vw, 44px);
+  font-family: var(--font-headline); font-weight: 700; font-style: italic; text-transform: uppercase;
+  letter-spacing: 0.01em; line-height: 0.95; color: var(--text); font-size: clamp(28px, 4vw, 44px);
 }
 .on-dark { color: #fff; }
 
@@ -154,8 +154,8 @@ footer {
 .v2-hero .eyebrow { justify-content: center; }
 .v2-hero h1 {
   font-family: var(--font-headline); font-size: clamp(2.2rem, 6.2vw, 4rem);
-  font-weight: 900; font-style: italic; text-transform: uppercase;
-  letter-spacing: -0.04em; line-height: 0.94; margin-bottom: 20px; color: #fff;
+  font-weight: 700; font-style: italic; text-transform: uppercase;
+  letter-spacing: 0.02em; line-height: 0.94; margin-bottom: 20px; color: #fff;
 }
 
 /* ABOUT BODY */
@@ -169,7 +169,7 @@ footer {
 /* CTA */
 .bottom-cta { text-align: center; padding: 110px 40px; background: radial-gradient(ellipse at 50% 120%, #1f2937 0%, #111827 60%, #0b0f19 100%); position: relative; overflow: hidden; }
 .bottom-cta-inner { position: relative; z-index: 2; }
-.bottom-cta h2 { font-family: var(--font-headline); font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.03em; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 16px; color: #fff; }
+.bottom-cta h2 { font-family: var(--font-headline); font-weight: 700; font-style: italic; text-transform: uppercase; letter-spacing: -0.03em; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 16px; color: #fff; }
 .bottom-cta p { color: rgba(255,255,255,0.6); font-size: 16px; margin-bottom: 32px; }
 
 @media (max-width: 900px) {
@@ -256,24 +256,21 @@ footer {
           <img src="../../assets/powered-by-fitlogic-white.png" alt="Powered by FitLogic&trade;" loading="lazy">
         </div>
       </div>
-      <div class="footer-col">
+            <div class="footer-col">
         <h4>Product</h4>
         <a href="../pricing/">Pricing</a>
-        <a href="../features/">Features</a>
-        <a href="../download/">Download App</a>
+        <a href="../resources/">Resources</a>
       </div>
       <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="../blog/">Blog</a>
-        <a href="../podcast/">Podcast</a>
-        <a href="../training-guides/">Training Guides</a>
-        <a href="../support/">Support</a>
+        <h4>Legal</h4>
+        <a href="https://www.predictive.fit/terms-of-use" target="_blank">Terms of Use</a>
+        <a href="https://www.predictive.fit/privacy-notice" target="_blank">Privacy Policy</a>
+        <a href="https://www.predictive.fit/trademark-list" target="_blank">Trademarks</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="../about/">About</a>
-        <a href="../careers/">Careers</a>
-        <a href="../contact/">Contact</a>
+        <a href="../contact/">Contact Us</a>
+        <a href="https://fitlogic.tech/" target="_blank">FitLogic&trade;</a>
         <a href="https://www.predictive.fit" target="_blank">Predictive Fitness</a>
       </div>
     </div>

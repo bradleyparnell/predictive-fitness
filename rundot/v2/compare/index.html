@@ -50,16 +50,16 @@ body { font-family: var(--font-body); background: var(--white); color: var(--tex
 .dot-grid { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.08) 1.5px, transparent 1.5px); background-size: 22px 22px; pointer-events: none; }
 
 /* Eyebrow */
-.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 12px; font-weight: 900; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
 .eyebrow::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green); display: inline-block; }
 .eyebrow.on-dark { color: var(--green-light); }
 
 /* Section title / hero headline */
 .v2-hero-title, .section-title {
-  font-family: var(--font-headline); font-weight: 900; font-style: italic; text-transform: uppercase;
-  letter-spacing: -0.04em; line-height: 0.9; color: var(--text);
+  font-family: var(--font-headline); font-weight: 700; font-style: italic; text-transform: uppercase;
+  letter-spacing: 0.02em; line-height: 0.9; color: var(--text);
 }
-.section-title { font-size: clamp(28px, 4vw, 44px); letter-spacing: -0.02em; line-height: 0.95; }
+.section-title { font-size: clamp(28px, 4vw, 44px); letter-spacing: 0.01em; line-height: 0.95; }
 .on-dark { color: #fff; }
 
 /* NAV */
@@ -165,8 +165,8 @@ footer {
 .v2-hero .eyebrow { justify-content: center; }
 .v2-hero h1 {
   font-family: var(--font-headline); font-size: clamp(2.2rem, 6vw, 3.8rem);
-  font-weight: 900; font-style: italic; text-transform: uppercase;
-  letter-spacing: -0.04em; line-height: 0.95; margin-bottom: 20px; color: #fff;
+  font-weight: 700; font-style: italic; text-transform: uppercase;
+  letter-spacing: 0.02em; line-height: 0.95; margin-bottom: 20px; color: #fff;
 }
 .v2-hero p { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 540px; margin: 0 auto; line-height: 1.6; }
 
@@ -180,7 +180,7 @@ footer {
 .philo-tag { font-family: var(--font-display); font-size: 11px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 14px; display: inline-block; }
 .philo-card.rundot .philo-tag { color: var(--green-light); }
 .philo-card.template .philo-tag { color: var(--text-muted); }
-.philo-card h3 { font-family: var(--font-headline); font-weight: 800; font-style: italic; text-transform: uppercase; font-size: 30px; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1; }
+.philo-card h3 { font-family: var(--font-headline); font-weight: 800; font-style: italic; text-transform: uppercase; font-size: 30px; letter-spacing: 0.01em; margin-bottom: 16px; line-height: 1; }
 .philo-card p { font-size: 15px; line-height: 1.7; }
 .philo-card.rundot p { color: rgba(255,255,255,0.7); }
 .philo-card.template p { color: var(--text-secondary); }
@@ -192,7 +192,7 @@ footer {
 .phase-block { margin-bottom: 64px; }
 .phase-block:last-child { margin-bottom: 0; }
 .phase-label { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
-.phase-num { font-family: var(--font-headline); font-weight: 900; font-style: italic; font-size: 44px; color: var(--green); line-height: 1; }
+.phase-num { font-family: var(--font-headline); font-weight: 700; font-style: italic; font-size: 44px; color: var(--green); line-height: 1; }
 .phase-name { font-family: var(--font-headline); font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: -0.01em; font-size: 26px; color: #fff; }
 .phase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .phase-col { border-radius: 14px; padding: 28px 32px; }
@@ -207,7 +207,7 @@ footer {
 
 /* GREEN STRIP */
 .green-strip { background: linear-gradient(120deg, var(--green) 0%, var(--green-light) 100%); padding: 56px 40px; text-align: center; }
-.green-strip h3 { font-family: var(--font-headline); font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.02em; font-size: clamp(1.6rem, 3.4vw, 2.4rem); color: #fff; }
+.green-strip h3 { font-family: var(--font-headline); font-weight: 700; font-style: italic; text-transform: uppercase; letter-spacing: 0.01em; font-size: clamp(1.6rem, 3.4vw, 2.4rem); color: #fff; }
 
 /* FINAL CTA */
 .compare-cta { text-align: center; padding: 100px 40px; background: var(--white); }
@@ -392,24 +392,21 @@ footer {
           <img src="../../assets/powered-by-fitlogic-white.png" alt="Powered by FitLogic&trade;" loading="lazy">
         </div>
       </div>
-      <div class="footer-col">
+            <div class="footer-col">
         <h4>Product</h4>
         <a href="../pricing/">Pricing</a>
-        <a href="../features/">Features</a>
-        <a href="../download/">Download App</a>
+        <a href="../resources/">Resources</a>
       </div>
       <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="../blog/">Blog</a>
-        <a href="../podcast/">Podcast</a>
-        <a href="../training-guides/">Training Guides</a>
-        <a href="../support/">Support</a>
+        <h4>Legal</h4>
+        <a href="https://www.predictive.fit/terms-of-use" target="_blank">Terms of Use</a>
+        <a href="https://www.predictive.fit/privacy-notice" target="_blank">Privacy Policy</a>
+        <a href="https://www.predictive.fit/trademark-list" target="_blank">Trademarks</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="../about/">About</a>
-        <a href="../careers/">Careers</a>
-        <a href="../contact/">Contact</a>
+        <a href="../contact/">Contact Us</a>
+        <a href="https://fitlogic.tech/" target="_blank">FitLogic&trade;</a>
         <a href="https://www.predictive.fit" target="_blank">Predictive Fitness</a>
       </div>
     </div>

@@ -50,16 +50,16 @@ body { font-family: var(--font-body); background: var(--white); color: var(--tex
 .dot-grid { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.08) 1.5px, transparent 1.5px); background-size: 22px 22px; pointer-events: none; }
 
 /* Eyebrow */
-.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 12px; font-weight: 900; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
 .eyebrow::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green); display: inline-block; }
 .eyebrow.on-dark { color: var(--green-light); }
 
 /* Section title / hero headline */
 .v2-hero-title, .section-title {
-  font-family: var(--font-headline); font-weight: 900; font-style: italic; text-transform: uppercase;
-  letter-spacing: -0.04em; line-height: 0.9; color: var(--text);
+  font-family: var(--font-headline); font-weight: 700; font-style: italic; text-transform: uppercase;
+  letter-spacing: 0.02em; line-height: 0.9; color: var(--text);
 }
-.section-title { font-size: clamp(28px, 4vw, 44px); letter-spacing: -0.02em; line-height: 0.95; }
+.section-title { font-size: clamp(28px, 4vw, 44px); letter-spacing: 0.01em; line-height: 0.95; }
 .on-dark { color: #fff; }
 
 /* NAV */
@@ -166,8 +166,8 @@ footer {
 .v2-hero .eyebrow { justify-content: center; }
 .v2-hero h1 {
   font-family: var(--font-headline); font-size: clamp(2.6rem, 7vw, 4.4rem);
-  font-weight: 900; font-style: italic; text-transform: uppercase;
-  letter-spacing: -0.04em; line-height: 0.9; margin-bottom: 20px; color: #fff;
+  font-weight: 700; font-style: italic; text-transform: uppercase;
+  letter-spacing: 0.02em; line-height: 0.9; margin-bottom: 20px; color: #fff;
 }
 .v2-hero p { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 480px; margin: 0 auto 40px; line-height: 1.6; }
 
@@ -217,7 +217,7 @@ footer {
 }
 .plan-name { font-family: var(--font-headline); font-size: 26px; font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 8px; color: var(--text); }
 .plan-price-wrap { margin: 24px 0; }
-.plan-price { font-family: var(--font-headline); font-size: 52px; font-weight: 900; font-style: italic; line-height: 1; color: var(--text); }
+.plan-price { font-family: var(--font-headline); font-size: 52px; font-weight: 700; font-style: italic; line-height: 1; color: var(--text); }
 .plan-price .currency { font-size: 24px; vertical-align: top; margin-right: 2px; font-style: normal; }
 .plan-period { font-family: var(--font-body); font-size: 16px; font-weight: 400; font-style: normal; color: var(--text-light); margin-left: 4px; }
 .plan-annual-note { font-size: 13px; color: var(--text-muted); margin-top: 6px; }
@@ -266,7 +266,7 @@ footer {
 /* CTA */
 .bottom-cta { text-align: center; padding: 110px 40px; background: radial-gradient(ellipse at 50% 120%, #1f2937 0%, #111827 60%, #0b0f19 100%); position: relative; overflow: hidden; }
 .bottom-cta-inner { position: relative; z-index: 2; }
-.bottom-cta h2 { font-family: var(--font-headline); font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.03em; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 16px; color: #fff; }
+.bottom-cta h2 { font-family: var(--font-headline); font-weight: 700; font-style: italic; text-transform: uppercase; letter-spacing: -0.03em; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 16px; color: #fff; }
 .bottom-cta p { color: rgba(255,255,255,0.6); font-size: 16px; margin-bottom: 32px; }
 
 @media (max-width: 900px) {
@@ -522,24 +522,21 @@ footer {
           <img src="../../assets/powered-by-fitlogic-white.png" alt="Powered by FitLogic&trade;" loading="lazy">
         </div>
       </div>
-      <div class="footer-col">
+            <div class="footer-col">
         <h4>Product</h4>
         <a href="../pricing/">Pricing</a>
-        <a href="../features/">Features</a>
-        <a href="../download/">Download App</a>
+        <a href="../resources/">Resources</a>
       </div>
       <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="../blog/">Blog</a>
-        <a href="../podcast/">Podcast</a>
-        <a href="../training-guides/">Training Guides</a>
-        <a href="../support/">Support</a>
+        <h4>Legal</h4>
+        <a href="https://www.predictive.fit/terms-of-use" target="_blank">Terms of Use</a>
+        <a href="https://www.predictive.fit/privacy-notice" target="_blank">Privacy Policy</a>
+        <a href="https://www.predictive.fit/trademark-list" target="_blank">Trademarks</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="../about/">About</a>
-        <a href="../careers/">Careers</a>
-        <a href="../contact/">Contact</a>
+        <a href="../contact/">Contact Us</a>
+        <a href="https://fitlogic.tech/" target="_blank">FitLogic&trade;</a>
         <a href="https://www.predictive.fit" target="_blank">Predictive Fitness</a>
       </div>
     </div>
