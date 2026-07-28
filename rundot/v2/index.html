@@ -4381,10 +4381,13 @@ body::after {
         display: flex !important;
     }
     
-    /* Dot grid texture - reduce on mobile */
+    /* Dot grid texture - reduce on mobile (but keep hero dots visible) */
     .dot-grid-texture::before,
     section::after {
         opacity: 0.3 !important;
+    }
+    .hero::after {
+        opacity: 1 !important;
     }
     
     /* Prevent any section from overflowing */
