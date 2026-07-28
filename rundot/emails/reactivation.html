@@ -18,251 +18,134 @@
 </noscript>
 <![endif]-->
 <style>
-  /* Brand fonts (fallbacks apply in most email clients): */
-  /* Body: 'DM Sans', Arial, Helvetica, sans-serif */
-  /* Headlines: 'Plus Jakarta Sans', Arial, Helvetica, sans-serif */
-  /* Accent/labels: 'Barlow Condensed', Arial, Helvetica, sans-serif */
-
   body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
   table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
   img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; display: block; }
-  body { margin: 0; padding: 0; width: 100% !important; height: 100% !important; background-color: #f3f4f6; }
+  body { margin: 0; padding: 0; width: 100% !important; height: 100% !important; background-color: #0a0a0a; }
 
   a { color: #53b956; }
 
-  .email-bg { background-color: #f3f4f6; }
-  .card { background-color: #ffffff; }
-  .dark-bg { background-color: #0a0a0a; }
-
-  .headline {
-    font-family: 'Plus Jakarta Sans', Arial, Helvetica, sans-serif;
-    color: #ffffff;
-    font-weight: 700;
-  }
-  .body-copy {
-    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
-    color: #4b5563;
-    font-size: 16px;
-    line-height: 26px;
-  }
-  .label-accent {
-    font-family: 'Barlow Condensed', Arial, Helvetica, sans-serif;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #53b956;
-    font-size: 13px;
-    font-weight: 600;
-  }
-  .btn-cta {
-    background-color: #53b956;
-    border-radius: 8px;
-    color: #ffffff !important;
-    display: inline-block;
-    font-family: 'Plus Jakarta Sans', Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1;
-    padding: 16px 36px;
-    text-align: center;
-    text-decoration: none;
-  }
-
-  .hero-photo {
-    background-image: url('https://bradleyparnell.github.io/predictive-fitness/rundot/assets/v2-woman-street-low.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .hero-overlay {
-    background-color: rgba(10,10,10,0.7);
-  }
-  .hero-dots {
-    background-image: url('https://bradleyparnell.github.io/predictive-fitness/rundot/assets/dot-pattern-tile.png');
-    background-repeat: repeat;
-  }
-  .strip-photo {
-    background-image: url('https://bradleyparnell.github.io/predictive-fitness/rundot/assets/runner-road-serious.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .strip-overlay {
-    background-color: rgba(0,0,0,0.3);
-  }
-  .strip-dots {
-    background-image: url('https://bradleyparnell.github.io/predictive-fitness/rundot/assets/dot-pattern-tile.png');
-    background-repeat: repeat;
-  }
-  .closing-photo {
-    background-image: url('https://bradleyparnell.github.io/predictive-fitness/rundot/assets/runner-silhouette-sunrise.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .closing-overlay {
-    background-color: rgba(10,10,10,0.75);
-  }
-  .closing-dots {
-    background-image: url('https://bradleyparnell.github.io/predictive-fitness/rundot/assets/dot-pattern-tile.png');
-    background-repeat: repeat;
-  }
-
   @media only screen and (max-width: 600px) {
     .email-container { width: 100% !important; }
-    .fluid-padding { padding-left: 20px !important; padding-right: 20px !important; }
-    .stack-col { display: block !important; width: 100% !important; }
+    .fluid-padding { padding-left: 24px !important; padding-right: 24px !important; }
     .hero-headline { font-size: 26px !important; line-height: 34px !important; }
-    .section-headline { font-size: 22px !important; line-height: 30px !important; }
   }
 
   @media (prefers-color-scheme: dark) {
-    .dark-mode-bg { background-color: #111111 !important; }
-    .dark-mode-text { color: #f3f4f6 !important; }
+    .dark-mode-bg { background-color: #0a0a0a !important; }
   }
 </style>
 </head>
-<body style="margin:0; padding:0; background-color:#f3f4f6;">
+<body style="margin:0; padding:0; background-color:#0a0a0a;">
 
   <!-- Editable preview text (HubSpot native module) -->
-  <div id="preview_text" style="display:none; max-height:0; overflow:hidden; mso-hide:all;">{% text "preview_text" label="Preview Text" value="Your run is waiting. Come back to RunDot." %}</div>
-  <!-- Preview text spacer to prevent body content leaking into preview -->
-  <div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all;">
-    &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
-  </div>
+  <div id="preview_text" style="display:none;font-size:1px;color:#0a0a0a;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">{% text "preview_text" label="Preview Text", value="Your run is waiting. Come back to RunDot." %}</div>
 
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="email-bg" style="background-color:#f3f4f6;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#0a0a0a;">
     <tr>
       <td align="center" style="padding: 0;">
 
         <!-- View in browser -->
         <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container" style="width:600px; max-width:600px;">
           <tr>
-            <td align="center" style="padding: 16px 20px 0 20px; font-family:'DM Sans', Arial, Helvetica, sans-serif; font-size:12px; color:#9ca3af;">
+            <td align="center" style="padding: 16px 20px 0 20px; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#9ca3af;">
               <a href="{{ view_as_page_url }}" style="color:#9ca3af; text-decoration:underline;">View in browser</a>
             </td>
           </tr>
         </table>
 
-        <!-- Header -->
-        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container dark-bg" style="width:600px; max-width:600px; background-color:#0a0a0a;">
+        <!-- 1. Logo Header -->
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container" style="width:600px; max-width:600px; background-color:#0a0a0a;">
           <tr>
-            <td align="center" style="padding: 32px 20px 28px 20px;">
+            <td align="center" style="padding: 24px 20px;">
               <img src="https://bradleyparnell.github.io/predictive-fitness/rundot/assets/rundot-logo-white.svg" width="140" alt="RunDot" style="display:block; width:140px; max-width:140px; height:auto;">
             </td>
           </tr>
         </table>
 
-        <!-- Hero (photo + dark overlay + dot pattern, VML fallback for Outlook) -->
-        <!--[if gte mso 9]>
-        <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px;height:420px;">
-        <v:fill type="frame" src="https://bradleyparnell.github.io/predictive-fitness/rundot/assets/v2-woman-street-low.jpg" color="#0a0a0a" />
-        <v:textbox inset="0,0,0,0">
-        <![endif]-->
-        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container hero-photo" style="width:600px; max-width:600px; background-color:#0a0a0a;">
-          <tr>
-            <td class="hero-overlay hero-dots" style="padding: 0;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td align="center" class="fluid-padding" style="padding: 8px 48px 48px 48px;">
-
-                    <!-- dot pattern texture row -->
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto 28px auto;">
-                      <tr>
-                        <td style="padding: 0 4px;"><div style="width:6px; height:6px; border-radius:50%; background-color:#53b956; opacity:0.9;"></div></td>
-                        <td style="padding: 0 4px;"><div style="width:6px; height:6px; border-radius:50%; background-color:#53b956; opacity:0.6;"></div></td>
-                        <td style="padding: 0 4px;"><div style="width:6px; height:6px; border-radius:50%; background-color:#53b956; opacity:0.35;"></div></td>
-                        <td style="padding: 0 4px;"><div style="width:6px; height:6px; border-radius:50%; background-color:#53b956; opacity:0.6;"></div></td>
-                        <td style="padding: 0 4px;"><div style="width:6px; height:6px; border-radius:50%; background-color:#53b956; opacity:0.9;"></div></td>
-                      </tr>
-                    </table>
-
-                    <h1 class="headline hero-headline" style="margin:0 0 16px 0; font-size:32px; line-height:40px; font-family:'Plus Jakarta Sans', Arial, Helvetica, sans-serif; color:#ffffff; font-weight:700;">
-                      Still thinking about it?
-                    </h1>
-                    <p style="margin:0; font-family:'DM Sans', Arial, Helvetica, sans-serif; font-size:17px; line-height:27px; color:#d1d5db;">
-                      Your run is waiting. So is the version of you who shows up for it.
-                    </p>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-        <!--[if gte mso 9]>
-        </v:textbox>
-        </v:rect>
-        <![endif]-->
-
-        <!-- Diagonal stripe divider -->
+        <!-- 2. Hero Image with overlay -->
         <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container" style="width:600px; max-width:600px;">
           <tr>
-            <td style="height:6px; line-height:6px; font-size:0; background: linear-gradient(120deg, #53b956 0%, #53b956 50%, #0a0a0a 50%, #0a0a0a 100%); background-color:#53b956;">&nbsp;</td>
+            <td style="padding:0;">
+              <div style="position:relative; width:100%; max-width:600px;">
+                <img src="https://bradleyparnell.github.io/predictive-fitness/rundot/assets/runner-urban-sprint.jpg" width="600" alt="Runner sprinting through the city" style="display:block; width:100%; max-width:600px; height:auto;">
+                <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.6) 100%);">
+                  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background-image:url('https://bradleyparnell.github.io/predictive-fitness/rundot/assets/dot-pattern-tile.png'); background-repeat:repeat; opacity:0.25;"></div>
+                </div>
+                <!--[if !mso]><!-->
+                <div style="position:absolute; top:0; left:0; width:100%; height:100%; display:table;">
+                  <div style="display:table-cell; vertical-align:middle; text-align:center; padding:0 40px;">
+                    <p class="hero-headline" style="margin:0 0 10px 0; font-family:Arial, Helvetica, sans-serif; font-size:32px; line-height:40px; color:#ffffff; font-weight:bold;">Still thinking about it?</p>
+                    <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; color:rgba(255,255,255,0.8);">Your run is waiting.</p>
+                  </div>
+                </div>
+                <!--<![endif]-->
+              </div>
+              <!--[if mso]>
+              <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; margin-top:-360px;">
+                <tr>
+                  <td align="center" valign="middle" style="height:360px; padding:0 40px;">
+                    <p style="margin:0 0 10px 0; font-family:Arial, Helvetica, sans-serif; font-size:32px; line-height:40px; color:#ffffff; font-weight:bold;">Still thinking about it?</p>
+                    <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; color:#d1d5db;">Your run is waiting.</p>
+                  </td>
+                </tr>
+              </table>
+              <![endif]-->
+            </td>
           </tr>
         </table>
 
-        <!-- Emotional body -->
-        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container card" style="width:600px; max-width:600px; background-color:#ffffff;">
+        <!-- 3. Body Copy Section -->
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container" style="width:600px; max-width:600px; background-color:#ffffff;">
           <tr>
-            <td class="fluid-padding" style="padding: 44px 48px 12px 48px;">
-              <p class="label-accent" style="margin:0 0 14px 0; font-family:'Barlow Condensed', Arial, Helvetica, sans-serif; letter-spacing:2px; text-transform:uppercase; color:#53b956; font-size:13px; font-weight:600;">
-                A note for you
-              </p>
-              <h2 class="section-headline" style="margin:0 0 16px 0; font-family:'Plus Jakarta Sans', Arial, Helvetica, sans-serif; font-size:24px; line-height:32px; color:#1a1a2e; font-weight:700;">
-                You didn't come to RunDot™ for another app.
-              </h2>
-              <p class="body-copy" style="margin:0 0 16px 0; font-family:'DM Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#4b5563;">
-                You came because you wanted to trust your training again. Whatever pulled you away, that reason to run in the first place hasn't gone anywhere.
-              </p>
-              <p class="body-copy" style="margin:0 0 16px 0; font-family:'DM Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#4b5563;">
-                Picture the next season of your running: fewer guesses, fewer setbacks, more mornings where the run just feels right. That's what a plan built around today, not last month, can do.
-              </p>
-              <p class="body-copy" style="margin:0; font-family:'DM Sans', Arial, Helvetica, sans-serif; font-size:16px; line-height:26px; color:#4b5563;">
-                Under the hood, TrainX® and Dot Score™ have kept learning. But the point was never the technology. The point is a run you can trust.
+            <td class="fluid-padding" style="padding: 36px 40px;">
+              <p style="margin:0 0 12px 0; font-family:Arial, Helvetica, sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#53b956; font-weight:bold;">A note for you</p>
+              <h2 style="margin:0 0 16px 0; font-family:Arial, Helvetica, sans-serif; font-size:24px; line-height:32px; color:#111111; font-weight:bold;">You didn't come to RunDot&trade; for another training app.</h2>
+              <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:27px; color:#555555;">
+                You came because you wanted to trust your training. To stop second-guessing every run. To know that the work you're putting in is actually leading somewhere. That hasn't changed - and neither has RunDot&trade;.
               </p>
             </td>
           </tr>
         </table>
 
-        <!-- What's new -->
-        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container card" style="width:600px; max-width:600px; background-color:#ffffff;">
+        <!-- 4. Why Runners Trust RunDot -->
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container" style="width:600px; max-width:600px; background-color:#f5f5f5;">
           <tr>
-            <td class="fluid-padding" style="padding: 20px 48px 8px 48px;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f9fafb; border-radius:12px;">
-                <tr>
-                  <td style="padding: 28px 32px;">
-                    <p class="label-accent" style="margin:0 0 16px 0; font-family:'Barlow Condensed', Arial, Helvetica, sans-serif; letter-spacing:2px; text-transform:uppercase; color:#53b956; font-size:13px; font-weight:600;">
-                      What's changed since you left
-                    </p>
+            <td class="fluid-padding" style="padding: 36px 40px;">
+              <p style="margin:0 0 24px 0; text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:22px; line-height:30px; color:#111111; font-weight:bold;">Why runners choose RunDot&trade;</p>
 
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td valign="top" style="padding: 0 0 18px 0;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                       <tr>
-                        <td width="28" valign="top" style="padding: 0 0 14px 0;">
-                          <div style="width:20px; height:20px; border-radius:50%; background-color:#53b956; text-align:center; line-height:20px;">
-                            <span style="color:#ffffff; font-size:12px; font-family:Arial, Helvetica, sans-serif; font-weight:700;">&#10003;</span>
-                          </div>
-                        </td>
-                        <td valign="top" style="padding: 0 0 14px 8px; font-family:'DM Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:23px; color:#1a1a2e;">
-                          Your plan adjusts daily, not just weekly, as your training load and recovery shift.
+                        <td width="18" valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; color:#53b956;">&#9679;</td>
+                        <td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:15px; line-height:24px; color:#333333;">
+                          <span style="font-weight:bold; color:#111111;">Truly personalized training.</span> Every workout is predicted for your body, your goals, and your schedule - built on 20+ years of real athlete data. Not a recycled plan. Not a template.
                         </td>
                       </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td valign="top" style="padding: 0 0 18px 0;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                       <tr>
-                        <td width="28" valign="top" style="padding: 0 0 14px 0;">
-                          <div style="width:20px; height:20px; border-radius:50%; background-color:#53b956; text-align:center; line-height:20px;">
-                            <span style="color:#ffffff; font-size:12px; font-family:Arial, Helvetica, sans-serif; font-weight:700;">&#10003;</span>
-                          </div>
-                        </td>
-                        <td valign="top" style="padding: 0 0 14px 8px; font-family:'DM Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:23px; color:#1a1a2e;">
-                          Dot Score™ now reads recovery and effort together, so hard days actually mean something.
+                        <td width="18" valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; color:#53b956;">&#9679;</td>
+                        <td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:15px; line-height:24px; color:#333333;">
+                          <span style="font-weight:bold; color:#111111;">Adapts to real conditions.</span> Your paces adjust for temperature, humidity, and elevation automatically. Because a run in Phoenix and a run in Portland aren't the same run.
                         </td>
                       </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td valign="top" style="padding: 0;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                       <tr>
-                        <td width="28" valign="top" style="padding: 0;">
-                          <div style="width:20px; height:20px; border-radius:50%; background-color:#53b956; text-align:center; line-height:20px;">
-                            <span style="color:#ffffff; font-size:12px; font-family:Arial, Helvetica, sans-serif; font-weight:700;">&#10003;</span>
-                          </div>
-                        </td>
-                        <td valign="top" style="padding: 0 0 0 8px; font-family:'DM Sans', Arial, Helvetica, sans-serif; font-size:15px; line-height:23px; color:#1a1a2e;">
-                          A cleaner, calmer app experience, built so the plan gets out of your way.
+                        <td width="18" valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:24px; color:#53b956;">&#9679;</td>
+                        <td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:15px; line-height:24px; color:#333333;">
+                          <span style="font-weight:bold; color:#111111;">5K to Ultra, watch or phone.</span> Training plans from 5K to Ultra. Connects to your favorite running watch - or just grab your phone and go.
                         </td>
                       </tr>
                     </table>
@@ -273,64 +156,44 @@
           </tr>
         </table>
 
-        <!-- Mid-section runner photo strip with dot overlay -->
-        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container strip-photo" style="width:600px; max-width:600px; margin-top:28px;">
+        <!-- 5. Runner Photo Strip -->
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container" style="width:600px; max-width:600px;">
           <tr>
-            <td class="strip-overlay strip-dots" style="height:220px; padding:0;">
-              <!--[if gte mso 9]>
-              <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px;height:220px;">
-              <v:fill type="frame" src="https://bradleyparnell.github.io/predictive-fitness/rundot/assets/runner-road-serious.jpg" color="#0a0a0a" />
-              <v:textbox inset="0,0,0,0">
-              <![endif]-->
-              <table role="presentation" width="100%" height="220" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td align="center" valign="middle" style="height:220px; padding: 0 40px;">
-                    <p class="label-accent" style="margin:0; font-family:'Barlow Condensed', Arial, Helvetica, sans-serif; letter-spacing:3px; text-transform:uppercase; color:#ffffff; font-size:14px; font-weight:600;">
-                      Every mile, measured. Every effort, understood.
-                    </p>
-                  </td>
-                </tr>
-              </table>
-              <!--[if gte mso 9]>
-              </v:textbox>
-              </v:rect>
-              <![endif]-->
+            <td style="padding:0;">
+              <div style="position:relative; width:100%; max-width:600px;">
+                <img src="https://bradleyparnell.github.io/predictive-fitness/rundot/assets/runner-finish-celebration.jpg" width="600" alt="Runner celebrating at the finish line" style="display:block; width:100%; max-width:600px; height:auto;">
+                <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.6) 100%);">
+                  <div style="position:absolute; top:0; left:0; width:100%; height:100%; background-image:url('https://bradleyparnell.github.io/predictive-fitness/rundot/assets/dot-pattern-tile.png'); background-repeat:repeat; opacity:0.25;"></div>
+                </div>
+              </div>
             </td>
           </tr>
         </table>
 
-        <!-- Social proof -->
-        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container card" style="width:600px; max-width:600px; background-color:#ffffff;">
+        <!-- 6. Testimonial -->
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container" style="width:600px; max-width:600px; background-color:#ffffff;">
           <tr>
-            <td align="center" class="fluid-padding" style="padding: 36px 48px 8px 48px;">
-
-              <!-- circular photo crop element -->
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto 18px auto;">
-                <tr>
-                  <td style="width:64px; height:64px; border-radius:50%; background-color:#f3f4f6; text-align:center; vertical-align:middle;">
-                    <img src="https://bradleyparnell.github.io/predictive-fitness/rundot/assets/rundot-logo-dark.svg" width="28" alt="" style="display:inline-block; width:28px; height:auto; margin-top:18px;">
-                  </td>
-                </tr>
-              </table>
-
-              <p style="margin:0 0 16px 0; font-family:'Plus Jakarta Sans', Arial, Helvetica, sans-serif; font-size:20px; line-height:30px; color:#1a1a2e; font-style:italic;">
-                &ldquo;I'm 63 and for the first time in years, I'm running pain-free.&rdquo;
+            <td align="center" class="fluid-padding" style="padding: 40px 40px;">
+              <p style="margin:0 0 8px 0; font-family:Arial, Helvetica, sans-serif; font-size:48px; line-height:40px; color:#53b956; font-weight:bold;">&ldquo;</p>
+              <p style="margin:0 0 16px 0; font-family:Arial, Helvetica, sans-serif; font-size:18px; line-height:28px; color:#333333; font-style:italic;">
+                I'm 63, I'm running pain-free, and I'm getting faster. I don't need to understand all the science - I just trust it.
               </p>
-              <p style="margin:0; font-family:'DM Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:20px; color:#4b5563; letter-spacing:0.5px;">
-                - Kathy, verified RunDot runner
+              <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:20px; color:#888888;">
+                - Kathy, RunDot&trade; athlete
               </p>
             </td>
           </tr>
         </table>
 
-        <!-- CTA -->
-        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container card" style="width:600px; max-width:600px; background-color:#ffffff;">
+        <!-- 7. CTA Section -->
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container" style="width:600px; max-width:600px; background-color:#0a0a0a;">
           <tr>
-            <td align="center" class="fluid-padding" style="padding: 28px 48px 44px 48px;">
+            <td align="center" class="fluid-padding" style="padding: 48px 40px;">
+              <p style="margin:0 0 24px 0; font-family:Arial, Helvetica, sans-serif; font-size:28px; line-height:36px; color:#ffffff; font-weight:bold;">Trust the run.</p>
               <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td align="center" style="border-radius:8px; background-color:#53b956;">
-                    <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" target="_blank" class="btn-cta" style="background-color:#53b956; border-radius:8px; color:#ffffff; display:inline-block; font-family:'Plus Jakarta Sans', Arial, Helvetica, sans-serif; font-size:16px; font-weight:700; line-height:1; padding:16px 36px; text-align:center; text-decoration:none;">
+                    <a href="https://apps.apple.com/us/app/rundot-adaptive-run-training/id6747775666" target="_blank" style="background-color:#53b956; border-radius:8px; color:#ffffff; display:inline-block; font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold; line-height:1; padding:16px 36px; text-align:center; text-decoration:none;">
                       Plan your next run
                     </a>
                   </td>
@@ -340,62 +203,26 @@
           </tr>
         </table>
 
-        <!-- Closing / tagline (photo + dark overlay + dot pattern, VML fallback for Outlook) -->
-        <!--[if gte mso 9]>
-        <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px;height:280px;">
-        <v:fill type="frame" src="https://bradleyparnell.github.io/predictive-fitness/rundot/assets/runner-silhouette-sunrise.jpg" color="#0a0a0a" />
-        <v:textbox inset="0,0,0,0">
-        <![endif]-->
-        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container closing-photo" style="width:600px; max-width:600px; background-color:#0a0a0a;">
-          <tr>
-            <td class="closing-overlay closing-dots" style="padding: 0;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td align="center" style="padding: 44px 40px;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto 20px auto;">
-                      <tr>
-                        <td style="padding: 0 4px;"><div style="width:6px; height:6px; border-radius:50%; background-color:#53b956; opacity:0.6;"></div></td>
-                        <td style="padding: 0 4px;"><div style="width:6px; height:6px; border-radius:50%; background-color:#53b956; opacity:0.9;"></div></td>
-                        <td style="padding: 0 4px;"><div style="width:6px; height:6px; border-radius:50%; background-color:#53b956; opacity:0.6;"></div></td>
-                      </tr>
-                    </table>
-                    <p style="margin:0 0 12px 0; font-family:'Plus Jakarta Sans', Arial, Helvetica, sans-serif; font-size:22px; line-height:30px; color:#ffffff; font-weight:700; letter-spacing:0.5px;">
-                      Trust the run.
-                    </p>
-                    <p style="margin:0; font-family:'DM Sans', Arial, Helvetica, sans-serif; font-size:14px; line-height:22px; color:#9ca3af; max-width:420px;">
-                      Every meaningful running experience starts with trusting today's run.
-                    </p>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-        <!--[if gte mso 9]>
-        </v:textbox>
-        </v:rect>
-        <![endif]-->
-
-        <!-- Footer -->
-        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container" style="width:600px; max-width:600px; background-color:#f9fafb;">
+        <!-- 8. Footer -->
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="email-container" style="width:600px; max-width:600px; background-color:#111111;">
           <tr>
             <td align="center" class="fluid-padding" style="padding: 32px 40px;">
-              <img src="https://bradleyparnell.github.io/predictive-fitness/rundot/assets/rundot-logo-dark.svg" width="90" alt="RunDot" style="display:block; width:90px; max-width:90px; height:auto; margin: 0 auto 16px auto;">
-
-              <p style="margin:0 0 6px 0; font-family:'DM Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:18px; color:#9ca3af;">
+              <p style="margin:0 0 12px 0; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:18px; color:#888888;">
+                This email was sent to you because you previously signed up for RunDot&trade;.
+              </p>
+              <p style="margin:0 0 6px 0; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:18px; color:#888888;">
                 {{ site_settings.company_name }}
               </p>
-              <p style="margin:0 0 6px 0; font-family:'DM Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:18px; color:#9ca3af;">
+              <p style="margin:0 0 6px 0; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:18px; color:#888888;">
                 {{ site_settings.company_street_address_1 }} {{ site_settings.company_street_address_2 }}
               </p>
-              <p style="margin:0 0 16px 0; font-family:'DM Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:18px; color:#9ca3af;">
+              <p style="margin:0 0 16px 0; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:18px; color:#888888;">
                 {{ site_settings.company_city }}, {{ site_settings.company_state }} {{ site_settings.company_zip }} {{ site_settings.company_country }}
               </p>
-
-              <p style="margin:0; font-family:'DM Sans', Arial, Helvetica, sans-serif; font-size:12px; line-height:18px; color:#9ca3af;">
-                <a href="{{ unsubscribe_link }}" style="color:#9ca3af; text-decoration:underline;">Unsubscribe</a>
+              <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; line-height:18px; color:#888888;">
+                <a href="{{ unsubscribe_link }}" style="color:#888888; text-decoration:underline;">Unsubscribe</a>
                 &nbsp;&middot;&nbsp;
-                <a href="{{ view_as_page_url }}" style="color:#9ca3af; text-decoration:underline;">View in browser</a>
+                <a href="{{ view_as_page_url }}" style="color:#888888; text-decoration:underline;">View in browser</a>
               </p>
             </td>
           </tr>
