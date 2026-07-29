@@ -2119,7 +2119,11 @@ a[class*="cta"] {
 
 /* --- HOW IT WORKS (.how) --- */
 .section.how {
-    background: #fafafa !important;
+    background: #f8f8f8 !important;
+    color: #111 !important;
+}
+.section.how .section-eyebrow {
+    color: #111 !important;
 }
 .section.how .section-title {
     color: #111 !important;
@@ -2128,12 +2132,15 @@ a[class*="cta"] {
     font-style: italic !important;
     text-transform: uppercase !important;
 }
+.section.how .section-sub {
+    color: #333 !important;
+}
 .section.how .step-title {
     color: #333 !important;
 }
 .section.how .step-description,
 .section.how p {
-    color: #555 !important;
+    color: #333 !important;
 }
 .step-number {
     background: var(--v2-chartreuse) !important;
@@ -2170,7 +2177,7 @@ a[class*="cta"] {
 
 /* --- TESTIMONIALS / REVIEWS --- */
 .section.testimonials {
-    background: #fafafa !important;
+    background: #f8f8f8 !important;
 }
 .section.testimonials .section-title {
     color: #111 !important;
@@ -3017,24 +3024,24 @@ a.cta-button {
       z-index: 3;
     }
     
-    /* Circle photos - muted/editorial */
+    /* Circle photos - subtle editorial, full color */
     .circle-photo img,
     .feature-photo-circle img {
-      filter: saturate(0.5) contrast(1.25) brightness(0.88);
+      filter: saturate(0.9) contrast(1.08) brightness(0.95);
       transition: filter 0.4s ease;
     }
     .circle-photo:hover img,
     .feature-photo-circle:hover img {
-      filter: saturate(0.75) contrast(1.15) brightness(0.95);
+      filter: saturate(1) contrast(1.05) brightness(1);
     }
     
-    /* Moment grid photos - dramatic desaturation */
+    /* Moment grid photos - full color */
     .moment-card img {
-      filter: saturate(0.3) contrast(1.35) brightness(0.8);
+      filter: saturate(0.85) contrast(1.1) brightness(0.92);
       transition: filter 0.4s ease;
     }
     .moment-card:hover img {
-      filter: saturate(0.65) contrast(1.2) brightness(0.88);
+      filter: saturate(1) contrast(1.05) brightness(1);
     }
     
     /* === BOLD GRAPHIC BORDERS - Altra's chunky visual language === */
@@ -4696,7 +4703,7 @@ body::after {
 <div class="meb-strip">
   <div class="meb-strip-inner">
     <div class="meb-strip-photo">
-      <img src="../assets/meb-medals-bw.jpg" alt="Meb Keflezighi" loading="lazy">
+      <img src="../assets/meb-keflezighi.jpg" alt="Meb Keflezighi" loading="lazy" style="object-position: top center;">
     </div>
     <div class="meb-strip-text">
       <p class="meb-strip-quote">"RunDot's technology is so far ahead of anything else I've seen, and I want the absolute best for my athletes."</p>
@@ -5023,7 +5030,7 @@ body::after {
         <div class="moment-caption">Become a runner<br>who trusts the process.</div>
       </div>
       <div class="moment-card stagger-item">
-        <div class="moment-circle"><img src="../assets/v2-female-tattoo-track.jpg" alt="Runner celebrating marathon finish" loading="lazy"></div>
+        <div class="moment-circle"><img src="../assets/v2-woman-street-low.jpg" alt="Runner celebrating marathon finish" loading="lazy"></div>
         <div class="moment-caption">Become a finisher.<br>Then become faster.</div>
       </div>
       <div class="moment-card stagger-item">
