@@ -1680,6 +1680,7 @@
 /* --- TRUST STRIP: Chartreuse background --- */
 .trust-strip {
     background: #111 !important;
+    overflow: visible !important;
     color: #fff !important;
     border-top: 3px solid var(--v2-hot-green) !important;
     border-bottom: 3px solid var(--v2-hot-green) !important;
@@ -1696,9 +1697,12 @@
 .trust-strip .stat-label {
     color: rgba(255,255,255,0.7) !important;
 }
+.trust-strip .trust-row { overflow: visible !important; }
+.trust-strip .trust-item { overflow: visible !important; }
 .trust-strip .distance-cycle {
     color: var(--v2-hot-green) !important;
     font-weight: 800 !important;
+    white-space: nowrap !important;
 }
 .trust-strip svg,
 .trust-strip .star-icon {
@@ -1747,6 +1751,7 @@
 /* --- MANIFESTO: Bolder --- */
 .manifesto-section {
     background: #111 !important;
+    overflow: visible !important;
 }
 .manifesto-headline {
     font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
@@ -2060,6 +2065,7 @@ a[class*="cta"] {
 /* --- MANIFESTO --- */
 .manifesto {
     background: #111 !important;
+    overflow: visible !important;
     padding: 100px 40px !important;
 }
 .manifesto-line {
@@ -2105,6 +2111,7 @@ a[class*="cta"] {
 /* --- APP SHOWCASE (dark bg) --- */
 .section.app-showcase {
     background: #111 !important;
+    overflow: visible !important;
 }
 .showcase-panel h3 {
     color: #fff !important;
@@ -2207,6 +2214,7 @@ a[class*="cta"] {
 /* --- MOMENTS --- */
 .moments {
     background: #111 !important;
+    overflow: visible !important;
 }
 .moments .section-title {
     color: #fff !important;
@@ -2313,6 +2321,7 @@ a.cta-button {
 /* --- TRUST STRIP --- */
 .trust-strip {
     background: #111 !important;
+    overflow: visible !important;
     border-top: 3px solid var(--v2-hot-green) !important;
     border-bottom: 3px solid var(--v2-hot-green) !important;
 }
@@ -2323,9 +2332,12 @@ a.cta-button {
 .trust-strip .stat-number {
     color: var(--v2-hot-green) !important;
 }
+.trust-strip .trust-row { overflow: visible !important; }
+.trust-strip .trust-item { overflow: visible !important; }
 .trust-strip .distance-cycle {
     color: var(--v2-hot-green) !important;
     font-weight: 800 !important;
+    white-space: nowrap !important;
 }
 
 /* --- MEB STRIP --- */
@@ -2595,6 +2607,7 @@ a.cta-button {
 /* Manifesto - more visible */
 .manifesto-section {
     background: #111 !important;
+    overflow: visible !important;
 }
 .manifesto-headline {
     color: #fff !important;
@@ -2623,6 +2636,7 @@ a.cta-button {
 /* App showcase - keep dark bg but ensure text visible */
 .app-showcase {
     background: #111 !important;
+    overflow: visible !important;
 }
 .app-showcase h2,
 .app-showcase h3,
@@ -2638,6 +2652,7 @@ a.cta-button {
 /* Moments section */
 .moments-section {
     background: #111 !important;
+    overflow: visible !important;
 }
 .moments-section h2 {
     color: #fff !important;
@@ -3469,6 +3484,7 @@ a.cta-button {
 /* Consistent section backgrounds - alternating rhythm */
 .app-showcase {
     background: #111 !important;
+    overflow: visible !important;
 }
 .app-showcase .showcase-heading {
     color: #fff !important;
@@ -4930,7 +4946,7 @@ body::after {
       </div>
       <div class="showcase-visual-col">
         <div class="showcase-circle">
-          <img src="../assets/runner-hipster-urban.jpg" alt="Female runner sprinting through city" loading="lazy" style="object-position: center 25%;">
+          <img src="../assets/runner-hipster-urban.jpg" alt="Female runner sprinting through city" loading="lazy" style="object-position: center 85%; transform: scale(1.3);">
         </div>
         <div class="watch-brands-float">
           <div class="watch-brands-label" style="color:#111;font-weight:800;opacity:1;">Connects to</div>
@@ -4975,7 +4991,7 @@ body::after {
     <p style="font-family: var(--font-display); font-size: 20px; font-weight: 500; color: #fff; text-align: center; margin: 32px auto 0; letter-spacing: -0.01em; text-shadow: 0 2px 12px rgba(0,0,0,0.5); position: relative; z-index: 2;">You shouldn't have to answer those alone.</p>
   </div>
 </section><!-- BRAND DOT STRIPE -->
-<div class="chevron-stripe chevron-stripe-right" style="margin-top: 0;"><div class="chevron-stripe-inner"></div></div><div class="marquee-banner">
+<div class="marquee-banner">
 <div class="marquee-track">
 <span>THE ONLY RUNNING APP WITH 20 YEARS OF ATHLETE DATA</span>
 <span class="marquee-dot">●</span>
@@ -5160,7 +5176,7 @@ body::after {
         <div class="moment-caption">Become someone<br>who doesn't quit.</div>
       </div>
       <div class="moment-card stagger-item">
-        <div class="moment-circle"><img src="../assets/moments-hipster-female.jpg" alt="Runner on a city street" loading="lazy"></div>
+        <div class="moment-circle"><img src="../assets/v2-shirtless-jog-bright.jpg" alt="Male runner on outdoor road" loading="lazy"></div>
         <div class="moment-caption">Become a runner<br>who trusts the process.</div>
       </div>
       <div class="moment-card stagger-item">
