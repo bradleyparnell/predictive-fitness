@@ -2508,8 +2508,8 @@ a.cta-button {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .moment-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 60px rgba(83,185,86,0.2);
+    transform: translateY(-4px);
+    box-shadow: none;
 }
 
 /* Review card slide-in with stagger */
@@ -2797,16 +2797,23 @@ a.cta-button {
     /* Moments grid - Altra-style text overlay on image */
     .moments-grid .moment-card {
       position: relative;
-      overflow: hidden;
-      border-radius: 4px !important;
+      overflow: visible;
+      border-radius: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
     }
     
     .moments-grid .moment-card::after {
+      display: none;
+    }
+    .moments-grid .moment-circle::after {
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0;
       height: 60%;
-      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+      border-radius: 0 0 50% 50%;
       pointer-events: none;
       z-index: 1;
     }
@@ -3106,16 +3113,12 @@ a.cta-button {
     /* === MOMENT CARDS - bold green border on hover === */
     .moment-card {
       border: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
       transition: all 0.3s ease;
     }
     .moment-card::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 60%;
-      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
-      z-index: 1;
-      pointer-events: none;
+      display: none;
     }
     .moment-card .moment-text {
       position: relative;
@@ -3124,7 +3127,8 @@ a.cta-button {
     }
     .moment-card:hover {
       border-color: transparent !important;
-      box-shadow: 0 0 25px rgba(83,185,86,0.2) !important;
+      box-shadow: none !important;
+      outline: none !important;
     }
     
     /* === CTA BUTTONS - squared, militant, Altra-style === */
