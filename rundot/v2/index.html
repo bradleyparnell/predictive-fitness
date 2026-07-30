@@ -24,7 +24,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }  .tm { font-size: 0.6em; vertical-align: super; line-height: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }  .tm { font-size: 0.55em; position: relative; top: -0.5em; line-height: 0; }
   :root {
     --green: #53b956;
     --green-light: #6dd070;
@@ -377,7 +377,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    padding: 0 24px 40px;
+    padding: 80px 24px 40px;
   }
   .familiar-photo::before {
     content: '';
@@ -1403,9 +1403,9 @@
     .trust-strip { padding: 28px 16px; }
     .trust-row { gap: 12px; flex-wrap: wrap; justify-content: center; }
     .trust-item { min-width: auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
-    .trust-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .trust-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; justify-items: center; }
     .trust-num { white-space: normal; }
-    .trust-row .trust-item:last-child { grid-column: 1 / -1; }
+    .trust-row .trust-item:last-child { grid-column: 1 / -1; text-align: center; }
     .how-credibility-badge { justify-content: center; flex-wrap: wrap; font-size: 14px; gap: 8px; }
     .trust-num { font-size: 22px; white-space: nowrap; }
     .trust-label { font-size: 11px; }
@@ -4836,7 +4836,7 @@ body::after {
 <div class="meb-strip">
   <div class="meb-strip-inner">
     <div class="meb-strip-photo">
-      <img src="../assets/meb-keflezighi.jpg" alt="Meb Keflezighi" loading="lazy" style="object-position: 50% 12%; transform: scale(2.4);">
+      <img src="../assets/meb-keflezighi.jpg" alt="Meb Keflezighi" loading="lazy" style="object-position: 50% 25%; transform: scale(2.4);">
     </div>
     <div class="meb-strip-text">
       <p class="meb-strip-quote">"RunDot's technology is so far ahead of anything else I've seen, and I want the absolute best for my athletes."</p>
@@ -4884,7 +4884,7 @@ body::after {
           <div class="phone-frame-lg">
             <div class="phone-notch-lg"></div>
             <div class="phone-screen-lg">
-              <img src="../assets/app-training-calendar-monthly.png" alt="RunDot monthly training calendar">
+              <img src="../assets/app-home-incomplete.png" alt="RunDot today's workout view">
             </div>
           </div>
         </div>
@@ -4977,17 +4977,17 @@ body::after {
 </section><!-- BRAND DOT STRIPE -->
 <div class="chevron-stripe chevron-stripe-right" style="margin-top: 0;"><div class="chevron-stripe-inner"></div></div><div class="marquee-banner">
 <div class="marquee-track">
-<span>THE ONLY PREDICTIVE FITNESS APP WITH 20 YEARS OF ATHLETE DATA</span>
+<span>THE ONLY RUNNING APP WITH 20 YEARS OF ATHLETE DATA</span>
 <span class="marquee-dot">●</span>
-<span>THE ONLY PREDICTIVE FITNESS APP WITH 20 YEARS OF ATHLETE DATA</span>
+<span>THE ONLY RUNNING APP WITH 20 YEARS OF ATHLETE DATA</span>
 <span class="marquee-dot">●</span>
-<span>THE ONLY PREDICTIVE FITNESS APP WITH 20 YEARS OF ATHLETE DATA</span>
+<span>THE ONLY RUNNING APP WITH 20 YEARS OF ATHLETE DATA</span>
 <span class="marquee-dot">●</span>
-<span>THE ONLY PREDICTIVE FITNESS APP WITH 20 YEARS OF ATHLETE DATA</span>
+<span>THE ONLY RUNNING APP WITH 20 YEARS OF ATHLETE DATA</span>
 <span class="marquee-dot">●</span>
-<span>THE ONLY PREDICTIVE FITNESS APP WITH 20 YEARS OF ATHLETE DATA</span>
+<span>THE ONLY RUNNING APP WITH 20 YEARS OF ATHLETE DATA</span>
 <span class="marquee-dot">●</span>
-<span>THE ONLY PREDICTIVE FITNESS APP WITH 20 YEARS OF ATHLETE DATA</span>
+<span>THE ONLY RUNNING APP WITH 20 YEARS OF ATHLETE DATA</span>
 <span class="marquee-dot">●</span>
 </div>
 </div><!-- close marquee-banner -->
@@ -5156,11 +5156,11 @@ body::after {
     </div>
     <div class="moments-grid">
       <div class="moment-card stagger-item">
-        <div class="moment-circle"><img src="../assets/v2-tattoo-stairs-up.jpg" alt="Runner charging up stairs" loading="lazy"></div>
+        <div class="moment-circle"><img src="../assets/moments-elite-female.jpg" alt="Female athlete in starting position" loading="lazy"></div>
         <div class="moment-caption">Become someone<br>who doesn't quit.</div>
       </div>
       <div class="moment-card stagger-item">
-        <div class="moment-circle"><img src="../assets/v2-tattoo-outdoor-race.jpg" alt="Runner on beach at dawn" loading="lazy" style="object-position: center 20%;"></div>
+        <div class="moment-circle"><img src="../assets/moments-mature-male.jpg" alt="Experienced runner on the road" loading="lazy"></div>
         <div class="moment-caption">Become a runner<br>who trusts the process.</div>
       </div>
       <div class="moment-card stagger-item">
@@ -5168,7 +5168,7 @@ body::after {
         <div class="moment-caption">Become a finisher.<br>Then become faster.</div>
       </div>
       <div class="moment-card stagger-item">
-        <div class="moment-circle"><img src="../assets/v2-shirtless-jog-bright.jpg" alt="Female runner crossing finish line in victory" loading="lazy"></div>
+        <div class="moment-circle"><img src="../assets/runner-finish-celebration.jpg" alt="Runner celebrating at finish line" loading="lazy"></div>
         <div class="moment-caption">Become the runner you<br>always knew you could be.</div>
       </div>
     </div>
