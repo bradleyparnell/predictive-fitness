@@ -1,0 +1,128 @@
+<!--
+    templateType: email
+    isAvailableForNewContent: true
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{ standard_header_includes }}
+<!-- cache:1781448207 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your training is one step away, {{ contact.firstname }} — RunDot</title>
+<style>
+  body { margin:0; padding:0; background:#f4f4f4; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; }
+  .email-wrapper { background:#f4f4f4; padding:32px 16px; }
+  .email-card { max-width:600px; margin:0 auto; background:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.10); }
+  .header { background:#0d1321; padding:28px 40px 24px; text-align:center; }
+  .hero-img { width:100%; display:block; }
+  .body-section { padding:36px 44px 24px; background:#ffffff; }
+  .body-section h1 { margin:0 0 16px; font-size:26px; font-weight:800; color:#0d1321; line-height:1.3; }
+  .body-section p { margin:0 0 16px; font-size:16px; color:#444; line-height:1.75; }
+  .tip-box { background:#f0faf4; border-radius:10px; padding:24px 28px; margin:16px 0 24px; }
+  .tip-box h3 { margin:0 0 14px; font-size:15px; font-weight:700; color:#0d1321; }
+  .tip-item { display:flex; margin-bottom:12px; }
+  .tip-num { min-width:26px; height:26px; background:#00c853; color:#fff; font-size:12px; font-weight:800; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:12px; flex-shrink:0; margin-top:1px; }
+  .tip-text { font-size:15px; color:#444; line-height:1.5; }
+  .tip-text strong { color:#0d1321; }
+  .sig-block { display:flex; align-items:center; margin-top:24px; padding-top:20px; border-top:1px solid #ebebeb; }
+  .sig-photo { width:58px; height:58px; border-radius:50%; object-fit:cover; margin-right:14px; flex-shrink:0; }
+  .sig-name { font-size:15px; font-weight:700; color:#0d1321; margin:0 0 2px; }
+  .sig-title { font-size:13px; color:#888; margin:0; }
+  .reply-line { font-size:14px; color:#888; margin-top:12px; font-style:italic; }
+  .cta-wrap { text-align:center; padding:8px 44px 36px; }
+  .cta-btn { display:inline-block; background:#00c853; color:#ffffff; font-size:16px; font-weight:700; text-decoration:none; padding:16px 36px; border-radius:6px; }
+  .divider { height:1px; background:#ebebeb; }
+  .footer { background:#000000; padding:28px 40px; text-align:center; }
+  .footer p { margin:8px 0; font-size:12px; color:rgba(255,255,255,0.45); line-height:1.6; }
+  .footer a { color:rgba(255,255,255,0.45); text-decoration:underline; }
+</style>
+</head>
+<body style="margin: 0; padding: 0; background: #f4f4f4; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
+<!-- Preview text (editable in HubSpot) -->
+<div id="preview_text" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+  {% text "preview_text" label="Preview Text", value="Your RunDot training awaits" %}
+</div>
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="email-wrapper" style="background: #f4f4f4; padding: 32px 16px;"><tr><td align="center" class="email-wrapper" style="background: #f4f4f4; padding: 32px 16px;">
+<div class="email-card" style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.10);">
+
+  <!-- Header -->
+  <div class="header" style="background: #0d1321; padding: 28px 40px 24px; text-align: center;">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr><td style="text-align:center;">
+        <img src="https://bradleyparnell.github.io/predictive-fitness/emails/tridot-trial-nurture/rundot/assets/rundot-logo.png" alt="RunDot" width="130" height="27">
+        
+      </td></tr>
+    </table>
+  </div>
+
+  <!-- Hero -->
+  <img class="hero-img" src="https://bradleyparnell.github.io/predictive-fitness/emails/tridot-trial-nurture/rundot/assets/run-hills.jpg" alt="Runner in the hills, motion blur" style="width: 100%; display: block;" width="600">
+
+  <!-- Body -->
+  <div class="body-section" style="padding: 36px 44px 24px; background: #ffffff;">
+    <h1 style="margin: 0 0 16px; font-size: 26px; font-weight: 800; color: #0d1321; line-height: 1.3;">{{ contact.firstname }}, here's how to get even more from RunDot.</h1>
+    <p style="margin: 0 0 16px; font-size: 16px; color: #444; line-height: 1.75;">RunDot is already working for you. But the athletes who get the biggest results are the ones who go all in on a few key features early. Here's what makes the biggest difference:</p>
+
+    <div class="tip-box" style="background: #f0faf4; border-radius: 10px; padding: 24px 28px; margin: 16px 0 24px;">
+      <h3 style="margin: 0 0 14px; font-size: 15px; font-weight: 700; color: #0d1321;">Three things that level up your training.</h3>
+      <div class="tip-item" style="display: flex; margin-bottom: 12px;">
+        <div class="tip-num" style="min-width: 26px; height: 26px; background: #00c853; color: #fff; font-size: 12px; font-weight: 800; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; flex-shrink: 0; margin-top: 1px;">1</div>
+        <div class="tip-text" style="font-size: 15px; color: #444; line-height: 1.5;"><strong style="color: #0d1321;">Complete the assessment.</strong> This is where RunDot moves from smart to remarkable. It calculates your real fitness baseline and builds everything from it — not a template, your actual numbers.</div>
+      </div>
+      <div class="tip-item" style="display: flex; margin-bottom: 12px;">
+        <div class="tip-num" style="min-width: 26px; height: 26px; background: #00c853; color: #fff; font-size: 12px; font-weight: 800; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; flex-shrink: 0; margin-top: 1px;">2</div>
+        <div class="tip-text" style="font-size: 15px; color: #444; line-height: 1.5;"><strong style="color: #0d1321;">Connect your GPS watch.</strong> Real workout data lets RunDot refine your training every single week. The more it learns about how your body responds, the sharper your prescriptions get.</div>
+      </div>
+      <div class="tip-item" style="display: flex; margin-bottom: 12px;">
+        <div class="tip-num" style="min-width: 26px; height: 26px; background: #00c853; color: #fff; font-size: 12px; font-weight: 800; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; flex-shrink: 0; margin-top: 1px;">3</div>
+        <div class="tip-text" style="font-size: 15px; color: #444; line-height: 1.5;"><strong style="color: #0d1321;">Do today's run exactly as prescribed.</strong> Even if easy feels too easy — that's intentional. Most runners overtrain on recovery days. RunDot fixes that from day one.</div>
+      </div>
+    </div>
+
+    <p style="margin: 0 0 16px; font-size: 16px; color: #444; line-height: 1.75;">The runners who use these features consistently are the ones who show up to race day fitter, healthier, and more confident than they've ever been.</p>
+    <p style="margin: 0 0 16px; font-size: 16px; color: #444; line-height: 1.75;"><strong>You started RunDot for a reason. Let's make sure it's delivering.</strong></p>
+
+    <div class="sig-block" style="display: flex; align-items: center; margin-top: 24px; padding-top: 20px; border-top: 1px solid #ebebeb;">
+      <img class="sig-photo" src="https://bradleyparnell.github.io/predictive-fitness/emails/tridot-trial-nurture/assets/jeff-booher-headshot.png" alt="Jeff Booher" style="width: 58px; height: 58px; border-radius: 50%; object-fit: cover; margin-right: 14px; flex-shrink: 0;" width="58" height="58">
+      <div>
+        <p class="sig-name" style="font-weight: 700; margin: 0 0 16px; font-size: 16px; color: #444; line-height: 1.75;">Jeff Booher</p>
+        <p class="sig-title" style="margin: 0 0 16px; font-size: 16px; color: #444; line-height: 1.75;">Founder, RunDot</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-wrap" style="text-align: center; padding: 8px 44px 36px;">
+    <a href="https://link.rundot.com" class="cta-btn" style="display: inline-block; background: #00c853; color: #ffffff; font-size: 16px; font-weight: 700; text-decoration: none; padding: 16px 36px; border-radius: 6px;">Open RunDot and Level Up &rarr;</a>
+  </div>
+
+  <div style="text-align:center;padding:0 44px 32px;background:#ffffff;">
+    <p style="font-size:14px;color:#888;margin:0;font-style:italic;">Stuck on any step? Reply to this email and someone from our Athlete Success Team will help you out.</p>
+  </div>
+
+  <div class="divider" style="height: 1px; background: #ebebeb;"></div>
+  <div class="footer" style="background: #000000; padding: 28px 40px; text-align: center;">
+    <div style="text-align:center; margin:0 0 20px;">
+              
+              <img src="https://bradleyparnell.github.io/predictive-fitness/emails/tridot-trial-nurture/rundot/assets/powered-by-fitlogic.png" alt="Powered by FitLogic" width="160" style="display:inline-block;">
+            </div>
+    <p style="font-size: 11px; color: rgba(255,255,255,0.45); line-height: 1.6; margin: 0 0 6px;">You're receiving this email because you started a free trial of RunDot. We want to help you get the most out of it.</p>
+    <p style="line-height: 1.6; font-size: 11px; color: rgba(255,255,255,0.35); margin: 0 0 6px;">{{ site_settings.company_name }}<br>
+{{ site_settings.company_street_address_1 }}<br>
+{% if site_settings.company_street_address_2 %}{{ site_settings.company_street_address_2 }}<br>{% endif %}
+{{ site_settings.company_city }}, {{ site_settings.company_state }} {{ site_settings.company_zip }}</p>
+    <p style="color: rgba(255,255,255,0.45); line-height: 1.6; font-size: 11px; margin: 0 0 6px;"><a href="{{ unsubscribe_link }}" style="color: rgba(255,255,255,0.45); text-decoration: underline;">Unsubscribe</a> &nbsp;|&nbsp; <a href="{{ manage_preferences_link }}" style="color: rgba(255,255,255,0.45); text-decoration: underline;">Manage Preferences</a></p>
+    <p style="line-height: 1.6; font-size: 11px; color: rgba(255,255,255,0.3); margin: 0;">&copy; 2026 Predictive Fitness, Inc. All rights reserved.</p>
+  </div>
+
+</div>
+
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     HUBSPOT COPY TOOL — not part of email HTML
+     ══════════════════════════════════════════════════════════= -->
+
+{{ standard_footer_includes }}
+</td></tr></table></body>
+</html>

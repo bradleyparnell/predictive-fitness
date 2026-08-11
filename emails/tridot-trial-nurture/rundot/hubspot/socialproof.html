@@ -1,0 +1,128 @@
+<!--
+    templateType: email
+    isAvailableForNewContent: true
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{ standard_header_includes }}
+<!-- cache:1781448207 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don't take our word for it, runner...</title>
+<style>
+  body { margin:0; padding:0; background:#f4f4f4; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; }
+  .email-wrapper { background:#f4f4f4; padding:32px 16px; }
+  .email-card { max-width:600px; margin:0 auto; background:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.10); }
+  .header { background:#0d1321; padding:28px 40px 24px; text-align:center; }
+  .hero-img { width:100%; display:block; }
+  .badge { display:inline-block; background:#00c853; color:#ffffff; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 16px; border-radius:50px; margin-bottom:16px; }
+  .body-section { padding:36px 44px 24px; background:#ffffff; }
+  .body-section h1 { margin:0 0 16px; font-size:28px; font-weight:800; color:#0d1321; line-height:1.25; }
+  .body-section p { margin:0 0 16px; font-size:16px; color:#444; line-height:1.7; }
+  .stats-bar { display:flex; background:#0d1321; border-radius:10px; overflow:hidden; margin:24px 0; }
+  .stat { flex:1; padding:20px 10px; text-align:center; }
+  .stat-num { font-size:22px; font-weight:800; color:#00c853; }
+  .stat-label { font-size:11px; color:rgba(255,255,255,0.6); text-transform:uppercase; letter-spacing:1px; margin-top:4px; }
+  .stat-sep { width:1px; background:rgba(255,255,255,0.1); margin:12px 0; }
+  .testimonials { padding:0 44px 32px; }
+  .testimonial { background:#f8f9fa; border-radius:10px; padding:22px 24px; margin-bottom:16px; }
+  .testimonial p { margin:0 0 12px; font-size:15px; color:#333; line-height:1.65; font-style:italic; }
+  .testimonial-meta { display:flex; align-items:center; }
+  .stars { color:#00c853; font-size:13px; margin-right:10px; }
+  .reviewer { font-size:13px; font-weight:700; color:#0d1321; }
+  .reviewer span { font-weight:400; color:#888; }
+  .cta-wrap { text-align:center; padding:8px 44px 36px; background:#ffffff; }
+  .cta-btn { display:inline-block; background:#00c853; color:#ffffff; font-size:16px; font-weight:700; text-decoration:none; padding:16px 36px; border-radius:6px; }
+  .divider { height:1px; background:#ebebeb; }
+  .footer { background:#000000; padding:28px 40px; text-align:center; }
+  .footer p { margin:8px 0; font-size:12px; color:rgba(255,255,255,0.45); line-height:1.6; }
+  .footer a { color:rgba(255,255,255,0.45); text-decoration:underline; }
+</style>
+</head>
+<body style="margin: 0; padding: 0; background: #f4f4f4; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;">
+<!-- Preview text (editable in HubSpot) -->
+<div id="preview_text" style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+  {% text "preview_text" label="Preview Text", value="Your RunDot training awaits" %}
+</div>
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="email-wrapper" style="background: #f4f4f4; padding: 32px 16px;"><tr><td align="center" class="email-wrapper" style="background: #f4f4f4; padding: 32px 16px;">
+<div class="email-card" style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.10);">
+
+  <!-- Header -->
+  <div class="header" style="background: #0d1321; padding: 28px 40px 24px; text-align: center;">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr><td style="text-align:center;">
+        <img src="https://bradleyparnell.github.io/predictive-fitness/emails/tridot-trial-nurture/rundot/assets/rundot-logo.png" alt="RunDot" width="130" height="27">
+        
+      </td></tr>
+    </table>
+  </div>
+
+  <!-- Hero: App screens -->
+  <img class="hero-img" src="https://bradleyparnell.github.io/predictive-fitness/emails/tridot-trial-nurture/rundot/assets/app-screens-2.png" alt="RunDot app — training dashboard" style="width: 100%; display: block;" width="600">
+
+  <!-- Body -->
+  <div class="body-section" style="padding: 36px 44px 24px; background: #ffffff;">
+    <h1 style="margin: 0 0 16px; font-size: 28px; font-weight: 800; color: #0d1321; line-height: 1.25;">Don't take our word for it, runner...</h1>
+    <p style="margin: 0 0 16px; font-size: 16px; color: #444; line-height: 1.7;">The reviews are in. Here's what runners already training with the redesigned RunDot app have to say &#128071;</p>
+
+    
+  </div>
+
+  <!-- Testimonials -->
+  <div class="testimonials" style="padding: 0 44px 32px;">
+    <div class="testimonial" style="background: #f8f9fa; border-radius: 10px; padding: 22px 24px; margin-bottom: 16px;">
+      <div class="testimonial-meta" style="display: flex; align-items: center; margin-bottom: 12px;">
+        <span class="stars" style="color: #00c853; font-size: 13px; margin-right: 10px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="reviewer" style="font-size: 13px; font-weight: 700; color: #0d1321; text-transform: uppercase; letter-spacing: 1px;">Amazing App for Running!</span>
+      </div>
+      <p style="margin: 0 0 12px; font-size: 15px; color: #333; line-height: 1.65; font-style: italic;">"Just tried my first trial of this app – the UI is sleek and super intuitive, very easy to use and see your metrics like pace, heart rate, etc. love the clear guidelines on upcoming run sessions. App is way more advanced than previous run apps used in the past."</p>
+    </div>
+    <div class="testimonial" style="background: #f8f9fa; border-radius: 10px; padding: 22px 24px; margin-bottom: 16px;">
+      <div class="testimonial-meta" style="display: flex; align-items: center; margin-bottom: 12px;">
+        <span class="stars" style="color: #00c853; font-size: 13px; margin-right: 10px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="reviewer" style="font-size: 13px; font-weight: 700; color: #0d1321; text-transform: uppercase; letter-spacing: 1px;">I Like Technology but I Frequently Feel Overwhelmed</span>
+      </div>
+      <p style="margin: 0 0 12px; font-size: 15px; color: #333; line-height: 1.65; font-style: italic;">"RunDot is easy to use and understand. I downloaded it, input basic personal information, and within minutes I had my first run loaded and I hit the road. All I had to do was just run and follow the prompts. The interface is super easy and has all the info you need."</p>
+    </div>
+  </div>
+
+  <div class="body-section" style="padding: 36px 44px 24px; background: #ffffff; padding-top: 0;">
+    <p style="margin: 0 0 16px; font-size: 16px; color: #444; line-height: 1.7;">That's the app. In their words, not ours.</p>
+    <p style="margin: 0 0 16px; font-size: 16px; color: #444; line-height: 1.7;"><strong>Built on 20+ years of real athlete data. Adapting to your fitness, recovery, and life after every session.</strong></p>
+  </div>
+
+  <div class="cta-wrap" style="text-align: center; padding: 8px 44px 36px; background: #ffffff;">
+    <a href="https://link.rundot.com" class="cta-btn" style="display: inline-block; background: #00c853; color: #ffffff; font-size: 16px; font-weight: 700; text-decoration: none; padding: 16px 36px; border-radius: 6px;">Continue training &rarr;</a>
+  </div>
+
+  <div style="padding:0 44px 32px;background:#ffffff;">
+    <p style="font-size:14px;color:#888;margin:0;font-style:italic;">P.S. If you have questions or need any help, just reply to this email. We're here for you.</p>
+  </div>
+
+  <div class="divider" style="height: 1px; background: #ebebeb;"></div>
+  <div class="footer" style="background: #000000; padding: 28px 40px; text-align: center;">
+    <div style="text-align:center; margin:0 0 20px;">
+              
+              <img src="https://bradleyparnell.github.io/predictive-fitness/emails/tridot-trial-nurture/rundot/assets/powered-by-fitlogic.png" alt="Powered by FitLogic" width="160" style="display:inline-block;">
+            </div>
+    <p style="font-size: 11px; color: rgba(255,255,255,0.45); line-height: 1.6; margin: 0 0 6px;">You're receiving this email because you started a free trial of RunDot. We want to help you get the most out of it.</p>
+    <p style="line-height: 1.6; font-size: 11px; color: rgba(255,255,255,0.35); margin: 0 0 6px;">{{ site_settings.company_name }}<br>
+{{ site_settings.company_street_address_1 }}<br>
+{% if site_settings.company_street_address_2 %}{{ site_settings.company_street_address_2 }}<br>{% endif %}
+{{ site_settings.company_city }}, {{ site_settings.company_state }} {{ site_settings.company_zip }}</p>
+    <p style="color: rgba(255,255,255,0.45); line-height: 1.6; font-size: 11px; margin: 0 0 6px;"><a href="{{ unsubscribe_link }}" style="color: rgba(255,255,255,0.45); text-decoration: underline;">Unsubscribe</a> &nbsp;|&nbsp; <a href="{{ manage_preferences_link }}" style="color: rgba(255,255,255,0.45); text-decoration: underline;">Manage Preferences</a></p>
+    <p style="line-height: 1.6; font-size: 11px; color: rgba(255,255,255,0.3); margin: 0;">&copy; 2026 Predictive Fitness, Inc. All rights reserved.</p>
+  </div>
+
+</div>
+
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     HUBSPOT COPY TOOL — not part of email HTML
+     ══════════════════════════════════════════════════════════= -->
+
+{{ standard_footer_includes }}
+</td></tr></table></body>
+</html>
