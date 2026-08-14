@@ -20,7 +20,7 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><div><div class="eyebrow">2026 Growth Planning</div><h1>Trial Growth Goal Calculator</h1><div class="sub">Move the goal. See the operating gap instantly.</div></div><div class="badge">Planning scenario · not yet approved</div></div>
+  <div class="top"><div><div class="eyebrow">2026 Growth Planning</div><h1>Trial Growth Goal Calculator</h1><div class="sub">Move the goal. See the operating gap instantly.</div></div></div>
   <section class="panel controls">
     <div class="control-head"><div><div class="sub">Selected growth goal</div><div class="goal"><span id="goalLabel">25%</span> <small>above current run rate</small></div></div><div class="presets" id="presets"><button class="preset" data-v="10">+10%</button><button class="preset active" data-v="25">+25%</button><button class="preset" data-v="50">+50%</button><button class="preset" data-v="75">+75%</button><button class="preset" data-v="100">+100%</button></div></div>
     <input id="growth" type="range" min="0" max="100" step="1" value="25" aria-label="Growth goal percentage"/><div class="scale"><span>Maintain</span><span>+20%</span><span>+40%</span><span>+60%</span><span>+80%</span><span>+100%</span></div>
@@ -33,10 +33,10 @@
     <section class="panel metric primary"><div class="label">EST. PAID / MONTH</div><div class="num" id="paidTarget">392</div><div class="delta" id="paidGap">+79 paid / month</div></section>
   </div>
   <div class="grid">
-    <section class="panel section"><h2>Volume needed to close the monthly gap</h2><div class="intro">Planning estimates based on the selected source-to-trial scenario. Each row shows the volume needed if that source alone supplied the incremental trials.</div>
+    <section class="panel section"><h2>Traffic needed to close the monthly trial gap</h2><div class="intro">Planning estimates based on the selected source-to-trial scenario. For Meta, this means monthly visits to the campaign landing page—not impressions or ad reach. Each row assumes that source alone supplies all incremental trials.</div>
       <div class="scenario"><label for="benchmarkScenario">Benchmark scenario</label><select id="benchmarkScenario"><option value="conservative">Conservative</option><option value="base" selected>Base</option><option value="strong">Strong</option></select></div>
-      <table class="attr-table"><thead><tr><th>Source</th><th>Denominator</th><th>Rate</th><th>Volume needed</th></tr></thead><tbody>
-        <tr><td><strong>Meta / paid social</strong></td><td>Landing sessions</td><td><span class="rate" id="paidRate">8%</span></td><td><strong id="paidVolume">7,150</strong></td></tr>
+      <table class="attr-table"><thead><tr><th>Source</th><th>Traffic measured</th><th>Rate</th><th>Required monthly traffic</th></tr></thead><tbody>
+        <tr><td><strong>Meta / paid social</strong></td><td>Landing-page visits</td><td><span class="rate" id="paidRate">8%</span></td><td><strong id="paidVolume">7,150</strong></td></tr>
         <tr><td><strong>Email</strong></td><td>Unique clicks</td><td><span class="rate" id="emailRate">15%</span></td><td><strong id="emailVolume">3,813</strong></td></tr>
         <tr><td><strong>Organic search</strong></td><td>High-intent sessions</td><td><span class="rate" id="organicRate">4%</span></td><td><strong id="organicVolume">14,300</strong></td></tr>
       </tbody></table>
