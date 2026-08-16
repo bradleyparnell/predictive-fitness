@@ -147,6 +147,20 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
   text-transform: none; letter-spacing: normal; transition: background 0.2s !important; border: none;
 }
 .nav-cta:hover { background: var(--red-light) !important; }
+.nav-dropdown { position: relative; }
+.nav-dropdown > a { cursor: pointer; }
+.nav-dropdown > a::after { content: '\25BE'; margin-left: 5px; font-size: 10px; }
+.nav-dropdown-menu {
+  display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  background: var(--text); border-radius: 10px; padding: 8px 0; min-width: 200px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2); z-index: 200; margin-top: 12px;
+}
+.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu a {
+  display: block; padding: 10px 20px; color: #fff !important; font-size: 14px !important;
+  white-space: nowrap; transition: background 0.2s;
+}
+.nav-dropdown-menu a:hover { background: rgba(255,255,255,0.1); }
 .nav-hamburger {
   display: none; flex-direction: column; gap: 5px; cursor: pointer;
   background: none; border: none; padding: 8px;
@@ -272,11 +286,17 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
 .red-line-sep { width: 100%; height: 4px; background: var(--red); }
 
 /* TRUST STRIP (dark, red borders) */
-.partners-strip { padding: 32px 40px; background: var(--off-white); text-align: center; }
-.partners-label { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 20px; font-family: var(--font-display); }
-.partners-logos { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.7; }
-.partners-logos img { filter: grayscale(100%); transition: filter 0.3s; }
-.partners-logos img:hover { filter: grayscale(0); }
+.partners-strip {
+  padding: 64px 40px; text-align: center; position: relative;
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('assets/tridot-race-crowd.jpg') center/cover no-repeat;
+}
+.partners-label {
+  font-family: var(--font-body); font-size: 28px; font-weight: 400; color: #fff;
+  margin-bottom: 36px; line-height: 1.4;
+}
+.partners-logos { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
+.partners-logos img { filter: brightness(0) invert(1); opacity: 0.9; transition: opacity 0.3s; }
+.partners-logos img:hover { opacity: 1; }
 .trust-strip { padding: 48px 40px; background: #111; border-top: 4px solid var(--red); border-bottom: 4px solid var(--red); }
 .trust-row { display: flex; justify-content: center; gap: 64px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
 .trust-item { text-align: center; }
@@ -311,6 +331,7 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
   position: absolute; left: -50px; top: 36px; width: 44px; height: 44px; border-radius: 50%;
   background: var(--red); border: 4px solid #f8f8f8; display: flex; align-items: center; justify-content: center;
   font-family: var(--font-condensed); font-weight: 700; font-size: 20px; color: #fff;
+  line-height: 1; padding-top: 2px;
   transform: scale(0); transition: transform 0.4s ease 0.2s;
 }
 .phase-panel.timeline-visible .phase-marker { transform: scale(1); }
@@ -608,7 +629,13 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
   <div class="nav-links">
     <a href="#how-it-works">How It Works</a>
     <a href="#pricing">Pricing</a>
-    <a href="for-coaches/">For Coaches</a>
+    <div class="nav-dropdown">
+      <a>For Coaches</a>
+      <div class="nav-dropdown-menu">
+        <a href="for-coaches/">TriDot for Coaches</a>
+        <a href="for-coaches/#esci">ESCI Certification</a>
+      </div>
+    </div>
     <a href="https://app.tridot.com/login" target="_blank" class="nav-login">Login</a>
     <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="nav-cta">Start Training Free</a>
   </div>
@@ -621,7 +648,8 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
 <div class="nav-mobile-overlay" id="mobileNav">
   <a href="#how-it-works" onclick="closeMobileNav()">How It Works</a>
   <a href="#pricing" onclick="closeMobileNav()">Pricing</a>
-  <a href="for-coaches/" onclick="closeMobileNav()">For Coaches</a>
+  <a href="for-coaches/" onclick="closeMobileNav()">TriDot for Coaches</a>
+  <a href="for-coaches/#esci" onclick="closeMobileNav()">ESCI Certification</a>
   <a href="https://app.tridot.com/login" target="_blank" onclick="closeMobileNav()">Login</a>
   <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="btn-primary">Start Training Free</a>
 </div>
@@ -676,7 +704,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
 
 <!-- PARTNER LOGOS -->
 <div class="partners-strip">
-  <p class="partners-label">Trusted by top events and organizations worldwide</p>
+  <p class="partners-label">The training intelligence behind leading endurance organizations, including:</p>
   <div class="partners-logos">
     <img src="assets/logo-supertri-fresh.png" alt="Supertri" height="32">
     <img src="assets/logo-elite-energy-fresh.png" alt="Elite Energy" height="50">
