@@ -153,8 +153,9 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
 .nav-dropdown-menu {
   display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
   background: var(--text); border-radius: 10px; padding: 8px 0; min-width: 200px;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.2); z-index: 200; margin-top: 12px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2); z-index: 200; margin-top: 0;
 }
+.nav-dropdown-menu::before { content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
 .nav-dropdown:hover .nav-dropdown-menu { display: block; }
 .nav-dropdown-menu a {
   display: block; padding: 10px 20px; color: #fff !important; font-size: 14px !important;
@@ -324,7 +325,7 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
 /* PHASES TIMELINE */
 .phases-section { background: #f8f8f8; }
 .phases-timeline { max-width: 760px; margin: 0 auto; position: relative; padding-left: 64px; }
-.phases-timeline::before { content: ''; position: absolute; left: 22px; top: 8px; bottom: 8px; width: 3px; background: linear-gradient(to bottom, var(--red), rgba(234,0,41,0.15)); border-radius: 3px; }
+.phases-timeline::before { content: ''; position: absolute; left: 35px; top: 8px; bottom: 8px; width: 3px; background: linear-gradient(to bottom, var(--red), rgba(234,0,41,0.15)); border-radius: 3px; }
 .phase-panel { position: relative; margin-bottom: 44px; padding: 32px 36px; background: #fff; border-radius: 14px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); opacity: 0; transform: translateX(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .phase-panel.timeline-visible { opacity: 1; transform: translateX(0); }
 .phase-marker {
@@ -634,6 +635,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
       <div class="nav-dropdown-menu">
         <a href="for-coaches/">TriDot for Coaches</a>
         <a href="for-coaches/#esci">ESCI Certification</a>
+        <a href="get-coached/">Get Coached</a>
       </div>
     </div>
     <a href="https://app.tridot.com/login" target="_blank" class="nav-login">Login</a>
@@ -650,6 +652,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
   <a href="#pricing" onclick="closeMobileNav()">Pricing</a>
   <a href="for-coaches/" onclick="closeMobileNav()">TriDot for Coaches</a>
   <a href="for-coaches/#esci" onclick="closeMobileNav()">ESCI Certification</a>
+  <a href="get-coached/" onclick="closeMobileNav()">Get Coached</a>
   <a href="https://app.tridot.com/login" target="_blank" onclick="closeMobileNav()">Login</a>
   <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="btn-primary">Start Training Free</a>
 </div>
@@ -708,7 +711,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
   <div class="partners-logos">
     <img src="assets/logo-supertri-fresh.png" alt="Supertri" height="32">
     <img src="assets/logo-elite-energy-fresh.png" alt="Elite Energy" height="50">
-    <img src="assets/logo-atw-fresh.png" alt="ATW" height="50">
+    <img src="assets/logo-atw-white-final.png" alt="ATW" height="50">
     <img src="assets/logo-danish-fed-fresh.png" alt="Danish Triathlon Federation" height="45">
     <img src="assets/logo-wildflower-fresh.png" alt="Wildflower Experience" height="45">
   </div>
@@ -996,7 +999,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
   <div class="fitlogic-inner">
     <div class="fitlogic-content fade-up">
       <p class="fitlogic-powered">Powered by</p>
-      <div class="fitlogic-wordmark">FitLogic<span class="tm">&trade;</span></div>
+      <div class="fitlogic-wordmark"><img src="assets/fitlogic-logo-white.svg" alt="FitLogic" style="height: 42px;"></div>
       <h2>The Science Behind TriDot&reg; Is Unlike Anything Else in Endurance Sports.</h2>
       <p>FitLogic<span class="tm">&trade;</span> is a purpose-built training intelligence engine for endurance athletes, developed on 20+ years of real training and race data from athletes across every level and discipline.</p>
       <p>Other apps automate templates or repurpose general AI. FitLogic<span class="tm">&trade;</span> transforms your raw training data into genuine intelligence. It prescribes, optimizes, and continuously adapts your training as new data becomes available.</p>
