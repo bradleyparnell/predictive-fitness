@@ -603,11 +603,31 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
   .section { padding: 64px 20px; }
   .marquee-track span { font-size: 18px; padding: 0 16px; }
+  /* Mobile layout and type refinements */
+  .phase-tags { flex-wrap: wrap; gap: 6px; }
+  .phase-bullets li { font-size: 15px; line-height: 1.5; }
+  .fitlogic-inner img { height: 32px; }
+  .partner-logos, .partners-logos { flex-wrap: wrap; gap: 16px; }
+  .partner-logo, .partners-logos img { height: 28px; }
+  .coaches-cta-grid, .coaches-inner { grid-template-columns: 1fr; }
+  .legend-name, .legend-card h3 { font-size: 14px; }
+  .legend-circle, .legend-avatar { width: 72px; height: 72px; }
+  h2 { font-size: clamp(28px, 8vw, 42px); }
+  .section-eyebrow { font-size: 16px; }
+  .doubt-pill { font-size: 14px; padding: 10px 18px; }
+  .familiar-photo { min-height: 480px; }
+  .phone-row { flex-direction: column; align-items: center; gap: 16px; }
+  .phone-frame, .phone-frame.phone-side { transform: none; }
+
 }
 @media (max-width: 480px) {
   .hero h1 { font-size: clamp(38px, 12vw, 56px); }
   .legends-grid { grid-template-columns: 1fr; }
   .fitlogic-stat-grid { grid-template-columns: 1fr; }
+  .trust-row { flex-wrap: wrap; }
+  .phase-tags span { font-size: 12px; }
+  .pricing-tier { padding: 28px 20px; }
+
 }
 </style>
 </head>
@@ -698,7 +718,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
   <div class="legend-strip-inner">
     <img src="assets/mark-allen-headshot.jpg" alt="Mark Allen" class="legend-strip-photo">
     <div>
-      <p class="legend-strip-quote">"TriDot&reg;'s technology is so far ahead of anything I've seen in this sport, and I want the absolute best for the athletes I coach."</p>
+      <p class="legend-strip-quote">"<span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span>'s technology is so far ahead of anything I've seen in this sport, and I want the absolute best for the athletes I coach."</p>
       <p class="legend-strip-name">Mark Allen</p>
       <p class="legend-strip-title">6x IRONMAN World Champion</p>
     </div>
@@ -744,7 +764,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
     <div class="section-header fade-up">
       <div class="section-eyebrow">How It Works</div>
       <h2 class="section-title">Four Phases. One Complete System.</h2>
-      <p class="section-sub">TriDot&reg; redefines all four phases of training program design, intelligently assessing, prescribing, evaluating, and predicting with unmatched precision.</p>
+      <p class="section-sub"><span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> redefines all four phases of training program design, intelligently assessing, prescribing, evaluating, and predicting with unmatched precision.</p>
     </div>
     <div class="phases-timeline">
       <div class="phase-panel">
@@ -753,14 +773,14 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
         <h3>Assess</h3>
         <div class="phase-name">Identify True Performance Ability</div>
         <ul class="phase-bullets">
-          <li>Identifies your true performance baseline across swim, bike, and run</li>
-          <li>Normalized for age, gender, temperature, humidity, and elevation</li>
-          <li>Every athlete starts from an accurate starting point, not a guess</li>
+          <li><span>Identifies your true performance baseline across swim, bike, and run</span></li>
+          <li><span>Normalized for age, gender, temperature, humidity, and elevation</span></li>
+          <li><span>Every athlete starts from an accurate starting point, not a guess</span></li>
         </ul>
         <div class="phase-tags">
-          <span class="phase-tag">Dot Score<span class="tm">&trade;</span></span>
-          <span class="phase-tag">Training Stress Profile<span class="tm">&reg;</span></span>
-          <span class="phase-tag">Physiogenomix<span class="tm">&reg;</span></span>
+          <span class="phase-tag"><span style="white-space:nowrap">Dot Score<span class="tm">&trade;</span></span></span>
+          <span class="phase-tag"><span style="white-space:nowrap">Training Stress Profile<span class="tm">&reg;</span></span></span>
+          <span class="phase-tag"><span style="white-space:nowrap">Physiogenomix<span class="tm">&reg;</span></span></span>
         </div>
       </div>
       <div class="phase-panel">
@@ -769,14 +789,14 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
         <h3>Prescribe</h3>
         <div class="phase-name">The Right Training at the Right Time</div>
         <ul class="phase-bullets">
-          <li>Normalized Training Stress&reg; (NTS<span class="tm">&trade;</span>) accurately quantifies the physiological stress of each session</li>
-          <li>EnviroNorm&reg; technology adjusts intensities for your exact training environment</li>
-          <li>The right training at the right time, before every session</li>
+          <li><span><span style="white-space:nowrap">Normalized Training Stress<span class="tm">&reg;</span></span> (<span style="white-space:nowrap">NTS<span class="tm">&trade;</span></span>) accurately quantifies the physiological stress of each session</span></li>
+          <li><span><span style="white-space:nowrap">EnviroNorm<span class="tm">&reg;</span></span> technology adjusts intensities for your exact training environment</span></li>
+          <li><span>The right training at the right time, before every session</span></li>
         </ul>
         <div class="phase-tags">
-          <span class="phase-tag">NTS<span class="tm">&trade;</span></span>
-          <span class="phase-tag">EnviroNorm<span class="tm">&reg;</span></span>
-          <span class="phase-tag">Residual Training Stress<span class="tm">&trade;</span></span>
+          <span class="phase-tag"><span style="white-space:nowrap">NTS<span class="tm">&trade;</span></span></span>
+          <span class="phase-tag"><span style="white-space:nowrap">EnviroNorm<span class="tm">&reg;</span></span></span>
+          <span class="phase-tag"><span style="white-space:nowrap">Residual Training Stress<span class="tm">&trade;</span></span></span>
         </div>
       </div>
       <div class="phase-panel">
@@ -785,13 +805,13 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
         <h3>Evaluate</h3>
         <div class="phase-name">Measure Training Execution and Response</div>
         <ul class="phase-bullets">
-          <li>TrainX&reg; score measures how well prescribed training was executed</li>
-          <li>Replaces vanity metrics like total distance with real insight</li>
-          <li>Tracks training-execution quality and consistency over time</li>
+          <li><span><span style="white-space:nowrap">TrainX<span class="tm">&reg;</span></span> score measures how well prescribed training was executed</span></li>
+          <li><span>Replaces vanity metrics like total distance with real insight</span></li>
+          <li><span>Tracks training-execution quality and consistency over time</span></li>
         </ul>
         <div class="phase-tags">
-          <span class="phase-tag">TrainX<span class="tm">&reg;</span></span>
-          <span class="phase-tag">Residual Training Stress<span class="tm">&trade;</span></span>
+          <span class="phase-tag"><span style="white-space:nowrap">TrainX<span class="tm">&reg;</span></span></span>
+          <span class="phase-tag"><span style="white-space:nowrap">Residual Training Stress<span class="tm">&trade;</span></span></span>
           <span class="phase-tag">Recovery Readiness</span>
         </div>
       </div>
@@ -801,12 +821,12 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
         <h3>Predict</h3>
         <div class="phase-name">Race Day Preparation and Forecasting</div>
         <ul class="phase-bullets">
-          <li>RaceX&reg; predictions calculate your optimal race paces and splits</li>
-          <li>Considers local terrain, temperature, humidity, and elevation</li>
-          <li>Toe the line with a data-backed plan, not a hope</li>
+          <li><span><span style="white-space:nowrap">RaceX<span class="tm">&reg;</span></span> predictions calculate your optimal race paces and splits</span></li>
+          <li><span>Considers local terrain, temperature, humidity, and elevation</span></li>
+          <li><span>Toe the line with a data-backed plan, not a hope</span></li>
         </ul>
         <div class="phase-tags">
-          <span class="phase-tag">RaceX<span class="tm">&reg;</span></span>
+          <span class="phase-tag"><span style="white-space:nowrap">RaceX<span class="tm">&reg;</span></span></span>
           <span class="phase-tag">Optimized Pacing</span>
           <span class="phase-tag">Bike Power Plans</span>
         </div>
@@ -851,28 +871,28 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
     <div class="section-header fade-up">
       <div class="section-eyebrow">Intelligent by Design</div>
       <h2 class="section-title">Here's What It Feels Like to Have Training That Actually Works.</h2>
-      <p class="section-sub">TriDot&reg; accounts for current fitness, fatigue, and environmental conditions to make training more efficient.</p>
+      <p class="section-sub"><span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> accounts for current fitness, fatigue, and environmental conditions to make training more efficient.</p>
     </div>
     <div class="features-grid fade-up">
       <div class="feature-card">
         <div class="feature-icon">&#127919;</div>
         <div class="feature-title">It pays attention.</div>
-        <p class="feature-desc">Most training tools track what you did. TriDot&reg; learns from it. It watches how your body responds across all three disciplines and builds every session around those patterns to optimize future prescriptions.</p>
+        <p class="feature-desc">Most training tools track what you did. <span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> learns from it. It watches how your body responds across all three disciplines and builds every session around those patterns to optimize future prescriptions.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">&#128202;</div>
         <div class="feature-title">It translates all your data.</div>
-        <p class="feature-desc">You're already collecting thousands of data points every time you train. TriDot&reg; connects your sports watch, heart rate monitor, and other devices into a single dashboard, turning raw numbers into clear, actionable insights after every session.</p>
+        <p class="feature-desc">You're already collecting thousands of data points every time you train. <span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> connects your sports watch, heart rate monitor, and other devices into a single dashboard, turning raw numbers into clear, actionable insights after every session.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">&#9889;</div>
         <div class="feature-title">It adjusts when life happens.</div>
-        <p class="feature-desc">Rough week? Your next sessions adapt automatically. Breakthrough ride? TriDot&reg; builds on it. You're never forcing yourself through a schedule that stopped fitting your life weeks ago.</p>
+        <p class="feature-desc">Rough week? Your next sessions adapt automatically. Breakthrough ride? <span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> builds on it. You're never forcing yourself through a schedule that stopped fitting your life weeks ago.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">&#128737;&#65039;</div>
         <div class="feature-title">It keeps you healthy.</div>
-        <p class="feature-desc">Triathlon's multi-sport demands create unique injury risk. TriDot&reg; monitors your cumulative training stress across all three disciplines so you stay consistent, healthy, and building toward race day, not fighting your way back from injury.</p>
+        <p class="feature-desc">Triathlon's multi-sport demands create unique injury risk. <span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> monitors your cumulative training stress across all three disciplines so you stay consistent, healthy, and building toward race day, not fighting your way back from injury.</p>
       </div>
     </div>
   </div>
@@ -908,34 +928,34 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
     <div class="testimonial-grid fade-up">
       <div class="testimonial-card">
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="quote">"TriDot&reg; maximizes efficiency while preserving the athlete. I don't feel destroyed after my workouts, and I can complete each day."</p>
+        <p class="quote">"<span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> maximizes efficiency while preserving the athlete. I don't feel destroyed after my workouts, and I can complete each day."</p>
         <div class="testimonial-author">
           <div class="author-avatar">SW</div>
           <div>
             <div class="author-name">Seth W.</div>
-            <div class="author-sport">TriDot&reg; Athlete</div>
+            <div class="author-sport"><span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> Athlete</div>
           </div>
         </div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="quote">"TriDot&reg; is the most personalized, in-depth, data-driven program you can find. With consistent testing and constant updates based on my performance, you will see improvements every day."</p>
+        <p class="quote">"<span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> is the most personalized, in-depth, data-driven program you can find. With consistent testing and constant updates based on my performance, you will see improvements every day."</p>
         <div class="testimonial-author">
           <div class="author-avatar">M</div>
           <div>
             <div class="author-name">Megan</div>
-            <div class="author-sport">TriDot&reg; Athlete</div>
+            <div class="author-sport"><span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> Athlete</div>
           </div>
         </div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="quote">"From my first full-distance IRONMAN to solo mountain bike races and Xterra, TriDot&reg; has been my companion for every multisport adventure. I wholeheartedly recommend it to beginners and seasoned athletes alike."</p>
+        <p class="quote">"From my first full-distance IRONMAN to solo mountain bike races and Xterra, <span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> has been my companion for every multisport adventure. I wholeheartedly recommend it to beginners and seasoned athletes alike."</p>
         <div class="testimonial-author">
           <div class="author-avatar">AS</div>
           <div>
             <div class="author-name">April S.</div>
-            <div class="author-sport">TriDot&reg; Athlete</div>
+            <div class="author-sport"><span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> Athlete</div>
           </div>
         </div>
       </div>
@@ -946,7 +966,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
           <div class="author-avatar">TI</div>
           <div>
             <div class="author-name">Tri-Idaho</div>
-            <div class="author-sport">TriDot&reg; Athlete Community</div>
+            <div class="author-sport"><span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> Athlete Community</div>
           </div>
         </div>
       </div>
@@ -963,7 +983,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
     <div class="section-header fade-up">
       <div class="section-eyebrow">The Legends of Triathlon</div>
       <h2 class="section-title">When the Greatest Names in Triathlon Trust the Training, You Can Too.</h2>
-      <p class="section-sub">TriDot&reg;'s Legends roster brings exclusive guidance, tips, and insights to athletes who want access to the best minds in the sport alongside the best training technology in the world.</p>
+      <p class="section-sub"><span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span>'s Legends roster brings exclusive guidance, tips, and insights to athletes who want access to the best minds in the sport alongside the best training technology in the world.</p>
     </div>
     <div class="legends-grid fade-up">
       <div class="legend-card">
@@ -1001,9 +1021,9 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
     <div class="fitlogic-content fade-up">
       <p class="fitlogic-powered">Powered by</p>
       <div class="fitlogic-wordmark"><img src="assets/fitlogic-logo-white.png" alt="FitLogic" style="height: 42px;"></div>
-      <h2>The Science Behind TriDot&reg; Is Unlike Anything Else in Endurance Sports.</h2>
-      <p>FitLogic<span class="tm">&trade;</span> is a purpose-built training intelligence engine for endurance athletes, developed on 20+ years of real training and race data from athletes across every level and discipline.</p>
-      <p>Other apps automate templates or repurpose general AI. FitLogic<span class="tm">&trade;</span> transforms your raw training data into genuine intelligence. It prescribes, optimizes, and continuously adapts your training as new data becomes available.</p>
+      <h2>The Science Behind <span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> Is Unlike Anything Else in Endurance Sports.</h2>
+      <p><span style="white-space:nowrap">FitLogic<span class="tm">&trade;</span></span> is a purpose-built training intelligence engine for endurance athletes, developed on 20+ years of real training and race data from athletes across every level and discipline.</p>
+      <p>Other apps automate templates or repurpose general AI. <span style="white-space:nowrap">FitLogic<span class="tm">&trade;</span></span> transforms your raw training data into genuine intelligence. It prescribes, optimizes, and continuously adapts your training as new data becomes available.</p>
       <a href="https://fitlogic.tech" target="_blank" class="fitlogic-link">Explore the science at FitLogic.tech &rarr;</a>
     </div>
     <div class="fitlogic-stat-grid fade-up">
@@ -1033,7 +1053,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
     <div class="coaches-content fade-up">
       <div class="section-eyebrow" style="justify-content: flex-start;">For Coaches</div>
       <h2>AI Doesn't Replace Coaches. It Empowers Them.</h2>
-      <p>Coaches using TriDot&reg; deliver next-level results and scale their business faster. Every coach gets access to the same FitLogic<span class="tm">&trade;</span> intelligence engine, and the tools to apply it across their entire roster.</p>
+      <p>Coaches using <span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> deliver next-level results and scale their business faster. Every coach gets access to the same <span style="white-space:nowrap">FitLogic<span class="tm">&trade;</span></span> intelligence engine, and the tools to apply it across their entire roster.</p>
       <div class="coaches-quote">
         <p>"TriDot Certified Coaches deliver the world's most sophisticated training platform. The data does the heavy lifting, so you can focus on the athlete."</p>
       </div>
@@ -1067,13 +1087,13 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
         <p class="pricing-headline">Perfect for athletes planning 1-2 shorter-distance races per year.</p>
         <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="pricing-cta ghost">Start training for free</a>
         <div class="pricing-features">
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> 1 scheduled sprint or Olympic race</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Weekly training optimization</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Dynamic training zones</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Drill and exercise videos</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> EnviroNorm&reg; technology</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> TrainX&reg; scoring</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Knowledgebase support</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span>1 scheduled sprint or Olympic race</span></div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span>Weekly training optimization</span></div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span>Dynamic training zones</span></div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span>Drill and exercise videos</span></div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span><span style="white-space:nowrap">EnviroNorm<span class="tm">&reg;</span></span> technology</span></div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span><span style="white-space:nowrap">TrainX<span class="tm">&reg;</span></span> scoring</span></div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span>Knowledgebase support</span></div>
         </div>
       </div>
       <div class="pricing-card">
@@ -1081,14 +1101,14 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
         <div class="pricing-price">
           <span class="price-dollar">$</span><span class="price-amount">39</span><span class="price-period">/ mo</span>
         </div>
-        <p class="pricing-headline">For athletes racing multiple distances who want full RaceX&reg; optimization.</p>
+        <p class="pricing-headline">For athletes racing multiple distances who want full <span style="white-space:nowrap">RaceX<span class="tm">&reg;</span></span> optimization.</p>
         <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="pricing-cta ghost">Start training for free</a>
         <div class="pricing-features">
           <div class="pricing-divider">Everything in Lifestyle, plus:</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Plan up to 3 races, any distance</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> RaceX&reg; performance predictions</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Customizable schedule</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Swim form analysis</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span>Plan up to 3 races, any distance</span></div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span><span style="white-space:nowrap">RaceX<span class="tm">&reg;</span></span> performance predictions</span></div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span>Customizable schedule</span></div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span>Swim form analysis</span></div>
         </div>
       </div>
       <div class="pricing-card featured">
@@ -1101,11 +1121,11 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
         <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="pricing-cta primary">Start training for free</a>
         <div class="pricing-features">
           <div class="pricing-divider">Everything in Essentials, plus:</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Unlimited races, any distance</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Advanced training preferences</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Swim drill optimization</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Strength training sessions</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Priority support</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span>Unlimited races, any distance</span></div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span>Advanced training preferences</span></div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span>Swim drill optimization</span></div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span>Strength training sessions</span></div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span>Priority support</span></div>
         </div>
       </div>
       <div class="pricing-card">
@@ -1117,9 +1137,9 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
         <a href="for-coaches/" class="pricing-cta ghost">Get Coached</a>
         <div class="pricing-features">
           <div class="pricing-divider">Everything in Complete, plus:</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Dedicated certified coach</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Frequent one-to-one communication</div>
-          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Personalized race strategy</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span>Dedicated certified coach</span></div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span>Frequent one-to-one communication</span></div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> <span>Personalized race strategy</span></div>
         </div>
       </div>
     </div>
@@ -1136,7 +1156,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
     <div class="faq-list fade-up">
       <details>
         <summary>What is TriDot?</summary>
-        <p>TriDot is an AI-powered triathlon training platform that builds personalized swim, bike, and run plans using 20+ years of real athlete data and FitLogic&trade; technology, so triathletes train less, race faster, and reduce overtraining risk.</p>
+        <p>TriDot is an AI-powered triathlon training platform that builds personalized swim, bike, and run plans using 20+ years of real athlete data and <span style="white-space:nowrap">FitLogic<span class="tm">&trade;</span></span> technology, so triathletes train less, race faster, and reduce overtraining risk.</p>
       </details>
       <details>
         <summary>Do I need a triathlon coach to use TriDot?</summary>
@@ -1156,7 +1176,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
       </details>
       <details>
         <summary>What does TriDot's four-phase system include?</summary>
-        <p>TriDot's system has four phases: Assess (identifying your true performance ability), Prescribe (delivering the right training at the right time), Evaluate (measuring training execution and response with TrainX&reg; score), and Predict (RaceX&reg; race day forecasting and pacing).</p>
+        <p>TriDot's system has four phases: Assess (identifying your true performance ability), Prescribe (delivering the right training at the right time), Evaluate (measuring training execution and response with <span style="white-space:nowrap">TrainX<span class="tm">&reg;</span></span> score), and Predict (<span style="white-space:nowrap">RaceX<span class="tm">&reg;</span></span> race day forecasting and pacing).</p>
       </details>
       <details>
         <summary>Can I cancel anytime?</summary>
@@ -1173,7 +1193,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
   <div class="final-cta-content">
     <div class="section-eyebrow">Get Started Today</div>
     <h2>Generic Training Is Costing You Results You've Already Earned.</h2>
-    <p>You already know that a hard bike day affects your run. That a bad week at work changes everything. TriDot&reg; tracks those variables so your training always reflects reality, not just a calendar.</p>
+    <p>You already know that a hard bike day affects your run. That a bad week at work changes everything. <span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> tracks those variables so your training always reflects reality, not just a calendar.</p>
     <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="btn-primary">Start training for free</a>
     <p class="cta-no-cc">14 days free - No credit card required - Cancel anytime</p>
   </div>
@@ -1198,7 +1218,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
             <path d="M49.5423 8.81152L45.8723 19.8796H48.909L52.5738 8.81152H49.5423Z" fill="white"/>
           </svg>
         </div>
-        <p class="footer-desc">TriDot<span class="tm">&reg;</span> gives you the confidence to train less and race faster.</p>
+        <p class="footer-desc"><span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> gives you the confidence to train less and race faster.</p>
         <p class="footer-tagline">Better results in less time with fewer injuries.</p>
         <div class="footer-fitlogic">
           <span>Powered by</span>
@@ -1220,11 +1240,11 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
       <div class="footer-col">
         <h4>Company</h4>
         <a href="https://app.tridot.com/login" target="_blank">Login</a>
-        <a href="https://fitlogic.tech" target="_blank">FitLogic<span class="tm">&trade;</span></a>
+        <a href="https://fitlogic.tech" target="_blank"><span style="white-space:nowrap">FitLogic<span class="tm">&trade;</span></span></a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-legal">TriDot&reg; and the TriDot logo are trademarks or registered trademarks of Predictive Fitness, Inc. in the US and other countries. Additional Predictive Fitness trademarks can be found at <a href="https://www.predictive.fit/trademark-list" target="_blank">predictive.fit/trademark-list</a>.</p>
+      <p class="footer-legal"><span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span> and the TriDot logo are trademarks or registered trademarks of Predictive Fitness, Inc. in the US and other countries. Additional Predictive Fitness trademarks can be found at <a href="https://www.predictive.fit/trademark-list" target="_blank">predictive.fit/trademark-list</a>.</p>
       <p class="footer-copy">&copy; <span id="footerYear"></span> Predictive Fitness, Inc. All rights reserved. 2600 E. Southlake Blvd. Suite 120-140, Southlake, Texas 76092</p>
     </div>
   </div>
