@@ -225,7 +225,7 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
   line-height: 1.02; letter-spacing: 0.01em;
   margin-bottom: 8px; color: var(--white);
 }
-.hero-word { display: inline-block; opacity: 0; transform: translateY(16px); animation: heroWordIn 0.6s ease forwards; }
+.hero-word { display: inline-block; opacity: 0; transform: translateY(16px); animation: heroWordIn 0.6s ease forwards; margin-right: 0.25em; }
 @keyframes heroWordIn { to { opacity: 1; transform: translateY(0); } }
 .hero-word.red-word { color: var(--red-light); }
 .goal-typewriter {
@@ -263,8 +263,7 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
 }
 .legend-strip-photo {
   width: 120px; height: 120px; border-radius: 50%; flex-shrink: 0;
-  background: var(--red); display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display); font-weight: 800; font-size: 32px; color: #fff;
+  object-fit: cover;
   border: 3px solid var(--red-border);
 }
 .legend-strip-quote { font-family: var(--font-body); font-size: 22px; line-height: 1.5; color: var(--text); margin-bottom: 12px; font-style: italic; }
@@ -665,7 +664,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
 <!-- LEGEND ENDORSEMENT STRIP -->
 <div class="legend-strip">
   <div class="legend-strip-inner">
-    <div class="legend-strip-photo">MA</div>
+    <img src="assets/mark-allen-headshot.jpg" alt="Mark Allen" class="legend-strip-photo">
     <div>
       <p class="legend-strip-quote">"TriDot&reg;'s technology is so far ahead of anything I've seen in this sport, and I want the absolute best for the athletes I coach."</p>
       <p class="legend-strip-name">Mark Allen</p>
