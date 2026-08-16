@@ -629,6 +629,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
   .pricing-tier { padding: 28px 20px; }
 
 }
+.mobile-floating-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:12px 20px;padding-bottom:max(12px,env(safe-area-inset-bottom));background:rgba(17,17,17,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);text-align:center;transition:transform .3s ease}.mobile-floating-cta.hidden{transform:translateY(100%)}.mobile-floating-cta a{display:inline-block;background:var(--red);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-style:italic;text-transform:uppercase;font-size:16px;letter-spacing:.02em;padding:14px 48px;border-radius:8px;text-decoration:none;width:100%;max-width:320px}.mobile-floating-cta a:hover{background:var(--red-light,#ff1a3d)}@media(max-width:768px){.mobile-floating-cta{display:block}footer{padding-bottom:70px!important}}@media(min-width:769px){.mobile-floating-cta{display:none!important}}
 </style>
 </head>
 <body>
@@ -660,7 +661,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
     </div>
     <a href="get-coached/">Get Coached</a>
     <a href="https://app.tridot.com/login" target="_blank" class="nav-login">Login</a>
-    <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="nav-cta">Start Training Free</a>
+    <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="nav-cta">GET STARTED</a>
   </div>
   <button class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -675,7 +676,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
   <a href="for-coaches/#esci" onclick="closeMobileNav()">ESCI Certification</a>
   <a href="get-coached/" onclick="closeMobileNav()">Get Coached</a>
   <a href="https://app.tridot.com/login" target="_blank" onclick="closeMobileNav()">Login</a>
-  <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="btn-primary">Start Training Free</a>
+  <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="btn-primary">GET STARTED</a>
 </div>
 
 <main>
@@ -1405,6 +1406,8 @@ setTimeout(function() {
 window.addEventListener('DOMContentLoaded', function() {
   requestAnimationFrame(function() { document.body.classList.add('loaded'); });
 });
+window.addEventListener('DOMContentLoaded',function(){var floatingCta=document.getElementById('floatingCta');if(!floatingCta)return;var footer=document.querySelector('footer');function checkFloat(){if(window.innerWidth>768)return;var scrollY=window.scrollY||window.pageYOffset;var footerTop=footer?footer.getBoundingClientRect().top:Infinity;var shouldHide=scrollY<200||footerTop<window.innerHeight;floatingCta.classList.toggle('hidden',shouldHide)}window.addEventListener('scroll',checkFloat,{passive:true});window.addEventListener('resize',checkFloat);checkFloat()});
 </script>
+<div class="mobile-floating-cta" id="floatingCta"><a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank">GET STARTED</a></div>
 </body>
 </html>
