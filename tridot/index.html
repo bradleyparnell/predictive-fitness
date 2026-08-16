@@ -1,1861 +1,1398 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TriDot® | Better Results in Less Time with Fewer Injuries</title>
-  <meta name="description" content="TriDot® is AI-powered triathlon and endurance training. Powered by 20+ years of athlete data and FitLogic™ AI. Train less, race faster, and stay injury-free.">
-  <link rel="canonical" href="https://www.tridot.com/">
-  <!-- OG / Social -->
-  <meta property="og:title" content="TriDot® | Better Results in Less Time with Fewer Injuries">
-  <meta property="og:description" content="AI-powered triathlon and endurance training for swim, bike, and run. Backed by 20+ years of athlete data and FitLogic™ AI.">
-  <meta property="og:image" content="https://bradleyparnell.github.io/predictive-fitness/tridot/assets/tridot-hero-clean.jpg">
-  <meta property="og:url" content="https://www.tridot.com/">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="TriDot® | Better Results in Less Time with Fewer Injuries">
-  <meta name="twitter:description" content="AI-powered triathlon and endurance training for swim, bike, and run. Backed by 20+ years of athlete data and FitLogic™ AI.">
-  <meta name="twitter:image" content="https://bradleyparnell.github.io/predictive-fitness/tridot/assets/tridot-hero-clean.jpg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TriDot&reg; | You Deserve Better Training</title>
+<meta name="description" content="TriDot&reg; is AI-powered triathlon training built on 20+ years of athlete data and FitLogic&trade; technology. Train less, race faster, and stay injury-free.">
+<meta property="og:title" content="TriDot&reg; | You Deserve Better Training">
+<meta property="og:description" content="AI-powered triathlon training for swim, bike, and run. Backed by 20+ years of athlete data and FitLogic&trade; AI.">
+<meta property="og:image" content="assets/hero-cycling-race.jpg">
+<meta property="og:url" content="https://www.tridot.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TriDot&reg; | You Deserve Better Training">
+<meta name="twitter:description" content="AI-powered triathlon training for swim, bike, and run. Backed by 20+ years of athlete data and FitLogic&trade; AI.">
+<meta name="twitter:image" content="assets/hero-cycling-race.jpg">
+<link rel="canonical" href="https://www.tridot.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rock+Salt&amp;family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
-
-  <style>
-    /* ─── RESET & BASE ─── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-      background: #0f172a;
-      color: #fff;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
-    ul { list-style: none; }
-
-    /* ─── CSS VARS ─── */
-    :root {
-      --red: #EA0029;
-      --red-dark: #c0001f;
-      --red-glow: rgba(234, 0, 41, 0.25);
-      --navy: #0f172a;
-      --slate: #1e293b;
-      --slate-light: #334155;
-      --slate-muted: #475569;
-      --sky: #36b9fa;
-      --white: #ffffff;
-      --white-75: rgba(255,255,255,0.75);
-      --white-50: rgba(255,255,255,0.5);
-      --white-15: rgba(255,255,255,0.08);
-      --radius: 12px;
-      --radius-sm: 8px;
-      --container: 1300px;
-      --nav-h: 72px;
-    }
-
-    /* ─── TYPOGRAPHY ─── */
-    .display-xl {
-      font-size: clamp(2.6rem, 6vw, 5.2rem);
-      font-weight: 800;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-    }
-    .display-lg {
-      font-size: clamp(2rem, 4.5vw, 3.6rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-    .display-md {
-      font-size: clamp(1.5rem, 3vw, 2.4rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-    .section-label {
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--red);
-    }
-    .body-lg { font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.7; }
-    .body-md { font-size: 1rem; line-height: 1.65; }
-
-    /* ─── LAYOUT ─── */
-    .container { max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
-    .section { padding: clamp(64px, 8vw, 112px) 0; }
-    .section-dark { background: var(--navy); }
-    .section-slate { background: var(--slate); }
-    .section-card { background: #0b1220; }
-    .text-center { text-align: center; }
-    .text-red { color: var(--red); }
-    .text-muted { color: var(--white-75); }
-    .text-sky { color: var(--sky); }
-
-    /* ─── BUTTONS ─── */
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 28px; border-radius: 50px;
-      font-weight: 700; font-size: 0.95rem; letter-spacing: 0.01em;
-      cursor: pointer; border: none; transition: all 0.2s;
-      white-space: nowrap;
-    }
-    .btn-primary {
-      background: var(--red); color: #fff;
-      box-shadow: 0 4px 20px var(--red-glow);
-    }
-    .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); box-shadow: 0 8px 28px var(--red-glow); }
-    .btn-ghost {
-      background: var(--white-15); color: #fff;
-      border: 1px solid rgba(255,255,255,0.15);
-      backdrop-filter: blur(8px);
-    }
-    .btn-ghost:hover { background: rgba(255,255,255,0.14); transform: translateY(-1px); }
-    .btn-lg { padding: 17px 36px; font-size: 1rem; }
-    .btn-sm { padding: 10px 20px; font-size: 0.85rem; }
-
-    /* ─── FADE-UP ANIMATION ─── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-up.visible { opacity: 1; transform: none; }
-    .fade-up.delay-1 { transition-delay: 0.1s; }
-    .fade-up.delay-2 { transition-delay: 0.2s; }
-    .fade-up.delay-3 { transition-delay: 0.3s; }
-    .fade-up.delay-4 { transition-delay: 0.4s; }
-    .fade-up.delay-5 { transition-delay: 0.5s; }
-
-    /* ═══════════════════════════════════════
-       NAV
-    ═══════════════════════════════════════ */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      height: var(--nav-h);
-      display: flex; align-items: center;
-      transition: background 0.3s, backdrop-filter 0.3s, box-shadow 0.3s;
-    }
-    .nav.scrolled {
-      background: rgba(11,18,32,0.95);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 1px 0 rgba(255,255,255,0.06);
-    }
-    .nav-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      width: 100%; max-width: var(--container);
-      margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px);
-    }
-    .nav-logo {
-      display: flex; align-items: center;
-      height: 28px;
-    }
-    .nav-logo svg { height: 26px; width: auto; }
-    .nav-links {
-      display: flex; align-items: center; gap: clamp(20px, 3vw, 36px);
-      font-size: 0.9rem; font-weight: 600; color: var(--white-75);
-    }
-    .nav-links a:hover { color: #fff; }
-    .nav-links .nav-cta { color: #fff; }
-    .nav-hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      cursor: pointer; padding: 8px; background: none; border: none;
-    }
-    .nav-hamburger span {
-      display: block; width: 22px; height: 2px; background: #fff;
-      transition: all 0.3s;
-    }
-    .nav-mobile {
-      display: none; position: fixed; top: var(--nav-h); left: 0; right: 0;
-      background: rgba(11,18,32,0.98); backdrop-filter: blur(20px);
-      padding: 24px 24px 32px; z-index: 999;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-    .nav-mobile.open { display: flex; flex-direction: column; gap: 8px; }
-    .nav-mobile a {
-      padding: 14px 16px; border-radius: var(--radius-sm);
-      font-weight: 600; font-size: 1rem;
-      transition: background 0.2s;
-    }
-    .nav-mobile a:hover { background: var(--white-15); }
-    .nav-mobile .btn { margin-top: 8px; justify-content: center; }
-
-    /* ═══════════════════════════════════════
-       HERO
-    ═══════════════════════════════════════ */
-    .hero {
-      position: relative;
-      min-height: 100svh;
-      display: flex; align-items: center;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('assets/hero-cycling-race.jpg');
-      background-size: cover; background-position: right center;
-      transform: scale(1.04);
-    }
-    .hero-overlay {
-      position: absolute; inset: 0;
-      background:
-        linear-gradient(to right, rgba(15,23,42,0.96) 0%, rgba(15,23,42,0.78) 45%, rgba(15,23,42,0.25) 100%),
-        linear-gradient(180deg, rgba(15,23,42,0.2) 0%, rgba(15,23,42,0.85) 100%);
-    }
-    .hero-content {
-      position: relative; z-index: 2;
-      padding: calc(var(--nav-h) + 40px) 0 80px;
-      display: flex; flex-direction: column;
-      max-width: 620px;
-    }
-    .hero-sports {
-      display: flex; gap: 10px; flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-    .sport-pill {
-      display: inline-flex; align-items: center; gap: 7px;
-      background: var(--white-15); backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 50px; padding: 6px 14px;
-      font-size: 0.82rem; font-weight: 600;
-    }
-    .sport-pill span { font-size: 1rem; }
-    .hero-label { margin-bottom: 16px; }
-    .hero-headline { margin-bottom: 24px; }
-    .hero-headline em {
-      font-style: italic;
-      color: var(--red);
-    }
-    .hero-sub {
-      font-size: clamp(1rem, 1.8vw, 1.2rem);
-      color: var(--white-75);
-      max-width: 600px;
-      margin-bottom: 40px;
-      line-height: 1.65;
-    }
-    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
-    .hero-scroll {
-      position: absolute; bottom: 32px; left: 50%;
-      transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center;
-      gap: 6px; opacity: 0.45; z-index: 2;
-      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
-      text-transform: uppercase; color: #fff;
-      animation: scrollBounce 2.4s ease-in-out infinite;
-    }
-    @keyframes scrollBounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(6px); }
-    }
-    .hero-scroll svg { width: 18px; opacity: 0.7; }
-
-    /* ═══════════════════════════════════════
-       TRUST BAR
-    ═══════════════════════════════════════ */
-    .trust-bar {
-      background: var(--slate);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      padding: 28px 0;
-    }
-    .trust-inner {
-      display: flex; align-items: center; justify-content: center;
-      flex-wrap: wrap; gap: 24px 48px;
-    }
-    .trust-label {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--white-40);
-      width: 100%; text-align: center; margin-bottom: 4px;
-    }
-    .trust-logos {
-      display: flex; align-items: center; gap: 48px; flex-wrap: wrap;
-      justify-content: center;
-    }
-    .trust-logos img {
-      height: 45px; width: auto; opacity: 0.8;
-      transition: opacity 0.2s; filter: brightness(0) invert(1);
-      object-fit: contain;
-    }
-    .trust-logos img:hover { opacity: 1; }
-
-    /* ═══════════════════════════════════════
-       STATS BAR
-    ═══════════════════════════════════════ */
-    .stats-bar {
-      background: var(--navy);
-      padding: 56px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .stats-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 40px; text-align: center;
-    }
-    .stat-item {}
-    .stat-number {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800; color: #fff;
-      letter-spacing: -0.02em;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-    .stat-number .accent { color: var(--red); }
-    .stat-label {
-      font-size: 0.82rem; font-weight: 600;
-      color: var(--white-50); text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .stat-divider {
-      width: 1px; background: rgba(255,255,255,0.08);
-      display: none;
-    }
-
-    /* ═══════════════════════════════════════
-       PROBLEM SECTION
-    ═══════════════════════════════════════ */
-    .problem-section {
-      background: var(--slate);
-      padding: clamp(72px, 9vw, 120px) 0;
-    }
-    .problem-inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 72px; align-items: center;
-    }
-    .problem-image {
-      border-radius: 16px; overflow: hidden;
-      aspect-ratio: 4/3; position: relative;
-    }
-    .problem-image img {
-      width: 100%; height: 100%; object-fit: cover;
-    }
-    .problem-image-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(234,0,41,0.15), transparent);
-    }
-    .problem-content {}
-    .problem-content .section-label { margin-bottom: 16px; }
-    .problem-content h2 { margin-bottom: 20px; }
-    .problem-content p { color: var(--white-75); margin-bottom: 20px; }
-    .problem-quote {
-      background: rgba(234,0,41,0.08);
-      border-left: 3px solid var(--red);
-      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-      padding: 20px 24px; margin: 28px 0;
-    }
-    .problem-quote p {
-      font-style: italic; color: var(--white-75);
-      margin-bottom: 0; font-size: 1.05rem; line-height: 1.6;
-    }
-
-    /* ═══════════════════════════════════════
-       HOW IT WORKS: FOUR PHASES
-    ═══════════════════════════════════════ */
-    .phases-section {
-      background: var(--navy);
-      padding: clamp(72px, 9vw, 120px) 0;
-    }
-    .phases-header { text-align: center; margin-bottom: 64px; }
-    .phases-header .section-label { margin-bottom: 16px; }
-    .phases-header h2 { margin-bottom: 16px; }
-    .phases-header p { color: var(--white-75); max-width: 580px; margin: 0 auto; font-size: 1.05rem; }
-    .phases-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-    .phase-card {
-      background: var(--slate);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px;
-      padding: 36px 40px;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .phase-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--red);
-      opacity: 0; transition: opacity 0.3s;
-    }
-    .phase-card:hover { border-color: rgba(234,0,41,0.25); transform: translateY(-3px); }
-    .phase-card:hover::before { opacity: 1; }
-    .phase-number {
-      font-size: 0.7rem; font-weight: 800; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--red);
-      margin-bottom: 8px;
-    }
-    .phase-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 12px; }
-    .phase-name {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--white-50);
-      margin-bottom: 20px;
-    }
-    .phase-icon {
-      width: 56px; height: 56px;
-      margin-bottom: 20px;
-      border-radius: 14px;
-      background: rgba(234,0,41,0.08);
-      border: 1px solid rgba(234,0,41,0.15);
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.3s, border-color 0.3s;
-    }
-    .phase-icon svg { width: 28px; height: 28px; stroke: var(--red); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    .phase-card:hover .phase-icon { background: rgba(234,0,41,0.14); border-color: rgba(234,0,41,0.3); }
-    .phase-desc { color: var(--white-75); font-size: 0.95rem; line-height: 1.7; margin-bottom: 24px; }
-    .phase-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .phase-tag {
-      background: rgba(234,0,41,0.1);
-      border: 1px solid rgba(234,0,41,0.2);
-      color: rgba(255,160,160,0.9);
-      border-radius: 50px; padding: 4px 12px;
-      font-size: 0.75rem; font-weight: 700;
-    }
-
-    /* ═══════════════════════════════════════
-       FEATURES
-    ═══════════════════════════════════════ */
-    .features-section {
-      background: #0b1220;
-      padding: clamp(72px, 9vw, 120px) 0;
-    }
-    .features-header { text-align: center; margin-bottom: 64px; }
-    .features-header .section-label { margin-bottom: 16px; }
-    .features-header h2 { margin-bottom: 16px; }
-    .features-header p { color: var(--white-75); max-width: 560px; margin: 0 auto; }
-    .features-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-    .feature-card {
-      background: var(--slate);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px; padding: 36px;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .feature-card:hover { border-color: rgba(54,185,250,0.25); transform: translateY(-3px); }
-    .feature-icon {
-      width: 52px; height: 52px;
-      background: rgba(234,0,41,0.12);
-      border: 1px solid rgba(234,0,41,0.2);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; margin-bottom: 24px;
-    }
-    .feature-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 12px; }
-    .feature-desc { color: var(--white-75); font-size: 0.95rem; line-height: 1.7; }
-
-    /* ═══════════════════════════════════════
-       APP SECTION
-    ═══════════════════════════════════════ */
-    .app-section {
-      background: var(--slate);
-      padding: clamp(72px, 9vw, 120px) 0;
-      position: relative; overflow: hidden;
-    }
-    .app-section::before {
-      content: '';
-      position: absolute; top: -200px; right: -200px;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(234,0,41,0.08), transparent 70%);
-      pointer-events: none;
-    }
-    .app-inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 64px; align-items: center;
-    }
-    .app-content {}
-    .app-content .section-label { margin-bottom: 16px; }
-    .app-content h2 { margin-bottom: 20px; }
-    .app-content p { color: var(--white-75); margin-bottom: 32px; font-size: 1.05rem; line-height: 1.7; }
-    .app-bullets { display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
-    .app-bullet {
-      display: flex; gap: 14px; align-items: flex-start;
-    }
-    .bullet-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--red); margin-top: 8px; flex-shrink: 0;
-    }
-    .bullet-text { font-size: 0.95rem; color: var(--white-75); line-height: 1.6; }
-    .app-store-row {
-      display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
-    }
-    .store-badge {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: var(--radius-sm); padding: 10px 18px;
-      font-size: 0.82rem; font-weight: 600;
-      transition: background 0.2s;
-    }
-    .store-badge:hover { background: rgba(255,255,255,0.12); }
-    .store-badge svg { width: 20px; }
-    .app-screens {
-      display: flex; gap: 16px; align-items: flex-end;
-      justify-content: center;
-    }
-    .app-screen {
-      border-radius: 20px; overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 8px 16px rgba(0,0,0,0.3);
-      flex-shrink: 0;
-    }
-    .app-screen img { display: block; }
-    .screen-main { width: 140px; }
-    .screen-side { width: 120px; opacity: 0.85; }
-    .screen-far { width: 105px; opacity: 0.6; }
-
-    /* ═══════════════════════════════════════
-       LEGENDS SECTION
-    ═══════════════════════════════════════ */
-    .legends-section {
-      position: relative; overflow: hidden;
-      padding: clamp(72px, 9vw, 120px) 0;
-      background: #0a1018;
-    }
-    .legends-bg {
-      position: absolute; inset: 0;
-      background-image: url('assets/tridot-legends.png');
-      background-size: cover; background-position: center;
-      opacity: 0.18;
-    }
-    .legends-content { position: relative; z-index: 2; }
-    .legends-header { text-align: center; margin-bottom: 56px; }
-    .legends-header .section-label { margin-bottom: 16px; }
-    .legends-header h2 { margin-bottom: 16px; }
-    .legends-header p { color: var(--white-75); max-width: 560px; margin: 0 auto; }
-    .legends-grid {
-      display: grid; grid-template-columns: repeat(5, 1fr);
-      gap: 20px;
-    }
-    .legend-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px; padding: 24px 20px;
-      text-align: center;
-      transition: background 0.3s, border-color 0.3s, transform 0.3s;
-    }
-    .legend-card:hover {
-      background: rgba(234,0,41,0.08);
-      border-color: rgba(234,0,41,0.25);
-      transform: translateY(-4px);
-    }
-    .legend-icon {
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      background: var(--red);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; font-weight: 800; color: #fff;
-      margin: 0 auto 16px;
-      border: 2px solid rgba(255,255,255,0.1);
-    }
-    .legend-name { font-size: 0.95rem; font-weight: 800; margin-bottom: 6px; }
-    .legend-title { font-size: 0.78rem; color: var(--white-50); line-height: 1.5; }
-    .legend-achievement {
-      margin-top: 12px; padding-top: 12px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      font-size: 0.72rem; color: var(--red);
-      font-weight: 700; letter-spacing: 0.04em;
-    }
-
-    /* ═══════════════════════════════════════
-       TESTIMONIALS
-    ═══════════════════════════════════════ */
-    .testimonials-section {
-      background: var(--navy);
-      padding: clamp(72px, 9vw, 120px) 0;
-    }
-    .testimonials-header { text-align: center; margin-bottom: 56px; }
-    .testimonials-header .section-label { margin-bottom: 16px; }
-    .testimonials-header h2 { margin-bottom: 16px; }
-    .testimonials-header p { color: var(--white-75); max-width: 540px; margin: 0 auto; }
-    .testimonials-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .testimonial-card {
-      background: var(--slate);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px; padding: 32px;
-      display: flex; flex-direction: column;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .testimonial-card:hover { border-color: rgba(234,0,41,0.2); transform: translateY(-3px); }
-    .testimonial-stars {
-      display: flex; gap: 3px; margin-bottom: 20px;
-    }
-    .star { color: var(--red); font-size: 1rem; }
-    .testimonial-quote { flex: 1; }
-    .testimonial-quote p {
-      font-size: 0.95rem; color: var(--white-75);
-      line-height: 1.7; font-style: italic;
-      margin-bottom: 24px;
-    }
-    .testimonial-author {
-      display: flex; align-items: center; gap: 12px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.07);
-    }
-    .author-avatar {
-      width: 38px; height: 38px; border-radius: 50%;
-      background: var(--red);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.8rem; font-weight: 800; color: #fff;
-      flex-shrink: 0;
-    }
-    .author-name { font-size: 0.9rem; font-weight: 700; }
-    .author-sport { font-size: 0.78rem; color: var(--white-50); }
-
-    /* ═══════════════════════════════════════
-       PRICING
-    ═══════════════════════════════════════ */
-    .pricing-section {
-      background: #0b1220;
-      padding: clamp(72px, 9vw, 120px) 0;
-    }
-    .pricing-header { text-align: center; margin-bottom: 16px; }
-    .pricing-header .section-label { margin-bottom: 16px; }
-    .pricing-header h2 { margin-bottom: 16px; }
-    .pricing-sub {
-      text-align: center; color: var(--white-75);
-      font-size: 1.05rem; margin-bottom: 56px;
-    }
-    .pricing-trial {
-      display: inline-block;
-      background: rgba(234,0,41,0.1);
-      border: 1px solid rgba(234,0,41,0.2);
-      color: rgba(255,160,160,0.9);
-      border-radius: 50px; padding: 6px 18px;
-      font-size: 0.82rem; font-weight: 700;
-      margin-bottom: 48px;
-    }
-    .pricing-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 20px; align-items: start;
-    }
-    .pricing-card {
-      background: var(--slate);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 16px; padding: 32px 28px;
-      position: relative;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .pricing-card:hover { transform: translateY(-4px); }
-    .pricing-card.featured {
-      background: linear-gradient(160deg, #1e1a2e, #1e293b);
-      border: 2px solid var(--red);
-      box-shadow: 0 0 40px rgba(234,0,41,0.15);
-    }
-    .pricing-badge {
-      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
-      background: var(--red); color: #fff;
-      font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 4px 14px; border-radius: 50px;
-      white-space: nowrap;
-    }
-    .pricing-tier { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white-50); margin-bottom: 12px; }
-    .pricing-price {
-      display: flex; align-items: baseline; gap: 4px;
-      margin-bottom: 8px;
-    }
-    .price-dollar { font-size: 1.4rem; font-weight: 800; margin-top: 8px; }
-    .price-amount { font-size: 3rem; font-weight: 800; line-height: 1; letter-spacing: -0.04em; }
-    .price-period { font-size: 0.85rem; color: var(--white-50); font-weight: 600; margin-left: 2px; }
-    .pricing-headline { font-size: 0.85rem; color: var(--white-75); margin-bottom: 28px; min-height: 36px; line-height: 1.5; }
-    .pricing-cta { width: 100%; text-align: center; justify-content: center; margin-bottom: 28px; border-radius: var(--radius-sm); }
-    .pricing-features { display: flex; flex-direction: column; gap: 12px; }
-    .pricing-feature {
-      display: flex; gap: 10px; align-items: flex-start;
-      font-size: 0.85rem; color: var(--white-75); line-height: 1.5;
-    }
-    .feature-check { color: var(--red); font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
-    .pricing-divider { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white-50); margin: 16px 0 12px; }
-
-    /* ═══════════════════════════════════════
-       FITLOGIC SECTION
-    ═══════════════════════════════════════ */
-    .fitlogic-section {
-      background: var(--navy);
-      padding: clamp(72px, 9vw, 120px) 0;
-      position: relative; overflow: hidden;
-    }
-    .fitlogic-section::before {
-      content: '';
-      position: absolute; bottom: -200px; left: -200px;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(54,185,250,0.05), transparent 65%);
-      pointer-events: none;
-    }
-    .fitlogic-inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: center;
-    }
-    .fitlogic-content {}
-    .fitlogic-powered {
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--white-50);
-      margin-bottom: 20px;
-    }
-    .fitlogic-logo { margin-bottom: 16px; }
-    .fitlogic-content h2 { margin-bottom: 20px; }
-    .fitlogic-content p { color: var(--white-75); margin-bottom: 20px; font-size: 1.05rem; line-height: 1.7; }
-    .fitlogic-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      color: var(--sky); font-weight: 700; font-size: 0.9rem;
-      transition: gap 0.2s;
-    }
-    .fitlogic-link:hover { gap: 10px; }
-    .fitlogic-visual {
-      background: var(--slate);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 20px; padding: 40px;
-      position: relative;
-    }
-    .fitlogic-stat-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    .fitlogic-stat {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 12px; padding: 24px;
-    }
-    .fitlogic-stat-num {
-      font-size: 2rem; font-weight: 800;
-      color: #fff; letter-spacing: -0.03em;
-      margin-bottom: 6px;
-    }
-    .fitlogic-stat-num .accent { color: var(--sky); }
-    .fitlogic-stat-label {
-      font-size: 0.78rem; font-weight: 600;
-      color: var(--white-50); letter-spacing: 0.04em;
-    }
-
-    /* ═══════════════════════════════════════
-       CTA SECTION
-    ═══════════════════════════════════════ */
-    .cta-section {
-      position: relative; overflow: hidden;
-      padding: clamp(80px, 10vw, 140px) 0;
-    }
-    .cta-bg {
-      position: absolute; inset: 0;
-      background-image: url('assets/triathlon-cta-bg.jpg');
-      background-size: cover; background-position: center;
-    }
-    .cta-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(15,23,42,0.92), rgba(11,18,32,0.88));
-    }
-    .cta-content {
-      position: relative; z-index: 2;
-      text-align: center;
-    }
-    .cta-content .section-label { margin-bottom: 20px; }
-    .cta-content h2 { margin-bottom: 20px; }
-    .cta-content p {
-      color: var(--white-75); font-size: 1.1rem;
-      max-width: 520px; margin: 0 auto 40px;
-      line-height: 1.7;
-    }
-    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .cta-note { margin-top: 20px; font-size: 0.82rem; color: var(--white-50); }
-
-    /* ═══════════════════════════════════════
-       FOOTER
-    ═══════════════════════════════════════ */
-    .footer {
-      background: #080e1a;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding: 48px 0 32px;
-    }
-    .footer-inner {
-      display: flex; flex-direction: column;
-      align-items: center; gap: 28px;
-      text-align: center;
-    }
-    .footer-logo { height: 44px; filter: brightness(0) invert(1); opacity: 0.7; }
-    .footer-tagline {
-      font-size: 0.82rem; color: var(--white-50);
-      font-style: italic; margin-top: -12px;
-    }
-    .footer-links {
-      display: flex; gap: 28px; flex-wrap: wrap; justify-content: center;
-      font-size: 0.85rem; font-weight: 600; color: var(--white-50);
-    }
-    .footer-links a:hover { color: #fff; }
-    .footer-powered {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--white-50);
-    }
-    .footer-powered img { height: 16px; opacity: 0.5; filter: brightness(0) invert(1); }
-    .footer-copy { font-size: 0.78rem; color: var(--white-50); }
-    .footer-legal { font-size: 0.72rem; color: var(--white-50); max-width: 600px; text-align: center; line-height: 1.5; margin: 12px auto 0; opacity: 0.7; }
-    .footer-address { font-size: 0.72rem; color: var(--white-50); text-align: center; margin-top: 8px; opacity: 0.7; }
-
-    /* ═══════════════════════════════════════
-       MOBILE RESPONSIVE
-    ═══════════════════════════════════════ */
-    @media (max-width: 1024px) {
-      .legends-grid { grid-template-columns: repeat(3, 1fr); }
-      .pricing-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 900px) {
-      .problem-inner { grid-template-columns: 1fr; gap: 40px; }
-      .problem-image { display: none; }
-      .app-inner { grid-template-columns: 1fr; gap: 48px; }
-      .app-screens { justify-content: center; }
-      .fitlogic-inner { grid-template-columns: 1fr; gap: 48px; }
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
-      .phases-grid { grid-template-columns: 1fr; }
-      .features-grid { grid-template-columns: 1fr; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .legends-grid { grid-template-columns: repeat(2, 1fr); }
-      .pricing-grid { grid-template-columns: 1fr; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .trust-logos { gap: 28px; }
-      .trust-logos img { height: 30px; }
-      .trust-inner { flex-direction: column; }
-      .screen-far { display: none; }
-      .fitlogic-stat-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 480px) {
-      .legends-grid { grid-template-columns: 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; }
-      .hero-ctas { flex-direction: column; }
-      .hero-ctas .btn { justify-content: center; }
-      .app-screens { flex-direction: column; align-items: center; }
-      .screen-main, .screen-side { width: 180px; }
-      .fitlogic-stat-grid { grid-template-columns: 1fr; }
-    }
-  
-  /* ═══ POLISH ═══ */
-  .btn-crimson {
-    position: relative;
-    overflow: hidden;
-  }
-  .btn-crimson::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
-    transform: translateX(-100%);
-    transition: transform 0.6s ease;
-  }
-  .btn-crimson:hover::after {
-    transform: translateX(100%);
-  }
-  .feature-card {
-    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;
-  }
-  .feature-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(234,0,41,0.08);
-  }
-  .fitlogic-stat-num {
-    background: linear-gradient(135deg, var(--sky), #7dd3fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .fitlogic-stat-num .accent {
-    -webkit-text-fill-color: var(--sky);
-  }
-  .section-label::after {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 2px;
-    background: var(--crimson);
-    border-radius: 2px;
-    margin-top: 8px;
-  }
-
-</style>
-  <!-- ═══ STRUCTURED DATA (JSON-LD) ═══ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "TriDot",
-    "url": "https://www.tridot.com/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.tridot.com/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TriDot",
+  "url": "https://www.tridot.com/",
+  "logo": "https://www.tridot.com/assets/tridot-logo-white.svg",
+  "parentOrganization": {
     "@type": "Organization",
-    "name": "TriDot",
-    "url": "https://www.tridot.com/",
-    "logo": "https://bradleyparnell.github.io/predictive-fitness/tridot/assets/tridot-logo-white.svg",
-    "parentOrganization": {
-      "@type": "Organization",
-      "name": "Predictive Fitness",
-      "url": "https://predictive.fit"
-    },
-    "sameAs": [
-      "https://www.instagram.com/tridottraining",
-      "https://www.facebook.com/tridottraining"
-    ]
-  }
-  </script>
+    "name": "Predictive Fitness",
+    "url": "https://predictive.fit"
+  },
+  "sameAs": [
+    "https://www.instagram.com/tridottraining",
+    "https://www.facebook.com/tridottraining"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "TriDot",
+  "applicationCategory": "SportsApplication",
+  "operatingSystem": "iOS, Android, Web",
+  "description": "TriDot is an AI-powered triathlon training platform that builds personalized swim, bike, and run plans using 20+ years of real athlete data and FitLogic technology.",
+  "offers": [
+    { "@type": "Offer", "name": "Lifestyle", "price": "14.99", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "Perfect for athletes planning 1-2 shorter-distance races per year." },
+    { "@type": "Offer", "name": "Essentials", "price": "39", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "For athletes racing multiple distances who want full RaceX performance optimization." },
+    { "@type": "Offer", "name": "Complete", "price": "99", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "Unlimited races, advanced controls, and priority support for the serious triathlete." },
+    { "@type": "Offer", "name": "Premium: Coached", "price": "249", "priceCurrency": "USD", "billingIncrement": "P1M", "description": "AI-powered training plus a dedicated coach with frequent one-to-one communication." }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is TriDot?", "acceptedAnswer": { "@type": "Answer", "text": "TriDot is an AI-powered triathlon training platform that builds personalized swim, bike, and run plans using 20+ years of real athlete data and FitLogic technology, so triathletes train less, race faster, and stay injury-free." } },
+    { "@type": "Question", "name": "Do I need a triathlon coach to use TriDot?", "acceptedAnswer": { "@type": "Answer", "text": "No, TriDot's AI-driven training works on its own for athletes at every level. For those who want additional human support, the Premium: Coached plan pairs TriDot's technology with a dedicated certified coach for frequent one-to-one communication." } },
+    { "@type": "Question", "name": "How is TriDot different from a generic training plan?", "acceptedAnswer": { "@type": "Answer", "text": "Generic training plans are built for an average athlete. TriDot assesses your true performance ability, prescribes the right training at the right time, evaluates how well you executed it, and predicts your race day performance, all personalized to your own data across swim, bike, and run." } },
+    { "@type": "Question", "name": "Can beginners use TriDot?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Lifestyle plan is built for athletes planning one to two shorter-distance races per year, making it a fit for beginners, while more advanced plans support athletes racing multiple distances throughout the year." } },
+    { "@type": "Question", "name": "What distances does TriDot support?", "acceptedAnswer": { "@type": "Answer", "text": "TriDot supports training across sprint, Olympic, and longer triathlon distances. Plans range from scheduling a single sprint or Olympic race to planning multiple races of any distance, or unlimited races on the Complete and Premium: Coached plans." } },
+    { "@type": "Question", "name": "What does TriDot's four-phase system include?", "acceptedAnswer": { "@type": "Answer", "text": "TriDot's system has four phases: Assess (identifying your true performance ability), Prescribe (delivering the right training at the right time), Evaluate (measuring training execution and response with TrainX score), and Predict (RaceX race day forecasting and pacing)." } },
+    { "@type": "Question", "name": "Can I cancel anytime?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every TriDot plan starts with a 14-day free trial that requires no credit card, and you can cancel anytime." } }
+  ]
+}
+</script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "TriDot",
-    "applicationCategory": "SportsApplication",
-    "operatingSystem": "iOS, Android, Web",
-    "description": "TriDot is an AI-powered triathlon training platform that builds personalized swim, bike, and run plans using 20+ years of real athlete data and FitLogic technology.",
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Lifestyle",
-        "price": "14.99",
-        "priceCurrency": "USD",
-        "billingIncrement": "P1M",
-        "description": "Perfect for athletes planning 1-2 shorter-distance races per year."
-      },
-      {
-        "@type": "Offer",
-        "name": "Essentials",
-        "price": "39",
-        "priceCurrency": "USD",
-        "billingIncrement": "P1M",
-        "description": "For athletes racing multiple distances who want full RaceX performance optimization."
-      },
-      {
-        "@type": "Offer",
-        "name": "Complete",
-        "price": "99",
-        "priceCurrency": "USD",
-        "billingIncrement": "P1M",
-        "description": "Unlimited races, advanced controls, and priority support for the serious triathlete."
-      },
-      {
-        "@type": "Offer",
-        "name": "Premium: Coached",
-        "price": "249",
-        "priceCurrency": "USD",
-        "billingIncrement": "P1M",
-        "description": "AI-powered training plus a dedicated coach with frequent one-to-one communication."
-      }
-    ]
-  }
-  </script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.tm { font-size: 0.5em; position: relative; top: -0.5em; line-height: 1; display: inline; }
+:root {
+  --red: #EA0029;
+  --red-light: #ff3355;
+  --red-soft: rgba(234,0,41,0.08);
+  --red-border: rgba(234,0,41,0.2);
+  --red-dim: rgba(234,0,41,0.12);
+  --dark: #111827;
+  --dark-2: #1f2937;
+  --text: #1a1a2e;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --text-light: #9ca3af;
+  --white: #ffffff;
+  --off-white: #f9fafb;
+  --light-bg: #f3f4f6;
+  --border: #e5e7eb;
+  --border-light: #f0f0f0;
+  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-condensed: 'Barlow Condensed', sans-serif;
+}
+html { scroll-behavior: smooth; overflow-x: clip; }
+html, body { overflow-x: hidden; max-width: 100%; }
+section, .trust-strip, .partners, footer, .app-showcase, .phone-showcase, .familiar-photo, .legend-strip { max-width: 100%; box-sizing: border-box; }
+body { font-family: var(--font-body); background: var(--white); color: var(--text); opacity: 0; transition: opacity 0.6s ease; }
+body.loaded { opacity: 1; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+ul { list-style: none; }
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is TriDot?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "TriDot is an AI-powered triathlon training platform that builds personalized swim, bike, and run plans using 20+ years of real athlete data and FitLogic technology, so triathletes train less, race faster, and stay injury-free."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do I need a triathlon coach to use TriDot?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No, TriDot's AI-driven training works on its own for athletes at every level. For those who want additional human support, the Premium: Coached plan pairs TriDot's technology with a dedicated certified coach for frequent one-to-one communication."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How is TriDot different from a generic training plan?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Generic training plans are built for an average athlete. TriDot assesses your true performance ability, prescribes the right training at the right time, evaluates how well you executed it, and predicts your race day performance, all personalized to your own data across swim, bike, and run."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can beginners use TriDot?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. The Lifestyle plan is built for athletes planning one to two shorter-distance races per year, making it a fit for beginners, while more advanced plans support athletes racing multiple distances throughout the year."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What distances does TriDot support?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "TriDot supports training across sprint, Olympic, and longer triathlon distances. Plans range from scheduling a single sprint or Olympic race to planning multiple races of any distance, or unlimited races on the Complete and Premium: Coached plans."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What does TriDot's four-phase system include?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "TriDot's system has four phases: Assess (identifying your true performance ability), Prescribe (delivering the right training at the right time), Evaluate (measuring training execution and response with TrainX score), and Predict (RaceX race day forecasting and pacing)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I cancel anytime?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Every TriDot plan starts with a 14-day free trial that requires no credit card, and you can cancel anytime."
-        }
-      }
-    ]
-  }
-  </script>
+/* CHEVRON STRIPE */
+.chevron-stripe { height: 24px; position: relative; overflow: hidden; background: transparent; margin-top: -12px; z-index: 2; }
+.chevron-stripe-inner {
+  position: absolute; top: 0; bottom: 0; left: 0; width: 55%;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 6px, rgba(234,0,41,0.35) 6px, rgba(234,0,41,0.35) 10px, transparent 10px, transparent 16px, rgba(234,0,41,0.35) 16px, rgba(234,0,41,0.35) 20px);
+  -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+  mask-image: linear-gradient(to right, black 60%, transparent 100%);
+}
+.chevron-stripe-right .chevron-stripe-inner { left: auto; right: 0; -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%); mask-image: linear-gradient(to left, black 60%, transparent 100%); }
+.chevron-stripe-subtle { height: 28px; margin-top: -14px; }
+.chevron-stripe-subtle .chevron-stripe-inner { opacity: 0.7; }
+.chevron-stripe-dark { background: var(--dark); }
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "name": "Mark Allen",
-        "jobTitle": "TriDot Legend",
-        "description": "6x IRONMAN World Champion, known as the Greatest Endurance Athlete of All Time.",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "TriDot"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "Craig Alexander",
-        "jobTitle": "TriDot Legend",
-        "description": "3x IRONMAN World Champion and former Kona Course Record Holder.",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "TriDot"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "Michellie Jones",
-        "jobTitle": "TriDot Legend",
-        "description": "Olympic Silver Medalist and IRONMAN World Champion.",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "TriDot"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "Mirinda Carfrae",
-        "jobTitle": "TriDot Legend",
-        "description": "3x IRONMAN World Champion and 7x Kona Podium Finisher.",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "TriDot"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "Tim O'Donnell",
-        "jobTitle": "TriDot Legend",
-        "description": "ITU Long Distance World Champion with 50+ pro podium finishes.",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "TriDot"
-        }
-      }
-    ]
-  }
-  </script>
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 60px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border-light);
+  transition: box-shadow 0.3s ease;
+}
+nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
+.nav-logo { display: flex; align-items: center; }
+.nav-logo svg { height: 26px; width: auto; }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  text-decoration: none; color: var(--text-secondary);
+  font-family: var(--font-condensed); font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.03em; font-size: 15px; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-login {
+  border: 1px solid var(--border); padding: 8px 18px; border-radius: 6px;
+  font-weight: 700 !important; color: var(--text) !important;
+  transition: border-color 0.2s, background 0.2s !important;
+}
+.nav-login:hover { border-color: var(--text-muted) !important; background: var(--off-white) !important; }
+.nav-cta {
+  background: var(--red); color: var(--white) !important; padding: 10px 22px; border-radius: 6px;
+  font-family: var(--font-display) !important; font-weight: 700 !important; font-style: italic;
+  text-transform: none; letter-spacing: normal; transition: background 0.2s !important; border: none;
+}
+.nav-cta:hover { background: var(--red-light) !important; }
+.nav-hamburger {
+  display: none; flex-direction: column; gap: 5px; cursor: pointer;
+  background: none; border: none; padding: 8px;
+}
+.nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--text); transition: all 0.3s; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-mobile-overlay {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 150;
+  background: var(--white); flex-direction: column; align-items: center; justify-content: center;
+  gap: 28px; padding: 40px;
+}
+.nav-mobile-overlay.open { display: flex; }
+.nav-mobile-overlay a {
+  font-family: var(--font-condensed); font-weight: 700; text-transform: uppercase;
+  font-size: 26px; letter-spacing: 0.02em; text-decoration: none; color: var(--text);
+}
+.nav-mobile-overlay .btn-primary { font-size: 18px; margin-top: 8px; }
+
+/* BUTTONS */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 20px 44px; border-radius: 8px;
+  background: var(--red); color: var(--white);
+  font-family: var(--font-display); font-weight: 700; font-size: 16px;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: all 0.25s ease;
+}
+.btn-primary:hover { background: var(--red-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(234,0,41,0.3); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 20px 44px; border-radius: 8px;
+  background: transparent; color: var(--white);
+  font-family: var(--font-display); font-weight: 700; font-size: 16px;
+  text-decoration: none; cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.3);
+  transition: all 0.25s ease;
+}
+.btn-outline:hover { border-color: rgba(255,255,255,0.65); background: rgba(255,255,255,0.08); }
+.btn-primary-dark { background: var(--dark); color: #fff; }
+
+/* HERO */
+.hero {
+  position: relative; min-height: 92vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; background: #0a0a0a;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('assets/hero-cycling-race.jpg');
+  background-size: cover; background-position: center;
+  transform: scale(1.04);
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.65) 100%);
+  z-index: 1;
+}
+.hero-content { position: relative; z-index: 2; text-align: center; max-width: 820px; padding: 180px 32px 60px; }
+.finally-wrapper { position: relative; display: inline-block; margin-bottom: 8px; }
+.finally-text {
+  font-family: 'Rock Salt', cursive; font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  color: #fff; font-weight: 700; letter-spacing: 0.02em;
+  position: relative; z-index: 2; display: inline-block; padding: 0 20px;
+  opacity: 0; animation: finallyFadeIn 0.8s ease-out 0.3s both;
+}
+@keyframes finallyFadeIn { from { opacity: 0; transform: translateY(12px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.finally-scribble { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 220px; height: 90px; z-index: 1; pointer-events: none; }
+.scribble-path { stroke-dasharray: 600; stroke-dashoffset: 600; transition: stroke-dashoffset 1.2s ease-out; }
+.scribble-path.drawn { stroke-dashoffset: 0; }
+.hero h1 {
+  font-family: var(--font-condensed);
+  font-size: clamp(48px, 7vw, 86px);
+  font-weight: 700; text-transform: uppercase;
+  line-height: 1.02; letter-spacing: 0.01em;
+  margin-bottom: 8px; color: var(--white);
+}
+.hero-word { display: inline-block; opacity: 0; transform: translateY(16px); animation: heroWordIn 0.6s ease forwards; }
+@keyframes heroWordIn { to { opacity: 1; transform: translateY(0); } }
+.hero-word.red-word { color: var(--red-light); }
+.goal-typewriter {
+  display: inline-flex; align-items: baseline; gap: 0;
+  margin-top: 40px; margin-bottom: 48px; font-family: var(--font-display);
+  font-size: 22px; letter-spacing: -0.01em;
+  border: 1px solid rgba(255,255,255,0.15); border-radius: 50px; padding: 12px 28px;
+  background: rgba(255,255,255,0.05); backdrop-filter: blur(8px);
+}
+.goal-typewriter-prefix { font-weight: 500; color: rgba(255,255,255,0.6); white-space: pre; }
+.goal-typewriter-text { font-weight: 700; color: var(--red-light); white-space: nowrap; min-width: 2px; }
+.goal-typewriter-cursor {
+  display: inline-block; width: 2px; height: 0.85em; background: var(--red-light);
+  margin-left: 2px; animation: cursorBlink 0.8s ease-in-out infinite; position: relative; top: -0.05em;
+}
+@keyframes cursorBlink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+.hero-cta-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+.hero-social-proof { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 40px; font-size: 15px; color: rgba(255,255,255,0.8); font-family: var(--font-body); }
+.hero-avatars { display: flex; }
+.hero-avatar {
+  width: 36px; height: 36px; border-radius: 50%; border: 2px solid #0a0a0a;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 12px; color: #fff;
+  margin-left: -10px;
+}
+.hero-avatar:first-child { margin-left: 0; }
+.hero-avatar-plus { background: var(--red) !important; }
+.hero-social-text strong { color: #fff; }
+
+/* LEGEND STRIP */
+.legend-strip { background: var(--white); padding: 0; }
+.legend-strip-inner {
+  max-width: 900px; margin: 0 auto; padding: 48px 24px;
+  display: flex; align-items: center; gap: 32px;
+}
+.legend-strip-photo {
+  width: 120px; height: 120px; border-radius: 50%; flex-shrink: 0;
+  background: var(--red); display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 800; font-size: 32px; color: #fff;
+  border: 3px solid var(--red-border);
+}
+.legend-strip-quote { font-family: var(--font-body); font-size: 22px; line-height: 1.5; color: var(--text); margin-bottom: 12px; font-style: italic; }
+.legend-strip-name { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.legend-strip-title { font-size: 14px; color: var(--text-muted); }
+.red-line-sep { width: 100%; height: 4px; background: var(--red); }
+
+/* TRUST STRIP (dark, red borders) */
+.partners-strip { padding: 32px 40px; background: var(--off-white); text-align: center; }
+.partners-label { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 20px; font-family: var(--font-display); }
+.partners-logos { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.7; }
+.partners-logos img { filter: grayscale(100%); transition: filter 0.3s; }
+.partners-logos img:hover { filter: grayscale(0); }
+.trust-strip { padding: 48px 40px; background: #111; border-top: 4px solid var(--red); border-bottom: 4px solid var(--red); }
+.trust-row { display: flex; justify-content: center; gap: 64px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
+.trust-item { text-align: center; }
+.trust-num { font-family: var(--font-condensed); font-weight: 700; font-size: 36px; color: #fff; letter-spacing: 0.01em; }
+.trust-num .red { color: var(--red-light); }
+.trust-label { font-size: 14px; color: rgba(255,255,255,0.55); margin-top: 6px; font-weight: 500; font-family: var(--font-body); }
+.distance-cursor { display: inline-block; width: 3px; height: 0.85em; background: var(--red-light); margin-left: 3px; animation: cursorBlink 1s ease-in-out infinite; vertical-align: baseline; }
+
+/* SECTION BASE */
+.section { padding: 100px 40px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 64px; }
+.section-eyebrow {
+  font-family: var(--font-display); font-size: 15px; font-weight: 800;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--red);
+  margin-bottom: 16px; display: flex; align-items: center; gap: 10px; justify-content: center;
+}
+.section-eyebrow::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
+.section-title {
+  font-family: var(--font-condensed); font-size: clamp(32px, 4.4vw, 52px); font-weight: 700;
+  text-transform: uppercase; color: var(--text); line-height: 1.1; letter-spacing: 0.01em; margin-bottom: 16px;
+}
+.section-sub { font-size: 18px; color: var(--text-secondary); max-width: 620px; margin: 0 auto; line-height: 1.7; font-family: var(--font-body); }
+
+/* PHASES TIMELINE */
+.phases-section { background: #f8f8f8; }
+.phases-timeline { max-width: 760px; margin: 0 auto; position: relative; padding-left: 64px; }
+.phases-timeline::before { content: ''; position: absolute; left: 22px; top: 8px; bottom: 8px; width: 3px; background: linear-gradient(to bottom, var(--red), rgba(234,0,41,0.15)); border-radius: 3px; }
+.phase-panel { position: relative; margin-bottom: 44px; padding: 32px 36px; background: #fff; border-radius: 14px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); opacity: 0; transform: translateX(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.phase-panel.timeline-visible { opacity: 1; transform: translateX(0); }
+.phase-marker {
+  position: absolute; left: -50px; top: 36px; width: 44px; height: 44px; border-radius: 50%;
+  background: var(--red); border: 4px solid #f8f8f8; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-condensed); font-weight: 700; font-size: 20px; color: #fff;
+  transform: scale(0); transition: transform 0.4s ease 0.2s;
+}
+.phase-panel.timeline-visible .phase-marker { transform: scale(1); }
+.phase-eyebrow { font-family: var(--font-display); font-size: 12px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.phase-eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); display: inline-block; }
+.phase-number { font-size: 12px; font-weight: 700; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+.phase-panel h3 { font-family: var(--font-condensed); font-size: 34px; font-weight: 700; text-transform: uppercase; color: var(--text); margin-bottom: 6px; letter-spacing: 0.01em; }
+.phase-name { font-size: 14px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 18px; }
+.phase-bullets { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
+.phase-bullets li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
+.phase-bullets li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--red); margin-top: 8px; flex-shrink: 0; }
+.phase-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.phase-tag { background: var(--red-soft); border: 1px solid var(--red-border); color: var(--red); border-radius: 50px; padding: 5px 14px; font-size: 12px; font-weight: 700; font-family: var(--font-display); }
+
+/* SOUND FAMILIAR */
+.familiar { background: var(--dark); padding-bottom: 0; }
+.familiar .section-title, .familiar .section-eyebrow { color: #fff; }
+.familiar .section-eyebrow { color: var(--red-light); }
+.familiar .section-eyebrow::before { background: var(--red-light); }
+.familiar .section-inner { padding-bottom: 0; }
+.familiar-photo {
+  position: relative; margin-top: 48px; overflow: hidden;
+  background: url('assets/tridot-photo-stress.jpg') center 30% / cover no-repeat;
+  min-height: 600px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+  padding: 80px 24px 48px;
+}
+.familiar-photo::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.55) 100%); pointer-events: none; }
+.doubt-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; max-width: 760px; margin: 0 auto; position: relative; z-index: 2; }
+.doubt-card {
+  background: rgba(255,255,255,0.18); backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.35); border-radius: 50px;
+  padding: 18px 26px; text-align: center; font-family: var(--font-body);
+  font-size: 15px; font-weight: 600; color: #fff; line-height: 1.4;
+}
+
+/* MARQUEE */
+.marquee-banner { background: var(--red); padding: 20px 0; overflow: hidden; white-space: nowrap; position: relative; z-index: 10; }
+.marquee-track { display: inline-flex; align-items: center; animation: marqueeScroll 30s linear infinite; will-change: transform; }
+.marquee-track span {
+  font-family: var(--font-condensed); font-weight: 700; font-style: italic; font-size: 26px;
+  color: #fff; text-transform: uppercase; letter-spacing: 0.02em; padding: 0 30px; flex-shrink: 0;
+}
+.marquee-dot { color: rgba(255,255,255,0.7); font-size: 10px; flex-shrink: 0; }
+@keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* FEATURES GRID */
+.features-section { background: var(--off-white); }
+.features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.feature-card {
+  background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 36px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.feature-card:hover { transform: translateY(-3px); border-color: var(--red-border); box-shadow: 0 16px 40px rgba(0,0,0,0.06); }
+.feature-icon {
+  width: 52px; height: 52px; background: var(--red-soft); border: 1px solid var(--red-border);
+  border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; margin-bottom: 24px;
+}
+.feature-title { font-family: var(--font-display); font-size: 20px; font-weight: 800; margin-bottom: 12px; color: var(--text); }
+.feature-desc { color: var(--text-secondary); font-size: 15px; line-height: 1.7; font-family: var(--font-body); }
+
+/* APP SHOWCASE */
+.app-showcase-section { background: var(--dark); padding: 110px 40px; text-align: center; position: relative; overflow: hidden; }
+.app-showcase-section::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; background: radial-gradient(circle, rgba(234,0,41,0.1) 0%, transparent 70%); pointer-events: none; }
+.app-showcase-inner { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; }
+.app-showcase-section h2 { font-family: var(--font-condensed); font-size: clamp(36px, 5vw, 56px); font-weight: 700; text-transform: uppercase; color: #fff; margin-bottom: 56px; letter-spacing: 0.01em; }
+.phone-row { display: flex; justify-content: center; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 56px; }
+.phone-frame { width: 220px; border-radius: 28px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.5); background: #000; border: 6px solid #1a1a1a; }
+.phone-frame.phone-side { width: 190px; opacity: 0.85; }
+.phone-store-row { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+.store-badge {
+  display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 10px 18px;
+  font-size: 14px; font-weight: 600; color: #fff; transition: background 0.2s; text-decoration: none;
+}
+.store-badge:hover { background: rgba(255,255,255,0.12); }
+.store-badge svg { width: 20px; }
+
+/* REVIEWS */
+.testimonials-section { background: #f8f8f8; }
+.testimonial-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 900px; margin: 0 auto; }
+.testimonial-card {
+  background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 34px 30px 28px;
+  position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonial-card::before {
+  content: ''; position: absolute; top: -8px; left: 50%; transform: translateX(-50%) rotate(-2deg);
+  width: 90px; height: 22px; background: var(--red); opacity: 0.85; border-radius: 2px;
+}
+.testimonial-card:nth-child(1) { transform: rotate(-1deg); }
+.testimonial-card:nth-child(2) { transform: rotate(0.5deg); }
+.testimonial-card:nth-child(3) { transform: rotate(-0.5deg); }
+.testimonial-card:nth-child(4) { transform: rotate(1deg); }
+.testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+.testimonial-stars { color: var(--red); font-size: 15px; margin-bottom: 16px; letter-spacing: 2px; }
+.testimonial-card p.quote { font-size: 15px; color: var(--text-secondary); line-height: 1.7; font-style: italic; margin-bottom: 22px; font-family: var(--font-body); }
+.testimonial-author { display: flex; align-items: center; gap: 12px; padding-top: 18px; border-top: 1px solid var(--border-light); }
+.author-avatar {
+  width: 38px; height: 38px; border-radius: 50%; background: var(--red);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800; color: #fff; flex-shrink: 0; font-family: var(--font-display);
+}
+.author-name { font-size: 14px; font-weight: 700; color: var(--text); font-family: var(--font-display); }
+.author-sport { font-size: 13px; color: var(--text-muted); }
+
+/* LEGENDS GALLERY */
+.legends-gallery { background: #0a0a0a; position: relative; overflow: hidden; }
+.legends-gallery-bg { position: absolute; inset: 0; background-image: url('assets/tridot-legends.png'); background-size: cover; background-position: center; opacity: 0.12; }
+.legends-gallery .section-inner { position: relative; z-index: 2; }
+.legends-gallery .section-title, .legends-gallery .section-sub { color: #fff; }
+.legends-gallery .section-sub { color: rgba(255,255,255,0.65); }
+.legends-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+.legend-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px;
+  padding: 28px 18px; text-align: center; transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+.legend-card:hover { background: rgba(234,0,41,0.1); border-color: rgba(234,0,41,0.3); transform: translateY(-4px); }
+.legend-avatar {
+  width: 56px; height: 56px; border-radius: 50%; background: var(--red);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 800; color: #fff; margin: 0 auto 18px;
+  border: 2px solid rgba(255,255,255,0.12); font-family: var(--font-display);
+}
+.legend-card h3 { font-family: var(--font-condensed); font-size: 22px; font-weight: 700; text-transform: uppercase; color: #fff; margin-bottom: 8px; letter-spacing: 0.01em; }
+.legend-card-title { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.5; font-family: var(--font-body); }
+
+/* FITLOGIC */
+.fitlogic-section { background: linear-gradient(160deg, #111827 0%, #1a1030 100%); padding: 110px 40px; position: relative; overflow: hidden; }
+.fitlogic-section::before { content: ''; position: absolute; bottom: -200px; left: -200px; width: 700px; height: 700px; background: radial-gradient(circle, rgba(234,0,41,0.08), transparent 65%); pointer-events: none; }
+.fitlogic-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; position: relative; z-index: 1; }
+.fitlogic-powered { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 18px; }
+.fitlogic-wordmark { font-family: var(--font-condensed); font-size: 46px; font-weight: 700; letter-spacing: 0.01em; color: #fff; margin-bottom: 22px; }
+.fitlogic-content h2 { font-family: var(--font-condensed); font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; text-transform: uppercase; color: #fff; margin-bottom: 20px; line-height: 1.15; }
+.fitlogic-content p { color: rgba(255,255,255,0.7); margin-bottom: 18px; font-size: 16px; line-height: 1.7; font-family: var(--font-body); }
+.fitlogic-link { display: inline-flex; align-items: center; gap: 6px; color: var(--red-light); font-weight: 700; font-size: 15px; text-decoration: none; transition: gap 0.2s; font-family: var(--font-display); }
+.fitlogic-link:hover { gap: 10px; }
+.fitlogic-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.fitlogic-stat { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 26px; }
+.fitlogic-stat-num { font-family: var(--font-condensed); font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.fitlogic-stat-num .accent { color: var(--red-light); }
+.fitlogic-stat-label { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5); letter-spacing: 0.04em; font-family: var(--font-body); }
+
+/* COACHES */
+.coaches-section { background: var(--off-white); padding: 110px 40px; }
+.coaches-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.coaches-content h2 { font-family: var(--font-condensed); font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; text-transform: uppercase; color: var(--text); margin-bottom: 20px; line-height: 1.15; }
+.coaches-content p { color: var(--text-secondary); font-size: 16px; line-height: 1.7; margin-bottom: 20px; font-family: var(--font-body); }
+.coaches-quote { background: var(--red-soft); border-left: 3px solid var(--red); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 24px 0 28px; }
+.coaches-quote p { font-style: italic; color: var(--text-secondary); margin-bottom: 0; font-size: 16px; }
+.coaches-image { border-radius: 16px; overflow: hidden; aspect-ratio: 4/3; position: relative; }
+.coaches-image img { width: 100%; height: 100%; object-fit: cover; }
+
+/* PRICING */
+.pricing-section { background: var(--white); padding: 110px 40px; }
+.pricing-note { display: block; text-align: center; margin: 0 auto 48px; }
+.pricing-trial {
+  display: inline-block; background: var(--red-soft); border: 1px solid var(--red-border);
+  color: var(--red); border-radius: 50px; padding: 8px 20px; font-size: 13px; font-weight: 700; font-family: var(--font-display);
+}
+.pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: start; max-width: 1200px; margin: 0 auto; }
+.pricing-card {
+  background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 32px 26px;
+  position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pricing-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,0,0,0.08); }
+.pricing-card.featured { border: 2px solid var(--red); box-shadow: 0 0 40px rgba(234,0,41,0.12); background: linear-gradient(160deg, #fff5f6, #ffffff); }
+.pricing-badge {
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--red); color: #fff;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 16px; border-radius: 50px; white-space: nowrap;
+  font-family: var(--font-display);
+}
+.pricing-tier { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; font-family: var(--font-display); }
+.pricing-price { display: flex; align-items: baseline; gap: 4px; margin-bottom: 10px; }
+.price-dollar { font-size: 22px; font-weight: 800; margin-top: 6px; color: var(--text); }
+.price-amount { font-family: var(--font-condensed); font-size: 46px; font-weight: 700; line-height: 1; letter-spacing: -0.01em; color: var(--text); }
+.price-period { font-size: 13px; color: var(--text-muted); font-weight: 600; margin-left: 2px; }
+.pricing-headline { font-size: 13px; color: var(--text-secondary); margin-bottom: 26px; min-height: 52px; line-height: 1.5; font-family: var(--font-body); }
+.pricing-cta {
+  display: block; width: 100%; text-align: center; justify-content: center; margin-bottom: 26px; padding: 14px 20px;
+  border-radius: 8px; text-decoration: none; font-family: var(--font-display); font-weight: 700; font-size: 14px;
+}
+.pricing-cta.primary { background: var(--red); color: #fff; }
+.pricing-cta.primary:hover { background: var(--red-light); }
+.pricing-cta.ghost { background: var(--off-white); color: var(--text); border: 1px solid var(--border); }
+.pricing-cta.ghost:hover { background: var(--border-light); }
+.pricing-features { display: flex; flex-direction: column; gap: 11px; }
+.pricing-feature { display: flex; gap: 9px; align-items: flex-start; font-size: 13px; color: var(--text-secondary); line-height: 1.5; font-family: var(--font-body); }
+.feature-check { color: var(--red); font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+.pricing-divider { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin: 14px 0 10px; font-family: var(--font-display); }
+
+/* FAQ */
+.faq-section { background: var(--dark); padding: 100px 40px; }
+.faq-section .section-title, .faq-section .section-eyebrow { color: #fff; }
+.faq-section .section-eyebrow { color: var(--red-light); }
+.faq-section .section-eyebrow::before { background: var(--red-light); }
+.faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.faq-list details {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 22px 26px;
+}
+.faq-list summary {
+  cursor: pointer; font-weight: 700; font-size: 16px; color: #fff; list-style: none;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: var(--font-display);
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: '+'; font-size: 22px; color: var(--red-light); flex-shrink: 0; transition: transform 0.25s ease; }
+.faq-list details[open] summary::after { transform: rotate(45deg); }
+.faq-list p { margin-top: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; font-size: 15px; font-family: var(--font-body); }
+
+/* FINAL CTA */
+.final-cta-section { position: relative; overflow: hidden; padding: 140px 40px; text-align: center; }
+.final-cta-bg { position: absolute; inset: 0; background-image: url('assets/triathlon-cta-bg.jpg'); background-size: cover; background-position: center; }
+.final-cta-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15,23,42,0.93), rgba(10,10,10,0.9)); }
+.final-cta-content { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; }
+.final-cta-content .section-eyebrow { color: var(--red-light); justify-content: center; }
+.final-cta-content .section-eyebrow::before { background: var(--red-light); }
+.final-cta-content h2 { font-family: var(--font-condensed); font-size: clamp(30px, 4vw, 46px); font-weight: 700; text-transform: uppercase; color: #fff; margin-bottom: 20px; line-height: 1.15; }
+.final-cta-content p { color: rgba(255,255,255,0.7); font-size: 17px; line-height: 1.7; margin-bottom: 36px; font-family: var(--font-body); }
+.cta-no-cc { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 20px; font-family: var(--font-body); }
+
+/* FOOTER */
+footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 40px; font-size: 13px; line-height: 1.7; width: 100%; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-logo { margin-bottom: 20px; }
+.footer-logo svg { height: 24px; width: auto; opacity: 0.9; }
+.footer-desc { max-width: 280px; line-height: 1.7; margin-bottom: 8px; }
+.footer-tagline { font-style: italic; color: rgba(255,255,255,0.4); font-size: 13px; }
+.footer-col h4 { font-family: var(--font-condensed); font-weight: 700; text-transform: uppercase; font-size: 14px; color: rgba(255,255,255,0.8); letter-spacing: 0.06em; margin-bottom: 16px; }
+.footer-col a { display: block; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; font-size: 13px; }
+.footer-col a:hover { color: var(--red-light); }
+.footer-fitlogic { margin-top: 24px; display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+.footer-fitlogic img { height: 16px; opacity: 0.6; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; }
+.footer-legal { max-width: 900px; font-size: 11px; line-height: 1.8; color: rgba(255,255,255,0.35); margin-bottom: 8px; }
+.footer-legal a { color: rgba(255,255,255,0.45); text-decoration: underline; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+/* SHARED / FADE */
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .legends-grid { grid-template-columns: repeat(3, 1fr); }
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .fitlogic-inner, .coaches-inner { grid-template-columns: 1fr; gap: 48px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .testimonial-grid { grid-template-columns: 1fr; max-width: 480px; }
+}
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .hero-content { padding: 140px 20px 60px; }
+  .goal-typewriter { font-size: 17px; padding: 10px 20px; }
+  .hero-cta-row { flex-direction: column; align-items: center; width: 100%; }
+  .hero-cta-row a { width: 100%; max-width: 320px; justify-content: center; }
+  .legend-strip-inner { flex-direction: column; text-align: center; padding: 40px 20px; }
+  .trust-row { gap: 28px; }
+  .trust-num { font-size: 26px; }
+  .phases-timeline { padding-left: 48px; }
+  .phase-marker { left: -40px; width: 36px; height: 36px; font-size: 16px; }
+  .phase-panel { padding: 26px; }
+  .doubt-cards { grid-template-columns: 1fr; }
+  .legends-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .section { padding: 64px 20px; }
+  .marquee-track span { font-size: 18px; padding: 0 16px; }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: clamp(38px, 12vw, 56px); }
+  .legends-grid { grid-template-columns: 1fr; }
+  .fitlogic-stat-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 
-  <!-- ═══ NAV ═══ -->
-  <nav class="nav" id="main-nav">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <svg width="87" height="24" viewBox="0 0 87 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22.4559 6.48182C22.0863 7.49775 21.3674 8.34613 20.43 8.87266C19.4926 9.3992 18.399 9.56891 17.348 9.35093C17.0342 9.28579 16.7279 9.18752 16.4344 9.05773L15.4534 9.98967C15.7171 10.5612 15.8183 11.1954 15.7455 11.8216C15.6728 12.4478 15.4291 13.0412 15.0415 13.5358C14.6539 14.0304 14.1378 14.4067 13.5506 14.6228C12.9633 14.8388 12.3282 14.8861 11.7159 14.7593C11.3931 14.6919 11.0818 14.5772 10.7919 14.419L9.91464 15.2567C10.2048 15.7501 10.3177 16.3292 10.2344 16.8967C10.151 17.4642 9.87648 17.9854 9.45694 18.3728C9.0374 18.7602 8.49843 18.9901 7.93063 19.0238C7.36282 19.0575 6.80082 18.8931 6.33908 18.5581C5.87735 18.2231 5.54405 17.7379 5.39522 17.1842C5.24638 16.6306 5.29108 16.0421 5.5218 15.5177C5.75253 14.9933 6.15521 14.5651 6.66214 14.3049C7.16908 14.0448 7.74937 13.9686 8.30545 14.0891C8.49479 14.124 8.67829 14.1857 8.8505 14.2724L9.60318 13.309C9.22992 12.7471 9.03086 12.0859 9.03133 11.4095C9.03179 10.7332 9.23177 10.0722 9.6058 9.51086C9.97983 8.94947 10.511 8.51302 11.1317 8.25705C11.7524 8.00108 12.4346 7.93717 13.0915 8.07344C13.2676 8.11028 13.4411 8.15926 13.6106 8.22004L14.4204 7.17292C14.11 6.63939 13.9119 6.04715 13.8382 5.43306C13.7646 4.81896 13.8171 4.19615 13.9923 3.60339C14.1676 3.01062 14.462 2.46059 14.8571 1.98751C15.2523 1.51443 15.7397 1.12844 16.2891 0.853546C15.6398 0.593133 14.9694 0.38993 14.2854 0.246216C11.6391 -0.303257 8.88615 0.0712791 6.47874 1.30831C4.07134 2.54535 2.15259 4.57133 1.0376 7.05354C-0.0773788 9.53574 -0.322302 12.3266 0.343059 14.9677C1.00842 17.6089 2.54451 19.9433 4.69905 21.5876C6.85359 23.2319 9.49848 24.0884 12.1994 24.0163C14.9002 23.9442 17.4965 22.9478 19.5618 21.1909C21.6271 19.4339 23.0386 17.0208 23.5645 14.3479C24.0905 11.6749 23.6995 8.90107 22.4559 6.48182Z" fill="#EA0029"/>
-          <path d="M32.4018 19.8953H29.0952L33.0974 7.95285H29.5261L30.502 5.03662H40.9721L39.9962 7.95285H36.404L32.4018 19.8953Z" fill="white"/>
-          <path d="M36.3833 19.8952L40.1052 8.79051H43.0848L42.6799 9.9947C42.9333 9.61659 43.2765 9.30836 43.6781 9.09806C44.0797 8.88775 44.527 8.78203 44.9795 8.79051H48.1771L47.2894 11.445H42.872C42.6846 11.4174 42.4939 11.4642 42.34 11.5755C42.186 11.6868 42.0809 11.854 42.0466 12.0418L39.4511 19.8952H36.3833Z" fill="white"/>
-          <path d="M50.9438 19.8953L54.5775 9.05241H57.8426L55.1796 16.9843H59.8152C60.5523 16.9843 61.1492 16.4974 61.4659 15.555L63.5422 9.36655C63.8589 8.4189 63.6045 7.93723 62.8415 7.93723H54.9409L55.922 5.021H64.4299C67.0254 5.021 67.8611 6.33513 67.0253 8.81681L64.5908 16.0838C63.7603 18.5603 62.0369 19.8796 59.4466 19.8796L50.9438 19.8953Z" fill="white"/>
-          <path d="M66.6983 19.8952C65.141 19.8952 64.8607 19.2146 65.359 17.7225L67.6222 10.9633C68.1413 9.46592 68.8525 8.79053 70.4202 8.79053H77.9055C79.5147 8.79053 79.769 9.46592 79.2655 10.9633L77.0022 17.7225C76.4832 19.2146 75.798 19.8952 74.1836 19.8952H66.6983ZM75.8499 12.0418C76.016 11.5602 75.9277 11.4293 75.3827 11.4293H71.0742C70.6174 11.4293 70.4669 11.5602 70.3008 12.0418L68.7902 16.5654C68.6397 17.0052 68.6968 17.157 69.1536 17.157H73.462C73.9811 17.157 74.1888 17.0052 74.3393 16.5654L75.8499 12.0418Z" fill="white"/>
-          <path d="M79.6445 19.8953C78.0873 19.8953 77.807 19.2147 78.3053 17.7225L82.3386 5.68066H85.3857L84.3475 8.78014H87.0001L86.1955 11.1938H83.5377L81.6327 16.8744C81.4717 17.3613 81.5652 17.4712 82.0012 17.4712H84.0049L83.1951 19.8953H79.6445Z" fill="white"/>
-          <path d="M53.8403 5.07324H50.7828L50.0613 7.25649H53.1187L53.8403 5.07324Z" fill="white"/>
-          <path d="M49.5423 8.81152L45.8723 19.8796H48.909L52.5738 8.81152H49.5423Z" fill="white"/>
-        </svg>
-      </a>
-      <nav class="nav-links">
-        <a href="#how-it-works">How It Works</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#get-coached">Get Coached</a>
-        <a href="https://app.tridot.com/login" target="_blank">Login</a>
-        <a href="https://www.tridot.com/tridot-app-redirect" target="_blank" class="btn btn-primary btn-sm nav-cta">Get the App</a>
-      </nav>
-      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-  <div class="nav-mobile" id="mobile-menu">
+<!-- NAV -->
+<header>
+<nav id="mainNav">
+  <a class="nav-logo" href="#" aria-label="TriDot home">
+    <svg width="87" height="24" viewBox="0 0 87 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22.4559 6.48182C22.0863 7.49775 21.3674 8.34613 20.43 8.87266C19.4926 9.3992 18.399 9.56891 17.348 9.35093C17.0342 9.28579 16.7279 9.18752 16.4344 9.05773L15.4534 9.98967C15.7171 10.5612 15.8183 11.1954 15.7455 11.8216C15.6728 12.4478 15.4291 13.0412 15.0415 13.5358C14.6539 14.0304 14.1378 14.4067 13.5506 14.6228C12.9633 14.8388 12.3282 14.8861 11.7159 14.7593C11.3931 14.6919 11.0818 14.5772 10.7919 14.419L9.91464 15.2567C10.2048 15.7501 10.3177 16.3292 10.2344 16.8967C10.151 17.4642 9.87648 17.9854 9.45694 18.3728C9.0374 18.7602 8.49843 18.9901 7.93063 19.0238C7.36282 19.0575 6.80082 18.8931 6.33908 18.5581C5.87735 18.2231 5.54405 17.7379 5.39522 17.1842C5.24638 16.6306 5.29108 16.0421 5.5218 15.5177C5.75253 14.9933 6.15521 14.5651 6.66214 14.3049C7.16908 14.0448 7.74937 13.9686 8.30545 14.0891C8.49479 14.124 8.67829 14.1857 8.8505 14.2724L9.60318 13.309C9.22992 12.7471 9.03086 12.0859 9.03133 11.4095C9.03179 10.7332 9.23177 10.0722 9.6058 9.51086C9.97983 8.94947 10.511 8.51302 11.1317 8.25705C11.7524 8.00108 12.4346 7.93717 13.0915 8.07344C13.2676 8.11028 13.4411 8.15926 13.6106 8.22004L14.4204 7.17292C14.11 6.63939 13.9119 6.04715 13.8382 5.43306C13.7646 4.81896 13.8171 4.19615 13.9923 3.60339C14.1676 3.01062 14.462 2.46059 14.8571 1.98751C15.2523 1.51443 15.7397 1.12844 16.2891 0.853546C15.6398 0.593133 14.9694 0.38993 14.2854 0.246216C11.6391 -0.303257 8.88615 0.0712791 6.47874 1.30831C4.07134 2.54535 2.15259 4.57133 1.0376 7.05354C-0.0773788 9.53574 -0.322302 12.3266 0.343059 14.9677C1.00842 17.6089 2.54451 19.9433 4.69905 21.5876C6.85359 23.2319 9.49848 24.0884 12.1994 24.0163C14.9002 23.9442 17.4965 22.9478 19.5618 21.1909C21.6271 19.4339 23.0386 17.0208 23.5645 14.3479C24.0905 11.6749 23.6995 8.90107 22.4559 6.48182Z" fill="#EA0029"/>
+      <path d="M32.4018 19.8953H29.0952L33.0974 7.95285H29.5261L30.502 5.03662H40.9721L39.9962 7.95285H36.404L32.4018 19.8953Z" fill="#111827"/>
+      <path d="M36.3833 19.8952L40.1052 8.79051H43.0848L42.6799 9.9947C42.9333 9.61659 43.2765 9.30836 43.6781 9.09806C44.0797 8.88775 44.527 8.78203 44.9795 8.79051H48.1771L47.2894 11.445H42.872C42.6846 11.4174 42.4939 11.4642 42.34 11.5755C42.186 11.6868 42.0809 11.854 42.0466 12.0418L39.4511 19.8952H36.3833Z" fill="#111827"/>
+      <path d="M50.9438 19.8953L54.5775 9.05241H57.8426L55.1796 16.9843H59.8152C60.5523 16.9843 61.1492 16.4974 61.4659 15.555L63.5422 9.36655C63.8589 8.4189 63.6045 7.93723 62.8415 7.93723H54.9409L55.922 5.021H64.4299C67.0254 5.021 67.8611 6.33513 67.0253 8.81681L64.5908 16.0838C63.7603 18.5603 62.0369 19.8796 59.4466 19.8796L50.9438 19.8953Z" fill="#111827"/>
+      <path d="M66.6983 19.8952C65.141 19.8952 64.8607 19.2146 65.359 17.7225L67.6222 10.9633C68.1413 9.46592 68.8525 8.79053 70.4202 8.79053H77.9055C79.5147 8.79053 79.769 9.46592 79.2655 10.9633L77.0022 17.7225C76.4832 19.2146 75.798 19.8952 74.1836 19.8952H66.6983ZM75.8499 12.0418C76.016 11.5602 75.9277 11.4293 75.3827 11.4293H71.0742C70.6174 11.4293 70.4669 11.5602 70.3008 12.0418L68.7902 16.5654C68.6397 17.0052 68.6968 17.157 69.1536 17.157H73.462C73.9811 17.157 74.1888 17.0052 74.3393 16.5654L75.8499 12.0418Z" fill="#111827"/>
+      <path d="M79.6445 19.8953C78.0873 19.8953 77.807 19.2147 78.3053 17.7225L82.3386 5.68066H85.3857L84.3475 8.78014H87.0001L86.1955 11.1938H83.5377L81.6327 16.8744C81.4717 17.3613 81.5652 17.4712 82.0012 17.4712H84.0049L83.1951 19.8953H79.6445Z" fill="#111827"/>
+      <path d="M53.8403 5.07324H50.7828L50.0613 7.25649H53.1187L53.8403 5.07324Z" fill="#111827"/>
+      <path d="M49.5423 8.81152L45.8723 19.8796H48.909L52.5738 8.81152H49.5423Z" fill="#111827"/>
+    </svg>
+  </a>
+  <div class="nav-links">
     <a href="#how-it-works">How It Works</a>
     <a href="#pricing">Pricing</a>
-    <a href="#get-coached">Get Coached</a>
-    <a href="https://app.tridot.com/login" target="_blank">Login</a>
-    <a href="https://www.tridot.com/tridot-app-redirect" target="_blank" class="btn btn-primary">Get the App</a>
+    <a href="#get-coached">For Coaches</a>
+    <a href="https://app.tridot.com/login" target="_blank" class="nav-login">Login</a>
+    <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="nav-cta">Start Training Free</a>
   </div>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+</header>
 
-  <!-- ═══ HERO ═══ -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-sports fade-up">
-          <div class="sport-pill"><span>🏊</span> Swim</div>
-          <div class="sport-pill"><span>🚴</span> Bike</div>
-          <div class="sport-pill"><span>🏃</span> Run</div>
-        </div>
-        <p class="section-label hero-label fade-up delay-1">AI-Powered Triathlon &amp; Endurance Training</p>
-        <h1 class="display-xl hero-headline fade-up delay-2">
-          You deserve<br>better training.
-        </h1>
-        <p class="hero-sub fade-up delay-3">
-          You're not average. Your training shouldn't be either. TriDot® builds a precision training experience around your unique data, so you stop guessing and start getting faster.
-        </p>
-        <div class="hero-ctas fade-up delay-4">
-          <a href="https://www.tridot.com/tridot-app-redirect" target="_blank" class="btn btn-primary btn-lg">Get the App Free</a>
-          <a href="#how-it-works" class="btn btn-ghost btn-lg">See How It Works</a>
-        </div>
-      </div>
-    </div>
-    <div class="hero-scroll">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M12 5v14M5 12l7 7 7-7"/>
+<div class="nav-mobile-overlay" id="mobileNav">
+  <a href="#how-it-works" onclick="closeMobileNav()">How It Works</a>
+  <a href="#pricing" onclick="closeMobileNav()">Pricing</a>
+  <a href="#get-coached" onclick="closeMobileNav()">For Coaches</a>
+  <a href="https://app.tridot.com/login" target="_blank" onclick="closeMobileNav()">Login</a>
+  <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="btn-primary">Start Training Free</a>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="finally-wrapper">
+      <span class="finally-text">finally</span>
+      <svg class="finally-scribble" viewbox="0 0 220 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 50 C30 25, 80 10, 130 12 C180 14, 205 30, 200 48 C195 66, 150 78, 100 76 C50 74, 20 62, 25 48" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.85" class="scribble-path scribble-1" />
+        <path d="M35 52 C32 28, 85 8, 135 10 C185 12, 210 32, 205 50 C200 68, 148 82, 95 80 C42 78, 18 60, 28 46" stroke="white" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5" class="scribble-path scribble-2" />
+        <path d="M25 46 C28 22, 75 14, 125 15 C175 16, 195 34, 192 50 C189 66, 155 74, 105 73 C55 72, 22 58, 30 44" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.35" class="scribble-path scribble-3" />
       </svg>
     </div>
-  </section>
+    <h1 id="heroHeadline"></h1>
+    <div class="goal-typewriter">
+      <span class="goal-typewriter-prefix">I want to </span><span class="goal-typewriter-text" id="goalTypewriter"></span><span class="goal-typewriter-cursor"></span>
+    </div>
+    <div class="hero-cta-row">
+      <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="btn-primary">Start training for free</a>
+      <a href="#how-it-works" class="btn-outline">See how it works</a>
+    </div>
+    <div class="hero-social-proof">
+      <div class="hero-avatars">
+        <span class="hero-avatar" style="background:#a30016;">JR</span>
+        <span class="hero-avatar" style="background:#c0001f;">SW</span>
+        <span class="hero-avatar" style="background:#8c0013;">MJ</span>
+        <span class="hero-avatar" style="background:#d1002a;">AS</span>
+        <span class="hero-avatar hero-avatar-plus">+</span>
+      </div>
+      <span class="hero-social-text"><strong>50,000+ athletes</strong> training smarter</span>
+    </div>
+  </div>
+</section>
 
-  <p class="site-definition" style="max-width: 720px; margin: 0 auto; padding: 20px 24px 0; text-align: center; font-size: 0.82rem; color: var(--white-50); line-height: 1.6;">TriDot is an AI-powered triathlon training platform that builds personalized swim, bike, and run plans using 20+ years of real athlete data and FitLogic&trade; technology, so triathletes train less, race faster, and stay injury-free.</p>
+<!-- LEGEND ENDORSEMENT STRIP -->
+<div class="legend-strip">
+  <div class="legend-strip-inner">
+    <div class="legend-strip-photo">MA</div>
+    <div>
+      <p class="legend-strip-quote">"TriDot&reg;'s technology is so far ahead of anything I've seen in this sport, and I want the absolute best for the athletes I coach."</p>
+      <p class="legend-strip-name">Mark Allen</p>
+      <p class="legend-strip-title">6x IRONMAN World Champion</p>
+    </div>
+  </div>
+</div>
+<div class="red-line-sep"></div>
 
-  <!-- ═══ TRUST BAR ═══ -->
-  <div class="trust-bar">
-    <div class="container">
-      <div class="trust-inner">
-        <p class="trust-label">Trusted by top events &amp; organizations worldwide</p>
-        <div class="trust-logos">
-          <img src="assets/logo-supertri-fresh.png" alt="Supertri" style="height:32px;">
-          <img src="assets/logo-elite-energy-fresh.png" alt="Elite Energy" style="height:50px;">
-          <img src="assets/logo-atw-fresh.png" alt="ATW" style="height:50px;">
-          <img src="assets/logo-danish-fed-fresh.png" alt="Danish Triathlon Federation" style="height:45px;">
-          <img src="assets/logo-wildflower-fresh.png" alt="Wildflower Experience" style="height:45px;">
+<!-- PARTNER LOGOS -->
+<div class="partners-strip">
+  <p class="partners-label">Trusted by top events and organizations worldwide</p>
+  <div class="partners-logos">
+    <img src="assets/logo-supertri-fresh.png" alt="Supertri" height="32">
+    <img src="assets/logo-elite-energy-fresh.png" alt="Elite Energy" height="50">
+    <img src="assets/logo-atw-fresh.png" alt="ATW" height="50">
+    <img src="assets/logo-danish-fed-fresh.png" alt="Danish Triathlon Federation" height="45">
+    <img src="assets/logo-wildflower-fresh.png" alt="Wildflower Experience" height="45">
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-row">
+    <div class="trust-item">
+      <div class="trust-num">20+ <span class="red">years</span></div>
+      <div class="trust-label">of athlete data</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">50K<span class="red">+</span></div>
+      <div class="trust-label">athletes training</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num"><span class="red">3</span></div>
+      <div class="trust-label">sports, one system</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num"><span class="red">30%</span></div>
+      <div class="trust-label">less training time</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">Sprint to <span class="red distance-cycle">IRONMAN</span><span class="distance-cursor"></span></div>
+      <div class="trust-label">every distance, every athlete</div>
+    </div>
+  </div>
+</div>
+
+<div class="chevron-stripe chevron-stripe-right"><div class="chevron-stripe-inner"></div></div>
+
+<!-- FOUR PHASES -->
+<section class="phases-section section" id="how-it-works">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="section-eyebrow">How It Works</div>
+      <h2 class="section-title">Four Phases. One Complete System.</h2>
+      <p class="section-sub">TriDot&reg; redefines all four phases of training program design, intelligently assessing, prescribing, evaluating, and predicting with unmatched precision.</p>
+    </div>
+    <div class="phases-timeline">
+      <div class="phase-panel">
+        <div class="phase-marker">1</div>
+        <div class="phase-eyebrow"><span class="dot"></span>PHASE 01</div>
+        <h3>Assess</h3>
+        <div class="phase-name">Identify True Performance Ability</div>
+        <ul class="phase-bullets">
+          <li>Identifies your true performance baseline across swim, bike, and run</li>
+          <li>Normalized for age, gender, temperature, humidity, and elevation</li>
+          <li>Every athlete starts from an accurate starting point, not a guess</li>
+        </ul>
+        <div class="phase-tags">
+          <span class="phase-tag">Dot Score<span class="tm">&trade;</span></span>
+          <span class="phase-tag">Training Stress Profile<span class="tm">&reg;</span></span>
+          <span class="phase-tag">Physiogenomix<span class="tm">&reg;</span></span>
+        </div>
+      </div>
+      <div class="phase-panel">
+        <div class="phase-marker">2</div>
+        <div class="phase-eyebrow"><span class="dot"></span>PHASE 02</div>
+        <h3>Prescribe</h3>
+        <div class="phase-name">The Right Training at the Right Time</div>
+        <ul class="phase-bullets">
+          <li>Normalized Training Stress&reg; (NTS<span class="tm">&trade;</span>) quantifies exactly what your body needs</li>
+          <li>EnviroNorm&reg; technology adjusts intensities for your exact training environment</li>
+          <li>The right training at the right time, before every session</li>
+        </ul>
+        <div class="phase-tags">
+          <span class="phase-tag">NTS<span class="tm">&trade;</span></span>
+          <span class="phase-tag">EnviroNorm<span class="tm">&reg;</span></span>
+          <span class="phase-tag">Residual Training Stress<span class="tm">&trade;</span></span>
+        </div>
+      </div>
+      <div class="phase-panel">
+        <div class="phase-marker">3</div>
+        <div class="phase-eyebrow"><span class="dot"></span>PHASE 03</div>
+        <h3>Evaluate</h3>
+        <div class="phase-name">Measure Training Execution and Response</div>
+        <ul class="phase-bullets">
+          <li>TrainX&reg; score measures how well prescribed training was executed</li>
+          <li>Replaces vanity metrics like total distance with real insight</li>
+          <li>Tracks training quality and cumulative load over time</li>
+        </ul>
+        <div class="phase-tags">
+          <span class="phase-tag">TrainX<span class="tm">&reg;</span></span>
+          <span class="phase-tag">Residual Training Stress<span class="tm">&trade;</span></span>
+          <span class="phase-tag">Recovery Readiness</span>
+        </div>
+      </div>
+      <div class="phase-panel">
+        <div class="phase-marker">4</div>
+        <div class="phase-eyebrow"><span class="dot"></span>PHASE 04</div>
+        <h3>Predict</h3>
+        <div class="phase-name">Race Day Preparation and Forecasting</div>
+        <ul class="phase-bullets">
+          <li>RaceX&reg; predictions calculate your optimal race paces and splits</li>
+          <li>Considers local terrain, temperature, humidity, and elevation</li>
+          <li>Toe the line with a data-backed plan, not a hope</li>
+        </ul>
+        <div class="phase-tags">
+          <span class="phase-tag">RaceX<span class="tm">&reg;</span></span>
+          <span class="phase-tag">Optimized Pacing</span>
+          <span class="phase-tag">Bike Power Plans</span>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ═══ STATS ═══ -->
-  <div class="stats-bar">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item fade-up">
-          <div class="stat-number"><span class="counter" data-target="20">0</span><span class="accent">+</span></div>
-          <div class="stat-label">Years of Athlete Data</div>
+<!-- SOUND FAMILIAR -->
+<section class="familiar section">
+  <div class="section-inner fade-up">
+    <div class="section-header">
+      <div class="section-eyebrow">The Triathlete's Dilemma</div>
+      <h2 class="section-title">Sound Familiar?</h2>
+    </div>
+  </div>
+  <div class="familiar-photo fade-up">
+    <div class="doubt-cards">
+      <div class="doubt-card">I train hard but my times aren't improving</div>
+      <div class="doubt-card">I keep getting injured before race day</div>
+      <div class="doubt-card">My schedule doesn't account for how I actually feel</div>
+      <div class="doubt-card">I don't know if I'm training the right things</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-banner">
+  <div class="marquee-track">
+    <span>THE ONLY TRIATHLON APP WITH 20 YEARS OF ATHLETE DATA</span><span class="marquee-dot">&#9679;</span>
+    <span>THE ONLY TRIATHLON APP WITH 20 YEARS OF ATHLETE DATA</span><span class="marquee-dot">&#9679;</span>
+    <span>THE ONLY TRIATHLON APP WITH 20 YEARS OF ATHLETE DATA</span><span class="marquee-dot">&#9679;</span>
+    <span>THE ONLY TRIATHLON APP WITH 20 YEARS OF ATHLETE DATA</span><span class="marquee-dot">&#9679;</span>
+    <span>THE ONLY TRIATHLON APP WITH 20 YEARS OF ATHLETE DATA</span><span class="marquee-dot">&#9679;</span>
+    <span>THE ONLY TRIATHLON APP WITH 20 YEARS OF ATHLETE DATA</span><span class="marquee-dot">&#9679;</span>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features-section section">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="section-eyebrow">Intelligent by Design</div>
+      <h2 class="section-title">Here's What It Feels Like to Have Training That Actually Works.</h2>
+      <p class="section-sub">TriDot&reg; accounts for everything, from your fitness today to the humidity at your next race, so nothing is wasted.</p>
+    </div>
+    <div class="features-grid fade-up">
+      <div class="feature-card">
+        <div class="feature-icon">&#127919;</div>
+        <div class="feature-title">It pays attention.</div>
+        <p class="feature-desc">Most training tools track what you did. TriDot&reg; learns from it. It watches how your body responds across all three disciplines and builds every session around those patterns so nothing is wasted.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128202;</div>
+        <div class="feature-title">It translates all your data.</div>
+        <p class="feature-desc">You're already collecting thousands of data points every time you train. TriDot&reg; connects your sports watch, heart rate monitor, and other devices into a single dashboard, turning raw numbers into clear, actionable insights after every session.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9889;</div>
+        <div class="feature-title">It adjusts when life happens.</div>
+        <p class="feature-desc">Rough week? Your next sessions adapt automatically. Breakthrough ride? TriDot&reg; builds on it. You're never forcing yourself through a schedule that stopped fitting your life weeks ago.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128737;&#65039;</div>
+        <div class="feature-title">It keeps you healthy.</div>
+        <p class="feature-desc">Triathlon's multi-sport demands create unique injury risk. TriDot&reg; monitors your cumulative training stress across all three disciplines so you stay consistent, healthy, and building toward race day, not fighting your way back from injury.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APP SHOWCASE -->
+<section class="app-showcase-section">
+  <div class="app-showcase-inner fade-up">
+    <h2>Your next race starts here.</h2>
+    <div class="phone-row">
+      <div class="phone-frame phone-side">
+        <img src="assets/td-screen-schedule.png" alt="TriDot weekly schedule view" loading="lazy">
+      </div>
+      <div class="phone-frame">
+        <img src="assets/td-screen-swim.png" alt="TriDot swim workout view" loading="lazy">
+      </div>
+      <div class="phone-frame phone-side">
+        <img src="assets/td-screen-run.png" alt="TriDot run workout view" loading="lazy">
+      </div>
+    </div>
+    <div class="phone-store-row">
+      <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="store-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        App Store
+      </a>
+      <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="store-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.28.15.6.2.9.14l11.5-11.5L3.42.88a1.14 1.14 0 00-.24.73v21.46c0 .27.07.52.2.73zm15.73-13.04l-2.35-1.35-2.59 2.59 2.59 2.59 2.38-1.37c.68-.39.68-1.08-.03-1.46zM4.34 1.56l10.43 10.43L7.52 19.2 4.34 1.56zm0 20.88l3.18-7.64 7.25 7.25-10.43.39z"/></svg>
+        Google Play
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="testimonials-section section">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="section-eyebrow">From the App Store</div>
+      <h2 class="section-title">Triathletes Like You Are Racing Faster With Less Training.</h2>
+      <p class="section-sub">Real athletes. Real results. No guesswork, just smarter training.</p>
+    </div>
+    <div class="testimonial-grid fade-up">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="quote">"TriDot&reg; maximizes efficiency while preserving the athlete. I don't feel destroyed after my workouts, and I can complete each day."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SW</div>
+          <div>
+            <div class="author-name">Seth W.</div>
+            <div class="author-sport">TriDot&reg; Athlete</div>
+          </div>
         </div>
-        <div class="stat-item fade-up delay-1">
-          <div class="stat-number"><span class="accent">3</span></div>
-          <div class="stat-label">Sports: Swim · Bike · Run</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="quote">"TriDot&reg; is the most personalized, in-depth, data-driven program you can find. With consistent testing and constant updates based on my performance, you will see improvements every day."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">M</div>
+          <div>
+            <div class="author-name">Megan</div>
+            <div class="author-sport">TriDot&reg; Athlete</div>
+          </div>
         </div>
-        <div class="stat-item fade-up delay-2">
-          <div class="stat-number">Up to <span class="accent">30</span>%</div>
-          <div class="stat-label">Less Training Time</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="quote">"From my first full-distance Ironman to solo mountain bike races and Xterra, TriDot&reg; has been my companion for every multisport adventure. I wholeheartedly recommend it to beginners and seasoned athletes alike."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AS</div>
+          <div>
+            <div class="author-name">April S.</div>
+            <div class="author-sport">TriDot&reg; Athlete</div>
+          </div>
         </div>
-        <div class="stat-item fade-up delay-3">
-          <div class="stat-number"><span class="accent">14</span></div>
-          <div class="stat-label">Day Free Trial, No Card</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="quote">"Daily training built specifically for me, a weekly podcast, and a Facebook group. Together it's a wonderful community and educational experience that supports my triathlon lifestyle."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">TI</div>
+          <div>
+            <div class="author-name">Tri-Idaho</div>
+            <div class="author-sport">TriDot&reg; Athlete Community</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ═══ PROBLEM ═══ -->
-  <section class="problem-section">
-    <div class="container">
-      <div class="problem-inner">
-        <div class="problem-image fade-up">
-          <img src="assets/tridot-photo-thresholds.jpg" alt="Triathlon training data">
-          <div class="problem-image-overlay"></div>
+<div class="chevron-stripe chevron-stripe-subtle"><div class="chevron-stripe-inner"></div></div>
+
+<!-- LEGENDS GALLERY -->
+<section class="legends-gallery section">
+  <div class="legends-gallery-bg"></div>
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="section-eyebrow">The Legends of Triathlon</div>
+      <h2 class="section-title">When the Greatest Names in Triathlon Trust the Training, You Can Too.</h2>
+      <p class="section-sub">TriDot&reg;'s Legends roster brings exclusive guidance, tips, and insights to athletes who want access to the best minds in the sport alongside the best training technology in the world.</p>
+    </div>
+    <div class="legends-grid fade-up">
+      <div class="legend-card">
+        <div class="legend-avatar">MA</div>
+        <h3>Mark Allen</h3>
+        <div class="legend-card-title">6x IRONMAN World Champion</div>
+      </div>
+      <div class="legend-card">
+        <div class="legend-avatar">CA</div>
+        <h3>Craig Alexander</h3>
+        <div class="legend-card-title">3x IRONMAN World Champion</div>
+      </div>
+      <div class="legend-card">
+        <div class="legend-avatar">MJ</div>
+        <h3>Michellie Jones</h3>
+        <div class="legend-card-title">Olympic Silver Medalist, IRONMAN World Champion</div>
+      </div>
+      <div class="legend-card">
+        <div class="legend-avatar">MC</div>
+        <h3>Mirinda Carfrae</h3>
+        <div class="legend-card-title">3x IRONMAN World Champion</div>
+      </div>
+      <div class="legend-card">
+        <div class="legend-avatar">TO</div>
+        <h3>Tim O'Donnell</h3>
+        <div class="legend-card-title">ITU Long Distance World Champion</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FITLOGIC -->
+<section class="fitlogic-section">
+  <div class="fitlogic-inner">
+    <div class="fitlogic-content fade-up">
+      <p class="fitlogic-powered">Powered by</p>
+      <div class="fitlogic-wordmark">FitLogic<span class="tm">&trade;</span></div>
+      <h2>The Science Behind TriDot&reg; Is Unlike Anything Else in Endurance Sports.</h2>
+      <p>FitLogic<span class="tm">&trade;</span> is the world's first AI platform built specifically for endurance athletes, trained on 20+ years of real training and race data from athletes across every level and discipline.</p>
+      <p>Other apps automate templates or repurpose general AI. FitLogic<span class="tm">&trade;</span> transforms your raw training data into genuine intelligence. It doesn't just use AI, it is AI, and it's working for you on every session.</p>
+      <a href="https://fitlogic.tech" target="_blank" class="fitlogic-link">Explore the science at FitLogic.tech &rarr;</a>
+    </div>
+    <div class="fitlogic-stat-grid fade-up">
+      <div class="fitlogic-stat">
+        <div class="fitlogic-stat-num"><span class="accent">20</span>+</div>
+        <div class="fitlogic-stat-label">Years of Training Data</div>
+      </div>
+      <div class="fitlogic-stat">
+        <div class="fitlogic-stat-num"><span class="accent">3</span></div>
+        <div class="fitlogic-stat-label">Sports Optimized</div>
+      </div>
+      <div class="fitlogic-stat">
+        <div class="fitlogic-stat-num">True <span class="accent">AI</span></div>
+        <div class="fitlogic-stat-label">Purpose-Built for Endurance</div>
+      </div>
+      <div class="fitlogic-stat">
+        <div class="fitlogic-stat-num"><span class="accent">4</span>-Phase</div>
+        <div class="fitlogic-stat-label">Intelligence System</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COACHES -->
+<section class="coaches-section" id="get-coached">
+  <div class="coaches-inner">
+    <div class="coaches-content fade-up">
+      <div class="section-eyebrow" style="justify-content: flex-start;">For Coaches</div>
+      <h2>AI Doesn't Replace Coaches. It Empowers Them.</h2>
+      <p>Coaches using TriDot&reg; deliver next-level results and scale their business faster. Every coach gets access to the same FitLogic<span class="tm">&trade;</span> intelligence engine, and the tools to apply it across their entire roster.</p>
+      <div class="coaches-quote">
+        <p>"TriDot Certified Coaches deliver the world's most sophisticated training platform. The data does the heavy lifting, so you can focus on the athlete."</p>
+      </div>
+      <a href="https://tridot.com/for-coaches" target="_blank" class="btn-primary" style="display: inline-flex; background: var(--red); color: #fff;">Learn about coaching</a>
+    </div>
+    <div class="coaches-image fade-up">
+      <img src="assets/training-intelligence.jpg" alt="TriDot coaching platform dashboard" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<div class="chevron-stripe chevron-stripe-right"><div class="chevron-stripe-inner"></div></div>
+
+<!-- PRICING -->
+<section class="pricing-section section" id="pricing">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="section-eyebrow">Plans and Pricing</div>
+      <h2 class="section-title">Choose the Plan for You.</h2>
+      <p class="section-sub">Start training for free for 14 days, no credit card required.</p>
+    </div>
+    <div class="pricing-note fade-up">
+      <span class="pricing-trial">14-Day Free Trial - No Credit Card Required - Cancel Anytime</span>
+    </div>
+    <div class="pricing-grid fade-up">
+      <div class="pricing-card">
+        <div class="pricing-tier">Lifestyle</div>
+        <div class="pricing-price">
+          <span class="price-dollar">$</span><span class="price-amount">14</span><span class="price-period">.99 / mo</span>
         </div>
-        <div class="problem-content">
-          <p class="section-label fade-up">The Problem</p>
-          <h2 class="display-lg fade-up delay-1">Most training is built for a generic athlete. Yours&nbsp;shouldn't&nbsp;be.</h2>
-          <p class="body-lg fade-up delay-2" style="color: var(--white-75); margin-top: 20px;">
-            Every triathlete is different. Your fitness, your schedule, your stress levels, your response to training load across swim, bike, and run. None of it matches the person training next to you.
-          </p>
-          <div class="problem-quote fade-up delay-3">
-            <p>"No pain, no gain." "More volume means better results." These ideas have injured athletes, burned out athletes, and driven people out of the sport they love. And none of them are true.</p>
-          </div>
-          <p class="body-md fade-up delay-4" style="color: var(--white-75);">
-            Backed by 20+ years of athlete training and race data, TriDot® proves that <strong style="color:#fff;">smarter training outperforms harder training</strong> every time. You'll train less, reduce your injury risk, and have more energy for the life you're training to enjoy.
-          </p>
+        <p class="pricing-headline">Perfect for athletes planning 1-2 shorter-distance races per year.</p>
+        <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="pricing-cta ghost">Start training for free</a>
+        <div class="pricing-features">
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> 1 scheduled sprint or Olympic race</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Weekly training optimization</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Dynamic training zones</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Drill and exercise videos</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> EnviroNorm&reg; technology</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> TrainX&reg; scoring</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Knowledgebase support</div>
+        </div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tier">Essentials</div>
+        <div class="pricing-price">
+          <span class="price-dollar">$</span><span class="price-amount">39</span><span class="price-period">/ mo</span>
+        </div>
+        <p class="pricing-headline">For athletes racing multiple distances who want full RaceX&reg; optimization.</p>
+        <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="pricing-cta ghost">Start training for free</a>
+        <div class="pricing-features">
+          <div class="pricing-divider">Everything in Lifestyle, plus:</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Plan up to 3 races, any distance</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> RaceX&reg; performance predictions</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Customizable schedule</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Swim form analysis</div>
+        </div>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Best Value</div>
+        <div class="pricing-tier">Complete</div>
+        <div class="pricing-price">
+          <span class="price-dollar">$</span><span class="price-amount">99</span><span class="price-period">/ mo</span>
+        </div>
+        <p class="pricing-headline">Unlimited races, advanced controls, and priority support for the serious triathlete.</p>
+        <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="pricing-cta primary">Start training for free</a>
+        <div class="pricing-features">
+          <div class="pricing-divider">Everything in Essentials, plus:</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Unlimited races, any distance</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Advanced training preferences</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Swim drill optimization</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Strength training sessions</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Priority support</div>
+        </div>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-tier">Premium: Coached</div>
+        <div class="pricing-price">
+          <span class="price-dollar">$</span><span class="price-amount">249</span><span class="price-period">/ mo</span>
+        </div>
+        <p class="pricing-headline">AI-powered training plus a dedicated coach with frequent one-to-one communication.</p>
+        <a href="#get-coached" class="pricing-cta ghost">Get Coached</a>
+        <div class="pricing-features">
+          <div class="pricing-divider">Everything in Complete, plus:</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Dedicated certified coach</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Frequent one-to-one communication</div>
+          <div class="pricing-feature"><span class="feature-check">&#10003;</span> Personalized race strategy</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══ HOW IT WORKS: FOUR PHASES ═══ -->
-  <section class="phases-section" id="how-it-works">
-    <div class="container">
-      <div class="phases-header">
-        <p class="section-label fade-up">How It Works</p>
-        <h2 class="display-lg fade-up delay-1">Four phases. One&nbsp;complete&nbsp;system.</h2>
-        <p class="fade-up delay-2">TriDot® redefines all four phases of training program design, intelligently assessing, prescribing, evaluating, and predicting with unmatched precision.</p>
-      </div>
-      <div class="phases-grid">
-        <div class="phase-card fade-up">
-          <div class="phase-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="1" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="1" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="23" y2="12"/></svg>
-          </div>
-          <div class="phase-number">Phase 01</div>
-          <h3 class="phase-title">Assess</h3>
-          <div class="phase-name">Identify True Performance Ability</div>
-          <p class="phase-desc">TriDot® identifies your true performance baseline across swim, bike, and run, normalized for age, gender, temperature, humidity, and elevation. Every athlete starts from an accurate starting point, not a guess.</p>
-          <div class="phase-tags">
-            <span class="phase-tag">Dot Score™</span>
-            <span class="phase-tag">Training Stress Profile®</span>
-            <span class="phase-tag">Physiogenomix®</span>
-          </div>
-        </div>
-        <div class="phase-card fade-up delay-1">
-          <div class="phase-icon">
-            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16l2 2 4-4"/></svg>
-          </div>
-          <div class="phase-number">Phase 02</div>
-          <h3 class="phase-title">Prescribe</h3>
-          <div class="phase-name">The Right Training at the Right Time</div>
-          <p class="phase-desc">Normalized Training Stress® (NTS™) quantifies exactly what type and amount of training stress your body needs. EnviroNorm® technology adjusts intensities for your exact training environment before every session.</p>
-          <div class="phase-tags">
-            <span class="phase-tag">NTS™</span>
-            <span class="phase-tag">EnviroNorm®</span>
-            <span class="phase-tag">Residual Training Stress™</span>
-          </div>
-        </div>
-        <div class="phase-card fade-up delay-2">
-          <div class="phase-icon">
-            <svg viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="8" width="4" height="13" rx="1"/><rect x="17" y="4" width="4" height="17" rx="1"/><polyline points="3 7 9 4 15 6 21 2"/></svg>
-          </div>
-          <div class="phase-number">Phase 03</div>
-          <h3 class="phase-title">Evaluate</h3>
-          <div class="phase-name">Measure Training Execution & Response</div>
-          <p class="phase-desc">TrainX® score measures how well prescribed training was executed across each session and over time, replacing vanity metrics like total distance with real insight into training quality and cumulative load.</p>
-          <div class="phase-tags">
-            <span class="phase-tag">TrainX®</span>
-            <span class="phase-tag">Residual Training Stress™</span>
-            <span class="phase-tag">Recovery Readiness</span>
-          </div>
-        </div>
-        <div class="phase-card fade-up delay-3">
-          <div class="phase-icon">
-            <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-          </div>
-          <div class="phase-number">Phase 04</div>
-          <h3 class="phase-title">Predict</h3>
-          <div class="phase-name">Race Day Preparation & Forecasting</div>
-          <p class="phase-desc">RaceX® predictions calculate your optimal race paces and splits considering local terrain, temperature, humidity, and elevation, so you toe the line with a data-backed plan, not a hope.</p>
-          <div class="phase-tags">
-            <span class="phase-tag">RaceX®</span>
-            <span class="phase-tag">Optimized Pacing</span>
-            <span class="phase-tag">Bike Power Plans</span>
-          </div>
-        </div>
-      </div>
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <div class="section-eyebrow">Questions</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
     </div>
-  </section>
-
-  <!-- ═══ FEATURES ═══ -->
-  <section class="features-section">
-    <div class="container">
-      <div class="features-header">
-        <p class="section-label fade-up">Intelligent by Design</p>
-        <h2 class="display-lg fade-up delay-1">Here's what it feels like to have training that actually works.</h2>
-        <p class="fade-up delay-2">TriDot® accounts for everything, from your fitness today to the humidity at your next race, so nothing is wasted.</p>
-      </div>
-      <div class="features-grid">
-        <div class="feature-card fade-up">
-          <div class="feature-icon">🎯</div>
-          <div class="feature-title">It pays attention.</div>
-          <p class="feature-desc">Most training tools track what you did. TriDot® learns from it. It watches how your body responds across all three disciplines and builds every session around those patterns so nothing is wasted.</p>
-        </div>
-        <div class="feature-card fade-up delay-1">
-          <div class="feature-icon">📊</div>
-          <div class="feature-title">It translates all your data.</div>
-          <p class="feature-desc">You're already collecting thousands of data points every time you train. TriDot® connects your sports watch, heart rate monitor, and other devices into a single dashboard, turning raw numbers into clear, actionable insights after every session.</p>
-        </div>
-        <div class="feature-card fade-up delay-2">
-          <div class="feature-icon">⚡</div>
-          <div class="feature-title">It adjusts when life happens.</div>
-          <p class="feature-desc">Rough week? Your next sessions adapt automatically. Breakthrough ride? TriDot® builds on it. You're never forcing yourself through a schedule that stopped fitting your life weeks ago.</p>
-        </div>
-        <div class="feature-card fade-up delay-3">
-          <div class="feature-icon">🛡️</div>
-          <div class="feature-title">It keeps you healthy.</div>
-          <p class="feature-desc">Triathlon's multi-sport demands create unique injury risk. TriDot® monitors your cumulative training stress across all three disciplines so you stay consistent, healthy, and building toward race day, not fighting your way back from injury.</p>
-        </div>
-      </div>
+    <div class="faq-list fade-up">
+      <details>
+        <summary>What is TriDot?</summary>
+        <p>TriDot is an AI-powered triathlon training platform that builds personalized swim, bike, and run plans using 20+ years of real athlete data and FitLogic&trade; technology, so triathletes train less, race faster, and stay injury-free.</p>
+      </details>
+      <details>
+        <summary>Do I need a triathlon coach to use TriDot?</summary>
+        <p>No, TriDot's AI-driven training works on its own for athletes at every level. For those who want additional human support, the Premium: Coached plan pairs TriDot's technology with a dedicated certified coach for frequent one-to-one communication.</p>
+      </details>
+      <details>
+        <summary>How is TriDot different from a generic training plan?</summary>
+        <p>Generic training plans are built for an average athlete. TriDot assesses your true performance ability, prescribes the right training at the right time, evaluates how well you executed it, and predicts your race day performance, all personalized to your own data across swim, bike, and run.</p>
+      </details>
+      <details>
+        <summary>Can beginners use TriDot?</summary>
+        <p>Yes. The Lifestyle plan is built for athletes planning one to two shorter-distance races per year, making it a fit for beginners, while more advanced plans support athletes racing multiple distances throughout the year.</p>
+      </details>
+      <details>
+        <summary>What distances does TriDot support?</summary>
+        <p>TriDot supports training across sprint, Olympic, and longer triathlon distances. Plans range from scheduling a single sprint or Olympic race to planning multiple races of any distance, or unlimited races on the Complete and Premium: Coached plans.</p>
+      </details>
+      <details>
+        <summary>What does TriDot's four-phase system include?</summary>
+        <p>TriDot's system has four phases: Assess (identifying your true performance ability), Prescribe (delivering the right training at the right time), Evaluate (measuring training execution and response with TrainX&reg; score), and Predict (RaceX&reg; race day forecasting and pacing).</p>
+      </details>
+      <details>
+        <summary>Can I cancel anytime?</summary>
+        <p>Yes. Every TriDot plan starts with a 14-day free trial that requires no credit card, and you can cancel anytime.</p>
+      </details>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══ APP SECTION ═══ -->
-  <section class="app-section">
-    <div class="container">
-      <div class="app-inner">
-        <div class="app-content">
-          <p class="section-label fade-up">In Your Pocket</p>
-          <h2 class="display-lg fade-up delay-1">Your coach, your data, your race plan. All in one app.</h2>
-          <p class="fade-up delay-2">TriDot® adapts to your journey, your goals, your training history, even elevation, heat, and humidity, so you can train less, perform more, and still have a life outside of training.</p>
-          <div class="app-bullets fade-up delay-3">
-            <div class="app-bullet">
-              <div class="bullet-dot"></div>
-              <div class="bullet-text">Daily sessions built specifically for you: swim, bike, run, and strength</div>
-            </div>
-            <div class="app-bullet">
-              <div class="bullet-dot"></div>
-              <div class="bullet-text">TrainX® score for every workout: see real training quality, not just miles</div>
-            </div>
-            <div class="app-bullet">
-              <div class="bullet-dot"></div>
-              <div class="bullet-text">RaceX® race-day pacing plans for any course, any conditions</div>
-            </div>
-            <div class="app-bullet">
-              <div class="bullet-dot"></div>
-              <div class="bullet-text">Weekly and monthly schedule views with drag-and-drop flexibility</div>
-            </div>
-            <div class="app-bullet">
-              <div class="bullet-dot"></div>
-              <div class="bullet-text">Community group features and athlete profiles to share the journey</div>
-            </div>
-          </div>
-          <div class="app-store-row fade-up delay-4">
-            <a href="https://www.tridot.com/tridot-app-redirect" target="_blank" class="store-badge">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-              App Store
-            </a>
-            <a href="https://www.tridot.com/tridot-app-redirect" target="_blank" class="store-badge">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.28.15.6.2.9.14l11.5-11.5L3.42.88a1.14 1.14 0 00-.24.73v21.46c0 .27.07.52.2.73zm15.73-13.04l-2.35-1.35-2.59 2.59 2.59 2.59 2.38-1.37c.68-.39.68-1.08-.03-1.46zM4.34 1.56l10.43 10.43L7.52 19.2 4.34 1.56zm0 20.88l3.18-7.64 7.25 7.25-10.43.39z"/></svg>
-              Google Play
-            </a>
-          </div>
-        </div>
-        <div class="app-screens fade-up delay-1">
-          <div class="app-screen screen-far">
-            <img src="assets/td-screen-schedule.png" alt="TriDot weekly schedule" width="105">
-          </div>
-          <div class="app-screen screen-main">
-            <img src="assets/td-screen-swim.png" alt="TriDot swim workout" width="140">
-          </div>
-          <div class="app-screen screen-side">
-            <img src="assets/td-screen-run.png" alt="TriDot run workout" width="120">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- FINAL CTA -->
+<section class="final-cta-section">
+  <div class="final-cta-bg"></div>
+  <div class="final-cta-overlay"></div>
+  <div class="final-cta-content">
+    <div class="section-eyebrow">Get Started Today</div>
+    <h2>Generic Training Is Costing You Results You've Already Earned.</h2>
+    <p>You already know that a hard bike day affects your run. That a bad week at work changes everything. TriDot&reg; tracks those variables so your training always reflects reality, not just a calendar.</p>
+    <a href="https://promo.tridot.com?promo=TDWEBSITE" target="_blank" class="btn-primary">Start training for free</a>
+    <p class="cta-no-cc">14 days free - No credit card required - Cancel anytime</p>
+  </div>
+</section>
 
-  <!-- ═══ LEGENDS ═══ -->
-  <section class="legends-section">
-    <div class="legends-bg"></div>
-    <div class="container legends-content">
-      <div class="legends-header">
-        <p class="section-label fade-up">The Legends of Triathlon</p>
-        <h2 class="display-lg fade-up delay-1">When the greatest names in triathlon trust the training, you can too.</h2>
-        <p class="fade-up delay-2">TriDot®'s Legends roster brings exclusive guidance, tips, and insights to athletes who want access to the best minds in the sport alongside the best training technology in the world.</p>
-      </div>
-      <div class="legends-grid">
-        <div class="legend-card fade-up">
-          <div class="legend-icon">MA</div>
-          <h3 class="legend-name">Mark Allen</h3>
-          <div class="legend-title">6× IRONMAN World Champion</div>
-          <div class="legend-achievement">"Greatest Endurance Athlete of All Time"</div>
-        </div>
-        <div class="legend-card fade-up delay-1">
-          <div class="legend-icon">CA</div>
-          <h3 class="legend-name">Craig Alexander</h3>
-          <div class="legend-title">3× IRONMAN World Champion</div>
-          <div class="legend-achievement">Former Kona Course Record Holder</div>
-        </div>
-        <div class="legend-card fade-up delay-2">
-          <div class="legend-icon">MJ</div>
-          <h3 class="legend-name">Michellie Jones</h3>
-          <div class="legend-title">Olympic Silver Medalist</div>
-          <div class="legend-achievement">IRONMAN World Champion</div>
-        </div>
-        <div class="legend-card fade-up delay-3">
-          <div class="legend-icon">MC</div>
-          <h3 class="legend-name">Mirinda Carfrae</h3>
-          <div class="legend-title">3× IRONMAN World Champion</div>
-          <div class="legend-achievement">7× Kona Podium Finisher</div>
-        </div>
-        <div class="legend-card fade-up delay-4">
-          <div class="legend-icon">TO</div>
-          <h3 class="legend-name">Tim O'Donnell</h3>
-          <div class="legend-title">ITU Long Distance World Champion</div>
-          <div class="legend-achievement">50+ Pro Podium Finishes</div>
-        </div>
-      </div>
-    </div>
-  </section>
+</main>
 
-  <!-- ═══ TESTIMONIALS ═══ -->
-  <section class="testimonials-section">
-    <div class="container">
-      <div class="testimonials-header">
-        <p class="section-label fade-up">Athlete Results</p>
-        <h2 class="display-lg fade-up delay-1">Triathletes like you are racing faster with less training.</h2>
-        <p class="fade-up delay-2">Real athletes. Real results. No guesswork, just smarter training.</p>
-      </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card fade-up">
-          <div class="testimonial-stars">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-          </div>
-          <div class="testimonial-quote">
-            <p>"TriDot® maximizes efficiency while preserving the athlete. I don't feel destroyed after my workouts, and I can complete each day."</p>
-          </div>
-          <div class="testimonial-author">
-            <div class="author-avatar">SW</div>
-            <div>
-              <div class="author-name">Seth W.</div>
-              <div class="author-sport">TriDot® Athlete</div>
-            </div>
-          </div>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <svg width="87" height="24" viewBox="0 0 87 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.4559 6.48182C22.0863 7.49775 21.3674 8.34613 20.43 8.87266C19.4926 9.3992 18.399 9.56891 17.348 9.35093C17.0342 9.28579 16.7279 9.18752 16.4344 9.05773L15.4534 9.98967C15.7171 10.5612 15.8183 11.1954 15.7455 11.8216C15.6728 12.4478 15.4291 13.0412 15.0415 13.5358C14.6539 14.0304 14.1378 14.4067 13.5506 14.6228C12.9633 14.8388 12.3282 14.8861 11.7159 14.7593C11.3931 14.6919 11.0818 14.5772 10.7919 14.419L9.91464 15.2567C10.2048 15.7501 10.3177 16.3292 10.2344 16.8967C10.151 17.4642 9.87648 17.9854 9.45694 18.3728C9.0374 18.7602 8.49843 18.9901 7.93063 19.0238C7.36282 19.0575 6.80082 18.8931 6.33908 18.5581C5.87735 18.2231 5.54405 17.7379 5.39522 17.1842C5.24638 16.6306 5.29108 16.0421 5.5218 15.5177C5.75253 14.9933 6.15521 14.5651 6.66214 14.3049C7.16908 14.0448 7.74937 13.9686 8.30545 14.0891C8.49479 14.124 8.67829 14.1857 8.8505 14.2724L9.60318 13.309C9.22992 12.7471 9.03086 12.0859 9.03133 11.4095C9.03179 10.7332 9.23177 10.0722 9.6058 9.51086C9.97983 8.94947 10.511 8.51302 11.1317 8.25705C11.7524 8.00108 12.4346 7.93717 13.0915 8.07344C13.2676 8.11028 13.4411 8.15926 13.6106 8.22004L14.4204 7.17292C14.11 6.63939 13.9119 6.04715 13.8382 5.43306C13.7646 4.81896 13.8171 4.19615 13.9923 3.60339C14.1676 3.01062 14.462 2.46059 14.8571 1.98751C15.2523 1.51443 15.7397 1.12844 16.2891 0.853546C15.6398 0.593133 14.9694 0.38993 14.2854 0.246216C11.6391 -0.303257 8.88615 0.0712791 6.47874 1.30831C4.07134 2.54535 2.15259 4.57133 1.0376 7.05354C-0.0773788 9.53574 -0.322302 12.3266 0.343059 14.9677C1.00842 17.6089 2.54451 19.9433 4.69905 21.5876C6.85359 23.2319 9.49848 24.0884 12.1994 24.0163C14.9002 23.9442 17.4965 22.9478 19.5618 21.1909C21.6271 19.4339 23.0386 17.0208 23.5645 14.3479C24.0905 11.6749 23.6995 8.90107 22.4559 6.48182Z" fill="#EA0029"/>
+            <path d="M32.4018 19.8953H29.0952L33.0974 7.95285H29.5261L30.502 5.03662H40.9721L39.9962 7.95285H36.404L32.4018 19.8953Z" fill="white"/>
+            <path d="M36.3833 19.8952L40.1052 8.79051H43.0848L42.6799 9.9947C42.9333 9.61659 43.2765 9.30836 43.6781 9.09806C44.0797 8.88775 44.527 8.78203 44.9795 8.79051H48.1771L47.2894 11.445H42.872C42.6846 11.4174 42.4939 11.4642 42.34 11.5755C42.186 11.6868 42.0809 11.854 42.0466 12.0418L39.4511 19.8952H36.3833Z" fill="white"/>
+            <path d="M50.9438 19.8953L54.5775 9.05241H57.8426L55.1796 16.9843H59.8152C60.5523 16.9843 61.1492 16.4974 61.4659 15.555L63.5422 9.36655C63.8589 8.4189 63.6045 7.93723 62.8415 7.93723H54.9409L55.922 5.021H64.4299C67.0254 5.021 67.8611 6.33513 67.0253 8.81681L64.5908 16.0838C63.7603 18.5603 62.0369 19.8796 59.4466 19.8796L50.9438 19.8953Z" fill="white"/>
+            <path d="M66.6983 19.8952C65.141 19.8952 64.8607 19.2146 65.359 17.7225L67.6222 10.9633C68.1413 9.46592 68.8525 8.79053 70.4202 8.79053H77.9055C79.5147 8.79053 79.769 9.46592 79.2655 10.9633L77.0022 17.7225C76.4832 19.2146 75.798 19.8952 74.1836 19.8952H66.6983ZM75.8499 12.0418C76.016 11.5602 75.9277 11.4293 75.3827 11.4293H71.0742C70.6174 11.4293 70.4669 11.5602 70.3008 12.0418L68.7902 16.5654C68.6397 17.0052 68.6968 17.157 69.1536 17.157H73.462C73.9811 17.157 74.1888 17.0052 74.3393 16.5654L75.8499 12.0418Z" fill="white"/>
+            <path d="M79.6445 19.8953C78.0873 19.8953 77.807 19.2147 78.3053 17.7225L82.3386 5.68066H85.3857L84.3475 8.78014H87.0001L86.1955 11.1938H83.5377L81.6327 16.8744C81.4717 17.3613 81.5652 17.4712 82.0012 17.4712H84.0049L83.1951 19.8953H79.6445Z" fill="white"/>
+            <path d="M53.8403 5.07324H50.7828L50.0613 7.25649H53.1187L53.8403 5.07324Z" fill="white"/>
+            <path d="M49.5423 8.81152L45.8723 19.8796H48.909L52.5738 8.81152H49.5423Z" fill="white"/>
+          </svg>
         </div>
-        <div class="testimonial-card fade-up delay-1">
-          <div class="testimonial-stars">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-          </div>
-          <div class="testimonial-quote">
-            <p>"TriDot® is the most personalized, in-depth, data-driven program you can find. With consistent testing and constant updates based on my performance, you will see improvements every day."</p>
-          </div>
-          <div class="testimonial-author">
-            <div class="author-avatar">M</div>
-            <div>
-              <div class="author-name">Megan</div>
-              <div class="author-sport">TriDot® Athlete</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card fade-up delay-2">
-          <div class="testimonial-stars">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-          </div>
-          <div class="testimonial-quote">
-            <p>"From my first full-distance Ironman to solo mountain bike races and Xterra. TriDot® has been my companion for every multiport adventure. I wholeheartedly recommend it to beginners and seasoned athletes alike."</p>
-          </div>
-          <div class="testimonial-author">
-            <div class="author-avatar">AS</div>
-            <div>
-              <div class="author-name">April S.</div>
-              <div class="author-sport">TriDot® Athlete</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card fade-up delay-3">
-          <div class="testimonial-stars">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-          </div>
-          <div class="testimonial-quote">
-            <p>"Daily training build specifically for me, a weekly podcast, and a Facebook group. Together it's a wonderful community and educational experience that supports my triathlon lifestyle."</p>
-          </div>
-          <div class="testimonial-author">
-            <div class="author-avatar">TI</div>
-            <div>
-              <div class="author-name">Tri-Idaho</div>
-              <div class="author-sport">TriDot® Athlete Community</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card fade-up delay-4">
-          <div class="testimonial-stars">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-          </div>
-          <div class="testimonial-quote">
-            <p>"TriDot® will change your life for the better. The time investment is not too much, the algorithm is accurate and tailored to my growing abilities, and the community around you is simply the best."</p>
-          </div>
-          <div class="testimonial-author">
-            <div class="author-avatar">TN</div>
-            <div>
-              <div class="author-name">Tzv N.</div>
-              <div class="author-sport">TriDot® Athlete</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card fade-up delay-5" style="background: rgba(234,0,41,0.06); border-color: rgba(234,0,41,0.2);">
-          <div style="font-size: 2.5rem; margin-bottom: 20px; opacity: 0.6;">🏅</div>
-          <p style="font-size: 1.1rem; font-weight: 800; margin-bottom: 12px;">Try it FREE for 14 days.</p>
-          <p style="color: var(--white-75); font-size: 0.9rem; margin-bottom: 28px; line-height: 1.6;">No credit card required. No commitment. Just smarter training starting today.</p>
-          <a href="https://www.tridot.com/tridot-app-redirect" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center;">Get Started Free</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ PRICING ═══ -->
-  <section class="pricing-section" id="pricing">
-    <div class="container">
-      <div class="pricing-header">
-        <p class="section-label fade-up">Plans & Pricing</p>
-        <h2 class="display-lg fade-up delay-1">Choose the plan for you.</h2>
-      </div>
-      <p class="pricing-sub fade-up delay-2">Start free for 14 days, no credit card required.</p>
-      <div class="text-center fade-up delay-2">
-        <span class="pricing-trial">✓ 14-Day Free Trial &nbsp;·&nbsp; No Credit Card Required &nbsp;·&nbsp; Cancel Anytime</span>
-      </div>
-      <div class="pricing-grid" style="margin-top: 48px;">
-        <div class="pricing-card fade-up">
-          <div class="pricing-tier">Lifestyle</div>
-          <div class="pricing-price">
-            <span class="price-dollar">$</span>
-            <span class="price-amount">14</span>
-            <span class="price-period">.99 / mo</span>
-          </div>
-          <p class="pricing-headline">Perfect for athletes planning 1–2 shorter-distance races per year.</p>
-          <a href="https://www.tridot.com/tridot-app-redirect" target="_blank" class="btn btn-ghost pricing-cta">Start Free</a>
-          <div class="pricing-features">
-            <div class="pricing-feature"><span class="feature-check">✓</span> 1 scheduled sprint or Olympic race</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> Weekly training optimization</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> Dynamic training zones</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> Drill and exercise videos</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> EnviroNorm® technology</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> TrainX® scoring</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> Knowledgebase support</div>
-          </div>
-        </div>
-        <div class="pricing-card fade-up delay-1">
-          <div class="pricing-tier">Essentials</div>
-          <div class="pricing-price">
-            <span class="price-dollar">$</span>
-            <span class="price-amount">39</span>
-            <span class="price-period"> / mo</span>
-          </div>
-          <p class="pricing-headline">For athletes racing multiple distances who want full RaceX® optimization.</p>
-          <a href="https://www.tridot.com/tridot-app-redirect" target="_blank" class="btn btn-ghost pricing-cta">Start Free</a>
-          <div class="pricing-features">
-            <div class="pricing-divider">Everything in Lifestyle, plus:</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> Plan up to 3 races, any distance</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> RaceX® performance predictions</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> Customizable schedule</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> Swim form analysis</div>
-          </div>
-        </div>
-        <div class="pricing-card featured fade-up delay-2">
-          <div class="pricing-badge">Best Value</div>
-          <div class="pricing-tier">Complete</div>
-          <div class="pricing-price">
-            <span class="price-dollar">$</span>
-            <span class="price-amount">99</span>
-            <span class="price-period"> / mo</span>
-          </div>
-          <p class="pricing-headline">Unlimited races, advanced controls, and priority support for the serious triathlete.</p>
-          <a href="https://www.tridot.com/tridot-app-redirect" target="_blank" class="btn btn-primary pricing-cta">Start Free</a>
-          <div class="pricing-features">
-            <div class="pricing-divider">Everything in Essentials, plus:</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> Unlimited races, any distance</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> Advanced training preferences</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> Swim drill optimization</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> Strength training sessions</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> Priority support</div>
-          </div>
-        </div>
-        <div class="pricing-card fade-up delay-3">
-          <div class="pricing-tier">Premium: Coached</div>
-          <div class="pricing-price">
-            <span class="price-dollar">$</span>
-            <span class="price-amount">249</span>
-            <span class="price-period"> / mo</span>
-          </div>
-          <p class="pricing-headline">AI-powered training plus a dedicated coach with frequent one-to-one communication.</p>
-          <a href="#get-coached" class="btn btn-ghost pricing-cta">Get Coached</a>
-          <div class="pricing-features">
-            <div class="pricing-divider">Everything in Complete, plus:</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> Dedicated certified coach</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> Frequent one-to-one communication</div>
-            <div class="pricing-feature"><span class="feature-check">✓</span> Personalized race strategy</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ FITLOGIC ═══ -->
-  <section class="fitlogic-section">
-    <div class="container">
-      <div class="fitlogic-inner">
-        <div class="fitlogic-content">
-          <p class="fitlogic-powered fade-up">Powered by</p>
-          <div class="fitlogic-logo fade-up delay-1" style="font-size:42px;font-weight:800;letter-spacing:0.04em;color:var(--white);font-family:var(--font-primary);">FitLogic™</div>
-          <h2 class="display-lg fade-up delay-2">The science behind TriDot® is unlike anything else in endurance sports.</h2>
-          <p class="fade-up delay-3">FitLogic™ is the world's first AI platform built specifically for endurance athletes, trained on 20+ years of real training and race data from athletes across every level and discipline.</p>
-          <p class="fade-up delay-3">Other apps automate templates or repurpose general AI. FitLogic™ transforms your raw training data into genuine intelligence. It doesn't just use AI, it <em>is</em> AI, and it's working for you on every session.</p>
-          <a href="https://fitlogic.tech" target="_blank" class="fitlogic-link fade-up delay-4">
-            Explore the science at FitLogic.tech →
-          </a>
-        </div>
-        <div class="fitlogic-visual fade-up delay-2">
-          <div class="fitlogic-stat-grid">
-            <div class="fitlogic-stat">
-              <div class="fitlogic-stat-num"><span class="accent">20</span>+</div>
-              <div class="fitlogic-stat-label">Years of Training Data</div>
-            </div>
-            <div class="fitlogic-stat">
-              <div class="fitlogic-stat-num"><span class="accent">3</span></div>
-              <div class="fitlogic-stat-label">Sports Optimized</div>
-            </div>
-            <div class="fitlogic-stat">
-              <div class="fitlogic-stat-num">True <span class="accent">AI</span></div>
-              <div class="fitlogic-stat-label">Purpose-Built for Endurance</div>
-            </div>
-            <div class="fitlogic-stat">
-              <div class="fitlogic-stat-num"><span class="accent">4</span></div>
-              <div class="fitlogic-stat-label">Phase Intelligence System</div>
-            </div>
-          </div>
-          <p style="margin-top: 24px; font-size: 0.82rem; color: var(--white-50); text-align: center; font-style: italic;">
-            "Not trivial AI. Not copycat tools. FitLogic™ is 20+ years ahead, built from proprietary athlete performance data."
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ GET COACHED ═══ -->
-  <section class="problem-section" id="get-coached" style="background: var(--slate);">
-    <div class="container">
-      <div class="problem-inner">
-        <div class="problem-content">
-          <p class="section-label fade-up">For Coaches</p>
-          <h2 class="display-lg fade-up delay-1">AI doesn't replace coaches. It empowers them.</h2>
-          <p class="body-lg fade-up delay-2">Coaches using TriDot® deliver next-level results and scale their business faster. Every coach gets access to the same FitLogic™ intelligence engine, and the tools to apply it across their entire roster.</p>
-          <div class="problem-quote fade-up delay-3">
-            <p>"TriDot Certified Coaches deliver the world's most sophisticated training platform. The data does the heavy lifting, so you can focus on the athlete."</p>
-          </div>
-          <a href="https://tridot.com/for-coaches" target="_blank" class="btn btn-primary fade-up delay-4" style="margin-top: 8px;">Learn About Coaching</a>
-        </div>
-        <div class="problem-image fade-up delay-1">
-          <img src="assets/training-intelligence.jpg" alt="TriDot coaching platform">
-          <div class="problem-image-overlay"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══ MYTHS ═══ -->
-  <section style="padding: 120px 0; background: linear-gradient(180deg, var(--navy) 0%, #0a0f1a 100%); position: relative;">
-    <div class="container" style="max-width: 900px;">
-      <div style="text-align: center;">
-        <p class="section-label fade-up">The Truth About Training</p>
-        <h2 class="display-lg fade-up delay-1" style="margin-bottom: 48px;">You've been told the wrong things about&nbsp;training.</h2>
-        <div class="fade-up delay-2" style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px;">
-          <div style="background: rgba(234,0,41,0.08); border: 1px solid rgba(234,0,41,0.2); border-radius: 16px; padding: 28px 36px; flex: 1; min-width: 260px; max-width: 380px;">
-            <p style="font-size: 1.5rem; font-style: italic; color: rgba(234,0,41,0.7); font-weight: 600; margin: 0;">"No pain, no gain."</p>
-          </div>
-          <div style="background: rgba(234,0,41,0.08); border: 1px solid rgba(234,0,41,0.2); border-radius: 16px; padding: 28px 36px; flex: 1; min-width: 260px; max-width: 380px;">
-            <p style="font-size: 1.5rem; font-style: italic; color: rgba(234,0,41,0.7); font-weight: 600; margin: 0;">"More volume means better results."</p>
-          </div>
-        </div>
-        <p class="body-lg fade-up delay-3" style="color: var(--white-75); max-width: 700px; margin: 0 auto 32px;">
-          These ideas have injured athletes, burned out athletes, and driven people out of the sport they love. And none of them are true.
-        </p>
-        <p class="body-md fade-up delay-4" style="color: var(--white-75); max-width: 700px; margin: 0 auto;">
-          Backed by 20+ years of athlete training and race data, TriDot® proves that <strong style="color:#fff;">smarter training outperforms harder training</strong> every time. You'll train less, reduce your injury risk, and have more energy for the life you're training to enjoy.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ DOWNLOAD ═══ -->
-  <section style="padding: 100px 0; background: var(--slate); position: relative;">
-    <div class="container" style="max-width: 800px; text-align: center;">
-      <p class="section-label fade-up">Download</p>
-      <h2 class="display-lg fade-up delay-1" style="margin-bottom: 16px;">Get the TriDot® App</h2>
-      <p class="body-lg fade-up delay-2" style="color: var(--white-75); margin-bottom: 40px;">Scan to download or find us on the App Store and Google Play.</p>
-      <div class="fade-up delay-3" style="display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap;">
-        <div style="background: #fff; border-radius: 16px; padding: 20px;">
-          <img src="assets/tridot-qr-code.png" alt="TriDot QR Code" style="width: 180px; height: 180px;">
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 16px;">
-          <a href="https://apps.apple.com/app/tridot/id1083498498" target="_blank" style="display:inline-block;">
-            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" style="height: 48px;">
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.tridot.app" target="_blank" style="display:inline-block;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" style="height: 48px;">
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ FAQ ═══ -->
-  <section style="padding: 100px 0; background: var(--navy); position: relative;" id="faq">
-    <div class="container" style="max-width: 800px;">
-      <div style="text-align: center; margin-bottom: 48px;">
-        <p class="section-label fade-up">Questions</p>
-        <h2 class="display-lg fade-up delay-1">Frequently asked questions</h2>
-      </div>
-      <div class="fade-up delay-2" style="display: flex; flex-direction: column; gap: 12px;">
-        <details style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 24px;">
-          <summary style="cursor: pointer; font-weight: 700; font-size: 1.05rem;">What is TriDot?</summary>
-          <p style="margin-top: 12px; color: var(--white-75); line-height: 1.6;">TriDot is an AI-powered triathlon training platform that builds personalized swim, bike, and run plans using 20+ years of real athlete data and FitLogic&trade; technology, so triathletes train less, race faster, and stay injury-free.</p>
-        </details>
-        <details style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 24px;">
-          <summary style="cursor: pointer; font-weight: 700; font-size: 1.05rem;">Do I need a triathlon coach to use TriDot?</summary>
-          <p style="margin-top: 12px; color: var(--white-75); line-height: 1.6;">No, TriDot's AI-driven training works on its own for athletes at every level. For those who want additional human support, the Premium: Coached plan pairs TriDot's technology with a dedicated certified coach for frequent one-to-one communication.</p>
-        </details>
-        <details style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 24px;">
-          <summary style="cursor: pointer; font-weight: 700; font-size: 1.05rem;">How is TriDot different from a generic training plan?</summary>
-          <p style="margin-top: 12px; color: var(--white-75); line-height: 1.6;">Generic training plans are built for an average athlete. TriDot assesses your true performance ability, prescribes the right training at the right time, evaluates how well you executed it, and predicts your race day performance, all personalized to your own data across swim, bike, and run.</p>
-        </details>
-        <details style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 24px;">
-          <summary style="cursor: pointer; font-weight: 700; font-size: 1.05rem;">Can beginners use TriDot?</summary>
-          <p style="margin-top: 12px; color: var(--white-75); line-height: 1.6;">Yes. The Lifestyle plan is built for athletes planning one to two shorter-distance races per year, making it a fit for beginners, while more advanced plans support athletes racing multiple distances throughout the year.</p>
-        </details>
-        <details style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 24px;">
-          <summary style="cursor: pointer; font-weight: 700; font-size: 1.05rem;">What distances does TriDot support?</summary>
-          <p style="margin-top: 12px; color: var(--white-75); line-height: 1.6;">TriDot supports training across sprint, Olympic, and longer triathlon distances. Plans range from scheduling a single sprint or Olympic race to planning multiple races of any distance, or unlimited races on the Complete and Premium: Coached plans.</p>
-        </details>
-        <details style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 24px;">
-          <summary style="cursor: pointer; font-weight: 700; font-size: 1.05rem;">What does TriDot's four-phase system include?</summary>
-          <p style="margin-top: 12px; color: var(--white-75); line-height: 1.6;">TriDot's system has four phases: Assess (identifying your true performance ability), Prescribe (delivering the right training at the right time), Evaluate (measuring training execution and response with TrainX&reg; score), and Predict (RaceX&reg; race day forecasting and pacing).</p>
-        </details>
-        <details style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 24px;">
-          <summary style="cursor: pointer; font-weight: 700; font-size: 1.05rem;">Can I cancel anytime?</summary>
-          <p style="margin-top: 12px; color: var(--white-75); line-height: 1.6;">Yes. Every TriDot plan starts with a 14-day free trial that requires no credit card, and you can cancel anytime.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ CTA ═══ -->
-  <section class="cta-section">
-    <div class="cta-bg"></div>
-    <div class="cta-overlay"></div>
-    <div class="container">
-      <div class="cta-content">
-        <p class="section-label fade-up">Get Started Today</p>
-        <h2 class="display-lg fade-up delay-1">Generic training is costing you results you've already&nbsp;earned.</h2>
-        <p class="fade-up delay-2">You already know that a hard bike day affects your run. That a bad week at work changes everything. TriDot® tracks those variables so your training always reflects reality, not just a calendar.</p>
-        <div class="cta-buttons fade-up delay-3">
-          <a href="https://www.tridot.com/tridot-app-redirect" target="_blank" class="btn btn-primary btn-lg">Start Your Free Trial</a>
-          <a href="#pricing" class="btn btn-ghost btn-lg">View Pricing</a>
-        </div>
-        <p class="cta-note fade-up delay-4">14 days free · No credit card required · Cancel anytime</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ FOOTER ═══ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <svg class="footer-logo" width="87" height="24" viewBox="0 0 87 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22.4559 6.48182C22.0863 7.49775 21.3674 8.34613 20.43 8.87266C19.4926 9.3992 18.399 9.56891 17.348 9.35093C17.0342 9.28579 16.7279 9.18752 16.4344 9.05773L15.4534 9.98967C15.7171 10.5612 15.8183 11.1954 15.7455 11.8216C15.6728 12.4478 15.4291 13.0412 15.0415 13.5358C14.6539 14.0304 14.1378 14.4067 13.5506 14.6228C12.9633 14.8388 12.3282 14.8861 11.7159 14.7593C11.3931 14.6919 11.0818 14.5772 10.7919 14.419L9.91464 15.2567C10.2048 15.7501 10.3177 16.3292 10.2344 16.8967C10.151 17.4642 9.87648 17.9854 9.45694 18.3728C9.0374 18.7602 8.49843 18.9901 7.93063 19.0238C7.36282 19.0575 6.80082 18.8931 6.33908 18.5581C5.87735 18.2231 5.54405 17.7379 5.39522 17.1842C5.24638 16.6306 5.29108 16.0421 5.5218 15.5177C5.75253 14.9933 6.15521 14.5651 6.66214 14.3049C7.16908 14.0448 7.74937 13.9686 8.30545 14.0891C8.49479 14.124 8.67829 14.1857 8.8505 14.2724L9.60318 13.309C9.22992 12.7471 9.03086 12.0859 9.03133 11.4095C9.03179 10.7332 9.23177 10.0722 9.6058 9.51086C9.97983 8.94947 10.511 8.51302 11.1317 8.25705C11.7524 8.00108 12.4346 7.93717 13.0915 8.07344C13.2676 8.11028 13.4411 8.15926 13.6106 8.22004L14.4204 7.17292C14.11 6.63939 13.9119 6.04715 13.8382 5.43306C13.7646 4.81896 13.8171 4.19615 13.9923 3.60339C14.1676 3.01062 14.462 2.46059 14.8571 1.98751C15.2523 1.51443 15.7397 1.12844 16.2891 0.853546C15.6398 0.593133 14.9694 0.38993 14.2854 0.246216C11.6391 -0.303257 8.88615 0.0712791 6.47874 1.30831C4.07134 2.54535 2.15259 4.57133 1.0376 7.05354C-0.0773788 9.53574 -0.322302 12.3266 0.343059 14.9677C1.00842 17.6089 2.54451 19.9433 4.69905 21.5876C6.85359 23.2319 9.49848 24.0884 12.1994 24.0163C14.9002 23.9442 17.4965 22.9478 19.5618 21.1909C21.6271 19.4339 23.0386 17.0208 23.5645 14.3479C24.0905 11.6749 23.6995 8.90107 22.4559 6.48182Z" fill="#EA0029"/>
-          <path d="M32.4018 19.8953H29.0952L33.0974 7.95285H29.5261L30.502 5.03662H40.9721L39.9962 7.95285H36.404L32.4018 19.8953Z" fill="white"/>
-          <path d="M36.3833 19.8952L40.1052 8.79051H43.0848L42.6799 9.9947C42.9333 9.61659 43.2765 9.30836 43.6781 9.09806C44.0797 8.88775 44.527 8.78203 44.9795 8.79051H48.1771L47.2894 11.445H42.872C42.6846 11.4174 42.4939 11.4642 42.34 11.5755C42.186 11.6868 42.0809 11.854 42.0466 12.0418L39.4511 19.8952H36.3833Z" fill="white"/>
-          <path d="M50.9438 19.8953L54.5775 9.05241H57.8426L55.1796 16.9843H59.8152C60.5523 16.9843 61.1492 16.4974 61.4659 15.555L63.5422 9.36655C63.8589 8.4189 63.6045 7.93723 62.8415 7.93723H54.9409L55.922 5.021H64.4299C67.0254 5.021 67.8611 6.33513 67.0253 8.81681L64.5908 16.0838C63.7603 18.5603 62.0369 19.8796 59.4466 19.8796L50.9438 19.8953Z" fill="white"/>
-          <path d="M66.6983 19.8952C65.141 19.8952 64.8607 19.2146 65.359 17.7225L67.6222 10.9633C68.1413 9.46592 68.8525 8.79053 70.4202 8.79053H77.9055C79.5147 8.79053 79.769 9.46592 79.2655 10.9633L77.0022 17.7225C76.4832 19.2146 75.798 19.8952 74.1836 19.8952H66.6983ZM75.8499 12.0418C76.016 11.5602 75.9277 11.4293 75.3827 11.4293H71.0742C70.6174 11.4293 70.4669 11.5602 70.3008 12.0418L68.7902 16.5654C68.6397 17.0052 68.6968 17.157 69.1536 17.157H73.462C73.9811 17.157 74.1888 17.0052 74.3393 16.5654L75.8499 12.0418Z" fill="white"/>
-          <path d="M79.6445 19.8953C78.0873 19.8953 77.807 19.2147 78.3053 17.7225L82.3386 5.68066H85.3857L84.3475 8.78014H87.0001L86.1955 11.1938H83.5377L81.6327 16.8744C81.4717 17.3613 81.5652 17.4712 82.0012 17.4712H84.0049L83.1951 19.8953H79.6445Z" fill="white"/>
-          <path d="M53.8403 5.07324H50.7828L50.0613 7.25649H53.1187L53.8403 5.07324Z" fill="white"/>
-          <path d="M49.5423 8.81152L45.8723 19.8796H48.909L52.5738 8.81152H49.5423Z" fill="white"/>
-        </svg>
+        <p class="footer-desc">TriDot<span class="tm">&reg;</span> gives you the confidence to train less and race faster.</p>
         <p class="footer-tagline">Better results in less time with fewer injuries.</p>
-        <nav class="footer-links">
-          <a href="#how-it-works">How It Works</a>
-          <a href="#pricing">Pricing</a>
-          <a href="https://tridot.com/for-coaches" target="_blank">For Coaches</a>
-          <a href="https://app.tridot.com/login" target="_blank">Login</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-        </nav>
-        <div class="footer-powered">
+        <div class="footer-fitlogic">
           <span>Powered by</span>
-          <img src="assets/fitlogic-logo-white.png" alt="FitLogic" style="height:20px; opacity:0.7; filter: brightness(0) invert(1);">
+          <img src="assets/fitlogic-logo-white.png" alt="FitLogic logo" loading="lazy">
         </div>
-        <p class="footer-copy">© <span id="footer-year"></span> Predictive Fitness, Inc. All rights reserved.</p>
-        <p class="footer-legal">TriDot® and the TriDot logo are trademarks or registered trademarks of Predictive Fitness, Inc. in the US and other countries. Additional Predictive Fitness trademarks can be found <a href="https://www.predictive.fit/trademark-list" target="_blank" style="color:var(--white-50);text-decoration:underline;">here</a>.</p>
-        <p class="footer-address">2600 E. Southlake Blvd. Suite 120-140, Southlake, Texas 76092</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="https://tridot.com/for-coaches" target="_blank">For Coaches</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="https://www.predictive.fit/privacy-notice" target="_blank">Privacy Policy</a>
+        <a href="https://www.predictive.fit/terms-of-use" target="_blank">Terms of Service</a>
+        <a href="https://www.predictive.fit/trademark-list" target="_blank">Trademarks</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="https://app.tridot.com/login" target="_blank">Login</a>
+        <a href="https://fitlogic.tech" target="_blank">FitLogic<span class="tm">&trade;</span></a>
       </div>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <p class="footer-legal">TriDot&reg; and the TriDot logo are trademarks or registered trademarks of Predictive Fitness, Inc. in the US and other countries. Additional Predictive Fitness trademarks can be found at <a href="https://www.predictive.fit/trademark-list" target="_blank">predictive.fit/trademark-list</a>.</p>
+      <p class="footer-copy">&copy; <span id="footerYear"></span> Predictive Fitness, Inc. All rights reserved. 2600 E. Southlake Blvd. Suite 120-140, Southlake, Texas 76092</p>
+    </div>
+  </div>
+</footer>
 
-  <script>
-    // Dynamic year
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
+<script>
+document.getElementById('footerYear').textContent = new Date().getFullYear();
 
-    // Nav scroll effect
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
+// Nav scroll shadow
+window.addEventListener('scroll', function() {
+  var nav = document.getElementById('mainNav');
+  if (nav) { nav.classList.toggle('scrolled', window.scrollY > 10); }
+}, { passive: true });
 
-    // Hamburger menu
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-      const spans = hamburger.querySelectorAll('span');
-      if (mobileMenu.classList.contains('open')) {
-        spans[0].style.transform = 'translateY(7px) rotate(45deg)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
-      } else {
-        spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-      }
-    });
-    mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-      });
-    });
+// Mobile nav
+function toggleMobileNav() {
+  var overlay = document.getElementById('mobileNav');
+  var hamburger = document.getElementById('hamburger');
+  var isOpen = overlay.classList.contains('open');
+  if (isOpen) { closeMobileNav(); }
+  else {
+    overlay.classList.add('open');
+    hamburger.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
-    // Fade-up observer
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+// Hero headline word-by-word entrance
+(function() {
+  var headline = document.getElementById('heroHeadline');
+  var parts = [
+    { text: 'You', red: false },
+    { text: 'deserve', red: false },
+    { text: 'better', red: true },
+    { text: 'training.', red: false }
+  ];
+  var delay = 0.15;
+  parts.forEach(function(p) {
+    var span = document.createElement('span');
+    span.className = 'hero-word' + (p.red ? ' red-word' : '');
+    span.style.animationDelay = delay + 's';
+    span.textContent = p.text + ' ';
+    headline.appendChild(span);
+    delay += 0.09;
+  });
+})();
 
-    // Counter animation
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const el = e.target;
-          const target = parseInt(el.dataset.target);
-          const dur = 1800;
-          const step = target / (dur / 16);
-          let current = 0;
-          const timer = setInterval(() => {
-            current = Math.min(current + step, target);
-            el.textContent = Math.floor(current);
-            if (current >= target) clearInterval(timer);
-          }, 16);
-          counterObserver.unobserve(el);
+// Fade-up observer
+var fadeObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      fadeObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+document.querySelectorAll('.fade-up').forEach(function(el) { fadeObserver.observe(el); });
+
+// Timeline animation for phase panels
+var timelineObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) { entry.target.classList.add('timeline-visible'); }
+  });
+}, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.phase-panel').forEach(function(el, i) {
+  el.style.transitionDelay = (i * 0.15) + 's';
+  timelineObserver.observe(el);
+});
+
+// Counter animation for trust strip stats
+function animateCounter(el, target, suffix, isFloat) {
+  var duration = 1400;
+  var start = performance.now();
+  function tick(now) {
+    var elapsed = now - start;
+    var progress = Math.min(elapsed / duration, 1);
+    var eased = 1 - Math.pow(1 - progress, 3);
+    var current = isFloat ? (eased * target).toFixed(1) : Math.round(eased * target);
+    el.textContent = current + suffix;
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+var trustCounterObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      var el = entry.target;
+      if (el.dataset.counted) return;
+      el.dataset.counted = '1';
+      var nums = el.querySelectorAll('.trust-num');
+      nums.forEach(function(num) {
+        var text = num.textContent;
+        if (text.indexOf('20+') !== -1) {
+          var redSpan = num.querySelector('.red');
+          var numSpan = document.createElement('span');
+          numSpan.textContent = '0+ ';
+          num.textContent = '';
+          num.appendChild(numSpan);
+          num.appendChild(document.createTextNode(' '));
+          num.appendChild(redSpan);
+          animateCounter(numSpan, 20, '+ ', false);
+        } else if (text.indexOf('50K') !== -1) {
+          var redSpan2 = num.querySelector('.red');
+          var numSpan2 = document.createElement('span');
+          numSpan2.textContent = '0K';
+          num.textContent = '';
+          num.appendChild(numSpan2);
+          num.appendChild(redSpan2);
+          animateCounter(numSpan2, 50, 'K', false);
         }
       });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
-  </script>
+      trustCounterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+var trustRowEl = document.querySelector('.trust-row');
+if (trustRowEl) trustCounterObserver.observe(trustRowEl);
+
+/* Goal typewriter */
+(function() {
+  var el = document.getElementById('goalTypewriter');
+  if (!el) return;
+  var goals = ['finish my first triathlon', 'qualify for Kona', 'train less and race faster', 'find balance in training'];
+  var gi = 0, ci = 0, deleting = false;
+  function tick() {
+    var goal = goals[gi];
+    if (!deleting) {
+      ci++;
+      el.textContent = goal.substring(0, ci);
+      if (ci === goal.length) { setTimeout(function() { deleting = true; tick(); }, 2000); return; }
+      setTimeout(tick, 60 + Math.random() * 40);
+    } else {
+      ci--;
+      el.textContent = goal.substring(0, ci);
+      if (ci === 0) { deleting = false; gi = (gi + 1) % goals.length; setTimeout(tick, 400); return; }
+      setTimeout(tick, 30);
+    }
+  }
+  tick();
+})();
+
+/* Distance cycle animation */
+(function() {
+  var el = document.querySelector('.distance-cycle');
+  if (!el) return;
+  var sequence = ['IRONMAN', 'Sprint', 'Olympic', '70.3'];
+  var gi = 0, ci = 0, deleting = false;
+  el.textContent = sequence[0];
+  ci = sequence[0].length;
+  function tick() {
+    var goal = sequence[gi];
+    if (!deleting) {
+      ci++;
+      el.textContent = goal.substring(0, ci);
+      if (ci === goal.length) { setTimeout(function() { deleting = true; tick(); }, 2000); return; }
+      setTimeout(tick, 80 + Math.random() * 50);
+    } else {
+      ci--;
+      el.textContent = goal.substring(0, ci);
+      if (ci === 0) { deleting = false; gi = (gi + 1) % sequence.length; setTimeout(tick, 500); return; }
+      setTimeout(tick, 40);
+    }
+  }
+  setTimeout(function() { deleting = true; tick(); }, 2000);
+})();
+
+// Scribble draw animation
+setTimeout(function() {
+  document.querySelectorAll('.scribble-path').forEach(function(p, i) {
+    setTimeout(function() { p.classList.add('drawn'); }, i * 250);
+  });
+}, 800);
+
+// Page load fade-in
+window.addEventListener('DOMContentLoaded', function() {
+  requestAnimationFrame(function() { document.body.classList.add('loaded'); });
+});
+</script>
 </body>
 </html>
