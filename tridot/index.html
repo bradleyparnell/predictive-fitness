@@ -231,7 +231,7 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
   opacity: 0; animation: finallyFadeIn 0.8s ease-out 0.3s both;
 }
 @keyframes finallyFadeIn { from { opacity: 0; transform: translateY(12px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
-.finally-scribble { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 220px; height: 90px; z-index: 1; pointer-events: none; }
+.finally-scribble { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 280px; height: 110px; z-index: 1; pointer-events: none; }
 .scribble-path { stroke-dasharray: 600; stroke-dashoffset: 600; transition: stroke-dashoffset 1.2s ease-out; }
 .scribble-path.drawn { stroke-dashoffset: 0; }
 .hero h1 {
@@ -779,9 +779,9 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
           <li><span>Every athlete starts from an accurate starting point, not a guess</span></li>
         </ul>
         <div class="phase-tags">
-          <span class="phase-tag"><span style="white-space:nowrap">Dot Score<span class="tm">&trade;</span></span></span>
-          <span class="phase-tag"><span style="white-space:nowrap">Training Stress Profile<span class="tm">&reg;</span></span></span>
-          <span class="phase-tag"><span style="white-space:nowrap">Physiogenomix<span class="tm">&reg;</span></span></span>
+          <span class="phase-tag"><a href="#how-it-knows" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(234,0,41,0.4);"><span style="white-space:nowrap">Dot Score<span class="tm">&trade;</span></span></a></span>
+          <span class="phase-tag"><a href="#how-it-knows" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(234,0,41,0.4);"><span style="white-space:nowrap">Training Stress Profile<span class="tm">&reg;</span></span></a></span>
+          <span class="phase-tag"><a href="#how-it-knows" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(234,0,41,0.4);"><span style="white-space:nowrap">Physiogenomix<span class="tm">&reg;</span></span></a></span>
         </div>
       </div>
       <div class="phase-panel">
@@ -795,8 +795,8 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
           <li><span>The right training at the right time, before every session</span></li>
         </ul>
         <div class="phase-tags">
-          <span class="phase-tag"><span style="white-space:nowrap">NTS<span class="tm">&trade;</span></span></span>
-          <span class="phase-tag"><span style="white-space:nowrap">EnviroNorm<span class="tm">&reg;</span></span></span>
+          <span class="phase-tag"><a href="#how-it-knows" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(234,0,41,0.4);"><span style="white-space:nowrap">NTS<span class="tm">&trade;</span></span></a></span>
+          <span class="phase-tag"><a href="#how-it-knows" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(234,0,41,0.4);"><span style="white-space:nowrap">EnviroNorm<span class="tm">&reg;</span></span></a></span>
           <span class="phase-tag"><span style="white-space:nowrap">Residual Training Stress<span class="tm">&trade;</span></span></span>
         </div>
       </div>
@@ -811,7 +811,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
           <li><span>Tracks training-execution quality and consistency over time</span></li>
         </ul>
         <div class="phase-tags">
-          <span class="phase-tag"><span style="white-space:nowrap">TrainX<span class="tm">&reg;</span></span></span>
+          <span class="phase-tag"><a href="#how-it-knows" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(234,0,41,0.4);"><span style="white-space:nowrap">TrainX<span class="tm">&reg;</span></span></a></span>
           <span class="phase-tag"><span style="white-space:nowrap">Residual Training Stress<span class="tm">&trade;</span></span></span>
           <span class="phase-tag">Recovery Readiness</span>
         </div>
@@ -827,7 +827,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
           <li><span>Toe the line with a data-backed plan, not a hope</span></li>
         </ul>
         <div class="phase-tags">
-          <span class="phase-tag"><span style="white-space:nowrap">RaceX<span class="tm">&reg;</span></span></span>
+          <span class="phase-tag"><a href="#how-it-knows" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(234,0,41,0.4);"><span style="white-space:nowrap">RaceX<span class="tm">&reg;</span></span></a></span>
           <span class="phase-tag">Optimized Pacing</span>
           <span class="phase-tag">Bike Power Plans</span>
         </div>
@@ -838,19 +838,19 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
 
 <!-- SOUND FAMILIAR -->
 <section class="familiar section">
-  <div class="section-inner fade-up">
-    <div class="section-header">
-      <div class="section-eyebrow">The Triathlete's Dilemma</div>
-      <h2 class="section-title">Sound Familiar?</h2>
-    </div>
-  </div>
   <div class="familiar-photo fade-up">
+    <div class="section-header" style="position:relative;z-index:2;margin-bottom:32px;">
+      <div class="section-eyebrow" style="color:#fff;">The Triathlete's Dilemma</div>
+    </div>
     <div class="doubt-cards">
       <div class="doubt-card">I train hard but my times won't budge</div>
       <div class="doubt-card">I keep getting injured before race day</div>
       <div class="doubt-card">My plan ignores how I actually feel</div>
       <div class="doubt-card">I'm not sure I'm training the right things</div>
     </div>
+  </div>
+  <div class="section-inner fade-up" style="text-align:center;padding-top:48px;">
+    <h2 class="section-title">Sound Familiar?</h2>
   </div>
 </section>
 
@@ -983,7 +983,7 @@ footer { background: #0a0a0a; color: rgba(255,255,255,0.5); padding: 64px 40px 4
   <div class="section-inner">
     <div class="section-header fade-up">
       <div class="section-eyebrow">The Legends of Triathlon</div>
-      <h2 class="section-title">When the Greatest Names in Triathlon Trust the Training, You Can Too.</h2>
+      <h2 class="section-title">Trusted by the Greatest Names in Triathlon.</h2>
       <p class="section-sub"><span style="white-space:nowrap">TriDot<span class="tm">&reg;</span></span>'s Legends roster brings exclusive guidance, tips, and insights to athletes who want access to the best minds in the sport alongside the best training technology in the world.</p>
     </div>
     <div class="legends-grid fade-up">
