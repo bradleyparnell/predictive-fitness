@@ -38,9 +38,9 @@
 .hero-grid{position:relative;z-index:2}.hero-stat{z-index:2}
 @media(max-width:780px){.hero{background-position:61% center}.hero:before{background:linear-gradient(180deg,#151515ed 0%,#191919d4 53%,#19191980 100%)}.hero:after{opacity:.055}}
 
-/* Show the complete partner group at desktop widths rather than cropping the 16:9 source into the wider hero. */
+/* Keep the hero edge-to-edge. The full group is framed across the width, with faces retained at the top of the image. */
 @media(min-width:781px){
-  .hero{background-size:auto 100%;background-position:right bottom}
+  .hero{background-size:100% auto;background-position:center top}
 }
 </style></head>
 <body>
