@@ -37,6 +37,11 @@
 .hero:after{z-index:1;opacity:.09}
 .hero-grid{position:relative;z-index:2}.hero-stat{z-index:2}
 @media(max-width:780px){.hero{background-position:61% center}.hero:before{background:linear-gradient(180deg,#151515ed 0%,#191919d4 53%,#19191980 100%)}.hero:after{opacity:.055}}
+
+/* Show the complete partner group at desktop widths rather than cropping the 16:9 source into the wider hero. */
+@media(min-width:781px){
+  .hero{background-size:auto 100%;background-position:right bottom}
+}
 </style></head>
 <body>
 <header class="wrap nav"><a href="#top"><img src="./assets/esci-logo.png" alt="Endurance Sports Coaching Institute"></a><nav class="navlinks"><a href="#benefits">Benefits</a><a href="#community">Community</a><a href="#path">Certification</a><a href="#leadership">Leadership</a><a class="button" href="#start">Get certified <span>→</span></a></nav></header>
