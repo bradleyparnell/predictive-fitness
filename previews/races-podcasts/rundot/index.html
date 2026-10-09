@@ -4871,6 +4871,37 @@ document.addEventListener("DOMContentLoaded",function(){
 .hx-works{bottom:-28px;font-size:11.5px;white-space:nowrap;left:-40px;right:-40px}
 }
 @media (prefers-reduced-motion:reduce){.hx .dv-phone,.hx .dv-watch{animation:none;opacity:1;transform:none}}
+</style><style id="pf-hero-tidy">
+/* Meb: photo sits beside quote, no overlap into hero */
+.meb-strip{padding:44px 32px!important}
+.meb-strip-inner{align-items:center!important}
+.meb-strip-photo{margin-top:0!important;width:120px!important;height:120px!important}
+/* Hero: one CTA row, quieter supporting lines */
+.hero .hero-avatars{display:none!important}
+.hero .hero-cta-row{align-items:center!important;gap:12px 28px!important}
+.hero .hero-cta-row .pf-film-btn{margin:0!important;display:inline-flex!important}
+.hero .hero-cta-row{flex-wrap:wrap!important}
+.hero .hero-cta-row .pf-trial-note{flex-basis:100%;order:3;margin:0!important}
+.hero .pf-trial-note{margin-top:12px!important;font-size:14px!important;color:rgba(255,255,255,.7)!important}
+.hero .hero-social-proof{margin-top:28px!important;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);display:block!important}
+.hero .hero-social-text{font-size:14px!important;color:rgba(255,255,255,.7)!important}
+.hero .hero-social-text strong{color:#fff!important}
+@media(min-width:1024px){
+.hero{align-items:center!important}
+.hero .hero-content{padding:112px 0 96px!important}
+.hero .goal-typewriter{margin:28px 0 32px!important}
+.hero .hero-social-proof{max-width:420px}
+.hx{margin-top:24px;margin-bottom:40px}
+}
+@media(max-width:1023px){
+.hero .hero-cta-row{flex-direction:column!important;gap:14px!important;flex-wrap:nowrap!important}
+.hero .hero-cta-row .pf-trial-note{flex-basis:auto}
+.hero .hero-cta-row .pf-trial-note{order:1}
+.hero .hero-cta-row .pf-film-btn{order:2}
+.hero .hero-social-proof{margin:24px auto 0!important;max-width:320px}
+.meb-strip{padding:36px 20px!important}
+.meb-strip-photo{width:96px!important;height:96px!important}
+}
 </style></head>
 <body>
 <!--  Added by GoogleTagManager integration -->
@@ -4923,8 +4954,9 @@ document.addEventListener("DOMContentLoaded",function(){
       <span class="goal-typewriter-prefix">I want to </span><span class="goal-typewriter-text" id="goalTypewriter"></span><span class="goal-typewriter-cursor"></span>
     </div>    <div class="hero-cta-row hero-cta-entrance">
       <a href="https://promo.rundot.com/?promo=RDWEBSITE" target="_blank" class="btn-primary">Start your free trial</a>
-    </div><p class="pf-trial-note hero-cta-entrance">2 weeks free. No card required.</p>
-    <button type="button" class="pf-film-btn hero-cta-entrance" id="pfFilmOpen" aria-label="Watch the RunDot film"><span class="pf-film-play"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span>Watch the film</button>
+      <button type="button" class="pf-film-btn hero-cta-entrance" id="pfFilmOpen" aria-label="Watch the RunDot film"><span class="pf-film-play"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span>Watch the film</button>
+      <p class="pf-trial-note hero-cta-entrance">2 weeks free. No card required.</p>
+    </div>
     <div class="hero-social-proof hero-cta-entrance">
       <div class="hero-avatars">
         <span class="hero-avatar" style="background:#2d6a2e;">JM</span>
