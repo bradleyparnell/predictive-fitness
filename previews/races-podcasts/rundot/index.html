@@ -4875,6 +4875,12 @@ document.addEventListener("DOMContentLoaded",function(){
 a.hx{display:block;pointer-events:auto!important;cursor:pointer;text-decoration:none;transition:transform .35s ease}
 a.hx:hover{transform:translateY(-4px)}
 a.hx:focus-visible{outline:2px solid #53b956;outline-offset:8px;border-radius:12px}
+/* Typing line: fill-in-the-blank, not a box */
+.hero .goal-typewriter{border:0!important;background:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;padding:0!important;border-radius:0!important;min-width:0!important;width:auto!important;max-width:none!important;font-size:24px!important;min-height:0!important}
+.hero .goal-typewriter-prefix{color:rgba(255,255,255,.85)!important}
+.hero .goal-typewriter-text{border-bottom:3px solid #53b956;padding-bottom:2px;min-width:180px!important;display:inline-block}
+/* 50k icon */
+.hero .hero-social-proof .pf-sp-ico{display:inline-block;vertical-align:-4px;margin-right:8px;width:20px;height:20px}
 /* Meb: photo sits beside quote, no overlap into hero */
 .meb-strip{padding:44px 32px!important}
 .meb-strip-inner{align-items:center!important}
@@ -4906,6 +4912,8 @@ a.hx:focus-visible{outline:2px solid #53b956;outline-offset:8px;border-radius:12
 .hero .hero-content{padding-top:140px!important}
 .hero .hero-cta-row{margin-top:4px!important}
 .hero .hero-social-text{font-size:14px!important}
+.hero .goal-typewriter{font-size:19px!important}
+.hero .goal-typewriter-text{min-width:120px!important}
 .meb-strip-photo{width:96px!important;height:96px!important}
 }
 </style></head>
@@ -4971,7 +4979,7 @@ a.hx:focus-visible{outline:2px solid #53b956;outline-offset:8px;border-radius:12
         <span class="hero-avatar" style="background:#4a8f4c;">AB</span>
         <span class="hero-avatar hero-avatar-plus" style="background:#53b956;">+</span>
       </div>
-      <span class="hero-social-text"><strong>50,000+ runners</strong> already training smarter</span>
+      <span class="hero-social-text"><svg class="pf-sp-ico" viewBox="0 0 24 24" fill="none" stroke="#53b956" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><strong>50,000+ runners</strong> already training smarter</span>
     </div>
   </div>
   <a class="hx" href="https://promo.rundot.com/?promo=RDWEBSITE" target="_blank" aria-label="Start your free trial"><div class="dv-phone"><div class="dv-screen"><img src="https://bradleyparnell.github.io/predictive-fitness/previews/races-podcasts/rundot/media/rd-app-home-completed.jpg" alt="" fetchpriority="high"></div></div><div class="dv-watch dv-garmin" aria-label="Workout synced to a sports watch">
