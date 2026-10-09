@@ -1,0 +1,594 @@
+<!doctype html><html lang="en"><head>
+<meta name="robots" content="noindex,nofollow">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RunDot&trade; vs Runna | Why True AI Beats Template Training</title>
+<meta name="description" content="RunDot vs Runna: how adaptive, data optimized training compares to template plans across assessment, prescription, evaluation and race-day prediction.">
+<link rel="canonical" href="https://www.rundot.com/rundot-vs-runna">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://rundot.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Compare",
+      "item": "https://www.rundot.com/compare/"
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&amp;family=Rock+Salt&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --green: #53b956; --green-light: #6dd070;
+  --green-soft: rgba(83,185,86,0.08); --green-border: rgba(83,185,86,0.2);
+  --green-dim: rgba(83,185,86,0.12);
+  --dark: #111827; --dark-2: #1f2937;
+  --text: #1a1a2e; --text-secondary: #4b5563; --text-muted: #6b7280; --text-light: #9ca3af;
+  --white: #ffffff; --off-white: #f9fafb; --light-bg: #f3f4f6;
+  --border: #e5e7eb; --border-light: #f0f0f0;
+  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-headline: 'Barlow Condensed', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { overflow-x: hidden; max-width: 100%; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--white); color: var(--text); }
+.tm { font-size: 0.5em; vertical-align: top; position: relative; top: -0.4em; line-height: 0; margin-left: 0.05em; margin-right: 0.05em; }
+
+/* Diagonal stripe decorations */
+.chevron-stripe { height: 24px; position: relative; overflow: hidden; background: transparent; margin-top: -12px; z-index: 2; }
+.chevron-stripe-inner {
+  position: absolute; top: 0; bottom: 0; left: 0; width: 55%;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 6px, rgba(83,185,86,0.35) 6px, rgba(83,185,86,0.35) 10px, transparent 10px, transparent 16px, rgba(83,185,86,0.35) 16px, rgba(83,185,86,0.35) 20px);
+  -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+  mask-image: linear-gradient(to right, black 60%, transparent 100%);
+}
+.chevron-stripe-right .chevron-stripe-inner {
+  left: auto; right: 0;
+  -webkit-mask-image: linear-gradient(to left, black 60%, transparent 100%);
+  mask-image: linear-gradient(to left, black 60%, transparent 100%);
+}
+
+/* Dot grid texture */
+.dot-grid { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.08) 1.5px, transparent 1.5px); background-size: 22px 22px; pointer-events: none; }
+
+/* Eyebrow */
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
+.eyebrow::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green); display: inline-block; }
+.eyebrow.on-dark { color: var(--green-light); }
+
+/* Section title / hero headline */
+.v2-hero-title, .section-title {
+  font-family: var(--font-headline); font-weight: 700; font-style: italic; text-transform: uppercase;
+  letter-spacing: 0.02em; line-height: 0.9; color: var(--text);
+}
+.section-title { font-size: clamp(28px, 4vw, 44px); letter-spacing: 0.01em; line-height: 0.95; }
+.on-dark { color: #fff; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 60px;
+  background: rgba(255,255,255,0.92); backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border-light);
+  transition: box-shadow 0.3s ease;
+}
+nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
+.nav-logo img { height: 28px; width: auto; }
+.nav-logo { display: flex; }
+.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 14px; font-weight: 500; letter-spacing: 0.02em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-login { border: 1px solid var(--border); padding: 8px 18px; border-radius: 6px; font-weight: 600 !important; color: var(--text) !important; }
+.nav-cta { background: var(--green); color: var(--white) !important; padding: 10px 22px; border-radius: 6px; font-weight: 600 !important; border: none; cursor: pointer; }
+.nav-cta:hover { background: var(--green-light) !important; }
+.nav-hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+.nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-mobile-overlay {
+  display: none; position: fixed; inset: 0; z-index: 99;
+  background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+  flex-direction: column; align-items: center; justify-content: center; gap: 24px;
+  transition: opacity 0.3s ease; opacity: 0;
+}
+.nav-mobile-overlay.open { display: flex; opacity: 1; }
+.nav-mobile-overlay a { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--text); text-decoration: none; }
+
+/* Buttons */
+.btn { display: inline-block; border-radius: 8px; padding: 16px 36px; font-family: var(--font-display); font-weight: 700; font-size: 15px; text-decoration: none; cursor: pointer; transition: all 0.2s; border: none; }
+.btn-primary { background: var(--green); color: #fff; }
+.btn-primary:hover { background: var(--green-light); transform: scale(1.02); }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+.btn-outline:hover { border-color: var(--green); color: var(--green); }
+.btn-outline-dark { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.25); }
+.btn-outline-dark:hover { border-color: var(--green-light); color: var(--green-light); }
+
+/* FOOTER */
+footer {
+  background: #111827; color: #fff; padding: 80px 60px 40px;
+  width: 100%; max-width: 100%; box-sizing: border-box;
+}
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-logo img { height: 28px; margin-bottom: 16px; }
+.footer-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 16px; }
+.footer-col h4 { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+.footer-col a { display: block; color: rgba(255,255,255,0.45); font-size: 14px; text-decoration: none; margin-bottom: 12px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--green-light); }
+.footer-fitlogic { margin-top: 20px; }
+.footer-fitlogic img { height: 36px; opacity: 0.5; }
+.footer-bottom { padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+.footer-legal { font-size: 11px; color: rgba(255,255,255,0.2); line-height: 1.6; max-width: 700px; }
+.footer-links { display: flex; gap: 20px; flex-shrink: 0; }
+.footer-links a { color: rgba(255,255,255,0.3); font-size: 12px; text-decoration: none; }
+.footer-links a:hover { color: var(--green-light); }
+
+/* MODAL */
+.modal-overlay { position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; }
+.modal-overlay.active { display: flex; }
+.modal-box { background: #fff; border-radius: 20px; padding: 48px 40px; max-width: 420px; width: 90%; text-align: center; position: relative; box-shadow: 0 32px 80px rgba(0,0,0,0.25); }
+.modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666; }
+.qr-code { margin: 16px 0; }
+.store-badges { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
+.store-badges a { display: flex; transition: transform 0.2s; }
+.store-badges a:hover { transform: scale(1.05); }
+.store-badges img { height: 44px; }
+
+/* Fade up */
+.fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .qr-desktop-only { display: none !important; }
+  .qr-desktop-text { display: none !important; }
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  footer { padding: 48px 24px 32px; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 12px; }
+}
+@media (max-width: 480px) {
+  .footer-top { grid-template-columns: 1fr; }
+}
+
+.v2-hero {
+  padding: 170px 40px 100px; text-align: center; position: relative; overflow: hidden;
+  background: radial-gradient(ellipse at 50% -10%, #1f2937 0%, #111827 55%, #0b0f19 100%);
+  color: #fff;
+}
+.v2-hero-inner { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+.v2-hero .eyebrow { justify-content: center; }
+.v2-hero h1 {
+  font-family: var(--font-headline); font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: 700; font-style: italic; text-transform: uppercase;
+  letter-spacing: 0.02em; line-height: 0.95; margin-bottom: 20px; color: #fff;
+}
+.v2-hero p { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 540px; margin: 0 auto; line-height: 1.6; }
+
+/* PHILOSOPHY */
+.philosophy-section { max-width: 1100px; margin: 0 auto; padding: 90px 40px; }
+.philosophy-title-wrap { text-align: center; margin-bottom: 48px; }
+.philosophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.philo-card { border-radius: 16px; padding: 40px 36px; }
+.philo-card.rundot { background: var(--dark); color: #fff; border: 1px solid rgba(83,185,86,0.3); position: relative; overflow: hidden; }
+.philo-card.template { background: var(--off-white); border: 1px solid var(--border); color: var(--text); }
+.philo-tag { font-family: var(--font-display); font-size: 11px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 14px; display: inline-block; }
+.philo-card.rundot .philo-tag { color: var(--green-light); }
+.philo-card.template .philo-tag { color: var(--text-muted); }
+.philo-card h3 { font-family: var(--font-headline); font-weight: 800; font-style: italic; text-transform: uppercase; font-size: 30px; letter-spacing: 0.01em; margin-bottom: 16px; line-height: 1; }
+.philo-card p { font-size: 15px; line-height: 1.7; }
+.philo-card.rundot p { color: rgba(255,255,255,0.7); }
+.philo-card.template p { color: var(--text-secondary); }
+
+/* PHASES */
+.phases-section { background: var(--dark); padding: 90px 40px; position: relative; overflow: hidden; }
+.phases-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+.phases-title-wrap { text-align: center; margin-bottom: 64px; }
+.phase-block { margin-bottom: 64px; }
+.phase-block:last-child { margin-bottom: 0; }
+.phase-label { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.phase-num { font-family: var(--font-headline); font-weight: 700; font-style: italic; font-size: 44px; color: var(--green); line-height: 1; }
+.phase-name { font-family: var(--font-headline); font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: -0.01em; font-size: 26px; color: #fff; }
+.phase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.phase-col { border-radius: 14px; padding: 28px 32px; }
+.phase-col.rundot-col { background: rgba(83,185,86,0.08); border: 1px solid rgba(83,185,86,0.3); }
+.phase-col.template-col { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+.phase-col-tag { font-family: var(--font-display); font-size: 11px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 10px; }
+.phase-col.rundot-col .phase-col-tag { color: var(--green-light); }
+.phase-col.template-col .phase-col-tag { color: rgba(255,255,255,0.4); }
+.phase-col p { font-size: 15px; line-height: 1.65; }
+.phase-col.rundot-col p { color: rgba(255,255,255,0.85); }
+.phase-col.template-col p { color: rgba(255,255,255,0.5); }
+
+/* GREEN STRIP */
+.green-strip { background: linear-gradient(120deg, var(--green) 0%, var(--green-light) 100%); padding: 56px 40px; text-align: center; }
+.green-strip h3 { font-family: var(--font-headline); font-weight: 700; font-style: italic; text-transform: uppercase; letter-spacing: 0.01em; font-size: clamp(1.6rem, 3.4vw, 2.4rem); color: #fff; }
+
+/* FINAL CTA */
+.compare-cta { text-align: center; padding: 100px 40px; background: var(--white); }
+.compare-cta h2 { margin-bottom: 16px; }
+.compare-cta p { color: var(--text-secondary); font-size: 16px; margin-bottom: 32px; }
+
+@media (max-width: 900px) {
+  .philosophy-grid { grid-template-columns: 1fr; }
+  .phase-grid { grid-template-columns: 1fr; }
+}
+
+/* --- NAV: Uppercase links --- */
+.nav-links a {
+    text-transform: uppercase !important;
+    font-family: 'Barlow Condensed', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    font-size: 0.95rem !important;
+}
+
+.nav-cta {
+    font-style: italic !important;
+    border-radius: 4px !important;
+}
+
+/* === MOBILE FIXES 2026-08-01 === */
+@media (max-width: 768px) {
+  .footer-fitlogic img { height: 32px !important; width: auto !important; }
+  .goal-typewriter { max-width: 90% !important; min-height: 52px !important; }
+  .hero-cta-row, .hero-cta-group { position: relative !important; width: 100% !important; }
+  .moment-card { max-width: 280px !important; margin: 0 auto !important; }
+  .moment-circle { width: 100% !important; max-width: 280px !important; aspect-ratio: 1/1 !important; border-radius: 50% !important; overflow: hidden !important; }
+  .moment-circle img { width: 100% !important; height: 100% !important; object-fit: cover !important; border-radius: 50% !important; }
+  .moments-grid { gap: 24px !important; }
+}
+@media (max-width: 480px) {
+  .footer-fitlogic img { height: 28px !important; width: auto !important; }
+  .moment-card { max-width: 240px !important; }
+  .moment-circle { max-width: 240px !important; }
+}
+.goal-typewriter { width: 100% !important; max-width: 480px !important; text-align: center !important; justify-content: center !important; margin-left: auto !important; margin-right: auto !important; }
+/* === END MOBILE FIXES === */
+
+/* === MOBILE FIXES v2 2026-08-01 === */
+@media (max-width: 768px) {
+  .how-credibility-badge img { height: 14px !important; }
+  .store-badges a:first-child img { height: 48px !important; width: 158px !important; }
+  .store-badges a:last-child img { height: 48px !important; width: 160px !important; }
+}
+@media (max-width: 480px) {
+  .how-credibility-badge img { height: 12px !important; }
+}
+/* === END MOBILE FIXES v2 === */
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:description" content="See how RunDot&amp;trade; adaptive AI training compares to template-based plans. Personalized workouts that adjust daily vs. static schedules that never change.">
+    <meta property="og:title" content="RunDot vs Runna">
+    <meta name="twitter:description" content="See how RunDot&amp;trade; adaptive AI training compares to template-based plans. Personalized workouts that adjust daily vs. static schedules that never change.">
+    <meta name="twitter:title" content="RunDot&amp;trade; vs Runna | AI Running Training Compared">
+
+    
+
+    
+    <style>
+a.cta_button{-moz-box-sizing:content-box !important;-webkit-box-sizing:content-box !important;box-sizing:content-box !important;vertical-align:middle}.hs-breadcrumb-menu{list-style-type:none;margin:0px 0px 0px 0px;padding:0px 0px 0px 0px}.hs-breadcrumb-menu-item{float:left;padding:10px 0px 10px 10px}.hs-breadcrumb-menu-divider:before{content:'›';padding-left:10px}.hs-featured-image-link{border:0}.hs-featured-image{float:right;margin:0 0 20px 20px;max-width:50%}@media (max-width: 568px){.hs-featured-image{float:none;margin:0;width:100%;max-width:100%}}.hs-screen-reader-text{clip:rect(1px, 1px, 1px, 1px);height:1px;overflow:hidden;position:absolute !important;width:1px}
+</style>
+
+    
+
+    
+<!--  Added by GoogleTagManager integration -->
+
+
+<!-- /Added by GoogleTagManager integration -->
+
+    <link rel="canonical" href="https://www.rundot.com/rundot-vs-runna">
+
+
+<meta property="og:url" content="https://www.rundot.com/rundot-vs-runna">
+<meta name="twitter:card" content="summary">
+<meta http-equiv="content-language" content="en">
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"RunDot Compare - See How RunDot Stacks Up","description":"Compare RunDot's AI-powered training with other running apps.","isPartOf":{"@id":"https://www.rundot.com/#website"},"speakable":{"@type":"SpeakableSpecification","cssSelector":[".product-definition",".hero h1",".faq-section"]}}</script>
+<!-- Podcast Link Injection -->
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  var nav=document.querySelector('nav .nav-links');
+  if(nav){var links=nav.querySelectorAll('a');var already=false;var loginLink=null;for(var i=0;i<links.length;i++){if(links[i].textContent.trim()==='Podcast')already=true;if(links[i].classList.contains('nav-login')||links[i].textContent.trim()==='Log In')loginLink=links[i];}if(!already&&loginLink){var a=document.createElement('a');a.href='https://podcasts.rundot.com/podcasts';a.target='_blank';a.textContent='Podcast';nav.insertBefore(a,loginLink);}}
+  var mobileNav=document.querySelector('.mobile-nav-links');
+  if(mobileNav){var ml=mobileNav.querySelectorAll('a');var ma=false,mLogin=null;for(var i=0;i<ml.length;i++){if(ml[i].textContent.trim()==='Podcast')ma=true;if(ml[i].textContent.trim()==='Log In')mLogin=ml[i];}if(!ma){var ma2=document.createElement('a');ma2.href='https://podcasts.rundot.com/podcasts';ma2.target='_blank';ma2.textContent='Podcast';if(mLogin)mobileNav.insertBefore(ma2,mLogin);else mobileNav.appendChild(ma2);}}
+  var footerLinks=document.querySelectorAll('footer a');var fAlready=false;for(var i=0;i<footerLinks.length;i++){if(footerLinks[i].textContent.trim()==='Podcast')fAlready=true;}
+  if(!fAlready){for(var i=0;i<footerLinks.length;i++){if(footerLinks[i].textContent.trim()==='Resources'){var fa=document.createElement('a');fa.href='https://podcasts.rundot.com/podcasts';fa.target='_blank';fa.textContent='Podcast';fa.style.display='block';footerLinks[i].parentElement.insertBefore(fa,footerLinks[i].nextSibling);break;}}}
+});
+</script>
+<meta name="generator" content="HubSpot"><style id="vr-css">
+.vr-hero h1{max-width:820px;margin-left:auto;margin-right:auto}
+.vr-hero p{max-width:640px!important}
+.vr-inner{max-width:1040px;margin:0 auto}
+.vr-narrow{max-width:720px}
+.vr-phase,.vr-bottom,.vr-choice{padding:88px 40px;background:#fff}
+.vr-phase:nth-of-type(even){background:#f8f8f8}
+.vr-bottom{padding:64px 40px 24px}
+.vr-phase p,.vr-choice p,.vr-means>.vr-inner>p{font-size:17px;line-height:1.7;color:var(--text-secondary);margin:0 0 16px}
+.vr-phase .section-title{margin:10px 0 28px;max-width:820px}
+.vr-phase-label{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.vr-num{font-family:var(--font-headline);font-style:italic;font-weight:700;font-size:20px;color:#fff;background:var(--green);border-radius:50%;width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center}
+.vr-phase-name{font-family:var(--font-display);font-weight:800;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+.vr-callout{border-left:4px solid var(--green);background:rgba(83,185,86,.08);border-radius:0 12px 12px 0;padding:24px 28px;font-family:var(--font-display);font-size:20px;line-height:1.5;font-weight:600;color:var(--text)}
+.vr-callout-k{color:var(--green);font-weight:800}
+.vr-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:28px 0}
+.vr-col{border-radius:16px;padding:32px 30px;position:relative}
+.vr-col h4{font-family:var(--font-display);font-size:20px;font-weight:800;line-height:1.3;margin:6px 0 16px}
+.vr-col p{font-size:16px!important;margin-bottom:14px!important}
+.vr-rd{background:#111827;color:#fff}
+.vr-rd h4{color:#fff}.vr-rd p{color:rgba(255,255,255,.75)!important}.vr-rd strong{color:#fff}
+.vr-rn{background:#fff;border:1px solid #e5e7eb}
+.vr-rn h4{color:var(--text)}
+.vr-tag{display:inline-block;font-family:var(--font-headline);font-style:italic;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:15px;padding:4px 12px;border-radius:999px}
+.vr-rd .vr-tag{background:var(--green);color:#fff}.vr-rn .vr-tag{background:#f3f4f6;color:#6b7280}
+.vr-list{list-style:none;margin:0 0 18px;padding:0}
+.vr-list li{position:relative;padding-left:28px;margin-bottom:10px;font-size:16px;line-height:1.55}
+.vr-list li::before{position:absolute;left:0;top:1px;font-weight:800}
+.vr-list.chk li::before{content:'\2713';color:var(--green)}
+.vr-list.x li::before{content:'\2715';color:#9ca3af}
+.vr-rd .vr-list li{color:rgba(255,255,255,.8)}.vr-rn .vr-list li{color:var(--text-secondary)}
+.vr-list strong{font-weight:800}
+.vr-impact{margin-top:8px;padding:22px 26px;border-radius:12px;background:rgba(83,185,86,.08);font-size:17px;line-height:1.6;color:var(--text)}
+.vr-impact span{font-weight:800;color:var(--green);margin-right:4px}
+.vr-example{margin:8px 0 24px;padding:26px 28px;border-radius:12px;border:1px dashed rgba(83,185,86,.5)}
+.vr-example-k{font-family:var(--font-display);font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.vr-means{position:relative;overflow:hidden;padding:96px 40px;background:radial-gradient(ellipse at 50% -10%,#1f2937 0%,#111827 55%,#0b0f19 100%);color:#fff}
+.vr-means .section-title{text-align:center;margin:10px auto 24px}
+.vr-means>.vr-inner{text-align:center}.vr-means .vr-grid{text-align:left}
+.vr-means>.vr-inner{position:relative;z-index:2}
+.vr-means>.vr-inner>p{color:rgba(255,255,255,.7)!important;max-width:760px;margin:0 auto 12px!important;text-align:center}
+.vr-means .vr-rd{background:rgba(83,185,86,.12);border:1px solid rgba(83,185,86,.35)}
+.vr-means .vr-rn{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12)}
+.vr-means .vr-rn h4{color:#fff}.vr-means .vr-rn .vr-list li{color:rgba(255,255,255,.6)}
+.vr-means .vr-rn .vr-tag{background:rgba(255,255,255,.1);color:rgba(255,255,255,.7)}
+.vr-h3{font-family:var(--font-display);font-size:20px;font-weight:800;margin:28px 0 16px;color:var(--text)}
+.vr-cando{display:grid;grid-template-columns:1fr 1fr;gap:4px 32px}
+.vr-cando li{color:var(--text-secondary)}
+.vr-choice{text-align:center}
+.vr-strong{font-family:var(--font-display);font-weight:800;color:var(--text)!important;font-size:20px!important}
+.compare-cta .vr-note{font-size:13px;color:#9ca3af;margin-top:14px}
+.green-strip{background:var(--green);padding:44px 24px;text-align:center}
+.green-strip h3{font-family:var(--font-headline);font-style:italic;font-weight:700;text-transform:uppercase;font-size:clamp(26px,4vw,40px);color:#fff;letter-spacing:.02em;margin:0}
+@media(max-width:820px){.vr-grid{grid-template-columns:1fr}.vr-cando{grid-template-columns:1fr}
+.vr-phase,.vr-choice,.vr-means{padding:64px 22px}.vr-bottom{padding:48px 22px 8px}.vr-col{padding:26px 22px}.vr-callout{font-size:17px;padding:20px 22px}}
+</style>
+</head>
+<body>
+<!--  Added by GoogleTagManager integration -->
+
+
+<!-- /Added by GoogleTagManager integration -->
+
+
+
+<header>
+<nav>
+  <a class="nav-logo" href="https://www.rundot.com/?hsLang=en"><img src="https://www.rundot.com/hubfs/rundot-v2/rundot-logo-dark.svg" alt="RunDot"></a>
+  <div class="nav-links">
+    <a href="https://www.rundot.com/pricing/?hsLang=en">Pricing</a>
+    <a href="https://www.rundot.com/resource-hub/?hsLang=en">Resources</a>
+    <a href="https://www.rundot.com/running-events?hsLang=en">Races</a>
+    <a href="https://app.rundot.com/login" class="nav-login">Log In</a>
+    <a href="https://promo.rundot.com/?promo=RDWEBSITE" target="_blank" class="nav-cta">Start your free trial</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+</header>
+<main>
+<div class="nav-mobile-overlay" id="mobileNav">
+  <a href="https://www.rundot.com/pricing/?hsLang=en" onclick="closeMobileNav()">Pricing</a>
+  <a href="https://www.rundot.com/resource-hub/?hsLang=en" onclick="closeMobileNav()">Resources</a>
+    <a href="https://www.rundot.com/running-events?hsLang=en" onclick="closeMobileNav()">Races</a>
+  <a href="https://app.rundot.com/login" onclick="closeMobileNav()">Log In</a>
+  <a href="https://promo.rundot.com/?promo=RDWEBSITE" target="_blank" class="btn-primary">Start your free trial</a>
+</div>
+
+<section class="v2-hero vr-hero fade-up">
+  <div class="dot-grid"></div>
+  <div class="v2-hero-inner">
+    <div class="eyebrow on-dark" style="justify-content:center;">Compare</div>
+    <h1>RunDot vs Runna: Why True AI Beats Template Training Every Time</h1>
+    <p>If you&#39;re serious about getting faster while staying healthy, your training platform choice matters more than you think. While both RunDot and Runna promise to improve your running, they represent fundamentally different approaches to endurance training - and the results speak for themselves.</p>
+  </div>
+</section>
+<div class="chevron-stripe chevron-stripe-right" style="margin-top:0;"><div class="chevron-stripe-inner"></div></div>
+<section class="vr-bottom fade-up"><div class="vr-inner"><div class="vr-callout"><span class="vr-callout-k">The Bottom Line:</span> RunDot delivers up to 30% more efficient training with fewer injuries through proprietary AI, while Runna relies on generic templates that can&#39;t adapt to your individual needs.</div></div></section>
+<section class="vr-phase vr-found fade-up"><div class="vr-inner"><div class="eyebrow">The Foundation</div><h2 class="section-title">The Foundation: True AI vs Template Automation</h2><p>The difference between RunDot and Runna starts at the foundation - and it&#39;s not even close.</p><div class="vr-grid"><div class="vr-col vr-rd"><div class="vr-tag">RunDot</div><h4>RunDot</h4><p>Built on a proprietary AI model trained on over 20 years of real athlete training and performance data. This isn&#39;t repurposed technology or generic algorithms - it&#39;s purpose-built intelligence designed specifically for endurance training optimization.</p></div><div class="vr-col vr-rn"><div class="vr-tag">Runna</div><h4>Runna</h4><p>Generates template training plans based on someone&#39;s training "philosophy." Every athlete of similar ability gets cookie-cutter plans based on just a few variables: their general ability level, how many days per week they want to run, and how many weeks until their event.</p></div></div><p>This foundational difference cascades through every aspect of your training experience. RunDot continuously learns and adapts; Runna delivers the same static plans regardless of your progress, setbacks, or changing circumstances.</p></div></section>
+<section class="vr-phase fade-up"><div class="vr-inner"><div class="vr-phase-label"><span class="vr-num">01</span><span class="vr-phase-name">Assessment</span></div><h2 class="section-title">Phase 1: Assessment - Knowing Where You Really Stand</h2><div class="vr-grid"><div class="vr-col vr-rd"><div class="vr-tag">RunDot</div><h4>RunDot: Comprehensive Individual Analysis</h4><p>RunDot&#39;s assessment capabilities reveal your true training potential through multiple proprietary metrics:</p><p><strong>Your DOT Score</strong> provides a 1-to-100 standardized scale of performance ability that:</p><ul class="vr-list chk"><li>Normalizes for temperature, humidity, and elevation so you can evaluate performance improvement even if workouts are done in different conditions</li><li>Adjusts for age and gender, giving you meaningful benchmarks</li><li>Evaluates the significance of improvement at different performance levels, helping you set realistic improvement goals</li></ul><p><strong>Your Training Stress Profile</strong> quantifies your capacity to absorb different types of training stress (aerobic, threshold, muscular, neural) over various time periods, considering factors like:</p><ul class="vr-list chk"><li>Age and body composition</li><li>Gender and genetics</li><li>Current performance level</li><li>Historical training response</li></ul><p><strong>RunDot&#39;s Physiogenomix Technology</strong> can analyze your genome to determine your:</p><ul class="vr-list chk"><li>Aerobic potential</li><li>Trainability factors</li><li>Recovery rate</li><li>Injury predisposition</li></ul></div><div class="vr-col vr-rn"><div class="vr-tag">Runna</div><h4>Runna: Basic Variables Only</h4><p>Runna&#39;s "assessment" consists of asking:</p><ul class="vr-list x"><li>How many days per week do you want to run?</li><li>How many weeks until your race?</li><li>What&#39;s your approximate current fitness level?</li></ul><p>That&#39;s it. No meaningful performance baseline, no individual capacity analysis, no environmental considerations, no physiological profiling.</p></div></div><div class="vr-impact"><span>The Impact:</span> RunDot establishes your true performance ability, your ability to absorb training load, and your physiological considerations as it prescribes and adapts your training. Runna makes assumptions based on minimal information, setting you up for either undertraining or overtraining from day one.</div></div></section>
+<section class="vr-phase fade-up"><div class="vr-inner"><div class="vr-phase-label"><span class="vr-num">02</span><span class="vr-phase-name">Prescription</span></div><h2 class="section-title">Phase 2: Prescription - Getting the Right Training at the Right Time</h2><div class="vr-grid"><div class="vr-col vr-rd"><div class="vr-tag">RunDot</div><h4>RunDot: Intelligent, Adaptive Programming</h4><p>RunDot prescribes training through sophisticated analysis:</p><p><strong>Normalized Training Stress (NTS)</strong> quantifies the exact training stimulus for each workout, distinguishing between different stress types (aerobic, threshold, muscular, neural) and prescribing the precise combination most beneficial for your current state.</p><p><strong>Environment Normalization</strong> adjusts your training intensities before each workout based on:</p><ul class="vr-list chk"><li>Temperature and humidity</li><li>Elevation changes</li><li>Indoor vs outdoor conditions</li></ul><p><strong>Proactive Planning</strong> considers your residual fatigue and recovery needs when scheduling future sessions, preventing overload before it happens.</p></div><div class="vr-col vr-rn"><div class="vr-tag">Runna</div><h4>Runna: Static Templates Regardless of Reality</h4><p>Runna delivers the same template workouts to every similar athlete:</p><ul class="vr-list x"><li>Same paces whether it&#39;s 60°F or 95°F with humidity</li><li>Same progression regardless of how you responded to previous training</li><li>Same recovery assumptions for everyone</li><li>No adjustment for your individual stress tolerance</li></ul></div></div><div class="vr-grid"><div class="vr-col vr-rd"><div class="vr-tag">RunDot</div><h4>RunDot: Cohesive Multi-Race Programming</h4><p>RunDot prescribes the best training for you based on all of the races you have planned in the future. Each user&#39;s training program is custom designed for them and all the races they have planned, creating one cohesive program that intelligently prepares you for multiple events.</p></div><div class="vr-col vr-rn"><div class="vr-tag">Runna</div><h4>Runna: Single-Race Templates Only</h4><p>Because Runna only offers training templates, users are only prepared for one race at a time. Each template is designed for a single event, forcing users to switch between disconnected plans.</p></div></div><div class="vr-example"><div class="vr-example-k">Real-World Example:</div><p>If you&#39;re preparing for both a 5K in July and a marathon in September, Runna forces you to use the 5K template until July, then start the marathon template in August and September. This leaves you with very little time to increase training volume and long runs from 5K distance to those appropriate for a marathon.</p><p>With RunDot, you get one cohesive training program that prepares you for both the 5K in July and the marathon in September. Your training volume and long sessions leading up to the 5K consider not only the 5K performance but also that in just a couple of months, you&#39;ll need to be prepared for a marathon.</p></div><div class="vr-impact"><span>The Impact:</span> RunDot delivers the right stimulus at the right time for your body. Runna hopes generic plans work for your unique situation.</div></div></section>
+<section class="vr-phase fade-up"><div class="vr-inner"><div class="vr-phase-label"><span class="vr-num">03</span><span class="vr-phase-name">Evaluation</span></div><h2 class="section-title">Phase 3: Evaluation - Understanding Your Training Response</h2><div class="vr-grid"><div class="vr-col vr-rd"><div class="vr-tag">RunDot</div><h4>RunDot: Comprehensive Progress Evaluation</h4><p>RunDot evaluates your training through multiple sophisticated metrics:</p><p><strong>TrainX Scores</strong> evaluate training execution for individual sessions and over time, replacing meaningless vanity metrics like total hours or distance with actionable feedback on training quality:</p><ul class="vr-list chk"><li>Higher scores for completing prescribed distances on long runs</li><li>Higher scores for nailing interval paces (not too fast, not too slow)</li><li>Higher scores for keeping easy runs appropriately easy</li></ul><p><strong>Residual Training Stress (RTS)</strong> quantifies lingering fatigue by stress type, showing exactly how previous training affects your current state. This enables precise planning of future sessions and prevents the overtraining that derails so many runners.</p></div><div class="vr-col vr-rn"><div class="vr-tag">Runna</div><h4>Runna: Surface-Level "Insights"</h4><p>Runna&#39;s "My Insights" section provides:</p><ul class="vr-list x"><li>Today&#39;s weather</li><li>Workouts planned vs completed this week</li><li>Distance planned vs completed this week</li></ul><p>These aren&#39;t insights - they&#39;re basic data tracking with no analytical value for improving training effectiveness.</p></div></div><div class="vr-impact"><span>The Impact:</span> RunDot shows you how well you executed your workouts as prescribed and your response to them. It uses those insights to optimize your future training. Runna shows you what you already know without context or actionable guidance.</div></div></section>
+<section class="vr-phase fade-up"><div class="vr-inner"><div class="vr-phase-label"><span class="vr-num">04</span><span class="vr-phase-name">Prediction</span></div><h2 class="section-title">Phase 4: Prediction - Preparing for Race Day Success</h2><div class="vr-grid"><div class="vr-col vr-rd"><div class="vr-tag">RunDot</div><h4>RunDot: Precision Race Strategy</h4><p>RunDot&#39;s prediction capabilities take the guesswork out of race day:</p><p><strong>RaceX (Race Execution)</strong> predicts optimal target paces and race-day splits considering:</p><ul class="vr-list chk"><li>Local terrain and elevation changes</li><li>Expected temperature, humidity, and conditions</li><li>Your current fitness and training adaptations</li><li>Optimal pacing strategy for your physiology</li></ul></div><div class="vr-col vr-rn"><div class="vr-tag">Runna</div><h4>Runna: No Predictive Capabilities</h4><p>Runna does not offer predicted times or optimal pacing targets based on race-specific conditions, terrain, or your ability.</p></div></div><div class="vr-example"><div class="vr-example-k">The Continuous Improvement Advantage</div><p>Perhaps most importantly, the ability to predict training and race outcomes is essential for measuring training effectiveness and improving it. RunDot is the only platform that can learn and improve its effectiveness and efficiency - its training algorithms are continuously improving based on real-world results.</p><p>Runna doesn&#39;t have the capacity to use training or race outcomes for self-improvement. It remains static, delivering the same template approaches regardless of whether they produce results.</p></div><div class="vr-impact"><span>The Impact:</span> RunDot gives you a personalized race plan optimized for your abilities and race conditions. Runna gives you generic pacing that may or may not work for your situation.</div></div></section>
+<section class="vr-means fade-up"><div class="dot-grid"></div><div class="vr-inner"><div class="eyebrow on-dark" style="justify-content:center;">The Results</div><h2 class="section-title on-dark">What This Means for Your Training</h2><p>The differences aren&#39;t just technical - they translate into real performance and health outcomes. When you&#39;re investing time and energy in something you love or pursuing an important goal, you need confidence that your training technology is the real deal and won&#39;t waste your effort or increase injury risk.</p><div class="vr-grid"><div class="vr-col vr-rd"><div class="vr-tag">RunDot</div><h4>With RunDot You Get:</h4><ul class="vr-list chk"><li><strong>Up to 30% more efficient training</strong> through precise stress management</li><li><strong>Fewer injuries</strong> from intelligent load progression and fatigue monitoring</li><li><strong>Better race results</strong> from truly personalized preparation</li><li><strong>More time</strong> for life outside running through optimized training</li><li><strong>Complete trust</strong> in your training program knowing it&#39;s backed by proven science</li></ul></div><div class="vr-col vr-rn"><div class="vr-tag">Runna</div><h4>With Runna You Risk:</h4><ul class="vr-list x"><li><strong>Wasted training time</strong> from generic programming</li><li><strong>Plateaus and overtraining</strong> from inability to manage individual load</li><li><strong>Injuries</strong> from rigid progression that ignores your recovery needs</li><li><strong>Suboptimal race performance</strong> from one-size-fits-all preparation</li><li><strong>Uncertainty</strong> about whether your training approach will actually work</li></ul></div></div></div></section>
+<section class="vr-phase fade-up"><div class="vr-inner"><div class="eyebrow">The Technology</div><h2 class="section-title">The Technology Behind the Results</h2><p>RunDot&#39;s superiority stems from its proprietary AI foundation - 20+ years of athlete data powering algorithms designed specifically for endurance training optimization. This enables capabilities that template-based systems like Runna simply cannot match:</p><h3 class="vr-h3">What RunDot Can Do (That Runna Cannot):</h3><ul class="vr-list chk vr-cando"><li>Provide meaningful performance baselines and measure improvement significance</li><li>Quantify training stress by type and manage it proactively</li><li>Adjust training intensities for environmental conditions</li><li>Evaluate training fatigue to manage recovery</li><li>Prescribe training relative to age, gender, and individual capacity</li><li>Predict training and race outcomes for continuous improvement</li><li>Prepare you optimally for multiple races simultaneously</li></ul></div></section>
+<section class="green-strip fade-up"><h3>The Choice Is Clear</h3></section>
+<section class="vr-choice fade-up"><div class="vr-inner vr-narrow"><p>If you want training that treats you like an individual rather than a template, if you value efficiency over grinding out junk miles, and if you&#39;re serious about staying healthy while getting faster, the choice between RunDot and Runna isn&#39;t really a choice at all.</p><p>RunDot represents the future of endurance training - intelligent, adaptive, and proven effective. Runna represents the past - generic templates hoping one size fits all.</p><p>Your time is valuable. Your health matters. Your goals deserve better than guesswork.</p><p class="vr-strong">Choose the platform that&#39;s actually built for your success: RunDot.</p></div></section>
+<section class="compare-cta fade-up">
+  <div class="eyebrow" style="justify-content:center;">Start now</div>
+  <h2 class="section-title">Ready to experience training that&#39;s actually designed for you?</h2>
+  <p>Start your RunDot journey today and discover what 30% more efficient training feels like.</p>
+  <a href="https://promo.rundot.com/?promo=RDWEBSITE" target="_blank" class="btn btn-primary">Start your free trial</a>
+  <p class="vr-note">2 weeks free. No card required.</p>
+</section>
+</main>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><img src="https://www.rundot.com/hubfs/rundot-v2/rundot-logo-footer.svg" alt="RunDot"></div>
+        <p class="footer-desc">RunDot<span class="tm">™</span> gives you the confidence to just run.</p>
+        <div class="footer-social" style="display: flex; gap: 16px; margin-top: 20px;">
+          <a href="https://www.instagram.com/rundottraining" target="_blank" aria-label="Instagram" style="color: rgba(255,255,255,0.4); transition: color 0.2s;">
+            <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
+          </a>
+          <a href="https://www.facebook.com/RunDot.Training/" aria-label="Facebook" style="color: rgba(255,255,255,0.4); transition: color 0.2s;">
+            <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
+          </a>
+          <a href="https://www.youtube.com/@RunDotRunTraining" aria-label="YouTube" style="color: rgba(255,255,255,0.4); transition: color 0.2s;">
+            <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z" /><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" /></svg>
+          </a>
+        </div>
+        <div class="footer-fitlogic">
+          <img src="https://www.rundot.com/hubfs/rundot-v2/powered-by-fitlogic-white.png" alt="Powered by FitLogic™" loading="lazy">
+        </div>
+      </div>
+            <div class="footer-col">
+        <h4>Product</h4>
+        <a href="https://www.rundot.com/pricing/?hsLang=en">Pricing</a>
+        <a href="https://www.rundot.com/resources/?hsLang=en">Resources</a>
+        </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="https://www.predictive.fit/terms-of-use" target="_blank">Terms of Use</a>
+        <a href="https://www.predictive.fit/privacy-notice" target="_blank">Privacy Policy</a>
+        <a href="https://www.predictive.fit/trademark-list" target="_blank">Trademarks</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="https://www.rundot.com/contact/?hsLang=en">Contact Us</a>
+        <a href="https://fitlogic.tech/?hsLang=en" target="_blank">FitLogic™</a>
+        <a href="https://www.predictive.fit" target="_blank">Predictive Fitness</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">Predictive Fitness and the Predictive Fitness logo are trademarks or registered trademarks of Predictive Fitness, Inc. in the US and other countries. Other trademarks include TriDot, RunDot, TrainX, RaceX, Optimized Training and Optimized Race Execution. Additional Predictive Fitness trademarks can be found at www.predictive.fit/trademark-list | Limit the use of my sensitive data. 2600 E. Southlake Blvd. Suite 120-140, Southlake, Texas 76092</p>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="qrModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeQR()">✕</button>
+    <p style="font-family: var(--font-display); font-size: 14px; font-weight: 500; color: #666; margin: 0 0 8px; letter-spacing: 0.02em; text-transform: uppercase;">Get</p>
+    <img src="https://www.rundot.com/hubfs/rundot-v2/rundot-logo-dark.svg" alt="RunDot" style="height: 32px; width: auto; margin: 0 auto 8px; display: block;">
+    <p class="qr-desktop-text">Scan to download or tap below.</p>
+    <div class="qr-code qr-desktop-only"><img src="https://www.rundot.com/hubfs/rundot-v2/rundot-qr-signup.png" alt="Scan to sign up" style="width:200px;height:200px;border-radius:12px;"></div>
+    <div class="store-badges">
+      <a href="https://promo.rundot.com/?promo=RDWEBSITE" target="_blank"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" style="height:48px;width:160px;object-fit:contain;"></a>
+      <a href="https://promo.rundot.com/?promo=RDWEBSITE" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" style="height:48px;width:160px;object-fit:contain;"></a>
+    </div>
+  </div>
+</div>
+
+<script>
+
+// QR Modal
+function openQR() { document.getElementById('qrModal').classList.add('active'); }
+function closeQR() { document.getElementById('qrModal').classList.remove('active'); }
+document.getElementById('qrModal').addEventListener('click', function(e) { if (e.target === this) closeQR(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeQR(); });
+
+// Mobile nav
+function toggleMobileNav() {
+  var overlay = document.getElementById('mobileNav');
+  var hamburger = document.querySelector('.nav-hamburger');
+  overlay.classList.toggle('open');
+  hamburger.classList.toggle('open');
+  document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
+}
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+  document.querySelector('.nav-hamburger').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Nav scroll
+window.addEventListener('scroll', function() {
+  document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Fade-up observer
+var fadeObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); fadeObserver.unobserve(entry.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(function(el) { fadeObserver.observe(el); });
+
+</script>
+
+<!-- HubSpot performance collection script -->
+
+
+<!-- Start of HubSpot Analytics Code -->
+<script type="text/javascript">
+var _hsq = _hsq || [];
+_hsq.push(["setContentType", "standard-page"]);
+_hsq.push(["setCanonicalUrl", "https:\/\/www.rundot.com\/compare"]);
+_hsq.push(["setPageId", "376323638972"]);
+_hsq.push(["setContentMetadata", {
+    "contentPageId": 376323638972,
+    "legacyPageId": "376323638972",
+    "contentFolderId": null,
+    "contentGroupId": null,
+    "abTestId": null,
+    "languageVariantId": 376323638972,
+    "languageCode": "en",
+    
+    
+}]);
+</script>
+
+
+<!-- End of HubSpot Analytics Code -->
+
+
+<script type="text/javascript">
+var hsVars = {
+    render_id: "809a21f1-322d-4909-a0af-044f3f339899",
+    ticks: 1791509604961,
+    page_id: 376323638972,
+    
+    content_group_id: 0,
+    portal_id: 243181353,
+    app_hs_base_url: "https://app-na2.hubspot.com",
+    cp_hs_base_url: "https://cp-na2.hubspot.com",
+    language: "en",
+    analytics_page_type: "standard-page",
+    scp_content_type: "",
+    
+    analytics_page_id: "376323638972",
+    category_id: 1,
+    folder_id: 0,
+    is_hubspot_user: false
+}
+</script>
+
+
+
+
+
+
+
+
+</body></html>
