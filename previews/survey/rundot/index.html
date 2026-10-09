@@ -62,6 +62,11 @@ h2{font-size:40px;margin-bottom:8px}
 .review{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.5;color:#ddd}
 .review .st{color:#facc15;letter-spacing:2px;font-size:13px;margin-bottom:6px}
 .review cite{display:block;margin-top:8px;font-style:normal;font-size:12px;color:rgba(255,255,255,.5)}
+.iproof{margin:18px 0 20px}
+.iproof .proof{margin-bottom:10px;color:#fff}
+.iproof .proof b{color:var(--g)}
+.iproof .review{background:rgba(0,0,0,.45);border-color:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:12px 14px;font-size:13.5px}
+@media(max-height:700px){.iproof .review{display:none}}
 @media(max-width:480px){.wrap{padding:30px 0 0;align-items:stretch}.card{border-radius:0;min-height:calc(100vh - 30px);max-width:none;box-shadow:none}h2{font-size:36px}.intro h1{font-size:50px}}
 @media (prefers-reduced-motion:reduce){.step,.answer.on{animation:none}.bar i{transition:none}}
 </style>
@@ -80,6 +85,8 @@ if(v!=='B'){location.replace('https://promo.rundot.com/?promo=RDWEBSITE');}})();
     <div class="in">
       <h1>Let's find<br>your <em>next run</em></h1>
       <p class="sub">Three quick questions. Then your plan is ready.</p>
+      <div class="iproof"><p class="proof"><svg viewBox="0 0 24 24" fill="none" stroke="#53b956" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span><b>50,000+ runners</b> already training smarter. 4.4&#9733; on the App Store.</span></p>
+    <div class="review"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div>I downloaded it, input basic personal information, and within minutes I had my first run loaded and I hit the road.<cite>Epicenter, App Store review</cite></div></div>
       <button class="btn" data-go="1">Let's go</button>
       <a class="link" href="https://app.rundot.com/login">I already have an account</a>
     </div>
@@ -133,10 +140,8 @@ if(v!=='B'){location.replace('https://promo.rundot.com/?promo=RDWEBSITE');}})();
 
   <section class="step" data-s="4">
     <div class="eyebrow">You're set</div>
-    <h2>Your plan starts with 2 free weeks</h2>
+    <h2>Your 2-week free trial is ready</h2>
     <div class="sum" id="sum"></div>
-    <p class="proof"><svg viewBox="0 0 24 24" fill="none" stroke="#53b956" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span><b>50,000+ runners</b> already training smarter. 4.4&#9733; on the App Store.</span></p>
-    <div class="review"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div>I downloaded it, input basic personal information, and within minutes I had my first run loaded and I hit the road.<cite>Epicenter, App Store review</cite></div>
     <div class="spacer"></div>
     <a class="btn" href="https://promo.rundot.com/?promo=RDWEBSITE-SURVEY" id="trialBtn">Start your free trial</a>
     <p class="note">2 weeks free. No card required.</p>
