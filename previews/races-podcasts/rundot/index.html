@@ -4832,6 +4832,7 @@ document.addEventListener("DOMContentLoaded",function(){
 }
 </style><style id="pf-hero-devices">
 .hero::after{display:none!important}
+.hero .goal-typewriter-prefix{white-space:pre!important;word-spacing:normal!important;letter-spacing:0!important}
 .hx{flex:0 0 auto;position:relative;width:330px;height:500px;pointer-events:none}
 .hx .dv-phone{position:absolute;left:50%;top:0;margin-left:-112px;width:224px;border-radius:36px;opacity:0;transform:translateY(24px);animation:hxIn .9s ease .5s forwards}
 .hx .dv-screen{border-radius:29px}
@@ -4848,25 +4849,26 @@ document.addEventListener("DOMContentLoaded",function(){
 @keyframes hxIn{to{opacity:1;transform:none}}
 @media(min-width:1024px){
 .hero{justify-content:center!important;gap:72px;padding:0 40px 0!important}
-.hero .hero-content{max-width:580px!important;margin:0!important;text-align:left!important;padding:104px 0 56px!important}
+.hero .hero-content{max-width:580px!important;margin:0!important;text-align:left!important;padding:104px 0 120px!important}
+.hero .goal-typewriter{min-width:420px}
 .hero .goal-typewriter{margin:22px 0 26px!important;justify-content:flex-start!important}
 .hero .hero-cta-row{justify-content:flex-start!important}
 .hero .pf-trial-note{text-align:left!important}
 .hero .pf-film-btn{margin:10px 0 0!important}
 .hero .hero-social-proof{justify-content:flex-start!important}
-.hx{margin-top:56px}
+.hx{margin-top:40px;margin-bottom:60px}
 }
 @media(max-width:1023px){
 .hero{flex-direction:column!important}
-.hx{width:230px;height:300px;margin:-8px auto 64px}
-.hx .dv-phone{width:138px;margin-left:-69px;border-radius:24px;padding:5px}.hx .dv-screen{border-radius:19px}
+.hx{width:220px;height:262px;margin:-6px auto 60px}
+.hx .dv-phone{width:120px;margin-left:-60px;border-radius:24px;padding:5px}.hx .dv-screen{border-radius:19px}
 .hx .dv-garmin{left:-10px;bottom:22px;width:92px;height:92px}.hx .dv-garmin .dv-bezel{padding:8px}
 .hx .dv-gband{width:46px;margin-left:-23px;height:34px}.hx .dv-gband.top{top:-24px}.hx .dv-gband.bot{bottom:-24px}
 .hx .g-today{font-size:5px}.hx .g-name{font-size:8px;margin:1px 0 4px}.hx .g-go{font-size:5.5px;padding:2px 5px 2px 3px;gap:3px}.hx .g-ico{width:8px;height:8px}.hx .g-ico svg{width:7px;height:7px}
 .hx .dv-apple{right:-8px;bottom:8px;width:78px;height:94px}.hx .dv-apple .dv-case{border-radius:22px;padding:4px}.hx .dv-apple .dv-face{border-radius:19px;padding:7px 7px 5px}
 .hx .dv-band{left:12px;right:12px;height:20px}.hx .dv-band.top{top:-13px}.hx .dv-band.bot{bottom:-13px}.hx .dv-crown{top:24px;height:15px;width:4px;right:-3px}
 .hx .a-top{font-size:5px}.hx .a-time{font-size:11px;margin:2px 0 1px}.hx .a-row b{font-size:9.5px}.hx .a-row small{font-size:4.5px}
-.hx-works{bottom:-30px;font-size:12px}
+.hx-works{bottom:-28px;font-size:11.5px;white-space:nowrap;left:-40px;right:-40px}
 }
 @media (prefers-reduced-motion:reduce){.hx .dv-phone,.hx .dv-watch{animation:none;opacity:1;transform:none}}
 </style></head>
