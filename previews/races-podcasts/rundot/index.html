@@ -5561,7 +5561,7 @@ function pfWeeks(days){if(days<7)return 'This week';var w=Math.floor(days/7);ret
       <h2 class="section-title cta-main-headline">Trust today's run.</h2>
       <p class="cta-sub-text">Every meaningful running experience starts with trusting your training.</p>
     </div>
-      <p class="pf-price-line" id="pfPriceLine">Start your plan today for just <span class="pf-nw"><span class="pf-pv" data-pfp="m">$13</span>/month</span> <span class="pf-nw">or <span class="pf-pv" data-pfp="y">$156</span>/year.</span></p>
+      <p class="pf-price-line" id="pfPriceLine">Start your plan today for just <span class="pf-nw"><span class="pf-pv" data-pfp="m">$14.99</span>/month</span> <span class="pf-nw">or <span class="pf-pv" data-pfp="y">$156</span>/year.</span></p>
     <div class="cta-action-block">
       <div class="cta-glow">
         <a href="https://promo.rundot.com/?promo=RDWEBSITE" target="_blank" class="btn-primary cta-big-btn">Start your free trial</a>
@@ -6464,10 +6464,11 @@ if(document.readyState!=='loading')go();else document.addEventListener('DOMConte
 <script id="pf-price-band-js">(function(){
 /* localize price line using same fixed regional table as pricing page (Lifestyle annual) */
 var CC={ZA:"ZAR",ZM:"ZAR",ZW:"ZAR",BW:"ZAR",NA:"ZAR",MZ:"ZAR",SZ:"ZAR",LS:"ZAR",AT:"EUR",BE:"EUR",CY:"EUR",EE:"EUR",FI:"EUR",FR:"EUR",DE:"EUR",GR:"EUR",IE:"EUR",IT:"EUR",LV:"EUR",LT:"EUR",LU:"EUR",MT:"EUR",NL:"EUR",PT:"EUR",SK:"EUR",SI:"EUR",ES:"EUR",GB:"GBP",AU:"AUD",NZ:"NZD",CA:"CAD",CH:"CHF",DK:"DKK",BR:"BRL"};
+var M={ZAR:239,EUR:17.99,GBP:13.99,CAD:22.99,CHF:15.99,DKK:105,AUD:24.99,NZD:29.99,BRL:69.99};
 var Y={ZAR:2148.48,EUR:132,GBP:120,CAD:204,CHF:144,DKK:936,AUD:216,NZD:216,BRL:624};
 var S={ZAR:"R",EUR:"\u20ac",GBP:"\u00a3",AUD:"A$",NZD:"NZ$",CAD:"CA$",CHF:"CHF ",DKK:"",BRL:"R$"};
 function f(n,c){var v=(Math.round(n*100)%100===0)?String(Math.round(n)):n.toFixed(2);return c==="DKK"?v+" kr":S[c]+v;}
-function apply(cc){var c=CC[cc];if(!c)return;var m=document.querySelector('[data-pfp="m"]'),y=document.querySelector('[data-pfp="y"]');if(!m||!y)return;m.textContent=f(Y[c]/12,c);y.textContent=f(Y[c],c);}
+function apply(cc){var c=CC[cc];if(!c)return;var m=document.querySelector('[data-pfp="m"]'),y=document.querySelector('[data-pfp="y"]');if(!m||!y)return;m.textContent=f(M[c],c);y.textContent=f(Y[c],c);}
 function go(){var cc=null;try{var d=JSON.parse(localStorage.getItem("geo_pricing_v3"));if(d&&Date.now()-d.ts<36e5)cc=d.cc;}catch(e){}
 if(cc){apply(cc);return;}
 fetch("https://get.geojs.io/v1/ip/country.json").then(function(r){return r.json()}).then(function(d){var c=d.country||"US";try{localStorage.setItem("geo_pricing_v3",JSON.stringify({cc:c,ts:Date.now()}))}catch(e){}apply(c);}).catch(function(){});}
