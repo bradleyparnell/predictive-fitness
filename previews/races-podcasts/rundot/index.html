@@ -5374,17 +5374,17 @@ document.addEventListener("DOMContentLoaded",function(){
 </section>
 <script>
 (function(){
-  function pfDays(iso){var p=iso.split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);var t=new Date();t.setHours(0,0,0,0);return Math.round((d-t)/864e5);}
+  function pfDays(iso){var p=String(iso).split('/')[0].split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);var t=new Date();t.setHours(0,0,0,0);return Math.round((d-t)/864e5);}
 function pfWeeks(days){if(days<7)return 'This week';var w=Math.floor(days/7);return w===1?'1 week out':w+' weeks out';}
   var sec=document.getElementById('upcoming-races'),grid=document.getElementById('pfrGrid');
   var MON=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
   function esc(s){var d=document.createElement('div');d.textContent=s||'';return d.innerHTML;}
   function render(list){
     var seen={},out=[];
-    list.forEach(function(r){var days=pfDays(r.date);if(days<0)return;var k=r.date+'|'+r.location;if(seen[k])return;seen[k]=1;r.days=days;out.push(r);});
+    list.forEach(function(r){var days=pfDays(r.date);if(days<42)return;var k=r.date+'|'+r.location;if(seen[k])return;seen[k]=1;r.days=days;out.push(r);});
     out.sort(function(a,b){return a.days-b.days;});out=out.slice(0,3);
     if(out.length<3)return;
-    grid.innerHTML=out.map(function(r){var p=r.date.split('-');
+    grid.innerHTML=out.map(function(r){var p=r.date.split('/')[0].split('-');
       return '<a class="pfr-card" href="'+esc(r.url)+'"><div class="pfr-img" style="background-image:url(\''+esc(r.image)+'\')" role="img" aria-label="'+esc(r.name)+'"></div><div class="pfr-when">'+pfWeeks(r.days)+'</div><h3 class="pfr-name">'+esc(r.name)+'</h3><p class="pfr-date">'+(+p[2])+' '+MON[+p[1]-1]+' '+p[0]+'</p><p class="pfr-loc">'+esc(r.location)+'</p></a>';}).join('');
     sec.style.display='';
     var cards=grid.querySelectorAll('.pfr-card');

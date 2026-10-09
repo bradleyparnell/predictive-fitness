@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded",function(){
 <style>.pf-wk{display:flex;align-items:center;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid #e2e8f0;font-size:14px;font-weight:700;color:#0f172a;text-decoration:none}.pf-wk:before{content:"";width:8px;height:8px;border-radius:50%;background:#53b956;flex:none}.pf-wk span{color:#53b956;border-bottom:1px solid currentColor}</style>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
-  function pfDays(iso){var p=iso.split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);var t=new Date();t.setHours(0,0,0,0);return Math.round((d-t)/864e5);}
+  function pfDays(iso){var p=String(iso).split('/')[0].split('-');var d=new Date(+p[0],+p[1]-1,+p[2]);var t=new Date();t.setHours(0,0,0,0);return Math.round((d-t)/864e5);}
 function pfWeeks(days){if(days<7)return 'This week';var w=Math.floor(days/7);return w===1?'1 week out':w+' weeks out';}
   document.querySelectorAll('[data-race-card]').forEach(function(c){
     var d=c.getAttribute('data-date');if(!d||c.querySelector('.pf-wk'))return;
