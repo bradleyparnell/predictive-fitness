@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>RunDot | Start (mockup)</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=DM+Sans:wght@400;500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#53b956;--bg:#0b0b0b}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:#fff;font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+.mock{position:fixed;top:0;left:0;right:0;z-index:50;background:#facc15;color:#111;font-size:12px;font-weight:700;text-align:center;padding:5px 10px;letter-spacing:.02em}
+.wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:56px 16px 32px;background:radial-gradient(circle at 50% 0,rgba(83,185,86,.12),transparent 60%),var(--bg)}
+.card{position:relative;width:100%;max-width:440px;min-height:680px;border-radius:28px;overflow:hidden;background:#141414;box-shadow:0 30px 80px rgba(0,0,0,.6);display:flex;flex-direction:column}
+.top{display:flex;align-items:center;justify-content:space-between;padding:20px 22px 0;position:relative;z-index:3}
+.top img{height:24px}
+.back{background:none;border:0;color:rgba(255,255,255,.7);font:600 14px 'DM Sans';cursor:pointer;visibility:hidden}
+.back.on{visibility:visible}
+.bar{height:4px;background:rgba(255,255,255,.1);margin:18px 22px 0;border-radius:4px;overflow:hidden;position:relative;z-index:3}
+.bar i{display:block;height:100%;width:0;background:var(--g);border-radius:4px;transition:width .4s ease}
+.step{display:none;flex:1;flex-direction:column;padding:26px 22px 26px;animation:in .45s ease}
+.step.on{display:flex}
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.eyebrow{display:flex;align-items:center;gap:8px;font:800 13px 'Plus Jakarta Sans';letter-spacing:.08em;text-transform:uppercase;color:var(--g);margin-bottom:12px}
+.eyebrow:before{content:"";width:10px;height:10px;border-radius:50%;background:var(--g)}
+h1,h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;text-transform:uppercase;letter-spacing:.02em;line-height:.98}
+h2{font-size:40px;margin-bottom:8px}
+.sub{color:rgba(255,255,255,.7);font-size:15px;line-height:1.5;margin-bottom:22px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{width:100%;text-align:left;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);color:#fff;border-radius:14px;padding:17px 18px;font:600 16px 'Plus Jakarta Sans';cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:border-color .2s,background .2s}
+.opt:after{content:"";width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,.3);flex:none;margin-left:12px}
+.opt:hover{border-color:rgba(83,185,86,.7)}
+.opt.sel{border-color:var(--g);background:rgba(83,185,86,.12)}
+.opt.sel:after{background:var(--g);border-color:var(--g);box-shadow:inset 0 0 0 3px #141414}
+.opt small{display:block;font:400 13px 'DM Sans';color:rgba(255,255,255,.55);margin-top:3px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid .opt{justify-content:center;text-align:center;padding:20px 10px}
+.grid .opt:after{display:none}
+.grid .opt.wide{grid-column:1/-1}
+.answer{margin-top:16px;padding:14px 16px;border-left:3px solid var(--g);background:rgba(83,185,86,.08);border-radius:0 10px 10px 0;font-size:15px;line-height:1.5;color:#e5e5e5;display:none}
+.answer.on{display:block;animation:in .35s ease}
+.spacer{flex:1}
+.btn{display:block;width:100%;text-align:center;background:var(--g);color:#0b0b0b;border:0;border-radius:8px;padding:17px 20px;font:800 19px 'Barlow Condensed';font-style:italic;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;cursor:pointer;margin-top:20px}
+.btn[disabled]{opacity:.35;cursor:default}
+.note{text-align:center;color:rgba(255,255,255,.6);font-size:13px;margin-top:10px}
+/* intro */
+.intro{padding:0;justify-content:flex-end;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.92) 78%),url('https://243181353.fs1.hubspotusercontent-na2.net/hubfs/243181353/rundot-v2/runner-hipster-urban.jpg') center/cover;position:absolute;inset:0}
+.intro .in{padding:0 24px 28px}
+.intro h1{font-size:56px}
+.intro h1 em{color:var(--g);font-style:italic}
+.intro .sub{margin:10px 0 0}
+.link{display:block;text-align:center;margin-top:14px;color:rgba(255,255,255,.75);font-size:14px;text-decoration:none}
+/* summary */
+.sum{display:flex;flex-direction:column;gap:8px;margin:4px 0 20px}
+.sum div{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:15px}
+.sum span{color:rgba(255,255,255,.55)}
+.sum b{text-align:right}
+.proof{display:flex;align-items:center;gap:10px;color:var(--g);font-size:14px;font-weight:500;margin-bottom:14px}
+.proof svg{width:20px;height:20px;flex:none}
+.review{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.5;color:#ddd}
+.review .st{color:#facc15;letter-spacing:2px;font-size:13px;margin-bottom:6px}
+.review cite{display:block;margin-top:8px;font-style:normal;font-size:12px;color:rgba(255,255,255,.5)}
+@media(max-width:480px){.wrap{padding:30px 0 0;align-items:stretch}.card{border-radius:0;min-height:calc(100vh - 30px);max-width:none;box-shadow:none}h2{font-size:36px}.intro h1{font-size:50px}}
+@media (prefers-reduced-motion:reduce){.step,.answer.on{animation:none}.bar i{transition:none}}
+</style>
+</head>
+<body>
+<div class="mock">MOCKUP for review. Not live. Answers are not saved.</div>
+<div class="wrap"><div class="card">
+
+  <section class="step intro on" data-s="0">
+    <div class="top"><img src="https://www.rundot.com/hubfs/rundot-v2/rundot-logo-footer.svg" alt="RunDot"></div>
+    <div class="spacer"></div>
+    <div class="in">
+      <h1>Let's find<br>your <em>next run</em></h1>
+      <p class="sub">Three quick questions. Then your plan is ready.</p>
+      <button class="btn" data-go="1">Let's go</button>
+      <a class="link" href="https://app.rundot.com/login">I already have an account</a>
+    </div>
+  </section>
+
+  <div class="chrome" style="display:none">
+    <div class="top"><button class="back" id="back">&larr; Back</button><img src="https://www.rundot.com/hubfs/rundot-v2/rundot-logo-footer.svg" alt="RunDot"></div>
+    <div class="bar"><i id="bar"></i></div>
+  </div>
+
+  <section class="step" data-s="1">
+    <div class="eyebrow">Your goal</div>
+    <h2>What are you training for?</h2>
+    <p class="sub">Pick the one that fits best right now.</p>
+    <div class="opts" data-q="goal">
+      <button class="opt" data-v="A race">A race<small></small></button>
+      <button class="opt" data-v="Starting to run">Starting to run</button>
+      <button class="opt" data-v="Coming back to running">Coming back to running</button>
+      <button class="opt" data-v="Running stronger, no race">Running stronger, no race</button>
+    </div>
+  </section>
+
+  <section class="step" data-s="2">
+    <div class="eyebrow">Your race</div>
+    <h2>Which distance?</h2>
+    <p class="sub">You can change this anytime in the app.</p>
+    <div class="grid" data-q="distance">
+      <button class="opt" data-v="5K">5K</button>
+      <button class="opt" data-v="10K">10K</button>
+      <button class="opt" data-v="Half marathon">Half marathon</button>
+      <button class="opt" data-v="Marathon">Marathon</button>
+      <button class="opt wide" data-v="Ultra">Ultra</button>
+    </div>
+  </section>
+
+  <section class="step" data-s="3">
+    <div class="eyebrow">Be honest</div>
+    <h2>What's gotten in the way before?</h2>
+    <p class="sub">No wrong answers.</p>
+    <div class="opts" data-q="obstacle" data-stay>
+      <button class="opt" data-v="Fitting runs in" data-a="Your plan updates every day, so a busy week doesn't throw it off.">Fitting runs in</button>
+      <button class="opt" data-v="Knowing the right pace" data-a="Your paces are prescribed from your own data and account for conditions like heat, humidity and terrain.">Knowing the right pace</button>
+      <button class="opt" data-v="Doing too much, too soon" data-a="Every workout is sized to you, so you know what today calls for. Not too much, not too little.">Doing too much, too soon</button>
+      <button class="opt" data-v="Staying motivated" data-a="Open the app and today's workout is already there. No planning, just run.">Staying motivated</button>
+      <button class="opt" data-v="Nothing, I'm ready" data-a="Love it. Let's get you started.">Nothing, I'm ready</button>
+    </div>
+    <div class="answer" id="answer"></div>
+    <div class="spacer"></div>
+    <button class="btn" id="cont3" disabled>Continue</button>
+  </section>
+
+  <section class="step" data-s="4">
+    <div class="eyebrow">You're set</div>
+    <h2>Your plan starts with 2 free weeks</h2>
+    <div class="sum" id="sum"></div>
+    <p class="proof"><svg viewBox="0 0 24 24" fill="none" stroke="#53b956" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span><b>50,000+ runners</b> already training smarter. 4.4&#9733; on the App Store.</span></p>
+    <div class="review"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div>I downloaded it, input basic personal information, and within minutes I had my first run loaded and I hit the road.<cite>Epicenter, App Store review</cite></div>
+    <div class="spacer"></div>
+    <a class="btn" href="https://promo.rundot.com/?promo=RDWEBSITE" target="_blank" rel="noopener">Start your free trial</a>
+    <p class="note">2 weeks free. No card required.</p>
+  </section>
+
+</div></div>
+<script>
+(function(){
+  var A={},hist=[],cur=0;
+  var steps=[].slice.call(document.querySelectorAll('.step')),chrome=document.querySelector('.chrome'),bar=document.getElementById('bar'),back=document.getElementById('back');
+  function path(){return A.goal==='A race'?[1,2,3,4]:[1,3,4];}
+  function show(n,push){
+    if(push!==false&&cur!==n)hist.push(cur);cur=n;
+    steps.forEach(function(s){s.classList.toggle('on',+s.dataset.s===n);});
+    chrome.style.display=n===0?'none':'block';
+    var p=path(),i=p.indexOf(n);bar.style.width=(n===0?0:((i+1)/p.length*100))+'%';
+    back.classList.toggle('on',n>0);
+    if(n===4)summary();
+    window.scrollTo(0,0);
+  }
+  function next(){var p=path(),i=p.indexOf(cur);show(p[i+1]);}
+  document.querySelector('[data-go="1"]').onclick=function(){show(1);};
+  back.onclick=function(){if(hist.length)show(hist.pop(),false);};
+  document.querySelectorAll('[data-q]').forEach(function(g){
+    g.addEventListener('click',function(e){
+      var b=e.target.closest('.opt');if(!b)return;
+      g.querySelectorAll('.opt').forEach(function(o){o.classList.toggle('sel',o===b);});
+      A[g.dataset.q]=b.dataset.v;
+      if(g.dataset.q==='goal'&&A.goal!=='A race')delete A.distance;
+      if(g.hasAttribute('data-stay')){var a=document.getElementById('answer');a.textContent=b.dataset.a;a.classList.add('on');document.getElementById('cont3').disabled=false;}
+      else setTimeout(next,220);
+    });
+  });
+  document.getElementById('cont3').onclick=next;
+  function summary(){
+    var rows=[['Goal',A.goal]];if(A.distance)rows.push(['Distance',A.distance]);rows.push(['Focus',A.obstacle]);
+    document.getElementById('sum').innerHTML=rows.map(function(r){return '<div><span>'+r[0]+'</span><b>'+r[1]+'</b></div>';}).join('');
+  }
+  document.querySelector('.chrome').style.display='none';
+  // chrome sits above steps
+  var card=document.querySelector('.card');card.insertBefore(chrome,steps[1]);
+})();
+</script>
+</body>
+</html>
