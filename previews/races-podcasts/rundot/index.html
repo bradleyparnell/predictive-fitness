@@ -4848,9 +4848,7 @@ document.addEventListener("DOMContentLoaded",function(){
   <a href="https://promo.rundot.com/?promo=RDWEBSITE" target="_blank" class="btn-sticky">Start your free trial</a>
 </div><!-- 1. HERO - VIDEO -->
 <section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline poster="https://www.rundot.com/hubfs/rundot-v2/v2-woman-street-low.jpg">
-    <source src="https://www.rundot.com/hubfs/rundot-v2/hero-video.mp4" type="video/mp4">
-  </video>
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="media/hero-poster.jpg"><source src="media/hero-loop.mp4" type="video/mp4"></video>
   <div class="hero-content" id="heroContent">
     <div class="finally-wrapper" id="finallyWrapper">
       <span class="finally-text">finally</span>
@@ -4866,6 +4864,7 @@ document.addEventListener("DOMContentLoaded",function(){
     </div>    <div class="hero-cta-row hero-cta-entrance">
       <a href="https://promo.rundot.com/?promo=RDWEBSITE" target="_blank" class="btn-primary">Start your free trial</a>
     </div><p class="pf-trial-note hero-cta-entrance">2 weeks free. No card required.</p>
+    <button type="button" class="pf-film-btn hero-cta-entrance" id="pfFilmOpen" aria-label="Watch the RunDot film"><span class="pf-film-play"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span>Watch the film</button>
     <div class="hero-social-proof hero-cta-entrance">
       <div class="hero-avatars">
         <span class="hero-avatar" style="background:#2d6a2e;">JM</span>
@@ -5192,26 +5191,35 @@ document.addEventListener("DOMContentLoaded",function(){
     
     <h2>Your next run<br>starts here.</h2>
     
-    <div class="phone-layout">
-      <div class="phone-widgets-left">
-        <div class="phone-widget pw-gauge"><img src="https://www.rundot.com/hubfs/rundot-v2/icon-dot-score.png" alt="Performance benchmark gauge" loading="lazy"></div>
-        <div class="phone-widget pw-notification"><img src="https://www.rundot.com/hubfs/rundot-v2/notification-start-workout.png" alt="Start Workout notification" loading="lazy"></div>
-        <div class="phone-widget pw-gauge"><img src="https://www.rundot.com/hubfs/rundot-v2/icon-training-goal.png" alt="Training Goal progress" loading="lazy"></div>
-      </div>
-      <div class="phone-frame fade-up scale-in">
-        <div class="phone-bezel">
-          <div class="phone-screen">
-            <div class="phone-notch"></div>
-            <img src="https://www.rundot.com/hubfs/rundot-v2/app-home-incomplete.png" alt="RunDot app home screen" loading="lazy">
-          </div>
-        </div>
-      </div>
-      <div class="phone-widgets-right">
-        <div class="phone-widget pw-gauge"><img src="https://www.rundot.com/hubfs/rundot-v2/icon-trainx.png" alt="TrainX® score" loading="lazy"></div>
-        <div class="phone-widget pw-chart"><img src="https://www.rundot.com/hubfs/rundot-v2/data-session-preview.png" alt="Session Preview chart" loading="lazy"></div>
-        <div class="phone-widget pw-gauge"><img src="https://www.rundot.com/hubfs/rundot-v2/icon-stress.png" alt="Stress level indicator" loading="lazy"></div>
-      </div>
-    </div>
+    <div class="dv-stage" aria-label="RunDot on phone, sports watch and smartwatch">
+  <div class="dv-phones">
+<div class="dv-phone p-o"><div class="dv-screen"><img src="media/rd-app-schedule-weekly.jpg" alt="RunDot weekly training schedule" loading="lazy"></div></div>
+<div class="dv-phone p-i"><div class="dv-screen"><img src="media/rd-app-workout-page.jpg" alt="RunDot workout detail with warmup and drills" loading="lazy"></div></div>
+<div class="dv-phone p-c"><div class="dv-screen"><img src="media/rd-app-home-completed.jpg" alt="RunDot home screen after a completed run" loading="lazy"></div></div>
+<div class="dv-phone p-i"><div class="dv-screen"><img src="media/rd-app-mobile-workout.jpg" alt="RunDot completed long run with route map" loading="lazy"></div></div>
+<div class="dv-phone p-o"><div class="dv-screen"><img src="media/rd-app-workout-complete.jpg" alt="RunDot session stats after a workout" loading="lazy"></div></div>
+  </div>
+  <div class="dv-watch dv-garmin" aria-label="Workout synced to a sports watch">
+    <span class="dv-btn b1"></span><span class="dv-btn b2"></span><span class="dv-btn b3"></span><span class="dv-btn b4"></span>
+    <div class="dv-bezel"><div class="dv-face">
+      <div class="g-today">TODAY</div>
+      <div class="g-name">Long Run</div>
+      <div class="g-go"><span class="g-ico"><svg viewBox="0 0 24 24" width="12" height="12"><path d="M8 5v14l11-7z" fill="#0a0a0a"/></svg></span>Do Workout</div>
+      <div class="g-view">View</div>
+    </div></div>
+  </div>
+  <div class="dv-watch dv-apple" aria-label="Run in progress on a smartwatch">
+    <span class="dv-band top"></span><span class="dv-band bot"></span><span class="dv-crown"></span>
+    <div class="dv-case"><div class="dv-face">
+      <div class="a-top"><span>Long Run</span><span>9:41</span></div>
+      <div class="a-time">0:57:02</div>
+      <div class="a-row"><b>5.92</b><small>MI</small></div>
+      <div class="a-row"><b>9:38</b><small>/MI AVG</small></div>
+      <div class="a-row a-hr"><b>169</b><small>BPM</small></div>
+    </div></div>
+  </div>
+</div>
+<p class="dv-works">Works with Garmin, Apple Watch, COROS and more.</p>
     <div style="text-align: center; margin-top: 48px;">
       <a href="https://promo.rundot.com/?promo=RDWEBSITE" target="_blank" style="display: inline-block; background: #53b956; color: #fff; padding: 20px 44px; border-radius: 8px; font-size: 17px; font-weight: 700; text-decoration: none; letter-spacing: 0.3px; transition: background 0.2s; cursor: pointer;">Start your free trial</a>
     </div>
@@ -6201,4 +6209,108 @@ var hsVars = {
 
 
 
+
+<!-- RUNDOT FILM MODAL -->
+<style>
+.pf-film-btn{display:inline-flex;align-items:center;gap:10px;margin:18px auto 0;background:none;border:0;color:#fff;font-family:var(--font-body);font-size:15px;font-weight:700;letter-spacing:.02em;cursor:pointer;padding:6px 4px;opacity:.92}
+.pf-film-btn:hover{opacity:1}
+.pf-film-play{width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,255,255,.85);display:inline-flex;align-items:center;justify-content:center;transition:background .25s ease,border-color .25s ease}
+.pf-film-btn:hover .pf-film-play{background:#53b956;border-color:#53b956}
+.pf-film-play svg{margin-left:2px}
+.hero-content .pf-film-btn{display:flex}
+.pf-film-modal{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:24px}
+.pf-film-modal.open{display:flex}
+.pf-film-box{position:relative;width:min(1100px,100%);aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.pf-film-box video{width:100%;height:100%;display:block}
+.pf-film-close{position:absolute;top:-48px;right:0;background:none;border:0;color:#fff;font-size:34px;line-height:1;cursor:pointer;padding:4px 8px}
+@media(max-width:768px){.pf-film-close{top:-44px}.pf-film-btn{font-size:14px}}
+</style>
+<div class="pf-film-modal" id="pfFilm" role="dialog" aria-modal="true" aria-label="RunDot film">
+  <div class="pf-film-box">
+    <button type="button" class="pf-film-close" aria-label="Close">&times;</button>
+    <video id="pfFilmVideo" controls playsinline preload="none" poster="media/film-poster.jpg"><source src="media/rundot-film.mp4" type="video/mp4"></video>
+  </div>
+</div>
+<script>
+(function(){
+  var m=document.getElementById('pfFilm'),v=document.getElementById('pfFilmVideo'),b=document.getElementById('pfFilmOpen');
+  if(!m||!b)return;
+  function open(){m.classList.add('open');document.body.style.overflow='hidden';try{v.currentTime=0;v.play();}catch(e){}
+    window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'film_play',brand:'rundot'});}
+  function close(){m.classList.remove('open');document.body.style.overflow='';try{v.pause();}catch(e){}}
+  b.addEventListener('click',open);
+  m.addEventListener('click',function(e){if(e.target===m||e.target.classList.contains('pf-film-close'))close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))close();});
+})();
+</script>
+<style>
+/* DEVICE LINEUP */
+.phone-showcase{background:#0b0b0b!important}
+.phone-showcase::before{background:repeating-linear-gradient(-45deg,rgba(83,185,86,.06) 0 2px,transparent 2px 46px)!important}
+.phone-showcase h2{margin-bottom:56px!important}
+.dv-stage{position:relative;max-width:1080px;margin:0 auto;padding:0 40px}
+.dv-phones{display:flex;justify-content:center;align-items:center;gap:18px}
+.dv-phone{flex:0 0 auto;width:196px;aspect-ratio:9/19.5;background:#111;border-radius:34px;padding:7px;box-shadow:0 0 0 1.5px #3a3a3a,0 30px 60px rgba(0,0,0,.55);opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.dv-phone.p-c{width:226px;border-radius:38px}
+.dv-phone.p-o{transform:translateY(44px)}
+.dv-stage.in .dv-phone{opacity:1;transform:none}
+.dv-stage.in .dv-phone.p-o{transform:translateY(20px)}
+.dv-stage.in .dv-phone:nth-child(2),.dv-stage.in .dv-phone:nth-child(4){transition-delay:.12s}
+.dv-stage.in .dv-phone:nth-child(1),.dv-stage.in .dv-phone:nth-child(5){transition-delay:.24s}
+.dv-screen{width:100%;height:100%;border-radius:28px;overflow:hidden;background:#0f172a}
+.dv-phone.p-c .dv-screen{border-radius:31px}
+.dv-screen img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.dv-watch{position:absolute;bottom:-34px;z-index:3;opacity:0;transform:translateY(20px);transition:opacity .8s ease .45s,transform .8s ease .45s}
+.dv-stage.in .dv-watch{opacity:1;transform:none}
+/* sports watch (generic, unbranded) */
+.dv-garmin{left:0;width:188px;height:188px}
+.dv-garmin .dv-bezel{width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 30% 25%,#5a5a5a,#1d1d1d 60%,#0d0d0d);padding:15px;box-shadow:0 20px 50px rgba(0,0,0,.7),inset 0 0 0 2px #2b2b2b;box-sizing:border-box}
+.dv-garmin .dv-face{width:100%;height:100%;border-radius:50%;background:#050505;box-shadow:inset 0 0 0 3px #111;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-family:var(--font-body);text-align:center}
+.dv-btn{position:absolute;width:9px;height:22px;background:#2a2a2a;border-radius:3px}
+.dv-btn.b1{left:-5px;top:42px;transform:rotate(-28deg)}.dv-btn.b2{left:-5px;bottom:42px;transform:rotate(28deg)}
+.dv-btn.b3{right:-5px;top:42px;transform:rotate(28deg)}.dv-btn.b4{right:-5px;bottom:42px;transform:rotate(-28deg)}
+.g-today{font-size:9px;letter-spacing:.14em;color:#9ca3af;font-weight:700}
+.g-name{font-size:17px;font-weight:800;margin:3px 0 10px}
+.g-meta{font-size:10px;color:#cbd5e1;margin-bottom:9px}
+.g-go{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:800;background:#53b956;color:#0a0a0a;border-radius:20px;padding:5px 11px 5px 6px}
+.g-ico{width:17px;height:17px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center}
+.g-view{font-size:10px;color:#9ca3af;margin-top:7px}
+/* smartwatch (generic, unbranded) */
+.dv-apple{right:0;width:164px;height:196px}
+.dv-band{position:absolute;left:24px;right:24px;height:40px;background:linear-gradient(90deg,#1f2a24,#2c3a32,#1f2a24)}
+.dv-band.top{top:-26px;border-radius:12px 12px 4px 4px}.dv-band.bot{bottom:-26px;border-radius:4px 4px 12px 12px}
+.dv-crown{position:absolute;right:-6px;top:52px;width:8px;height:30px;border-radius:3px;background:linear-gradient(90deg,#8a8a8a,#c9c9c9)}
+.dv-apple .dv-case{position:relative;width:100%;height:100%;border-radius:44px;background:linear-gradient(145deg,#d6d6d6,#8d8d8d);padding:7px;box-sizing:border-box;box-shadow:0 20px 50px rgba(0,0,0,.7)}
+.dv-apple .dv-face{width:100%;height:100%;border-radius:38px;background:#000;padding:16px 16px 12px;box-sizing:border-box;color:#fff;font-family:var(--font-body);display:flex;flex-direction:column}
+.a-top{display:flex;justify-content:space-between;font-size:10px;font-weight:700;color:#53b956}.a-top span:last-child{color:#fff}
+.a-time{font-size:24px;font-weight:800;color:#facc15;margin:6px 0 4px;font-variant-numeric:tabular-nums}
+.a-row{display:flex;align-items:baseline;gap:5px;line-height:1.15}
+.a-row b{font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}.a-row small{font-size:9px;font-weight:700;color:#9ca3af;letter-spacing:.04em}
+.a-hr b{color:#f87171}
+.dv-works{margin:78px 0 0;font-size:15px;color:rgba(255,255,255,.7);font-family:var(--font-body)}
+@media(max-width:1024px){.dv-phone{width:164px;border-radius:30px}.dv-phone.p-c{width:192px}.dv-garmin{width:156px;height:156px}.dv-apple{width:138px;height:166px}.g-name{font-size:15px}}
+@media(max-width:768px){
+ .phone-showcase h2{margin-bottom:36px!important}
+ .dv-stage{padding:0 8px}
+ .dv-phones{gap:10px}
+ .dv-phone.p-o{display:none}
+ .dv-phone{width:31vw;max-width:150px;border-radius:24px;padding:5px}.dv-phone.p-c{width:37vw;max-width:178px;border-radius:28px}
+ .dv-screen{border-radius:20px}.dv-phone.p-c .dv-screen{border-radius:23px}
+ .dv-watch{bottom:-46px}
+ .dv-garmin{left:-2px;width:118px;height:118px}.dv-garmin .dv-bezel{padding:10px}
+ .g-today{font-size:7px}.g-name{font-size:12px}.g-meta{font-size:8px;margin-bottom:5px}.g-go{font-size:8px;padding:3px 8px 3px 4px}.g-ico{width:12px;height:12px}.g-view{display:none}
+ .dv-btn{width:6px;height:15px}.dv-btn.b1,.dv-btn.b3{top:26px}.dv-btn.b2,.dv-btn.b4{bottom:26px}
+ .dv-apple{right:-2px;width:100px;height:120px}.dv-apple .dv-case{border-radius:30px;padding:5px}.dv-apple .dv-face{border-radius:26px;padding:10px 10px 8px}
+ .dv-band{left:16px;right:16px;height:28px}.dv-band.top{top:-18px}.dv-band.bot{bottom:-18px}.dv-crown{top:32px;height:20px;width:6px;right:-5px}
+ .a-top{font-size:7px}.a-time{font-size:15px;margin:3px 0 2px}.a-row b{font-size:13px}.a-row small{font-size:6px}
+ .dv-works{margin-top:84px;font-size:14px;padding:0 16px}
+}
+@media (prefers-reduced-motion:reduce){.dv-phone,.dv-watch{transition:none;opacity:1;transform:none}}
+</style>
+<script>
+(function(){function go(){var s=document.querySelector('.dv-stage');if(!s)return;
+if(!('IntersectionObserver' in window)){s.classList.add('in');return;}
+var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){s.classList.add('in');io.disconnect();}},{threshold:.2});io.observe(s);}
+if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);})();
+</script>
 </body></html>
