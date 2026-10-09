@@ -67,7 +67,7 @@ h2{font-size:40px;margin-bottom:8px}
 </style>
 </head>
 <body>
-<div class="mock">MOCKUP for review. Not live. Answers are not saved.</div>
+<div class="mock">PREVIEW of the split test. Not live. Answers are not saved.</div>
 <div class="wrap"><div class="card">
 
   <section class="step intro on" data-s="0">
@@ -134,7 +134,7 @@ h2{font-size:40px;margin-bottom:8px}
     <p class="proof"><svg viewBox="0 0 24 24" fill="none" stroke="#53b956" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span><b>50,000+ runners</b> already training smarter. 4.4&#9733; on the App Store.</span></p>
     <div class="review"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div>I downloaded it, input basic personal information, and within minutes I had my first run loaded and I hit the road.<cite>Epicenter, App Store review</cite></div>
     <div class="spacer"></div>
-    <a class="btn" href="https://promo.rundot.com/?promo=RDWEBSITE" target="_blank" rel="noopener">Start your free trial</a>
+    <a class="btn" href="https://promo.rundot.com/?promo=RDWEBSITE-SURVEY" id="trialBtn">Start your free trial</a>
     <p class="note">2 weeks free. No card required.</p>
   </section>
 
@@ -142,6 +142,11 @@ h2{font-size:40px;margin-bottom:8px}
 <script>
 (function(){
   var A={},hist=[],cur=0;
+  // tracking (GTM picks these up on the live page)
+  window.dataLayer=window.dataLayer||[];
+  function dl(o){o.brand='rundot';o.experiment='survey_v1';window.dataLayer.push(o);}
+  dl({event:'survey_view'});
+
   var steps=[].slice.call(document.querySelectorAll('.step')),chrome=document.querySelector('.chrome'),bar=document.getElementById('bar'),back=document.getElementById('back');
   function path(){return A.goal==='A race'?[1,2,3,4]:[1,3,4];}
   function show(n,push){
@@ -150,23 +155,25 @@ h2{font-size:40px;margin-bottom:8px}
     chrome.style.display=n===0?'none':'block';
     var p=path(),i=p.indexOf(n);bar.style.width=(n===0?0:((i+1)/p.length*100))+'%';
     back.classList.toggle('on',n>0);
-    if(n===4)summary();
+    if(n===4){summary();dl({event:'survey_complete',goal:A.goal||'',distance:A.distance||'',obstacle:A.obstacle||''});}
     window.scrollTo(0,0);
   }
   function next(){var p=path(),i=p.indexOf(cur);show(p[i+1]);}
-  document.querySelector('[data-go="1"]').onclick=function(){show(1);};
+  document.querySelector('[data-go="1"]').onclick=function(){dl({event:'survey_start'});show(1);};
   back.onclick=function(){if(hist.length)show(hist.pop(),false);};
   document.querySelectorAll('[data-q]').forEach(function(g){
     g.addEventListener('click',function(e){
       var b=e.target.closest('.opt');if(!b)return;
       g.querySelectorAll('.opt').forEach(function(o){o.classList.toggle('sel',o===b);});
       A[g.dataset.q]=b.dataset.v;
+      dl({event:'survey_answer',question:g.dataset.q,answer:b.dataset.v});
       if(g.dataset.q==='goal'&&A.goal!=='A race')delete A.distance;
       if(g.hasAttribute('data-stay')){var a=document.getElementById('answer');a.textContent=b.dataset.a;a.classList.add('on');document.getElementById('cont3').disabled=false;}
       else setTimeout(next,220);
     });
   });
   document.getElementById('cont3').onclick=next;
+  document.getElementById('trialBtn').addEventListener('click',function(){dl({event:'survey_trial_click',goal:A.goal||'',distance:A.distance||'',obstacle:A.obstacle||''});});
   function summary(){
     var rows=[['Goal',A.goal]];if(A.distance)rows.push(['Distance',A.distance]);rows.push(['Focus',A.obstacle]);
     document.getElementById('sum').innerHTML=rows.map(function(r){return '<div><span>'+r[0]+'</span><b>'+r[1]+'</b></div>';}).join('');

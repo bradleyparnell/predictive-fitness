@@ -6380,4 +6380,19 @@ if(document.readyState!=='loading')go();else document.addEventListener('DOMConte
 })();
 </script>
 
+<script id="rd-exp-survey-v1">
+(function(){
+  var EXP='survey_v1',KEY='rd_exp_survey_v1',SURVEY='https://bradleyparnell.github.io/predictive-fitness/previews/survey/rundot/',v;
+  var m=location.search.match(/[?&]ab=(A|B)(?:&|$)/);
+  try{v=m?m[1]:localStorage.getItem(KEY);if(v!=='A'&&v!=='B'){v=Math.random()<0.5?'A':'B';}localStorage.setItem(KEY,v);}catch(e){v='A';}
+  window.dataLayer=window.dataLayer||[];
+  window.dataLayer.push({event:'experiment_view',brand:'rundot',experiment:EXP,variant:v});
+  function isTrial(a){var h=a.getAttribute('href')||'';return (/promo=RDWEBSITE(?:&|$)/.test(h)||a.hasAttribute('data-rd-exp'))&&!a.closest('.store-badges');}
+  function apply(){if(v!=='B')return;[].forEach.call(document.querySelectorAll('a[href*="promo=RDWEBSITE"]'),function(a){if(!isTrial(a))return;a.setAttribute('href',SURVEY);a.removeAttribute('target');a.setAttribute('data-rd-exp','B');});}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a||!isTrial(a))return;
+    if(v==='B'&&a.getAttribute('href')!==SURVEY){a.setAttribute('href',SURVEY);a.removeAttribute('target');}
+    window.dataLayer.push({event:'trial_cta_click',brand:'rundot',experiment:EXP,variant:v});},true);
+})();
+</script>
 </body></html>
