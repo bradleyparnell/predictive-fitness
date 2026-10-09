@@ -1,0 +1,93 @@
+{
+ "updated": "2026-10-09T13:52:07.801Z",
+ "brands": {
+  "rundot": {
+   "all": "https://podcasts.rundot.com/podcasts",
+   "episodes": [
+    {
+     "slug": "run-wisdom-from-marathon-champion-meb-keflezighi",
+     "title": "Running With Meb: From Marathon Champion to Masterful Coach",
+     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/fd80814f-35f4-4669-9ad6-f0c6a3deb656.webp",
+     "url": "https://podcasts.rundot.com/podcasts/run-wisdom-from-marathon-champion-meb-keflezighi",
+     "check": "200/200"
+    },
+    {
+     "slug": "thriving-as-an-easily-injured-athlete",
+     "title": "Thriving as an Easily Injured Athlete",
+     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/d0608fcc-02ce-46f9-9b96-6b55c2753541.jpg",
+     "url": "https://podcasts.rundot.com/podcasts/thriving-as-an-easily-injured-athlete",
+     "check": "200/200"
+    },
+    {
+     "slug": "selecting-the-right-run-shoes",
+     "title": "Selecting the Right Run Shoes",
+     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/8011fe89-82c4-4709-9dbc-0ac262ab0a6a.png",
+     "url": "https://podcasts.rundot.com/podcasts/selecting-the-right-run-shoes",
+     "check": "200/200"
+    },
+    {
+     "slug": "race-your-first-next-or-best-5k",
+     "title": "Race Your First, Next, or Best 5K",
+     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/59d125ff-14af-4027-946e-e51876a97559.png",
+     "url": "https://podcasts.rundot.com/podcasts/race-your-first-next-or-best-5k"
+    },
+    {
+     "slug": "mind-over-miles-a-mental-framework-for-runners",
+     "title": "Mind Over Miles: A Mental Framework for Runners",
+     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/12799289-a9d8-4a59-a602-66b0df8f9cad.png",
+     "url": "https://podcasts.rundot.com/podcasts/mind-over-miles-a-mental-framework-for-runners"
+    },
+    {
+     "slug": "the-warm-up-cool-down-why-they-matter",
+     "title": "The Warm Up & Cool Down: Why They Matter",
+     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/4555ebad-100f-480f-9536-3e1185a66825.jpg",
+     "url": "https://podcasts.rundot.com/podcasts/the-warm-up-cool-down-why-they-matter"
+    }
+   ]
+  },
+  "tridot": {
+   "all": "https://podcasts.tridot.com/podcasts",
+   "episodes": [
+    {
+     "slug": "thriving-in-triathlon-at-the-back-of-the-pack",
+     "title": "Thriving In Triathlon at the Back of the Pack",
+     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/02bb6fe6-0023-4582-804f-e0bd4e497606.webp",
+     "url": "https://podcasts.tridot.com/podcasts/thriving-in-triathlon-at-the-back-of-the-pack",
+     "check": "200/200"
+    },
+    {
+     "slug": "thriving-as-an-easily-injured-triathlete",
+     "title": "Thriving as an Easily Injured Triathlete",
+     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/6b370607-5e5c-4fa4-99fe-527d9fb1204d.jpg",
+     "url": "https://podcasts.tridot.com/podcasts/thriving-as-an-easily-injured-triathlete",
+     "check": "200/200"
+    },
+    {
+     "slug": "thriving-in-triathlon-as-a-beginner",
+     "title": "Thriving in Triathlon as a Beginner",
+     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/c3f91658-d4c7-4798-af8b-b8940019dd47.png",
+     "url": "https://podcasts.tridot.com/podcasts/thriving-in-triathlon-as-a-beginner",
+     "check": "200/200"
+    },
+    {
+     "slug": "thriving-in-triathlon-with-an-unconventional-schedule",
+     "title": "Thriving in Triathlon with an Unconventional Schedule",
+     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/ac94f2be-3be6-4b81-872e-d76646fed87f.jpg",
+     "url": "https://podcasts.tridot.com/podcasts/thriving-in-triathlon-with-an-unconventional-schedule"
+    },
+    {
+     "slug": "thriving-in-triathlon-as-a-runner",
+     "title": "Thriving in Triathlon as a Runner",
+     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/c1b209b0-2ba2-4963-86de-0fd2690fd977.png",
+     "url": "https://podcasts.tridot.com/podcasts/thriving-in-triathlon-as-a-runner"
+    },
+    {
+     "slug": "thriving-in-triathlon-as-a-cyclist",
+     "title": "Thriving in Triathlon as a Cyclist",
+     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/d7b7c58d-2305-4900-bb5f-1a80f1851ba1.png",
+     "url": "https://podcasts.tridot.com/podcasts/thriving-in-triathlon-as-a-cyclist"
+    }
+   ]
+  }
+ }
+}
