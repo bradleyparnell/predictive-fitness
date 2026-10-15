@@ -31,13 +31,13 @@
     '#tt-card.tt-on{opacity:1;transform:none;pointer-events:auto}' +
     '#tt-card .tt-ic{flex:0 0 44px;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:' + COLOR + '14}' +
     '#tt-card .tt-ic svg{width:30px;height:30px;display:block}' +
-    '#tt-card .tt-tx{min-width:0;display:flex;flex-direction:column;gap:1px}' +
+    '#tt-card span{margin:0;padding:0;text-transform:none;font-style:normal}#tt-card .tt-tx{min-width:0;display:flex;flex-direction:column;gap:1px}' +
     '#tt-card .tt-w{font-size:14px;line-height:1.3;font-weight:700;color:#111;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}' +
     '#tt-card .tt-a{font-size:13px;line-height:1.3;color:#3a3a3a}' +
     '#tt-card .tt-t{display:flex;align-items:center;gap:6px;margin-top:3px;font-size:11.5px;line-height:1.2;color:#8a8a8a;letter-spacing:.01em}' +
     '#tt-card .tt-dot{width:7px;height:7px;border-radius:50%;background:' + COLOR + ';animation:ttp 2s ease-out infinite}' +
     '@keyframes ttp{0%{box-shadow:0 0 0 0 ' + COLOR + '66}70%{box-shadow:0 0 0 6px ' + COLOR + '00}100%{box-shadow:0 0 0 0 ' + COLOR + '00}}' +
-    '#tt-card .tt-x{position:absolute;top:8px;right:8px;width:22px;height:22px;border:0;border-radius:50%;background:transparent;color:#a0a0a0;font-size:16px;line-height:22px;cursor:pointer;padding:0;transition:background .2s,color .2s}' +
+    '#tt-card .tt-x{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;box-shadow:none;text-shadow:none;margin:0;min-width:0;min-height:0;font-family:Arial,sans-serif;font-weight:400;position:absolute;top:8px;right:8px;width:22px;height:22px;border:0;border-radius:50%;background:transparent;color:#a0a0a0;font-size:16px;line-height:22px;cursor:pointer;padding:0;transition:background .2s,color .2s}' +
     '#tt-card .tt-x:hover{background:#f1f1f1;color:#111}' +
     '@media (max-width:768px){#tt-card{left:12px;width:300px}}' +
     '@media (prefers-reduced-motion:reduce){#tt-card{transition:opacity .2s;transform:none}#tt-card .tt-dot{animation:none}}';
