@@ -20,7 +20,8 @@
     if (m < 60) return m + (m === 1 ? ' minute ago' : ' minutes ago');
     var h = Math.round(m / 60);
     if (h < 24) return h + (h === 1 ? ' hour ago' : ' hours ago');
-    return 'Yesterday';
+    var dd = Math.round(h / 24);
+    return dd <= 1 ? 'Yesterday' : dd + ' days ago';
   }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
@@ -59,7 +60,7 @@
 
   function start(items) {
     var now = Date.now();
-    items = (items || []).filter(function (x) { var t = new Date(x.ts).getTime(); return x && x.w && t && now - t < 48 * 3600e3 && now - t > -6e5; });
+    items = (items || []).filter(function (x) { var t = new Date(x.ts).getTime(); return x && x.w && t && now - t < (x.k === 'u' ? 7 * 24 : 48) * 3600e3 && now - t > -6e5; });
     if (!items.length) return;
     var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
     var card = document.createElement('div'); card.id = 'tt-card'; card.setAttribute('role', 'status'); card.setAttribute('aria-live', 'polite');
@@ -71,7 +72,10 @@
       if (shown >= MAX_PAGE || count >= MAX_SESSION || S.getItem('tt_off')) return;
       if (document.hidden) { timer = setTimeout(next, 4000); return; }
       var it = items[idx % items.length]; idx++;
-      var action = it.k === 'j' ? 'joined ' + NAME : 'started a free trial';
+      var plan = it.p ? ' ' + esc(it.p) : '';
+      var action = it.k === 'u' ? (plan ? 'upgraded to ' + NAME + plan : 'upgraded their ' + NAME + ' plan')
+        : (it.k === 's' || it.k === 'j') ? (plan ? 'subscribed to ' + NAME + plan : 'joined ' + NAME)
+        : 'started a free trial';
       card.innerHTML = '<span class="tt-ic">' + ICON + '</span><span class="tt-tx"><span class="tt-w">' + esc(it.w) + '</span>' +
         '<span class="tt-a">' + action + '</span><span class="tt-t"><span class="tt-dot" aria-hidden="true"></span>' + ago(it.ts) + '</span></span>' +
         '<button class="tt-x" type="button" aria-label="Dismiss">&times;</button>';
