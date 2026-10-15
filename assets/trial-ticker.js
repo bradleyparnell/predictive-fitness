@@ -30,7 +30,7 @@
     '#tt-card .tt-w{font-weight:700}#tt-card .tt-t{display:block;margin-top:2px;font-size:12px;color:#666}' +
     '#tt-card .tt-x{position:absolute;top:6px;right:8px;width:24px;height:24px;border:0;background:none;color:#888;font-size:18px;line-height:24px;cursor:pointer;padding:0}' +
     '#tt-card .tt-x:hover{color:#111}' +
-    '@media (max-width:768px){#tt-card{left:12px;right:auto;max-width:calc(100vw - 24px);font-size:13px}}' +
+    '@media (max-width:768px){#tt-card{left:12px;right:auto;max-width:calc(100vw - 80px);font-size:13px}}' +
     '@media (prefers-reduced-motion:reduce){#tt-card{transition:opacity .2s;transform:none}#tt-card .tt-dot{animation:none}}';
 
   function bottomOffset() {
