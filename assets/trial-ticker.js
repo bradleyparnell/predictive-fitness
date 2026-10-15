@@ -10,7 +10,7 @@
   var FEED = 'https://bradleyparnell.github.io/predictive-fitness/data/trial-ticker.json';
   var COLOR = brand === 'tridot' ? '#EA0029' : '#53b956';
   var NAME = brand === 'tridot' ? 'TriDot' : 'RunDot';
-  var FIRST = 9000, GAP = 26000, SHOW = 6500, MAX_PAGE = 4, MAX_SESSION = 8;
+  var FIRST = 4000, GAP = 14000, SHOW = 6000, MAX_PAGE = 8, MAX_SESSION = 16;
 
   function ago(ts) {
     var m = Math.max(1, Math.round((Date.now() - new Date(ts).getTime()) / 60000));
