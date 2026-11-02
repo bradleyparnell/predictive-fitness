@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26T12:23:26.037Z",
+ "updated": "2026-11-02T13:23:22.413Z",
  "brands": {
   "rundot": {
    "all": "https://podcasts.rundot.com/podcasts",
@@ -49,6 +49,13 @@
    "all": "https://podcasts.tridot.com/podcasts",
    "episodes": [
     {
+     "slug": "thriving-in-triathlon-as-a-diabetic",
+     "title": "Thriving in Triathlon as a Diabetic",
+     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/6e75e053-18e2-4887-9606-ae720ec20f76.png",
+     "url": "https://podcasts.tridot.com/podcasts/thriving-in-triathlon-as-a-diabetic",
+     "check": "200/200"
+    },
+    {
      "slug": "thriving-as-a-triathlete-in-the-middle-of-the-pack",
      "title": "Thriving as a Triathlete in the Middle of the Pack",
      "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/cdf81eb1-fd8d-49ff-aa6e-ed3fa877e4cd.webp",
@@ -66,8 +73,7 @@
      "slug": "thriving-as-an-easily-injured-triathlete",
      "title": "Thriving as an Easily Injured Triathlete",
      "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/48ecbffe-0c5f-4010-8bf3-8822623ef983.png",
-     "url": "https://podcasts.tridot.com/podcasts/thriving-as-an-easily-injured-triathlete",
-     "check": "200/200"
+     "url": "https://podcasts.tridot.com/podcasts/thriving-as-an-easily-injured-triathlete"
     },
     {
      "slug": "thriving-in-triathlon-as-a-beginner",
@@ -80,12 +86,6 @@
      "title": "Thriving in Triathlon with an Unconventional Schedule",
      "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/ac94f2be-3be6-4b81-872e-d76646fed87f.jpg",
      "url": "https://podcasts.tridot.com/podcasts/thriving-in-triathlon-with-an-unconventional-schedule"
-    },
-    {
-     "slug": "thriving-in-triathlon-as-a-runner",
-     "title": "Thriving in Triathlon as a Runner",
-     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/252b296c-ee15-4cbe-9cce-2a35ff80a074.png",
-     "url": "https://podcasts.tridot.com/podcasts/thriving-in-triathlon-as-a-runner"
     }
    ]
   }
