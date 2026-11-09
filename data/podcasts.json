@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02T13:23:22.413Z",
+ "updated": "2026-11-09T13:23:40.054Z",
  "brands": {
   "rundot": {
    "all": "https://podcasts.rundot.com/podcasts",
@@ -49,6 +49,13 @@
    "all": "https://podcasts.tridot.com/podcasts",
    "episodes": [
     {
+     "slug": "thriving-as-a-triathlete-at-the-front-of-the-pack",
+     "title": "Thriving as a Triathlete at the Front of the Pack",
+     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/188f09ec-22a2-47e3-b157-69eb16abfb3f.jpg",
+     "url": "https://podcasts.tridot.com/podcasts/thriving-as-a-triathlete-at-the-front-of-the-pack",
+     "check": "200/200"
+    },
+    {
      "slug": "thriving-in-triathlon-as-a-diabetic",
      "title": "Thriving in Triathlon as a Diabetic",
      "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/6e75e053-18e2-4887-9606-ae720ec20f76.png",
@@ -66,8 +73,7 @@
      "slug": "thriving-in-triathlon-at-the-back-of-the-pack",
      "title": "Thriving In Triathlon at the Back of the Pack",
      "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/3ca1802b-7ca1-4ce0-a6ba-cc205d3971dd.png",
-     "url": "https://podcasts.tridot.com/podcasts/thriving-in-triathlon-at-the-back-of-the-pack",
-     "check": "200/200"
+     "url": "https://podcasts.tridot.com/podcasts/thriving-in-triathlon-at-the-back-of-the-pack"
     },
     {
      "slug": "thriving-as-an-easily-injured-triathlete",
@@ -80,12 +86,6 @@
      "title": "Thriving in Triathlon as a Beginner",
      "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/cadf17b8-35f4-43c4-b18a-39b9ed7652fc.png",
      "url": "https://podcasts.tridot.com/podcasts/thriving-in-triathlon-as-a-beginner"
-    },
-    {
-     "slug": "thriving-in-triathlon-with-an-unconventional-schedule",
-     "title": "Thriving in Triathlon with an Unconventional Schedule",
-     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/ac94f2be-3be6-4b81-872e-d76646fed87f.jpg",
-     "url": "https://podcasts.tridot.com/podcasts/thriving-in-triathlon-with-an-unconventional-schedule"
     }
    ]
   }
