@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T13:23:40.054Z",
+ "updated": "2026-11-16T13:26:57.954Z",
  "brands": {
   "rundot": {
    "all": "https://podcasts.rundot.com/podcasts",
@@ -49,6 +49,13 @@
    "all": "https://podcasts.tridot.com/podcasts",
    "episodes": [
     {
+     "slug": "thriving-in-triathlon-on-a-budget",
+     "title": "Thriving in Triathlon on a Budget",
+     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/855341f4-e724-4db0-aa4f-990e18158e55.jpg",
+     "url": "https://podcasts.tridot.com/podcasts/thriving-in-triathlon-on-a-budget",
+     "check": "200/200"
+    },
+    {
      "slug": "thriving-as-a-triathlete-at-the-front-of-the-pack",
      "title": "Thriving as a Triathlete at the Front of the Pack",
      "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/188f09ec-22a2-47e3-b157-69eb16abfb3f.jpg",
@@ -66,8 +73,7 @@
      "slug": "thriving-as-a-triathlete-in-the-middle-of-the-pack",
      "title": "Thriving as a Triathlete in the Middle of the Pack",
      "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/cdf81eb1-fd8d-49ff-aa6e-ed3fa877e4cd.webp",
-     "url": "https://podcasts.tridot.com/podcasts/thriving-as-a-triathlete-in-the-middle-of-the-pack",
-     "check": "200/200"
+     "url": "https://podcasts.tridot.com/podcasts/thriving-as-a-triathlete-in-the-middle-of-the-pack"
     },
     {
      "slug": "thriving-in-triathlon-at-the-back-of-the-pack",
@@ -80,12 +86,6 @@
      "title": "Thriving as an Easily Injured Triathlete",
      "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/48ecbffe-0c5f-4010-8bf3-8822623ef983.png",
      "url": "https://podcasts.tridot.com/podcasts/thriving-as-an-easily-injured-triathlete"
-    },
-    {
-     "slug": "thriving-in-triathlon-as-a-beginner",
-     "title": "Thriving in Triathlon as a Beginner",
-     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/cadf17b8-35f4-43c4-b18a-39b9ed7652fc.png",
-     "url": "https://podcasts.tridot.com/podcasts/thriving-in-triathlon-as-a-beginner"
     }
    ]
   }
