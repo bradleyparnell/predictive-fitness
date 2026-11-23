@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T13:26:57.954Z",
+ "updated": "2026-11-23T13:23:26.785Z",
  "brands": {
   "rundot": {
    "all": "https://podcasts.rundot.com/podcasts",
@@ -49,6 +49,13 @@
    "all": "https://podcasts.tridot.com/podcasts",
    "episodes": [
     {
+     "slug": "the-story-of-supertri-and-why-you-should-totally-race-one",
+     "title": "The Story of Supertri (And Why You Should Totally Race One)",
+     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/c7d26f6a-e6e8-4e16-834d-cdcbec6be5b1.webp",
+     "url": "https://podcasts.tridot.com/podcasts/the-story-of-supertri-and-why-you-should-totally-race-one",
+     "check": "200/200"
+    },
+    {
      "slug": "thriving-in-triathlon-on-a-budget",
      "title": "Thriving in Triathlon on a Budget",
      "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/855341f4-e724-4db0-aa4f-990e18158e55.jpg",
@@ -66,8 +73,7 @@
      "slug": "thriving-in-triathlon-as-a-diabetic",
      "title": "Thriving in Triathlon as a Diabetic",
      "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/6e75e053-18e2-4887-9606-ae720ec20f76.png",
-     "url": "https://podcasts.tridot.com/podcasts/thriving-in-triathlon-as-a-diabetic",
-     "check": "200/200"
+     "url": "https://podcasts.tridot.com/podcasts/thriving-in-triathlon-as-a-diabetic"
     },
     {
      "slug": "thriving-as-a-triathlete-in-the-middle-of-the-pack",
@@ -80,12 +86,6 @@
      "title": "Thriving In Triathlon at the Back of the Pack",
      "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/3ca1802b-7ca1-4ce0-a6ba-cc205d3971dd.png",
      "url": "https://podcasts.tridot.com/podcasts/thriving-in-triathlon-at-the-back-of-the-pack"
-    },
-    {
-     "slug": "thriving-as-an-easily-injured-triathlete",
-     "title": "Thriving as an Easily Injured Triathlete",
-     "image": "https://pf-podcast-assets-production.s3.amazonaws.com/podcast/uploads/episode-thumb/48ecbffe-0c5f-4010-8bf3-8822623ef983.png",
-     "url": "https://podcasts.tridot.com/podcasts/thriving-as-an-easily-injured-triathlete"
     }
    ]
   }
